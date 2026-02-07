@@ -1,0 +1,49 @@
+================================================================================
+DIALOGUE TRANSCRIPT: c1s2b
+Source: c1s2b.dtl
+================================================================================
+
+
+[SCENE: HALLWAY]
+
+
+Conrad walks through the hallway toward the faculty room.
+[Conrad enters]
+
+Conrad: The janitor said the leak started yesterday, but no one noticed until this morning...
+
+Conrad: If someone sabotaged it, they would've needed access after hours. But how?
+[Diwata enters]
+
+[EVENT: laya_start]
+
+
+A shimmering figure appears beside Conrad - visible only to him. This is Diwata Laya, a spirit bound to Conrad. Only he can see and hear her.
+
+Diwata Laya: You seem troubled, Conrad. Your thoughts are scattered.
+
+Conrad (Thinking): Laya! I know the timeline is suspicious, but I don't know what to look for when I get to the faculty room.
+
+Diwata Laya: I may be able to guide you... but first, prove your mind is focused enough to receive my insight.
+
+Conrad (Thinking): Fine. Test me.
+
+[MINIGAME: focus_test]
+
+
+Diwata Laya: Good. Your mind is clear. Now listen carefully.
+
+Diwata Laya: When you reach that room, do not just look at what was damaged. Look for what was left behind.
+
+Diwata Laya: Saboteurs are careless. They leave traces - not just of their actions, but of their presence.
+
+Conrad (Thinking): So I should search for physical evidence... something the culprit might have dropped or left behind.
+
+Diwata Laya: Precisely. And speak with those in authority. They may have information they don't realize is important.
+
+Conrad (Thinking): Got it. The principal should be there. I'll talk to him and examine the scene myself.
+
+[EVENT: laya_end]
+
+[Everyone leaves]
+[JUMP TO: c1s3/]

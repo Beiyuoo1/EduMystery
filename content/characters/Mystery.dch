@@ -1,0 +1,50 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(0.3, 0.3, 0.3, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "vignette",
+&"description": "A mysterious figure shrouded in darkness",
+&"display_name": "???",
+&"mirror": false,
+&"nicknames": ["Mystery", "Unknown"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"none": {
+"export_overrides": {
+"image": ""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"sillhouette": {
+"export_overrides": {
+"image": "\"res://Characters/sillhouette.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"vignette": {
+"export_overrides": {
+"image": "\"res://Characters/Mysterious.png\"",
+"modulate": "Color(0.2, 0.2, 0.2, 0.8)"
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1.0,
+"scene": "res://addons/dialogic/Modules/Character/default_portrait.tscn"
+}
+},
+&"scale": 1.0
+}

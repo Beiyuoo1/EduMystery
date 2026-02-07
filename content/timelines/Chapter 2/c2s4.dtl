@@ -1,38 +1,63 @@
 [background arg="res://Bg/computer_lab.png" fade="1.0"]
 The computer lab is empty now. The printer sits in the corner, its paper tray half-full.
-join Conrad (half) left
-join Mark (Mark_half) right
-Mark heads toward the printer while Conrad examines the room.
-Mark: Let me check the reject tray. If the printer was jamming, there might be messed up prints.
+if {selected_character} == "celestine":
+	join Celestine (animated) left
+	join Mark (Mark_half) right
+	Mark heads toward the printer while Celestine examines the room.
+	Mark: Let me check the reject tray. If the printer was jamming, there might be messed up prints.
+else:
+	join Conrad (half) left
+	join Mark (Mark_half) right
+	Mark heads toward the printer while Conrad examines the room.
+	Mark: Let me check the reject tray. If the printer was jamming, there might be messed up prints.
 Mark rummages through the small compartment beneath the printer.
 Mark: Here! A crumpled paper. It looks like... yeah, it's a budget proposal draft.
-Conrad takes the paper and carefully smooths it out on a nearby desk.
-Conrad: "Student Council Budget Reallocation Proposal - Draft 3."
-Conrad: He was working on this for a while. Look at all these revision marks.
-Mark: What's that in the margin?
-Conrad peers closely at the handwritten notes scrawled along the edge.
-He reads the margin notes aloud.
-Conrad: "If they won't listen, I'll have to make them see reason."
-Mark: That sounds like a threat.
-Conrad: Or a declaration of intent.
-Conrad pulls out the threatening note Ria gave them and places it beside the budget draft.
-Conrad holds both papers side by side, comparing them carefully.
-Conrad: Look at the letter 'e'. The same small loop at the bottom.
-Conrad: And the 'k' in 'know' matches the 'k' in 'make'. Same sharp angle.
-Mark: The handwriting matches?
-Conrad: It's not just similar. It's identical. The same careful strokes. The same deliberate style.
-Conrad: Ryan wrote the threatening note to Ria.
-Mark: He wanted her scared and distracted.
-Conrad: So when the money went missing, everyone would suspect her first.
-Conrad: She was too afraid to defend herself. The perfect scapegoat.
+if {selected_character} == "celestine":
+	Celestine takes the paper and carefully smooths it out on a nearby desk.
+	Celestine: "Student Council Budget Reallocation Proposal - Draft 3."
+	Celestine: He was working on this for a while. Look at all these revision marks.
+	Mark: What's that in the margin?
+	Celestine peers closely at the handwritten notes scrawled along the edge.
+	She reads the margin notes aloud.
+	Celestine: "If they won't listen, I'll have to make them see reason."
+	Mark: That sounds like a threat.
+	Celestine: Or a declaration of intent.
+	Celestine pulls out the threatening note Ria gave them and places it beside the budget draft.
+	Celestine holds both papers side by side, comparing them carefully.
+	Celestine: Look at the letter 'e'. The same small loop at the bottom.
+	Celestine: And the 'k' in 'know' matches the 'k' in 'make'. Same sharp angle.
+	Mark: The handwriting matches?
+	Celestine: It's not just similar. It's identical. The same careful strokes. The same deliberate style.
+	Celestine: Ryan wrote the threatening note to Ria.
+	Mark: He wanted her scared and distracted.
+	Celestine: So when the money went missing, everyone would suspect her first.
+	Celestine: She was too afraid to defend herself. The perfect scapegoat.
+else:
+	Conrad takes the paper and carefully smooths it out on a nearby desk.
+	Conrad: "Student Council Budget Reallocation Proposal - Draft 3."
+	Conrad: He was working on this for a while. Look at all these revision marks.
+	Mark: What's that in the margin?
+	Conrad peers closely at the handwritten notes scrawled along the edge.
+	He reads the margin notes aloud.
+	Conrad: "If they won't listen, I'll have to make them see reason."
+	Mark: That sounds like a threat.
+	Conrad: Or a declaration of intent.
+	Conrad pulls out the threatening note Ria gave them and places it beside the budget draft.
+	Conrad holds both papers side by side, comparing them carefully.
+	Conrad: Look at the letter 'e'. The same small loop at the bottom.
+	Conrad: And the 'k' in 'know' matches the 'k' in 'make'. Same sharp angle.
+	Mark: The handwriting matches?
+	Conrad: It's not just similar. It's identical. The same careful strokes. The same deliberate style.
+	Conrad: Ryan wrote the threatening note to Ria.
+	Mark: He wanted her scared and distracted.
+	Conrad: So when the money went missing, everyone would suspect her first.
+	Conrad: She was too afraid to defend herself. The perfect scapegoat.
 join "Diwata Laya" (Half_mirror) center
 [signal arg="laya_start"]
 "Diwata Laya" materializes, her expression troubled.
 "Diwata Laya": Before we proceed, test your knowledge. Complete this challenge.
 [signal arg="start_minigame curriculum:fillinblank"]
 "Diwata Laya": Good. Your understanding deepens. You grow stronger.
-set {conrad_level} = 3
-[signal arg="show_level_up"]
 "Diwata Laya": Now let me see if I can sense his full intention.
 "Diwata Laya" closes her eyes, her hands hovering over both papers.
 For a moment, her form flickers with soft light.
@@ -43,30 +68,59 @@ For a moment, her form flickers with soft light.
 "Diwata Laya" opens her eyes slowly.
 "Diwata Laya": He was going to become the hero.
 [signal arg="laya_end"]
-Conrad: What do you mean?
-[signal arg="laya_start"]
-"Diwata Laya": I saw him in the vision. Returning the money himself. "Finding" it somewhere.
-"Diwata Laya": He wanted everyone to praise his responsibility. His diligence.
-"Diwata Laya": And then... propose his own budget. Show how much better he could manage things.
-[signal arg="laya_end"]
-leave "Diwata Laya"
-Mark: He was going to "discover" the money and look like a hero?
-Conrad: While proving that the council is careless and needs better systems.
-Conrad: His systems. His budget. His vision.
-Mark: That's... actually kind of clever. In a twisted way.
-Conrad: It's manipulation disguised as righteousness.
-Conrad: He convinced himself he was teaching everyone a lesson.
-Conrad: But what he really did was terrorize an innocent girl and steal money meant for students who needed it.
-Mark: So what now? We confront him?
-Conrad: We have motive. We have opportunity. And now we have his handwriting connecting him to the threat.
-Conrad: The only thing missing is the money itself.
-Conrad: If we find where he hid it, the case is closed.
-Mark: Where would he hide twenty thousand pesos?
-Conrad: Somewhere he has access. Somewhere others don't go often.
-Conrad: He mentioned printing documents yesterday. But he also has access to...
-Mark: The sports equipment storage! He's on the athletic committee.
-Conrad: That room is rarely used this time of year. The perfect hiding spot.
-Conrad: Let's end this.
-leave Conrad
-leave Mark
-jump c2s5/
+if {selected_character} == "celestine":
+	Celestine: What do you mean?
+	[signal arg="laya_start"]
+	"Diwata Laya": I saw him in the vision. Returning the money himself. "Finding" it somewhere.
+	"Diwata Laya": He wanted everyone to praise his responsibility. His diligence.
+	"Diwata Laya": And then... propose his own budget. Show how much better he could manage things.
+	[signal arg="laya_end"]
+	leave "Diwata Laya"
+	Mark: He was going to "discover" the money and look like a hero?
+	Celestine: While proving that the council is careless and needs better systems.
+	Celestine: His systems. His budget. His vision.
+	Mark: That's... actually kind of clever. In a twisted way.
+	Celestine: It's manipulation disguised as righteousness.
+	Celestine: He convinced himself he was teaching everyone a lesson.
+	Celestine: But what he really did was terrorize an innocent girl and steal money meant for students who needed it.
+	Mark: So what now? We confront him?
+	Celestine: We have motive. We have opportunity. And now we have his handwriting connecting him to the threat.
+	Celestine: The only thing missing is the money itself.
+	Celestine: If we find where he hid it, the case is closed.
+	Mark: Where would he hide twenty thousand pesos?
+	Celestine: Somewhere he has access. Somewhere others don't go often.
+	Celestine: He mentioned printing documents yesterday. But he also has access to...
+	Mark: The sports equipment storage! He's on the athletic committee.
+	Celestine: That room is rarely used this time of year. The perfect hiding spot.
+	Celestine: Let's end this.
+	leave Celestine
+	leave Mark
+	jump c2s5/
+else:
+	Conrad: What do you mean?
+	[signal arg="laya_start"]
+	"Diwata Laya": I saw him in the vision. Returning the money himself. "Finding" it somewhere.
+	"Diwata Laya": He wanted everyone to praise his responsibility. His diligence.
+	"Diwata Laya": And then... propose his own budget. Show how much better he could manage things.
+	[signal arg="laya_end"]
+	leave "Diwata Laya"
+	Mark: He was going to "discover" the money and look like a hero?
+	Conrad: While proving that the council is careless and needs better systems.
+	Conrad: His systems. His budget. His vision.
+	Mark: That's... actually kind of clever. In a twisted way.
+	Conrad: It's manipulation disguised as righteousness.
+	Conrad: He convinced himself he was teaching everyone a lesson.
+	Conrad: But what he really did was terrorize an innocent girl and steal money meant for students who needed it.
+	Mark: So what now? We confront him?
+	Conrad: We have motive. We have opportunity. And now we have his handwriting connecting him to the threat.
+	Conrad: The only thing missing is the money itself.
+	Conrad: If we find where he hid it, the case is closed.
+	Mark: Where would he hide twenty thousand pesos?
+	Conrad: Somewhere he has access. Somewhere others don't go often.
+	Conrad: He mentioned printing documents yesterday. But he also has access to...
+	Mark: The sports equipment storage! He's on the athletic committee.
+	Conrad: That room is rarely used this time of year. The perfect hiding spot.
+	Conrad: Let's end this.
+	leave Conrad
+	leave Mark
+	jump c2s5/

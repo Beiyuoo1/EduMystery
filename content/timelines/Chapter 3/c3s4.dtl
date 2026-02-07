@@ -1,58 +1,86 @@
 [background arg="res://Bg/courtyard.png" fade="1.0"]
 Victor stands near the edge of the courtyard, watching students pass by his ignored display.
-join Conrad (half) left
-join Victor (half) right
-Conrad: Victor. We need to talk.
-Victor's eyes flicker with something - fear? Defiance?
-Victor: I already told you everything I know.
-Conrad: You told me you were home all night. That was a lie.
-Victor's jaw tightens.
-Victor: I don't know what you're talking about.
-Conrad: I found a receipt in your sketchbook. Art supply store, 8:47 PM.
-Conrad: You weren't home. You were out.
-Victor: So I went shopping. That doesn't mean I came here.
-Conrad: Then explain this.
-Conrad holds up the paint cloth in a clear bag.
-Conrad: Found at the scene of the crime. Right next to the broken sculpture.
+if {selected_character} == "celestine":
+	join Celestine (animated) left
+	join Victor (half) right
+	Celestine: Victor. We need to talk.
+	Victor's eyes flicker with something - fear? Defiance?
+	Victor: I already told you everything I know.
+	Celestine: You told me you were home all night. That was a lie.
+	Victor's jaw tightens.
+	Victor: I don't know what you're talking about.
+	Celestine: I found a receipt in your sketchbook. Art supply store, 8\:47 PM.
+	Celestine: You weren't home. You were out.
+	Victor: So I went shopping. That doesn't mean I came here.
+	Celestine: Then explain this.
+	Celestine holds up the paint cloth in a clear bag.
+	Celestine: Found at the scene of the crime. Right next to the broken sculpture.
+else:
+	join Conrad (half) left
+	join Victor (half) right
+	Conrad: Victor. We need to talk.
+	Victor's eyes flicker with something - fear? Defiance?
+	Victor: I already told you everything I know.
+	Conrad: You told me you were home all night. That was a lie.
+	Victor's jaw tightens.
+	Victor: I don't know what you're talking about.
+	Conrad: I found a receipt in your sketchbook. Art supply store, 8\:47 PM.
+	Conrad: You weren't home. You were out.
+	Victor: So I went shopping. That doesn't mean I came here.
+	Conrad: Then explain this.
+	Conrad holds up the paint cloth in a clear bag.
+	Conrad: Found at the scene of the crime. Right next to the broken sculpture.
 Victor: That could belong to anyone. We all use cloths like that.
-Conrad: This one has an inventory tag. Number 14-C.
-Conrad: That's your cabinet number, Victor. Your assigned supplies.
-Victor's face goes pale.
-Victor: That... someone must have stolen it. Framed me.
-Conrad: The sketchbook. The receipt. The cloth. Your resentment toward Mia.
-Conrad: At what point do coincidences stop being coincidences?
-Victor: You don't understand!
-Conrad: Then help me understand.
+if {selected_character} == "celestine":
+	Celestine: This one has an inventory tag. Number 14-C.
+	Celestine: That's your cabinet number, Victor. Your assigned supplies.
+	Victor's face goes pale.
+	Victor: That... someone must have stolen it. Framed me.
+	Celestine: The sketchbook. The receipt. The cloth. Your resentment toward Mia.
+	Celestine: At what point do coincidences stop being coincidences?
+	Victor: You don't understand!
+	Celestine: Then help me understand.
+else:
+	Conrad: This one has an inventory tag. Number 14-C.
+	Conrad: That's your cabinet number, Victor. Your assigned supplies.
+	Victor's face goes pale.
+	Victor: That... someone must have stolen it. Framed me.
+	Conrad: The sketchbook. The receipt. The cloth. Your resentment toward Mia.
+	Conrad: At what point do coincidences stop being coincidences?
+	Victor: You don't understand!
+	Conrad: Then help me understand.
 join Mark (Mark_half) leftmost
 Mark: We're not trying to destroy you, Victor. We just want the truth.
 Victor looks between them, his defiance crumbling.
 His hands begin to shake.
-join "Diwata Laya" (Half) rightmost
-[signal arg="laya_start"]
-"Diwata Laya" appears beside Conrad, visible only to him.
-"Diwata Laya": [i][color=#9999ff]His walls are falling. He wants to confess.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]But he's afraid. Afraid of what comes next.[/color][/i]
-"Conrad (Thinking)": What should I do?
-"Diwata Laya": [i][color=#9999ff]Show him you understand his pain. He needs to feel seen, not judged.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]First, clear your mind. Face this challenge.[/color][/i]
-[signal arg="start_minigame curriculum:runner"]
-"Diwata Laya": [i][color=#9999ff]Good. Now approach him with clarity.[/color][/i]
-[signal arg="laya_end"]
-leave "Diwata Laya"
-Conrad's tone softens.
-Conrad: Victor. I've read your sketchbook.
-Conrad: Not just the angry parts. The technical studies. The hours of practice.
-Conrad: You're talented. Really talented.
-Victor looks up, surprised.
-Conrad: But you've been hurting for a long time. Feeling invisible.
-Conrad: Feeling like no matter how hard you work, no one sees you.
+if {selected_character} == "celestine":
+	"Celestine (Thinking)": What should I do?
+	Celestine's tone softens.
+	Celestine: Victor. I've read your sketchbook.
+	Celestine: Not just the angry parts. The technical studies. The hours of practice.
+	Celestine: You're talented. Really talented.
+	Victor looks up, surprised.
+	Celestine: But you've been hurting for a long time. Feeling invisible.
+	Celestine: Feeling like no matter how hard you work, no one sees you.
+else:
+	"Conrad (Thinking)": What should I do?
+	Conrad's tone softens.
+	Conrad: Victor. I've read your sketchbook.
+	Conrad: Not just the angry parts. The technical studies. The hours of practice.
+	Conrad: You're talented. Really talented.
+	Victor looks up, surprised.
+	Conrad: But you've been hurting for a long time. Feeling invisible.
+	Conrad: Feeling like no matter how hard you work, no one sees you.
 Victor's eyes begin to glisten.
 Victor: You... you don't know what it's like.
 Victor: Every competition, every exhibition, every award. It's always someone else.
 Victor: I practice twice as much as anyone. I study the masters. I perfect my technique.
 Victor: And Mia just... feels her way through it. No discipline. No rigor.
 Victor: Yet everyone calls her a genius and ignores me.
-Conrad: That must be incredibly painful.
+if {selected_character} == "celestine":
+	Celestine: That must be incredibly painful.
+else:
+	Conrad: That must be incredibly painful.
 Victor's voice breaks.
 Victor: My parents keep asking why I can't be more like her.
 Victor: My father says art is a waste of time unless you're the best.
@@ -63,24 +91,42 @@ Victor: I didn't mean to. I just... I wanted to see it gone.
 Victor: I thought if her work disappeared, people would finally look at mine.
 Victor: But they didn't. They just kept talking about her. "Poor Mia. Her beautiful sculpture."
 Victor: It's always about her.
-Conrad: You wrote the note. "Not everyone deserves to shine."
-Victor nods weakly.
-Victor: I thought... I thought I deserved to shine. More than her.
-Victor: But now I just feel empty.
-Victor: Destroying her art didn't make mine better. It just made me... this.
-He looks up at Conrad, tears streaming down his face.
-Victor: I'm sorry. I'm so sorry.
-Conrad: You need to tell Ms. Reyes. And Mia.
-Victor: I know.
-Conrad: This isn't going to go away. There will be consequences.
+if {selected_character} == "celestine":
+	Celestine: You wrote the note. "Not everyone deserves to shine."
+	Victor nods weakly.
+	Victor: I thought... I thought I deserved to shine. More than her.
+	Victor: But now I just feel empty.
+	Victor: Destroying her art didn't make mine better. It just made me... this.
+	He looks up at Celestine, tears streaming down his face.
+	Victor: I'm sorry. I'm so sorry.
+	Celestine: You need to tell Ms. Reyes. And Mia.
+	Victor: I know.
+	Celestine: This isn't going to go away. There will be consequences.
+else:
+	Conrad: You wrote the note. "Not everyone deserves to shine."
+	Victor nods weakly.
+	Victor: I thought... I thought I deserved to shine. More than her.
+	Victor: But now I just feel empty.
+	Victor: Destroying her art didn't make mine better. It just made me... this.
+	He looks up at Conrad, tears streaming down his face.
+	Victor: I'm sorry. I'm so sorry.
+	Conrad: You need to tell Ms. Reyes. And Mia.
+	Victor: I know.
+	Conrad: This isn't going to go away. There will be consequences.
 Victor: I know that too.
 Victor stands, wiping his eyes.
 Victor: I just wanted someone to see me. To say my work mattered.
 Victor: But not like this. Never like this.
 leave Victor
 leave Mark
-Conrad stands alone in the courtyard, watching Victor walk toward the art room.
-Conrad: Every case teaches something.
-Conrad: But the lessons aren't always easy.
-leave Conrad
+if {selected_character} == "celestine":
+	Celestine stands alone in the courtyard, watching Victor walk toward the art room.
+	Celestine: Every case teaches something.
+	Celestine: But the lessons aren't always easy.
+	leave Celestine
+else:
+	Conrad stands alone in the courtyard, watching Victor walk toward the art room.
+	Conrad: Every case teaches something.
+	Conrad: But the lessons aren't always easy.
+	leave Conrad
 jump c3s5/

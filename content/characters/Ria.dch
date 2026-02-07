@@ -10,13 +10,20 @@
 "style": "",
 "suffix": ""
 },
-&"default_portrait": "half",
+&"default_portrait": "animated",
 &"description": "Student Council Treasurer. Nervous and diligent, she takes her responsibilities seriously.",
 &"display_name": "Ria",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {
+"animated": {
+"export_overrides": {},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 0.7,
+"scene": "res://scenes/portraits/ria_animated_portrait.tscn"
+},
 "full": {
 "export_overrides": {
 "image": "\"res://Sprites/Ria_full.png\""
@@ -33,7 +40,7 @@
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 0.7,
-"scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
+"scene": "res://scenes/portraits/ria_animated_portrait.tscn"
 }
 },
 &"scale": 1.0

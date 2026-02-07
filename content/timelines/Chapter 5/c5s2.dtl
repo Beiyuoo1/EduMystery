@@ -1,85 +1,151 @@
-[background arg="res://Bg/classroom.png" fade="1.0"]
-Conrad and Mark enter the auditorium quietly.
-A figure stands on the stage, examining the arrangement Conrad created.
-join Conrad (half) left
+[background arg="res://Bg/Auditorium.png" fade="1.0"]
+if {selected_character} == "celestine":
+	Celestine and Mark enter the auditorium quietly.
+	A figure stands on the stage, examining the arrangement Celestine created.
+	join Celestine (animated) left
+else:
+	Conrad and Mark enter the auditorium quietly.
+	A figure stands on the stage, examining the arrangement Conrad created.
+	join Conrad (half) left
 join Mark (Mark_half) right
 The figure turns slowly.
 It's the Principal.
 join Principal (half) center
 But something is different. Their expression is softer, more contemplative.
-In their hand, they hold Conrad's card.
-Principal: "Will you teach me one more lesson?" You wrote that.
-Conrad's eyes widen with realization.
-Conrad: B.C. Bernardino Cruz. Principal Bernardino Cruz.
-Conrad: It's been you all along.
-Principal - B.C. - smiles gently.
-Principal: You've grown perceptive, Conrad. Yes. I am B.C.
-Mark: Wait, you... you've been leaving the cards? Guiding Conrad through all of this?
-Principal: I have. Though I suspect you have questions.
-Principal: Please, sit. This conversation has been long overdue.
-They gesture to chairs on the stage.
-Conrad and Mark sit, Conrad leaning forward intently.
-Conrad: Why? Why the mystery? Why guide me through cases instead of just teaching directly?
-Principal: Because direct teaching rarely transforms people, Conrad.
-Principal: You can tell a student that honesty matters. They'll nod and forget within a week.
-Principal: But if they experience the consequences of dishonesty, solve a case built on lies...
-Conrad: They internalize the lesson. They feel it.
-Principal: Exactly. Truth isn't just a concept to you anymore. It's something you've fought for.
-Conrad: But you didn't create the cases, did you? You didn't make Greg cheat or Ria take the fund.
-Principal: No. I would never manipulate students that way.
-Principal: Those choices were theirs alone, born from their own struggles and pressures.
-Principal: I simply observed. Watched human nature unfold as it always does.
-Principal: And when opportunities arose - moments where moral lessons could be learned - I left cards.
-Conrad: You guided me to solve cases I would have investigated anyway.
-Principal: And in solving them, you learned far more than just who committed which act.
-Principal: You learned about truth, responsibility, creativity, and wisdom.
+if {selected_character} == "celestine":
+	In their hand, they hold Celestine's card.
+	Principal: "Will you teach me one more lesson?" You wrote that.
+	Celestine's eyes widen with realization.
+	Celestine: B.C. Bernardino Cruz. Principal Bernardino Cruz.
+	Celestine: It's been you all along.
+	Principal - B.C. - smiles gently.
+	Principal: You've grown perceptive, Celestine. Yes. I am B.C.
+	Mark: Wait, you... you've been leaving the cards? Guiding sis through all of this?
+	Principal: I have. Though I suspect you have questions.
+	Principal: Please, sit. This conversation has been long overdue.
+	They gesture to chairs on the stage.
+	Celestine and Mark sit, Celestine leaning forward intently.
+	Celestine: Why? Why the mystery? Why guide me through cases instead of just teaching directly?
+	Principal: Because direct teaching rarely transforms people, Celestine.
+	Principal: You can tell a student that honesty matters. They'll nod and forget within a week.
+	Principal: But if they experience the consequences of dishonesty, solve a case built on lies...
+	Celestine: They internalize the lesson. They feel it.
+	Principal: Exactly. Truth isn't just a concept to you anymore. It's something you've fought for.
+	Celestine: But you didn't create the cases, did you? You didn't make Greg cheat or Ria take the fund.
+	Principal: No. I would never manipulate students that way.
+	Principal: Those choices were theirs alone, born from their own struggles and pressures.
+	Principal: I simply observed. Watched human nature unfold as it always does.
+	Principal: And when opportunities arose - moments where moral lessons could be learned - I left cards.
+	Celestine: You guided me to solve cases I would have investigated anyway.
+	Principal: And in solving them, you learned far more than just who committed which act.
+	Principal: You learned about truth, responsibility, creativity, and wisdom.
+else:
+	In their hand, they hold Conrad's card.
+	Principal: "Will you teach me one more lesson?" You wrote that.
+	Conrad's eyes widen with realization.
+	Conrad: B.C. Bernardino Cruz. Principal Bernardino Cruz.
+	Conrad: It's been you all along.
+	Principal - B.C. - smiles gently.
+	Principal: You've grown perceptive, Conrad. Yes. I am B.C.
+	Mark: Wait, you... you've been leaving the cards? Guiding Conrad through all of this?
+	Principal: I have. Though I suspect you have questions.
+	Principal: Please, sit. This conversation has been long overdue.
+	They gesture to chairs on the stage.
+	Conrad and Mark sit, Conrad leaning forward intently.
+	Conrad: Why? Why the mystery? Why guide me through cases instead of just teaching directly?
+	Principal: Because direct teaching rarely transforms people, Conrad.
+	Principal: You can tell a student that honesty matters. They'll nod and forget within a week.
+	Principal: But if they experience the consequences of dishonesty, solve a case built on lies...
+	Conrad: They internalize the lesson. They feel it.
+	Principal: Exactly. Truth isn't just a concept to you anymore. It's something you've fought for.
+	Conrad: But you didn't create the cases, did you? You didn't make Greg cheat or Ria take the fund.
+	Principal: No. I would never manipulate students that way.
+	Principal: Those choices were theirs alone, born from their own struggles and pressures.
+	Principal: I simply observed. Watched human nature unfold as it always does.
+	Principal: And when opportunities arose - moments where moral lessons could be learned - I left cards.
+	Conrad: You guided me to solve cases I would have investigated anyway.
+	Principal: And in solving them, you learned far more than just who committed which act.
+	Principal: You learned about truth, responsibility, creativity, and wisdom.
 join "Diwata Laya" (Half_mirror) leftmost
 [signal arg="laya_start"]
 "Diwata Laya" appears, and for the first time, she looks at Principal B.C. with recognition.
 "Diwata Laya": [i][color=#9999ff]Ancient and patient. I sense it now.[/color][/i]
 "Diwata Laya": [i][color=#9999ff]You have been teaching for many lifetimes, in many forms.[/color][/i]
 Principal B.C. acknowledges Laya with a respectful nod.
-Principal: Diwata Laya. I wondered when you would reveal yourself to him.
-Principal: You've been an excellent guide as well.
-"Diwata Laya": [i][color=#9999ff]We each teach in our own way. You through observation and patience.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]I through connection to truth and spirit.[/color][/i]
-"Conrad (Thinking)": They know each other?
-"Diwata Laya": [i][color=#9999ff]Not know. Recognize. Two guides working toward the same purpose.[/color][/i]
+if {selected_character} == "celestine":
+	Principal: Diwata Laya. I wondered when you would reveal yourself to her.
+	Principal: You've been an excellent guide as well.
+	"Diwata Laya": [i][color=#9999ff]We each teach in our own way. You through observation and patience.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]I through connection to truth and spirit.[/color][/i]
+	"Celestine (Thinking)": They know each other?
+	"Diwata Laya": [i][color=#9999ff]Not know. Recognize. Two guides working toward the same purpose.[/color][/i]
+else:
+	Principal: Diwata Laya. I wondered when you would reveal yourself to him.
+	Principal: You've been an excellent guide as well.
+	"Diwata Laya": [i][color=#9999ff]We each teach in our own way. You through observation and patience.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]I through connection to truth and spirit.[/color][/i]
+	"Conrad (Thinking)": They know each other?
+	"Diwata Laya": [i][color=#9999ff]Not know. Recognize. Two guides working toward the same purpose.[/color][/i]
 [signal arg="laya_end"]
 leave "Diwata Laya"
 Mark: Okay, that was cryptic. But I'm more confused about something else.
 Mark: Principal, you've been here the whole time. You dealt with each incident officially.
-Mark: But you were also leaving cards, watching Conrad solve them. Why the dual role?
-Principal: Because both roles were necessary.
-Principal: As Principal, I had to ensure justice was served, students were protected, consequences were fair.
-Principal: As B.C., I could guide Conrad to understand the deeper lessons beneath each case.
-Principal: One role handles the immediate situation. The other plants seeds for long-term growth.
-Conrad: How long have you been doing this? Leaving cards, teaching through observation?
-Principal: Many years. Since before you arrived at this school.
-Principal: I've guided other students in different ways. Each person needs different lessons.
-Principal: You, Conrad, needed to learn how to see beneath the surface.
-Principal: To understand that solving a mystery isn't just about finding the culprit.
-Principal: It's about understanding why they made those choices, and what everyone can learn from them.
-Conrad: The cards always appeared after I solved a case, never before.
-Conrad: You wanted me to reach my own conclusions first.
-Principal: Yes. Because if I told you the answers, you would learn nothing.
-Principal: Discovery is the heart of real education.
-leave Principal
-leave Mark
-Conrad stands, pacing thoughtfully.
-Conrad: So each case... each lesson...
-Conrad: They were all building toward something. Training me for something.
+if {selected_character} == "celestine":
+	Mark: But you were also leaving cards, watching sis solve them. Why the dual role?
+	Principal: Because both roles were necessary.
+	Principal: As Principal, I had to ensure justice was served, students were protected, consequences were fair.
+	Principal: As B.C., I could guide Celestine to understand the deeper lessons beneath each case.
+	Principal: One role handles the immediate situation. The other plants seeds for long-term growth.
+	Celestine: How long have you been doing this? Leaving cards, teaching through observation?
+	Principal: Many years. Since before you arrived at this school.
+	Principal: I've guided other students in different ways. Each person needs different lessons.
+	Principal: You, Celestine, needed to learn how to see beneath the surface.
+	Principal: To understand that solving a mystery isn't just about finding the culprit.
+	Principal: It's about understanding why they made those choices, and what everyone can learn from them.
+	Celestine: The cards always appeared after I solved a case, never before.
+	Celestine: You wanted me to reach my own conclusions first.
+	Principal: Yes. Because if I told you the answers, you would learn nothing.
+	Principal: Discovery is the heart of real education.
+	leave Principal
+	leave Mark
+	Celestine stands, pacing thoughtfully.
+	Celestine: So each case... each lesson...
+	Celestine: They were all building toward something. Training me for something.
+else:
+	Mark: But you were also leaving cards, watching Conrad solve them. Why the dual role?
+	Principal: Because both roles were necessary.
+	Principal: As Principal, I had to ensure justice was served, students were protected, consequences were fair.
+	Principal: As B.C., I could guide Conrad to understand the deeper lessons beneath each case.
+	Principal: One role handles the immediate situation. The other plants seeds for long-term growth.
+	Conrad: How long have you been doing this? Leaving cards, teaching through observation?
+	Principal: Many years. Since before you arrived at this school.
+	Principal: I've guided other students in different ways. Each person needs different lessons.
+	Principal: You, Conrad, needed to learn how to see beneath the surface.
+	Principal: To understand that solving a mystery isn't just about finding the culprit.
+	Principal: It's about understanding why they made those choices, and what everyone can learn from them.
+	Conrad: The cards always appeared after I solved a case, never before.
+	Conrad: You wanted me to reach my own conclusions first.
+	Principal: Yes. Because if I told you the answers, you would learn nothing.
+	Principal: Discovery is the heart of real education.
+	leave Principal
+	leave Mark
+	Conrad stands, pacing thoughtfully.
+	Conrad: So each case... each lesson...
+	Conrad: They were all building toward something. Training me for something.
 join Principal (half) right
 Principal: They were. But not for what you might think.
 Principal: Come. There's one more thing you need to understand.
 join "Diwata Laya" (Half_mirror) center
 [signal arg="laya_start"]
 "Diwata Laya": Before the final lesson, prove your readiness once more.
-[signal arg="start_minigame curriculum:runner"]
+[signal arg="start_minigame observation_teaching"]
 "Diwata Laya": Good. Your journey nears completion.
 [signal arg="laya_end"]
 leave "Diwata Laya"
 Principal: The final lesson.
-leave Conrad
+if {selected_character} == "celestine":
+	leave Celestine
+else:
+	leave Conrad
 leave Principal
 jump c5s3/

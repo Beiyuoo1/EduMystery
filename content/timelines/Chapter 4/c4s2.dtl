@@ -1,105 +1,212 @@
 [background arg="res://Bg/classroom.png" fade="1.0"]
-Conrad sits at a desk, notes spread before him. Mark stands nearby.
-join Conrad (half) left
-join Mark (Mark_half) right
-Conrad: Let me review what we know.
-Conrad: Six students received notes. Each note references a specific moral failing or questionable decision.
-Mark: Ben witnessed cheating. Alice took credit for others' work. What about the others?
-Conrad: Ryan ignored bullying. Ria was dishonest with a friend. Two others made similar choices.
-Conrad: The pattern is clear - someone is identifying students who acted unethically and confronting them.
-Mark: But why? What's the endgame?
-Conrad: That's what bothers me. Is this punishment? Education? Some kind of social experiment?
-join "Diwata Laya" (Half) center
-[signal arg="laya_start"]
-"Diwata Laya" materializes, her expression thoughtful.
-"Diwata Laya": [i][color=#9999ff]These notes carry intention, but not malice.[/color][/i]
-"Conrad (Thinking)": What do you sense?
-"Diwata Laya": [i][color=#9999ff]Whoever writes them believes they are helping. Guiding.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]But their method lacks wisdom. They push without permission, judge without understanding.[/color][/i]
-"Conrad (Thinking)": So not an enemy, but not an ally either.
-"Diwata Laya": [i][color=#9999ff]Someone who has learned about teaching, but not yet about compassion.[/color][/i]
-[signal arg="laya_end"]
-leave "Diwata Laya"
-Conrad: Laya's right. This feels like someone trying to imitate moral teaching but missing the point.
-Mark: Like they read a book about psychology and decided to play therapist?
-Conrad: Exactly.
-Conrad: We need to find the source. Who has access to this much information about students?
-Mark: Teachers? The counselor? Student council?
-Conrad: Or someone who observes very carefully. Someone who pays attention.
+if {selected_character} == "celestine":
+	Celestine sits at a desk, notes spread before her. Mark stands nearby.
+	join Celestine (half) left
+	join Mark (Mark_half) right
+	Celestine: Let me review what we know.
+	Celestine: Six students received notes. Each note references a specific moral failing or questionable decision.
+	Mark: Ben witnessed cheating. Alice took credit for others' work. What about the others?
+	Celestine: Ryan ignored bullying. Ria was dishonest with a friend. Two others made similar choices.
+	Celestine: The pattern is clear - someone is identifying students who acted unethically and confronting them.
+	Mark: But why? What's the endgame?
+	Celestine: That's what bothers me. Is this punishment? Education? Some kind of social experiment?
+	join "Diwata Laya" (Half) center
+	[signal arg="laya_start"]
+	"Diwata Laya" materializes, her expression thoughtful.
+	"Diwata Laya": [i][color=#9999ff]These notes carry intention, but not malice.[/color][/i]
+	"Celestine (Thinking)": What do you sense?
+	"Diwata Laya": [i][color=#9999ff]Whoever writes them believes they are helping. Guiding.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]But their method lacks wisdom. They push without permission, judge without understanding.[/color][/i]
+	"Celestine (Thinking)": So not an enemy, but not an ally either.
+	"Diwata Laya": [i][color=#9999ff]Someone who has learned about teaching, but not yet about compassion.[/color][/i]
+	[signal arg="laya_end"]
+	leave "Diwata Laya"
+	Celestine: Laya's right. This feels like someone trying to imitate moral teaching but missing the point.
+	Mark: Like they read a book about psychology and decided to play therapist?
+	Celestine: Exactly.
+	Celestine: We need to find the source. Who has access to this much information about students?
+	Mark: Teachers? The counselor? Student council?
+	Celestine: Or someone who observes very carefully. Someone who pays attention.
+else:
+	Conrad sits at a desk, notes spread before him. Mark stands nearby.
+	join Conrad (half) left
+	join Mark (Mark_half) right
+	Conrad: Let me review what we know.
+	Conrad: Six students received notes. Each note references a specific moral failing or questionable decision.
+	Mark: Ben witnessed cheating. Alice took credit for others' work. What about the others?
+	Conrad: Ryan ignored bullying. Ria was dishonest with a friend. Two others made similar choices.
+	Conrad: The pattern is clear - someone is identifying students who acted unethically and confronting them.
+	Mark: But why? What's the endgame?
+	Conrad: That's what bothers me. Is this punishment? Education? Some kind of social experiment?
+	join "Diwata Laya" (Half) center
+	[signal arg="laya_start"]
+	"Diwata Laya" materializes, her expression thoughtful.
+	"Diwata Laya": [i][color=#9999ff]These notes carry intention, but not malice.[/color][/i]
+	"Conrad (Thinking)": What do you sense?
+	"Diwata Laya": [i][color=#9999ff]Whoever writes them believes they are helping. Guiding.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]But their method lacks wisdom. They push without permission, judge without understanding.[/color][/i]
+	"Conrad (Thinking)": So not an enemy, but not an ally either.
+	"Diwata Laya": [i][color=#9999ff]Someone who has learned about teaching, but not yet about compassion.[/color][/i]
+	[signal arg="laya_end"]
+	leave "Diwata Laya"
+	Conrad: Laya's right. This feels like someone trying to imitate moral teaching but missing the point.
+	Mark: Like they read a book about psychology and decided to play therapist?
+	Conrad: Exactly.
+	Conrad: We need to find the source. Who has access to this much information about students?
+	Mark: Teachers? The counselor? Student council?
+	Conrad: Or someone who observes very carefully. Someone who pays attention.
 The Principal enters the room.
 join Principal (half) rightmost
-Principal: Conrad. I'm glad you're looking into this.
-Principal: Parents are starting to call. Students feel targeted, watched.
-Principal: Do you have any leads?
-Conrad: I need to check the library. Some of these notes reference obscure psychological concepts.
-Conrad: Whoever is doing this has been studying moral philosophy and behavioral psychology.
-Principal: The library keeps records of book checkouts. I'll authorize your access.
-Conrad: Thank you. There's one more thing.
-Conrad: Has anyone asked about student records recently? Grades, behavior reports, anything like that?
-Principal: No. Those are strictly confidential. Even teachers can only access their own students.
-Conrad: Then our note-writer is gathering information another way. Observation, rumors, or...
-Mark: Or they found something. A resource we don't know about.
-Conrad: Let's check the library.
-leave Principal
-leave Conrad
-leave Mark
+if {selected_character} == "celestine":
+	Principal: Celestine. I'm glad you're looking into this.
+	Principal: Parents are starting to call. Students feel targeted, watched.
+	Principal: Do you have any leads?
+	Celestine: I need to check the library. Some of these notes reference obscure psychological concepts.
+	Celestine: Whoever is doing this has been studying moral philosophy and behavioral psychology.
+	Principal: The library keeps records of book checkouts. I'll authorize your access.
+	Celestine: Thank you. There's one more thing.
+	Celestine: Has anyone asked about student records recently? Grades, behavior reports, anything like that?
+	Principal: No. Those are strictly confidential. Even teachers can only access their own students.
+	Celestine: Then our note-writer is gathering information another way. Observation, rumors, or...
+	Mark: Or they found something. A resource we don't know about.
+	Celestine: Let's check the library.
+	leave Principal
+	leave Celestine
+	leave Mark
+else:
+	Principal: Conrad. I'm glad you're looking into this.
+	Principal: Parents are starting to call. Students feel targeted, watched.
+	Principal: Do you have any leads?
+	Conrad: I need to check the library. Some of these notes reference obscure psychological concepts.
+	Conrad: Whoever is doing this has been studying moral philosophy and behavioral psychology.
+	Principal: The library keeps records of book checkouts. I'll authorize your access.
+	Conrad: Thank you. There's one more thing.
+	Conrad: Has anyone asked about student records recently? Grades, behavior reports, anything like that?
+	Principal: No. Those are strictly confidential. Even teachers can only access their own students.
+	Conrad: Then our note-writer is gathering information another way. Observation, rumors, or...
+	Mark: Or they found something. A resource we don't know about.
+	Conrad: Let's check the library.
+	leave Principal
+	leave Conrad
+	leave Mark
 [background arg="res://Bg/library.png" fade="1.0"]
-join Conrad (half) left
-join Mark (Mark_half) right
-The library is quiet. A few students study at tables.
-Conrad approaches the circulation desk.
-Conrad: Excuse me. I need to check recent book checkouts, particularly psychology and philosophy sections.
-The librarian pulls up records on her computer.
-Librarian: Let's see... several students have checked out ethics texts recently. That's not unusual.
-Librarian: But there is something odd. Someone accessed the restricted archive section twice last week.
-Conrad: The archive? Who has permission?
-Librarian: Faculty, seniors working on thesis projects, and special permission cases.
-Librarian: According to the log... it was Alex. She signed out for historical research.
-Mark: Alex? I know her. She's in our grade. Always studying, very serious.
-Conrad: What was she researching?
-Librarian: Her sign-in form said "educational history project for Advanced Studies class."
-Conrad: Can we access the archive?
-Librarian: With permission, yes. Let me get the key.
-join "Diwata Laya" (Half) center
-[signal arg="laya_start"]
-"Diwata Laya": Knowledge leads to understanding. Test yourself before proceeding.
-[signal arg="start_minigame curriculum:runner"]
-"Diwata Laya": Your recall sharpens.
-[signal arg="laya_end"]
-leave "Diwata Laya"
-leave Conrad
-leave Mark
+if {selected_character} == "celestine":
+	join Celestine (half) left
+	join Mark (Mark_half) right
+	The library is quiet. A few students study at tables.
+	Celestine approaches the circulation desk.
+	Celestine: Excuse me. I need to check recent book checkouts, particularly psychology and philosophy sections.
+	The librarian pulls up records on her computer.
+	Librarian: Let's see... several students have checked out ethics texts recently. That's not unusual.
+	Librarian: But there is something odd. Someone accessed the restricted archive section twice last week.
+	Celestine: The archive? Who has permission?
+	Librarian: Faculty, seniors working on thesis projects, and special permission cases.
+	Librarian: According to the log... it was Alex. She signed out for historical research.
+	Mark: Alex? I know her. She's in our grade. Always studying, very serious.
+	Celestine: What was she researching?
+	Librarian: Her sign-in form said "educational history project for Advanced Studies class."
+	Celestine: Can we access the archive?
+	Librarian: With permission, yes. Let me get the key.
+	join "Diwata Laya" (Half) center
+	[signal arg="laya_start"]
+	"Diwata Laya": Knowledge leads to understanding. Test yourself before proceeding.
+	[signal arg="start_minigame dialogue_choice_approach_suspect"]
+	"Diwata Laya": Wisdom guides your judgment.
+	[signal arg="laya_end"]
+	leave "Diwata Laya"
+	leave Celestine
+	leave Mark
+else:
+	join Conrad (half) left
+	join Mark (Mark_half) right
+	The library is quiet. A few students study at tables.
+	Conrad approaches the circulation desk.
+	Conrad: Excuse me. I need to check recent book checkouts, particularly psychology and philosophy sections.
+	The librarian pulls up records on her computer.
+	Librarian: Let's see... several students have checked out ethics texts recently. That's not unusual.
+	Librarian: But there is something odd. Someone accessed the restricted archive section twice last week.
+	Conrad: The archive? Who has permission?
+	Librarian: Faculty, seniors working on thesis projects, and special permission cases.
+	Librarian: According to the log... it was Alex. She signed out for historical research.
+	Mark: Alex? I know her. She's in our grade. Always studying, very serious.
+	Conrad: What was she researching?
+	Librarian: Her sign-in form said "educational history project for Advanced Studies class."
+	Conrad: Can we access the archive?
+	Librarian: With permission, yes. Let me get the key.
+	join "Diwata Laya" (Half) center
+	[signal arg="laya_start"]
+	"Diwata Laya": Knowledge leads to understanding. Test yourself before proceeding.
+	[signal arg="start_minigame dialogue_choice_approach_suspect"]
+	"Diwata Laya": Wisdom guides your judgment.
+	[signal arg="laya_end"]
+	leave "Diwata Laya"
+	leave Conrad
+	leave Mark
 label suspect_choice
-join Conrad (half) left
-join Mark (Mark_half) right
-Conrad: Before we go to the archive, let me think about our suspects.
-Mark: Who should we focus on?
-- Alex seems most likely - she accessed the archive. [if {c4s2_alex_tried} == false]
-	set {c4s2_alex_tried} = true
-	Conrad: Alex accessed the archive twice. That's unusual for a history project.
-	Conrad: She's also known for being very principled, almost judgmental about others' behavior.
-	Mark: So she could be the type to think she's helping people improve?
-	Conrad: Exactly. Let's focus on her.
-	jump continue_investigation
-- Maybe a teacher is orchestrating this. [if {c4s2_teacher_tried} == false]
-	set {c4s2_teacher_tried} = true
-	Mark: Teachers have access to archives and student information.
-	Conrad: But the Principal said no teacher has been asking about records.
-	Conrad: And the notes feel... amateur. Like someone learned this from books, not experience.
-	Mark: So probably not a teacher?
-	Conrad: Probably not. Let's keep looking.
-	jump suspect_choice
-- Could it be someone working with B.C.? [if {c4s2_bc_tried} == false]
-	set {c4s2_bc_tried} = true
-	Mark: What if B.C. is behind this after all?
-	Conrad: I don't think so. The style is completely different.
-	Conrad: B.C.'s cards are patient, elegant, timed perfectly.
-	Conrad: These notes are rushed, invasive, clumsy.
-	Mark: So a copycat?
-	Conrad: More likely someone inspired by the idea, but without B.C.'s wisdom.
-	jump suspect_choice
-label continue_investigation
-Conrad: Alex is our strongest lead. Let's check what she was looking at in the archive.
-leave Conrad
-leave Mark
+if {selected_character} == "celestine":
+	join Celestine (half) left
+	join Mark (Mark_half) right
+	Celestine: Before we go to the archive, let me think about our suspects.
+	Mark: Who should we focus on?
+	- Alex seems most likely - she accessed the archive. [if {c4s2_alex_tried} == false]
+		set {c4s2_alex_tried} = true
+		Celestine: Alex accessed the archive twice. That's unusual for a history project.
+		Celestine: She's also known for being very principled, almost judgmental about others' behavior.
+		Mark: So she could be the type to think she's helping people improve?
+		Celestine: Exactly. Let's focus on her.
+		jump continue_investigation
+	- Maybe a teacher is orchestrating this. [if {c4s2_teacher_tried} == false]
+		set {c4s2_teacher_tried} = true
+		Mark: Teachers have access to archives and student information.
+		Celestine: But the Principal said no teacher has been asking about records.
+		Celestine: And the notes feel... amateur. Like someone learned this from books, not experience.
+		Mark: So probably not a teacher?
+		Celestine: Probably not. Let's keep looking.
+		jump suspect_choice
+	- Could it be someone working with B.C.? [if {c4s2_bc_tried} == false]
+		set {c4s2_bc_tried} = true
+		Mark: What if B.C. is behind this after all?
+		Celestine: I don't think so. The style is completely different.
+		Celestine: B.C.'s cards are patient, elegant, timed perfectly.
+		Celestine: These notes are rushed, invasive, clumsy.
+		Mark: So a copycat?
+		Celestine: More likely someone inspired by the idea, but without B.C.'s wisdom.
+		jump suspect_choice
+	label continue_investigation
+	Celestine: Alex is our strongest lead. Let's check what she was looking at in the archive.
+	leave Celestine
+	leave Mark
+else:
+	join Conrad (half) left
+	join Mark (Mark_half) right
+	Conrad: Before we go to the archive, let me think about our suspects.
+	Mark: Who should we focus on?
+	- Alex seems most likely - she accessed the archive. [if {c4s2_alex_tried} == false]
+		set {c4s2_alex_tried} = true
+		Conrad: Alex accessed the archive twice. That's unusual for a history project.
+		Conrad: She's also known for being very principled, almost judgmental about others' behavior.
+		Mark: So she could be the type to think she's helping people improve?
+		Conrad: Exactly. Let's focus on her.
+		jump continue_investigation
+	- Maybe a teacher is orchestrating this. [if {c4s2_teacher_tried} == false]
+		set {c4s2_teacher_tried} = true
+		Mark: Teachers have access to archives and student information.
+		Conrad: But the Principal said no teacher has been asking about records.
+		Conrad: And the notes feel... amateur. Like someone learned this from books, not experience.
+		Mark: So probably not a teacher?
+		Conrad: Probably not. Let's keep looking.
+		jump suspect_choice
+	- Could it be someone working with B.C.? [if {c4s2_bc_tried} == false]
+		set {c4s2_bc_tried} = true
+		Mark: What if B.C. is behind this after all?
+		Conrad: I don't think so. The style is completely different.
+		Conrad: B.C.'s cards are patient, elegant, timed perfectly.
+		Conrad: These notes are rushed, invasive, clumsy.
+		Mark: So a copycat?
+		Conrad: More likely someone inspired by the idea, but without B.C.'s wisdom.
+		jump suspect_choice
+	label continue_investigation
+	Conrad: Alex is our strongest lead. Let's check what she was looking at in the archive.
+	leave Conrad
+	leave Mark
 jump c4s3/

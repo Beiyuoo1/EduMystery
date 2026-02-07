@@ -1,104 +1,203 @@
 [background arg="res://Bg/library_archive.png" fade="1.0"]
 Later that afternoon...
-join Conrad (half) left
-join Mark (Mark_half) right
-Conrad returns to the archive to verify the journal was properly stored.
-The librarian has already filed it back in its correct location, deep in the drawer where Alex found it.
-Conrad: It's back where it belongs. Safely archived.
-Mark: Feels like closing the book on this case. Literally.
-Conrad reaches for the journal to ensure it's properly positioned.
-As he slides it back, something falls from between the pages.
-A cream-colored card lands softly on the floor.
-Mark: What's that?
-Conrad picks it up, recognizing the familiar handwriting immediately.
-His expression shifts from surprise to understanding.
-Conrad: It's another B.C. card.
-Mark: What? How did that get in there?
-Conrad: It must have been placed there recently. After Alex returned the journal.
-Mark: Or... it was there all along, waiting for someone to find it.
-Conrad reads aloud, his voice thoughtful.
-Conrad: "Lesson 4: Wisdom."
-Conrad: "Knowledge illuminates, but wisdom guides. The eager student learned what the patient teacher already knew."
-Conrad: "Those who find truth must then choose what to do with it. Choice defines character."
-Mark stares at the card, then at Conrad.
-Mark: B.C. knew about the journal. They knew someone would find it eventually.
-Conrad: Maybe they even knew it would be Alex. Or someone like her.
-Mark: So this whole case... it was another lesson? Orchestrated from the beginning?
-Conrad: Not orchestrated. Observed. B.C. didn't make Alex take the journal.
-Conrad: They just knew that curiosity and good intentions without wisdom can lead to harm.
+if {selected_character} == "celestine":
+	join Celestine (animated) left
+	join Mark (Mark_half) right
+	Celestine returns to the archive to verify the journal was properly stored.
+	The librarian has already filed it back in its correct location, deep in the drawer where Alex found it.
+	Celestine: It's back where it belongs. Safely archived.
+	Mark: Feels like closing the book on this case. Literally.
+	Celestine reaches for the journal to ensure it's properly positioned.
+	As she slides it back, something falls from between the pages.
+	A cream-colored card lands softly on the floor.
+	Mark: What's that?
+	Celestine picks it up, recognizing the familiar handwriting immediately.
+else:
+	join Conrad (half) left
+	join Mark (Mark_half) right
+	Conrad returns to the archive to verify the journal was properly stored.
+	The librarian has already filed it back in its correct location, deep in the drawer where Alex found it.
+	Conrad: It's back where it belongs. Safely archived.
+	Mark: Feels like closing the book on this case. Literally.
+	Conrad reaches for the journal to ensure it's properly positioned.
+	As he slides it back, something falls from between the pages.
+	A cream-colored card lands softly on the floor.
+	Mark: What's that?
+	Conrad picks it up, recognizing the familiar handwriting immediately.
+[signal arg="unlock_evidence bc_card_wisdom_c4"]
+if {selected_character} == "celestine":
+	Her expression shifts from surprise to understanding.
+	Celestine: It's another B.C. card.
+	Mark: What? How did that get in there?
+	Celestine: It must have been placed there recently. After Alex returned the journal.
+	Mark: Or... it was there all along, waiting for someone to find it.
+	Celestine reads aloud, her voice thoughtful.
+	Celestine: "Lesson 4\: Wisdom."
+	Celestine: "Knowledge illuminates, but wisdom guides. The eager student learned what the patient teacher already knew."
+	Celestine: "Those who find truth must then choose what to do with it. Choice defines character."
+	Mark stares at the card, then at Celestine.
+	Mark: B.C. knew about the journal. They knew someone would find it eventually.
+	Celestine: Maybe they even knew it would be Alex. Or someone like her.
+	Mark: So this whole case... it was another lesson? Orchestrated from the beginning?
+	Celestine: Not orchestrated. Observed. B.C. didn't make Alex take the journal.
+	Celestine: They just knew that curiosity and good intentions without wisdom can lead to harm.
+else:
+	His expression shifts from surprise to understanding.
+	Conrad: It's another B.C. card.
+	Mark: What? How did that get in there?
+	Conrad: It must have been placed there recently. After Alex returned the journal.
+	Mark: Or... it was there all along, waiting for someone to find it.
+	Conrad reads aloud, his voice thoughtful.
+	Conrad: "Lesson 4\: Wisdom."
+	Conrad: "Knowledge illuminates, but wisdom guides. The eager student learned what the patient teacher already knew."
+	Conrad: "Those who find truth must then choose what to do with it. Choice defines character."
+	Mark stares at the card, then at Conrad.
+	Mark: B.C. knew about the journal. They knew someone would find it eventually.
+	Conrad: Maybe they even knew it would be Alex. Or someone like her.
+	Mark: So this whole case... it was another lesson? Orchestrated from the beginning?
+	Conrad: Not orchestrated. Observed. B.C. didn't make Alex take the journal.
+	Conrad: They just knew that curiosity and good intentions without wisdom can lead to harm.
 join "Diwata Laya" (Half_mirror) center
 [signal arg="laya_start"]
-"Diwata Laya" appears, her expression serene but knowing.
-"Diwata Laya": [i][color=#9999ff]The chain continues to teach you, Conrad.[/color][/i]
-"Conrad (Thinking)": B.C. planned for this. The journal being in the archive, someone finding it, the consequences that followed.
-"Diwata Laya": [i][color=#9999ff]Or they simply understood human nature.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]Curiosity leads to discovery. Discovery leads to choice. Choice reveals character.[/color][/i]
-"Conrad (Thinking)": Alex chose to use the knowledge she found. I chose to guide her with compassion instead of judgment.
-"Diwata Laya": [i][color=#9999ff]Both lessons were necessary. Hers, and yours.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]Alex learned that knowledge without wisdom brings harm.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]You learned that teaching requires patience, not punishment.[/color][/i]
-"Conrad (Thinking)": Four lessons now. Truth, Responsibility, Creativity, Wisdom.
-"Conrad (Thinking)": What is B.C. preparing me for?
-"Diwata Laya": [i][color=#9999ff]I do not know the final purpose. Only that each lesson builds upon the last.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]You are becoming more than a detective, Conrad.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]You are becoming a guide. A teacher. Someone who shows others the path.[/color][/i]
-"Conrad (Thinking)": But I'm still learning myself.
-"Diwata Laya": [i][color=#9999ff]That is wisdom - knowing you have more to learn.[/color][/i]
-[signal arg="laya_end"]
-leave "Diwata Laya"
-Conrad looks at the card again, then carefully places it with the others he's collected.
-Conrad: Four cases. Four lessons. Four cards.
-Mark: And B.C. is still out there, watching everything we do.
-Conrad: Guiding us. Teaching us through experiences we have to live through ourselves.
-Mark: Like the journal taught Alex through experience instead of lectures.
-Conrad: Exactly. B.C. understands what that old educator didn't.
-Conrad: The best lessons come from discovery, yes. But they also require wisdom to guide without manipulating.
-Mark: So B.C. is... what? A master teacher?
-Conrad: Something like that. Someone who knows how to teach without forcing.
-Conrad: They leave clues, create opportunities, but never control. We always have a choice.
-Mark: This is getting philosophical. And a little scary.
-Conrad: It is. But also... meaningful.
-Conrad: Each case isn't just about solving a mystery. It's about learning who I want to become.
-set {conrad_level} = 8
-[signal arg="show_level_up"]
-Mark: Four down. How many more lessons do you think there are?
-Conrad: I don't know. But I'm starting to see the pattern.
-Conrad: Truth taught me to value evidence and honesty.
-Conrad: Responsibility taught me that actions have consequences.
-Conrad: Creativity taught me to see beyond competition to connection.
-Conrad: And now Wisdom teaches me that knowledge alone isn't enough.
-Mark: So what's next? What other lessons are there?
-Conrad: I don't know. But I trust that B.C. does.
-Mark: That's a lot of trust for someone we've never met.
-Conrad: True. But look at what we've learned. Look at who we've helped.
-Conrad: Greg learned accountability. Ria learned honesty. Victor learned empathy. Alex learned wisdom.
-Conrad: And I've learned alongside them.
-Mark: When you put it that way... B.C. is actually helping people. Even if their methods are mysterious.
-Conrad: That's the key difference between B.C. and that educator who wrote the journal.
-Conrad: B.C. guides with patience. The educator tried to control with manipulation.
-Conrad: One creates growth. The other creates resentment.
+if {selected_character} == "celestine":
+	"Diwata Laya" appears, her expression serene but knowing.
+	"Diwata Laya": [i][color=#9999ff]The chain continues to teach you, Celestine.[/color][/i]
+	"Celestine (Thinking)": B.C. planned for this. The journal being in the archive, someone finding it, the consequences that followed.
+	"Diwata Laya": [i][color=#9999ff]Or they simply understood human nature.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]Curiosity leads to discovery. Discovery leads to choice. Choice reveals character.[/color][/i]
+	"Celestine (Thinking)": Alex chose to use the knowledge she found. I chose to guide her with compassion instead of judgment.
+	"Diwata Laya": [i][color=#9999ff]Both lessons were necessary. Hers, and yours.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]Alex learned that knowledge without wisdom brings harm.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]You learned that teaching requires patience, not punishment.[/color][/i]
+	"Celestine (Thinking)": Four lessons now. Truth, Responsibility, Creativity, Wisdom.
+	"Celestine (Thinking)": What is B.C. preparing me for?
+	"Diwata Laya": [i][color=#9999ff]I do not know the final purpose. Only that each lesson builds upon the last.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]You are becoming more than a detective, Celestine.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]You are becoming a guide. A teacher. Someone who shows others the path.[/color][/i]
+	"Celestine (Thinking)": But I'm still learning myself.
+	"Diwata Laya": [i][color=#9999ff]That is wisdom - knowing you have more to learn.[/color][/i]
+	[signal arg="laya_end"]
+	leave "Diwata Laya"
+	Celestine looks at the card again, then carefully places it with the others she's collected.
+else:
+	"Diwata Laya" appears, her expression serene but knowing.
+	"Diwata Laya": [i][color=#9999ff]The chain continues to teach you, Conrad.[/color][/i]
+	"Conrad (Thinking)": B.C. planned for this. The journal being in the archive, someone finding it, the consequences that followed.
+	"Diwata Laya": [i][color=#9999ff]Or they simply understood human nature.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]Curiosity leads to discovery. Discovery leads to choice. Choice reveals character.[/color][/i]
+	"Conrad (Thinking)": Alex chose to use the knowledge she found. I chose to guide her with compassion instead of judgment.
+	"Diwata Laya": [i][color=#9999ff]Both lessons were necessary. Hers, and yours.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]Alex learned that knowledge without wisdom brings harm.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]You learned that teaching requires patience, not punishment.[/color][/i]
+	"Conrad (Thinking)": Four lessons now. Truth, Responsibility, Creativity, Wisdom.
+	"Conrad (Thinking)": What is B.C. preparing me for?
+	"Diwata Laya": [i][color=#9999ff]I do not know the final purpose. Only that each lesson builds upon the last.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]You are becoming more than a detective, Conrad.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]You are becoming a guide. A teacher. Someone who shows others the path.[/color][/i]
+	"Conrad (Thinking)": But I'm still learning myself.
+	"Diwata Laya": [i][color=#9999ff]That is wisdom - knowing you have more to learn.[/color][/i]
+	[signal arg="laya_end"]
+	leave "Diwata Laya"
+	Conrad looks at the card again, then carefully places it with the others he's collected.
+if {selected_character} == "celestine":
+	Celestine: Four cases. Four lessons. Four cards.
+	Mark: And B.C. is still out there, watching everything we do.
+	Celestine: Guiding us. Teaching us through experiences we have to live through ourselves.
+	Mark: Like the journal taught Alex through experience instead of lectures.
+	Celestine: Exactly. B.C. understands what that old educator didn't.
+	Celestine: The best lessons come from discovery, yes. But they also require wisdom to guide without manipulating.
+	Mark: So B.C. is... what? A master teacher?
+	Celestine: Something like that. Someone who knows how to teach without forcing.
+	Celestine: They leave clues, create opportunities, but never control. We always have a choice.
+	Mark: This is getting philosophical. And a little scary.
+	Celestine: It is. But also... meaningful.
+	Celestine: Each case isn't just about solving a mystery. It's about learning who I want to become.
+	Mark: Four down. How many more lessons do you think there are?
+	Celestine: I don't know. But I'm starting to see the pattern.
+	Celestine: Truth taught me to value evidence and honesty.
+	Celestine: Responsibility taught me that actions have consequences.
+	Celestine: Creativity taught me to see beyond competition to connection.
+	Celestine: And now Wisdom teaches me that knowledge alone isn't enough.
+	Mark: So what's next? What other lessons are there?
+	Celestine: I don't know. But I trust that B.C. does.
+	Mark: That's a lot of trust for someone we've never met.
+	Celestine: True. But look at what we've learned. Look at who we've helped.
+	Celestine: Greg learned accountability. Ria learned honesty. Victor learned empathy. Alex learned wisdom.
+	Celestine: And I've learned alongside them.
+	Mark: When you put it that way... B.C. is actually helping people. Even if their methods are mysterious.
+	Celestine: That's the key difference between B.C. and that educator who wrote the journal.
+	Celestine: B.C. guides with patience. The educator tried to control with manipulation.
+	Celestine: One creates growth. The other creates resentment.
+else:
+	Conrad: Four cases. Four lessons. Four cards.
+	Mark: And B.C. is still out there, watching everything we do.
+	Conrad: Guiding us. Teaching us through experiences we have to live through ourselves.
+	Mark: Like the journal taught Alex through experience instead of lectures.
+	Conrad: Exactly. B.C. understands what that old educator didn't.
+	Conrad: The best lessons come from discovery, yes. But they also require wisdom to guide without manipulating.
+	Mark: So B.C. is... what? A master teacher?
+	Conrad: Something like that. Someone who knows how to teach without forcing.
+	Conrad: They leave clues, create opportunities, but never control. We always have a choice.
+	Mark: This is getting philosophical. And a little scary.
+	Conrad: It is. But also... meaningful.
+	Conrad: Each case isn't just about solving a mystery. It's about learning who I want to become.
+	Mark: Four down. How many more lessons do you think there are?
+	Conrad: I don't know. But I'm starting to see the pattern.
+	Conrad: Truth taught me to value evidence and honesty.
+	Conrad: Responsibility taught me that actions have consequences.
+	Conrad: Creativity taught me to see beyond competition to connection.
+	Conrad: And now Wisdom teaches me that knowledge alone isn't enough.
+	Mark: So what's next? What other lessons are there?
+	Conrad: I don't know. But I trust that B.C. does.
+	Mark: That's a lot of trust for someone we've never met.
+	Conrad: True. But look at what we've learned. Look at who we've helped.
+	Conrad: Greg learned accountability. Ria learned honesty. Victor learned empathy. Alex learned wisdom.
+	Conrad: And I've learned alongside them.
+	Mark: When you put it that way... B.C. is actually helping people. Even if their methods are mysterious.
+	Conrad: That's the key difference between B.C. and that educator who wrote the journal.
+	Conrad: B.C. guides with patience. The educator tried to control with manipulation.
+	Conrad: One creates growth. The other creates resentment.
 They stand in the quiet archive, dust motes dancing in the dim light.
 Mark: Come on. Let's get out of here. All this wisdom talk is making me need fresh air.
 Mark: And food. Definitely food.
-Conrad: Everything leads to food with you.
-Mark: Hey, the body needs fuel for all this deep thinking.
-Conrad smiles.
-Conrad: Fair point. Let's go.
-They walk toward the exit, leaving the archive and its hidden secrets behind.
-leave Conrad
+if {selected_character} == "celestine":
+	Celestine: Everything leads to food with you.
+	Mark: Hey, the body needs fuel for all this deep thinking.
+	Celestine smiles.
+	Celestine: Fair point. Let's go.
+	They walk toward the exit, leaving the archive and its hidden secrets behind.
+	leave Celestine
+else:
+	Conrad: Everything leads to food with you.
+	Mark: Hey, the body needs fuel for all this deep thinking.
+	Conrad smiles.
+	Conrad: Fair point. Let's go.
+	They walk toward the exit, leaving the archive and its hidden secrets behind.
+	leave Conrad
 leave Mark
 [wait time="1.0"]
 The leather-bound journal rests in its drawer, properly archived once more.
 The knowledge it contains is preserved but contained.
 Waiting for someone with the wisdom to understand it properly.
 [wait time="1.0"]
-The B.C. card rests safely with Conrad, the fourth in a growing collection.
-Four lessons learned. Four mysteries solved.
-Truth. Responsibility. Creativity. Wisdom.
-But the chain continues, stretching forward into unknown territory.
-And somewhere, watching with patient eyes, B.C. prepares the next chapter.
-The next lesson.
-The next step on a journey whose destination remains hidden.
-But whose path grows clearer with each mystery solved.
+if {selected_character} == "celestine":
+	The B.C. card rests safely with Celestine, the fourth in a growing collection.
+	Four lessons learned. Four mysteries solved.
+	Truth. Responsibility. Creativity. Wisdom.
+	But the chain continues, stretching forward into unknown territory.
+	And somewhere, watching with patient eyes, B.C. prepares the next chapter.
+	The next lesson.
+	The next step on a journey whose destination remains hidden.
+	But whose path grows clearer with each mystery solved.
+else:
+	The B.C. card rests safely with Conrad, the fourth in a growing collection.
+	Four lessons learned. Four mysteries solved.
+	Truth. Responsibility. Creativity. Wisdom.
+	But the chain continues, stretching forward into unknown territory.
+	And somewhere, watching with patient eyes, B.C. prepares the next chapter.
+	The next lesson.
+	The next step on a journey whose destination remains hidden.
+	But whose path grows clearer with each mystery solved.
 [wait time="1.0"]
+[signal arg="show_chapter_results"]
 jump c5s0/

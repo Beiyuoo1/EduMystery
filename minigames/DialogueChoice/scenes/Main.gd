@@ -166,6 +166,13 @@ func _ready():
 	_initialize_vosk()
 	_setup_audio_capture()
 
+func _unhandled_input(event):
+	# F5 to skip minigame
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_F5:
+			print("F5 pressed - Skipping dialogue choice minigame")
+			_skip_minigame()
+
 func _process(delta):
 	if timer_active:
 		time_remaining -= delta
@@ -595,6 +602,12 @@ func _calculate_similarity(text1: String, text2: String) -> float:
 	var distance = matrix[len1][len2]
 	var max_len = max(len1, len2)
 	return 1.0 - (float(distance) / float(max_len))
+
+func _skip_minigame():
+	"""Skip the minigame when F5 is pressed"""
+	print("Skipping dialogue choice minigame...")
+	is_listening = false  # Stop listening for audio
+	_complete_minigame(true)  # Complete as success
 
 func _complete_minigame(success: bool):
 	minigame_completed.emit(success)

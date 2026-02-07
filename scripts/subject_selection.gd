@@ -153,9 +153,14 @@ func _on_subject_selected(subject: String) -> void:
 
 	await tween.finished
 
-	# Set the selected subject in Dialogic
+	# Set the selected subject in Dialogic AND PlayerStats
 	Dialogic.VAR.selected_subject = subject
 	Dialogic.VAR.current_chapter = 1
+
+	# IMPORTANT: Also set in PlayerStats so MinigameManager can access it
+	if PlayerStats:
+		PlayerStats.selected_subject = subject
+		PlayerStats.save_stats()
 
 	# Fade out transition
 	var fade_tween = create_tween()
@@ -163,8 +168,8 @@ func _on_subject_selected(subject: String) -> void:
 
 	await fade_tween.finished
 
-	# Start the game
-	get_tree().change_scene_to_file("res://node_2d.tscn")
+	# Navigate to character selection
+	get_tree().change_scene_to_file("res://scenes/ui/character_selection.tscn")
 
 func _on_back_pressed() -> void:
 	# Fade out transition

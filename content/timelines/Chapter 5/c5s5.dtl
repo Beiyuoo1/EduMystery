@@ -1,120 +1,232 @@
 [background arg="res://Bg/classroom.png" fade="1.0"]
 The next day. The school courtyard is busy with students moving between classes.
-join Conrad (half) left
+if {selected_character} == "celestine":
+	join Celestine (animated) left
+else:
+	join Conrad (half) left
 join Mark (Mark_half) right
-Conrad and Mark walk together, their conversation easy and comfortable.
-Mark: So B.C. is the Principal. The mysterious guide was literally running the school.
-Mark: Hidden in plain sight the whole time.
-Conrad: The best hiding place often is. No one suspects the obvious.
-Mark: Do you think anyone else knows? About B.C.?
-Conrad: Probably not. The Principal keeps their dual role separate for good reason.
-Conrad: As Principal, they handle immediate problems. As B.C., they plant seeds for long-term growth.
-Conrad: Both roles are necessary. Both serve students.
-Mark: And now you're part of that. Helping students learn and grow.
-Conrad: In my own way, yes.
+if {selected_character} == "celestine":
+	Celestine and Mark walk together, their conversation easy and comfortable.
+	Mark: So B.C. is the Principal. The mysterious guide was literally running the school.
+	Mark: Hidden in plain sight the whole time.
+	Celestine: The best hiding place often is. No one suspects the obvious.
+	Mark: Do you think anyone else knows? About B.C.?
+	Celestine: Probably not. The Principal keeps their dual role separate for good reason.
+	Celestine: As Principal, they handle immediate problems. As B.C., they plant seeds for long-term growth.
+	Celestine: Both roles are necessary. Both serve students.
+	Mark: And now you're part of that. Helping students learn and grow.
+	Celestine: In my own way, yes.
+else:
+	Conrad and Mark walk together, their conversation easy and comfortable.
+	Mark: So B.C. is the Principal. The mysterious guide was literally running the school.
+	Mark: Hidden in plain sight the whole time.
+	Conrad: The best hiding place often is. No one suspects the obvious.
+	Mark: Do you think anyone else knows? About B.C.?
+	Conrad: Probably not. The Principal keeps their dual role separate for good reason.
+	Conrad: As Principal, they handle immediate problems. As B.C., they plant seeds for long-term growth.
+	Conrad: Both roles are necessary. Both serve students.
+	Mark: And now you're part of that. Helping students learn and grow.
+	Conrad: In my own way, yes.
 They stop near a bench where a student sits alone, looking troubled.
 Mark: That's Ben. From the exam case. He looks stressed.
-Conrad: He does. Should I talk to him?
-Mark: That's your call. You're the guide now, remember?
-Conrad considers, then approaches gently.
-join Ben (half) center
-Conrad: Hey, Ben. You okay?
-Ben looks up, surprised but relieved.
-Ben: Conrad. Actually... I've been struggling with something.
-Ben: My friend asked me to cover for him during practice. Said he needs to skip for something important.
-Ben: But I know the coach will ask me directly if he was there. And I don't want to lie.
-Conrad: So you're torn between helping your friend and being honest.
-Ben: Exactly. What would you do?
-Conrad pauses. Old Conrad might have told him the answer.
-New Conrad understands better.
-Conrad: I can't make that choice for you, Ben. It's yours to make.
-Conrad: But I can help you think through it.
-Conrad: What happens if you lie for him? What happens if you refuse?
-Conrad: What values matter most to you? Loyalty? Honesty?
-Ben thinks carefully.
-Ben: I... I think I need to tell him I can't lie for him. But I can help him figure out another way.
-Ben: Maybe we can talk to the coach together, explain why he needs to miss practice.
-Conrad: That sounds like a solution that respects both honesty and friendship.
-Ben: Thanks, Conrad. I just needed to talk it through.
-Ben walks away, looking more confident.
-leave Ben
-Mark: You did it. You didn't solve his problem for him.
-Mark: You helped him solve it himself.
-Conrad: That's the lesson B.C. taught me. People grow when they make their own choices.
-Conrad: I can guide. I can ask questions. But the choice is theirs.
+if {selected_character} == "celestine":
+	Celestine: He does. Should I talk to him?
+	Mark: That's your call. You're the guide now, remember?
+	Celestine considers, then approaches gently.
+	join Ben (half) center
+	Celestine: Hey, Ben. You okay?
+	Ben looks up, surprised but relieved.
+	Ben: Celestine. Actually... I've been struggling with something.
+	Ben: My friend asked me to cover for him during practice. Said he needs to skip for something important.
+	Ben: But I know the coach will ask me directly if he was there. And I don't want to lie.
+	Celestine: So you're torn between helping your friend and being honest.
+	Ben: Exactly. What would you do?
+	Celestine pauses. Old Celestine might have told him the answer.
+	New Celestine understands better.
+	Celestine: I can't make that choice for you, Ben. It's yours to make.
+	Celestine: But I can help you think through it.
+	Celestine: What happens if you lie for him? What happens if you refuse?
+	Celestine: What values matter most to you? Loyalty? Honesty?
+	Ben thinks carefully.
+	Ben: I... I think I need to tell him I can't lie for him. But I can help him figure out another way.
+	Ben: Maybe we can talk to the coach together, explain why he needs to miss practice.
+	Celestine: That sounds like a solution that respects both honesty and friendship.
+	Ben: Thanks, Celestine. I just needed to talk it through.
+	Ben walks away, looking more confident.
+	leave Ben
+	Mark: You did it. You didn't solve his problem for him.
+	Mark: You helped him solve it himself.
+	Celestine: That's the lesson B.C. taught me. People grow when they make their own choices.
+	Celestine: I can guide. I can ask questions. But the choice is theirs.
+else:
+	Conrad: He does. Should I talk to him?
+	Mark: That's your call. You're the guide now, remember?
+	Conrad considers, then approaches gently.
+	join Ben (half) center
+	Conrad: Hey, Ben. You okay?
+	Ben looks up, surprised but relieved.
+	Ben: Conrad. Actually... I've been struggling with something.
+	Ben: My friend asked me to cover for him during practice. Said he needs to skip for something important.
+	Ben: But I know the coach will ask me directly if he was there. And I don't want to lie.
+	Conrad: So you're torn between helping your friend and being honest.
+	Ben: Exactly. What would you do?
+	Conrad pauses. Old Conrad might have told him the answer.
+	New Conrad understands better.
+	Conrad: I can't make that choice for you, Ben. It's yours to make.
+	Conrad: But I can help you think through it.
+	Conrad: What happens if you lie for him? What happens if you refuse?
+	Conrad: What values matter most to you? Loyalty? Honesty?
+	Ben thinks carefully.
+	Ben: I... I think I need to tell him I can't lie for him. But I can help him figure out another way.
+	Ben: Maybe we can talk to the coach together, explain why he needs to miss practice.
+	Conrad: That sounds like a solution that respects both honesty and friendship.
+	Ben: Thanks, Conrad. I just needed to talk it through.
+	Ben walks away, looking more confident.
+	leave Ben
+	Mark: You did it. You didn't solve his problem for him.
+	Mark: You helped him solve it himself.
+	Conrad: That's the lesson B.C. taught me. People grow when they make their own choices.
+	Conrad: I can guide. I can ask questions. But the choice is theirs.
 join Alice (half) center
 Alice approaches, looking curious.
-Alice: Conrad, I heard you helped solve four major cases this year.
-Alice: The exam theft, the missing fund, the broken sculpture, and the journal incident.
-Alice: How did you do it? What's your secret?
-Conrad: No secret. Just observation, evidence, and trying to understand people.
-Conrad: Every mystery is really about understanding why people make the choices they do.
-Alice: So you're like... a detective psychologist?
-Conrad: Maybe. Or maybe just someone trying to help.
-Alice: Could you teach me? How to observe like you do?
-Conrad considers. B.C. taught him through experience, not lectures.
-Conrad: I can't teach you directly. But I can suggest something.
-Conrad: Pay attention. Really look at what's around you. Listen when people speak.
-Conrad: Try to understand motivations, not just actions.
-Conrad: And when you see someone struggling, ask yourself: What are they really afraid of? What do they really need?
-Alice: That's... simpler than I expected. But harder to actually do.
-Conrad: Exactly. The best lessons are like that.
-Alice: Thanks, Conrad. I'll try.
-leave Alice
-leave Mark
-Conrad stands alone for a moment, watching students move through the courtyard.
-Each one carrying their own struggles, making their own choices.
+if {selected_character} == "celestine":
+	Alice: Celestine, I heard you helped solve four major cases this year.
+	Alice: The exam theft, the missing fund, the broken sculpture, and the journal incident.
+	Alice: How did you do it? What's your secret?
+	Celestine: No secret. Just observation, evidence, and trying to understand people.
+	Celestine: Every mystery is really about understanding why people make the choices they do.
+	Alice: So you're like... a detective psychologist?
+	Celestine: Maybe. Or maybe just someone trying to help.
+	Alice: Could you teach me? How to observe like you do?
+	Celestine considers. B.C. taught her through experience, not lectures.
+	Celestine: I can't teach you directly. But I can suggest something.
+	Celestine: Pay attention. Really look at what's around you. Listen when people speak.
+	Celestine: Try to understand motivations, not just actions.
+	Celestine: And when you see someone struggling, ask yourself: What are they really afraid of? What do they really need?
+	Alice: That's... simpler than I expected. But harder to actually do.
+	Celestine: Exactly. The best lessons are like that.
+	Alice: Thanks, Celestine. I'll try.
+	leave Alice
+	leave Mark
+	Celestine stands alone for a moment, watching students move through the courtyard.
+	Each one carrying their own struggles, making their own choices.
+else:
+	Alice: Conrad, I heard you helped solve four major cases this year.
+	Alice: The exam theft, the missing fund, the broken sculpture, and the journal incident.
+	Alice: How did you do it? What's your secret?
+	Conrad: No secret. Just observation, evidence, and trying to understand people.
+	Conrad: Every mystery is really about understanding why people make the choices they do.
+	Alice: So you're like... a detective psychologist?
+	Conrad: Maybe. Or maybe just someone trying to help.
+	Alice: Could you teach me? How to observe like you do?
+	Conrad considers. B.C. taught him through experience, not lectures.
+	Conrad: I can't teach you directly. But I can suggest something.
+	Conrad: Pay attention. Really look at what's around you. Listen when people speak.
+	Conrad: Try to understand motivations, not just actions.
+	Conrad: And when you see someone struggling, ask yourself: What are they really afraid of? What do they really need?
+	Alice: That's... simpler than I expected. But harder to actually do.
+	Conrad: Exactly. The best lessons are like that.
+	Alice: Thanks, Conrad. I'll try.
+	leave Alice
+	leave Mark
+	Conrad stands alone for a moment, watching students move through the courtyard.
+	Each one carrying their own struggles, making their own choices.
 join "Diwata Laya" (Half) center
 [signal arg="laya_start"]
 "Diwata Laya" appears, her expression proud.
-"Diwata Laya": [i][color=#9999ff]You have completed your transformation, Conrad.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]Student. Detective. Guide. Teacher.[/color][/i]
-"Conrad (Thinking)": It doesn't feel like an ending. It feels like a beginning.
-"Diwata Laya": [i][color=#9999ff]That is wisdom. Recognizing that growth never truly ends.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]Each lesson completed opens the door to new lessons.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]B.C.'s chain has transformed into your own path.[/color][/i]
-"Conrad (Thinking)": Will you stay with me? Keep guiding me?
-"Diwata Laya": [i][color=#9999ff]Always. But you will need my guidance less and less.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]You are becoming what you were meant to be.[/color][/i]
+if {selected_character} == "celestine":
+	"Diwata Laya": [i][color=#9999ff]You have completed your transformation, Celestine.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]Student. Detective. Guide. Teacher.[/color][/i]
+	"Celestine (Thinking)": It doesn't feel like an ending. It feels like a beginning.
+	"Diwata Laya": [i][color=#9999ff]That is wisdom. Recognizing that growth never truly ends.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]Each lesson completed opens the door to new lessons.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]B.C.'s chain has transformed into your own path.[/color][/i]
+	"Celestine (Thinking)": Will you stay with me? Keep guiding me?
+	"Diwata Laya": [i][color=#9999ff]Always. But you will need my guidance less and less.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]You are becoming what you were meant to be.[/color][/i]
+else:
+	"Diwata Laya": [i][color=#9999ff]You have completed your transformation, Conrad.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]Student. Detective. Guide. Teacher.[/color][/i]
+	"Conrad (Thinking)": It doesn't feel like an ending. It feels like a beginning.
+	"Diwata Laya": [i][color=#9999ff]That is wisdom. Recognizing that growth never truly ends.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]Each lesson completed opens the door to new lessons.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]B.C.'s chain has transformed into your own path.[/color][/i]
+	"Conrad (Thinking)": Will you stay with me? Keep guiding me?
+	"Diwata Laya": [i][color=#9999ff]Always. But you will need my guidance less and less.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]You are becoming what you were meant to be.[/color][/i]
 [signal arg="laya_end"]
 leave "Diwata Laya"
 [background arg="res://Bg/hallway.png" fade="1.0"]
-Conrad returns to his locker, pulling out his notebook.
-Inside are the five B.C. cards, carefully preserved.
-Truth. Responsibility. Creativity. Wisdom. Choice.
-join Conrad (half) center
-Conrad: Five lessons. Five mysteries. Five transformations.
-He pulls out a blank cream-colored card he prepared himself.
-Conrad carefully writes on it in precise handwriting, echoing B.C.'s style.
-Conrad: "To future students: Look beneath the surface. Understand before judging. Guide without controlling."
-Conrad: "The chain continues, but it is yours to shape. - C"
-He places his own card with B.C.'s cards.
-Conrad: The student has become the teacher. The chain transforms.
-set {conrad_level} = 10
-[signal arg="show_level_up"]
-Conrad: But the journey doesn't end. It never ends.
-Conrad: There will always be mysteries. Always people needing help.
-Conrad: And I'll be there. Not as B.C. was - patient and hidden.
-Conrad: But as myself. Conrad. A student who learned to guide others.
-leave Conrad
+if {selected_character} == "celestine":
+	Celestine returns to her locker, pulling out her notebook.
+	Inside are the five B.C. cards, carefully preserved.
+	Truth. Responsibility. Creativity. Wisdom. Choice.
+	join Celestine (animated) center
+	Celestine: Five lessons. Five mysteries. Five transformations.
+	She pulls out a blank cream-colored card she prepared herself.
+	Celestine carefully writes on it in precise handwriting, echoing B.C.'s style.
+	Celestine: "To future students: Look beneath the surface. Understand before judging. Guide without controlling."
+	Celestine: "The chain continues, but it is yours to shape. - C"
+	She places her own card with B.C.'s cards.
+	Celestine: The student has become the teacher. The chain transforms.
+	Celestine: But the journey doesn't end. It never ends.
+	Celestine: There will always be mysteries. Always people needing help.
+	Celestine: And I'll be there. Not as B.C. was - patient and hidden.
+	Celestine: But as myself. Celestine. A student who learned to guide others.
+	leave Celestine
+else:
+	Conrad returns to his locker, pulling out his notebook.
+	Inside are the five B.C. cards, carefully preserved.
+	Truth. Responsibility. Creativity. Wisdom. Choice.
+	join Conrad (half) center
+	Conrad: Five lessons. Five mysteries. Five transformations.
+	He pulls out a blank cream-colored card he prepared himself.
+	Conrad carefully writes on it in precise handwriting, echoing B.C.'s style.
+	Conrad: "To future students: Look beneath the surface. Understand before judging. Guide without controlling."
+	Conrad: "The chain continues, but it is yours to shape. - C"
+	He places his own card with B.C.'s cards.
+	Conrad: The student has become the teacher. The chain transforms.
+	Conrad: But the journey doesn't end. It never ends.
+	Conrad: There will always be mysteries. Always people needing help.
+	Conrad: And I'll be there. Not as B.C. was - patient and hidden.
+	Conrad: But as myself. Conrad. A student who learned to guide others.
+	leave Conrad
 [wait time="1.0"]
 [background arg="res://Bg/courtyard.png" fade="2.0"]
 The school continues its rhythm. Students laugh, study, struggle, and grow.
-And somewhere among them, Conrad watches. Learns. Helps.
-[wait time="1.0"]
-The chain that began with mysterious cards has transformed.
-B.C.'s lessons have taken root in a new generation.
-Truth. Responsibility. Creativity. Wisdom. Choice.
-Five lessons that will guide Conrad for the rest of his life.
-And through him, guide countless others.
-[wait time="1.5"]
-The mystery is solved. The teacher revealed. The lessons learned.
-But the story doesn't end.
-It transforms.
-Into something new.
-Something Conrad will write with his own choices.
-His own wisdom.
-His own compassion.
+if {selected_character} == "celestine":
+	And somewhere among them, Celestine watches. Learns. Helps.
+	[wait time="1.0"]
+	The chain that began with mysterious cards has transformed.
+	B.C.'s lessons have taken root in a new generation.
+	Truth. Responsibility. Creativity. Wisdom. Choice.
+	Five lessons that will guide Celestine for the rest of her life.
+	And through her, guide countless others.
+	[wait time="1.5"]
+	The mystery is solved. The teacher revealed. The lessons learned.
+	But the story doesn't end.
+	It transforms.
+	Into something new.
+	Something Celestine will write with her own choices.
+	Her own wisdom.
+	Her own compassion.
+else:
+	And somewhere among them, Conrad watches. Learns. Helps.
+	[wait time="1.0"]
+	The chain that began with mysterious cards has transformed.
+	B.C.'s lessons have taken root in a new generation.
+	Truth. Responsibility. Creativity. Wisdom. Choice.
+	Five lessons that will guide Conrad for the rest of his life.
+	And through him, guide countless others.
+	[wait time="1.5"]
+	The mystery is solved. The teacher revealed. The lessons learned.
+	But the story doesn't end.
+	It transforms.
+	Into something new.
+	Something Conrad will write with his own choices.
+	His own wisdom.
+	His own compassion.
 [wait time="1.0"]
 The chain continues.
+[signal arg="show_chapter_results"]
 [end_timeline]

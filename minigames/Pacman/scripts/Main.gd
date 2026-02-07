@@ -38,8 +38,10 @@ var enemy_objects = []
 var obstacle_objects = []
 var power_pellet_objects = []
 var score = 0
+var lives = 3  # Player starts with 3 lives
 var game_over = false
 var is_configured = false
+var is_respawning = false  # Prevent multiple hits during respawn
 
 # Player tracking
 var last_player_position = Vector2.ZERO
@@ -77,8 +79,8 @@ var global_teleport_cooldown = 0.0
 const GLOBAL_TELEPORT_COOLDOWN = 2.5  # Time between any ghost teleporting
 
 func _ready():
-	if not is_configured:
-		start_game()
+	# Don't start game yet - wait for configure_puzzle()
+	pass
 
 func configure_puzzle(config: Dictionary) -> void:
 	if config.has("questions"):
@@ -90,6 +92,8 @@ func start_game():
 	game_over = false
 	current_question = 0
 	score = 0
+	lives = 3  # Reset lives to 3
+	is_respawning = false
 	combo_count = 0
 	combo_timer = 0.0
 	difficulty_multiplier = 1.0
@@ -104,6 +108,7 @@ func start_game():
 	spawn_enemies()
 	load_question()
 	_update_combo_display()
+	_update_lives_display()
 
 func spawn_player():
 	if player != null and is_instance_valid(player):
@@ -258,9 +263,9 @@ func _create_power_pellet() -> Area2D:
 	glow.polygon = glow_points
 	pellet.add_child(glow)
 
-	# Pulsing animation - use a looping tween with explicit loop count
+	# Pulsing animation - use a high loop count instead of infinite to avoid detection issues
 	var tween = create_tween()
-	tween.set_loops(0)  # 0 means infinite but handled properly
+	tween.set_loops(999)  # Very high number, effectively infinite for gameplay
 	tween.tween_property(visual, "scale", Vector2(1.2, 1.2), 0.5)
 	tween.tween_property(visual, "scale", Vector2(1.0, 1.0), 0.5)
 	# Store tween reference to stop it when pellet is freed
@@ -339,6 +344,7 @@ func load_question():
 	var q = questions[current_question]
 	$UI/QuestionLabel.text = q.question
 	$UI/ScoreLabel.text = "Score: " + str(score)
+	_update_lives_display()
 
 	var all_answers = q.wrong.duplicate()
 	all_answers.append(q.correct)
@@ -438,9 +444,56 @@ func _on_enemy_hit():
 					_show_floating_text("+2", Color(0.3, 0.5, 1.0))
 					return
 
-	if invincible:
+	if invincible or is_respawning:
 		return
-	show_game_over()
+
+	# Player got hit - lose a life
+	lives -= 1
+	_update_lives_display()
+
+	# Visual feedback
+	_flash_screen(Color(1, 0, 0, 0.6))
+	_show_floating_text("-1 Life", Color.RED)
+	_screen_shake()
+
+	if lives <= 0:
+		# No more lives - game over
+		show_game_over()
+	else:
+		# Still have lives - respawn at center
+		respawn_player()
+
+func respawn_player():
+	"""Respawn player at center after losing a life"""
+	is_respawning = true
+
+	# Make player invisible briefly
+	if is_instance_valid(player):
+		player.visible = false
+
+	# Brief pause
+	await get_tree().create_timer(0.5).timeout
+
+	# Respawn at center
+	if is_instance_valid(player):
+		var screen_size = get_viewport_rect().size
+		player.position = screen_size / 2
+		player.visible = true
+
+		# Give brief invincibility after respawn
+		invincible = true
+		invincibility_timer = 2.0  # 2 seconds of invincibility
+		player.modulate = Color(1.0, 1.0, 1.0, 0.5)  # Semi-transparent during invincibility
+
+		# Show respawn message
+		_show_floating_text("Respawned!", Color(0.5, 0.8, 1.0))
+
+	is_respawning = false
+
+func _update_lives_display():
+	"""Update the lives counter in the UI"""
+	if has_node("UI/LivesLabel"):
+		$UI/LivesLabel.text = "Lives: " + str(lives)
 
 func show_game_over():
 	game_over = true

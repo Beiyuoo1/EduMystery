@@ -1,77 +1,148 @@
 [background arg="res://Bg/classroom.png" fade="1.0"]
-Principal B.C. stands near the arrangement Conrad created, examining each symbolic representation.
+if {selected_character} == "celestine":
+	Principal B.C. stands near the arrangement Celestine created, examining each symbolic representation.
+else:
+	Principal B.C. stands near the arrangement Conrad created, examining each symbolic representation.
 join Principal (half) center
-join Conrad (half) left
+if {selected_character} == "celestine":
+	join Celestine (animated) left
+else:
+	join Conrad (half) left
 join Mark (Mark_half) right
 Principal: Let me tell you about each case from my perspective.
 Principal: Not as the Principal handling discipline, but as B.C., observing lessons unfold.
 Principal picks up the chalk evidence.
 Principal: Greg Santos. Brilliant student, crushing parental pressure.
 Principal: I knew about his struggles weeks before the exam theft. I'd spoken to his parents, seen his declining grades.
-Conrad: You knew he was at risk of cheating?
-Principal: I knew he was under enormous stress. But I couldn't prevent him from making his own choice.
-Principal: That's the key, Conrad. I could have intensified surveillance, made cheating impossible.
-Principal: But then he wouldn't have learned anything.  He would have just resented the system.
-Conrad: So you let it happen?
-Principal: I didn't "let" it happen. I simply didn't rob him of his agency.
-Principal: Greg chose to cheat. You chose to investigate. He chose to confess.
-Principal: Each choice led to growth. His, and yours.
-Principal: The lesson of Truth emerged naturally from those choices.
-Principal moves to the budget papers arranged in a maze.
-Principal: Ria. Desperate to help her family, tempted by accessible funds.
-Mark: You knew she took the money?
-Principal: Not immediately. But when it went missing, I suspected. Her family situation was dire.
-Principal: I could have accused her directly. Demanded an immediate confession.
-Conrad: But that would have shamed her without helping her understand why it was wrong.
-Principal: Exactly. Instead, you investigated. You understood her desperation.
-Principal: You helped her see that there were other ways to help her family. Legal ways.
-Principal: The lesson of Responsibility came through understanding, not punishment.
-Principal touches the art supplies and photo.
-Principal: Victor. Talented but overshadowed. Jealous and invisible.
-Principal: I watched him struggle for years. Saw his technical skill grow while his emotional expression stagnated.
-Conrad: You knew he'd eventually lash out?
-Principal: I knew his pain would find an outlet. But I didn't know what form it would take.
-Principal: When Mia's sculpture was destroyed, I was saddened but not surprised.
-Principal: Victor needed to hit bottom before he could rebuild himself with heart instead of just technique.
-Principal: The lesson of Creativity - that art is about connection, not competition - had to come from his own mistake.
-Finally, Principal picks up the journal.
-Principal: And Alex. Finding that old journal was... serendipitous.
-Principal: I'd almost forgotten it was still in the archive.
-Conrad: You knew the educator who wrote it?
-Principal: I was that educator's student, years ago.
-Principal: They taught me about observation, about challenging students to think.
-Principal: But they also taught me, through their mistakes, about the dangers of manipulation.
-Principal: When Alex found the journal and began using it, I saw history repeating.
-Principal: But this time, you were there to teach her what I learned the hard way.
-Principal: The lesson of Wisdom - that knowledge requires ethical use - closed a circle decades in the making.
-Conrad steps forward, understanding dawning.
-Conrad: You didn't cause any of these events. You observed human nature.
-Conrad: You saw students struggling with moral choices and let them make those choices.
-Conrad: Then you guided me to help them learn from the consequences.
-Principal: Yes. That's the philosophy of B.C.
-Principal: True teaching isn't control. It's creating space for discovery.
+if {selected_character} == "celestine":
+	Celestine: You knew he was at risk of cheating?
+	Principal: I knew he was under enormous stress. But I couldn't prevent him from making his own choice.
+	Principal: That's the key, Celestine. I could have intensified surveillance, made cheating impossible.
+	Principal: But then he wouldn't have learned anything.  He would have just resented the system.
+	Celestine: So you let it happen?
+	Principal: I didn't "let" it happen. I simply didn't rob him of his agency.
+	Principal: Greg chose to cheat. You chose to investigate. He chose to confess.
+	Principal: Each choice led to growth. His, and yours.
+	Principal: The lesson of Truth emerged naturally from those choices.
+	Principal moves to the budget papers arranged in a maze.
+	Principal: Ria. Desperate to help her family, tempted by accessible funds.
+	Mark: You knew she took the money?
+	Principal: Not immediately. But when it went missing, I suspected. Her family situation was dire.
+	Principal: I could have accused her directly. Demanded an immediate confession.
+	Celestine: But that would have shamed her without helping her understand why it was wrong.
+	Principal: Exactly. Instead, you investigated. You understood her desperation.
+	Principal: You helped her see that there were other ways to help her family. Legal ways.
+	Principal: The lesson of Responsibility came through understanding, not punishment.
+	Principal touches the art supplies and photo.
+	Principal: Victor. Talented but overshadowed. Jealous and invisible.
+	Principal: I watched him struggle for years. Saw his technical skill grow while his emotional expression stagnated.
+	Celestine: You knew he'd eventually lash out?
+	Principal: I knew his pain would find an outlet. But I didn't know what form it would take.
+	Principal: When Mia's sculpture was destroyed, I was saddened but not surprised.
+	Principal: Victor needed to hit bottom before he could rebuild himself with heart instead of just technique.
+	Principal: The lesson of Creativity - that art is about connection, not competition - had to come from his own mistake.
+	Finally, Principal picks up the journal.
+	Principal: And Alex. Finding that old journal was... serendipitous.
+	Principal: I'd almost forgotten it was still in the archive.
+	Celestine: You knew the educator who wrote it?
+	Principal: I was that educator's student, years ago.
+	Principal: They taught me about observation, about challenging students to think.
+	Principal: But they also taught me, through their mistakes, about the dangers of manipulation.
+	Principal: When Alex found the journal and began using it, I saw history repeating.
+	Principal: But this time, you were there to teach her what I learned the hard way.
+	Principal: The lesson of Wisdom - that knowledge requires ethical use - closed a circle decades in the making.
+	Celestine steps forward, understanding dawning.
+	Celestine: You didn't cause any of these events. You observed human nature.
+	Celestine: You saw students struggling with moral choices and let them make those choices.
+	Celestine: Then you guided me to help them learn from the consequences.
+	Principal: Yes. That's the philosophy of B.C.
+	Principal: True teaching isn't control. It's creating space for discovery.
+else:
+	Conrad: You knew he was at risk of cheating?
+	Principal: I knew he was under enormous stress. But I couldn't prevent him from making his own choice.
+	Principal: That's the key, Conrad. I could have intensified surveillance, made cheating impossible.
+	Principal: But then he wouldn't have learned anything.  He would have just resented the system.
+	Conrad: So you let it happen?
+	Principal: I didn't "let" it happen. I simply didn't rob him of his agency.
+	Principal: Greg chose to cheat. You chose to investigate. He chose to confess.
+	Principal: Each choice led to growth. His, and yours.
+	Principal: The lesson of Truth emerged naturally from those choices.
+	Principal moves to the budget papers arranged in a maze.
+	Principal: Ria. Desperate to help her family, tempted by accessible funds.
+	Mark: You knew she took the money?
+	Principal: Not immediately. But when it went missing, I suspected. Her family situation was dire.
+	Principal: I could have accused her directly. Demanded an immediate confession.
+	Conrad: But that would have shamed her without helping her understand why it was wrong.
+	Principal: Exactly. Instead, you investigated. You understood her desperation.
+	Principal: You helped her see that there were other ways to help her family. Legal ways.
+	Principal: The lesson of Responsibility came through understanding, not punishment.
+	Principal touches the art supplies and photo.
+	Principal: Victor. Talented but overshadowed. Jealous and invisible.
+	Principal: I watched him struggle for years. Saw his technical skill grow while his emotional expression stagnated.
+	Conrad: You knew he'd eventually lash out?
+	Principal: I knew his pain would find an outlet. But I didn't know what form it would take.
+	Principal: When Mia's sculpture was destroyed, I was saddened but not surprised.
+	Principal: Victor needed to hit bottom before he could rebuild himself with heart instead of just technique.
+	Principal: The lesson of Creativity - that art is about connection, not competition - had to come from his own mistake.
+	Finally, Principal picks up the journal.
+	Principal: And Alex. Finding that old journal was... serendipitous.
+	Principal: I'd almost forgotten it was still in the archive.
+	Conrad: You knew the educator who wrote it?
+	Principal: I was that educator's student, years ago.
+	Principal: They taught me about observation, about challenging students to think.
+	Principal: But they also taught me, through their mistakes, about the dangers of manipulation.
+	Principal: When Alex found the journal and began using it, I saw history repeating.
+	Principal: But this time, you were there to teach her what I learned the hard way.
+	Principal: The lesson of Wisdom - that knowledge requires ethical use - closed a circle decades in the making.
+	Conrad steps forward, understanding dawning.
+	Conrad: You didn't cause any of these events. You observed human nature.
+	Conrad: You saw students struggling with moral choices and let them make those choices.
+	Conrad: Then you guided me to help them learn from the consequences.
+	Principal: Yes. That's the philosophy of B.C.
+	Principal: True teaching isn't control. It's creating space for discovery.
 join "Diwata Laya" (Half) rightmost
 [signal arg="laya_start"]
 "Diwata Laya": [i][color=#9999ff]You respect free will above all else. That is wisdom.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]Conrad has learned this too. He helps others learn from their choices, not by forcing them to change.[/color][/i]
-Principal: Diwata Laya understands. As do you, Conrad, though perhaps you haven't articulated it yet.
-"Conrad (Thinking)": I've become a teacher. Like B.C. Like Laya.
-"Conrad (Thinking)": Not by lecturing people, but by helping them understand their own experiences.
-"Diwata Laya": [i][color=#9999ff]The student has become the guide. The circle completes.[/color][/i]
-[signal arg="laya_end"]
-leave "Diwata Laya"
-Principal: There's one more lesson, Conrad. The most important one.
-Principal: Are you ready to learn it?
-Conrad nods solemnly.
-Conrad: I am.
-Principal: Then let's review what you've learned. To see it clearly, you must reflect deeply.
-[signal arg="start_minigame curriculum:fillinblank"]
-Principal: Good. Your mind sees the connections now.
-Principal: Each lesson built on the last. Truth, Responsibility, Creativity, Wisdom.
-Principal: But they all serve one greater principle.
-Conrad: Choice. Free will. The power to decide who we become.
-Principal: Exactly. Are you ready for the final lesson?
-leave Conrad
+if {selected_character} == "celestine":
+	"Diwata Laya": [i][color=#9999ff]Celestine has learned this too. She helps others learn from their choices, not by forcing them to change.[/color][/i]
+	Principal: Diwata Laya understands. As do you, Celestine, though perhaps you haven't articulated it yet.
+	"Celestine (Thinking)": I've become a teacher. Like B.C. Like Laya.
+	"Celestine (Thinking)": Not by lecturing people, but by helping them understand their own experiences.
+	"Diwata Laya": [i][color=#9999ff]The student has become the guide. The circle completes.[/color][/i]
+	[signal arg="laya_end"]
+	leave "Diwata Laya"
+	Principal: There's one more lesson, Celestine. The most important one.
+	Principal: Are you ready to learn it?
+	Celestine nods solemnly.
+	Celestine: I am.
+	Principal: Then let's review what you've learned. To see it clearly, you must reflect deeply.
+	[signal arg="start_minigame curriculum:fillinblank"]
+	Principal: Good. Your mind sees the connections now.
+	Principal: Each lesson built on the last. Truth, Responsibility, Creativity, Wisdom.
+	Principal: But they all serve one greater principle.
+	Celestine: Choice. Free will. The power to decide who we become.
+	Principal: Exactly. Are you ready for the final lesson?
+	leave Celestine
+else:
+	"Diwata Laya": [i][color=#9999ff]Conrad has learned this too. He helps others learn from their choices, not by forcing them to change.[/color][/i]
+	Principal: Diwata Laya understands. As do you, Conrad, though perhaps you haven't articulated it yet.
+	"Conrad (Thinking)": I've become a teacher. Like B.C. Like Laya.
+	"Conrad (Thinking)": Not by lecturing people, but by helping them understand their own experiences.
+	"Diwata Laya": [i][color=#9999ff]The student has become the guide. The circle completes.[/color][/i]
+	[signal arg="laya_end"]
+	leave "Diwata Laya"
+	Principal: There's one more lesson, Conrad. The most important one.
+	Principal: Are you ready to learn it?
+	Conrad nods solemnly.
+	Conrad: I am.
+	Principal: Then let's review what you've learned. To see it clearly, you must reflect deeply.
+	[signal arg="start_minigame curriculum:fillinblank"]
+	Principal: Good. Your mind sees the connections now.
+	Principal: Each lesson built on the last. Truth, Responsibility, Creativity, Wisdom.
+	Principal: But they all serve one greater principle.
+	Conrad: Choice. Free will. The power to decide who we become.
+	Principal: Exactly. Are you ready for the final lesson?
+	leave Conrad
 leave Mark
 leave Principal
 jump c5s4/

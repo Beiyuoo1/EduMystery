@@ -3,157 +3,299 @@ set {c3s2_reyes_tried} = false
 set {c3s2_outsider_tried} = false
 The art room is filled with half-finished canvases and clay-dusted tables.
 Ms. Reyes, the art teacher, sorts through supplies with trembling hands.
-join Conrad (half) left
-join "Ms Reyes" (half) right
-"Ms Reyes": This is devastating. Art Week was supposed to celebrate our students' creativity.
-"Ms Reyes": Now all anyone will remember is the destruction.
-Conrad: Ms. Reyes, I'm trying to find out who did this. Can you help me understand the situation?
-"Ms Reyes" sets down the brushes she was holding.
-"Ms Reyes": I'll tell you what I know. Ask me anything.
-Conrad: Tell me about Mia's sculpture. Why was it the centerpiece?
-"Ms Reyes": Because it was extraordinary. Mia poured her heart into that piece.
-"Ms Reyes": She won the regional competition last month. The judges called it "emotionally transcendent."
-"Ms Reyes": For a high school student to create something so moving... it's rare.
-Conrad: Did anyone have a problem with Mia winning?
-"Ms Reyes" hesitates, glancing toward the door.
-"Ms Reyes": Art is competitive. There's always... tension when one student excels.
-Conrad: Anyone specific?
-"Ms Reyes": Victor Lim. He's incredibly talented. Technically, he might even be better than Mia.
-"Ms Reyes": But his work lacks... soul. It's precise but cold.
-"Ms Reyes": He entered the same competition. Didn't even place.
-Conrad: How did he take it?
-"Ms Reyes": He didn't say much. But I've seen him staring at Mia's sculpture.
-"Ms Reyes": Not with admiration. With something darker.
-Conrad: Where can I find Victor?
-"Ms Reyes": He should be in the courtyard, setting up his display. He insisted on being part of Art Week despite... well.
-Conrad: Despite what?
-"Ms Reyes": His sculpture wasn't selected for the main exhibit. The committee felt it was technically impressive but lacked emotional resonance.
-"Ms Reyes": He took it personally.
-Conrad: Thank you, Ms. Reyes. This helps.
-leave "Ms Reyes"
-join Mark (Mark_half) right
-Mark: So we have a jealous rival who got rejected from the exhibit?
-Conrad: Motive and opportunity. But we need more than that.
-Conrad: Let's talk to Victor.
-leave Conrad
-leave Mark
+if {selected_character} == "celestine":
+	join Celestine (half) left
+	join "Ms Reyes" (half) right
+	"Ms Reyes": This is devastating. Art Week was supposed to celebrate our students' creativity.
+	"Ms Reyes": Now all anyone will remember is the destruction.
+	Celestine: Ms. Reyes, I'm trying to find out who did this. Can you help me understand the situation?
+	"Ms Reyes" sets down the brushes she was holding.
+	"Ms Reyes": I'll tell you what I know. Ask me anything.
+	Celestine: Tell me about Mia's sculpture. Why was it the centerpiece?
+	"Ms Reyes": Because it was extraordinary. Mia poured her heart into that piece.
+	"Ms Reyes": She won the regional competition last month. The judges called it "emotionally transcendent."
+	"Ms Reyes": For a high school student to create something so moving... it's rare.
+	Celestine: Did anyone have a problem with Mia winning?
+	"Ms Reyes" hesitates, glancing toward the door.
+	"Ms Reyes": Art is competitive. There's always... tension when one student excels.
+	Celestine: Anyone specific?
+	"Ms Reyes": Victor Lim. He's incredibly talented. Technically, he might even be better than Mia.
+	"Ms Reyes": But his work lacks... soul. It's precise but cold.
+	"Ms Reyes": He entered the same competition. Didn't even place.
+	Celestine: How did he take it?
+	"Ms Reyes": He didn't say much. But I've seen him staring at Mia's sculpture.
+	"Ms Reyes": Not with admiration. With something darker.
+	Celestine: Where can I find Victor?
+	"Ms Reyes": He should be in the courtyard, setting up his display. He insisted on being part of Art Week despite... well.
+	Celestine: Despite what?
+	"Ms Reyes": His sculpture wasn't selected for the main exhibit. The committee felt it was technically impressive but lacked emotional resonance.
+	"Ms Reyes": He took it personally.
+	Celestine: Thank you, Ms. Reyes. This helps.
+	leave "Ms Reyes"
+	join Mark (Mark_half) right
+	Mark: So we have a jealous rival who got rejected from the exhibit?
+	Celestine: Motive and opportunity. But we need more than that.
+	Celestine: Let's talk to Victor.
+	leave Celestine
+	leave Mark
+else:
+	join Conrad (half) left
+	join "Ms Reyes" (half) right
+	"Ms Reyes": This is devastating. Art Week was supposed to celebrate our students' creativity.
+	"Ms Reyes": Now all anyone will remember is the destruction.
+	Conrad: Ms. Reyes, I'm trying to find out who did this. Can you help me understand the situation?
+	"Ms Reyes" sets down the brushes she was holding.
+	"Ms Reyes": I'll tell you what I know. Ask me anything.
+	Conrad: Tell me about Mia's sculpture. Why was it the centerpiece?
+	"Ms Reyes": Because it was extraordinary. Mia poured her heart into that piece.
+	"Ms Reyes": She won the regional competition last month. The judges called it "emotionally transcendent."
+	"Ms Reyes": For a high school student to create something so moving... it's rare.
+	Conrad: Did anyone have a problem with Mia winning?
+	"Ms Reyes" hesitates, glancing toward the door.
+	"Ms Reyes": Art is competitive. There's always... tension when one student excels.
+	Conrad: Anyone specific?
+	"Ms Reyes": Victor Lim. He's incredibly talented. Technically, he might even be better than Mia.
+	"Ms Reyes": But his work lacks... soul. It's precise but cold.
+	"Ms Reyes": He entered the same competition. Didn't even place.
+	Conrad: How did he take it?
+	"Ms Reyes": He didn't say much. But I've seen him staring at Mia's sculpture.
+	"Ms Reyes": Not with admiration. With something darker.
+	Conrad: Where can I find Victor?
+	"Ms Reyes": He should be in the courtyard, setting up his display. He insisted on being part of Art Week despite... well.
+	Conrad: Despite what?
+	"Ms Reyes": His sculpture wasn't selected for the main exhibit. The committee felt it was technically impressive but lacked emotional resonance.
+	"Ms Reyes": He took it personally.
+	Conrad: Thank you, Ms. Reyes. This helps.
+	leave "Ms Reyes"
+	join Mark (Mark_half) right
+	Mark: So we have a jealous rival who got rejected from the exhibit?
+	Conrad: Motive and opportunity. But we need more than that.
+	Conrad: Let's talk to Victor.
+	leave Conrad
+	leave Mark
 [background arg="res://Bg/courtyard.png" fade="1.0"]
 Victor stands near a small display at the edge of the courtyard, arms crossed.
 His sculpture - a geometric abstract piece - sits ignored while crowds gather near the crime scene.
-join Conrad (half) left
-join Victor (half) right
-Victor's eyes narrow as Conrad approaches.
-Victor: Let me guess. You're here to accuse me.
-Conrad: I'm here to ask questions. Everyone is a potential witness.
-Victor: Witness? I wasn't anywhere near the courtyard last night.
-Conrad: I didn't mention when it happened.
-Victor's jaw tightens.
-Victor: It's obvious. The sculpture was fine yesterday. Destroyed this morning. Basic logic.
-Conrad: You seem upset.
-Victor: Of course I'm upset. Everyone's making this about Mia. "Poor Mia, her beautiful sculpture."
-Victor: No one even looks at my work. No one ever does.
-Conrad: Your sculpture is technically impressive.
-Victor scoffs.
-Victor: "Technically impressive." That's what they always say. Right before they give the award to someone else.
-Victor: Do you know how many hours I practice? How many techniques I've mastered?
-Victor: And Mia just... feels her way through it. No discipline. No rigor.
-Victor: Yet everyone loves her work and ignores mine.
-Conrad: That sounds frustrating.
-Victor: Frustrating doesn't begin to cover it.
-Victor uncrosses his arms, stepping closer.
-Victor: But I didn't destroy her sculpture. I'm not a criminal.
-Victor: Besides, I was home all night. Ask my parents.
-Conrad: We might do that.
-Victor: You do that.
-Victor turns back to his ignored display.
-Victor: Now leave me alone. Some of us have actual art to show.
-leave Victor
-join Mark (Mark_half) right
-Mark: He's bitter. Really bitter.
-Conrad: Bitter enough to destroy Mia's sculpture?
-Mark: He says he was home, but that alibi needs verification.
-Conrad: Let's gather more evidence before we confront anyone.
-join "Diwata Laya" (Half_mirror) center
-[signal arg="laya_start"]
-"Diwata Laya": Before you proceed, sharpen your investigative skills.
-[signal arg="start_minigame curriculum:pacman"]
-"Diwata Laya": Your instincts are keen.
-[signal arg="laya_end"]
-leave "Diwata Laya"
-Mark: What are you thinking?
-Conrad: The paint-stained cloth. If we can match it to Victor's supplies...
-Conrad: And the note. The handwriting might tell us something.
-leave Conrad
-leave Mark
+if {selected_character} == "celestine":
+	join Celestine (half) left
+	join Victor (half) right
+	Victor's eyes narrow as Celestine approaches.
+	Victor: Let me guess. You're here to accuse me.
+	Celestine: I'm here to ask questions. Everyone is a potential witness.
+	Victor: Witness? I wasn't anywhere near the courtyard last night.
+	Celestine: I didn't mention when it happened.
+	Victor's jaw tightens.
+	Victor: It's obvious. The sculpture was fine yesterday. Destroyed this morning. Basic logic.
+	Celestine: You seem upset.
+	Victor: Of course I'm upset. Everyone's making this about Mia. "Poor Mia, her beautiful sculpture."
+	Victor: No one even looks at my work. No one ever does.
+	Celestine: Your sculpture is technically impressive.
+	Victor scoffs.
+	Victor: "Technically impressive." That's what they always say. Right before they give the award to someone else.
+	Victor: Do you know how many hours I practice? How many techniques I've mastered?
+	Victor: And Mia just... feels her way through it. No discipline. No rigor.
+	Victor: Yet everyone loves her work and ignores mine.
+	Celestine: That sounds frustrating.
+	Victor: Frustrating doesn't begin to cover it.
+	Victor uncrosses his arms, stepping closer.
+	Victor: But I didn't destroy her sculpture. I'm not a criminal.
+	Victor: Besides, I was home all night. Ask my parents.
+	Celestine: We might do that.
+	Victor: You do that.
+	Victor turns back to his ignored display.
+	Victor: Now leave me alone. Some of us have actual art to show.
+	leave Victor
+	join Mark (Mark_half) right
+	Mark: He's bitter. Really bitter.
+	Celestine: Bitter enough to destroy Mia's sculpture?
+	Mark: He says he was home, but that alibi needs verification.
+	Celestine: Let's gather more evidence before we confront anyone.
+	Mark: What are you thinking?
+	Celestine: The paint-stained cloth. If we can match it to Victor's supplies...
+	Celestine: And the note. The handwriting might tell us something.
+	leave Celestine
+	leave Mark
+else:
+	join Conrad (half) left
+	join Victor (half) right
+	Victor's eyes narrow as Conrad approaches.
+	Victor: Let me guess. You're here to accuse me.
+	Conrad: I'm here to ask questions. Everyone is a potential witness.
+	Victor: Witness? I wasn't anywhere near the courtyard last night.
+	Conrad: I didn't mention when it happened.
+	Victor's jaw tightens.
+	Victor: It's obvious. The sculpture was fine yesterday. Destroyed this morning. Basic logic.
+	Conrad: You seem upset.
+	Victor: Of course I'm upset. Everyone's making this about Mia. "Poor Mia, her beautiful sculpture."
+	Victor: No one even looks at my work. No one ever does.
+	Conrad: Your sculpture is technically impressive.
+	Victor scoffs.
+	Victor: "Technically impressive." That's what they always say. Right before they give the award to someone else.
+	Victor: Do you know how many hours I practice? How many techniques I've mastered?
+	Victor: And Mia just... feels her way through it. No discipline. No rigor.
+	Victor: Yet everyone loves her work and ignores mine.
+	Conrad: That sounds frustrating.
+	Victor: Frustrating doesn't begin to cover it.
+	Victor uncrosses his arms, stepping closer.
+	Victor: But I didn't destroy her sculpture. I'm not a criminal.
+	Victor: Besides, I was home all night. Ask my parents.
+	Conrad: We might do that.
+	Victor: You do that.
+	Victor turns back to his ignored display.
+	Victor: Now leave me alone. Some of us have actual art to show.
+	leave Victor
+	join Mark (Mark_half) right
+	Mark: He's bitter. Really bitter.
+	Conrad: Bitter enough to destroy Mia's sculpture?
+	Mark: He says he was home, but that alibi needs verification.
+	Conrad: Let's gather more evidence before we confront anyone.
+	Mark: What are you thinking?
+	Conrad: The paint-stained cloth. If we can match it to Victor's supplies...
+	Conrad: And the note. The handwriting might tell us something.
+	leave Conrad
+	leave Mark
 [background arg="res://Bg/courtyard.png" fade="0.5"]
-Conrad returns to where he found Mia.
-She's sitting on a bench, staring at the spot where her sculpture once stood.
-join Conrad (half) left
-join Mia (half) right
-Conrad: Mia, can I ask you a few more questions?
-Mia: Of course. Anything to help find who did this.
-Conrad: Did you have any conflicts with other students? Anyone who might wish you harm?
-Mia thinks carefully.
-Mia: I try to get along with everyone. I don't... I don't understand competition.
-Mia: Art isn't about winning. It's about expressing what's inside you.
-Conrad: What about Victor Lim?
-Mia's expression softens with sadness.
-Mia: Victor is talented. Really talented.
-Mia: But he's always so focused on being better than everyone else.
-Mia: He once told me I "got lucky" with my regional win. That the judges didn't understand "real" technique.
-Conrad: How did that make you feel?
-Mia: Sad. Not for me. For him.
-Mia: He works so hard, but he's working for the wrong reasons.
-Mia: Art should come from love, not from wanting to be superior.
-Conrad: Do you think Victor could have done this?
-Mia hesitates.
-Mia: I... I don't want to accuse anyone. But the note...
-Mia: "Not everyone deserves to shine." That sounds like something someone says when they feel overlooked.
-Mia: Victor always felt overlooked.
-Conrad: Thank you, Mia. I'm going to find the truth.
-join "Diwata Laya" (Half) leftmost
-[signal arg="laya_start"]
-"Diwata Laya" materializes beside Conrad, her form shimmering faintly.
-"Diwata Laya": [i][color=#9999ff]Conrad. May I see the note?[/color][/i]
-Conrad passes it to her discretely, careful not to draw attention.
-"Diwata Laya" holds the paper gently, closing her eyes.
-"Diwata Laya": [i][color=#9999ff]I sense... pain. Deep, festering pain.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]The person who wrote this has been hurting for a long time.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]They didn't destroy that sculpture out of hate. They destroyed it out of desperation.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]They believed this was the only way anyone would see them.[/color][/i]
-"Conrad (Thinking)": That's tragic.
-"Diwata Laya": [i][color=#9999ff]It is. But tragedy does not excuse the harm they caused.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]Find them, Conrad. Not to punish, but to understand.[/color][/i]
-[signal arg="laya_end"]
-leave "Diwata Laya"
-leave Mia
-join Mark (Mark_half) right
+if {selected_character} == "celestine":
+	Celestine returns to where she found Mia.
+	She's sitting on a bench, staring at the spot where her sculpture once stood.
+	join Celestine (half) left
+	join Mia (half) right
+	Celestine: Mia, can I ask you a few more questions?
+	Mia: Of course. Anything to help find who did this.
+	Celestine: Did you have any conflicts with other students? Anyone who might wish you harm?
+	Mia thinks carefully.
+	Mia: I try to get along with everyone. I don't... I don't understand competition.
+	Mia: Art isn't about winning. It's about expressing what's inside you.
+	Celestine: What about Victor Lim?
+	Mia's expression softens with sadness.
+	Mia: Victor is talented. Really talented.
+	Mia: But he's always so focused on being better than everyone else.
+	Mia: He once told me I "got lucky" with my regional win. That the judges didn't understand "real" technique.
+	Celestine: How did that make you feel?
+	Mia: Sad. Not for me. For him.
+	Mia: He works so hard, but he's working for the wrong reasons.
+	Mia: Art should come from love, not from wanting to be superior.
+	Celestine: Do you think Victor could have done this?
+	Mia hesitates.
+	Mia: I... I don't want to accuse anyone. But the note...
+	Mia: "Not everyone deserves to shine." That sounds like something someone says when they feel overlooked.
+	Mia: Victor always felt overlooked.
+	Celestine: Thank you, Mia. I'm going to find the truth.
+	join "Diwata Laya" (Half) leftmost
+	[signal arg="laya_start"]
+	"Diwata Laya" materializes beside Celestine, her form shimmering faintly.
+	"Diwata Laya": [i][color=#9999ff]Celestine. May I see the note?[/color][/i]
+	Celestine passes it to her discretely, careful not to draw attention.
+	"Diwata Laya" holds the paper gently, closing her eyes.
+	"Diwata Laya": [i][color=#9999ff]I sense... pain. Deep, festering pain.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]The person who wrote this has been hurting for a long time.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]They didn't destroy that sculpture out of hate. They destroyed it out of desperation.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]They believed this was the only way anyone would see them.[/color][/i]
+	"Celestine (Thinking)": That's tragic.
+	"Diwata Laya": [i][color=#9999ff]It is. But tragedy does not excuse the harm they caused.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]Find them, Celestine. Not to punish, but to understand.[/color][/i]
+	[signal arg="laya_end"]
+	leave "Diwata Laya"
+	leave Mia
+	join Mark (Mark_half) right
+else:
+	Conrad returns to where he found Mia.
+	She's sitting on a bench, staring at the spot where her sculpture once stood.
+	join Conrad (half) left
+	join Mia (half) right
+	Conrad: Mia, can I ask you a few more questions?
+	Mia: Of course. Anything to help find who did this.
+	Conrad: Did you have any conflicts with other students? Anyone who might wish you harm?
+	Mia thinks carefully.
+	Mia: I try to get along with everyone. I don't... I don't understand competition.
+	Mia: Art isn't about winning. It's about expressing what's inside you.
+	Conrad: What about Victor Lim?
+	Mia's expression softens with sadness.
+	Mia: Victor is talented. Really talented.
+	Mia: But he's always so focused on being better than everyone else.
+	Mia: He once told me I "got lucky" with my regional win. That the judges didn't understand "real" technique.
+	Conrad: How did that make you feel?
+	Mia: Sad. Not for me. For him.
+	Mia: He works so hard, but he's working for the wrong reasons.
+	Mia: Art should come from love, not from wanting to be superior.
+	Conrad: Do you think Victor could have done this?
+	Mia hesitates.
+	Mia: I... I don't want to accuse anyone. But the note...
+	Mia: "Not everyone deserves to shine." That sounds like something someone says when they feel overlooked.
+	Mia: Victor always felt overlooked.
+	Conrad: Thank you, Mia. I'm going to find the truth.
+	join "Diwata Laya" (Half) leftmost
+	[signal arg="laya_start"]
+	"Diwata Laya" materializes beside Conrad, her form shimmering faintly.
+	"Diwata Laya": [i][color=#9999ff]Conrad. May I see the note?[/color][/i]
+	Conrad passes it to her discretely, careful not to draw attention.
+	"Diwata Laya" holds the paper gently, closing her eyes.
+	"Diwata Laya": [i][color=#9999ff]I sense... pain. Deep, festering pain.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]The person who wrote this has been hurting for a long time.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]They didn't destroy that sculpture out of hate. They destroyed it out of desperation.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]They believed this was the only way anyone would see them.[/color][/i]
+	"Conrad (Thinking)": That's tragic.
+	"Diwata Laya": [i][color=#9999ff]It is. But tragedy does not excuse the harm they caused.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]Find them, Conrad. Not to punish, but to understand.[/color][/i]
+	[signal arg="laya_end"]
+	leave "Diwata Laya"
+	leave Mia
+	join Mark (Mark_half) right
 label suspect_choice
-Conrad: Based on what we've learned, who should we focus on?
-- Ms. Reyes might be covering for a student she favors. [if {c3s2_reyes_tried} == false]
-	set {c3s2_reyes_tried} = true
-	[signal arg="wrong_choice"]
-	set {chapter3_score} -= 5
-	Conrad: No. Ms. Reyes was genuinely distressed about the damage.
-	Conrad: She has no motive to destroy her own student's work. And she pointed us toward Victor herself.
-	Conrad: If she wanted to protect him, she wouldn't have mentioned his resentment.
-	jump suspect_choice
-- An outsider vandal who hates the school. [if {c3s2_outsider_tried} == false]
-	set {c3s2_outsider_tried} = true
-	[signal arg="wrong_choice"]
-	set {chapter3_score} -= 5
-	Conrad: The note says "Not everyone deserves to shine." That's personal.
-	Conrad: An outsider wouldn't care about who "deserves" recognition at our school.
-	Conrad: This was done by someone who feels overlooked. Someone inside.
-	jump suspect_choice
-- Victor. He has motive, knowledge, and the emotional connection to this crime.
-	set {chapter3_score} += 10
-	Conrad: Victor resents Mia's success. He was rejected from the exhibit.
-	Conrad: He has access to the school and knows where the sculpture was displayed.
-	Conrad: And the note reflects exactly what he's been expressing: feeling invisible while Mia shines.
-Mark: So what do we do?
-Conrad: We need hard evidence. The paint cloth, the note's handwriting, anything that proves Victor was there.
-Conrad: Let's check the art room storage.
-leave Conrad
-leave Mark
+if {selected_character} == "celestine":
+	Celestine: Based on what we've learned, who should we focus on?
+	- Ms. Reyes might be covering for a student she favors. | [if {c3s2_reyes_tried} == false]
+		set {c3s2_reyes_tried} = true
+		[signal arg="wrong_choice"]
+		set {chapter3_score} -= 5
+		Celestine: No. Ms. Reyes was genuinely distressed about the damage.
+		Celestine: She has no motive to destroy her own student's work. And she pointed us toward Victor herself.
+		Celestine: If she wanted to protect him, she wouldn't have mentioned his resentment.
+		jump suspect_choice
+	- An outsider vandal who hates the school. | [if {c3s2_outsider_tried} == false]
+		set {c3s2_outsider_tried} = true
+		[signal arg="wrong_choice"]
+		set {chapter3_score} -= 5
+		Celestine: The note says "Not everyone deserves to shine." That's personal.
+		Celestine: An outsider wouldn't care about who "deserves" recognition at our school.
+		Celestine: This was done by someone who feels overlooked. Someone inside.
+		jump suspect_choice
+	- Victor. He has motive, knowledge, and the emotional connection to this crime.
+		set {chapter3_score} += 10
+		Celestine: Victor resents Mia's success. He was rejected from the exhibit.
+		Celestine: He has access to the school and knows where the sculpture was displayed.
+		Celestine: And the note reflects exactly what he's been expressing\: feeling invisible while Mia shines.
+	Mark: So what do we do?
+	Celestine: We need hard evidence. The paint cloth, the note's handwriting, anything that proves Victor was there.
+	Celestine: Let's check the art room storage.
+	leave Celestine
+	leave Mark
+else:
+	Conrad: Based on what we've learned, who should we focus on?
+	- Ms. Reyes might be covering for a student she favors. | [if {c3s2_reyes_tried} == false]
+		set {c3s2_reyes_tried} = true
+		[signal arg="wrong_choice"]
+		set {chapter3_score} -= 5
+		Conrad: No. Ms. Reyes was genuinely distressed about the damage.
+		Conrad: She has no motive to destroy her own student's work. And she pointed us toward Victor herself.
+		Conrad: If she wanted to protect him, she wouldn't have mentioned his resentment.
+		jump suspect_choice
+	- An outsider vandal who hates the school. | [if {c3s2_outsider_tried} == false]
+		set {c3s2_outsider_tried} = true
+		[signal arg="wrong_choice"]
+		set {chapter3_score} -= 5
+		Conrad: The note says "Not everyone deserves to shine." That's personal.
+		Conrad: An outsider wouldn't care about who "deserves" recognition at our school.
+		Conrad: This was done by someone who feels overlooked. Someone inside.
+		jump suspect_choice
+	- Victor. He has motive, knowledge, and the emotional connection to this crime.
+		set {chapter3_score} += 10
+		Conrad: Victor resents Mia's success. He was rejected from the exhibit.
+		Conrad: He has access to the school and knows where the sculpture was displayed.
+		Conrad: And the note reflects exactly what he's been expressing\: feeling invisible while Mia shines.
+	Mark: So what do we do?
+	Conrad: We need hard evidence. The paint cloth, the note's handwriting, anything that proves Victor was there.
+	Conrad: Let's check the art room storage.
+	leave Conrad
+	leave Mark
 jump c3s3/

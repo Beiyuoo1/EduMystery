@@ -322,61 +322,86 @@ var questions = {
 	},
 
 	# =========================================================================
-	# SCIENCE - Philippine SHS Earth Science & Physical Science Curriculum
+	# SCIENCE - Philippine SHS Physical Science Curriculum (Physics Focus)
 	# =========================================================================
 	"science": {
-		# Q1: Earth's Structure, Plate Tectonics
+		# Q1: Motion and Forces (Kinematics, Newton's Laws)
 		"Q1": {
 			"pacman": {
 				"questions": [
 					{
-						"question": "The Earth's outermost layer is the?",
-						"correct": "Crust",
-						"wrong": ["Mantle", "Core", "Magma"]
+						"question": "Speed is distance divided by?",
+						"correct": "Time",
+						"wrong": ["Mass", "Force", "Velocity"]
 					},
 					{
-						"question": "What causes earthquakes?",
-						"correct": "Plate movement",
-						"wrong": ["Rain", "Wind", "Gravity"]
+						"question": "The SI unit of force is?",
+						"correct": "Newton",
+						"wrong": ["Joule", "Watt", "Meter"]
 					},
 					{
-						"question": "The center of Earth is the?",
-						"correct": "Core",
-						"wrong": ["Crust", "Mantle", "Surface"]
+						"question": "Acceleration is the rate of change of?",
+						"correct": "Velocity",
+						"wrong": ["Distance", "Speed", "Position"]
 					},
 					{
-						"question": "Pangaea was a?",
-						"correct": "Supercontinent",
-						"wrong": ["Ocean", "Mountain", "Volcano"]
+						"question": "An object at rest stays at rest unless acted upon by?",
+						"correct": "Force",
+						"wrong": ["Speed", "Time", "Mass"]
+					},
+					{
+						"question": "Mass times acceleration equals?",
+						"correct": "Force",
+						"wrong": ["Velocity", "Power", "Energy"]
+					},
+					{
+						"question": "Free fall acceleration on Earth is?",
+						"correct": "10 m/s²",
+						"wrong": ["5 m/s²", "20 m/s²", "1 m/s²"]
+					},
+					{
+						"question": "Velocity includes speed and?",
+						"correct": "Direction",
+						"wrong": ["Mass", "Time", "Force"]
+					},
+					{
+						"question": "Newton's first law is also called law of?",
+						"correct": "Inertia",
+						"wrong": ["Motion", "Gravity", "Action"]
 					}
 				]
 			},
 			"runner": {
 				"questions": [
 					{
-						"question": "Tectonic plates float on the?",
-						"correct": "Asthenosphere",
-						"wrong": ["Crust", "Core", "Ocean"]
+						"question": "If a car accelerates from 0 to 20 m/s in 5s, acceleration is?",
+						"correct": "4 m/s²",
+						"wrong": ["5 m/s²", "20 m/s²", "2 m/s²"]
 					},
 					{
-						"question": "The Ring of Fire is in which ocean?",
-						"correct": "Pacific",
-						"wrong": ["Atlantic", "Indian", "Arctic"]
+						"question": "A 5 kg object accelerates at 2 m/s². Force applied?",
+						"correct": "10 N",
+						"wrong": ["5 N", "7 N", "20 N"]
 					},
 					{
-						"question": "What instrument measures earthquakes?",
-						"correct": "Seismograph",
-						"wrong": ["Thermometer", "Barometer", "Compass"]
+						"question": "Friction always opposes?",
+						"correct": "Motion",
+						"wrong": ["Gravity", "Time", "Mass"]
 					},
 					{
-						"question": "Magma that reaches surface becomes?",
-						"correct": "Lava",
-						"wrong": ["Rock", "Water", "Gas"]
+						"question": "Action and reaction forces are?",
+						"correct": "Equal and opposite",
+						"wrong": ["Same direction", "Unequal", "Zero"]
 					},
 					{
-						"question": "Continental drift was proposed by?",
-						"correct": "Wegener",
-						"wrong": ["Newton", "Einstein", "Darwin"]
+						"question": "Terminal velocity occurs when air resistance equals?",
+						"correct": "Weight",
+						"wrong": ["Mass", "Speed", "Time"]
+					},
+					{
+						"question": "Momentum is mass times?",
+						"correct": "Velocity",
+						"wrong": ["Acceleration", "Force", "Time"]
 					}
 				],
 				"answers_needed": 4
@@ -384,121 +409,176 @@ var questions = {
 			"maze": {
 				"questions": [
 					{
-						"question": "The Richter scale measures earthquake?",
-						"correct": "Magnitude",
-						"wrong": ["Location", "Duration", "Depth"]
+						"question": "Newton's 2nd Law formula is?",
+						"correct": "F = ma",
+						"wrong": ["F = mv", "F = ma²", "F = m/a"]
 					},
 					{
-						"question": "Oceanic crust is mostly?",
-						"correct": "Basalt",
-						"wrong": ["Granite", "Sandstone", "Marble"]
+						"question": "Velocity formula is?",
+						"correct": "v = d/t",
+						"wrong": ["v = dt", "v = t/d", "v = d²/t"]
 					},
 					{
-						"question": "Convergent boundaries create?",
-						"correct": "Mountains",
-						"wrong": ["Valleys", "Rivers", "Plains"]
+						"question": "Acceleration formula is?",
+						"correct": "a = Δv/t",
+						"wrong": ["a = vt", "a = v/d", "a = t/v"]
 					},
 					{
-						"question": "Divergent boundaries create new?",
-						"correct": "Crust",
-						"wrong": ["Mountains", "Trenches", "Islands"]
+						"question": "Which law explains rocket propulsion?",
+						"correct": "3rd Law",
+						"wrong": ["1st Law", "2nd Law", "Gravity"]
 					},
 					{
-						"question": "The lithosphere includes crust and upper?",
-						"correct": "Mantle",
-						"wrong": ["Core", "Ocean", "Atmosphere"]
+						"question": "Momentum is conserved in?",
+						"correct": "Collisions",
+						"wrong": ["Friction", "Gravity", "Acceleration"]
 					}
 				]
 			},
 			"platformer": {
 				"questions": [
 					{
-						"question": "How many major tectonic plates exist?",
-						"correct": "7",
-						"wrong": ["3", "10", "20"]
+						"question": "Constant velocity means acceleration is?",
+						"correct": "Zero",
+						"wrong": ["Positive", "Negative", "Infinite"]
 					},
 					{
-						"question": "The Philippines is on which plate?",
-						"correct": "Philippine",
-						"wrong": ["Pacific", "Eurasian", "Australian"]
+						"question": "Greater mass means greater?",
+						"correct": "Inertia",
+						"wrong": ["Speed", "Velocity", "Time"]
 					},
 					{
-						"question": "P-waves are also called?",
-						"correct": "Primary",
-						"wrong": ["Secondary", "Surface", "Deep"]
+						"question": "Objects in free fall have constant?",
+						"correct": "Acceleration",
+						"wrong": ["Velocity", "Position", "Mass"]
 					},
 					{
-						"question": "S-waves cannot travel through?",
-						"correct": "Liquids",
-						"wrong": ["Solids", "Air", "Rock"]
+						"question": "Net force of zero means?",
+						"correct": "Equilibrium",
+						"wrong": ["Acceleration", "Motion", "Friction"]
 					}
 				],
 				"answers_needed": 3
 			},
 			"fillinblank": {
 				"sentence_parts": [
-					"The theory of ", " explains how continents move across Earth's ", "."
+					"Newton's second law states that ", " equals mass times ", "."
 				],
-				"answers": ["plate tectonics", "surface"],
+				"answers": ["force", "acceleration"],
 				"choices": [
-					"plate tectonics", "continental drift", "surface", "core",
-					"evolution", "gravity", "mantle", "crust"
+					"force", "velocity", "acceleration", "speed",
+					"momentum", "energy", "power", "mass"
 				]
+			},
+			"math": {
+				"questions": [
+					{
+						"question": "A 5 kg object accelerates at 2 m/s². What is the force?",
+						"correct": "10 N",
+						"wrong": ["5 N", "7 N", "20 N"]
+					},
+					{
+						"question": "If velocity changes from 0 to 20 m/s in 5s, what is acceleration?",
+						"correct": "4 m/s²",
+						"wrong": ["5 m/s²", "20 m/s²", "2 m/s²"]
+					},
+					{
+						"question": "Calculate velocity: distance = 100m, time = 20s",
+						"correct": "5 m/s",
+						"wrong": ["2 m/s", "10 m/s", "20 m/s"]
+					},
+					{
+						"question": "A 10 kg object accelerates at 3 m/s². Force?",
+						"correct": "30 N",
+						"wrong": ["10 N", "13 N", "3 N"]
+					},
+					{
+						"question": "Momentum = mass × velocity. If m=4kg, v=5m/s, momentum?",
+						"correct": "20 kg·m/s",
+						"wrong": ["9 kg·m/s", "1 kg·m/s", "25 kg·m/s"]
+					}
+				],
+				"time_per_question": 20.0
 			}
 		},
 
-		# Q2: Weather, Climate, Natural Hazards
+		# Q2: Work, Energy, and Power
 		"Q2": {
 			"pacman": {
 				"questions": [
 					{
-						"question": "What layer of atmosphere has weather?",
-						"correct": "Troposphere",
-						"wrong": ["Stratosphere", "Mesosphere", "Thermosphere"]
+						"question": "Work is force times?",
+						"correct": "Distance",
+						"wrong": ["Time", "Mass", "Velocity"]
 					},
 					{
-						"question": "Typhoons form over warm?",
-						"correct": "Ocean",
-						"wrong": ["Land", "Mountains", "Desert"]
+						"question": "The SI unit of work is?",
+						"correct": "Joule",
+						"wrong": ["Newton", "Watt", "Meter"]
 					},
 					{
-						"question": "Climate is weather over?",
-						"correct": "Long time",
-						"wrong": ["One day", "One week", "One hour"]
+						"question": "The SI unit of power is?",
+						"correct": "Watt",
+						"wrong": ["Joule", "Newton", "Meter"]
 					},
 					{
-						"question": "The ozone layer is in the?",
-						"correct": "Stratosphere",
-						"wrong": ["Troposphere", "Mesosphere", "Core"]
+						"question": "Energy stored due to position is?",
+						"correct": "Potential",
+						"wrong": ["Kinetic", "Thermal", "Chemical"]
+					},
+					{
+						"question": "Energy of motion is?",
+						"correct": "Kinetic",
+						"wrong": ["Potential", "Thermal", "Chemical"]
+					},
+					{
+						"question": "50N force pushes box 6m. Work done?",
+						"correct": "300 J",
+						"wrong": ["250 J", "350 J", "200 J"]
+					},
+					{
+						"question": "Machine does 600J work in 5s. Power?",
+						"correct": "120 W",
+						"wrong": ["100 W", "150 W", "80 W"]
+					},
+					{
+						"question": "2 kg object lifted 8m (g=10). Potential energy?",
+						"correct": "160 J",
+						"wrong": ["140 J", "180 J", "120 J"]
 					}
 				]
 			},
 			"runner": {
 				"questions": [
 					{
-						"question": "El Nino causes what in Philippines?",
-						"correct": "Drought",
-						"wrong": ["Floods", "Snow", "Earthquakes"]
+						"question": "Energy cannot be created or destroyed, only?",
+						"correct": "Transformed",
+						"wrong": ["Lost", "Gained", "Stopped"]
 					},
 					{
-						"question": "La Nina causes what in Philippines?",
-						"correct": "More rain",
-						"wrong": ["Drought", "Heat wave", "Tsunami"]
+						"question": "A 3 kg object moves at 4 m/s. Kinetic energy?",
+						"correct": "24 J",
+						"wrong": ["12 J", "48 J", "16 J"]
 					},
 					{
-						"question": "Greenhouse gases trap?",
+						"question": "Spring k=200 N/m stretched 0.05m. Force?",
+						"correct": "10 N",
+						"wrong": ["8 N", "12 N", "15 N"]
+					},
+					{
+						"question": "Efficiency is output energy divided by?",
+						"correct": "Input energy",
+						"wrong": ["Time", "Power", "Force"]
+					},
+					{
+						"question": "Friction converts mechanical energy to?",
 						"correct": "Heat",
-						"wrong": ["Water", "Light", "Sound"]
+						"wrong": ["Light", "Sound", "Potential"]
 					},
 					{
-						"question": "What causes a tsunami?",
-						"correct": "Underwater earthquake",
-						"wrong": ["Strong wind", "Rain", "High tide"]
-					},
-					{
-						"question": "PAGASA monitors weather in?",
-						"correct": "Philippines",
-						"wrong": ["Japan", "USA", "China"]
+						"question": "Power is work divided by?",
+						"correct": "Time",
+						"wrong": ["Force", "Distance", "Mass"]
 					}
 				],
 				"answers_needed": 4
@@ -506,121 +586,176 @@ var questions = {
 			"maze": {
 				"questions": [
 					{
-						"question": "Global warming is caused by?",
-						"correct": "Greenhouse gases",
-						"wrong": ["Ozone", "Oxygen", "Nitrogen"]
+						"question": "Work formula is?",
+						"correct": "W = Fd",
+						"wrong": ["W = Ft", "W = F/d", "W = mv"]
 					},
 					{
-						"question": "Carbon dioxide is a greenhouse?",
-						"correct": "Gas",
-						"wrong": ["Liquid", "Solid", "Plasma"]
+						"question": "Power formula is?",
+						"correct": "P = W/t",
+						"wrong": ["P = Wt", "P = F/t", "P = mv"]
 					},
 					{
-						"question": "Typhoon signal 4 means winds over?",
-						"correct": "185 kph",
-						"wrong": ["100 kph", "61 kph", "250 kph"]
+						"question": "Kinetic energy formula is?",
+						"correct": "KE = ½mv²",
+						"wrong": ["KE = mv", "KE = mv²", "KE = ½m²v"]
 					},
 					{
-						"question": "Landslides are triggered by?",
-						"correct": "Heavy rain",
-						"wrong": ["Drought", "Sunshine", "Cold"]
+						"question": "Gravitational PE formula is?",
+						"correct": "PE = mgh",
+						"wrong": ["PE = mgh²", "PE = mg", "PE = ½mgh"]
 					},
 					{
-						"question": "Flash floods occur in?",
-						"correct": "Minutes",
-						"wrong": ["Days", "Weeks", "Months"]
+						"question": "The law of conservation of energy states energy is?",
+						"correct": "Constant",
+						"wrong": ["Increasing", "Decreasing", "Zero"]
 					}
 				]
 			},
 			"platformer": {
 				"questions": [
 					{
-						"question": "Humidity measures water vapor in?",
-						"correct": "Air",
-						"wrong": ["Soil", "Ocean", "Rock"]
+						"question": "Spring force is proportional to?",
+						"correct": "Stretch",
+						"wrong": ["Mass", "Time", "Speed"]
 					},
 					{
-						"question": "Rain gauge measures?",
-						"correct": "Rainfall",
-						"wrong": ["Wind", "Temperature", "Pressure"]
+						"question": "Higher height means higher stored?",
+						"correct": "PE",
+						"wrong": ["KE", "Momentum", "Velocity"]
 					},
 					{
-						"question": "Anemometer measures?",
-						"correct": "Wind speed",
-						"wrong": ["Rainfall", "Temperature", "Humidity"]
+						"question": "Doubling speed increases KE by factor of?",
+						"correct": "Four",
+						"wrong": ["Two", "Three", "Eight"]
 					},
 					{
-						"question": "Barometer measures?",
-						"correct": "Air pressure",
-						"wrong": ["Wind", "Rain", "Humidity"]
+						"question": "At the highest point, a thrown ball has maximum?",
+						"correct": "PE",
+						"wrong": ["KE", "Speed", "Momentum"]
 					}
 				],
 				"answers_needed": 3
 			},
 			"fillinblank": {
 				"sentence_parts": [
-					"Climate ", " is the long-term shift in global ", " patterns."
+					"The law of conservation of ", " states that energy cannot be created or ", "."
 				],
-				"answers": ["change", "weather"],
+				"answers": ["energy", "destroyed"],
 				"choices": [
-					"change", "weather", "temperature", "pressure",
-					"shift", "pattern", "warming", "cooling"
+					"energy", "power", "destroyed", "transformed",
+					"mass", "force", "created", "lost"
 				]
+			},
+			"math": {
+				"questions": [
+					{
+						"question": "Object lifted 5m with 20N force. Work done?",
+						"correct": "100 J",
+						"wrong": ["25 J", "120 J", "80 J"]
+					},
+					{
+						"question": "4 kg object moves at 5 m/s. Kinetic energy?",
+						"correct": "50 J",
+						"wrong": ["20 J", "100 J", "25 J"]
+					},
+					{
+						"question": "Machine does 600J work in 5s. Power?",
+						"correct": "120 W",
+						"wrong": ["100 W", "150 W", "80 W"]
+					},
+					{
+						"question": "2 kg object lifted 8m (g=10). Potential energy?",
+						"correct": "160 J",
+						"wrong": ["140 J", "180 J", "120 J"]
+					},
+					{
+						"question": "5 kg object at 6 m/s. KE?",
+						"correct": "90 J",
+						"wrong": ["30 J", "180 J", "60 J"]
+					}
+				],
+				"time_per_question": 20.0
 			}
 		},
 
-		# Q3: Biology, Genetics
+		# Q3: Physics - Electricity, Magnetism, Waves
 		"Q3": {
 			"pacman": {
 				"questions": [
 					{
-						"question": "The basic unit of life is the?",
-						"correct": "Cell",
-						"wrong": ["Atom", "Organ", "Tissue"]
+						"question": "4Ω and 6Ω resistors in series. Equivalent resistance?",
+						"correct": "10 Ω",
+						"wrong": ["8 Ω", "12 Ω", "5 Ω"]
 					},
 					{
-						"question": "DNA stands for deoxyribonucleic?",
-						"correct": "Acid",
-						"wrong": ["Base", "Sugar", "Protein"]
+						"question": "Wave frequency 5Hz, wavelength 3m. Speed?",
+						"correct": "15 m/s",
+						"wrong": ["12 m/s", "18 m/s", "10 m/s"]
 					},
 					{
-						"question": "Mitochondria produce?",
-						"correct": "Energy",
-						"wrong": ["Protein", "DNA", "Water"]
+						"question": "Which shows particle nature of light?",
+						"correct": "Photoelectric effect",
+						"wrong": ["Interference", "Refraction", "Diffraction"]
 					},
 					{
-						"question": "Photosynthesis occurs in?",
-						"correct": "Chloroplasts",
-						"wrong": ["Mitochondria", "Nucleus", "Ribosome"]
+						"question": "Device uses 10A current at 24V. Power?",
+						"correct": "240 W",
+						"wrong": ["200 W", "280 W", "180 W"]
+					},
+					{
+						"question": "Charge 12C passes in 3 seconds. Current?",
+						"correct": "4 A",
+						"wrong": ["3 A", "5 A", "6 A"]
+					},
+					{
+						"question": "Device has V=12V and I=2A. Power?",
+						"correct": "24 W",
+						"wrong": ["20 W", "28 W", "18 W"]
+					},
+					{
+						"question": "Wave frequency 12Hz, wavelength 2.5m. Speed?",
+						"correct": "30 m/s",
+						"wrong": ["25 m/s", "35 m/s", "20 m/s"]
+					},
+					{
+						"question": "Charge q=2C moves at 3 m/s perpendicular to 0.5T field. Force?",
+						"correct": "3 N",
+						"wrong": ["2 N", "4 N", "5 N"]
 					}
 				]
 			},
 			"runner": {
 				"questions": [
 					{
-						"question": "Genes are made of?",
-						"correct": "DNA",
-						"wrong": ["Protein", "Carbs", "Fat"]
+						"question": "Sound source moves toward observer. Observed frequency?",
+						"correct": "Higher",
+						"wrong": ["Lower", "Same", "Zero"]
 					},
 					{
-						"question": "How many chromosomes do humans have?",
-						"correct": "46",
-						"wrong": ["23", "48", "92"]
+						"question": "Water flows faster in pipe. Pressure becomes?",
+						"correct": "Decreases",
+						"wrong": ["Increases", "Same", "Zero"]
 					},
 					{
-						"question": "Dominant traits need how many alleles?",
-						"correct": "One",
-						"wrong": ["Two", "Three", "None"]
+						"question": "Particle momentum increases. Wavelength?",
+						"correct": "Decreases",
+						"wrong": ["Increases", "Same", "Zero"]
 					},
 					{
-						"question": "Recessive traits need how many alleles?",
-						"correct": "Two",
-						"wrong": ["One", "Three", "None"]
+						"question": "In series, resistors add so total resistance?",
+						"correct": "Increases",
+						"wrong": ["Decreases", "Same", "Zero"]
 					},
 					{
-						"question": "Gregor Mendel studied?",
-						"correct": "Pea plants",
-						"wrong": ["Fruit flies", "Mice", "Bacteria"]
+						"question": "Light transfers energy in packets called?",
+						"correct": "Photons",
+						"wrong": ["Waves", "Particles", "Rays"]
+					},
+					{
+						"question": "Electric power is energy per?",
+						"correct": "Second",
+						"wrong": ["Minute", "Hour", "Meter"]
 					}
 				],
 				"answers_needed": 4
@@ -628,121 +763,176 @@ var questions = {
 			"maze": {
 				"questions": [
 					{
-						"question": "RNA differs from DNA by having?",
-						"correct": "Uracil",
-						"wrong": ["Thymine", "Adenine", "Cytosine"]
+						"question": "Ohm's Law formula is?",
+						"correct": "V = IR",
+						"wrong": ["V = I/R", "V = R/I", "V = I²R"]
 					},
 					{
-						"question": "Mitosis produces how many cells?",
-						"correct": "2",
-						"wrong": ["4", "1", "8"]
+						"question": "Electric power formula is?",
+						"correct": "P = VI",
+						"wrong": ["P = V/I", "P = I/V", "P = VR"]
 					},
 					{
-						"question": "Meiosis produces how many cells?",
-						"correct": "4",
-						"wrong": ["2", "1", "8"]
+						"question": "Wave speed formula is?",
+						"correct": "v = fλ",
+						"wrong": ["v = f/λ", "v = λ/f", "v = f²λ"]
 					},
 					{
-						"question": "The nucleus contains?",
-						"correct": "DNA",
-						"wrong": ["ATP", "Enzymes", "Water"]
+						"question": "Current formula is?",
+						"correct": "I = Q/t",
+						"wrong": ["I = Qt", "I = t/Q", "I = Q²/t"]
 					},
 					{
-						"question": "Proteins are made by?",
-						"correct": "Ribosomes",
-						"wrong": ["Nucleus", "Mitochondria", "Vacuole"]
+						"question": "Magnetic force formula is?",
+						"correct": "F = qvB",
+						"wrong": ["F = qv/B", "F = qB/v", "F = q²vB"]
 					}
 				]
 			},
 			"platformer": {
 				"questions": [
 					{
-						"question": "A = T and G = C is called base?",
-						"correct": "Pairing",
-						"wrong": ["Matching", "Coding", "Binding"]
+						"question": "Maximum magnetic force occurs when motion is?",
+						"correct": "Perpendicular",
+						"wrong": ["Parallel", "Diagonal", "Random"]
 					},
 					{
-						"question": "XX chromosomes indicate?",
-						"correct": "Female",
-						"wrong": ["Male", "Unknown", "Hybrid"]
+						"question": "Moving toward observer: waves compress and frequency?",
+						"correct": "Increases",
+						"wrong": ["Decreases", "Same", "Zero"]
 					},
 					{
-						"question": "XY chromosomes indicate?",
-						"correct": "Male",
-						"wrong": ["Female", "Unknown", "Hybrid"]
+						"question": "Faster fluid speed means pressure?",
+						"correct": "Decreases",
+						"wrong": ["Increases", "Same", "Zero"]
 					},
 					{
-						"question": "Genotype refers to?",
-						"correct": "Genes",
-						"wrong": ["Appearance", "Behavior", "Environment"]
+						"question": "Current is charge flow per?",
+						"correct": "Second",
+						"wrong": ["Minute", "Meter", "Volt"]
 					}
 				],
 				"answers_needed": 3
 			},
 			"fillinblank": {
 				"sentence_parts": [
-					"", " is the physical expression of genes, while genotype is the ", " makeup."
+					"Wave ", " depends on frequency times ", "."
 				],
-				"answers": ["Phenotype", "genetic"],
+				"answers": ["speed", "wavelength"],
 				"choices": [
-					"Phenotype", "Genotype", "genetic", "physical",
-					"DNA", "RNA", "protein", "trait"
+					"speed", "frequency", "wavelength", "amplitude",
+					"period", "velocity", "distance", "time"
 				]
+			},
+			"math": {
+				"questions": [
+					{
+						"question": "4Ω and 6Ω resistors in series. Equivalent resistance?",
+						"correct": "10 Ω",
+						"wrong": ["8 Ω", "12 Ω", "5 Ω"]
+					},
+					{
+						"question": "Wave frequency 5Hz, wavelength 3m. Speed?",
+						"correct": "15 m/s",
+						"wrong": ["12 m/s", "18 m/s", "10 m/s"]
+					},
+					{
+						"question": "Device uses 10A current at 24V. Power?",
+						"correct": "240 W",
+						"wrong": ["200 W", "280 W", "180 W"]
+					},
+					{
+						"question": "Charge 12C passes in 3 seconds. Current?",
+						"correct": "4 A",
+						"wrong": ["3 A", "5 A", "6 A"]
+					},
+					{
+						"question": "Charge q=2C moves at 3 m/s perpendicular to 0.5T field. Force?",
+						"correct": "3 N",
+						"wrong": ["2 N", "4 N", "5 N"]
+					}
+				],
+				"time_per_question": 20.0
 			}
 		},
 
-		# Q4: Chemistry, Atomic Structure
+		# Q4: Waves, Light, and Modern Physics
 		"Q4": {
 			"pacman": {
 				"questions": [
 					{
-						"question": "The center of an atom is the?",
-						"correct": "Nucleus",
-						"wrong": ["Electron", "Shell", "Proton"]
+						"question": "Sound is what type of wave?",
+						"correct": "Longitudinal",
+						"wrong": ["Transverse", "Circular", "Standing"]
 					},
 					{
-						"question": "Electrons have what charge?",
-						"correct": "Negative",
-						"wrong": ["Positive", "Neutral", "None"]
+						"question": "Light is what type of wave?",
+						"correct": "Transverse",
+						"wrong": ["Longitudinal", "Circular", "Static"]
 					},
 					{
-						"question": "Protons have what charge?",
-						"correct": "Positive",
-						"wrong": ["Negative", "Neutral", "None"]
+						"question": "The speed of light is approximately?",
+						"correct": "3×10⁸ m/s",
+						"wrong": ["3×10⁶ m/s", "3×10⁴ m/s", "300 m/s"]
 					},
 					{
-						"question": "H2O is the formula for?",
-						"correct": "Water",
-						"wrong": ["Salt", "Sugar", "Oxygen"]
+						"question": "The bending of light is called?",
+						"correct": "Refraction",
+						"wrong": ["Reflection", "Diffraction", "Dispersion"]
+					},
+					{
+						"question": "Red light has the longest?",
+						"correct": "Wavelength",
+						"wrong": ["Frequency", "Energy", "Speed"]
+					},
+					{
+						"question": "Violet light has the highest?",
+						"correct": "Frequency",
+						"wrong": ["Wavelength", "Speed", "Amplitude"]
+					},
+					{
+						"question": "Wave frequency 4Hz, wavelength 2m. Speed?",
+						"correct": "8 m/s",
+						"wrong": ["6 m/s", "2 m/s", "16 m/s"]
+					},
+					{
+						"question": "Photons are packets of?",
+						"correct": "Light energy",
+						"wrong": ["Sound", "Matter", "Electricity"]
 					}
 				]
 			},
 			"runner": {
 				"questions": [
 					{
-						"question": "Atomic number equals number of?",
-						"correct": "Protons",
-						"wrong": ["Neutrons", "Electrons", "Shells"]
+						"question": "Higher frequency means higher?",
+						"correct": "Energy",
+						"wrong": ["Wavelength", "Speed", "Amplitude"]
 					},
 					{
-						"question": "Ionic bonds transfer?",
-						"correct": "Electrons",
-						"wrong": ["Protons", "Neutrons", "Atoms"]
+						"question": "When light enters glass, it?",
+						"correct": "Slows down",
+						"wrong": ["Speeds up", "Stops", "Stays same"]
 					},
 					{
-						"question": "Covalent bonds share?",
-						"correct": "Electrons",
-						"wrong": ["Protons", "Neutrons", "Atoms"]
+						"question": "The photoelectric effect shows light acts as?",
+						"correct": "Particles",
+						"wrong": ["Waves only", "Matter", "Sound"]
 					},
 					{
-						"question": "NaCl is common?",
-						"correct": "Salt",
-						"wrong": ["Sugar", "Water", "Acid"]
+						"question": "Einstein explained photoelectric effect using?",
+						"correct": "Photons",
+						"wrong": ["Atoms", "Protons", "Electrons only"]
 					},
 					{
-						"question": "pH 7 is?",
-						"correct": "Neutral",
-						"wrong": ["Acidic", "Basic", "Salty"]
+						"question": "Double-slit experiment shows light acts as?",
+						"correct": "Waves",
+						"wrong": ["Particles only", "Matter", "Sound"]
+					},
+					{
+						"question": "Constructive interference increases?",
+						"correct": "Amplitude",
+						"wrong": ["Frequency", "Wavelength", "Speed"]
 					}
 				],
 				"answers_needed": 4
@@ -750,66 +940,96 @@ var questions = {
 			"maze": {
 				"questions": [
 					{
-						"question": "Noble gases have a full outer?",
-						"correct": "Shell",
-						"wrong": ["Nucleus", "Proton", "Neutron"]
+						"question": "Wave speed formula is?",
+						"correct": "v = fλ",
+						"wrong": ["v = f/λ", "v = λ/f", "v = f²λ"]
 					},
 					{
-						"question": "Metals are good conductors of?",
-						"correct": "Electricity",
-						"wrong": ["Sound", "Light", "Heat only"]
+						"question": "Photon energy formula is?",
+						"correct": "E = hf",
+						"wrong": ["E = h/f", "E = f/h", "E = h²f"]
 					},
 					{
-						"question": "Acids have pH less than?",
-						"correct": "7",
-						"wrong": ["14", "0", "10"]
+						"question": "Snell's law relates angles and?",
+						"correct": "Refractive index",
+						"wrong": ["Wavelength", "Frequency", "Amplitude"]
 					},
 					{
-						"question": "Bases have pH greater than?",
-						"correct": "7",
-						"wrong": ["0", "14", "3"]
+						"question": "Total internal reflection requires light travel from?",
+						"correct": "Dense to less dense",
+						"wrong": ["Less to more dense", "Same density", "Vacuum"]
 					},
 					{
-						"question": "The periodic table organizes?",
-						"correct": "Elements",
-						"wrong": ["Compounds", "Molecules", "Mixtures"]
+						"question": "Doppler effect changes observed?",
+						"correct": "Frequency",
+						"wrong": ["Speed", "Amplitude", "Medium"]
 					}
 				]
 			},
 			"platformer": {
 				"questions": [
 					{
-						"question": "CO2 is carbon?",
-						"correct": "Dioxide",
-						"wrong": ["Monoxide", "Trioxide", "Oxide"]
+						"question": "ROYGBIV shows visible light?",
+						"correct": "Spectrum",
+						"wrong": ["Speed", "Energy", "Source"]
 					},
 					{
-						"question": "Neutrons have what charge?",
-						"correct": "None",
-						"wrong": ["Positive", "Negative", "Both"]
+						"question": "Converging lens creates?",
+						"correct": "Real images",
+						"wrong": ["Virtual only", "No images", "Shadows"]
 					},
 					{
-						"question": "Mass number = protons + ?",
-						"correct": "Neutrons",
-						"wrong": ["Electrons", "Atoms", "Shells"]
+						"question": "Concave mirror can create?",
+						"correct": "Magnified images",
+						"wrong": ["Only small images", "No images", "Darkness"]
 					},
 					{
-						"question": "O2 is?",
-						"correct": "Oxygen",
-						"wrong": ["Ozone", "Water", "Carbon"]
+						"question": "Light wave-particle duality was proposed by?",
+						"correct": "De Broglie",
+						"wrong": ["Newton", "Einstein only", "Maxwell"]
 					}
 				],
 				"answers_needed": 3
 			},
 			"fillinblank": {
 				"sentence_parts": [
-					"An atom is electrically ", " because protons equal ", "."
+					"Light exhibits both ", " and ", " properties depending on the experiment."
 				],
-				"answers": ["neutral", "electrons"],
+				"answers": ["wave", "particle"],
 				"choices": [
-					"neutral", "positive", "negative", "electrons",
-					"protons", "neutrons", "charged", "ions"
+					"wave", "particle", "matter", "energy",
+					"sound", "electric", "magnetic", "nuclear"
 				]
+			},
+			"math": {
+				"questions": [
+					{
+						"question": "Wave frequency 5Hz, wavelength 3m. Speed?",
+						"correct": "15 m/s",
+						"wrong": ["8 m/s", "2 m/s", "20 m/s"]
+					},
+					{
+						"question": "Wave speed 20 m/s, frequency 4Hz. Wavelength?",
+						"correct": "5 m",
+						"wrong": ["16 m", "80 m", "4 m"]
+					},
+					{
+						"question": "Light wavelength 500nm, c=3×10⁸ m/s. Frequency?",
+						"correct": "6×10¹⁴ Hz",
+						"wrong": ["3×10¹⁴ Hz", "1.5×10¹⁴ Hz", "12×10¹⁴ Hz"]
+					},
+					{
+						"question": "Refractive index of glass is 1.5. Light slows by factor of?",
+						"correct": "1.5",
+						"wrong": ["0.5", "3", "2"]
+					},
+					{
+						"question": "Wave period 0.2s. Frequency?",
+						"correct": "5 Hz",
+						"wrong": ["0.2 Hz", "10 Hz", "2 Hz"]
+					}
+				],
+				"time_per_question": 20.0
 			}
 		}
 	},
@@ -1363,48 +1583,60 @@ var review_content = {
 	},
 	"science": {
 		"Q1": {
-			"title": "Earth & Space Science",
-			"explanation": "Earth is made of layers (crust, mantle, core) and constantly changes through geological processes.",
+			"title": "Motion and Forces",
+			"explanation": "Physics begins with understanding how objects move and the forces that cause motion. Newton's laws govern all motion in our everyday world.",
 			"key_concepts": [
-				"Plate tectonics: Earth's crust is divided into moving plates",
-				"Rock cycle: Rocks transform between igneous, sedimentary, and metamorphic",
-				"Weathering & erosion: Breaking down and transporting materials"
+				"Newton's 1st Law (Inertia): Objects stay at rest or in motion unless acted on by force",
+				"Newton's 2nd Law: F = ma (force = mass × acceleration)",
+				"Newton's 3rd Law: For every action, there's an equal opposite reaction",
+				"Velocity = distance/time (includes direction)",
+				"Acceleration = change in velocity/time",
+				"Momentum = mass × velocity (conserved in collisions)"
 			],
-			"example": "Earthquakes occur where tectonic plates meet and release built-up energy.",
-			"tip": "Think of Earth as dynamic, not static - everything is slowly moving and changing."
+			"example": "A 5 kg object accelerates at 2 m/s². The force is F = ma = 5 × 2 = 10 N. More force means more acceleration; more mass means less acceleration.",
+			"tip": "Draw free-body diagrams showing all forces. If net force is zero, object is in equilibrium (constant velocity or at rest). Remember: friction always opposes motion."
 		},
 		"Q2": {
-			"title": "Life Science & Biology",
-			"explanation": "All living things are made of cells and share common characteristics like growth, reproduction, and response to environment.",
+			"title": "Work, Energy, and Power",
+			"explanation": "Energy is the capacity to do work. Understanding energy transformations helps explain everything from roller coasters to power plants.",
 			"key_concepts": [
-				"Cell theory: All life is made of cells",
-				"Photosynthesis: Plants convert light → sugar + oxygen",
-				"Cellular respiration: Cells convert sugar → energy + CO₂"
+				"Work = Force × Distance (W = Fd) - measured in Joules",
+				"Kinetic Energy: KE = ½mv² (energy of motion)",
+				"Potential Energy: PE = mgh (stored energy due to position)",
+				"Power = Work ÷ Time (P = W/t) - measured in Watts",
+				"Conservation of Energy: Energy cannot be created or destroyed, only transformed",
+				"Efficiency: Useful energy output ÷ Total energy input"
 			],
-			"example": "A plant cell uses chloroplasts for photosynthesis, while animal cells don't have chloroplasts.",
-			"tip": "Remember: plants do BOTH photosynthesis AND cellular respiration."
+			"example": "A 2 kg object lifted 8 m high (g=10) stores PE = 2 × 10 × 8 = 160 J. When dropped, this converts to kinetic energy. At the bottom: KE = 160 J and velocity = 12.6 m/s.",
+			"tip": "Energy is always conserved in closed systems. Friction converts mechanical energy to heat. Doubling speed quadruples kinetic energy (because of v²)."
 		},
 		"Q3": {
-			"title": "Chemistry Basics",
-			"explanation": "Matter is made of atoms, which combine to form molecules. Chemical reactions rearrange atoms.",
+			"title": "Electricity and Magnetism",
+			"explanation": "Electricity is the flow of electric charge. Understanding circuits and electromagnetic interactions powers our modern world.",
 			"key_concepts": [
-				"Atoms: Smallest unit of an element (protons, neutrons, electrons)",
-				"Molecules: Atoms bonded together (H₂O = 2 hydrogen + 1 oxygen)",
-				"Chemical reactions: Bonds break and form, creating new substances"
+				"Current: I = Q/t (charge flow per second) - measured in Amperes",
+				"Voltage: Electric potential difference - measured in Volts",
+				"Ohm's Law: V = IR (voltage = current × resistance)",
+				"Power: P = VI (voltage × current) - measured in Watts",
+				"Series circuits: Resistances add (Req = R1 + R2)",
+				"Magnetic force: F = qvB (on moving charges)"
 			],
-			"example": "Water (H₂O) forms when hydrogen gas (H₂) reacts with oxygen gas (O₂).",
-			"tip": "In chemical equations, atoms are never created or destroyed - they just rearrange."
+			"example": "A device uses 10A current at 24V. Power = 10 × 24 = 240 W. If two 4Ω and 6Ω resistors are in series, total resistance = 4 + 6 = 10Ω.",
+			"tip": "Higher resistance means less current for same voltage. In series, current is same everywhere but voltages add. Moving charges create magnetic fields."
 		},
 		"Q4": {
-			"title": "Physics Fundamentals",
-			"explanation": "Physics studies motion, forces, and energy. Newton's laws explain how objects move.",
+			"title": "Waves, Light, and Modern Physics",
+			"explanation": "Light exhibits both wave and particle properties. Understanding wave behavior explains sound, light, and quantum phenomena.",
 			"key_concepts": [
-				"Newton's 1st Law: Objects stay at rest or in motion unless acted on by force",
-				"Newton's 2nd Law: F = ma (force = mass × acceleration)",
-				"Newton's 3rd Law: For every action, there's an equal opposite reaction"
+				"Wave speed: v = fλ (frequency × wavelength)",
+				"Transverse waves: Light, water (perpendicular oscillation)",
+				"Longitudinal waves: Sound (parallel oscillation)",
+				"Refraction: Light bends when changing mediums",
+				"Wave-particle duality: Light acts as both waves and particles (photons)",
+				"Photon energy: E = hf (higher frequency = more energy)"
 			],
-			"example": "Pushing a cart: more force = more acceleration. Heavier cart = less acceleration for same force.",
-			"tip": "Forces always come in pairs. If you push on a wall, the wall pushes back on you."
+			"example": "A wave with frequency 5 Hz and wavelength 3 m travels at v = 5 × 3 = 15 m/s. Red light has longer wavelength (lower energy), violet has shorter wavelength (higher energy).",
+			"tip": "Interference patterns prove wave nature. Photoelectric effect proves particle nature. Light slows down in denser materials (glass, water). Doppler effect: moving source changes observed frequency."
 		}
 	},
 	"english": {

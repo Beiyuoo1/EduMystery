@@ -59,6 +59,16 @@ theme_override_colors/font_color = Color(1, 0.8, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Combo: x1"
 
+[node name="LivesLabel" type="Label" parent="UI"]
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 50.0
+offset_right = 200.0
+offset_bottom = 90.0
+theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)
+theme_override_font_sizes/font_size = 20
+text = "Lives: 3"
+
 [node name="FlashRect" type="ColorRect" parent="UI"]
 visible = false
 anchors_preset = 15

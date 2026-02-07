@@ -70,6 +70,72 @@ var evidence_definitions = {
 		"description": "A threatening note found in Ria's locker: \"I know what you did with last year's fund. Resign or I'll expose you.\" Someone was blackmailing her.",
 		"image_path": "res://Pics/threat_note.jpg",
 		"chapter": 2
+	},
+	# Chapter 3: Art Week Vandalism Mystery
+	"cruel_note_c3": {
+		"id": "cruel_note_c3",
+		"title": "Cruel Note",
+		"description": "A handwritten note found at the vandalized sculpture scene: \"Not everyone deserves to shine.\" The message is personal and emotional, suggesting the vandal felt overshadowed.",
+		"image_path": "res://Bg/assets/evidence/cruel_note.png",
+		"chapter": 3
+	},
+	"receipt_c3": {
+		"id": "receipt_c3",
+		"title": "Art Supply Receipt",
+		"description": "Receipt from an art supply store dated yesterday at 8:47 PM. Found in Victor's sketchbook. Proves he was out near the school despite claiming to be home all night.",
+		"image_path": "res://Bg/assets/evidence/receipt.png",
+		"chapter": 3
+	},
+	"victor_sketchbook_c3": {
+		"id": "victor_sketchbook_c3",
+		"title": "Victor's Sketchbook",
+		"description": "Victor's personal sketchbook containing technical studies and later pages filled with angry, violent sketches. One page shows Mia's sculpture 'The Reader' with harsh X marks drawn over it, revealing his dark thoughts and resentment.",
+		"image_path": "res://Bg/assets/evidence/victor_sketchbook.png",
+		"chapter": 3
+	},
+	"paint_cloth_c3": {
+		"id": "paint_cloth_c3",
+		"title": "Paint-Stained Cloth",
+		"description": "A cloth rag stained with various paint colors found in Victor's art supply cabinet. Matches the fabric and paint patterns of the cloth found at the vandalism scene. Contains an inventory tag linking it to Victor's assigned supplies.",
+		"image_path": "res://Bg/assets/evidence/rug.png",
+		"chapter": 3
+	},
+	# Chapter 4: Anonymous Notes Mystery
+	"anonymous_note_c4": {
+		"id": "anonymous_note_c4",
+		"title": "Anonymous Note",
+		"description": "A folded note found in Ben's locker containing a moral accusation: \"You witnessed your friend cheat on the exam but said nothing. Silence protects the guilty. What does that make you?\" The handwriting is neat and deliberate, written on standard school paper.",
+		"image_path": "res://Bg/assets/evidence/anonymous_note.png",
+		"chapter": 4
+	},
+	# B.C. Cards - Overarching Mystery (All shown in Chapter 5)
+	"bc_card_truth_c1": {
+		"id": "bc_card_truth_c1",
+		"title": "B.C. Card - Truth",
+		"description": "An elegant card with beautiful calligraphy reading: \"Lesson 1: Truth. Evidence and honesty matter. The chain begins.\" Signed \"B.C.\" A mysterious teacher figure is guiding Conrad's journey.",
+		"image_path": "res://Bg/assets/evidence/BC_card1.png",
+		"chapter": 5
+	},
+	"bc_card_responsibility_c2": {
+		"id": "bc_card_responsibility_c2",
+		"title": "B.C. Card - Responsibility",
+		"description": "An elegant card reading: \"Lesson 2: Responsibility. True responsibility isn't about pointing out others' failures. It's about building trust, even when no one is watching. The chain continues.\" Signed \"B.C.\"",
+		"image_path": "res://Bg/assets/evidence/BC_card2.png",
+		"chapter": 5
+	},
+	"bc_card_creativity_c3": {
+		"id": "bc_card_creativity_c3",
+		"title": "B.C. Card - Creativity",
+		"description": "An elegant card reading: \"Lesson 3: Creativity. True artists create to express, not to compete. Envy sees another's light and tries to extinguish it, not realizing it could have warmed them both.\" Signed \"B.C.\"",
+		"image_path": "res://Bg/assets/evidence/BC_card3.png",
+		"chapter": 5
+	},
+	"bc_card_wisdom_c4": {
+		"id": "bc_card_wisdom_c4",
+		"title": "B.C. Card - Wisdom",
+		"description": "An elegant card reading: \"Lesson 4: Wisdom. Knowledge illuminates, but wisdom guides. The eager student learned what the patient teacher already knew. Choice defines character.\" Signed \"B.C.\"",
+		"image_path": "res://Bg/assets/evidence/BC_card4.png",
+		"chapter": 5
 	}
 }
 

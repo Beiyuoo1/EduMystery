@@ -39,7 +39,7 @@ func _ready():
 	var fade_tween = create_tween()
 	fade_tween.tween_property(self, "modulate:a", 1.0, 0.15)
 
-	# Default question for testing
+	# Default question for testing (only used if configure_puzzle is not called)
 	question = {
 		"text": "Who is the person who creates the message in the communication process?",
 		"options": [
@@ -53,11 +53,51 @@ func _ready():
 			{"letter": "H", "text": "Interprets", "correct": false}
 		]
 	}
-	_start_game()
+	# Don't start game yet - wait for configure_puzzle() to be called
 
 func configure_puzzle(config: Dictionary):
-	if config.has("question"):
+	# Handle curriculum format: {"questions": [{question, correct, wrong[]}, ...]}
+	if config.has("questions") and config.questions is Array and config.questions.size() > 0:
+		# Pick a random question from the curriculum
+		var random_q = config.questions[randi() % config.questions.size()]
+
+		# Convert curriculum format to Maze format
+		# Curriculum: {question: String, correct: String, wrong: Array}
+		# Maze: {text: String, options: [{letter, text, correct: bool}]}
+
+		var options = []
+		var letters = ["A", "B", "C", "D", "E", "F", "G", "H"]
+
+		# Add correct answer
+		options.append({
+			"letter": letters[0],
+			"text": random_q.correct,
+			"correct": true
+		})
+
+		# Add wrong answers
+		for i in range(min(random_q.wrong.size(), 7)):  # Max 7 wrong (total 8 options)
+			options.append({
+				"letter": letters[i + 1],
+				"text": random_q.wrong[i],
+				"correct": false
+			})
+
+		# Shuffle options so correct answer isn't always first
+		options.shuffle()
+
+		question = {
+			"text": random_q.question,
+			"options": options
+		}
+
+		print("DEBUG: Maze configured with curriculum question: ", question.text)
+	elif config.has("question"):
+		# Legacy format support
 		question = config.question
+
+	# Start the game after configuration
+	_start_game()
 
 func _start_game():
 	game_active = true

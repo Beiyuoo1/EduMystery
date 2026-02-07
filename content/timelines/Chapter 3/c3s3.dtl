@@ -2,115 +2,225 @@
 set {c3s3_sketchbook_tried} = false
 set {c3s3_receipt_tried} = false
 The art room storage area is cluttered with supplies, half-finished projects, and dusty easels.
-join Conrad (half) left
-join Mark (Mark_half) right
-Conrad: Each student has their own supply cabinet. Victor's should be here somewhere.
-Mark: Is this legal? Going through his stuff?
-Conrad: We're not taking anything. Just observing.
-Mark gives him a look.
+if {selected_character} == "celestine":
+	join Celestine (animated) left
+	join Mark (Mark_half) right
+	Celestine: Each student has their own supply cabinet. Victor's should be here somewhere.
+	Mark: Is this legal? Going through his stuff?
+	Celestine: We're not taking anything. Just observing.
+else:
+	join Conrad (half) left
+	join Mark (Mark_half) right
+	Conrad: Each student has their own supply cabinet. Victor's should be here somewhere.
+	Mark: Is this legal? Going through his stuff?
+	Conrad: We're not taking anything. Just observing.
+if {selected_character} == "celestine":
+	Mark gives her a look.
+else:
+	Mark gives him a look.
 Mark: That's a very specific distinction.
-Conrad: Evidence collected properly can help everyone, including Victor if he's innocent.
-They move through the storage area.
-Conrad: Here. Victor Lim.
-Conrad opens the cabinet carefully.
+if {selected_character} == "celestine":
+	Celestine: Evidence collected properly can help everyone, including Victor if he's innocent.
+	They move through the storage area.
+	Celestine: Here. Victor Lim.
+	Celestine opens the cabinet carefully.
+else:
+	Conrad: Evidence collected properly can help everyone, including Victor if he's innocent.
+	They move through the storage area.
+	Conrad: Here. Victor Lim.
+	Conrad opens the cabinet carefully.
 Inside are neatly organized supplies\: brushes arranged by size, paints sorted by color, pristine tools.
-Conrad: Meticulous. Everything in perfect order.
-Mark: So he's organized. Lots of people are organized.
-Conrad: Look here.
-Conrad pulls out a small bundle of cloth rags, stained with various paint colors.
-Conrad: Paint cloths. Let me compare.
-He holds up the cloth from the crime scene next to the rags from Victor's cabinet.
-Conrad: Same type of fabric. Same paint patterns.
-Mark: That's not definitive. All the art students probably use similar cloths.
-Conrad: True. We need something more concrete.
-Conrad continues searching, then pauses.
-Conrad: What's this?
-He pulls out a worn sketchbook, its cover marked with Victor's name.
-Conrad flips through the pages.
-The first half is filled with technical studies\: anatomy, perspective, shading techniques.
-Then the tone changes.
-Conrad: Mark, look at this.
+if {selected_character} == "celestine":
+	Celestine: Meticulous. Everything in perfect order.
+	Mark: So he's organized. Lots of people are organized.
+	Celestine: Look here.
+	Celestine pulls out a small bundle of cloth rags, stained with various paint colors.
+else:
+	Conrad: Meticulous. Everything in perfect order.
+	Mark: So he's organized. Lots of people are organized.
+	Conrad: Look here.
+	Conrad pulls out a small bundle of cloth rags, stained with various paint colors.
+[signal arg="unlock_evidence paint_cloth_c3"]
+if {selected_character} == "celestine":
+	Celestine: Paint cloths. Let me compare.
+	She holds up the cloth from the crime scene next to the rags from Victor's cabinet.
+	Celestine: Same type of fabric. Same paint patterns.
+	Mark: That's not definitive. All the art students probably use similar cloths.
+	Celestine: True. We need something more concrete.
+	Celestine continues searching, then pauses.
+	Celestine: What's this?
+else:
+	Conrad: Paint cloths. Let me compare.
+	He holds up the cloth from the crime scene next to the rags from Victor's cabinet.
+	Conrad: Same type of fabric. Same paint patterns.
+	Mark: That's not definitive. All the art students probably use similar cloths.
+	Conrad: True. We need something more concrete.
+	Conrad continues searching, then pauses.
+	Conrad: What's this?
+[signal arg="unlock_evidence victor_sketchbook_c3"]
+if {selected_character} == "celestine":
+	She pulls out a worn sketchbook, its cover marked with Victor's name.
+	Celestine flips through the pages.
+	The first half is filled with technical studies\: anatomy, perspective, shading techniques.
+	Then the tone changes.
+	Celestine: Mark, look at this.
+else:
+	He pulls out a worn sketchbook, its cover marked with Victor's name.
+	Conrad flips through the pages.
+	The first half is filled with technical studies\: anatomy, perspective, shading techniques.
+	Then the tone changes.
+	Conrad: Mark, look at this.
 Angry sketches fill the later pages. Crossed-out figures. Dark, violent imagery.
 One page shows a sculpture that looks unmistakably like "The Reader" - with harsh X marks drawn over it.
 Mark: That's... disturbing.
-Conrad: It shows his state of mind. But it's not proof he acted on these feelings.
-Conrad: Artists often express dark thoughts through their work. It's actually healthy.
-Mark: So what do we need?
-Conrad continues through the sketchbook and finds a loose receipt tucked between pages.
-Conrad: Hello. What's this?
-He examines the receipt.
-Conrad: Art supply store. Dated yesterday. Time stamp\: 8\:47 PM.
-Mark: That's late. Why would he need supplies so urgently?
-Conrad: The store is near the school. If he was there at 8\:47, he could easily have come here afterward.
-Mark: His alibi was that he was home all night. This proves he was out.
-Conrad: It proves he was at the store. Not that he came here.
-Conrad: We need something that directly links him to the courtyard last night.
-Conrad closes the sketchbook.
+if {selected_character} == "celestine":
+	Celestine: It shows his state of mind. But it's not proof he acted on these feelings.
+	Celestine: Artists often express dark thoughts through their work. It's actually healthy.
+	Mark: So what do we need?
+	Celestine continues through the sketchbook and finds a loose receipt tucked between pages.
+	Celestine: Hello. What's this?
+else:
+	Conrad: It shows his state of mind. But it's not proof he acted on these feelings.
+	Conrad: Artists often express dark thoughts through their work. It's actually healthy.
+	Mark: So what do we need?
+	Conrad continues through the sketchbook and finds a loose receipt tucked between pages.
+	Conrad: Hello. What's this?
+[signal arg="unlock_evidence receipt_c3"]
+if {selected_character} == "celestine":
+	She examines the receipt.
+	Celestine: Art supply store. Dated yesterday. Time stamp\: 8\:47 PM.
+	Mark: That's late. Why would he need supplies so urgently?
+	Celestine: The store is near the school. If he was there at 8\:47, he could easily have come here afterward.
+	Mark: His alibi was that he was home all night. This proves he was out.
+	Celestine: It proves he was at the store. Not that he came here.
+	Celestine: We need something that directly links him to the courtyard last night.
+	Celestine closes the sketchbook.
+else:
+	He examines the receipt.
+	Conrad: Art supply store. Dated yesterday. Time stamp\: 8\:47 PM.
+	Mark: That's late. Why would he need supplies so urgently?
+	Conrad: The store is near the school. If he was there at 8\:47, he could easily have come here afterward.
+	Mark: His alibi was that he was home all night. This proves he was out.
+	Conrad: It proves he was at the store. Not that he came here.
+	Conrad: We need something that directly links him to the courtyard last night.
+	Conrad closes the sketchbook.
 join "Diwata Laya" (Half_mirror) center
 [signal arg="laya_start"]
 "Diwata Laya" appears, her expression thoughtful.
 "Diwata Laya": [i][color=#9999ff]You are gathering pieces, but the picture remains incomplete.[/color][/i]
-"Conrad (Thinking)": I have motive, I have circumstantial evidence. But nothing definitive.
+if {selected_character} == "celestine":
+	"Celestine (Thinking)": I have motive, I have circumstantial evidence. But nothing definitive.
+else:
+	"Conrad (Thinking)": I have motive, I have circumstantial evidence. But nothing definitive.
 "Diwata Laya": [i][color=#9999ff]Perhaps clarity will come if you center your mind.[/color][/i]
 "Diwata Laya": [i][color=#9999ff]Focus on what you know. Let the pieces arrange themselves.[/color][/i]
-"Conrad (Thinking)": Another test?
+if {selected_character} == "celestine":
+	"Celestine (Thinking)": Another test?
+else:
+	"Conrad (Thinking)": Another test?
 "Diwata Laya": [i][color=#9999ff]Consider it... sharpening your tools.[/color][/i]
-[signal arg="start_minigame curriculum:platformer"]
+[signal arg="start_minigame receipt_riddle"]
 "Diwata Laya": [i][color=#9999ff]Good. Your mind is clear now.[/color][/i]
 "Diwata Laya": [i][color=#9999ff]Consider this\: the cloth you found at the scene. Look more closely.[/color][/i]
 [signal arg="laya_end"]
 leave "Diwata Laya"
-Conrad examines the paint cloth more carefully.
-Conrad: Wait. There's something here. A small tag.
-He holds it up to the light.
-Conrad: Student art supplies are labeled for inventory. This tag has a number.
+if {selected_character} == "celestine":
+	Celestine examines the paint cloth more carefully.
+	Celestine: Wait. There's something here. A small tag.
+	She holds it up to the light.
+	Celestine: Student art supplies are labeled for inventory. This tag has a number.
+else:
+	Conrad examines the paint cloth more carefully.
+	Conrad: Wait. There's something here. A small tag.
+	He holds it up to the light.
+	Conrad: Student art supplies are labeled for inventory. This tag has a number.
 Mark: And if we can match that number to Victor's assigned supplies...
-Conrad: Then we have physical evidence placing his materials at the crime scene.
-Conrad: Let's check the inventory log. Ms. Reyes keeps records of everything.
-leave Conrad
-leave Mark
+if {selected_character} == "celestine":
+	Celestine: Then we have physical evidence placing his materials at the crime scene.
+	Celestine: Let's check the inventory log. Ms. Reyes keeps records of everything.
+	leave Celestine
+	leave Mark
+else:
+	Conrad: Then we have physical evidence placing his materials at the crime scene.
+	Conrad: Let's check the inventory log. Ms. Reyes keeps records of everything.
+	leave Conrad
+	leave Mark
 [background arg="res://Bg/art_room.png" fade="0.5"]
-join Conrad (half) left
-join "Ms Reyes" (half) right
-"Ms Reyes": An inventory number? Yes, we track all school-provided supplies.
-"Ms Reyes": Let me check the log.
-She pulls out a thick binder and flips through pages.
-"Ms Reyes": The number you mentioned... that corresponds to supplies assigned to cabinet 14.
-Conrad: Whose cabinet is that?
-"Ms Reyes" looks up, her face troubled.
-"Ms Reyes": Victor Lim.
-Conrad: Thank you, Ms. Reyes.
-leave "Ms Reyes"
+if {selected_character} == "celestine":
+	join Celestine (animated) left
+	join "Ms Reyes" (half) right
+	"Ms Reyes": An inventory number? Yes, we track all school-provided supplies.
+	"Ms Reyes": Let me check the log.
+	She pulls out a thick binder and flips through pages.
+	"Ms Reyes": The number you mentioned... that corresponds to supplies assigned to cabinet 14.
+	Celestine: Whose cabinet is that?
+	"Ms Reyes" looks up, her face troubled.
+	"Ms Reyes": Victor Lim.
+	Celestine: Thank you, Ms. Reyes.
+	leave "Ms Reyes"
+else:
+	join Conrad (half) left
+	join "Ms Reyes" (half) right
+	"Ms Reyes": An inventory number? Yes, we track all school-provided supplies.
+	"Ms Reyes": Let me check the log.
+	She pulls out a thick binder and flips through pages.
+	"Ms Reyes": The number you mentioned... that corresponds to supplies assigned to cabinet 14.
+	Conrad: Whose cabinet is that?
+	"Ms Reyes" looks up, her face troubled.
+	"Ms Reyes": Victor Lim.
+	Conrad: Thank you, Ms. Reyes.
+	leave "Ms Reyes"
 join Mark (Mark_half) right
 Mark: So we have it. The cloth at the scene came from Victor's supplies.
 label evidence_choice
-Conrad: We have multiple pieces of evidence. Which is most conclusive?
+if {selected_character} == "celestine":
+	Celestine: We have multiple pieces of evidence. Which is most conclusive?
+else:
+	Conrad: We have multiple pieces of evidence. Which is most conclusive?
 - The sketchbook with angry drawings of Mia's sculpture. | [if {c3s3_sketchbook_tried} == false]
 	set {c3s3_sketchbook_tried} = true
 	[signal arg="wrong_choice"]
 	set {chapter3_score} -= 5
-	Conrad: The sketchbook shows his state of mind, but art is expression.
-	Conrad: Drawing something doesn't mean you'll act on it.
-	Conrad: A defense could argue he was processing emotions, not planning a crime.
+	if {selected_character} == "celestine":
+		Celestine: The sketchbook shows his state of mind, but art is expression.
+		Celestine: Drawing something doesn't mean you'll act on it.
+		Celestine: A defense could argue he was processing emotions, not planning a crime.
+	else:
+		Conrad: The sketchbook shows his state of mind, but art is expression.
+		Conrad: Drawing something doesn't mean you'll act on it.
+		Conrad: A defense could argue he was processing emotions, not planning a crime.
 	jump evidence_choice
 - The receipt placing him near school at 8:47 PM. | [if {c3s3_receipt_tried} == false]
 	set {c3s3_receipt_tried} = true
 	[signal arg="wrong_choice"]
 	set {chapter3_score} -= 5
-	Conrad: The receipt proves he wasn't home like he claimed. That's important.
-	Conrad: But it doesn't prove he came to school. He could have gone straight home after the store.
-	Conrad: Circumstantial at best.
+	if {selected_character} == "celestine":
+		Celestine: The receipt proves he wasn't home like he claimed. That's important.
+		Celestine: But it doesn't prove he came to school. He could have gone straight home after the store.
+		Celestine: Circumstantial at best.
+	else:
+		Conrad: The receipt proves he wasn't home like he claimed. That's important.
+		Conrad: But it doesn't prove he came to school. He could have gone straight home after the store.
+		Conrad: Circumstantial at best.
 	jump evidence_choice
 - The paint cloth with inventory tag matching Victor's assigned supplies.
 	set {chapter3_score} += 10
-	Conrad: The cloth is physical evidence found at the crime scene.
-	Conrad: The inventory tag traces directly to Victor's supplies.
-	Conrad: He can't explain away his materials being at the scene unless he was there.
-Mark: Combined with his broken alibi and clear motive...
-Conrad: We have enough. It's time to confront him.
-set {conrad_level} = 5
-[signal arg="show_level_up"]
-Conrad: Let's find Victor.
-leave Conrad
-leave Mark
+	if {selected_character} == "celestine":
+		Celestine: The cloth is physical evidence found at the crime scene.
+		Celestine: The inventory tag traces directly to Victor's supplies.
+		Celestine: He can't explain away his materials being at the scene unless he was there.
+		Mark: Combined with his broken alibi and clear motive...
+		Celestine: We have enough. It's time to confront him.
+		Celestine: Let's find Victor.
+		leave Celestine
+		leave Mark
+	else:
+		Conrad: The cloth is physical evidence found at the crime scene.
+		Conrad: The inventory tag traces directly to Victor's supplies.
+		Conrad: He can't explain away his materials being at the scene unless he was there.
+		Mark: Combined with his broken alibi and clear motive...
+		Conrad: We have enough. It's time to confront him.
+		Conrad: Let's find Victor.
+		leave Conrad
+		leave Mark
 jump c3s4/

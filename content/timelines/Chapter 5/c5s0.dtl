@@ -2,45 +2,88 @@
 [background arg="res://Bg/classroom.png" fade="2.0"]
 set {chapter5_score} = 0
 Two weeks after the journal incident...
-Conrad sits at his desk, the four B.C. cards spread before him like pieces of a puzzle.
-join Conrad (half) left
+if {selected_character} == "celestine":
+	Celestine sits at her desk, the four B.C. cards spread before her like pieces of a puzzle.
+else:
+	Conrad sits at his desk, the four B.C. cards spread before him like pieces of a puzzle.
+[signal arg="unlock_evidence bc_card_truth_c1"]
+[signal arg="unlock_evidence bc_card_responsibility_c2"]
+[signal arg="unlock_evidence bc_card_creativity_c3"]
+[signal arg="unlock_evidence bc_card_wisdom_c4"]
+if {selected_character} == "celestine":
+	join Celestine (animated) left
+else:
+	join Conrad (half) left
 join Mark (Mark_half) right
-Mark: You've been staring at those cards for an hour. Still trying to figure out who B.C. is?
-Conrad: Not just who. Why. What's the endgame?
-Conrad traces the edge of the first card with his finger.
-Conrad: Four cases. Four lessons. Truth, Responsibility, Creativity, Wisdom.
-Conrad: Each card appeared exactly when I needed to understand something deeper.
-Mark: So B.C. is teaching you. But why the mystery? Why not just... talk to you?
-Conrad: Because direct teaching doesn't work the same way. I had to discover these lessons myself.
-Conrad: B.C. knew that. They guided without controlling.
+if {selected_character} == "celestine":
+	Mark: You've been staring at those cards for an hour, sis. Still trying to figure out who B.C. is?
+	Celestine: Not just who. Why. What's the endgame?
+	Celestine traces the edge of the first card with her finger.
+	Celestine: Four cases. Four lessons. Truth, Responsibility, Creativity, Wisdom.
+	Celestine: Each card appeared exactly when I needed to understand something deeper.
+	Mark: So B.C. is teaching you. But why the mystery? Why not just... talk to you?
+	Celestine: Because direct teaching doesn't work the same way. I had to discover these lessons myself.
+	Celestine: B.C. knew that. They guided without controlling.
+else:
+	Mark: You've been staring at those cards for an hour. Still trying to figure out who B.C. is?
+	Conrad: Not just who. Why. What's the endgame?
+	Conrad traces the edge of the first card with his finger.
+	Conrad: Four cases. Four lessons. Truth, Responsibility, Creativity, Wisdom.
+	Conrad: Each card appeared exactly when I needed to understand something deeper.
+	Mark: So B.C. is teaching you. But why the mystery? Why not just... talk to you?
+	Conrad: Because direct teaching doesn't work the same way. I had to discover these lessons myself.
+	Conrad: B.C. knew that. They guided without controlling.
 join "Diwata Laya" (Half) center
 [signal arg="laya_start"]
 "Diwata Laya" materializes, her expression serene.
-"Diwata Laya": [i][color=#9999ff]You have grown much, Conrad. From a student learning to observe...[/color][/i]
-"Diwata Laya": [i][color=#9999ff]...to a guide learning to teach.[/color][/i]
-"Conrad (Thinking)": I want to meet them. To understand who they are and what they want from me.
+if {selected_character} == "celestine":
+	"Diwata Laya": [i][color=#9999ff]You have grown much, Celestine. From a student learning to observe...[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]...to a guide learning to teach.[/color][/i]
+	"Celestine (Thinking)": I want to meet them. To understand who they are and what they want from me.
+else:
+	"Diwata Laya": [i][color=#9999ff]You have grown much, Conrad. From a student learning to observe...[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]...to a guide learning to teach.[/color][/i]
+	"Conrad (Thinking)": I want to meet them. To understand who they are and what they want from me.
 "Diwata Laya": [i][color=#9999ff]Then invite them. Not with force, but with respect.[/color][/i]
 "Diwata Laya": [i][color=#9999ff]Show them you understand their lessons. They will come.[/color][/i]
 [signal arg="laya_end"]
 leave "Diwata Laya"
-Conrad gathers the cards carefully.
-Conrad: What if I create an invitation? Something only B.C. would understand.
-Mark: Like what?
-Conrad: A recreation. Symbols from each case, arranged to show I've learned the lessons.
-Conrad: Not a trap. An invitation. A way of saying "I'm ready to meet you."
-Mark: That's... actually kind of brilliant. Where would you set it up?
-Conrad: The auditorium. Neutral ground. Symbolic - a place for performances, for teaching.
-Mark: And if B.C. doesn't show?
-Conrad smiles slightly.
-Conrad: They will. They've been watching all along. They won't be able to resist seeing if I truly understand.
-Mark: When do we do this?
-Conrad: Tomorrow evening. After school. When it's quiet.
-leave Conrad
+if {selected_character} == "celestine":
+	Celestine gathers the cards carefully.
+	Celestine: What if I create an invitation? Something only B.C. would understand.
+	Mark: Like what?
+	Celestine: A recreation. Symbols from each case, arranged to show I've learned the lessons.
+	Celestine: Not a trap. An invitation. A way of saying "I'm ready to meet you."
+	Mark: That's... actually kind of brilliant. Where would you set it up?
+	Celestine: The auditorium. Neutral ground. Symbolic - a place for performances, for teaching.
+	Mark: And if B.C. doesn't show?
+	Celestine smiles slightly.
+	Celestine: They will. They've been watching all along. They won't be able to resist seeing if I truly understand.
+	Mark: When do we do this?
+	Celestine: Tomorrow evening. After school. When it's quiet.
+	leave Celestine
+else:
+	Conrad gathers the cards carefully.
+	Conrad: What if I create an invitation? Something only B.C. would understand.
+	Mark: Like what?
+	Conrad: A recreation. Symbols from each case, arranged to show I've learned the lessons.
+	Conrad: Not a trap. An invitation. A way of saying "I'm ready to meet you."
+	Mark: That's... actually kind of brilliant. Where would you set it up?
+	Conrad: The auditorium. Neutral ground. Symbolic - a place for performances, for teaching.
+	Mark: And if B.C. doesn't show?
+	Conrad smiles slightly.
+	Conrad: They will. They've been watching all along. They won't be able to resist seeing if I truly understand.
+	Mark: When do we do this?
+	Conrad: Tomorrow evening. After school. When it's quiet.
+	leave Conrad
 leave Mark
 [background arg="res://Bg/hallway.png" fade="2.0"]
 [wait time="1.0"]
 The next day...
-Conrad moves through the hallways with purpose, gathering materials.
+if {selected_character} == "celestine":
+	Celestine moves through the hallways with purpose, gathering materials.
+else:
+	Conrad moves through the hallways with purpose, gathering materials.
 A piece of chalk for the exam case.
 Paper for the budget maze.
 Art supplies for the sculpture incident.

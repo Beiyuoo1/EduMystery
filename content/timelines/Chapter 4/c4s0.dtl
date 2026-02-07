@@ -3,31 +3,31 @@
 set {chapter4_score} = 0
 A week after the broken sculpture case...
 The library archive is quiet, dusty, and forgotten. Shelves tower in the dim light, packed with decades of records.
-join Alex (half) center [animation="Fade In" length="1.0" wait="true"]
-Alex searches through old filing cabinets, looking for reference materials for a history project.
-Alex: Let's see... 1995, 1996... no, too recent. I need something from the early 90s.
+join Mystery (sillhouette) center [animation="Fade In" length="1.0" wait="true"]
+A mysterious person searches through old filing cabinets, looking for reference materials for a history project.
+Mystery (sillhouette): Let's see... 1995, 1996... no, too recent. I need something from the early 90s.
 She pulls open a drawer that resists at first, then jerks open with a groan.
-Alex: What's this?
+Mystery (sillhouette): What's this?
 A leather-bound journal sits wedged behind the files, hidden deliberately.
-Alex carefully lifts it out, brushing off dust.
-Alex: "Educational Philosophy and Moral Development." No author listed.
+Mysterious person carefully lifts it out, brushing off dust.
+Mystery (sillhouette): "Educational Philosophy and Moral Development." No author listed.
 She opens to the first page and begins reading.
-Alex: "Observation teaches lessons that lectures cannot. Students learn best when challenged to think, not told what to think."
-Alex: This is... interesting.
+Mystery (sillhouette): "Observation teaches lessons that lectures cannot. Students learn best when challenged to think, not told what to think."
+Mystery (sillhouette): This is... interesting.
 She flips through pages filled with psychological puzzles, moral dilemmas, and notes about student behavior.
-Alex: "Case Study 3: Student A cheated because they feared disappointing their parents. Rather than punish, I created a scenario where honesty was rewarded."
-Alex: Whoever wrote this was trying to teach through experience, not authority.
+Mystery (sillhouette): "Case Study 3\: Student A cheated because they feared disappointing their parents. Rather than punish, I created a scenario where honesty was rewarded."
+Mystery (sillhouette): Whoever wrote this was trying to teach through experience, not authority.
 She continues reading, fascinated.
-Alex: "The best lessons come from discovery. When students solve problems themselves, they internalize the moral far deeper than any lecture could achieve."
-Alex thinks of Conrad and his detective work - solving cases that taught real lessons.
-Alex: Conrad does this. He helps people learn by uncovering truth.
-Alex: What if... what if I could do something similar?
-Alex: These puzzles, these challenges... I could use them to help other students grow.
+Mystery (sillhouette): "The best lessons come from discovery. When students solve problems themselves, they internalize the moral far deeper than any lecture could achieve."
+Mysterious person thinks of Conrad and his detective work - solving cases that taught real lessons.
+Mystery (sillhouette): Conrad does this. He helps people learn by uncovering truth.
+Mystery (sillhouette): What if... what if I could do something similar?
+Mystery (sillhouette): These puzzles, these challenges... I could use them to help other students grow.
 She closes the journal, decision made.
-Alex: The person who wrote this understood something important. Knowledge isn't just about facts.
-Alex: It's about becoming better people through experience.
-Alex: I'm going to continue what they started.
-leave Alex [animation="Fade Out" length="0.8"]
+Mystery (sillhouette): The person who wrote this understood something important. Knowledge isn't just about facts.
+Mystery (sillhouette): It's about becoming better people through experience.
+Mystery (sillhouette): I'm going to continue what they started.
+leave Mystery [animation="Fade Out" length="0.8"]
 [background arg="res://Bg/hallway.png" fade="2.0"]
 [wait time="1.0"]
 The next day...

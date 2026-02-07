@@ -46,4 +46,7 @@ Outside the window, a figure watches from the hallway.
 [background arg="res://Bg/hallway.png" fade="1.5"]
 [wait time="1.0"]
 Three days later...
-jump c2s1/
+if {selected_character} == "celestine":
+	jump c2s1/
+else:
+	jump c2s1/

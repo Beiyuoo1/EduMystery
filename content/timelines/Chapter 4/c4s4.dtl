@@ -1,78 +1,135 @@
 [background arg="res://Bg/library.png" fade="1.0"]
 The library reading room is quiet. Alex sits alone at a table, surrounded by books and notes.
-join Conrad (half) left
-join Alex (half) right
-Conrad approaches carefully and sits across from her.
-Conrad: Alex. We need to talk.
-Alex looks up, and for a moment, her expression flickers with something - fear? Guilt?
-Alex: Conrad. About what?
-Conrad: About the journal you found in the archive. The one about experimental pedagogy.
-Alex's face goes pale.
-Alex: I... I don't know what you're talking about.
-Conrad: The archive access log shows you were there twice. The journal is missing from its catalogued location.
-Conrad: And the mysterious notes started appearing two days after your first visit.
+if {selected_character} == "celestine":
+	join Celestine (animated) left
+	join Alex (half) right
+	Celestine approaches carefully and sits across from her.
+	Celestine: Alex. We need to talk.
+	Alex looks up, and for a moment, her expression flickers with something - fear? Guilt?
+	Alex: Celestine. About what?
+	Celestine: About the journal you found in the archive. The one about experimental pedagogy.
+	Alex's face goes pale.
+	Alex: I... I don't know what you're talking about.
+	Celestine: The archive access log shows you were there twice. The journal is missing from its catalogued location.
+	Celestine: And the mysterious notes started appearing two days after your first visit.
+else:
+	join Conrad (half) left
+	join Alex (half) right
+	Conrad approaches carefully and sits across from her.
+	Conrad: Alex. We need to talk.
+	Alex looks up, and for a moment, her expression flickers with something - fear? Guilt?
+	Alex: Conrad. About what?
+	Conrad: About the journal you found in the archive. The one about experimental pedagogy.
+	Alex's face goes pale.
+	Alex: I... I don't know what you're talking about.
+	Conrad: The archive access log shows you were there twice. The journal is missing from its catalogued location.
+	Conrad: And the mysterious notes started appearing two days after your first visit.
 join Mark (Mark_half) leftmost
 Mark: We're not here to get you in trouble, Alex. We just want to understand.
 Alex's shoulders slump. She sets down her pen.
 Alex: You wouldn't understand.
-Conrad: Try us.
-Alex takes a shaky breath.
-Alex: I found the journal by accident. I was looking for something else and it was just... there.
-Alex: Hidden behind old files. Like someone wanted it forgotten.
-Alex: When I started reading, I was fascinated. The author described teaching students through experiences, through challenges that made them think deeply about their choices.
-Conrad: And you decided to continue their work.
-Alex: I thought... I thought I could help people. Like you do, Conrad.
-Alex: You solve mysteries and people learn from them. They grow. They change.
-Alex: I wanted to do that too. To help my classmates become better people.
-Conrad: By judging them? By confronting them with their mistakes?
-Alex: Not judging. Teaching. The journal explained how guilt can be a teacher, how self-reflection leads to growth.
-Mark: But Alex, you were making people feel watched, targeted, unsafe.
-Alex looks genuinely shocked.
-Alex: I... I didn't mean to frighten anyone. I thought they'd appreciate the guidance.
-join "Diwata Laya" (Half) center
-[signal arg="laya_start"]
-"Diwata Laya" appears, visible only to Conrad.
-"Diwata Laya": [i][color=#9999ff]She truly believes she was helping. She sees only the method, not the harm.[/color][/i]
-"Conrad (Thinking)": How do I make her understand?
-"Diwata Laya": [i][color=#9999ff]Show her the difference between knowledge and wisdom.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]But first, center your mind with precision.[/color][/i]
-[signal arg="start_minigame curriculum:platformer"]
-"Diwata Laya": [i][color=#9999ff]Your mind is balanced. Now speak with wisdom.[/color][/i]
-[signal arg="laya_end"]
-leave "Diwata Laya"
-Conrad leans forward, voice gentle but firm.
-Conrad: Alex, think about how you felt when you found the journal.
-Conrad: Did you ask permission to take it? Did you consult anyone about whether this was appropriate?
-Alex: No, but... I thought—
-Conrad: You thought you knew better. You thought having knowledge was enough.
-Conrad: But knowledge without wisdom is dangerous. You learned techniques without understanding context.
-Conrad: The person who wrote that journal? They left the school. Do you know why?
-Alex shakes her head.
-Conrad: Because their methods, however well-intentioned, crossed ethical lines.
-Conrad: They manipulated students without consent. They caused harm while trying to teach.
-Conrad: You found their methods and repeated their mistakes.
-Alex's eyes begin to fill with tears.
-Alex: I just... I wanted to help. I wanted to matter, to make a difference like you do.
-Mark: Conrad helps people who ask for help. He doesn't force lessons on people.
-Conrad: The students you sent notes to didn't consent to your teaching.
-Conrad: You violated their privacy, judged their choices, and made them feel unsafe.
-Conrad: That's not teaching. That's manipulation.
-Alex covers her face with her hands.
-Alex: What have I done? I thought I was doing something good.
-Conrad: You had good intentions. But intentions aren't enough.
-Conrad: Real wisdom is knowing when you don't have the right to interfere in someone else's life.
-Alex: I'm so sorry. To you, to the students I hurt, to everyone.
-Conrad: Apologizing is a start. But you need to return the journal and face the consequences.
-Alex nods, wiping her eyes.
-Alex: I will. I'll return it today and apologize to everyone.
-Alex: Conrad... how do you know when it's right to help someone?
-Conrad: When they ask. Or when someone is in immediate danger.
-Conrad: Otherwise, the best help is offering, not forcing. Guidance, not judgment.
-Alex: I understand now. I really do.
-leave Alex
-leave Mark
-Conrad sits alone for a moment, reflecting.
-Conrad: Knowledge is powerful. But it's not the same as wisdom.
-Conrad: Wisdom is knowing not just what to do, but when, and whether you should do it at all.
-leave Conrad
+if {selected_character} == "celestine":
+	Celestine: Try us.
+	Alex takes a shaky breath.
+	Alex: I found the journal by accident. I was looking for something else and it was just... there.
+	Alex: Hidden behind old files. Like someone wanted it forgotten.
+	Alex: When I started reading, I was fascinated. The author described teaching students through experiences, through challenges that made them think deeply about their choices.
+	Celestine: And you decided to continue their work.
+	Alex: I thought... I thought I could help people. Like you do, Celestine.
+	Alex: You solve mysteries and people learn from them. They grow. They change.
+	Alex: I wanted to do that too. To help my classmates become better people.
+	Celestine: By judging them? By confronting them with their mistakes?
+	Alex: Not judging. Teaching. The journal explained how guilt can be a teacher, how self-reflection leads to growth.
+	Mark: But Alex, you were making people feel watched, targeted, unsafe.
+	Alex looks genuinely shocked.
+	Alex: I... I didn't mean to frighten anyone. I thought they'd appreciate the guidance.
+	"Diwata Laya" appears, visible only to Celestine.
+	"Celestine (Thinking)": How do I make her understand?
+	Celestine leans forward, voice gentle but firm.
+	Celestine: Alex, think about how you felt when you found the journal.
+	Celestine: Did you ask permission to take it? Did you consult anyone about whether this was appropriate?
+	Alex: No, but... I thought—
+	Celestine: You thought you knew better. You thought having knowledge was enough.
+	Celestine: But knowledge without wisdom is dangerous. You learned techniques without understanding context.
+	Celestine: The person who wrote that journal? They left the school. Do you know why?
+	Alex shakes her head.
+	Celestine: Because their methods, however well-intentioned, crossed ethical lines.
+	Celestine: They manipulated students without consent. They caused harm while trying to teach.
+	Celestine: You found their methods and repeated their mistakes.
+	Alex's eyes begin to fill with tears.
+	Alex: I just... I wanted to help. I wanted to matter, to make a difference like you do.
+	Mark: Celestine helps people who ask for help. She doesn't force lessons on people.
+	Celestine: The students you sent notes to didn't consent to your teaching.
+	Celestine: You violated their privacy, judged their choices, and made them feel unsafe.
+	Celestine: That's not teaching. That's manipulation.
+	Alex covers her face with her hands.
+	Alex: What have I done? I thought I was doing something good.
+	Celestine: You had good intentions. But intentions aren't enough.
+	Celestine: Real wisdom is knowing when you don't have the right to interfere in someone else's life.
+	Alex: I'm so sorry. To you, to the students I hurt, to everyone.
+	Celestine: Apologizing is a start. But you need to return the journal and face the consequences.
+	Alex nods, wiping her eyes.
+	Alex: I will. I'll return it today and apologize to everyone.
+	Alex: Celestine... how do you know when it's right to help someone?
+	Celestine: When they ask. Or when someone is in immediate danger.
+	Celestine: Otherwise, the best help is offering, not forcing. Guidance, not judgment.
+	Alex: I understand now. I really do.
+	leave Alex
+	leave Mark
+	Celestine sits alone for a moment, reflecting.
+	Celestine: Knowledge is powerful. But it's not the same as wisdom.
+	Celestine: Wisdom is knowing not just what to do, but when, and whether you should do it at all.
+	leave Celestine
+else:
+	Conrad: Try us.
+	Alex takes a shaky breath.
+	Alex: I found the journal by accident. I was looking for something else and it was just... there.
+	Alex: Hidden behind old files. Like someone wanted it forgotten.
+	Alex: When I started reading, I was fascinated. The author described teaching students through experiences, through challenges that made them think deeply about their choices.
+	Conrad: And you decided to continue their work.
+	Alex: I thought... I thought I could help people. Like you do, Conrad.
+	Alex: You solve mysteries and people learn from them. They grow. They change.
+	Alex: I wanted to do that too. To help my classmates become better people.
+	Conrad: By judging them? By confronting them with their mistakes?
+	Alex: Not judging. Teaching. The journal explained how guilt can be a teacher, how self-reflection leads to growth.
+	Mark: But Alex, you were making people feel watched, targeted, unsafe.
+	Alex looks genuinely shocked.
+	Alex: I... I didn't mean to frighten anyone. I thought they'd appreciate the guidance.
+	"Diwata Laya" appears, visible only to Conrad.
+	"Conrad (Thinking)": How do I make her understand?
+	Conrad leans forward, voice gentle but firm.
+	Conrad: Alex, think about how you felt when you found the journal.
+	Conrad: Did you ask permission to take it? Did you consult anyone about whether this was appropriate?
+	Alex: No, but... I thought—
+	Conrad: You thought you knew better. You thought having knowledge was enough.
+	Conrad: But knowledge without wisdom is dangerous. You learned techniques without understanding context.
+	Conrad: The person who wrote that journal? They left the school. Do you know why?
+	Alex shakes her head.
+	Conrad: Because their methods, however well-intentioned, crossed ethical lines.
+	Conrad: They manipulated students without consent. They caused harm while trying to teach.
+	Conrad: You found their methods and repeated their mistakes.
+	Alex's eyes begin to fill with tears.
+	Alex: I just... I wanted to help. I wanted to matter, to make a difference like you do.
+	Mark: Conrad helps people who ask for help. He doesn't force lessons on people.
+	Conrad: The students you sent notes to didn't consent to your teaching.
+	Conrad: You violated their privacy, judged their choices, and made them feel unsafe.
+	Conrad: That's not teaching. That's manipulation.
+	Alex covers her face with her hands.
+	Alex: What have I done? I thought I was doing something good.
+	Conrad: You had good intentions. But intentions aren't enough.
+	Conrad: Real wisdom is knowing when you don't have the right to interfere in someone else's life.
+	Alex: I'm so sorry. To you, to the students I hurt, to everyone.
+	Conrad: Apologizing is a start. But you need to return the journal and face the consequences.
+	Alex nods, wiping her eyes.
+	Alex: I will. I'll return it today and apologize to everyone.
+	Alex: Conrad... how do you know when it's right to help someone?
+	Conrad: When they ask. Or when someone is in immediate danger.
+	Conrad: Otherwise, the best help is offering, not forcing. Guidance, not judgment.
+	Alex: I understand now. I really do.
+	leave Alex
+	leave Mark
+	Conrad sits alone for a moment, reflecting.
+	Conrad: Knowledge is powerful. But it's not the same as wisdom.
+	Conrad: Wisdom is knowing not just what to do, but when, and whether you should do it at all.
+	leave Conrad
 jump c4s5/

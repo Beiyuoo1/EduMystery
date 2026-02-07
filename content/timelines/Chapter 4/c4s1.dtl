@@ -1,65 +1,132 @@
 [background arg="res://Bg/hallway.png" fade="1.0"]
 The school hallway buzzes with nervous energy. Students cluster in small groups, whispering.
-join Conrad (half) left
-join Mark (Mark_half) right
-Mark: Have you heard? Students are getting weird anonymous notes.
-Conrad: Notes? What kind?
-Mark: Puzzles, riddles, moral dilemmas. Some of them are pretty creepy.
-Mark: At first people thought it was a prank. But now... six students have gotten them.
-Conrad: And the school asked me to look into it?
-Mark: Not officially. But you know how word spreads. "Conrad solved three mysteries. Maybe he can figure this out too."
-Conrad: Show me one of the notes.
-leave Conrad
-leave Mark
+if {selected_character} == "celestine":
+	join Celestine (half) left
+	join Mark (Mark_half) right
+	Mark: Have you heard? Students are getting weird anonymous notes.
+	Celestine: Notes? What kind?
+	Mark: Puzzles, riddles, moral dilemmas. Some of them are pretty creepy.
+	Mark: At first people thought it was a prank. But now... six students have gotten them.
+	Celestine: And the school asked me to look into it?
+	Mark: Not officially. But you know how word spreads. "Celestine solved three mysteries. Maybe she can figure this out too."
+	Celestine: Show me one of the notes.
+	leave Celestine
+	leave Mark
+else:
+	join Conrad (half) left
+	join Mark (Mark_half) right
+	Mark: Have you heard? Students are getting weird anonymous notes.
+	Conrad: Notes? What kind?
+	Mark: Puzzles, riddles, moral dilemmas. Some of them are pretty creepy.
+	Mark: At first people thought it was a prank. But now... six students have gotten them.
+	Conrad: And the school asked me to look into it?
+	Mark: Not officially. But you know how word spreads. "Conrad solved three mysteries. Maybe he can figure this out too."
+	Conrad: Show me one of the notes.
+	leave Conrad
+	leave Mark
 [background arg="res://Bg/classroom.png" fade="1.0"]
-join Conrad (half) left
-join Ben (half) center
-Ben holds a folded piece of paper, looking uncomfortable.
-Ben: I found this in my locker yesterday morning. No idea who put it there.
-Ben hands the note to Conrad.
-Conrad reads aloud.
-Conrad: "You witnessed your friend cheat on the exam but said nothing. Silence protects the guilty. What does that make you?"
-Conrad: When did this happen?
-Ben shifts nervously.
-Ben: Last week. My friend... I didn't want to get him in trouble. But now I feel like someone's watching me, judging me.
-Conrad: Have you told anyone else?
-Ben: No. The note said 'this is between you and your conscience.'
-Conrad: May I keep this?
-Ben nods, looking relieved to be rid of it.
-leave Ben
-join Mark (Mark_half) right
-Mark: That's harsh. Whoever wrote this knows personal details about students.
-Conrad: It's targeted. Specific. Not random.
-Conrad examines the note carefully.
-Conrad: The handwriting is neat, deliberate. The paper is standard school supply.
-Conrad: But the content... it's designed to provoke guilt and self-reflection.
-Mark: Like a psychological experiment?
-Conrad: Or a moral lesson. Someone thinks they're teaching.
+if {selected_character} == "celestine":
+	join Celestine (half) left
+	join Ben (half) center
+	Ben holds a folded piece of paper, looking uncomfortable.
+	Ben: I found this in my locker yesterday morning. No idea who put it there.
+	Ben hands the note to Celestine.
+	[signal arg="unlock_evidence anonymous_note_c4"]
+	Celestine reads aloud.
+	Celestine: "You witnessed your friend cheat on the exam but said nothing. Silence protects the guilty. What does that make you?"
+	Celestine: When did this happen?
+	Ben shifts nervously.
+	Ben: Last week. My friend... I didn't want to get him in trouble. But now I feel like someone's watching me, judging me.
+	Celestine: Have you told anyone else?
+	Ben: No. The note said 'this is between you and your conscience.'
+	Celestine: May I keep this?
+	Ben nods, looking relieved to be rid of it.
+	leave Ben
+	join Mark (Mark_half) right
+	Mark: That's harsh. Whoever wrote this knows personal details about students.
+	Celestine: It's targeted. Specific. Not random.
+	Celestine examines the note carefully.
+	Celestine: The handwriting is neat, deliberate. The paper is standard school supply.
+	Celestine: But the content... it's designed to provoke guilt and self-reflection.
+	Mark: Like a psychological experiment?
+	Celestine: Or a moral lesson. Someone thinks they're teaching.
+else:
+	join Conrad (half) left
+	join Ben (half) center
+	Ben holds a folded piece of paper, looking uncomfortable.
+	Ben: I found this in my locker yesterday morning. No idea who put it there.
+	Ben hands the note to Conrad.
+	[signal arg="unlock_evidence anonymous_note_c4"]
+	Conrad reads aloud.
+	Conrad: "You witnessed your friend cheat on the exam but said nothing. Silence protects the guilty. What does that make you?"
+	Conrad: When did this happen?
+	Ben shifts nervously.
+	Ben: Last week. My friend... I didn't want to get him in trouble. But now I feel like someone's watching me, judging me.
+	Conrad: Have you told anyone else?
+	Ben: No. The note said 'this is between you and your conscience.'
+	Conrad: May I keep this?
+	Ben nods, looking relieved to be rid of it.
+	leave Ben
+	join Mark (Mark_half) right
+	Mark: That's harsh. Whoever wrote this knows personal details about students.
+	Conrad: It's targeted. Specific. Not random.
+	Conrad examines the note carefully.
+	Conrad: The handwriting is neat, deliberate. The paper is standard school supply.
+	Conrad: But the content... it's designed to provoke guilt and self-reflection.
+	Mark: Like a psychological experiment?
+	Conrad: Or a moral lesson. Someone thinks they're teaching.
 join Alice (half) rightmost
 Alice approaches, carrying her own note.
-Alice: Conrad? I heard you're looking into these notes. I got one too.
-Conrad: What does yours say?
-Alice: "You take credit for group work while others do the labor. Recognition without effort is theft."
-Alice looks down, ashamed.
-Alice: It's true. I have been letting others carry me in group projects. But how does this person know?
-Conrad: They're observing. Watching student behavior closely.
-Alice: It feels invasive. Like someone's keeping files on all of us.
-Mark: Conrad, this is different from the B.C. cards you've found, right?
-Conrad nods slowly.
-Conrad: Completely different. B.C.'s cards appear after we solve a case. They're elegant, philosophical.
-Conrad: These notes are... aggressive. Confrontational. Personal.
-Conrad: Whoever is doing this isn't B.C. They're someone else entirely.
-leave Alice
-Mark: So we have a new mystery on our hands.
-Conrad: And it's escalating. Six students so far. If we don't find who's behind this, more will follow.
-join "Diwata Laya" (Half_mirror) center
-[signal arg="laya_start"]
-"Diwata Laya": A new case begins. Prepare your mind.
-[signal arg="start_minigame curriculum:pacman"]
-"Diwata Laya": Good. You are ready.
-[signal arg="laya_end"]
-leave "Diwata Laya"
-Conrad: I need to understand the pattern. Why these specific students? What's the connection?
-leave Conrad
-leave Mark
+if {selected_character} == "celestine":
+	Alice: Celestine? I heard you're looking into these notes. I got one too.
+	Celestine: What does yours say?
+	Alice: "You take credit for group work while others do the labor. Recognition without effort is theft."
+	Alice looks down, ashamed.
+	Alice: It's true. I have been letting others carry me in group projects. But how does this person know?
+	Celestine: They're observing. Watching student behavior closely.
+	Alice: It feels invasive. Like someone's keeping files on all of us.
+	Mark: Celestine, this is different from the B.C. cards you've found, right?
+	Celestine nods slowly.
+	Celestine: Completely different. B.C.'s cards appear after we solve a case. They're elegant, philosophical.
+	Celestine: These notes are... aggressive. Confrontational. Personal.
+	Celestine: Whoever is doing this isn't B.C. They're someone else entirely.
+	leave Alice
+	Mark: So we have a new mystery on our hands.
+	Celestine: And it's escalating. Six students so far. If we don't find who's behind this, more will follow.
+	join "Diwata Laya" (Half_mirror) center
+	[signal arg="laya_start"]
+	"Diwata Laya": A new case begins. Prepare your mind.
+	[signal arg="start_minigame anonymous_notes"]
+	"Diwata Laya": Good. You are ready.
+	[signal arg="laya_end"]
+	leave "Diwata Laya"
+	Celestine: I need to understand the pattern. Why these specific students? What's the connection?
+	leave Celestine
+	leave Mark
+else:
+	Alice: Conrad? I heard you're looking into these notes. I got one too.
+	Conrad: What does yours say?
+	Alice: "You take credit for group work while others do the labor. Recognition without effort is theft."
+	Alice looks down, ashamed.
+	Alice: It's true. I have been letting others carry me in group projects. But how does this person know?
+	Conrad: They're observing. Watching student behavior closely.
+	Alice: It feels invasive. Like someone's keeping files on all of us.
+	Mark: Conrad, this is different from the B.C. cards you've found, right?
+	Conrad nods slowly.
+	Conrad: Completely different. B.C.'s cards appear after we solve a case. They're elegant, philosophical.
+	Conrad: These notes are... aggressive. Confrontational. Personal.
+	Conrad: Whoever is doing this isn't B.C. They're someone else entirely.
+	leave Alice
+	Mark: So we have a new mystery on our hands.
+	Conrad: And it's escalating. Six students so far. If we don't find who's behind this, more will follow.
+	join "Diwata Laya" (Half_mirror) center
+	[signal arg="laya_start"]
+	"Diwata Laya": A new case begins. Prepare your mind.
+	[signal arg="start_minigame anonymous_notes"]
+	"Diwata Laya": Good. You are ready.
+	[signal arg="laya_end"]
+	leave "Diwata Laya"
+	Conrad: I need to understand the pattern. Why these specific students? What's the connection?
+	leave Conrad
+	leave Mark
 jump c4s2/

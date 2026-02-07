@@ -82,6 +82,13 @@ func _ready():
 	# Initialize puzzle now that nodes are ready
 	_initialize_puzzle()
 
+func _unhandled_input(event):
+	# F5 to skip minigame
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_F5:
+			print("F5 pressed - Skipping fill-in-the-blank minigame")
+			_skip_minigame()
+
 func _process(delta):
 	if timer_active:
 		time_remaining -= delta
@@ -177,6 +184,10 @@ func configure_puzzle(config: Dictionary) -> void:
 		_initialize_puzzle()
 
 func _initialize_puzzle():
+	print("DEBUG: Initializing puzzle with sentence_parts: ", puzzle_data.sentence_parts)
+	print("DEBUG: Answers: ", puzzle_data.answers)
+	print("DEBUG: Choices: ", puzzle_data.choices)
+
 	# 0. Set header labels if configured
 	if puzzle_data.has("title"):
 		title_label.text = puzzle_data.title
@@ -185,12 +196,16 @@ func _initialize_puzzle():
 	if puzzle_data.has("context"):
 		context_label.text = puzzle_data.context
 
-	# 1. Set the sentence labels
+	# 1. Set the sentence labels (supports 1-blank puzzle with 2 sentence parts)
 	var labels = sentence_line.get_children().filter(func(c): return c is Label)
-	if labels.size() >= 3 and puzzle_data.sentence_parts.size() >= 3:
+	print("DEBUG: Found ", labels.size(), " labels in sentence_line")
+	if labels.size() >= 2 and puzzle_data.sentence_parts.size() >= 2:
+		print("DEBUG: Setting label 0 to: ", puzzle_data.sentence_parts[0])
 		labels[0].text = puzzle_data.sentence_parts[0]
+		print("DEBUG: Setting label 1 to: ", puzzle_data.sentence_parts[1])
 		labels[1].text = puzzle_data.sentence_parts[1]
-		labels[2].text = puzzle_data.sentence_parts[2]
+	else:
+		print("ERROR: Label count (", labels.size(), ") or sentence_parts count (", puzzle_data.sentence_parts.size(), ") mismatch!")
 
 	# 2. Attach and initialize Drop Zone scripts
 	drop_zone_1.set_script(DROP_SCRIPT)
@@ -221,38 +236,45 @@ func check_win_condition(correctly_dropped):
 		correct_drops += 1
 
 	if correct_drops == TOTAL_DROPS:
-		# Stop timer
-		timer_active = false
+		_complete_puzzle()
 
-		# Check for speed bonus (completed in under 60 seconds)
-		var completion_time = (Time.get_ticks_msec() / 1000.0) - start_time
-		var earned_bonus = false
-		if completion_time < TIME_BONUS_THRESHOLD:
-			PlayerStats.add_hints(1)
-			earned_bonus = true
-			print("⚡ Speed Bonus: +1 Hint! ⚡")
+func _skip_minigame():
+	"""Skip the minigame when F5 is pressed"""
+	print("Skipping fill-in-the-blank minigame...")
+	timer_active = false
+	_complete_puzzle()
 
-		# Win condition achieved!
-		print("Puzzle Solved!")
+func _complete_puzzle():
+	"""Complete the puzzle and show results"""
+	# Stop timer
+	timer_active = false
 
-		# Show bonus message if earned
-		if earned_bonus and title_label:
-			title_label.text = "⚡ Speed Bonus: +1 Hint! ⚡"
-			title_label.add_theme_color_override("font_color", Color.YELLOW)
+	# Check for speed bonus (completed in under 60 seconds)
+	var completion_time = (Time.get_ticks_msec() / 1000.0) - start_time
+	var earned_bonus = false
+	if completion_time < TIME_BONUS_THRESHOLD:
+		PlayerStats.add_hints(1)
+		earned_bonus = true
+		print("⚡ Speed Bonus: +1 Hint! ⚡")
 
-		# Brief delay to show bonus message
-		if earned_bonus:
-			await get_tree().create_timer(1.5).timeout
+	# Win condition achieved!
+	print("Puzzle Solved!")
 
-		# Fade out before emitting signal and closing
-		var tween = create_tween()
-		tween.tween_property(texture_rect, "modulate:a", 0.0, 0.2)
-		await tween.finished
-		# Emit signal AFTER fade completes but BEFORE queue_free
-		emit_signal("game_finished", true, 100)
-		# Small delay to ensure signal is processed
-		await get_tree().process_frame
-		queue_free()
-	else:
-		# Optionally handle failure/time runs out here
-		pass
+	# Show bonus message if earned
+	if earned_bonus and title_label:
+		title_label.text = "⚡ Speed Bonus: +1 Hint! ⚡"
+		title_label.add_theme_color_override("font_color", Color.YELLOW)
+
+	# Brief delay to show bonus message
+	if earned_bonus:
+		await get_tree().create_timer(1.5).timeout
+
+	# Fade out before emitting signal and closing
+	var tween = create_tween()
+	tween.tween_property(texture_rect, "modulate:a", 0.0, 0.2)
+	await tween.finished
+	# Emit signal AFTER fade completes but BEFORE queue_free
+	emit_signal("game_finished", true, 100)
+	# Small delay to ensure signal is processed
+	await get_tree().process_frame
+	queue_free()

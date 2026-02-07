@@ -1,0 +1,107 @@
+================================================================================
+DIALOGUE TRANSCRIPT: c1s2
+Source: c1s2.dtl
+================================================================================
+
+
+[SCENE: DOOR]
+
+[set {chapter1_score} = 0]
+[set {c1s2_repair_tried} = false]
+[set {c1s2_teacher_tried} = false]
+
+The time is now 5\: 30. Today's classes are over. Instead of going home, Conrad and Mark stay in the classroom to talk.
+[Conrad enters]
+[Mark enters]
+
+Conrad: Finally, classes are over. Dude, let's go find that Janitor!
+
+Mark: I can't man, mom told me to go home as soon as possible. My mom and I got invited to celebrate my cousin's birthday. You know how my mom is.
+
+Conrad: Alright, fine. We can just talk through messages just in case I need you for something. You better respond as soon as you can.
+[Mark leaves]
+[Conrad leaves]
+
+[SCENE: STORAGE ROOM FRONT DOOR]
+
+
+...
+
+Conrad immediately went to the classroom
+
+his chest tightening with every step. When he reached the door, he froze.
+[Conrad enters]
+
+Conrad: (Okay, Conrad, get it together)
+
+Conrad: What is the right way to ask this? How do I approach him without sounding guilty?
+
+[MINIGAME: dialogue_choice_janitor]
+
+
+[SCENE: STORAGE_ROOM]
+
+
+Conrad enters the Storage Room.
+[Conrad enters]
+[Janitor enters]
+
+Conrad: Good afternoon, sir. I was hoping you could help me. I’m looking for something I lost in this room—have you come across anything unusual while you were sweeping?
+
+The Janitor brings in his cleaning equipment in the room.
+
+Janitor Fred: No young man, what do you need from me?
+
+Conrad: I noticed earlier today that there seems to be a problem with the exam papers? Do you know what that's about?
+
+Janitor Fred: I overheard them at the faculty earlier panicking about how the exam papers are ruined because they got wet. One air conditioning unit in the faculty room started leaking yesterday. It was noticed by the English teacher this morning.
+
+Conrad: Huh, those looked pretty new from what I can remember.
+
+Janitor Fred: That is why the principal is so mad. He called the store where the air conditioner was bought to complain. The store is sending a repair guy.
+
+Conrad: Do you know when the repair guy will arrive?
+
+Janitor Fred: He'll probably arrive anytime now. I heard the principal say that it will probably be after classes are done for the day.
+
+Conrad: Thanks for answering my questions.
+
+Janitor Fred: No problem kid.
+[Janitor leaves]
+
+Janitor leaves the room after checking how dirty it is, but does not clean the room yet.
+
+Conrad: Hmmm, nothing is really suspicious from what I have gathered so far.
+
+[LABEL: choice_1]
+
+
+Conrad: What's the most logical next step based on what the Janitor said?
+[set {c1s2_repair_tried} = true]
+
+[EVENT: wrong_choice]
+
+[set {chapter1_score} -= 5]
+
+Conrad: No, that doesn't feel right. The leak was discovered this morning, but happened yesterday. The repair guy was only called today. He's not a suspect.
+  → The repair guy is the main suspect. | 
+  → The English teacher is suspicious. | 
+[set {c1s2_teacher_tried} = true]
+
+[EVENT: wrong_choice]
+
+[JUMP TO: choice_1]
+
+Conrad: The English teacher found the leak, but the Janitor said it started yesterday. I shouldn't jump to conclusions about who found it. The timeline is more important.
+[JUMP TO: choice_1]
+  → The timeline of the leak is the key.
+[set {chapter1_score} += 10]
+
+Conrad: That's it. The leak happened yesterday, but was only found this morning. What happened in between? That feels like the real mystery.
+[set {chapter1_score} -= 5]
+
+Conrad: I have a strange feeling about this. Something doesn't add up. I should keep digging for more information.
+[Everyone leaves]
+
+Conrad goes out of the room and heads for the faculty room.
+[JUMP TO: c1s3/]

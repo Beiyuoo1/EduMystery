@@ -1,97 +1,178 @@
 [background arg="res://Bg/courtyard.png" fade="1.0"]
 Art Week. The courtyard buzzes with excitement as students gather around colorful displays.
 Paintings line the walls. Sculptures stand on pedestals. The air smells of fresh paint and possibility.
-join Conrad (half) left
-join Mark (Mark_half) right
-Mark: Man, after the exam sabotage and the missing fund... it's nice to have something normal for once.
-Conrad: "Normal" is relative. But yes, this is refreshing.
-Mark: Two cases solved. You're getting quite the reputation, you know.
-Conrad: I'm just following the evidence. Anyone could do it.
-Mark: Not anyone has a mysterious spirit guide helping them.
-Conrad shoots Mark a warning look.
-Conrad: Keep your voice down.
-Mark: Relax, no one's listening. They're all too busy with the art.
-Mark gestures at the colorful displays surrounding them.
-Mark: Speaking of which - have you seen Mia's sculpture? The one that won regionals?
-Conrad: "The Reader"? I've heard it's the centerpiece of the exhibit.
-Mark: Let's check it out. Everyone's been talking about it.
-Conrad: Lead the way.
-leave Conrad
+if {selected_character} == "celestine":
+	join Celestine (half) left
+	join Mark (Mark_half) right
+	Mark: Man, after the exam sabotage and the missing fund... it's nice to have something normal for once.
+	Celestine: "Normal" is relative. But yes, this is refreshing.
+	Mark: Two cases solved. You're getting quite the reputation, you know.
+	Celestine: I'm just following the evidence. Anyone could do it.
+	Mark: Not anyone has a mysterious spirit guide helping them.
+	Celestine shoots Mark a warning look.
+	Celestine: Keep your voice down.
+	Mark: Relax, no one's listening. They're all too busy with the art.
+	Mark gestures at the colorful displays surrounding them.
+	Mark: Speaking of which - have you seen Mia's sculpture? The one that won regionals?
+	Celestine: "The Reader"? I've heard it's the centerpiece of the exhibit.
+	Mark: Let's check it out. Everyone's been talking about it.
+	Celestine: Lead the way.
+else:
+	join Conrad (half) left
+	join Mark (Mark_half) right
+	Mark: Man, after the exam sabotage and the missing fund... it's nice to have something normal for once.
+	Conrad: "Normal" is relative. But yes, this is refreshing.
+	Mark: Two cases solved. You're getting quite the reputation, you know.
+	Conrad: I'm just following the evidence. Anyone could do it.
+	Mark: Not anyone has a mysterious spirit guide helping them.
+	Conrad shoots Mark a warning look.
+	Conrad: Keep your voice down.
+	Mark: Relax, no one's listening. They're all too busy with the art.
+	Mark gestures at the colorful displays surrounding them.
+	Mark: Speaking of which - have you seen Mia's sculpture? The one that won regionals?
+	Conrad: "The Reader"? I've heard it's the centerpiece of the exhibit.
+	Mark: Let's check it out. Everyone's been talking about it.
+	Conrad: Lead the way.
+leave Celestine [if {selected_character} == "celestine"]
+leave Conrad [if {selected_character} == "conrad"]
 leave Mark
 [background arg="res://Bg/courtyard.png" fade="0.5"]
 They walk toward the center of the courtyard.
 A crowd has gathered, but something feels wrong.
 The murmurs aren't of admiration. They're of shock.
 [wait time="0.5"]
-join Conrad (half) left
-join Mark (Mark_half) right
-Mark: What's going on? Why does everyone look so...
-A student rushes past, face pale.
-Student: Someone destroyed Mia's sculpture! It's completely smashed!
-Conrad: What?
-Conrad pushes through the crowd, his detective instincts taking over.
-leave Conrad
-leave Mark
-[wait time="0.5"]
-join Conrad (half) left
-The sculpture lies shattered on the ground.
-Clay fragments spread across the stone tiles. What was once art is now debris.
-The pedestal stands empty, its plaque a bitter reminder of what was.
-join Mia (half) right
-Mia kneels among the pieces, her hands hovering over the fragments as if afraid to touch them.
-Tears stream silently down her face.
-Mia: Grandpa... I made this for you...
-Mia: You always said I could do anything. That my hands could create magic.
-Mia: Now it's gone. It's all gone.
-Conrad approaches carefully, keeping his voice gentle.
-Conrad: Mia?
-She looks up, eyes red and hollow.
-Mia: Three months. Every night after school. Every weekend.
-Mia: My grandfather used to read to me under the mango tree in our backyard.
-Mia: He passed away last year. This was... this was my way of keeping him with me.
-Conrad: I'm so sorry. Truly.
-Mia: Who would do this? Why would anyone want to destroy something made from love?
-Conrad notices something on the empty pedestal.
-Conrad: Wait. What's that?
-A small note is tucked under the edge of the plaque.
-Conrad picks it up carefully, reading aloud.
-Conrad: "Not everyone deserves to shine."
-join Mark (Mark_half) leftmost
-Mark: Conrad! What happened? Is Mia...
-Conrad: Someone destroyed her sculpture deliberately. And left this message.
-Conrad shows Mark the note.
-Mark: "Not everyone deserves to shine"? That's... that's cruel. Who writes something like that?
-Conrad's expression hardens with determination.
-Conrad: Someone who feels overshadowed. Someone who wanted to hurt her specifically.
-Conrad: This wasn't random vandalism, Mark. This was personal.
-He turns to Mia, his voice firm but kind.
-Conrad: Mia, I've solved cases like this before. The exam sabotage. The missing outreach fund.
-Conrad: I promise you - I'm going to find out who did this and why.
-Mia looks up, a fragile hope breaking through her grief.
-Mia: You... you're the one who caught Greg? And found the missing money?
-Conrad: That's right. And whoever did this made a mistake.
-Conrad: They left evidence. Evidence always tells a story.
-Conrad crouches near the debris, examining the scene with practiced eyes.
-Conrad: The note itself is a clue. Handwritten. Emotional. Personal.
-Conrad: The sculpture was pushed, not kicked. Someone got close to it.
-Conrad: And... what's this?
-He picks up a small piece of cloth, stained with various colors.
-Conrad: Paint-stained fabric. Someone dropped this.
-Mark: A clue already?
-Conrad: The beginning of one.
-join "Diwata Laya" (Half) center
-[signal arg="laya_start"]
-"Diwata Laya": A fresh case. Let your mind warm up to the challenge.
-[signal arg="start_minigame curriculum:fillinblank"]
-"Diwata Laya": Good. You are ready to investigate.
-[signal arg="laya_end"]
-leave "Diwata Laya"
-Conrad straightens, pocketing the cloth and the note carefully.
-Conrad: Mark, we have work to do.
-Mark: Just like old times.
-Conrad: Someone knows something. They always do.
-Conrad: Let's start with the art department. I want to know who had access to this courtyard last night.
-leave Conrad
-leave Mark
-leave Mia
+if {selected_character} == "celestine":
+	join Celestine (half) left
+	join Mark (Mark_half) right
+	Mark: What's going on? Why does everyone look so...
+	A student rushes past, face pale.
+	Student: Someone destroyed Mia's sculpture! It's completely smashed!
+	Celestine: What?
+	Celestine pushes through the crowd, her detective instincts taking over.
+	leave Celestine
+	leave Mark
+	[wait time="0.5"]
+	join Celestine (half) left
+	The sculpture lies shattered on the ground.
+	Clay fragments spread across the stone tiles. What was once art is now debris.
+	The pedestal stands empty, its plaque a bitter reminder of what was.
+	join Mia (half) right
+	Mia kneels among the pieces, her hands hovering over the fragments as if afraid to touch them.
+	Tears stream silently down her face.
+	Mia: Grandpa... I made this for you...
+	Mia: You always said I could do anything. That my hands could create magic.
+	Mia: Now it's gone. It's all gone.
+	Celestine approaches carefully, keeping her voice gentle.
+	Celestine: Mia?
+	She looks up, eyes red and hollow.
+	Mia: Three months. Every night after school. Every weekend.
+	Mia: My grandfather used to read to me under the mango tree in our backyard.
+	Mia: He passed away last year. This was... this was my way of keeping him with me.
+	Celestine: I'm so sorry. Truly.
+	Mia: Who would do this? Why would anyone want to destroy something made from love?
+	Celestine notices something on the empty pedestal.
+	Celestine: Wait. What's that?
+	A small note is tucked under the edge of the plaque.
+	Celestine picks it up carefully, reading aloud.
+	[signal arg="unlock_evidence cruel_note_c3"]
+	join Mark (Mark_half) leftmost
+	Mark: Celestine! What happened? Is Mia...
+	Celestine: Someone destroyed her sculpture deliberately. And left this message.
+	Celestine shows Mark the note.
+	Mark: That's... that's cruel. Who writes something like that?
+	Celestine's expression hardens with determination.
+	Celestine: Someone who feels overshadowed. Someone who wanted to hurt her specifically.
+	Celestine: This wasn't random vandalism, Mark. This was personal.
+	She turns to Mia, her voice firm but kind.
+	Celestine: Mia, I've solved cases like this before. The exam sabotage. The missing outreach fund.
+	Celestine: I promise you - I'm going to find out who did this and why.
+	Mia looks up, a fragile hope breaking through her grief.
+	Mia: You... you're the one who caught Greg? And found the missing money?
+	Celestine: That's right. And whoever did this made a mistake.
+	Celestine: They left evidence. Evidence always tells a story.
+	Celestine crouches near the debris, examining the scene with practiced eyes.
+	[signal arg="start_minigame dialogue_choice_cruel_note"]
+	Celestine: They left evidence.
+	Celestine: The note itself is a clue. Handwritten. Emotional. Personal.
+	Celestine: The sculpture was pushed, not kicked. Someone got close to it.
+	Celestine: And... what's this?
+	She picks up a small piece of cloth, stained with various colors.
+	Celestine: Paint-stained fabric. Someone dropped this.
+	Mark: A clue already?
+	Celestine: The beginning of one.
+	Celestine straightens, pocketing the cloth and the note carefully.
+	Celestine: Mark, we have work to do.
+	Mark: Just like old times.
+	Celestine: Someone knows something. They always do.
+	Celestine: Let's start with the art department. I want to know who had access to this courtyard last night.
+	leave Celestine
+	leave Mark
+	leave Mia
+else:
+	join Conrad (half) left
+	join Mark (Mark_half) right
+	Mark: What's going on? Why does everyone look so...
+	A student rushes past, face pale.
+	Student: Someone destroyed Mia's sculpture! It's completely smashed!
+	Conrad: What?
+	Conrad pushes through the crowd, his detective instincts taking over.
+	leave Conrad
+	leave Mark
+	[wait time="0.5"]
+	join Conrad (half) left
+	The sculpture lies shattered on the ground.
+	Clay fragments spread across the stone tiles. What was once art is now debris.
+	The pedestal stands empty, its plaque a bitter reminder of what was.
+	join Mia (half) right
+	Mia kneels among the pieces, her hands hovering over the fragments as if afraid to touch them.
+	Tears stream silently down her face.
+	Mia: Grandpa... I made this for you...
+	Mia: You always said I could do anything. That my hands could create magic.
+	Mia: Now it's gone. It's all gone.
+	Conrad approaches carefully, keeping his voice gentle.
+	Conrad: Mia?
+	She looks up, eyes red and hollow.
+	Mia: Three months. Every night after school. Every weekend.
+	Mia: My grandfather used to read to me under the mango tree in our backyard.
+	Mia: He passed away last year. This was... this was my way of keeping him with me.
+	Conrad: I'm so sorry. Truly.
+	Mia: Who would do this? Why would anyone want to destroy something made from love?
+	Conrad notices something on the empty pedestal.
+	Conrad: Wait. What's that?
+	A small note is tucked under the edge of the plaque.
+	Conrad picks it up carefully, reading aloud.
+	[signal arg="unlock_evidence cruel_note_c3"]
+	join Mark (Mark_half) leftmost
+	Mark: Conrad! What happened? Is Mia...
+	Conrad: Someone destroyed her sculpture deliberately. And left this message.
+	Conrad shows Mark the note.
+	Mark: That's... that's cruel. Who writes something like that?
+	Conrad's expression hardens with determination.
+	Conrad: Someone who feels overshadowed. Someone who wanted to hurt her specifically.
+	Conrad: This wasn't random vandalism, Mark. This was personal.
+	He turns to Mia, his voice firm but kind.
+	Conrad: Mia, I've solved cases like this before. The exam sabotage. The missing outreach fund.
+	Conrad: I promise you - I'm going to find out who did this and why.
+	Mia looks up, a fragile hope breaking through her grief.
+	Mia: You... you're the one who caught Greg? And found the missing money?
+	Conrad: That's right. And whoever did this made a mistake.
+	Conrad: They left evidence. Evidence always tells a story.
+	Conrad crouches near the debris, examining the scene with practiced eyes.
+	[signal arg="start_minigame dialogue_choice_cruel_note"]
+	Conrad: They left evidence.
+	Conrad: The note itself is a clue. Handwritten. Emotional. Personal.
+	Conrad: The sculpture was pushed, not kicked. Someone got close to it.
+	Conrad: And... what's this?
+	He picks up a small piece of cloth, stained with various colors.
+	Conrad: Paint-stained fabric. Someone dropped this.
+	Mark: A clue already?
+	Conrad: The beginning of one.
+	Conrad straightens, pocketing the cloth and the note carefully.
+	Conrad: Mark, we have work to do.
+	Mark: Just like old times.
+	Conrad: Someone knows something. They always do.
+	Conrad: Let's start with the art department. I want to know who had access to this courtyard last night.
+	leave Conrad
+	leave Mark
+	leave Mia
 jump c3s2/

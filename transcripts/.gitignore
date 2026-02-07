@@ -1,0 +1,5 @@
+# Ignore all generated transcript files
+*.txt
+
+# Keep this folder structure
+!.gitignore

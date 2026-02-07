@@ -10,13 +10,20 @@
 "style": "",
 "suffix": ""
 },
-&"default_portrait": "half",
+&"default_portrait": "animated",
 &"description": "Faculty Advisor for the Student Council. Overworked and sometimes forgetful, but cares about her students.",
 &"display_name": "Ms. Santos",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {
+"animated": {
+"export_overrides": {},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 0.7,
+"scene": "res://scenes/portraits/ms_santos_animated_portrait.tscn"
+},
 "full": {
 "export_overrides": {
 "image": "\"res://Sprites/MsSantos_full.png\""
@@ -33,7 +40,7 @@
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 0.7,
-"scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
+"scene": "res://scenes/portraits/ms_santos_animated_portrait.tscn"
 }
 },
 &"scale": 1.0

@@ -125,8 +125,13 @@ def parse_dtl_line(line):
 
     return ""
 
-def convert_dtl_to_txt(dtl_path):
-    """Convert a DTL file to a readable TXT file"""
+def convert_dtl_to_txt(dtl_path, output_folder=None):
+    """Convert a DTL file to a readable TXT file
+
+    Args:
+        dtl_path: Path to the .dtl file
+        output_folder: Optional custom output folder. If None, saves next to source file.
+    """
     dtl_path = Path(dtl_path)
 
     if not dtl_path.exists():
@@ -138,7 +143,12 @@ def convert_dtl_to_txt(dtl_path):
         return False
 
     # Create output path
-    txt_path = dtl_path.with_suffix('.txt')
+    if output_folder:
+        output_folder = Path(output_folder)
+        output_folder.mkdir(parents=True, exist_ok=True)
+        txt_path = output_folder / f"{dtl_path.stem}.txt"
+    else:
+        txt_path = dtl_path.with_suffix('.txt')
 
     print(f"\n📖 Reading: {dtl_path.name}")
 
@@ -173,8 +183,13 @@ def convert_dtl_to_txt(dtl_path):
         print(f"❌ Error converting file: {e}")
         return False
 
-def convert_folder(folder_path):
-    """Convert all DTL files in a folder"""
+def convert_folder(folder_path, output_folder=None):
+    """Convert all DTL files in a folder
+
+    Args:
+        folder_path: Path to folder containing .dtl files
+        output_folder: Optional custom output folder. If None, saves next to source files.
+    """
     folder_path = Path(folder_path)
 
     if not folder_path.exists() or not folder_path.is_dir():
@@ -188,17 +203,21 @@ def convert_folder(folder_path):
         return
 
     print(f"\n📁 Found {len(dtl_files)} DTL file(s) in folder")
-    print(f"📂 Folder: {folder_path}")
+    print(f"📂 Source: {folder_path}")
+    if output_folder:
+        print(f"📂 Output: {output_folder}")
     print("-" * 80)
 
     success_count = 0
     for dtl_file in dtl_files:
-        if convert_dtl_to_txt(dtl_file):
+        if convert_dtl_to_txt(dtl_file, output_folder):
             success_count += 1
         print()
 
     print("=" * 80)
     print(f"✅ Converted {success_count}/{len(dtl_files)} files successfully!")
+    if output_folder:
+        print(f"📂 All files saved to: {output_folder}")
 
 def main():
     print("\n" + "=" * 80)
@@ -224,10 +243,13 @@ def main():
     print("\nOptions:")
     print("  1. Convert a single DTL file")
     print("  2. Convert all DTL files in a folder")
-    print("  3. Convert all Chapter 2 files (content/timelines/Chapter 2/)")
-    print("  4. Exit")
+    print("  3. Convert all Chapter 2 files → transcripts/Chapter_2/")
+    print("  4. Convert all Chapter 3 files → transcripts/Chapter_3/")
+    print("  5. Convert all Chapter 4 files → transcripts/Chapter_4/")
+    print("  6. Convert all Chapter 5 files → transcripts/Chapter_5/")
+    print("  7. Exit")
 
-    choice = input("\nEnter your choice (1-4): ").strip()
+    choice = input("\nEnter your choice (1-7): ").strip()
 
     if choice == '1':
         file_path = input("\nEnter the path to the DTL file: ").strip().strip('"')
@@ -239,12 +261,37 @@ def main():
 
     elif choice == '3':
         chapter2_path = Path(__file__).parent / "content" / "timelines" / "Chapter 2"
+        output_path = Path(__file__).parent / "transcripts" / "Chapter_2"
         if chapter2_path.exists():
-            convert_folder(chapter2_path)
+            convert_folder(chapter2_path, output_path)
         else:
             print(f"❌ Chapter 2 folder not found: {chapter2_path}")
 
     elif choice == '4':
+        chapter3_path = Path(__file__).parent / "content" / "timelines" / "Chapter 3"
+        output_path = Path(__file__).parent / "transcripts" / "Chapter_3"
+        if chapter3_path.exists():
+            convert_folder(chapter3_path, output_path)
+        else:
+            print(f"❌ Chapter 3 folder not found: {chapter3_path}")
+
+    elif choice == '5':
+        chapter4_path = Path(__file__).parent / "content" / "timelines" / "Chapter 4"
+        output_path = Path(__file__).parent / "transcripts" / "Chapter_4"
+        if chapter4_path.exists():
+            convert_folder(chapter4_path, output_path)
+        else:
+            print(f"❌ Chapter 4 folder not found: {chapter4_path}")
+
+    elif choice == '6':
+        chapter5_path = Path(__file__).parent / "content" / "timelines" / "Chapter 5"
+        output_path = Path(__file__).parent / "transcripts" / "Chapter_5"
+        if chapter5_path.exists():
+            convert_folder(chapter5_path, output_path)
+        else:
+            print(f"❌ Chapter 5 folder not found: {chapter5_path}")
+
+    elif choice == '7':
         print("\n👋 Goodbye!")
         return
 

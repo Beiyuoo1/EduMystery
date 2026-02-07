@@ -2,11 +2,18 @@
 Alex stands before the Principal's desk, the leather-bound journal in her hands.
 join Alex (half) center
 join Principal (half) right
-join Conrad (half) left
-join Mark (Mark_half) leftmost
-Principal: Alex. Conrad explained what happened.
-Alex: I'm sorry, Principal. I took the journal without permission and used it inappropriately.
-Alex: I thought I was helping, but I understand now that I caused harm.
+if {selected_character} == "celestine":
+	join Celestine (animated) left
+	join Mark (Mark_half) leftmost
+	Principal: Alex. Celestine explained what happened.
+	Alex: I'm sorry, Principal. I took the journal without permission and used it inappropriately.
+	Alex: I thought I was helping, but I understand now that I caused harm.
+else:
+	join Conrad (half) left
+	join Mark (Mark_half) leftmost
+	Principal: Alex. Conrad explained what happened.
+	Alex: I'm sorry, Principal. I took the journal without permission and used it inappropriately.
+	Alex: I thought I was helping, but I understand now that I caused harm.
 Alex places the journal on the desk.
 Principal: This journal has been missing for over twenty years. I'm surprised it was still in the archive.
 Principal picks it up, examining it thoughtfully.
@@ -24,22 +31,41 @@ Alex: I accept all of that. Thank you for giving me a chance to make this right.
 leave Alex
 leave Principal
 [wait time="0.5"]
-join Conrad (half) center
-join Mark (Mark_half) right
-Mark: That went better than expected.
-Conrad: Alex isn't a bad person. She just made a mistake.
-Mark: A mistake that could have caused real damage.
-Conrad: True. But she's learning. That's what matters.
-Conrad: She wanted to help people grow. Now she's growing herself.
-Mark: You think she'll be okay?
-Conrad: I think she'll be better than okay. This experience taught her something important.
-Conrad: Knowledge alone isn't enough. You need wisdom, empathy, and humility.
-Mark: Heavy lesson for one week.
-Conrad smiles slightly.
-Conrad: The best lessons usually are.
-Mark: So what now?
-Conrad: Now we verify the journal is properly stored and close this case.
-Conrad: Let's go to the archive.
-leave Conrad
+if {selected_character} == "celestine":
+	join Celestine (animated) center
+	join Mark (Mark_half) right
+	Mark: That went better than expected.
+	Celestine: Alex isn't a bad person. She just made a mistake.
+	Mark: A mistake that could have caused real damage.
+	Celestine: True. But she's learning. That's what matters.
+	Celestine: She wanted to help people grow. Now she's growing herself.
+	Mark: You think she'll be okay?
+	Celestine: I think she'll be better than okay. This experience taught her something important.
+	Celestine: Knowledge alone isn't enough. You need wisdom, empathy, and humility.
+	Mark: Heavy lesson for one week.
+	Celestine smiles slightly.
+	Celestine: The best lessons usually are.
+	Mark: So what now?
+	Celestine: Now we verify the journal is properly stored and close this case.
+	Celestine: Let's go to the archive.
+	leave Celestine
+else:
+	join Conrad (half) center
+	join Mark (Mark_half) right
+	Mark: That went better than expected.
+	Conrad: Alex isn't a bad person. She just made a mistake.
+	Mark: A mistake that could have caused real damage.
+	Conrad: True. But she's learning. That's what matters.
+	Conrad: She wanted to help people grow. Now she's growing herself.
+	Mark: You think she'll be okay?
+	Conrad: I think she'll be better than okay. This experience taught her something important.
+	Conrad: Knowledge alone isn't enough. You need wisdom, empathy, and humility.
+	Mark: Heavy lesson for one week.
+	Conrad smiles slightly.
+	Conrad: The best lessons usually are.
+	Mark: So what now?
+	Conrad: Now we verify the journal is properly stored and close this case.
+	Conrad: Let's go to the archive.
+	leave Conrad
 leave Mark
 jump c4s6/

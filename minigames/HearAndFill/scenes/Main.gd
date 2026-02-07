@@ -70,6 +70,13 @@ func _ready():
 	# Setup TTS
 	_setup_tts()
 
+func _unhandled_input(event):
+	# F5 to skip minigame
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_F5:
+			print("F5 pressed - Skipping hear and fill minigame")
+			_skip_minigame()
+
 func _verify_nodes():
 	"""Verify all node references exist"""
 	if timer_label == null:
@@ -279,6 +286,11 @@ func _on_tts_finished():
 	"""Called when TTS finishes playing"""
 	print("DEBUG: TTS finished")
 
+func _skip_minigame():
+	"""Skip the minigame when F5 is pressed"""
+	print("Skipping hear and fill minigame...")
+	_complete_minigame(true)  # Complete as success
+
 func _complete_minigame(success: bool):
 	"""Complete the minigame"""
 	# Stop TTS if playing
@@ -313,3 +325,5 @@ func configure_puzzle(config: Dictionary):
 	# Re-setup UI with new configuration
 	if is_node_ready():
 		_setup_ui()
+		# Re-setup TTS with new blank_word
+		_setup_tts()

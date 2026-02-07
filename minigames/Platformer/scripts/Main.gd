@@ -23,27 +23,8 @@ var current_correct_answer: String = ""
 var current_wrong_answers: Array = []
 
 func _ready():
-	# Default questions for testing
-	if questions.is_empty():
-		questions = [
-			{
-				"question": "What is 3 + 4?",
-				"correct": "7",
-				"wrong": ["6", "8", "5"]
-			},
-			{
-				"question": "What color is the sky?",
-				"correct": "Blue",
-				"wrong": ["Red", "Green", "Yellow"]
-			},
-			{
-				"question": "How many legs does a spider have?",
-				"correct": "8",
-				"wrong": ["6", "4", "10"]
-			}
-		]
-
-	_start_game()
+	# Don't start game yet - wait for configure_puzzle()
+	pass
 
 func configure_puzzle(config: Dictionary):
 	if config.has("questions"):
@@ -52,6 +33,9 @@ func configure_puzzle(config: Dictionary):
 		correct_answers_needed = config.answers_needed
 	if config.has("level_width"):
 		level_width = config.level_width
+
+	# Start game after configuration
+	_start_game()
 
 func _start_game():
 	game_active = true

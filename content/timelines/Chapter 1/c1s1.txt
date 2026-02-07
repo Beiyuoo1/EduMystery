@@ -1,0 +1,74 @@
+================================================================================
+DIALOGUE TRANSCRIPT: c1s1
+Source: c1s1.dtl
+================================================================================
+
+
+[EVENT: show_title_card 1]
+
+[set {c1s1_principal_tried} = false]
+
+[SCENE: FACULTY_EXAM]
+
+
+The Grade 12-A History exams were ruined last night due to a water leak. We'll suspend the test until further notice. \
+
+The faculty room is off-limits.
+
+[SCENE: HALLWAY]
+
+[Conrad enters]
+
+Outside, near the student bulletin, Conrad Santos listened quietly.\
+
+Unlike most of his classmates who found it exciting gossip, he felt something strange — a pull.
+
+update Conrad (half)
+
+Mysteries had always fascinated him, especially since he and his best friends Eli Vergara and Hannah Lim \
+
+accidentally solved the missing ID case last semester.
+
+update Conrad left
+[Mark enters]
+
+Mark: Hey Conrad, Don't tell me you want to investigate this?
+
+Conrad: You know me too well.
+
+Mark: Are you sure you wanna do this?
+
+Conrad: YESS, now help me.
+
+Mark: Alright, but where do we start?
+
+Conrad: First we need to find potential witnesses.
+
+Mark: Since the incident took place after school hours, we should focus first on the school staff since they should be the last people to leave the school.
+
+Conrad: Good idea, but it would take a lot of time to track and question all of the school staff. It would be impractical to ask them all.
+
+[LABEL: fork_1]
+
+
+Conrad: Hmmmm. Who among the school employees would be most likely to have useful information?
+  → Janitor
+
+Conrad: Oh, a Janitor!
+
+Mark: Good thinking bro. Since their job description doesn't really include security, they don't need to make a report.
+
+Conrad: Let's ask the Janitor after classes. Last time I checked there are 3 janitors, and they have their own areas. We just need to find the one assigned to the faculty room.
+[Conrad leaves]
+[Mark leaves]
+[JUMP TO: c1s2/]
+  → Principal | 
+[set {c1s1_principal_tried} = true]
+
+[EVENT: wrong_choice]
+
+
+Conrad: Maybe we ask the Principal?
+
+Conrad: I'm sure if the principal had additional information that would be useful, he would've already announced it.
+[JUMP TO: fork_1]

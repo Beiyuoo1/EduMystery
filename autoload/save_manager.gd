@@ -64,6 +64,7 @@ class SaveSlot:
 
 var save_slots: Dictionary = {}  # slot_id -> SaveSlot
 var current_autosave_index := 0  # Rotating auto-save index (0-2)
+var is_loading_save := false  # Flag to prevent replaying signals during load
 
 const SAVE_METADATA_PATH := "user://save_metadata.json"
 
@@ -119,6 +120,9 @@ func load_game(slot_id: int) -> bool:
 
 	var slot: SaveSlot = save_slots[slot_id]
 
+	# Set loading flag to prevent replaying certain signals (like chapter_results)
+	is_loading_save = true
+
 	# Clean up any active minigame before loading
 	if MinigameManager and MinigameManager.current_minigame:
 		if is_instance_valid(MinigameManager.current_minigame):
@@ -138,12 +142,17 @@ func load_game(slot_id: int) -> bool:
 		var dialogic_loaded = Dialogic.Save.load(slot.dialogic_slot_name)
 		if not dialogic_loaded:
 			push_error("Failed to load Dialogic state from slot " + str(slot_id))
+			is_loading_save = false
 			return false
 	else:
 		push_warning("No Dialogic save found for slot " + str(slot_id) + ", skipping Dialogic load")
 
 	# Load PlayerStats and Evidence from slot-specific files
 	_load_slot_data(slot_id)
+
+	# Wait a frame for timeline to resume, then clear the loading flag
+	await get_tree().process_frame
+	is_loading_save = false
 
 	load_completed.emit(slot_id)
 	print("Game loaded from slot ", slot_id, " (", Time.get_datetime_string_from_unix_time(slot.timestamp), ")")

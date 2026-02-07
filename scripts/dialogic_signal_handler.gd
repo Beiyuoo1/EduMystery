@@ -29,6 +29,16 @@ func _on_dialogic_signal(argument: String):
 		_handle_check_level_up()
 		return
 
+	# Handle character variable initialization
+	if argument == "init_character_var":
+		_handle_init_character_var()
+		return
+
+	# Debug character check
+	if argument == "debug_character_check":
+		print("DEBUG: At conditional check - selected_character = ", Dialogic.VAR.get("selected_character"))
+		return
+
 	# Handle textbox visibility
 	if argument == "hide_textbox":
 		Dialogic.Text.hide_textbox(true)
@@ -43,6 +53,34 @@ func _on_dialogic_signal(argument: String):
 		_handle_title_card_signal(chapter)
 		return
 
+	# Handle chapter results: "show_chapter_results"
+	if argument == "show_chapter_results":
+		print("DEBUG: show_chapter_results signal received!")
+		_handle_chapter_results()
+		return
+
+	# Track correct/wrong choices: "track_correct_choice" or "track_wrong_choice"
+	if argument == "track_correct_choice":
+		if ChapterStatsTracker:
+			ChapterStatsTracker.record_correct_choice()
+		return
+
+	if argument == "track_wrong_choice":
+		if ChapterStatsTracker:
+			ChapterStatsTracker.record_wrong_choice()
+		return
+
+	# Track interrogation sequences: "start_interrogation" or "end_interrogation"
+	if argument == "start_interrogation":
+		if ChapterStatsTracker:
+			ChapterStatsTracker.start_interrogation()
+		return
+
+	if argument == "end_interrogation":
+		if ChapterStatsTracker:
+			ChapterStatsTracker.end_interrogation()
+		return
+
 func _handle_level_up_signal():
 	Dialogic.paused = true
 	var conrad_level = Dialogic.VAR.conrad_level
@@ -53,6 +91,11 @@ func _handle_minigame_signal(puzzle_id: String):
 	Dialogic.paused = true
 	MinigameManager.start_minigame(puzzle_id)
 	await MinigameManager.minigame_completed
+
+	# Track minigame completion and speed bonus
+	if ChapterStatsTracker:
+		var speed_bonus = MinigameManager.last_minigame_speed_bonus
+		ChapterStatsTracker.record_minigame_completed(speed_bonus)
 
 	# Auto-save after completing minigame (requires SaveManager autoload)
 	if SaveManager:
@@ -78,6 +121,10 @@ func _handle_title_card_signal(chapter: String):
 	TitleCardManager.show_chapter_title(chapter)
 	await TitleCardManager.title_card_completed
 
+	# Start tracking new chapter
+	if ChapterStatsTracker:
+		ChapterStatsTracker.start_chapter(int(chapter))
+
 	# Auto-save at chapter transitions (requires SaveManager autoload)
 	if SaveManager:
 		await SaveManager.auto_save()
@@ -89,6 +136,10 @@ func _handle_evidence_unlock(evidence_id: String):
 	# Pause dialogic and show evidence unlock animation
 	Dialogic.paused = true
 	EvidenceManager.unlock_evidence(evidence_id)
+
+	# Track clue collection
+	if ChapterStatsTracker:
+		ChapterStatsTracker.record_clue_collected()
 
 	# Show evidence unlock animation
 	await _show_evidence_unlock_animation(evidence_id)
@@ -206,3 +257,117 @@ func _create_evidence_popup(evidence: Dictionary) -> CanvasLayer:
 	pulse_tween.tween_property(clue_label, "scale", Vector2(1.0, 1.0), 0.5)
 
 	return canvas_layer
+
+func _handle_chapter_results():
+	"""Show the simplified chapter results screen with stars, then Mind Games Reviewer"""
+	print("DEBUG: _handle_chapter_results() called")
+
+	# Skip results if loading from a saved game (to prevent getting stuck)
+	# SaveManager sets a flag when loading, which we check here
+	if SaveManager and SaveManager.is_loading_save:
+		print("DEBUG: Skipping chapter results - loading from save")
+		return
+
+	print("DEBUG: Pausing Dialogic and showing results...")
+	Dialogic.paused = true
+
+	# End chapter tracking
+	var stats = {}
+	if ChapterStatsTracker:
+		print("DEBUG: Ending chapter tracking...")
+		ChapterStatsTracker.end_chapter()
+		stats = ChapterStatsTracker.get_current_stats()
+
+	# Calculate average minigame time for star rating
+	var avg_time = 60.0  # Default 1 star
+	if stats.get("minigames_completed", 0) > 0:
+		avg_time = stats.get("completion_time", 60.0) / stats.get("minigames_completed", 1)
+
+	# Get chapter number from Dialogic variable (more reliable than stats)
+	var chapter_num = 1
+	if Dialogic and Dialogic.VAR.has("current_chapter"):
+		chapter_num = Dialogic.VAR.current_chapter
+		print("DEBUG: Using current_chapter from Dialogic.VAR: ", chapter_num)
+	else:
+		chapter_num = stats.get("chapter_number", 1)
+		print("DEBUG: Using chapter_number from stats: ", chapter_num)
+
+	# STEP 1: Show simplified results screen (LEVEL UP! + Stars)
+	print("DEBUG: Creating simplified results screen...")
+	var results_script = load("res://scenes/ui/chapter_results/simple_results_screen.gd")
+	var results_screen = Control.new()
+	results_screen.set_script(results_script)
+
+	var canvas_layer1 = CanvasLayer.new()
+	canvas_layer1.layer = 200
+	get_tree().root.add_child(canvas_layer1)
+	canvas_layer1.add_child(results_screen)
+
+	print("DEBUG: Showing results with %d stars (avg time: %.1fs)" % [results_screen._calculate_stars(avg_time), avg_time])
+	results_screen.show_results(chapter_num, avg_time)
+
+	# Wait for user to click Continue
+	print("DEBUG: Waiting for results to be dismissed...")
+	await results_screen.results_dismissed
+	print("DEBUG: Results dismissed!")
+	canvas_layer1.queue_free()
+
+	# STEP 2: Show Mind Games Reviewer
+	print("DEBUG: Creating Mind Games Reviewer...")
+	var reviewer_script = load("res://scenes/ui/chapter_results/mind_games_reviewer.gd")
+	var reviewer_screen = Control.new()
+	reviewer_screen.set_script(reviewer_script)
+
+	var canvas_layer2 = CanvasLayer.new()
+	canvas_layer2.layer = 200
+	get_tree().root.add_child(canvas_layer2)
+	canvas_layer2.add_child(reviewer_screen)
+
+	print("DEBUG: Showing Mind Games Reviewer for chapter %d..." % chapter_num)
+	reviewer_screen.show_reviewer(chapter_num)
+
+	# Wait for user to close reviewer
+	print("DEBUG: Waiting for reviewer to be dismissed...")
+	await reviewer_screen.reviewer_dismissed
+	print("DEBUG: Reviewer dismissed!")
+	canvas_layer2.queue_free()
+
+	# STEP 3: Show "The End" screen only for Chapter 5
+	if chapter_num == 5:
+		print("DEBUG: Chapter 5 complete - showing The End screen...")
+		var the_end_script = load("res://scenes/ui/the_end_screen.gd")
+		var the_end_screen = Control.new()
+		the_end_screen.set_script(the_end_script)
+
+		var canvas_layer3 = CanvasLayer.new()
+		canvas_layer3.layer = 200
+		get_tree().root.add_child(canvas_layer3)
+		canvas_layer3.add_child(the_end_screen)
+
+		the_end_screen.show_the_end()
+
+		# Wait for user to dismiss The End screen
+		print("DEBUG: Waiting for The End screen to be dismissed...")
+		await the_end_screen.the_end_dismissed
+		print("DEBUG: The End screen dismissed!")
+		canvas_layer3.queue_free()
+
+	# Resume dialogic
+	print("DEBUG: Resuming Dialogic...")
+	if is_instance_valid(Dialogic) and Dialogic.current_timeline != null:
+		Dialogic.paused = false
+		print("DEBUG: Dialogic resumed")
+	else:
+		print("DEBUG: Dialogic or timeline is invalid, cannot resume")
+
+func _handle_init_character_var():
+	"""Initialize selected_character from PlayerStats at the start of the game"""
+	if PlayerStats and PlayerStats.selected_character:
+		# Directly set in Dialogic's state dictionary
+		# The variable should already exist from the timeline's "set {selected_character} = "conrad"" line
+		if Dialogic.current_state_info.has('variables'):
+			Dialogic.current_state_info['variables']['selected_character'] = PlayerStats.selected_character
+			print("DEBUG: Set selected_character to: ", PlayerStats.selected_character)
+			print("DEBUG: Verification - selected_character now = ", Dialogic.VAR.selected_character)
+		else:
+			push_warning("Dialogic variables not initialized yet")

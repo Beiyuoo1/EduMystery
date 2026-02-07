@@ -19,7 +19,7 @@
 &"portraits": {
 "half": {
 "export_overrides": {
-"image": "\"res://Sprites/Mia_half.png\""
+"image": "\"res://Characters/mia half.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

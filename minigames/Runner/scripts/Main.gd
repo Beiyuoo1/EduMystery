@@ -35,27 +35,8 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	_setup_lanes()
 
-	# Default questions for testing
-	if questions.is_empty():
-		questions = [
-			{
-				"question": "What is the capital of France?",
-				"correct": "Paris",
-				"wrong": ["London", "Berlin", "Madrid"]
-			},
-			{
-				"question": "What is 7 x 8?",
-				"correct": "56",
-				"wrong": ["54", "48", "64"]
-			},
-			{
-				"question": "Which planet is closest to the Sun?",
-				"correct": "Mercury",
-				"wrong": ["Venus", "Mars", "Earth"]
-			}
-		]
-
-	_start_game()
+	# Don't start game yet - wait for configure_puzzle()
+	# Game will start after configuration
 
 func configure_puzzle(config: Dictionary):
 	if config.has("questions"):
@@ -64,6 +45,9 @@ func configure_puzzle(config: Dictionary):
 		correct_answers_needed = config.answers_needed
 	if config.has("starting_speed"):
 		game_speed = config.starting_speed
+
+	# Start game after configuration
+	_start_game()
 
 func _setup_lanes():
 	var lane_width = screen_size.x / lane_count

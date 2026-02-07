@@ -120,6 +120,13 @@ func _perform_save(slot_id: int) -> void:
 func _perform_load(slot_id: int) -> void:
 	var success = await SaveManager.load_game(slot_id)
 	if success:
+		# Stop main menu background music if it's still playing
+		# Find the main menu node - it should be the first Control child of root
+		for child in get_tree().root.get_children():
+			if child.has_method("stop_background_music"):
+				child.stop_background_music()
+				break
+
 		_show_notification("Game Loaded!")
 		await get_tree().create_timer(0.5).timeout
 		queue_free()

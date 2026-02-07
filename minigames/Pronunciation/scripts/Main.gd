@@ -260,7 +260,7 @@ func _setup_skip_fallback():
 	# Store handler for _input
 	set_meta("skip_handler", click_handler)
 
-func _input(event):
+func _unhandled_input(event):
 	if has_meta("skip_handler"):
 		var handler = get_meta("skip_handler")
 		handler.call(event)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxqtm1211xde8"
-path="res://.godot/imported/Thebe.png-d9b69f146504b4786de60da5531f06dc.ctex"
+uid="uid://bcnkbiunx85fh"
+path="res://.godot/imported/MsSantos_half mouth animation 2.png-da7fca1c345ed6fa82c89de52bf6bf26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Thebe.png"
-dest_files=["res://.godot/imported/Thebe.png-d9b69f146504b4786de60da5531f06dc.ctex"]
+source_file="res://Sprites/mouth_animation/MsSantos/MsSantos_half mouth animation 2.png"
+dest_files=["res://.godot/imported/MsSantos_half mouth animation 2.png-da7fca1c345ed6fa82c89de52bf6bf26.ctex"]
 
 [params]
 

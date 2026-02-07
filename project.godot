@@ -34,6 +34,7 @@ CurriculumQuestions="*res://autoload/curriculum_questions.gd"
 EvidenceManager="*res://autoload/evidence_manager.gd"
 EvidenceButtonManager="*res://autoload/evidence_button_manager.gd"
 SaveManager="*res://autoload/save_manager.gd"
+ChapterStatsTracker="*res://autoload/chapter_stats_tracker.gd"
 
 [dialogic]
 
@@ -41,6 +42,7 @@ directories/dch_directory={
 "Alex": "res://content/characters/Alex.dch",
 "Alice": "res://content/characters/Alice.dch",
 "Ben": "res://content/characters/Ben.dch",
+"Celestine": "res://content/characters/Celestine.dch",
 "Characters/Ben": "res://Characters/Ben.dch",
 "Characters/Conrad": "res://Characters/Conrad.dch",
 "Characters/Diwata Laya": "res://Characters/Diwata Laya.dch",
@@ -59,10 +61,12 @@ directories/dch_directory={
 "Mia": "res://content/characters/Mia.dch",
 "Ms Reyes": "res://content/characters/Ms Reyes.dch",
 "Ms Santos": "res://content/characters/Ms Santos.dch",
+"Mystery": "res://content/characters/Mystery.dch",
 "Narrator": "res://content/characters/Narrator.dch",
 "Principal": "res://content/characters/Principal.dch",
 "Ria": "res://content/characters/Ria.dch",
 "Ryan": "res://content/characters/Ryan.dch",
+"Thebe": "res://content/characters/Thebe.dch",
 "Victor": "res://content/characters/Victor.dch",
 "character": "res://content/characters/character.dch",
 "example character": "res://content/characters/example character.dch"
@@ -80,6 +84,7 @@ directories/dtl_directory={
 "Chapter 2/c2s4": "res://content/timelines/Chapter 3/Chapter 2/c2s4.dtl",
 "Chapter 2/c2s5": "res://content/timelines/Chapter 3/Chapter 2/c2s5.dtl",
 "Chapter 2/c2s6": "res://content/timelines/Chapter 3/Chapter 2/c2s6.dtl",
+"Chapter 3/c3s1": "res://content/timelines/Chapter 3/c3s1.dtl",
 "broadcast_s1": "res://content/timelines/Unused/Broadcasting Room Mystery/broadcast_s1.dtl",
 "broadcast_s2": "res://content/timelines/Unused/Broadcasting Room Mystery/broadcast_s2.dtl",
 "broadcast_s3": "res://content/timelines/Unused/Broadcasting Room Mystery/broadcast_s3.dtl",
@@ -101,7 +106,7 @@ directories/dtl_directory={
 "c2s6": "res://content/timelines/Chapter 2/c2s6.dtl",
 "c2s7_old": "res://content/timelines/Unused/c2s7_old.dtl",
 "c3s0": "res://content/timelines/Chapter 3/c3s0.dtl",
-"c3s1": "res://content/timelines/Chapter 3/c3s1.dtl",
+"c3s1": "res://scenes/c3s1.dtl",
 "c3s2": "res://content/timelines/Chapter 3/c3s2.dtl",
 "c3s3": "res://content/timelines/Chapter 3/c3s3.dtl",
 "c3s4": "res://content/timelines/Chapter 3/c3s4.dtl",

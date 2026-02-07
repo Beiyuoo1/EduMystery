@@ -15,6 +15,9 @@ var hear_and_fill_scene = preload("res://minigames/HearAndFill/scenes/Main.tscn"
 var riddle_scene = preload("res://minigames/Riddle/scenes/Main.tscn")
 var current_minigame = null
 
+# Track if last minigame earned speed bonus (for ChapterStatsTracker)
+var last_minigame_speed_bonus: bool = false
+
 # Preloaded Vosk recognizer for dialogue choice minigame
 var shared_vosk_recognizer = null
 var vosk_loading_progress: float = 0.0  # 0.0 to 1.0
@@ -103,7 +106,20 @@ var fillinTheblank_configs = {
 	"locker_examination": {
 		"sentence_parts": ["Conrad ", " the envelope closely."],
 		"answers": ["examines"],
-		"choices": ["examines", "ignores", "watches", "touches", "breaks", "opens", "closes", "avoids"]
+		"choices": ["examines", "studies", "ignores", "watches", "inspects", "reads", "opens", "holds"]
+	},
+	# ====================
+	# MATH VARIANTS - Chapter 1
+	# ====================
+	"locker_examination_math": {
+		"sentence_parts": ["In the equation y = mx + b, m represents the ", "."],
+		"answers": ["slope"],
+		"choices": ["slope", "intercept", "coefficient", "constant", "variable", "exponent", "base", "power"]
+	},
+	"locker_examination_science": {
+		"sentence_parts": ["Newton's second law states that force equals mass times ", "."],
+		"answers": ["acceleration"],
+		"choices": ["acceleration", "velocity", "speed", "momentum", "energy", "power", "distance", "friction"]
 	},
 	"budget_basics": {
 		"sentence_parts": ["A budget helps track ", " and ", " to manage money wisely."],
@@ -116,11 +132,30 @@ var fillinTheblank_configs = {
 		"answers": ["patterns", "evidence"],
 		"choices": ["patterns", "evidence", "suspects", "motives", "alibis", "witnesses", "clues", "facts"]
 	},
+	# Chapter 4 - Pedagogy methods (Archive scene)
+	"pedagogy_methods": {
+		"sentence_parts": ["Experimental ", " teaches through ", " rather than lectures."],
+		"answers": ["pedagogy", "experience"],
+		"choices": ["authority", "memorization", "pedagogy", "observation", "discipline", "experience", "control", "teaching"]
+	},
 	# Chapter 5 - Lesson reflection
 	"lesson_reflection": {
 		"sentence_parts": ["True teaching requires ", " and respects ", " while guiding growth."],
 		"answers": ["wisdom", "choice"],
 		"choices": ["wisdom", "choice", "control", "force", "patience", "freedom", "power", "authority"]
+	},
+	# ====================
+	# MATH VARIANTS - Chapter 4
+	# ====================
+	"pedagogy_methods_math": {
+		"sentence_parts": ["In trigonometry, ", " is opposite over ", "."],
+		"answers": ["sine", "hypotenuse"],
+		"choices": ["sine", "cosine", "tangent", "adjacent", "hypotenuse", "opposite", "secant", "angle"]
+	},
+	"pedagogy_methods_science": {
+		"sentence_parts": ["In a series circuit, ", " adds up across resistors while ", " stays constant."],
+		"answers": ["voltage", "current"],
+		"choices": ["voltage", "current", "power", "resistance", "energy", "frequency", "amplitude", "wavelength"]
 	},
 
 	# ========================================
@@ -918,6 +953,31 @@ var platformer_configs = {
 		],
 		"answers_needed": 3
 	},
+	"platformer_science": {
+		"questions": [
+			{
+				"question": "What is the SI unit of force?",
+				"correct": "Newton",
+				"wrong": ["Joule", "Watt", "Pascal"]
+			},
+			{
+				"question": "What is the speed of light approximately?",
+				"correct": "3×10⁸ m/s",
+				"wrong": ["3×10⁶ m/s", "3×10⁴ m/s", "300 m/s"]
+			},
+			{
+				"question": "What does PE stand for in physics?",
+				"correct": "Potential Energy",
+				"wrong": ["Physical Exam", "Power Equation", "Proton Electron"]
+			},
+			{
+				"question": "What is the acceleration due to gravity on Earth?",
+				"correct": "10 m/s²",
+				"wrong": ["5 m/s²", "20 m/s²", "1 m/s²"]
+			}
+		],
+		"answers_needed": 3
+	},
 	"platformer_nature": {
 		"questions": [
 			{
@@ -1685,6 +1745,72 @@ var hear_and_fill_configs = {
 		"blank_word": "WiFi",
 		"correct_index": 2,
 		"choices": ["Hi-fi", "Sci-fi", "WiFi", "Bye-bye", "Fly high", "Sky high", "Pie-fry", "Why try"]
+	},
+	"anonymous_notes": {
+		"sentence": "The students are receiving ____ notes that expose their secrets.",
+		"blank_word": "anonymous",
+		"correct_index": 0,
+		"choices": ["anonymous", "unanimous", "anomalous", "enormous", "synonymous", "autonomous", "monotonous", "ominous"]
+	},
+	"observation_teaching": {
+		"sentence": "B.C. teaches through ____ rather than direct instruction.",
+		"blank_word": "observation",
+		"correct_index": 0,
+		"choices": ["observation", "conservation", "reservation", "conversation", "preservation", "consideration", "declaration", "confrontation"]
+	},
+	# ====================
+	# MATH VARIANTS - Chapter 1
+	# ====================
+	"wifi_router_math": {
+		"sentence": "To find the slope of a line, calculate the ____ over the run.",
+		"blank_word": "rise",
+		"correct_index": 2,
+		"choices": ["price", "wise", "rise", "flies", "size", "prize", "cries", "ties"]
+	},
+	# ====================
+	# SCIENCE VARIANTS - Chapter 1 (Motion and Forces)
+	# ====================
+	"wifi_router_science": {
+		"sentence": "Newton's first law is also known as the law of ____.",
+		"blank_word": "inertia",
+		"correct_index": 1,
+		"choices": ["criteria", "inertia", "bacteria", "cafeteria", "hysteria", "Nigeria", "Algeria", "Siberia"]
+	},
+	# ====================
+	# MATH VARIANTS - Chapter 4
+	# ====================
+	"anonymous_notes_math": {
+		"sentence": "The angle that measures exactly 90 degrees is called a ____ angle.",
+		"blank_word": "right",
+		"correct_index": 3,
+		"choices": ["write", "bite", "sight", "right", "flight", "bright", "tight", "night"]
+	},
+	# ====================
+	# SCIENCE VARIANTS - Chapter 4 (Electricity and Magnetism)
+	# ====================
+	"anonymous_notes_science": {
+		"sentence": "Ohm's law relates voltage, ____, and resistance in electrical circuits.",
+		"blank_word": "current",
+		"correct_index": 4,
+		"choices": ["currant", "torrent", "warrant", "errant", "current", "recurrent", "concurrent", "aberrant"]
+	},
+	# ====================
+	# MATH VARIANTS - Chapter 5
+	# ====================
+	"observation_teaching_math": {
+		"sentence": "In statistics, the ____ is the middle value when data is arranged in order.",
+		"blank_word": "median",
+		"correct_index": 5,
+		"choices": ["comedian", "medium", "immediate", "media", "remedial", "median", "medicinal", "medieval"]
+	},
+	# ====================
+	# SCIENCE VARIANTS - Chapter 5 (Waves, Light, Modern Physics)
+	# ====================
+	"observation_teaching_science": {
+		"sentence": "Light exhibits both wave and particle properties, a concept called wave-particle ____.",
+		"blank_word": "duality",
+		"correct_index": 3,
+		"choices": ["quality", "brutality", "finality", "duality", "fatality", "morality", "reality", "vitality"]
 	}
 }
 
@@ -1694,6 +1820,43 @@ var riddle_configs = {
 		"riddle": "Round I go, around your hand,\nI shine and sparkle, isn't that grand?",
 		"answer": "BRACELET",
 		"letters": ["B", "R", "A", "C", "E", "L", "E", "T", "W", "H", "V", "M", "K", "O", "I", "G"]
+	},
+	"receipt_riddle": {
+		"riddle": "I am the sound of paper in motion, a quick motion of the wrist and hand. As I was ____ the pages, something fell out onto the land.",
+		"answer": "FLIPPING",
+		"letters": ["F", "L", "I", "P", "P", "I", "N", "G", "A", "S", "T", "R", "M", "O", "B", "W"]
+	},
+	# ====================
+	# MATH VARIANTS - Chapter 1
+	# ====================
+	"bracelet_riddle_math": {
+		"riddle": "I have four equal sides and four right angles,\nYou'll find me in geometry from all angles.",
+		"answer": "SQUARE",
+		"letters": ["S", "Q", "U", "A", "R", "E", "T", "I", "C", "L", "N", "G", "H", "O", "P", "M"]
+	},
+	# ====================
+	# MATH VARIANTS - Chapter 3
+	# ====================
+	"receipt_riddle_math": {
+		"riddle": "I grow without bounds, my base stays the same,\nRaised to a power is my claim to fame.\nIn growth and decay, I'm the function you'll see,\nWhat mathematical term could I be?",
+		"answer": "EXPONENTIAL",
+		"letters": ["E", "X", "P", "O", "N", "E", "N", "T", "I", "A", "L", "R", "G", "W", "H", "M"]
+	},
+	# ====================
+	# SCIENCE VARIANTS - Chapter 1 (Motion and Forces)
+	# ====================
+	"bracelet_riddle_science": {
+		"riddle": "I resist change in motion, that's my game,\nThe more mass you have, the more I remain.\nNewton's first law gave me my fame,\nWhat physics concept am I by name?",
+		"answer": "INERTIA",
+		"letters": ["I", "N", "E", "R", "T", "I", "A", "F", "O", "C", "M", "S", "V", "L", "G", "H"]
+	},
+	# ====================
+	# SCIENCE VARIANTS - Chapter 3 (Work, Energy, Power)
+	# ====================
+	"receipt_riddle_science": {
+		"riddle": "I cannot be created, nor destroyed,\nOnly transformed in the cosmic void.\nFrom potential to kinetic I flow,\nWhat fundamental principle do I show?",
+		"answer": "ENERGY",
+		"letters": ["E", "N", "E", "R", "G", "Y", "F", "O", "W", "K", "P", "T", "M", "A", "I", "L"]
 	}
 }
 
@@ -1718,8 +1881,206 @@ var dialogue_choice_configs = {
 			"She fearing it made her guilty."
 		],
 		"correct_index": 0  # Choice 1 (A)
+	},
+	"dialogue_choice_cruel_note": {
+		"question": "Which sentence is grammatically correct and clearly states an observation?",
+		"choices": [
+			"They left evidence.",
+			"They leaving evidence.",
+			"Evidence left they.",
+			"They was left evidence."
+		],
+		"correct_index": 0  # Choice A
+	},
+	"dialogue_choice_approach_suspect": {
+		"question": "How should Conrad approach Alex, who might be sending the anonymous notes?",
+		"choices": [
+			"We should confront her directly and ask if she's been sending the notes.",
+			"We should observe her behavior carefully before making assumptions about her intentions.",
+			"We should report her to the principal immediately based on the archive access log.",
+			"We should ignore the evidence and look for other suspects instead."
+		],
+		"correct_index": 1  # Choice 2 (0-indexed) - Observe carefully before assumptions
+	},
+	"dialogue_choice_bc_approach": {
+		"question": "How should Conrad approach B.C., the mysterious teacher who has been guiding him?",
+		"choices": [
+			"Enter respectfully and thank them for the lessons they have taught through the cards.",
+			"Demand answers about why they manipulated events and left cryptic messages.",
+			"Accuse them of watching students secretly and interfering with school affairs.",
+			"Ignore their presence and examine the evidence they left on the stage first."
+		],
+		"correct_index": 0  # Choice 1 (A) - Respectful gratitude, understanding guidance not manipulation
+	},
+	# ====================
+	# MATH VARIANTS - Chapter 1
+	# ====================
+	"dialogue_choice_janitor_math": {
+		"question": "Conrad needs to calculate the average of Greg's three exam scores: 75, 82, and 88. What is the correct method?",
+		"choices": [
+			"Add all three scores and divide by three to get the mean",
+			"Multiply the three scores and divide by three",
+			"Add the highest and lowest scores only",
+			"Subtract the lowest from the highest and divide by two"
+		],
+		"correct_index": 0  # Choice 1 - Correct averaging formula
+	},
+	# ====================
+	# MATH VARIANTS - Chapter 2
+	# ====================
+	"dialogue_choice_ria_note_math": {
+		"question": "The lockbox contained 20,000 pesos divided into 100, 500, and 1000 peso bills. If there are 8 bills of 1000, 12 bills of 500, and the rest are 100 peso bills, how many 100 peso bills are there?",
+		"choices": [
+			"Subtract (8×1000 + 12×500) from 20000, then divide by 100",
+			"Add 8, 12, and 100, then multiply by 1000",
+			"Multiply 8 by 1000 and divide by 100",
+			"Divide 20000 by 100 and subtract 8 and 12"
+		],
+		"correct_index": 0  # Choice 1 - (20000 - 8000 - 6000) / 100 = 60
+	},
+	# ====================
+	# MATH VARIANTS - Chapter 3
+	# ====================
+	"dialogue_choice_cruel_note_math": {
+		"question": "Conrad finds paint stains on the cloth at different times. If the first stain was made 2 hours ago and each subsequent stain was made in half the time of the previous one, how long ago was the 4th stain made?",
+		"choices": [
+			"Divide 2 by 2 three times: 2, 1, 0.5, 0.25 hours (15 minutes ago)",
+			"Multiply 2 by 0.5 four times to get 0.25 hours",
+			"Subtract 0.5 from 2 four times",
+			"Add 2 plus 1 plus 0.5 to get 3.5 hours"
+		],
+		"correct_index": 0  # Exponential decay pattern: 2 → 1 → 0.5 → 0.25
+	},
+	# ====================
+	# MATH VARIANTS - Chapter 4
+	# ====================
+	"dialogue_choice_approach_suspect_math": {
+		"question": "Conrad notices a pattern in when the anonymous notes were delivered. If the angle between the library and the archive on a map is 45 degrees, and Conrad walks along the hypotenuse of this right triangle, which trigonometric ratio should he use to calculate the shortest path?",
+		"choices": [
+			"Use sine to find the opposite side divided by the hypotenuse",
+			"Use cosine to find the adjacent side divided by the hypotenuse, then apply the Pythagorean theorem",
+			"Use tangent to find the ratio of opposite to adjacent sides",
+			"Multiply the angle by pi and divide by 180 to convert to radians first"
+		],
+		"correct_index": 1  # Cosine approach for finding adjacent side in navigation
+	},
+	# ====================
+	# MATH VARIANTS - Chapter 5
+	# ====================
+	"dialogue_choice_bc_approach_math": {
+		"question": "Conrad collected data from all 5 B.C. cards. If the mean time between cards was 8 days with a standard deviation of 2 days, what does this tell him about the pattern?",
+		"choices": [
+			"The pattern is consistent with most cards appearing within 6-10 days of each other",
+			"The pattern is random with no predictable timing",
+			"All cards appeared exactly 8 days apart with no variation",
+			"The standard deviation being 2 means the cards were 2 days late on average"
+		],
+		"correct_index": 0  # Understanding mean and standard deviation: most values within 1 SD of mean
+	},
+	# ====================
+	# SCIENCE VARIANTS - Chapter 1 (Motion and Forces)
+	# ====================
+	"dialogue_choice_janitor_science": {
+		"question": "Conrad analyzes the bracelet's motion when it fell. If it fell from rest and hit the ground after 1 second, what is the correct physics principle?",
+		"choices": [
+			"The bracelet accelerated at approximately 10 meters per second squared due to gravity",
+			"The bracelet fell at a constant speed of 10 meters per second throughout",
+			"The bracelet's mass determined how fast it fell to the ground",
+			"The bracelet experienced no force during its fall"
+		],
+		"correct_index": 0  # Free fall acceleration = 10 m/s² (or 9.8)
+	},
+	# ====================
+	# SCIENCE VARIANTS - Chapter 2 (Motion and Forces continued)
+	# ====================
+	"dialogue_choice_ria_note_science": {
+		"question": "If Ria pushed the lockbox across a table with 50 Newtons of force and it accelerated at 5 m/s², what was the box's mass?",
+		"choices": [
+			"Use Newton's second law: divide force by acceleration to get 10 kilograms",
+			"Multiply force by acceleration to get 250 kilograms",
+			"Add force and acceleration to get 55 kilograms",
+			"Subtract acceleration from force to get 45 kilograms"
+		],
+		"correct_index": 0  # F = ma, so m = F/a = 50/5 = 10 kg
+	},
+	# ====================
+	# SCIENCE VARIANTS - Chapter 3 (Work, Energy, Power)
+	# ====================
+	"dialogue_choice_cruel_note_science": {
+		"question": "Victor lifted his paint supplies 2 meters high. If the supplies weighed 5 kilograms and gravity is 10 m/s², how much potential energy did they gain?",
+		"choices": [
+			"Multiply mass, gravity, and height: 5 × 10 × 2 equals 100 Joules",
+			"Add mass, gravity, and height: 5 + 10 + 2 equals 17 Joules",
+			"Divide mass by gravity and multiply by height to get 1 Joule",
+			"Multiply mass by height only to get 10 Joules"
+		],
+		"correct_index": 0  # PE = mgh = 5 × 10 × 2 = 100 J
+	},
+	# ====================
+	# SCIENCE VARIANTS - Chapter 4 (Electricity and Magnetism)
+	# ====================
+	"dialogue_choice_approach_suspect_science": {
+		"question": "Conrad finds that the library's computer uses 120 Watts of power and runs on 24 Volts. What current does it draw?",
+		"choices": [
+			"Divide power by voltage to get 5 Amperes using P equals V times I",
+			"Multiply power by voltage to get 2880 Amperes",
+			"Subtract voltage from power to get 96 Amperes",
+			"Add power and voltage to get 144 Amperes"
+		],
+		"correct_index": 0  # P = VI, so I = P/V = 120/24 = 5 A
+	},
+	# ====================
+	# SCIENCE VARIANTS - Chapter 5 (Waves, Light, Modern Physics)
+	# ====================
+	"dialogue_choice_bc_approach_science": {
+		"question": "Conrad observes light patterns in the auditorium. If a wave has a frequency of 5 Hertz and a wavelength of 3 meters, what is its speed?",
+		"choices": [
+			"Multiply frequency by wavelength to get 15 meters per second using wave equation v equals f lambda",
+			"Divide frequency by wavelength to get 1.67 meters per second",
+			"Add frequency and wavelength to get 8 meters per second",
+			"Subtract wavelength from frequency to get 2 meters per second"
+		],
+		"correct_index": 0  # v = fλ = 5 × 3 = 15 m/s
 	}
 }
+
+func _get_subject_variant_id(base_id: String) -> String:
+	"""
+	Returns the subject-specific variant of a minigame ID.
+	If no variant exists, returns the original ID (defaults to English).
+	"""
+	if not PlayerStats:
+		print("DEBUG: PlayerStats not found, using base ID: ", base_id)
+		return base_id
+
+	var subject = PlayerStats.selected_subject
+	print("DEBUG: PlayerStats.selected_subject = ", subject)
+
+	if subject == "english":
+		print("DEBUG: Subject is English, using base ID: ", base_id)
+		return base_id  # English is the base/default
+
+	# Try to find subject-specific variant
+	var variant_id = base_id + "_" + subject
+	print("DEBUG: Looking for variant: ", variant_id)
+
+	# Check if variant exists in any config
+	if fillinTheblank_configs.has(variant_id):
+		print("DEBUG: Found in fillinTheblank_configs!")
+		return variant_id
+	elif hear_and_fill_configs.has(variant_id):
+		print("DEBUG: Found in hear_and_fill_configs!")
+		return variant_id
+	elif riddle_configs.has(variant_id):
+		print("DEBUG: Found in riddle_configs!")
+		return variant_id
+	elif dialogue_choice_configs.has(variant_id):
+		print("DEBUG: Found in dialogue_choice_configs!")
+		return variant_id
+
+	# No variant found, use base (English)
+	print("DEBUG: Variant not found, falling back to base ID: ", base_id)
+	return base_id
 
 func start_minigame(puzzle_id: String) -> void:
 	print("DEBUG: MinigameManager.start_minigame called with: ", puzzle_id)
@@ -1732,6 +2093,10 @@ func start_minigame(puzzle_id: String) -> void:
 		var minigame_type = puzzle_id.trim_prefix("curriculum:")
 		_start_curriculum_minigame(minigame_type)
 		return
+
+	# Get subject-specific variant (if exists)
+	puzzle_id = _get_subject_variant_id(puzzle_id)
+	print("DEBUG: Using minigame variant: ", puzzle_id)
 
 	# Check which type of minigame this is
 	if fillinTheblank_configs.has(puzzle_id):
@@ -1807,6 +2172,8 @@ func _start_oralcom_minigame(puzzle_id: String) -> void:
 
 func _start_fillinblank(puzzle_id: String) -> void:
 	print("DEBUG: Starting fill-in-the-blank minigame...")
+	print("DEBUG: Puzzle ID = ", puzzle_id)
+	print("DEBUG: Puzzle config = ", fillinTheblank_configs[puzzle_id])
 	current_minigame = fillinTheblank_scene.instantiate()
 	get_tree().root.add_child(current_minigame)
 	current_minigame.configure_puzzle(fillinTheblank_configs[puzzle_id])
@@ -1913,6 +2280,7 @@ func _start_curriculum_minigame(minigame_type: String) -> void:
 func _start_dialogue_choice(puzzle_id: String) -> void:
 	print("DEBUG: Starting Dialogue Choice minigame: ", puzzle_id)
 	var config = dialogue_choice_configs[puzzle_id]
+	print("DEBUG: Question being shown: ", config.get("question", "Unknown question"))
 	current_minigame = dialogue_choice_scene.instantiate()
 	get_tree().root.add_child(current_minigame)
 	current_minigame.configure_puzzle(config)

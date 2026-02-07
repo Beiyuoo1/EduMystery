@@ -1,8 +1,13 @@
 [background arg="res://Bg/art_room.png" fade="1.0"]
 The art room feels different now. Quieter. Heavy with the weight of what happened.
-join Conrad (half) leftmost
-join Mark (Mark_half) left
-Conrad and Mark stand near the door, watching the scene unfold.
+if {selected_character} == "celestine":
+	join Celestine (animated) leftmost
+	join Mark (Mark_half) left
+	Celestine and Mark stand near the door, watching the scene unfold.
+else:
+	join Conrad (half) leftmost
+	join Mark (Mark_half) left
+	Conrad and Mark stand near the door, watching the scene unfold.
 join "Ms Reyes" (half) center
 Ms. Reyes stands near her desk, her expression a mix of disappointment and sadness.
 join Victor (half) right
@@ -53,27 +58,52 @@ Victor: And someday... someday I'll create something that honors what I destroye
 Victor: Something with heart. Something real.
 Mia nods slowly.
 Mia: I'd like to see that.
-Mia turns and walks toward the door, pausing beside Conrad.
-Mia: Thank you. For finding the truth.
-Conrad: The truth was always there. I just helped it come to light.
-Mia manages a small, sad smile before leaving.
+if {selected_character} == "celestine":
+	Mia turns and walks toward the door, pausing beside Celestine.
+	Mia: Thank you. For finding the truth.
+	Celestine: The truth was always there. I just helped it come to light.
+	Mia manages a small, sad smile before leaving.
+else:
+	Mia turns and walks toward the door, pausing beside Conrad.
+	Mia: Thank you. For finding the truth.
+	Conrad: The truth was always there. I just helped it come to light.
+	Mia manages a small, sad smile before leaving.
 leave Mia
 leave Victor
 [background arg="res://Bg/art_room.png" fade="0.5"]
-Conrad and Mark remain in the art room.
-Mark: That was... heavy.
-Conrad: Justice isn't always satisfying.
-Conrad: Victor will face consequences. But the real punishment is what he's feeling right now.
-Mark: Mia was surprisingly kind. I don't know if I could have been.
-Conrad: She's an artist. She understands that pain can make people do terrible things.
-Conrad: That doesn't excuse what Victor did. But understanding matters.
+if {selected_character} == "celestine":
+	Celestine and Mark remain in the art room.
+	Mark: That was... heavy.
+	Celestine: Justice isn't always satisfying.
+	Celestine: Victor will face consequences. But the real punishment is what he's feeling right now.
+	Mark: Mia was surprisingly kind. I don't know if I could have been.
+	Celestine: She's an artist. She understands that pain can make people do terrible things.
+	Celestine: That doesn't excuse what Victor did. But understanding matters.
+else:
+	Conrad and Mark remain in the art room.
+	Mark: That was... heavy.
+	Conrad: Justice isn't always satisfying.
+	Conrad: Victor will face consequences. But the real punishment is what he's feeling right now.
+	Mark: Mia was surprisingly kind. I don't know if I could have been.
+	Conrad: She's an artist. She understands that pain can make people do terrible things.
+	Conrad: That doesn't excuse what Victor did. But understanding matters.
 Mark: What happens now?
-Conrad: Victor has a chance to change. To learn why he was really hurting.
-Conrad: His father's expectations. His need to be the best. His loneliness.
-Conrad: Whether he takes that chance is up to him.
-Mark: You think he will?
-Conrad looks at the door where Victor left.
-Conrad: I think he wants to. And sometimes, that's enough to start.
-leave Conrad
-leave Mark
+if {selected_character} == "celestine":
+	Celestine: Victor has a chance to change. To learn why he was really hurting.
+	Celestine: His father's expectations. His need to be the best. His loneliness.
+	Celestine: Whether he takes that chance is up to him.
+	Mark: You think he will?
+	Celestine looks at the door where Victor left.
+	Celestine: I think he wants to. And sometimes, that's enough to start.
+	leave Celestine
+	leave Mark
+else:
+	Conrad: Victor has a chance to change. To learn why he was really hurting.
+	Conrad: His father's expectations. His need to be the best. His loneliness.
+	Conrad: Whether he takes that chance is up to him.
+	Mark: You think he will?
+	Conrad looks at the door where Victor left.
+	Conrad: I think he wants to. And sometimes, that's enough to start.
+	leave Conrad
+	leave Mark
 jump c3s6/

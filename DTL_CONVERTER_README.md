@@ -50,7 +50,12 @@ python dtl_to_txt_converter.py "content/timelines/Chapter 2"
 
 ## Output
 
-The converted `.txt` files will be saved in the same location as the source `.dtl` files.
+- **Single files/folders:** Saved in the same location as the source `.dtl` files
+- **Chapter quick convert (options 3-6):** Saved to organized `transcripts/` folders:
+  - Chapter 2 → `transcripts/Chapter_2/`
+  - Chapter 3 → `transcripts/Chapter_3/`
+  - Chapter 4 → `transcripts/Chapter_4/`
+  - Chapter 5 → `transcripts/Chapter_5/`
 
 ### Example Output:
 
@@ -79,12 +84,17 @@ Alex: Hey Conrad! Ready for today's mystery?
 [Conrad leaves]
 ```
 
-## Converting Chapter 2 for Your Friend
+## Converting Chapters for Sharing
 
-Quick option - select option 3 from the menu:
+Quick chapter conversion - just select the option from the menu:
+
 1. Run `convert_dtl.bat` (Windows) or `python dtl_to_txt_converter.py` (Mac/Linux)
-2. Press `3` to convert all Chapter 2 files
-3. Share the generated `.txt` files from `content/timelines/Chapter 2/`
+2. Choose your chapter:
+   - Press `3` for Chapter 2 → saves to `transcripts/Chapter_2/`
+   - Press `4` for Chapter 3 → saves to `transcripts/Chapter_3/`
+   - Press `5` for Chapter 4 → saves to `transcripts/Chapter_4/`
+   - Press `6` for Chapter 5 → saves to `transcripts/Chapter_5/`
+3. Share the generated `.txt` files from the `transcripts/` folder
 
 Or convert manually:
 ```bash
@@ -136,21 +146,35 @@ The converter handles these Dialogic elements:
 ❌ Complex animations (shown as simple enter/exit)
 ❌ Audio/music cues (not displayed)
 
-## Example: Converting Chapter 2
+## Example: Converting Chapters
 
-Your friend wants to read Chapter 2 scenes (c2s0 through c2s6):
-
+### Quick Convert (Recommended)
 ```bash
-# Option 1: Convert all at once
+# Run the converter
+python dtl_to_txt_converter.py
+
+# Or on Windows, double-click:
+convert_dtl.bat
+
+# Then select:
+# 3 = Chapter 2 → transcripts/Chapter_2/
+# 4 = Chapter 3 → transcripts/Chapter_3/
+# 5 = Chapter 4 → transcripts/Chapter_4/
+# 6 = Chapter 5 → transcripts/Chapter_5/
+```
+
+### Manual Convert
+```bash
+# Option 1: Convert all chapter files at once
 python dtl_to_txt_converter.py "content/timelines/Chapter 2"
 
-# Option 2: Convert individually
+# Option 2: Convert individual files
 python dtl_to_txt_converter.py "content/timelines/Chapter 2/c2s0.dtl"
 python dtl_to_txt_converter.py "content/timelines/Chapter 2/c2s1.dtl"
 # ... etc
 ```
 
-Send your friend the generated `.txt` files!
+Share the generated `.txt` files with anyone who wants to read the dialogue!
 
 ## License
 

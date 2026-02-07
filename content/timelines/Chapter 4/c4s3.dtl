@@ -1,62 +1,115 @@
 [background arg="res://Bg/library_archive.png" fade="1.0"]
 The archive is dim, dusty, and cramped. Shelves tower overhead, packed with decades of materials.
-join Conrad (half) left
+if {selected_character} == "celestine":
+	join Celestine (animated) left
+else:
+	join Conrad (half) left
 join Mark (Mark_half) right
 Mark: This place is ancient. How are we supposed to find anything?
-Conrad: The librarian said Alex was looking at educational records from the 1990s.
-Conrad: Let's check that section.
-They move to a filing cabinet marked "1990-1995 Educational Materials."
-Conrad pulls open a drawer.
-Conrad: Wait. There's a gap here. Something's been removed.
-Mark: Recently?
-Conrad: The dust pattern suggests yes. Within the last week or two.
-Conrad: And look at this.
-He picks up a small piece of paper that had fallen behind the files.
-Conrad: A bookmark. With Alex's name on it from the school bookstore.
-Mark: That's pretty solid evidence she was here.
-Conrad: But what was she looking for? What did she take?
+if {selected_character} == "celestine":
+	Celestine: The librarian said Alex was looking at educational records from the 1990s.
+	Celestine: Let's check that section.
+	They move to a filing cabinet marked "1990-1995 Educational Materials."
+	Celestine pulls open a drawer.
+	Celestine: Wait. There's a gap here. Something's been removed.
+	Mark: Recently?
+	Celestine: The dust pattern suggests yes. Within the last week or two.
+	Celestine: And look at this.
+	She picks up a small piece of paper that had fallen behind the files.
+	Celestine: A bookmark. With Alex's name on it from the school bookstore.
+	Mark: That's pretty solid evidence she was here.
+	Celestine: But what was she looking for? What did she take?
+else:
+	Conrad: The librarian said Alex was looking at educational records from the 1990s.
+	Conrad: Let's check that section.
+	They move to a filing cabinet marked "1990-1995 Educational Materials."
+	Conrad pulls open a drawer.
+	Conrad: Wait. There's a gap here. Something's been removed.
+	Mark: Recently?
+	Conrad: The dust pattern suggests yes. Within the last week or two.
+	Conrad: And look at this.
+	He picks up a small piece of paper that had fallen behind the files.
+	Conrad: A bookmark. With Alex's name on it from the school bookstore.
+	Mark: That's pretty solid evidence she was here.
+	Conrad: But what was she looking for? What did she take?
 join "Diwata Laya" (Half_mirror) center
 [signal arg="laya_start"]
-"Diwata Laya" appears, examining the empty space in the drawer.
-"Diwata Laya": [i][color=#9999ff]She found something that changed her perspective.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]Something that made her believe she could guide others.[/color][/i]
-"Conrad (Thinking)": A book? A manual?
-"Diwata Laya": [i][color=#9999ff]Knowledge without context is dangerous, Conrad.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]She learned the methods but not the wisdom behind them.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]To see clearly, you must understand how pieces connect. Focus your mind.[/color][/i]
-[signal arg="start_minigame curriculum:maze"]
+if {selected_character} == "celestine":
+	"Diwata Laya" appears, examining the empty space in the drawer.
+	"Diwata Laya": [i][color=#9999ff]She found something that changed her perspective.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]Something that made her believe she could guide others.[/color][/i]
+	"Celestine (Thinking)": A book? A manual?
+	"Diwata Laya": [i][color=#9999ff]Knowledge without context is dangerous, Celestine.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]She learned the methods but not the wisdom behind them.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]To see clearly, you must understand how pieces connect. Focus your mind.[/color][/i]
+else:
+	"Diwata Laya" appears, examining the empty space in the drawer.
+	"Diwata Laya": [i][color=#9999ff]She found something that changed her perspective.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]Something that made her believe she could guide others.[/color][/i]
+	"Conrad (Thinking)": A book? A manual?
+	"Diwata Laya": [i][color=#9999ff]Knowledge without context is dangerous, Conrad.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]She learned the methods but not the wisdom behind them.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]To see clearly, you must understand how pieces connect. Focus your mind.[/color][/i]
+[signal arg="start_minigame pedagogy_methods"]
 "Diwata Laya": [i][color=#9999ff]Good. Your mind sees the pattern now.[/color][/i]
 "Diwata Laya": [i][color=#9999ff]Look at the archive log more carefully. The timing reveals much.[/color][/i]
 [signal arg="laya_end"]
 leave "Diwata Laya"
-Conrad examines the archive access log the librarian provided.
-Conrad: Alex accessed the archive on two dates: one week ago, and three days ago.
-Conrad: The first mysterious note appeared five days ago.
-Mark: So she found something a week ago, and started creating notes two days later.
-Conrad: After she had time to read and plan.
-Conrad checks the remaining files in the drawer.
-Conrad: The missing item was catalogued as "Educator's Journal - Anonymous - 1992-1995."
-Conrad: Description: "Personal teaching philosophy and experimental pedagogy notes."
-Mark: Experimental pedagogy? That sounds like what the notes are - experiments in moral teaching.
-Conrad: Exactly. Alex found a journal written by someone who believed in teaching through challenges and observation.
-Conrad: She took it, studied it, and started implementing the techniques herself.
-Mark: But she's not a teacher. She doesn't have the training to do this ethically.
-Conrad: That's the problem. She has the knowledge but not the wisdom to use it properly.
-Conrad: We need to talk to her before this escalates further.
-leave Conrad
+if {selected_character} == "celestine":
+	Celestine examines the archive access log the librarian provided.
+	Celestine: Alex accessed the archive on two dates\: one week ago, and three days ago.
+	Celestine: The first mysterious note appeared five days ago.
+	Mark: So she found something a week ago, and started creating notes two days later.
+	Celestine: After she had time to read and plan.
+	Celestine checks the remaining files in the drawer.
+	Celestine: The missing item was catalogued as "Educator's Journal - Anonymous - 1992-1995."
+	Celestine: Description\: "Personal teaching philosophy and experimental pedagogy notes."
+	Mark: Experimental pedagogy? That sounds like what the notes are - experiments in moral teaching.
+	Celestine: Exactly. Alex found a journal written by someone who believed in teaching through challenges and observation.
+	Celestine: She took it, studied it, and started implementing the techniques herself.
+	Mark: But she's not a teacher. She doesn't have the training to do this ethically.
+	Celestine: That's the problem. She has the knowledge but not the wisdom to use it properly.
+	Celestine: We need to talk to her before this escalates further.
+	leave Celestine
+else:
+	Conrad examines the archive access log the librarian provided.
+	Conrad: Alex accessed the archive on two dates\: one week ago, and three days ago.
+	Conrad: The first mysterious note appeared five days ago.
+	Mark: So she found something a week ago, and started creating notes two days later.
+	Conrad: After she had time to read and plan.
+	Conrad checks the remaining files in the drawer.
+	Conrad: The missing item was catalogued as "Educator's Journal - Anonymous - 1992-1995."
+	Conrad: Description\: "Personal teaching philosophy and experimental pedagogy notes."
+	Mark: Experimental pedagogy? That sounds like what the notes are - experiments in moral teaching.
+	Conrad: Exactly. Alex found a journal written by someone who believed in teaching through challenges and observation.
+	Conrad: She took it, studied it, and started implementing the techniques herself.
+	Mark: But she's not a teacher. She doesn't have the training to do this ethically.
+	Conrad: That's the problem. She has the knowledge but not the wisdom to use it properly.
+	Conrad: We need to talk to her before this escalates further.
+	leave Conrad
 leave Mark
 [background arg="res://Bg/hallway.png" fade="1.0"]
-join Conrad (half) left
+if {selected_character} == "celestine":
+	join Celestine (animated) left
+else:
+	join Conrad (half) left
 join Mark (Mark_half) right
 Mark: Where do we find Alex?
-Conrad: She usually studies in the library reading room during free period.
-Mark: Should we confront her there?
-Conrad: We need to be careful. She thinks she's helping people.
-Conrad: If we approach this as an attack, she'll get defensive.
-Mark: So we talk to her like... a misguided ally?
-Conrad: Exactly. She's not our enemy. She's someone who needs to understand why what she's doing is harmful.
-set {conrad_level} = 7
-[signal arg="show_level_up"]
-leave Conrad
+if {selected_character} == "celestine":
+	Celestine: She usually studies in the library reading room during free period.
+	Mark: Should we confront her there?
+	Celestine: We need to be careful. She thinks she's helping people.
+	Celestine: If we approach this as an attack, she'll get defensive.
+	Mark: So we talk to her like... a misguided ally?
+	Celestine: Exactly. She's not our enemy. She's someone who needs to understand why what she's doing is harmful.
+	leave Celestine
+else:
+	Conrad: She usually studies in the library reading room during free period.
+	Mark: Should we confront her there?
+	Conrad: We need to be careful. She thinks she's helping people.
+	Conrad: If we approach this as an attack, she'll get defensive.
+	Mark: So we talk to her like... a misguided ally?
+	Conrad: Exactly. She's not our enemy. She's someone who needs to understand why what she's doing is harmful.
+	leave Conrad
 leave Mark
 jump c4s4/

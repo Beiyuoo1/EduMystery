@@ -8,6 +8,8 @@ var score: int = 0
 var xp: int = 0
 var level: int = 1
 var hints: int = 3  # Starting hints for minigames
+var selected_subject: String = "english"  # Subject choice: "english", "math", "science"
+var selected_character: String = "conrad"  # Character choice: "conrad", "thebe"
 
 # How much XP is needed to reach the next level.
 # This could be a constant, or a value from a curve (e.g., exponential).
@@ -70,7 +72,9 @@ func get_stats() -> Dictionary:
 		"xp": xp,
 		"level": level,
 		"xp_needed": XP_PER_LEVEL,
-		"hints": hints
+		"hints": hints,
+		"selected_subject": selected_subject,
+		"selected_character": selected_character
 	}
 
 
@@ -100,6 +104,8 @@ func load_stats():
 				xp = data.get("xp", 0)
 				level = data.get("level", 1)
 				hints = data.get("hints", 10)
+				selected_subject = data.get("selected_subject", "english")
+				selected_character = data.get("selected_character", "conrad")
 
 	emit_signal("stats_changed", get_stats())
 

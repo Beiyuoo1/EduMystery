@@ -2,96 +2,173 @@
 A few days later. Art Week continues, transformed by what happened.
 The afternoon sun casts long shadows across the courtyard. Students mill about, their conversations softer than before.
 The spot where "The Reader" once stood now holds something new.
-join Conrad (half) left
-join Mark (Mark_half) right
-Mark: Hey, what's that? Where Mia's sculpture used to be?
-Conrad approaches the pedestal, curious.
+if {selected_character} == "celestine":
+	join Celestine (animated) left
+	join Mark (Mark_half) right
+	Mark: Hey, what's that? Where Mia's sculpture used to be?
+	Celestine approaches the pedestal, curious.
+else:
+	join Conrad (half) left
+	join Mark (Mark_half) right
+	Mark: Hey, what's that? Where Mia's sculpture used to be?
+	Conrad approaches the pedestal, curious.
 A collaborative piece stands in place of the broken sculpture.
 Dozens of small clay hands, each made by a different student, reach upward together, holding an open book.
-A plaque reads: "Together We Rise - A collaborative tribute to The Reader."
-Conrad: The art club made this. Each student contributed a hand.
-Mark: Wait, even Victor?
-Conrad: Even Victor. His is the one in the center, holding the book's spine.
-Mark examines the piece more closely.
-Mark: That's... actually kind of beautiful. From destruction, something new.
-Conrad: Mia said art is about sharing. Looks like everyone learned that lesson.
-Conrad: Even Victor.
+A plaque reads\: "Together We Rise - A collaborative tribute to The Reader."
+if {selected_character} == "celestine":
+	Celestine: The art club made this. Each student contributed a hand.
+	Mark: Wait, even Victor?
+	Celestine: Even Victor. His is the one in the center, holding the book's spine.
+	Mark examines the piece more closely.
+	Mark: That's... actually kind of beautiful. From destruction, something new.
+	Celestine: Mia said art is about sharing. Looks like everyone learned that lesson.
+	Celestine: Even Victor.
+else:
+	Conrad: The art club made this. Each student contributed a hand.
+	Mark: Wait, even Victor?
+	Conrad: Even Victor. His is the one in the center, holding the book's spine.
+	Mark examines the piece more closely.
+	Mark: That's... actually kind of beautiful. From destruction, something new.
+	Conrad: Mia said art is about sharing. Looks like everyone learned that lesson.
+	Conrad: Even Victor.
 They stand in comfortable silence, admiring the collaborative piece.
 The afternoon breeze rustles through the courtyard.
 Mark: Hey, what's that?
 He points to something tucked behind the pedestal, partially hidden by shadow.
-Conrad reaches down and pulls out a small, elegant card.
+if {selected_character} == "celestine":
+	Celestine reaches down and pulls out a small, elegant card.
+else:
+	Conrad reaches down and pulls out a small, elegant card.
+[signal arg="unlock_evidence bc_card_creativity_c3"]
 The paper is thick and cream-colored, the handwriting precise and old-fashioned.
-Conrad: Another one.
-Mark: B.C. again?
-Conrad nods, his expression growing serious.
-Conrad: "Lesson 3: Creativity."
-Conrad: "True artists create to express, not to compete."
-Conrad: "Envy sees another's light and tries to extinguish it..."
-Conrad: "...not realizing it could have warmed them both."
-Mark: That's... exactly what happened with Victor.
-Conrad continues reading.
-Conrad: "The jealous heart destroys what it cannot possess."
-Conrad: "The wise heart learns to admire what it cannot be."
+if {selected_character} == "celestine":
+	Celestine: Another one.
+	Mark: B.C. again?
+	Celestine nods, her expression growing serious.
+	Celestine: "Lesson 3\: Creativity."
+	Celestine: "True artists create to express, not to compete."
+	Celestine: "Envy sees another's light and tries to extinguish it..."
+	Celestine: "...not realizing it could have warmed them both."
+	Mark: That's... exactly what happened with Victor.
+	Celestine continues reading.
+	Celestine: "The jealous heart destroys what it cannot possess."
+	Celestine: "The wise heart learns to admire what it cannot be."
+else:
+	Conrad: Another one.
+	Mark: B.C. again?
+	Conrad nods, his expression growing serious.
+	Conrad: "Lesson 3\: Creativity."
+	Conrad: "True artists create to express, not to compete."
+	Conrad: "Envy sees another's light and tries to extinguish it..."
+	Conrad: "...not realizing it could have warmed them both."
+	Mark: That's... exactly what happened with Victor.
+	Conrad continues reading.
+	Conrad: "The jealous heart destroys what it cannot possess."
+	Conrad: "The wise heart learns to admire what it cannot be."
 Mark: Three cases. Three lessons. Three cards.
 Mark: Truth, from the exam sabotage. Responsibility, from the missing fund.
 Mark: And now Creativity.
-Conrad: Someone's teaching us. Through these mysteries.
+if {selected_character} == "celestine":
+	Celestine: Someone's teaching us. Through these mysteries.
+else:
+	Conrad: Someone's teaching us. Through these mysteries.
 Mark: But who? And how do they know about these cases before we solve them?
 join "Diwata Laya" (Half_mirror) center
 [signal arg="laya_start"]
 "Diwata Laya" appears, her eyes fixed on the card with unusual intensity.
 "Diwata Laya": [i][color=#9999ff]B.C. Their presence grows stronger with each lesson.[/color][/i]
 "Diwata Laya": [i][color=#9999ff]They are not merely watching. They are guiding.[/color][/i]
-"Conrad (Thinking)": Guiding us toward what?
+if {selected_character} == "celestine":
+	"Celestine (Thinking)": Guiding us toward what?
+else:
+	"Conrad (Thinking)": Guiding us toward what?
 "Diwata Laya": [i][color=#9999ff]I cannot see the end. Only the path unfolding before us.[/color][/i]
 "Diwata Laya": [i][color=#9999ff]But each lesson builds on the last. Truth. Responsibility. Creativity.[/color][/i]
 "Diwata Laya": [i][color=#9999ff]These are not random values. They form something larger.[/color][/i]
 Mark: A curriculum? Like someone's training us?
 "Diwata Laya": [i][color=#9999ff]Perhaps. Or a test. Preparing you for something to come.[/color][/i]
-"Conrad (Thinking)": Who is B.C.? Can you sense anything about them?
+if {selected_character} == "celestine":
+	"Celestine (Thinking)": Who is B.C.? Can you sense anything about them?
+else:
+	"Conrad (Thinking)": Who is B.C.? Can you sense anything about them?
 "Diwata Laya" shakes her head slowly, her form flickering.
 "Diwata Laya": [i][color=#9999ff]Even I cannot pierce that veil. They exist... outside my sight.[/color][/i]
 "Diwata Laya": [i][color=#9999ff]Older than my awareness. Patient beyond measure.[/color][/i]
 "Diwata Laya": [i][color=#9999ff]But I sense no malice. Only purpose. Ancient and patient.[/color][/i]
-"Conrad (Thinking)": That's both reassuring and terrifying.
-"Diwata Laya": [i][color=#9999ff]The cards will continue, Conrad. The lessons will grow harder.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]But you are growing too. Stronger. Wiser. More attuned to truth.[/color][/i]
-[signal arg="laya_end"]
-leave "Diwata Laya"
-Mark: A mysterious teacher who leaves cryptic cards after we solve crimes.
-Mark: Our lives have gotten really weird since you found Laya, Conrad.
-Conrad: Weird, but meaningful.
-Conrad looks at the collaborative sculpture, then back at the B.C. card.
-Conrad: Victor wanted to be seen. To matter.
-Conrad: But he was looking for validation in the wrong places.
-Conrad: Competition pushed him to improve. But when it became about tearing others down...
-Mark: That's when it stopped being about the art.
-Conrad: Exactly. Creation should lift people up. Not tear them down.
-Conrad: Victor had real skill. He just forgot why he started making art in the first place.
+if {selected_character} == "celestine":
+	"Celestine (Thinking)": That's both reassuring and terrifying.
+	"Diwata Laya": [i][color=#9999ff]The cards will continue, Celestine. The lessons will grow harder.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]But you are growing too. Stronger. Wiser. More attuned to truth.[/color][/i]
+	[signal arg="laya_end"]
+	leave "Diwata Laya"
+	Mark: A mysterious teacher who leaves cryptic cards after we solve crimes.
+	Mark: Our lives have gotten really weird since you found Laya, sis.
+else:
+	"Conrad (Thinking)": That's both reassuring and terrifying.
+	"Diwata Laya": [i][color=#9999ff]The cards will continue, Conrad. The lessons will grow harder.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]But you are growing too. Stronger. Wiser. More attuned to truth.[/color][/i]
+	[signal arg="laya_end"]
+	leave "Diwata Laya"
+	Mark: A mysterious teacher who leaves cryptic cards after we solve crimes.
+	Mark: Our lives have gotten really weird since you found Laya, Conrad.
+if {selected_character} == "celestine":
+	Celestine: Weird, but meaningful.
+	Celestine looks at the collaborative sculpture, then back at the B.C. card.
+	Celestine: Victor wanted to be seen. To matter.
+	Celestine: But he was looking for validation in the wrong places.
+	Celestine: Competition pushed him to improve. But when it became about tearing others down...
+	Mark: That's when it stopped being about the art.
+	Celestine: Exactly. Creation should lift people up. Not tear them down.
+	Celestine: Victor had real skill. He just forgot why he started making art in the first place.
+else:
+	Conrad: Weird, but meaningful.
+	Conrad looks at the collaborative sculpture, then back at the B.C. card.
+	Conrad: Victor wanted to be seen. To matter.
+	Conrad: But he was looking for validation in the wrong places.
+	Conrad: Competition pushed him to improve. But when it became about tearing others down...
+	Mark: That's when it stopped being about the art.
+	Conrad: Exactly. Creation should lift people up. Not tear them down.
+	Conrad: Victor had real skill. He just forgot why he started making art in the first place.
 Mark: And Mia?
-Conrad: She never forgot. That's why her work resonates.
-Conrad: It's not about technique. It's about connection. About heart.
-set {conrad_level} = 6
-[signal arg="show_level_up"]
-Mark stretches, looking at the setting sun painting the sky in oranges and purples.
-Mark: Three cases solved. Three mysterious cards collected.
-Mark: Think there'll be more?
-Conrad: "The chain continues." That's what B.C. wrote on the first card.
-Conrad: There will definitely be more.
-Mark: Then we'll be ready.
-Conrad: Together.
+if {selected_character} == "celestine":
+	Celestine: She never forgot. That's why her work resonates.
+	Celestine: It's not about technique. It's about connection. About heart.
+	Mark stretches, looking at the setting sun painting the sky in oranges and purples.
+	Mark: Three cases solved. Three mysterious cards collected.
+	Mark: Think there'll be more?
+	Celestine: "The chain continues." That's what B.C. wrote on the first card.
+	Celestine: There will definitely be more.
+	Mark: Then we'll be ready.
+	Celestine: Together.
+else:
+	Conrad: She never forgot. That's why her work resonates.
+	Conrad: It's not about technique. It's about connection. About heart.
+	Mark stretches, looking at the setting sun painting the sky in oranges and purples.
+	Mark: Three cases solved. Three mysterious cards collected.
+	Mark: Think there'll be more?
+	Conrad: "The chain continues." That's what B.C. wrote on the first card.
+	Conrad: There will definitely be more.
+	Mark: Then we'll be ready.
+	Conrad: Together.
 They share a smile - the easy, comfortable kind that comes from facing challenges side by side.
 Mark: Come on. Let's get some food. All this detective work makes me hungry.
-Conrad: Everything makes you hungry, Mark.
-Mark: Fair point. But also, I'm right.
-They walk away from the courtyard, leaving the collaborative sculpture glowing in the afternoon light.
-leave Conrad
-leave Mark
+if {selected_character} == "celestine":
+	Celestine: Everything makes you hungry, Mark.
+	Mark: Fair point. But also, I'm right.
+	They walk away from the courtyard, leaving the collaborative sculpture glowing in the afternoon light.
+	leave Celestine
+	leave Mark
+else:
+	Conrad: Everything makes you hungry, Mark.
+	Mark: Fair point. But also, I'm right.
+	They walk away from the courtyard, leaving the collaborative sculpture glowing in the afternoon light.
+	leave Conrad
+	leave Mark
 The B.C. card sits on the pedestal beside the sculpture.
 The wind ruffles its edge, but it stays in place.
 Three lessons learned. Three mysteries solved.
 But the chain continues.
 And somewhere, watching, B.C. waits for the next chapter to begin.
 [wait time="1.0"]
+[signal arg="show_chapter_results"]
 jump c4s0/

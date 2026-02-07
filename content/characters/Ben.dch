@@ -10,7 +10,7 @@
 "style": "",
 "suffix": ""
 },
-&"default_portrait": "Ben_half",
+&"default_portrait": "animated",
 &"description": "A student from Grade 12-A.",
 &"display_name": "Ben",
 &"mirror": false,
@@ -34,6 +34,13 @@
 "offset": Vector2(0, 0),
 "scale": 0.8,
 "scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
+},
+"animated": {
+"export_overrides": {},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 0.8,
+"scene": "res://scenes/portraits/ben_animated_portrait.tscn"
 }
 },
 &"scale": 1.0

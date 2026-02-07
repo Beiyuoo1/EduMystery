@@ -1,97 +1,179 @@
 [background arg="res://Bg/classroom.png" fade="1.0"]
-Principal B.C. stands at the center of the stage, Conrad and Mark seated before them.
+if {selected_character} == "celestine":
+	Principal B.C. stands at the center of the stage, Celestine and Mark seated before them.
+else:
+	Principal B.C. stands at the center of the stage, Conrad and Mark seated before them.
 join Principal (half) center
-join Conrad (half) left
+if {selected_character} == "celestine":
+	join Celestine (animated) left
+else:
+	join Conrad (half) left
 join Mark (Mark_half) right
 Principal: Lesson Five. The lesson that encompasses all others.
 Principal: Choice.
-Conrad: I understand that now. Each person had a choice. Greg, Ria, Victor, Alex.
-Conrad: They chose their actions. They learned from the consequences.
-Principal: But there's more to it than that.
-Principal: I had choices too. At every step.
-Principal: When Greg was struggling, I could have prevented the exam theft entirely.
-Principal: When the fund went missing, I could have revealed Ria immediately.
-Principal: When Victor destroyed the sculpture, I could have caught him that very night.
-Principal: When Alex began her moral experiments, I could have confiscated the journal weeks earlier.
-Mark: Why didn't you?
-Principal: Because preventing every mistake would rob students of the chance to grow.
-Principal: Real learning comes from experiencing consequences, not from avoiding all failure.
-Principal: But here's the crucial question, Conrad: Did I make the right choice?
-Conrad considers carefully.
-Conrad: You... prioritized long-term growth over short-term prevention.
-Conrad: Each student learned something profound because they made mistakes and faced them.
-Conrad: But... people were hurt. Mia lost her sculpture. Students felt manipulated by Alex.
-Conrad: There's a cost to letting mistakes happen.
-Principal: Exactly. And that's the heart of the final lesson.
-Principal: Teaching through observation and guidance means accepting that people will sometimes choose poorly.
-Principal: You can guide, but you can't control. And when you can't control, harm sometimes occurs.
-Principal: The question isn't whether to prevent all harm. That's impossible while respecting free will.
-Principal: The question is: How do we balance guidance with agency? Help with harm?
-Conrad: You can't make people's choices for them. But you can help them understand their options.
-Conrad: You can teach them how to think, not what to think.
-Principal: Yes. And when they make mistakes - as they inevitably will - you can guide them to learn from those mistakes.
-Principal: That's what you did, Conrad. In every case.
-Principal: You didn't just solve mysteries. You helped people understand themselves.
+if {selected_character} == "celestine":
+	Celestine: I understand that now. Each person had a choice. Greg, Ria, Victor, Alex.
+	Celestine: They chose their actions. They learned from the consequences.
+	Principal: But there's more to it than that.
+	Principal: I had choices too. At every step.
+	Principal: When Greg was struggling, I could have prevented the exam theft entirely.
+	Principal: When the fund went missing, I could have revealed Ria immediately.
+	Principal: When Victor destroyed the sculpture, I could have caught him that very night.
+	Principal: When Alex began her moral experiments, I could have confiscated the journal weeks earlier.
+	Mark: Why didn't you?
+	Principal: Because preventing every mistake would rob students of the chance to grow.
+	Principal: Real learning comes from experiencing consequences, not from avoiding all failure.
+	Principal: But here's the crucial question, Celestine\: Did I make the right choice?
+	Celestine considers carefully.
+	Celestine: You... prioritized long-term growth over short-term prevention.
+	Celestine: Each student learned something profound because they made mistakes and faced them.
+	Celestine: But... people were hurt. Mia lost her sculpture. Students felt manipulated by Alex.
+	Celestine: There's a cost to letting mistakes happen.
+	Principal: Exactly. And that's the heart of the final lesson.
+	Principal: Teaching through observation and guidance means accepting that people will sometimes choose poorly.
+	Principal: You can guide, but you can't control. And when you can't control, harm sometimes occurs.
+	Principal: The question isn't whether to prevent all harm. That's impossible while respecting free will.
+	Principal: The question is\: How do we balance guidance with agency? Help with harm?
+	Celestine: You can't make people's choices for them. But you can help them understand their options.
+	Celestine: You can teach them how to think, not what to think.
+	Principal: Yes. And when they make mistakes - as they inevitably will - you can guide them to learn from those mistakes.
+	Principal: That's what you did, Celestine. In every case.
+	Principal: You didn't just solve mysteries. You helped people understand themselves.
+else:
+	Conrad: I understand that now. Each person had a choice. Greg, Ria, Victor, Alex.
+	Conrad: They chose their actions. They learned from the consequences.
+	Principal: But there's more to it than that.
+	Principal: I had choices too. At every step.
+	Principal: When Greg was struggling, I could have prevented the exam theft entirely.
+	Principal: When the fund went missing, I could have revealed Ria immediately.
+	Principal: When Victor destroyed the sculpture, I could have caught him that very night.
+	Principal: When Alex began her moral experiments, I could have confiscated the journal weeks earlier.
+	Mark: Why didn't you?
+	Principal: Because preventing every mistake would rob students of the chance to grow.
+	Principal: Real learning comes from experiencing consequences, not from avoiding all failure.
+	Principal: But here's the crucial question, Conrad\: Did I make the right choice?
+	Conrad considers carefully.
+	Conrad: You... prioritized long-term growth over short-term prevention.
+	Conrad: Each student learned something profound because they made mistakes and faced them.
+	Conrad: But... people were hurt. Mia lost her sculpture. Students felt manipulated by Alex.
+	Conrad: There's a cost to letting mistakes happen.
+	Principal: Exactly. And that's the heart of the final lesson.
+	Principal: Teaching through observation and guidance means accepting that people will sometimes choose poorly.
+	Principal: You can guide, but you can't control. And when you can't control, harm sometimes occurs.
+	Principal: The question isn't whether to prevent all harm. That's impossible while respecting free will.
+	Principal: The question is\: How do we balance guidance with agency? Help with harm?
+	Conrad: You can't make people's choices for them. But you can help them understand their options.
+	Conrad: You can teach them how to think, not what to think.
+	Principal: Yes. And when they make mistakes - as they inevitably will - you can guide them to learn from those mistakes.
+	Principal: That's what you did, Conrad. In every case.
+	Principal: You didn't just solve mysteries. You helped people understand themselves.
 join "Diwata Laya" (Half_mirror) leftmost
 [signal arg="laya_start"]
 "Diwata Laya": [i][color=#9999ff]The greatest teachers know when to speak and when to remain silent.[/color][/i]
 "Diwata Laya": [i][color=#9999ff]When to guide and when to let experience be the teacher.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]You have learned this, Conrad. Not through instruction, but through practice.[/color][/i]
-"Conrad (Thinking)": Every case taught me something different about how to help people.
-"Conrad (Thinking)": Greg needed compassion, not judgment. Ria needed understanding, not punishment.
-"Conrad (Thinking)": Victor needed someone to see his pain. Alex needed someone to show her a better way.
-"Diwata Laya": [i][color=#9999ff]And in helping them, you became more than a detective.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]You became a guide. A teacher. Someone who lights the path without forcing the journey.[/color][/i]
-"Diwata Laya": [i][color=#9999ff]One final test. Prove your mastery.[/color][/i]
-[signal arg="start_minigame curriculum:platformer"]
-"Diwata Laya": [i][color=#9999ff]Excellent. You are ready for the final lesson.[/color][/i]
-[signal arg="laya_end"]
-leave "Diwata Laya"
-Principal: You've learned all five lessons, Conrad.
-Principal: Truth - Evidence and honesty matter.
-Principal: Responsibility - Actions have consequences that must be faced.
-Principal: Creativity - Expression and connection matter more than competition.
-Principal: Wisdom - Knowledge requires ethical, compassionate use.
-Principal: And Choice - True teaching respects free will and guides without controlling.
-Conrad stands, meeting Principal B.C.'s eyes with new understanding.
-Conrad: So what happens now? Do you keep teaching? Keep leaving cards?
-Principal: No. My work with you is complete.
-Principal: You've graduated from student to teacher. You don't need my cards anymore.
-Conrad: But the school will face more challenges. More students will struggle with moral choices.
-Principal: They will. And you'll be there.
-Principal: Not as B.C., leaving mysterious cards. But as Conrad, a student who helps others learn.
-Principal: You'll guide in your own way. With your own wisdom.
-set {conrad_level} = 9
-[signal arg="show_level_up"]
-Mark: So Conrad becomes the new teacher? That's a lot of pressure.
-Principal: Not the new teacher. One of many teachers.
-Principal: I'm still here. Diwata Laya guides from the spirit realm. Teachers and counselors guide in their ways.
-Principal: Conrad simply adds his voice to the chorus. His unique perspective.
-Conrad: I understand. But... will I see you again? As B.C., I mean?
-Principal smiles.
-Principal: You see me every day as the Principal. That won't change.
-Principal: But as B.C.? My task is complete. The chain has served its purpose.
-Principal: You learned the lessons. You became a guide.
-Principal: Now the chain transforms. It doesn't end - it becomes something new.
-Conrad: It becomes my own journey. My own way of helping others.
-Principal: Exactly.
-leave Principal
-leave Mark
-Conrad stands alone on the stage, surrounded by symbols of the five lessons he's learned.
-Truth. Responsibility. Creativity. Wisdom. Choice.
-Conrad: I entered this school as a student learning to observe.
-Conrad: I became a detective learning to solve mysteries.
-Conrad: And now... I'm a guide learning to help others grow.
-Conrad: The chain doesn't end. It transforms.
-join Mark (Mark_half) right
-Mark: Heavy realizations, man. How do you feel?
-Conrad: Grateful. Humbled. Ready.
-Mark: Ready for what?
-Conrad smiles.
-Conrad: Whatever comes next. There will always be mysteries. Always people struggling with choices.
-Conrad: And I'll be there. Not to solve everything for them.
-Conrad: But to help them learn from their own experiences.
-Conrad: Just like B.C. helped me.
-leave Conrad
+if {selected_character} == "celestine":
+	"Diwata Laya": [i][color=#9999ff]You have learned this, Celestine. Not through instruction, but through practice.[/color][/i]
+	"Celestine (Thinking)": Every case taught me something different about how to help people.
+	"Celestine (Thinking)": Greg needed compassion, not judgment. Ria needed understanding, not punishment.
+	"Celestine (Thinking)": Victor needed someone to see his pain. Alex needed someone to show her a better way.
+	"Diwata Laya": [i][color=#9999ff]And in helping them, you became more than a detective.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]You became a guide. A teacher. Someone who lights the path without forcing the journey.[/color][/i]
+	leave "Diwata Laya"
+	Principal: You've learned all five lessons, Celestine.
+	Principal: Truth - Evidence and honesty matter.
+	Principal: Responsibility - Actions have consequences that must be faced.
+	Principal: Creativity - Expression and connection matter more than competition.
+	Principal: Wisdom - Knowledge requires ethical, compassionate use.
+	Principal: And Choice - True teaching respects free will and guides without controlling.
+	Celestine stands, meeting Principal B.C.'s eyes with new understanding.
+	Celestine: So what happens now? Do you keep teaching? Keep leaving cards?
+	Principal: No. My work with you is complete.
+	Principal: You've graduated from student to teacher. You don't need my cards anymore.
+	Celestine: But the school will face more challenges. More students will struggle with moral choices.
+	Principal: They will. And you'll be there.
+	Principal: Not as B.C., leaving mysterious cards. But as Celestine, a student who helps others learn.
+	Principal: You'll guide in your own way. With your own wisdom.
+	Mark: So sis becomes the new teacher? That's a lot of pressure.
+	Principal: Not the new teacher. One of many teachers.
+	Principal: I'm still here. Diwata Laya guides from the spirit realm. Teachers and counselors guide in their ways.
+	Principal: Celestine simply adds her voice to the chorus. Her unique perspective.
+	Celestine: I understand. But... will I see you again? As B.C., I mean?
+	Principal smiles.
+	Principal: You see me every day as the Principal. That won't change.
+	Principal: But as B.C.? My task is complete. The chain has served its purpose.
+	Principal: You learned the lessons. You became a guide.
+	Principal: Now the chain transforms. It doesn't end - it becomes something new.
+	Celestine: It becomes my own journey. My own way of helping others.
+	Principal: Exactly.
+	leave Principal
+	leave Mark
+	Celestine stands alone on the stage, surrounded by symbols of the five lessons she's learned.
+	Truth. Responsibility. Creativity. Wisdom. Choice.
+	Celestine: I entered this school as a student learning to observe.
+	Celestine: I became a detective learning to solve mysteries.
+	Celestine: And now... I'm a guide learning to help others grow.
+	Celestine: The chain doesn't end. It transforms.
+	join Mark (Mark_half) right
+	Mark: Heavy realizations, sis. How do you feel?
+	Celestine: Grateful. Humbled. Ready.
+	Mark: Ready for what?
+	Celestine smiles.
+	Celestine: Whatever comes next. There will always be mysteries. Always people struggling with choices.
+	Celestine: And I'll be there. Not to solve everything for them.
+	Celestine: But to help them learn from their own experiences.
+	Celestine: Just like B.C. helped me.
+	leave Celestine
+else:
+	"Diwata Laya": [i][color=#9999ff]You have learned this, Conrad. Not through instruction, but through practice.[/color][/i]
+	"Conrad (Thinking)": Every case taught me something different about how to help people.
+	"Conrad (Thinking)": Greg needed compassion, not judgment. Ria needed understanding, not punishment.
+	"Conrad (Thinking)": Victor needed someone to see his pain. Alex needed someone to show her a better way.
+	"Diwata Laya": [i][color=#9999ff]And in helping them, you became more than a detective.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff]You became a guide. A teacher. Someone who lights the path without forcing the journey.[/color][/i]
+	leave "Diwata Laya"
+	Principal: You've learned all five lessons, Conrad.
+	Principal: Truth - Evidence and honesty matter.
+	Principal: Responsibility - Actions have consequences that must be faced.
+	Principal: Creativity - Expression and connection matter more than competition.
+	Principal: Wisdom - Knowledge requires ethical, compassionate use.
+	Principal: And Choice - True teaching respects free will and guides without controlling.
+	Conrad stands, meeting Principal B.C.'s eyes with new understanding.
+	Conrad: So what happens now? Do you keep teaching? Keep leaving cards?
+	Principal: No. My work with you is complete.
+	Principal: You've graduated from student to teacher. You don't need my cards anymore.
+	Conrad: But the school will face more challenges. More students will struggle with moral choices.
+	Principal: They will. And you'll be there.
+	Principal: Not as B.C., leaving mysterious cards. But as Conrad, a student who helps others learn.
+	Principal: You'll guide in your own way. With your own wisdom.
+	Mark: So Conrad becomes the new teacher? That's a lot of pressure.
+	Principal: Not the new teacher. One of many teachers.
+	Principal: I'm still here. Diwata Laya guides from the spirit realm. Teachers and counselors guide in their ways.
+	Principal: Conrad simply adds his voice to the chorus. His unique perspective.
+	Conrad: I understand. But... will I see you again? As B.C., I mean?
+	Principal smiles.
+	Principal: You see me every day as the Principal. That won't change.
+	Principal: But as B.C.? My task is complete. The chain has served its purpose.
+	Principal: You learned the lessons. You became a guide.
+	Principal: Now the chain transforms. It doesn't end - it becomes something new.
+	Conrad: It becomes my own journey. My own way of helping others.
+	Principal: Exactly.
+	leave Principal
+	leave Mark
+	Conrad stands alone on the stage, surrounded by symbols of the five lessons he's learned.
+	Truth. Responsibility. Creativity. Wisdom. Choice.
+	Conrad: I entered this school as a student learning to observe.
+	Conrad: I became a detective learning to solve mysteries.
+	Conrad: And now... I'm a guide learning to help others grow.
+	Conrad: The chain doesn't end. It transforms.
+	join Mark (Mark_half) right
+	Mark: Heavy realizations, man. How do you feel?
+	Conrad: Grateful. Humbled. Ready.
+	Mark: Ready for what?
+	Conrad smiles.
+	Conrad: Whatever comes next. There will always be mysteries. Always people struggling with choices.
+	Conrad: And I'll be there. Not to solve everything for them.
+	Conrad: But to help them learn from their own experiences.
+	Conrad: Just like B.C. helped me.
+	leave Conrad
 leave Mark
 jump c5s5/

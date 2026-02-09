@@ -31,6 +31,14 @@ func _ready() -> void:
 	settings_button.pressed.connect(_on_settings_pressed)
 	quit_button.pressed.connect(_on_quit_pressed)
 
+func _input(event: InputEvent) -> void:
+	# Debug: Press Delete key to clear all save data
+	if event.is_action_pressed("ui_text_delete"):
+		if Dialogic.Save.has_slot("continue_save"):
+			Dialogic.Save.delete_slot("continue_save")
+			print("DEBUG: Save data cleared!")
+			continue_button.disabled = true
+
 func _process(_delta: float) -> void:
 	# Check if Vosk has finished loading and start music
 	if not music_started and MinigameManager and MinigameManager.vosk_is_loaded:
@@ -49,14 +57,6 @@ func stop_background_music() -> void:
 		background_music.stop()
 		music_started = false
 		print("Main menu background music stopped")
-
-func _input(event: InputEvent) -> void:
-	# Debug: Press Delete key to clear all save data
-	if event.is_action_pressed("ui_text_delete"):
-		if Dialogic.Save.has_slot("continue_save"):
-			Dialogic.Save.delete_slot("continue_save")
-			print("DEBUG: Save data cleared!")
-			continue_button.disabled = true
 
 func _on_new_game_pressed() -> void:
 	# Stop background music

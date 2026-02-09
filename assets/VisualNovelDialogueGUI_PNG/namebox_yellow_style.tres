@@ -1,0 +1,15 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://custom_namebox_yellow"]
+
+[ext_resource type="Texture2D" path="res://assets/VisualNovelDialogueGUI_PNG/namebox_yellow.png" id="1"]
+
+[resource]
+texture = ExtResource("1")
+texture_margin_left = 20.0
+texture_margin_top = 15.0
+texture_margin_right = 20.0
+texture_margin_bottom = 15.0
+content_margin_left = 25.0
+content_margin_top = 12.0
+content_margin_right = 25.0
+content_margin_bottom = 12.0
+region_rect = Rect2(0, 0, 128, 64)

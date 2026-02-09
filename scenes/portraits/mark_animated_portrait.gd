@@ -12,6 +12,11 @@ var unhighlighted_color := Color.DARK_GRAY
 var _prev_z_index := 0
 
 func _ready() -> void:
+	print("🔥 Mark animated portrait _ready() called! 🔥")
+	print("  Engine.is_editor_hint():", Engine.is_editor_hint())
+	print("  Node name:", name)
+	print("  Parent:", get_parent())
+
 	# Start with idle animation
 	if animated_sprite:
 		animated_sprite.play("idle")

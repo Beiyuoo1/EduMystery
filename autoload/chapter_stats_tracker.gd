@@ -23,6 +23,7 @@ var chapter_stats: Dictionary = {
 	"clues_collected": 0,
 	"total_clues": 0,
 	"minigames_completed": 0,
+	"minigames_failed": 0,  # Minigames that timed out or were failed
 	"speed_bonuses_earned": 0,
 	"hints_used": 0,
 	"hints_earned": 0,
@@ -60,6 +61,7 @@ func start_chapter(chapter_num: int):
 		"clues_collected": 0,
 		"total_clues": _get_total_clues_for_chapter(chapter_num),
 		"minigames_completed": 0,
+		"minigames_failed": 0,
 		"speed_bonuses_earned": 0,
 		"hints_used": 0,
 		"hints_earned": 0,
@@ -131,6 +133,11 @@ func record_minigame_completed(speed_bonus: bool = false):
 		chapter_stats["speed_bonuses_earned"] += 1
 		chapter_stats["hints_earned"] += 1
 	print("ChapterStatsTracker: Minigame completed (Speed bonus: ", speed_bonus, ")")
+
+## Record minigame failure (timeout or failed)
+func record_minigame_failed():
+	chapter_stats["minigames_failed"] += 1
+	print("ChapterStatsTracker: Minigame failed (", chapter_stats["minigames_failed"], " total)")
 
 ## Record hint usage
 func record_hint_used():

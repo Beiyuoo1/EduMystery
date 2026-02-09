@@ -36,7 +36,20 @@ func _on_dialogic_signal(argument: String):
 
 	# Debug character check
 	if argument == "debug_character_check":
-		print("DEBUG: At conditional check - selected_character = ", Dialogic.VAR.get("selected_character"))
+		print("================================================================================")
+		print("DEBUG CHARACTER CHECK AT c3s1 CONDITIONAL:")
+		var char_value = Dialogic.current_state_info['variables'].get('selected_character', 'NOT FOUND')
+		print("  selected_character (from state_info) = '", char_value, "'")
+		print("  Type: ", typeof(char_value))
+		print("  Is 'celestine'? ", char_value == "celestine")
+		print("  Is 'conrad'? ", char_value == "conrad")
+		print("  Is empty? ", char_value == "")
+		# Also check via Dialogic.VAR if possible
+		if Dialogic.VAR.has("selected_character"):
+			print("  Dialogic.VAR.selected_character = '", Dialogic.VAR.selected_character, "'")
+		else:
+			print("  Dialogic.VAR does NOT have selected_character!")
+		print("================================================================================")
 		return
 
 	# Handle textbox visibility
@@ -92,10 +105,14 @@ func _handle_minigame_signal(puzzle_id: String):
 	MinigameManager.start_minigame(puzzle_id)
 	await MinigameManager.minigame_completed
 
-	# Track minigame completion and speed bonus
+	# Track minigame completion or failure
 	if ChapterStatsTracker:
-		var speed_bonus = MinigameManager.last_minigame_speed_bonus
-		ChapterStatsTracker.record_minigame_completed(speed_bonus)
+		var success = MinigameManager.last_minigame_success
+		if success:
+			var speed_bonus = MinigameManager.last_minigame_speed_bonus
+			ChapterStatsTracker.record_minigame_completed(speed_bonus)
+		else:
+			ChapterStatsTracker.record_minigame_failed()
 
 	# Auto-save after completing minigame (requires SaveManager autoload)
 	if SaveManager:
@@ -279,9 +296,12 @@ func _handle_chapter_results():
 		stats = ChapterStatsTracker.get_current_stats()
 
 	# Calculate average minigame time for star rating
+	# Failed minigames count as 90 seconds each (full timer penalty)
 	var avg_time = 60.0  # Default 1 star
-	if stats.get("minigames_completed", 0) > 0:
-		avg_time = stats.get("completion_time", 60.0) / stats.get("minigames_completed", 1)
+	var total_minigames = stats.get("minigames_completed", 0) + stats.get("minigames_failed", 0)
+	if total_minigames > 0:
+		var failed_penalty = stats.get("minigames_failed", 0) * 90.0  # 90s penalty per failed minigame
+		avg_time = (stats.get("completion_time", 60.0) + failed_penalty) / total_minigames
 
 	# Get chapter number from Dialogic variable (more reliable than stats)
 	var chapter_num = 1
@@ -362,12 +382,22 @@ func _handle_chapter_results():
 
 func _handle_init_character_var():
 	"""Initialize selected_character from PlayerStats at the start of the game"""
+	print("DEBUG: _handle_init_character_var called")
+	print("DEBUG: PlayerStats.selected_character = ", PlayerStats.selected_character if PlayerStats else "PlayerStats is null")
+
 	if PlayerStats and PlayerStats.selected_character:
-		# Directly set in Dialogic's state dictionary
-		# The variable should already exist from the timeline's "set {selected_character} = "conrad"" line
+		# Access Dialogic's internal variable storage directly
+		# The variable should exist from the timeline's "set {selected_character} = ''" line
 		if Dialogic.current_state_info.has('variables'):
+			var current_value = Dialogic.current_state_info['variables'].get('selected_character', 'NOT SET')
+			print("DEBUG: Before assignment - selected_character = ", current_value)
+
+			# Set via internal dictionary (Dialogic.VAR assignment doesn't work for runtime changes)
 			Dialogic.current_state_info['variables']['selected_character'] = PlayerStats.selected_character
-			print("DEBUG: Set selected_character to: ", PlayerStats.selected_character)
-			print("DEBUG: Verification - selected_character now = ", Dialogic.VAR.selected_character)
+
+			print("DEBUG: After assignment - selected_character = ", Dialogic.current_state_info['variables']['selected_character'])
+			print("DEBUG: Verification via Dialogic.VAR = ", Dialogic.VAR.selected_character)
 		else:
-			push_warning("Dialogic variables not initialized yet")
+			push_warning("DEBUG: Dialogic variables dictionary not initialized yet")
+	else:
+		print("DEBUG: PlayerStats or PlayerStats.selected_character is null/empty!")

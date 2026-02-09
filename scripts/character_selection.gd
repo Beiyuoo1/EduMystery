@@ -50,8 +50,17 @@ func _ready() -> void:
 	thebe_button.mouse_entered.connect(_on_button_hover.bind("celestine", true))
 	thebe_button.mouse_exited.connect(_on_button_hover.bind("celestine", false))
 
+	# Connect focus signals for better visual feedback
+	conrad_button.focus_entered.connect(_on_button_hover.bind("conrad", true))
+	conrad_button.focus_exited.connect(_on_button_hover.bind("conrad", false))
+	thebe_button.focus_entered.connect(_on_button_hover.bind("celestine", true))
+	thebe_button.focus_exited.connect(_on_button_hover.bind("celestine", false))
+
 	# Set initial focus
 	conrad_button.grab_focus()
+
+	# Show debug hint
+	_add_debug_label()
 
 	# Fade in
 	modulate.a = 0.0
@@ -167,6 +176,25 @@ func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/ui/subject_selection.tscn")
 
 func _input(event: InputEvent) -> void:
+	# Debug: Press 1-5 to skip to specific chapter (after selecting character)
+	if event is InputEventKey and event.pressed and not event.echo:
+		match event.keycode:
+			KEY_1:
+				_debug_skip_to_chapter(1)
+				return
+			KEY_2:
+				_debug_skip_to_chapter(2)
+				return
+			KEY_3:
+				_debug_skip_to_chapter(3)
+				return
+			KEY_4:
+				_debug_skip_to_chapter(4)
+				return
+			KEY_5:
+				_debug_skip_to_chapter(5)
+				return
+
 	# Handle keyboard navigation (left/right)
 	if event.is_action_pressed("ui_left") or event.is_action_pressed("ui_right"):
 		_toggle_character_focus()
@@ -178,3 +206,88 @@ func _toggle_character_focus() -> void:
 		conrad_button.grab_focus()
 	else:
 		conrad_button.grab_focus()
+
+func _add_debug_label() -> void:
+	"""Add a small debug label showing chapter skip keys"""
+	var debug_label = Label.new()
+	debug_label.text = "DEBUG: First select character, then press 1-5 to skip to chapter"
+	debug_label.add_theme_font_size_override("font_size", 16)
+	debug_label.add_theme_color_override("font_color", Color(1, 1, 0, 0.7))  # Semi-transparent yellow
+	debug_label.position = Vector2(10, 10)  # Top-left corner
+	add_child(debug_label)
+
+func _debug_skip_to_chapter(chapter: int) -> void:
+	"""Debug function to skip directly to a specific chapter with selected character"""
+	# Must select a character first (either by clicking or pressing number keys)
+	var character_to_use = ""
+
+	# Debug info to help troubleshoot
+	print("DEBUG: selected_character = ", selected_character)
+	print("DEBUG: conrad_button.has_focus() = ", conrad_button.has_focus())
+	print("DEBUG: thebe_button.has_focus() = ", thebe_button.has_focus())
+
+	# Check which button has focus or if one was already selected
+	if selected_character != "":
+		character_to_use = selected_character
+		print("DEBUG: Using selected_character: ", character_to_use)
+	elif thebe_button.has_focus():
+		character_to_use = "celestine"
+		print("DEBUG: Using thebe_button focus: celestine")
+	elif conrad_button.has_focus():
+		character_to_use = "conrad"
+		print("DEBUG: Using conrad_button focus: conrad")
+	else:
+		# Default to Conrad if no selection/focus
+		character_to_use = "conrad"
+		print("DEBUG: Using default: conrad")
+
+	print("DEBUG: Skipping to Chapter ", chapter, " with character: ", character_to_use)
+
+	# IMPORTANT: Set character and subject FIRST before reset
+	if PlayerStats:
+		PlayerStats.selected_character = character_to_use
+		print("DEBUG: Set PlayerStats.selected_character to: ", PlayerStats.selected_character)
+		# Also preserve the subject from subject selection screen
+		if PlayerStats.selected_subject == "":
+			PlayerStats.selected_subject = "english"  # Fallback to English if not set
+
+	# Reset player stats for fresh chapter start (but character/subject are preserved)
+	PlayerStats.score = 0
+	PlayerStats.xp = 0
+	PlayerStats.level = 1
+	PlayerStats.hints = 10
+	PlayerStats.save_stats()
+	print("DEBUG: After save_stats, PlayerStats.selected_character = ", PlayerStats.selected_character)
+
+	EvidenceManager.reset_evidence()
+
+	# Set flag to prevent node_2d from auto-starting c1s1
+	var node_2d_script = load("res://node_2d.gd")
+	node_2d_script.timeline_already_started = true
+
+	# Start the chapter timeline directly
+	var chapter_timeline = "res://content/timelines/Chapter " + str(chapter) + "/c" + str(chapter) + "s0.dtl"
+	Dialogic.start(chapter_timeline)
+
+	# Wait a frame for Dialogic to initialize
+	await get_tree().process_frame
+
+	# CRITICAL: Set selected_character IMMEDIATELY before timeline processes conditionals
+	# This must happen synchronously before any character checks in the timeline
+	Dialogic.current_state_info['variables']['selected_character'] = character_to_use
+	print("DEBUG: Set Dialogic.VAR.selected_character to: ", character_to_use)
+	print("DEBUG: Verification - Dialogic.VAR.selected_character = ", Dialogic.VAR.selected_character)
+
+	# Initialize other Dialogic variables
+	Dialogic.paused = false
+	Dialogic.VAR.conrad_level = chapter  # Set level based on chapter
+	Dialogic.VAR.chapter1_score = 0
+	Dialogic.VAR.chapter2_score = 0
+	Dialogic.VAR.chapter3_score = 0
+	Dialogic.VAR.chapter4_score = 0
+	Dialogic.VAR.chapter5_score = 0
+	Dialogic.VAR.minigames_completed = 0
+	Dialogic.VAR.selected_subject = PlayerStats.selected_subject
+	Dialogic.VAR.current_chapter = chapter
+
+	print("DEBUG: Started timeline: ", chapter_timeline, " with character: ", character_to_use)

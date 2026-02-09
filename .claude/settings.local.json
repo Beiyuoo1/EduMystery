@@ -10,7 +10,22 @@
       "Bash(git push:*)",
       "Bash(python:*)",
       "Bash(test:*)",
-      "Bash(findstr:*)"
+      "Bash(findstr:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(for file in \"d:/animation/MagiSao/edu-mys-dev/content/timelines/Chapter 5/c5s2.dtl\" \"d:/animation/MagiSao/edu-mys-dev/content/timelines/Chapter 5/c5s3.dtl\" \"d:/animation/MagiSao/edu-mys-dev/content/timelines/Chapter 5/c5s4.dtl\")",
+      "Bash(do sed -i 's/join Principal \\(half\\)/join Principal \\(Principal_half\\)/g' \"$file\")",
+      "Bash(done)",
+      "Bash(identify:*)",
+      "Bash(for file in namebox_*_style.tres)",
+      "Bash(do sed -i 's/texture_margin_left = 32\\\\.0/texture_margin_left = 20.0/g; s/texture_margin_top = 20\\\\.0/texture_margin_top = 15.0/g; s/texture_margin_right = 32\\\\.0/texture_margin_right = 20.0/g; s/texture_margin_bottom = 20\\\\.0/texture_margin_bottom = 15.0/g' \"$file\")",
+      "Bash(find:*)",
+      "Bash(git config:*)",
+      "Bash(cmdkey /list:*)",
+      "Bash(git credential-manager-core delete:*)",
+      "Bash(git credential-manager delete:*)",
+      "Bash(GCM_INTERACTIVE=never GIT_ASKPASS=echo git push:*)",
+      "Bash(gh:*)",
+      "Bash(GIT_TERMINAL_PROMPT=0 GCM_INTERACTIVE=never GCM_PROVIDER=generic git -c credential.helper= push -u origin feature/science-minigames-all-chapters)"
     ]
   }
 }

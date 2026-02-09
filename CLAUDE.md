@@ -7,13 +7,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 EduMys is an educational mystery visual novel built in Godot 4.5. The player solves detective cases through dialogue choices and minigames while leveling up to unlock abilities.
 
 **Current Status:**
-- **Chapter 1:** Complete with 7 evidence items (bracelet, WiFi logs, spider envelope, etc.) - **Multi-subject support** (Math, Science, English) - **Celestine variant complete**
+- **Chapter 1:** Complete with 7 evidence items (bracelet, WiFi logs, spider envelope, etc.) - **Multi-subject support** (Math, Science, English) - **Celestine variant complete** - **Detective Analysis minigames integrated** (proof-of-concept for capstone)
 - **Chapter 2:** Complete with 2 evidence items (lockbox, threatening note) - **Celestine variant complete**
 - **Chapter 3:** Complete with 4 evidence items (cruel note, paint cloth, Victor's sketchbook, receipt) - **Celestine variant complete**
 - **Chapter 4:** Complete with 1+ evidence items (anonymous note, etc.) - **Celestine variant complete**
 - **Chapter 5:** Complete - B.C. revelation chapter - **Celestine variant complete** (both protagonists can experience the climax)
 - **Dual Protagonist System:** Players can choose between Conrad (male) or Celestine (female) at game start
   - **100% feature parity** - ALL chapters (1-5) fully support both protagonists
+  - Character selection screen: `scenes/ui/character_selection.tscn`
 - **Multi-Subject Curriculum System** - Math, Science, and English tracks with subject-specific minigames
 - Voice recognition minigames using Vosk (dialogue choice system)
 - Save/load system with 10 manual slots, 3 auto-save slots, and quick save
@@ -23,8 +24,10 @@ EduMys is an educational mystery visual novel built in Godot 4.5. The player sol
 - Mystery character ("???") with vignette portrait for suspenseful scenes
 - **B.C. Card System** - Overarching mystery across all chapters
 - **Chapter Results System** - Simplified "LEVEL UP!" screen with 3-star rating and Mind Games Reviewer
+  - **Timer-based failure tracking** - Failed minigames (timeout) affect star rating with 90s penalty per failure
 - **F5 Skip Functionality** - All minigames support F5 to skip (for testing and accessibility)
 - **ESC Pause Menu** - Works during minigames and dialogues
+- **Debug Chapter Skip** - Press 1-5 keys on subject selection screen to skip to any chapter (for testing)
 
 ## Running the Game
 
@@ -33,6 +36,25 @@ Open the project in Godot 4.5 and press F5, or run from command line:
 # Windows (adjust path to your Godot installation)
 "C:/Program Files/Godot/Godot.exe" --path .
 ```
+
+### Debug Chapter Skip
+
+For testing purposes, you can skip directly to any chapter:
+
+1. Click **"New Game"** on the main menu
+2. On the subject selection screen, press **1-5** on your keyboard:
+   - **1** = Chapter 1 (Stolen Exam Papers)
+   - **2** = Chapter 2 (Student Council Mystery)
+   - **3** = Chapter 3 (Art Week Vandalism)
+   - **4** = Chapter 4 (Anonymous Notes)
+   - **5** = Chapter 5 (B.C. Revelation)
+
+**Default Settings:**
+- Protagonist: Conrad (change to "celestine" in `scripts/subject_selection.gd:251` if needed)
+- Subject: English
+- Stats and evidence are reset for each chapter
+
+**Location:** `scripts/subject_selection.gd` - `_debug_skip_to_chapter()` function
 
 ## Architecture
 
@@ -51,6 +73,50 @@ The game uses several autoloaded singletons that are always available:
 - **SaveManager** (`autoload/save_manager.gd`) - Renpy-style save/load system with multiple slots, quick save, and auto-save
 - **ChapterStatsTracker** (`autoload/chapter_stats_tracker.gd`) - Tracks player performance for chapter results screen
 - **PauseManager** (`autoload/pause_manager.gd`) - Handles ESC key pause/resume with save/load integration
+- **CustomNameboxHandler** (`scripts/custom_namebox_handler.gd`) - Dynamically changes namebox style based on speaking character
+
+### Custom Visual Novel UI
+
+The game uses custom dialogue box and namebox textures from `assets/VisualNovelDialogueGUI_PNG/`:
+
+**Dialogue Textbox:**
+- Main textbox: `textbox_dark_yellow.png` - Gold/yellow themed dialogue box with decorative borders
+- Configured in: `addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_layer.tscn`
+- StyleBox: `assets/VisualNovelDialogueGUI_PNG/textbox_dark_yellow_style.tres`
+- Texture margins: 40px on all sides to preserve corner decorations
+
+**Character-Specific Nameboxes:**
+Each character has a unique namebox color that appears when they speak:
+- **Celestine**: `namebox_pink.png` (pink)
+- **Conrad**: `namebox_yellow.png` (yellow)
+- **Mark**: `namebox_blue.png` (blue)
+- **Alex**: `namebox_2_purple.png` (purple variant)
+- **Diwata Laya**: `namebox_2_blue.png` (blue variant)
+- **Greg**: `namebox_2_blue.png` (blue variant)
+- **Janitor Fred**: `namebox_2_green.png` (green variant)
+- **Mia**: `namebox_purple.png` (purple)
+- **Ms. Reyes**: `namebox_green.png` (green)
+- **Ms. Santos**: `namebox_orange.png` (orange)
+- **Mystery (???)**: `namebox_red.png` (red)
+- **Principal Alan**: `namebox_green.png` (green)
+- **Ria**: `namebox_2_pink.png` (pink variant)
+- **Ryan**: `namebox_blue.png` (blue)
+- **Alice**: `namebox_blue.png` (blue)
+- **Ben**: `namebox_2_green.png` (green variant)
+- **Victor**: `namebox_orange.png` (orange)
+
+**Implementation:**
+- `CustomNameboxHandler` autoload listens to Dialogic's `speaker_updated` signal
+- Dynamically applies character-specific StyleBoxTexture when speaker changes
+- StyleBox files in `assets/VisualNovelDialogueGUI_PNG/*_style.tres`
+- Texture margins: 20px left/right, 15px top/bottom for proper corner rendering
+
+**Choice Buttons:**
+- Idle state: `choice_dark_idle.png`
+- Hover state: `choice_dark_hover.png`
+- Configured in: `addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/vn_choice_layer.tscn`
+- StyleBox files: `choice_dark_idle_style.tres` and `choice_dark_hover_style.tres`
+- Texture margins: 20px on all sides
 
 ### Dialogic Integration
 
@@ -88,14 +154,17 @@ Minigames are triggered from timelines via `[signal arg="start_minigame puzzle_i
 `MinigameManager` handles various minigame types:
 - **Fill-in-the-blank** (`minigames/Drag/`) - Drag-and-drop word completion with timer and hints
 - **Runner** - Answer questions while running
-- **Pacman** - Collect correct answers while avoiding enemies
+- **Pacman** - Collect correct answers while avoiding enemies (⚠️ Consider replacing with Logic Grid)
 - **Platformer** - Collect items while platforming
-- **Maze** - Navigate maze while answering questions
+- **Maze** - Navigate maze while answering questions (⚠️ Consider replacing with Timeline Reconstruction)
 - **Pronunciation** - Speech recognition minigame
 - **Math** - Math problem solving
 - **Dialogue Choice** - Select and speak correct dialogue options with Vosk voice recognition
 - **Hear and Fill** (`minigames/HearAndFill/`) - Pronunciation-based word selection with TTS playback
 - **Riddle** (`minigames/Riddle/`) - Letter-based riddle solving with scrambled letters and undo
+- **Detective Analysis** (`minigames/DetectiveAnalysis/`) - Context-integrated math/science problems with visual evidence and educational explanations
+- **Logic Grid Puzzle** (`minigames/LogicGrid/`) - Detective-style deduction grid for systematic reasoning (NEW - better replacement for Maze)
+- **Timeline Reconstruction** (`minigames/TimelineReconstruction/`) - Drag-and-drop event sequencing for chronological reasoning (NEW - better replacement for Pacman)
 
 #### Fill-in-the-Blank Minigame (Drag & Drop)
 
@@ -134,18 +203,19 @@ Located at `minigames/Drag/scenes/FillInTheBlank.tscn`.
 }
 ```
 
-#### Dialogue Choice Minigame (IN DEVELOPMENT - Vosk Integration)
+#### Dialogue Choice Minigame (Vosk Voice Recognition)
 
 Located at `minigames/DialogueChoice/scenes/Main.tscn`.
 
-**Current Status:** Voice recognition is functional but still being optimized for accuracy and performance.
+**Current Status:** Fully functional with configurable questions and timer-based failure tracking.
 
 **Features:**
 - Multiple choice dialogue selection (4 options)
 - Real-time voice recognition via Vosk speech-to-text engine
-- 1:30 timer countdown
+- **1:30 timer countdown with failure tracking** - Timer runs out = minigame fails and affects chapter results
 - Wrong answer feedback with retry mechanism (wrong choices are disabled after selection)
 - Correct answer triggers sentence-based pronunciation verification
+- **Fully configurable** - Questions and choices defined in MinigameManager
 - **F5 to skip** - Press F5 to instantly complete the minigame (useful for testing or accessibility)
 
 **Voice Recognition System:**
@@ -169,18 +239,26 @@ Located at `minigames/DialogueChoice/scenes/Main.tscn`.
 ```
 
 **Voice Recognition Flow:**
-1. Player selects correct dialogue choice (Choice 2 for janitor scenario)
+1. Player selects correct dialogue choice
 2. Full sentence displays on screen
-3. Player speaks naturally: "Good afternoon, sir. I was hoping you could help me..."
+3. Player speaks naturally (must complete within 1:30 timer)
 4. Vosk processes speech in real-time, showing partial transcription
 5. After 1.5s silence, final result is matched against target sentence
 6. Success (≥60% match) completes minigame, failure allows retry
+7. **Timer runs out** = minigame fails, dialogue continues, affects star rating
+
+**Timer Failure System:**
+- When timer reaches 00:00, minigame automatically fails
+- Failed minigames tracked in `ChapterStatsTracker.minigames_failed`
+- Each failed minigame adds **90 seconds penalty** to average time calculation
+- Affects star rating on chapter results screen (3-star, 2-star, or 1-star)
 
 **Technical Details:**
 - Script: `minigames/DialogueChoice/scenes/Main.gd`
 - Audio capture: 16kHz mono PCM, 100ms buffer
-- Processing: 4096-byte chunks sent to Vosk
+- Processing: 2048-byte chunks sent to Vosk
 - Registered in `MinigameManager._start_dialogue_choice()`
+- Question text dynamically set via `configure_puzzle()`
 
 #### Hear and Fill Minigame (Pronunciation-Based)
 
@@ -341,6 +419,222 @@ Located at `minigames/Riddle/scenes/Main.tscn`.
     "letters": ["F", "L", "I", "P", "P", "I", "N", "G", "A", "S", "T", "R", "M", "O", "B", "W"]  // 16 letters total (8 correct + 8 decoys)
 }
 ```
+
+#### Detective Analysis Minigame (Context-Integrated)
+
+Located at `minigames/DetectiveAnalysis/scenes/Main.tscn`.
+
+**Purpose:** Integrates math and science education directly into the detective story narrative. Unlike generic curriculum games, these problems are context-specific and directly help solve the mystery.
+
+**Features:**
+- Visual evidence display with explanatory captions
+- Story context explaining why this problem matters to the investigation
+- Multiple-choice questions based on mathematical or scientific reasoning
+- 1:30 timer countdown
+- Hint system integrated with PlayerStats
+- Speed bonus: Complete within 1 minute = +1 hint reward
+- Educational explanations showing formulas and real-world applications
+- **F5 to skip** - Press F5 to instantly complete the minigame (useful for testing or accessibility)
+
+**Usage in Timelines:**
+```
+if {selected_subject} == "math":
+    Conrad: I can use mathematics to verify this timeline...
+    [signal arg="start_minigame timeline_analysis_greg_math"]
+elif {selected_subject} == "science":
+    Celestine: Physics can help determine when these footprints were made...
+    [signal arg="start_minigame evaporation_analysis_science"]
+```
+
+**Available Minigames (10 total - 5 Math + 5 Science):**
+
+**Chapter 1:**
+- `timeline_analysis_greg_math` - Speed-Distance-Time calculation to verify alibi
+- `evaporation_analysis_science` - Evaporation rate physics to date footprints
+
+**Chapter 2:**
+- `fund_analysis_math` - Percentage and ratio calculation for missing funds
+- `fingerprint_analysis_science` - Biological classification of fingerprint patterns
+
+**Chapter 3:**
+- `paint_area_math` - Area calculation to determine paint coverage
+- `energy_analysis_science` - Potential energy (PE = mgh) to determine if sculpture fell or was pushed
+
+**Chapter 4:**
+- `probability_analysis_math` - Probability calculation for note sender patterns
+- `electricity_analysis_science` - Electrical power (P=VI) to track printer usage
+
+**Chapter 5:**
+- `pattern_recognition_math` - Arithmetic sequences and sum formulas for B.C.'s pattern
+- `light_analysis_science` - Light dispersion and wavelengths for B.C.'s prism metaphor
+
+**Technical Details:**
+- Script: `minigames/DetectiveAnalysis/scenes/Main.gd`
+- Configured via `configure_puzzle(config)` with structure:
+  ```gdscript
+  {
+      "title": "Timeline Analysis",
+      "context": "Story explanation of the problem...",
+      "evidence_image": "res://path/to/evidence.png",  // Optional
+      "evidence_caption": "Evidence description",
+      "question": "[b]Question:[/b] What is the answer?",
+      "choices": ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+      "correct_index": 0,
+      "explanation": "Detailed explanation with formulas and reasoning..."
+  }
+  ```
+- Registered in `MinigameManager._start_detective_analysis()`
+- All configurations stored in `MinigameManager.detective_analysis_configs`
+
+**Pedagogical Benefits:**
+- **Authentic Assessment**: Students apply knowledge to solve real problems, not drill-and-practice
+- **Contextual Learning**: Knowledge embedded in meaningful narrative (Situated Learning Theory)
+- **Real-World Relevance**: Shows practical applications of math/science formulas
+- **Engagement**: Story motivation enhances problem-solving
+- **Capstone Defense**: Strong pedagogical justification with research support
+
+**Integration Pattern:**
+For best results, add 3-5 lines of context dialogue BEFORE the minigame trigger:
+```dtl
+Conrad: Greg claims he walked straight home after school.
+Conrad: School ends at 5:00 PM. His house is 2.5 km away.
+Conrad: If he walks at 5 km/h, I can calculate his arrival time.
+Mark: Math can help verify his alibi!
+[signal arg="start_minigame timeline_analysis_greg_math"]
+Conrad: The math shows he'd arrive at 5:30 PM...
+Conrad: But his WiFi log shows 9:00 PM. He lied.
+```
+
+See [DETECTIVE_ANALYSIS_USAGE.md](DETECTIVE_ANALYSIS_USAGE.md) for complete usage guide and [CHAPTER1_INTEGRATION_COMPLETE.md](CHAPTER1_INTEGRATION_COMPLETE.md) for testing and research methodology.
+
+**📐 Chapter 1 Math Integration:** See [CHAPTER1_MATH_INTEGRATION.md](CHAPTER1_MATH_INTEGRATION.md) for complete details on math-focused Logic Grid and Timeline Reconstruction minigames integrated throughout Chapter 1.
+
+#### Logic Grid Puzzle (Context-Integrated Detective Reasoning)
+
+Located at `minigames/LogicGrid/scenes/Main.tscn`.
+
+**Purpose:** Authentic detective-style deduction grid where students systematically eliminate possibilities to find the solution. This mimics real investigative techniques and teaches logical reasoning.
+
+**Features:**
+- Interactive grid with clickable cells
+- Cell states cycle: Unknown (?) → No (✗) → Yes (✓) → Unknown
+- 2:00 timer countdown
+- Hint system reveals one correct match
+- Speed bonus: Complete within 1 minute = +1 hint reward
+- Visual feedback with logical explanations
+- **F5 to skip** - Press F5 to instantly complete the minigame
+
+**Chapter 1 Math Integration:**
+- **c1s3 (WiFi Analysis):** `logic_grid_wifi_math` - Match WiFi connection times to suspects
+- **c1s5 (Bracelet Discovery):** `logic_grid_alibi_math` - Deduce suspect locations
+
+**Usage in Timelines:**
+```
+if {selected_subject} == "math":
+    Conrad: Two devices connected to the WiFi - at 8:00 PM and 9:00 PM.
+    Conrad: If I use logical deduction to match devices to suspects...
+    [signal arg="start_minigame logic_grid_wifi_math"]
+elif {selected_subject} == "science":
+    Celestine: Let me apply the scientific method to systematically test each hypothesis...
+    [signal arg="start_minigame logic_grid_funds_science"]
+```
+
+**Educational Value:**
+- **Math**: Set theory, logical operators, binary logic, systematic elimination, proof by contradiction
+- **Science**: Scientific method, hypothesis testing, deductive reasoning, experimental design
+- **Real-World**: Actual detective technique used in investigations
+- **Bloom's Taxonomy**: Analysis/Evaluation level (higher-order thinking)
+
+**Sample Configurations:**
+```gdscript
+"logic_grid_alibi_math": {
+    "title": "Alibi Verification Grid",
+    "rows": ["Greg", "Ben", "Alex"],
+    "cols": ["Library", "Cafeteria", "Gym"],
+    "clues": [
+        "Greg was NOT in the library",
+        "Ben was studying in a quiet place",
+        ...
+    ],
+    "solution": {
+        "Greg": "Gym",
+        "Ben": "Library",
+        "Alex": "Cafeteria"
+    }
+}
+```
+
+**Pedagogical Benefits:**
+- **Situated Learning**: Embedded in mystery narrative context
+- **Authentic Assessment**: Real detective reasoning, not abstract logic
+- **Engagement**: Students naturally want to solve the puzzle to progress the story
+- **Capstone Defense**: Strong justification - teaches mathematical proof techniques through gameplay
+
+#### Timeline Reconstruction (Causal Reasoning & Sequencing)
+
+Located at `minigames/TimelineReconstruction/scenes/Main.tscn`.
+
+**Purpose:** Students drag-and-drop events into correct chronological order based on time stamps, causality, and evidence. Develops temporal reasoning and cause-effect understanding.
+
+**Features:**
+- Events pool (left side) with shuffled events
+- Timeline slots (right side) for correct sequence
+- Click cards to move between pool and timeline
+- 2:00 timer countdown
+- Hint system places next correct event
+- Speed bonus: Complete within 1 minute = +1 hint reward
+- Visual feedback showing correct sequence with reasoning
+- **F5 to skip** - Press F5 to instantly complete the minigame
+
+**Chapter 1 Math Integration:**
+- **c1s2 (Footprint Analysis):** `timeline_footprints_math` - Calculate when footprints were made using evaporation rates
+- **c1s5 (Greg's Alibi):** `timeline_analysis_greg_math` - Use distance-rate-time formula to expose false alibi
+
+**Usage in Timelines:**
+```
+if {selected_subject} == "math":
+    Conrad: The floor dries completely in 45 minutes according to the janitor.
+    Conrad: If I can reconstruct the timeline of events mathematically...
+    [signal arg="start_minigame timeline_footprints_math"]
+elif {selected_subject} == "science":
+    Celestine: Let me trace the cause-and-effect chain to reconstruct what happened...
+    [signal arg="start_minigame timeline_vandalism_science"]
+```
+
+**Educational Value:**
+- **Math**: Time intervals, duration calculation, sequence ordering, temporal reasoning, functions
+- **Science**: Cause-and-effect relationships, experimental sequencing, scientific process order
+- **Real-World**: Forensic timeline reconstruction technique
+- **Bloom's Taxonomy**: Analysis/Synthesis level (understanding relationships)
+
+**Sample Configurations:**
+```gdscript
+"timeline_theft_math": {
+    "title": "Theft Timeline Analysis",
+    "events": [
+        {"id": "event1", "text": "Janitor mops floor (3:00 PM)"},
+        {"id": "event2", "text": "AC starts leaking (3:15 PM)"},
+        {"id": "event3", "text": "Wet footprints appear (3:30 PM)"},
+        ...
+    ],
+    "correct_order": ["event1", "event2", "event3", "event4", "event5"]
+}
+```
+
+**Pedagogical Benefits:**
+- **Contextual Learning**: Students see WHY chronological order matters (solves mystery)
+- **Transfer of Knowledge**: Time calculation skills transfer to other math problems
+- **Engagement**: Story context provides intrinsic motivation
+- **Capstone Defense**: Better than generic sequencing - embedded in meaningful narrative
+
+**Why These Replace Maze/Pacman:**
+Both new minigames offer superior pedagogical value:
+1. **Story Integration**: Directly help solve mysteries (vs. interrupting gameplay)
+2. **Higher-Order Thinking**: Analysis/Evaluation level (vs. simple recall)
+3. **Authentic Assessment**: Real detective techniques (vs. abstract challenges)
+4. **Subject Integration**: Math/Science naturally embedded (vs. forced question overlays)
+
+See [NEW_MINIGAMES_IMPLEMENTATION.md](NEW_MINIGAMES_IMPLEMENTATION.md) for complete implementation guide.
 
 #### Vosk Loading Screen
 
@@ -643,8 +937,22 @@ The game tracks player performance throughout each chapter and displays a simpli
 
 **Tracked Statistics** (used for star calculation):
 - ⏱️ **Completion time** - Total time to complete chapter
-- 🎮 **Minigames completed** - Number of minigames finished
-- ⭐ **Average time per minigame** - Used for star rating
+- 🎮 **Minigames completed** - Number of minigames finished successfully
+- ❌ **Minigames failed** - Number of minigames that timed out (90s penalty each)
+- ⭐ **Average time per minigame** - Used for star rating (includes failure penalties)
+
+**Star Rating Calculation:**
+```gdscript
+# Formula: (completion_time + failed_minigames * 90s) / total_minigames
+var total_minigames = minigames_completed + minigames_failed
+var failed_penalty = minigames_failed * 90.0  # 90s penalty per failure
+var avg_time = (completion_time + failed_penalty) / total_minigames
+
+# Star thresholds:
+# 3 stars: avg_time < 30.0 seconds
+# 2 stars: avg_time < 60.0 seconds
+# 1 star:  avg_time >= 60.0 seconds
+```
 
 **Timeline Integration:**
 
@@ -995,6 +1303,37 @@ Character: Question text?
 - Updated label logic to handle 2 sentence parts instead of requiring 3
 - Subject variant system automatically finds `_math` and `_science` versions
 - Math variant: "In the equation y = mx + b, m represents the **[slope]**."
+
+### Animated Portrait System - Character File Locations
+**Important:** Dialogic loads character files from `Characters/` folder, NOT `content/characters/`
+- The `content/characters/` folder exists but is NOT used by Dialogic at runtime
+- Always update character files in `Characters/` folder (e.g., `Characters/Conrad.dch`, `Characters/Mark.dch`)
+- For animated portraits to work, character files must have:
+  - `export_overrides: {}` (empty dictionary)
+  - `scene: "res://scenes/portraits/character_animated_portrait.tscn"` (path to animated portrait scene)
+- If `export_overrides` contains an `image` property, it will override the custom scene and animations won't work
+- **Troubleshooting**: If animated portraits don't work, check which character file Dialogic is loading by adding debug output in `addons/dialogic/Modules/Character/subsystem_portraits.gd`
+
+**Example Working Configuration:**
+```json
+"half": {
+    "export_overrides": {},  // Must be empty!
+    "mirror": false,
+    "offset": Vector2(0, 0),
+    "scale": 0.8,
+    "scene": "res://scenes/portraits/conrad_animated_portrait.tscn"
+}
+```
+
+**Example Broken Configuration (DON'T DO THIS):**
+```json
+"half": {
+    "export_overrides": {
+        "image": "\"res://Sprites/Conrad_half.png\""  // This breaks animations!
+    },
+    "scene": "res://scenes/portraits/conrad_animated_portrait.tscn"
+}
+```
 
 ## Story Structure: The B.C. Card System
 

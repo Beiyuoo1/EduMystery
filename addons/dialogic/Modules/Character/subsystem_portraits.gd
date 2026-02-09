@@ -109,6 +109,12 @@ func _change_portrait(character_node: Node2D, portrait: String, fade_animation:=
 	# Path to the scene to use.
 	var scene_path: String = character.portraits[portrait].get('scene', '')
 
+	print("🔍 Dialogic _change_portrait called:")
+	print("  Character:", character.display_name)
+	print("  Portrait:", portrait)
+	print("  Scene path:", scene_path)
+	print("  ResourceLoader.exists:", ResourceLoader.exists(scene_path) if not scene_path.is_empty() else "empty path")
+
 	var portrait_node: Node = null
 	var previous_portrait: Node = null
 	var portrait_count := character_node.get_child_count()
@@ -139,6 +145,7 @@ func _change_portrait(character_node: Node2D, portrait: String, fade_animation:=
 				var packed_scene: PackedScene = ResourceLoader.load_threaded_get(scene_path)
 				if packed_scene:
 					portrait_node = packed_scene.instantiate()
+					print("  ✓ Loaded custom portrait scene:", scene_path)
 				else:
 					push_error('[Dialogic] Portrait node "' + str(scene_path) + '" for character [' + character.display_name + '] could not be loaded. Your portrait might not show up on the screen. Confirm the path is correct.')
 			else:
@@ -146,6 +153,7 @@ func _change_portrait(character_node: Node2D, portrait: String, fade_animation:=
 
 		if !portrait_node:
 			portrait_node = default_portrait_scene.instantiate()
+			print("  ⚠ Using default portrait scene instead of:", scene_path)
 
 		portrait_node.set_meta('scene', scene_path)
 

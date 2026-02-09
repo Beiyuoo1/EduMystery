@@ -18,6 +18,8 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_kurgw")
 font_size_custom = 28
+boxes_stylebox_normal = "res://assets/VisualNovelDialogueGUI_PNG/choice_dark_idle_style.tres"
+boxes_stylebox_hovered = "res://assets/VisualNovelDialogueGUI_PNG/choice_dark_hover_style.tres"
 boxes_min_size = Vector2(500, 60)
 boxes_v_separation = 15
 

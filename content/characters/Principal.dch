@@ -18,9 +18,7 @@
 &"offset": Vector2(0, 0),
 &"portraits": {
 "Principa_half_mirror": {
-"export_overrides": {
-"image": "\"res://Sprites/Principal_half.png\""
-},
+"export_overrides": {},
 "mirror": true,
 "offset": Vector2(0, 0),
 "scale": 0.8,

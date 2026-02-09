@@ -2,6 +2,7 @@ extends CanvasLayer
 
 # Node references
 @onready var timer_label = $Control/MainContainer/VBoxContainer/HeaderContainer/TimerLabel
+@onready var question_label = $Control/MainContainer/VBoxContainer/InstructionPanel/MarginContainer/VBoxContainer/QuestionLabel
 @onready var choices_container = $Control/MainContainer/VBoxContainer/ChoicesContainer
 @onready var microphone_panel = $Control/MainContainer/VBoxContainer/MicrophonePanel
 @onready var feedback_label = $Control/MainContainer/VBoxContainer/FeedbackLabel
@@ -28,8 +29,8 @@ var correct_answer: int = 1  # Default to Choice 2 for janitor scenario
 # Selected choice
 var selected_choice_index: int = -1
 
-# Configurable question and choices
-var question_text: String = "How do you politely ask the janitor for help?"
+# Configurable question and choices (defaults removed - must be configured via configure_puzzle())
+var question_text: String = ""
 var choice_texts: Array = []  # Will be populated by configure_puzzle()
 
 # Voice recognition using GodotVoskRecognizer
@@ -101,13 +102,8 @@ const HOMOPHONE_GROUPS = {
 	"while": ["while", "well", "wall"],
 }
 
-# Full sentence text with punctuation for display
-var full_sentence_texts = [
-	"Excuse me, sir sorry to interrupt, but may I quickly check under my desk for something I left",
-	"Good afternoon, sir have you seen any unusual item while cleaning this room?",
-	"“Hi sir, I can help move the chairs, and by the way, did you see a small item I dropped near here",
-	"Sir, did anyone turn in a lost item from this classroom today"
-]
+# Full sentence text with punctuation for display (populated by configure_puzzle())
+var full_sentence_texts = []
 
 # Full sentence to pronounce (no punctuation, for matching)
 var target_sentence: String = ""
@@ -142,6 +138,14 @@ func _ready():
 
 	print("DEBUG: DialogueChoice minigame visible: ", visible)
 	print("DEBUG: DialogueChoice layer: ", layer)
+
+	# Set the question text if configured
+	if question_text != "":
+		if question_label:
+			question_label.text = question_text
+			print("DEBUG: Question label set to: ", question_text)
+		else:
+			push_error("DialogueChoice: question_label is null!")
 
 	# Set up choice buttons with configured text
 	if choice_texts.size() > 0:
@@ -179,7 +183,8 @@ func _process(delta):
 		if time_remaining <= 0:
 			time_remaining = 0
 			timer_active = false
-			# Timer reached zero - nothing happens as per requirement
+			# Timer reached zero - fail the minigame and continue
+			_on_timer_timeout()
 
 		_update_timer_display()
 
@@ -602,6 +607,12 @@ func _calculate_similarity(text1: String, text2: String) -> float:
 	var distance = matrix[len1][len2]
 	var max_len = max(len1, len2)
 	return 1.0 - (float(distance) / float(max_len))
+
+func _on_timer_timeout():
+	"""Called when timer reaches zero - fail the minigame"""
+	print("Timer ran out - dialogue choice minigame failed")
+	is_listening = false  # Stop listening for audio
+	_complete_minigame(false)  # Complete as failure
 
 func _skip_minigame():
 	"""Skip the minigame when F5 is pressed"""

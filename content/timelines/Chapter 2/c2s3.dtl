@@ -105,7 +105,20 @@ if {selected_character} == "celestine":
 	"Diwata Laya": This threat was the first step in a larger plan.
 	"Diwata Laya": Someone set Ria up to take the blame.
 	"Diwata Laya": Before we proceed, sharpen your analytical mind. Face this challenge.
-	[signal arg="start_minigame dialogue_choice_ria_note"]
+	if {selected_subject} == "english":
+		[signal arg="start_minigame dialogue_choice_ria_note"]
+	elif {selected_subject} == "math":
+		[signal arg="start_minigame timeline_threat_note_math"]
+	elif {selected_subject} == "science":
+		if {selected_character} == "celestine":
+			Celestine: The threatening note... let me analyze the physics behind it.
+			Celestine: Every written word required force applied over distance - that's work!
+			Celestine: I can reconstruct the sequence using energy principles.
+		else:
+			Conrad: The threatening note... let me analyze the physics behind it.
+			Conrad: Every written word required force applied over distance - that's work!
+			Conrad: I can reconstruct the sequence using energy principles.
+		[signal arg="start_minigame timeline_threat_note_science"]
 	"Diwata Laya": Good. Your mind sees clearly now.
 	[signal arg="laya_end"]
 	leave "Diwata Laya"
@@ -123,7 +136,20 @@ else:
 	"Diwata Laya": This threat was the first step in a larger plan.
 	"Diwata Laya": Someone set Ria up to take the blame.
 	"Diwata Laya": Before we proceed, sharpen your analytical mind. Face this challenge.
-	[signal arg="start_minigame dialogue_choice_ria_note"]
+	if {selected_subject} == "english":
+		[signal arg="start_minigame dialogue_choice_ria_note"]
+	elif {selected_subject} == "math":
+		[signal arg="start_minigame timeline_threat_note_math"]
+	elif {selected_subject} == "science":
+		if {selected_character} == "celestine":
+			Celestine: The threatening note... let me analyze the physics behind it.
+			Celestine: Every written word required force applied over distance - that's work!
+			Celestine: I can reconstruct the sequence using energy principles.
+		else:
+			Conrad: The threatening note... let me analyze the physics behind it.
+			Conrad: Every written word required force applied over distance - that's work!
+			Conrad: I can reconstruct the sequence using energy principles.
+		[signal arg="start_minigame timeline_threat_note_science"]
 	"Diwata Laya": Good. Your mind sees clearly now.
 	[signal arg="laya_end"]
 	leave "Diwata Laya"

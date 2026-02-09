@@ -73,13 +73,6 @@ else:
 Ryan's shoulders slump. The defiance drains from his face.
 His voice comes out quiet, defeated.
 Ryan: Behind the equipment racks. In a gym bag.
-join "Diwata Laya" (Half_mirror) center
-[signal arg="laya_start"]
-"Diwata Laya": Navigate through the possibilities. Find the truth hidden within.
-[signal arg="start_minigame curriculum:maze"]
-"Diwata Laya": Your path is clear now.
-[signal arg="laya_end"]
-leave "Diwata Laya"
 Mark moves past Ryan and searches behind the dusty equipment.
 Mark pulls out a faded blue gym bag and unzips it.
 Mark: Twenty thousand pesos. It's all here.

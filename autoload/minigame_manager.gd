@@ -13,10 +13,15 @@ var math_scene = preload("res://minigames/Math/scenes/Main.tscn")
 var dialogue_choice_scene = preload("res://minigames/DialogueChoice/scenes/Main.tscn")
 var hear_and_fill_scene = preload("res://minigames/HearAndFill/scenes/Main.tscn")
 var riddle_scene = preload("res://minigames/Riddle/scenes/Main.tscn")
+var detective_analysis_scene = preload("res://minigames/DetectiveAnalysis/scenes/Main.tscn")
+var logic_grid_scene = preload("res://minigames/LogicGrid/scenes/Main.tscn")
+var timeline_reconstruction_scene = preload("res://minigames/TimelineReconstruction/scenes/Main.tscn")
 var current_minigame = null
 
 # Track if last minigame earned speed bonus (for ChapterStatsTracker)
 var last_minigame_speed_bonus: bool = false
+# Track if last minigame succeeded or failed (for ChapterStatsTracker)
+var last_minigame_success: bool = true
 
 # Preloaded Vosk recognizer for dialogue choice minigame
 var shared_vosk_recognizer = null
@@ -1860,6 +1865,182 @@ var riddle_configs = {
 	}
 }
 
+# Detective Analysis configs (Context-integrated Math/Science minigames)
+var detective_analysis_configs = {
+	# ====================
+	# CHAPTER 1 - MATH: Timeline Analysis
+	# ====================
+	# ====================
+	# CHAPTER 1 - SCIENCE: Evaporation Analysis
+	# ====================
+	"evaporation_analysis_science": {
+		"title": "Forensic Science: Evaporation Analysis",
+		"context": "The janitor mopped the hallway floor at 3:00 PM. Fresh footprints lead to the faculty room. The janitor says the floor dries completely in 45 minutes in this 60% humidity. You notice the prints still have slight moisture.",
+		"question": "[b]Question:[/b] If water evaporates at a rate of 0.5 mm/hour in 60% humidity, and 0.25mm of moisture remains in the footprints, approximately when were these prints made?",
+		"choices": [
+			"3:30 PM (30 minutes ago)",
+			"3:15 PM (45 minutes ago)",
+			"3:45 PM (15 minutes ago)",
+			"2:45 PM (1 hour 15 minutes ago)"
+		],
+		"correct_index": 0,
+		"explanation": "[b]Physics Solution:[/b]\n• Rate: 0.5 mm/hour\n• Moisture: 0.25 mm remaining\n• Time = 0.25 ÷ 0.5 = 0.5 hours = [b]30 minutes[/b]\n• Footprints made: 4:00 PM - 30 min = [b]3:30 PM[/b]\n\n[color=yellow]Someone entered the faculty room at 3:30 PM![/color]"
+	},
+
+	# ====================
+	# CHAPTER 2 - MATH: Ratio Analysis (Fund Calculation)
+	# ====================
+	"fund_analysis_math": {
+		"title": "Financial Analysis",
+		"context": "The Student Council fund had ₱20,000. Records show that 40% was allocated for supplies, 35% for events, and the rest for emergency funds. But the lockbox is completely empty.",
+		"question": "[b]Question:[/b] How much money should have been in the emergency fund portion?",
+		"choices": [
+			"₱5,000 (25% of ₱20,000)",
+			"₱7,000 (35% of ₱20,000)",
+			"₱8,000 (40% of ₱20,000)",
+			"₱4,000 (20% of ₱20,000)"
+		],
+		"correct_index": 0,
+		"explanation": "[b]Correct Answer: ₱5,000[/b]\n\n[b]Solution:[/b]\nSupplies: 40%\nEvents: 35%\nEmergency: 100% - 40% - 35% = 25%\n\nEmergency fund = 25% of ₱20,000\nEmergency fund = 0.25 × ₱20,000 = [b]₱5,000[/b]\n\n[b]Detective Conclusion:[/b] The thief took the entire ₱20,000, including the ₱5,000 emergency fund."
+	},
+
+	# ====================
+	# CHAPTER 2 - SCIENCE: Fingerprint Analysis
+	# ====================
+	"fingerprint_analysis_science": {
+		"title": "Forensic Science: Fingerprint Classification",
+		"context": "You found partial fingerprints on the lockbox. Fingerprints are classified by their ridge patterns. The print shows a triangular pattern where ridges flow inward from both sides.",
+		"question": "[b]Question:[/b] Based on the ridge pattern description, what type of fingerprint is this?",
+		"choices": [
+			"Loop pattern (ridges flow in one direction)",
+			"Whorl pattern (circular ridges)",
+			"Tented Arch pattern (ridges meet at center forming triangle)",
+			"Plain Arch pattern (ridges flow smoothly across)"
+		],
+		"correct_index": 2,
+		"explanation": "[b]Correct Answer: Tented Arch[/b]\n\n[b]Fingerprint Science:[/b]\n• [b]Loop:[/b] Ridges enter from one side and exit same side (60-65% of population)\n• [b]Whorl:[/b] Circular/spiral patterns (30-35% of population)\n• [b]Tented Arch:[/b] Ridges meet at center forming triangular tent (4-5% of population)\n• [b]Plain Arch:[/b] Ridges flow smoothly across without meeting (~5% of population)\n\n[b]Detective Conclusion:[/b] The triangular pattern indicates a rare Tented Arch, helping narrow down suspects."
+	},
+
+	# ====================
+	# CHAPTER 3 - MATH: Area Calculation (Vandalism Scene)
+	# ====================
+	"paint_area_math": {
+		"title": "Geometry: Area Analysis",
+		"context": "The vandalized sculpture 'The Reader' has paint splattered on its base. The base is rectangular, measuring 2.5 meters by 1.8 meters. Paint covers approximately 60% of the base area.",
+		"question": "[b]Question:[/b] What is the approximate area covered by paint?",
+		"choices": [
+			"2.7 square meters (60% of 4.5 m²)",
+			"3.2 square meters (60% of 5.3 m²)",
+			"4.5 square meters (100% of base)",
+			"1.8 square meters (40% of 4.5 m²)"
+		],
+		"correct_index": 0,
+		"explanation": "[b]Correct Answer: 2.7 m²[/b]\n\n[b]Solution:[/b]\nBase area = length × width\nBase area = 2.5 m × 1.8 m = 4.5 m²\n\nPaint coverage = 60% of base area\nPaint coverage = 0.60 × 4.5 m² = [b]2.7 m²[/b]\n\n[b]Detective Conclusion:[/b] The vandal used approximately 2.7 square meters worth of paint, suggesting a deliberate, extensive act of vandalism."
+	},
+
+	# ====================
+	# CHAPTER 3 - SCIENCE: Energy Analysis (Falling Sculpture)
+	# ====================
+	"energy_analysis_science": {
+		"title": "Physics: Potential Energy",
+		"context": "The broken sculpture fell from a pedestal 2 meters high. The sculpture has a mass of 15 kg. You need to determine if it fell accidentally or was pushed with force.",
+		"question": "[b]Question:[/b] What was the potential energy of the sculpture before it fell? (Use g = 10 m/s²)",
+		"choices": [
+			"300 Joules (PE = mgh = 15×10×2)",
+			"150 Joules (PE = 15×10×1)",
+			"200 Joules (PE = 10×10×2)",
+			"450 Joules (PE = 15×15×2)"
+		],
+		"correct_index": 0,
+		"explanation": "[b]Correct Answer: 300 Joules[/b]\n\n[b]Solution:[/b]\nPotential Energy (PE) = mass × gravity × height\nPE = m × g × h\nPE = 15 kg × 10 m/s² × 2 m\nPE = [b]300 Joules[/b]\n\n[b]Detective Conclusion:[/b] The sculpture had 300 J of potential energy. When it fell, this converted to kinetic energy, causing significant damage upon impact. The energy calculation helps determine if external force was applied."
+	},
+
+	# ====================
+	# CHAPTER 4 - MATH: Probability Analysis (Anonymous Notes)
+	# ====================
+	"probability_analysis_math": {
+		"title": "Statistics: Probability Calculation",
+		"context": "Five students received anonymous notes: Ben, Sarah, Tom, Lisa, and Jake. Only 3 students have access to the school archive after hours: Alex, Ben, and Sarah. What is the probability that the sender is one of the students who received a note?",
+		"question": "[b]Question:[/b] If the sender must have archive access, what is the probability they also received a note?",
+		"choices": [
+			"2/3 or 66.7% (Ben and Sarah are both targets and have access)",
+			"3/5 or 60% (3 out of 5 received notes)",
+			"1/2 or 50% (Random chance)",
+			"1/3 or 33.3% (Only one person fits)"
+		],
+		"correct_index": 0,
+		"explanation": "[b]Correct Answer: 2/3 or 66.7%[/b]\n\n[b]Solution:[/b]\nStudents with archive access: Alex, Ben, Sarah (3 total)\nStudents who received notes: Ben, Sarah, Tom, Lisa, Jake (5 total)\n\nOverlap (access AND received note): Ben, Sarah (2 people)\n\nProbability = (People with both) ÷ (People with access)\nProbability = 2 ÷ 3 = [b]2/3 ≈ 66.7%[/b]\n\n[b]Detective Conclusion:[/b] There's a 66.7% chance the sender is someone who also received a note, suggesting possible self-targeting or insider knowledge."
+	},
+
+	# ====================
+	# CHAPTER 4 - SCIENCE: Electricity Analysis (Computer Lab)
+	# ====================
+	"electricity_analysis_science": {
+		"title": "Physics: Electrical Power",
+		"context": "The anonymous notes were printed in the computer lab. The printer draws 5 Amperes of current at 220 Volts. It was used for 30 minutes (0.5 hours) to print the notes.",
+		"question": "[b]Question:[/b] How much electrical energy (in kilowatt-hours) did the printer consume?",
+		"choices": [
+			"0.55 kWh (P=VI=1100W, E=1.1kW×0.5h)",
+			"1.1 kWh (P=220×5=1100W for 1 hour)",
+			"0.25 kWh (P=500W for 0.5h)",
+			"2.2 kWh (P=220×5×2)"
+		],
+		"correct_index": 0,
+		"explanation": "[b]Correct Answer: 0.55 kWh[/b]\n\n[b]Solution:[/b]\nPower (P) = Voltage (V) × Current (I)\nP = 220 V × 5 A = 1100 Watts = 1.1 kW\n\nEnergy (E) = Power (P) × Time (t)\nE = 1.1 kW × 0.5 hours = [b]0.55 kWh[/b]\n\n[b]Detective Conclusion:[/b] The printer used 0.55 kilowatt-hours of energy. By checking the computer lab's power logs, we can confirm the time the printer was used."
+	},
+
+	# ====================
+	# CHAPTER 4 - SCIENCE: Teaching Power Analysis (Archive)
+	# ====================
+	"teaching_power_analysis_science": {
+		"title": "Physics: Power and Energy Transfer",
+		"context": "Alex studied the 1990s teaching journal for 6 hours total, then spent 3 hours writing notes. She distributed 6 notes in 48 hours. The journal contained concentrated 'teaching energy' built up over 3 years (1992-1995).",
+		"question": "[b]Question:[/b] If Alex transferred the journal's teaching methods at a rate of 2 notes per day, what was her average 'teaching power' (notes/hour)?",
+		"choices": [
+			"0.125 notes/hour (6 notes ÷ 48 hours)",
+			"2 notes/hour (rate of writing)",
+			"0.5 notes/hour (6 notes ÷ 12 hours)",
+			"3 notes/hour (total time ÷ days)"
+		],
+		"correct_index": 0,
+		"explanation": "[b]Correct Answer: 0.125 notes/hour[/b]\n\n[b]Physics Solution:[/b]\nPower (P) = Work (W) / Time (t)\n• Work done: 6 notes created and distributed\n• Time taken: 48 hours (2 days)\n• Power = 6 notes ÷ 48 hours = [b]0.125 notes/hour[/b]\n\n[b]Alternative calculation:[/b]\n• Rate per day: 2 notes/day ÷ 24 hours/day = 0.083 notes/hour average\n• But concentrated distribution: 6 notes in 48 hours = 0.125 notes/hour\n\n[b]Energy Transfer Analogy:[/b]\n• [b]Source (Journal):[/b] 3 years of teaching experience (high potential energy)\n• [b]Converter (Alex):[/b] 6 hours reading + 3 hours writing = 9 hours total work\n• [b]Output (Notes):[/b] 6 notes distributed at 0.125 notes/hour average power\n• [b]Efficiency:[/b] Low! Much energy lost in translation (misunderstood wisdom)\n\n[b]Ohm's Law Connection:[/b]\nPower = Voltage × Current (P = VI)\n• Alex's 'voltage' (motivation) was high but 'current' (understanding) was low\n• Result: Power transferred, but without wisdom = harmful output\n\n[b]Detective Conclusion:[/b] Alex had the power to teach but lacked the resistance (ethical understanding) to use it wisely. Raw power without control causes damage!"
+	},
+
+	# ====================
+	# CHAPTER 5 - MATH: Pattern Recognition (B.C. Card Sequence)
+	# ====================
+	"pattern_recognition_math": {
+		"title": "Mathematical Patterns",
+		"context": "The B.C. cards appeared after solving cases. Card 1 appeared after 1 case, Card 2 after 2 cases, Card 3 after 3 cases, Card 4 after 4 cases. A 5th mystery remains unsolved.",
+		"question": "[b]Question:[/b] If the pattern continues, how many total cases must be solved to receive all 5 cards?",
+		"choices": [
+			"15 cases (Sum of sequence 1+2+3+4+5)",
+			"10 cases (2×5)",
+			"25 cases (5²)",
+			"5 cases (One per card)"
+		],
+		"correct_index": 0,
+		"explanation": "[b]Correct Answer: 15 cases[/b]\n\n[b]Solution:[/b]\nPattern: Card N appears after N cases\nTotal cases = 1 + 2 + 3 + 4 + 5\n\nUsing sum formula: Sum = n(n+1)/2\nSum = 5(5+1)/2 = 5(6)/2 = [b]15 cases[/b]\n\nAlternatively: 1+2+3+4+5 = 15\n\n[b]Detective Conclusion:[/b] B.C. has been observing and teaching through 15 total cases across all chapters. This reveals a deliberate, long-term mentorship pattern."
+	},
+
+	# ====================
+	# CHAPTER 5 - SCIENCE: Light and Optics (Theater Stage)
+	# ====================
+	"light_analysis_science": {
+		"title": "Physics: Light and Optics",
+		"context": "B.C. left a prism on the theater stage that splits white light into a spectrum. The prism has a refractive index of 1.5. Light enters at one angle and bends as it passes through.",
+		"question": "[b]Question:[/b] What phenomenon is demonstrated when white light splits into colors through a prism?",
+		"choices": [
+			"Reflection (light bouncing off surfaces)",
+			"Diffraction (light bending around edges)",
+			"Dispersion (different wavelengths refract at different angles)",
+			"Absorption (light being absorbed by materials)"
+		],
+		"correct_index": 2,
+		"explanation": "[b]Correct Answer: Dispersion[/b]\n\n[b]Light Science:[/b]\n• [b]Dispersion:[/b] White light separates into its component colors (ROYGBIV) because each wavelength refracts at a slightly different angle\n• Red light (long wavelength) bends least\n• Violet light (short wavelength) bends most\n• Refractive index determines bending amount\n\n[b]Detective Conclusion:[/b] B.C. used this prism as a metaphor - just as white light contains many colors, truth contains many perspectives. A teacher helps students see the full spectrum."
+	}
+}
+
 # Dialogue Choice (Speech-to-Text) configs
 var dialogue_choice_configs = {
 	"dialogue_choice_janitor": {
@@ -2044,6 +2225,487 @@ var dialogue_choice_configs = {
 	}
 }
 
+# ====================
+# LOGIC GRID PUZZLE CONFIGURATIONS
+# ====================
+var logic_grid_configs = {
+	# Chapter 1 - Suspect Locations (Math focus: Set theory, logical elimination)
+	"logic_grid_alibi_math": {
+		"title": "Alibi Verification Grid",
+		"context": "Use the clues to deduce where each suspect was during the theft.",
+		"rows": ["Greg", "Ben", "Alex"],
+		"cols": ["Library", "Cafeteria", "Gym"],
+		"clues": [
+			"Greg was NOT in the library",
+			"The person in the gym arrived before 3:30 PM",
+			"Ben was studying in a quiet place",
+			"Alex was seen near the cafeteria at 3:15 PM"
+		],
+		"solution": {
+			"Greg": "Gym",
+			"Ben": "Library",
+			"Alex": "Cafeteria"
+		},
+		"explanation": "[b]Logical Deduction:[/b]\n• Greg ≠ Library (Clue 1)\n• Ben = Library (Clue 3: quiet place)\n• Alex = Cafeteria (Clue 4)\n• Greg = Gym (only remaining option)\n\nThis uses set elimination, a key mathematical reasoning skill."
+	},
+	# Chapter 1, Scene 3 - WiFi Connection Analysis (Math focus: Set theory, time intervals)
+	"logic_grid_wifi_math": {
+		"title": "WiFi Connection Analysis",
+		"context": "Two devices connected to Faculty WiFi yesterday evening. Use logical deduction to match devices to students.",
+		"rows": ["Ben", "Greg", "Alex"],
+		"cols": ["8:00 PM", "9:00 PM", "Not Connected"],
+		"clues": [
+			"Ben went back to retrieve his pen after the library closed (8:00 PM)",
+			"A teacher let Ben in and watched him leave quickly",
+			"Greg's connection time was later in the evening",
+			"Alex has an alibi - she was at home with her family"
+		],
+		"solution": {
+			"Ben": "8:00 PM",
+			"Greg": "9:00 PM",
+			"Alex": "Not Connected"
+		},
+		"explanation": "[b]Set Theory & Logic:[/b]\n• Ben ∈ {8:00 PM} (Clue 1 + 2)\n• Alex ∉ {Connected devices} (Clue 4: alibi)\n• Greg ∈ {9:00 PM} (only remaining connection time)\n\nUsing set membership and elimination systematically identifies suspects."
+	},
+	# Chapter 2 - Blackmail Plan Analysis (Math focus: Logical sequences, inequalities)
+	"logic_grid_blackmail_math": {
+		"title": "Blackmail Plan Deduction",
+		"context": "Ryan planned each step carefully. Match each action to the correct time period using logical reasoning.",
+		"rows": ["Write Note", "Steal Money", "Frame Ria"],
+		"cols": ["Day 1", "Day 3", "Day 7"],
+		"clues": [
+			"The note was written before any theft occurred",
+			"Framing Ria happened on the same day as the theft",
+			"The theft occurred exactly 7 days after planning began",
+			"Writing the note was the first step"
+		],
+		"solution": {
+			"Write Note": "Day 1",
+			"Steal Money": "Day 7",
+			"Frame Ria": "Day 7"
+		},
+		"explanation": "[b]Sequential Logic (Math):[/b]\n• Write Note < Steal Money (Clue 1: ordering)\n• Frame Ria = Steal Money (Clue 2: equality)\n• Steal Money = Day 7 (Clue 3: specific value)\n• Write Note = Day 1 (Clue 4: first action)\n\nThis uses inequalities (>, <, =) and logical ordering to solve the sequence."
+	},
+	# Chapter 2, Scene 4 - Energy Transfer Analysis (Science focus: Work, Energy, Power - Q2)
+	"logic_grid_blackmail_science": {
+		"title": "Energy Transfer Analysis",
+		"context": "Ryan's blackmail plan involved different forms of energy transfer. Match each action to the primary energy type involved.",
+		"rows": ["Writing Note", "Stealing Money", "Running Away"],
+		"cols": ["Chemical Energy", "Potential Energy", "Kinetic Energy"],
+		"clues": [
+			"Writing requires muscle energy from food (ATP breakdown)",
+			"Lifting the lockbox from desk to bag involves height change",
+			"Running away converts stored energy into motion",
+			"Kinetic energy = ½mv² relates to velocity"
+		],
+		"solution": {
+			"Writing Note": "Chemical Energy",
+			"Stealing Money": "Potential Energy",
+			"Running Away": "Kinetic Energy"
+		},
+		"explanation": "[b]Physics: Energy Types (Q2)[/b]\n\n• [b]Chemical Energy → Work:[/b]\n  - Muscles use ATP (adenosine triphosphate)\n  - Chemical bonds break to release energy\n  - Energy transfers to pen motion (writing)\n\n• [b]Potential Energy (PE = mgh):[/b]\n  - Lockbox lifted to bag height (Δh)\n  - Mass (m) × gravity (g) × height (h)\n  - Energy stored in elevated position\n\n• [b]Kinetic Energy (KE = ½mv²):[/b]\n  - Running increases velocity (v)\n  - Mass in motion has kinetic energy\n  - Energy proportional to velocity squared\n\n[b]Energy Conservation:[/b] Chemical → Kinetic → Potential\nAll criminal actions involve energy transformations! Understanding energy helps reconstruct the crime sequence."
+	},
+	# Chapter 3, Scene 1 - Evidence Pattern Analysis (Math focus: Pattern recognition, categorical logic)
+	"logic_grid_evidence_math": {
+		"title": "Evidence Pattern Analysis",
+		"context": "Three pieces of evidence were found at the vandalism scene. Match each evidence type to its characteristic using logical deduction.",
+		"rows": ["Cruel Note", "Paint Cloth", "Timing"],
+		"cols": ["Emotional", "Physical", "Temporal"],
+		"clues": [
+			"The note contains emotional language showing jealousy",
+			"Physical evidence was left behind at the scene",
+			"The timing of events creates a pattern",
+			"The cloth is a tangible object with paint stains"
+		],
+		"solution": {
+			"Cruel Note": "Emotional",
+			"Paint Cloth": "Physical",
+			"Timing": "Temporal"
+		},
+		"explanation": "[b]Categorical Logic (Math):[/b]\n• Evidence ∈ {Emotional, Physical, Temporal} (three categories)\n• Cruel Note → Emotional (Clue 1: language analysis)\n• Paint Cloth → Physical (Clue 4: tangible object)\n• Timing → Temporal (Clue 3: time-based pattern)\n\nThis uses categorical classification and one-to-one mapping, where each element from one set corresponds to exactly one element in another set - a fundamental concept in functions and relations."
+	},
+	# Chapter 3, Scene 1 - Work and Energy Analysis (Science focus: Work, Energy, Power - Q3)
+	"logic_grid_evidence_science": {
+		"title": "Vandalism Energy Analysis",
+		"context": "The vandalism required different forms of work and energy. Match each action to the primary physics concept involved.",
+		"rows": ["Pushing Sculpture", "Spray Painting", "Running Away"],
+		"cols": ["Work (W=Fd)", "Power (P=W/t)", "Kinetic Energy"],
+		"clues": [
+			"Pushing the heavy sculpture required force over distance",
+			"Spray painting happened quickly - energy transferred per unit time",
+			"Running away involved mass in motion with velocity",
+			"Power measures how fast work is done (watts = joules/second)"
+		],
+		"solution": {
+			"Pushing Sculpture": "Work (W=Fd)",
+			"Spray Painting": "Power (P=W/t)",
+			"Running Away": "Kinetic Energy"
+		},
+		"explanation": "[b]Physics: Work, Energy, Power (Q3)[/b]\n\n• [b]Work (W = F × d):[/b]\n  - Force applied to push sculpture\n  - Sculpture moved distance (d)\n  - W = Force × displacement\n  - Unit: Joules (J)\n\n• [b]Power (P = W/t):[/b]\n  - Spray painting done quickly\n  - Energy transferred per second\n  - P = Work / time\n  - Unit: Watts (W = J/s)\n\n• [b]Kinetic Energy (KE = ½mv²):[/b]\n  - Victor running has velocity (v)\n  - Mass in motion stores energy\n  - Proportional to v² (doubling speed = 4× energy)\n\n[b]Energy Conservation:[/b] Victor's chemical energy (muscles) → Work (pushing) → Kinetic energy (running)\nEvery criminal action follows physics laws!"
+	},
+	# Chapter 2 - Fund Allocation (Science focus: Hypothesis elimination)
+	"logic_grid_funds_science": {
+		"title": "Fund Allocation Analysis",
+		"context": "Match each project to its allocated fund amount using scientific deduction.",
+		"rows": ["Art Week", "Sports Day", "Science Fair"],
+		"cols": ["5000 pesos", "8000 pesos", "12000 pesos"],
+		"clues": [
+			"Science Fair received more than Sports Day",
+			"Art Week did NOT receive the smallest amount",
+			"Sports Day received exactly 5000 pesos",
+			"The largest fund went to a creative project"
+		],
+		"solution": {
+			"Art Week": "12000 pesos",
+			"Sports Day": "5000 pesos",
+			"Science Fair": "8000 pesos"
+		},
+		"explanation": "[b]Scientific Method Applied:[/b]\n• Hypothesis 1: Sports Day = 5000 (Clue 3) ✓\n• Hypothesis 2: Science Fair > 5000 (Clue 1) ✓\n• Hypothesis 3: Art Week = 12000 (Clue 2 + 4) ✓\n• Remaining: Science Fair = 8000 ✓\n\nSystematic elimination mimics scientific reasoning."
+	},
+	# Chapter 4, Scene 2 - Information Circuit Analysis (Science focus: Electricity, circuits - Q4)
+	"logic_grid_information_circuit_science": {
+		"title": "Information Circuit Analysis",
+		"context": "The note distribution system works like an electrical circuit. Match each student's role to the electrical component they represent.",
+		"rows": ["Alex (Source)", "Locker System", "Students (Recipients)"],
+		"cols": ["Battery/EMF", "Conductors", "Resistors"],
+		"clues": [
+			"Alex provides the 'energy' (information) that flows through the system",
+			"The locker system allows information to travel from source to recipients",
+			"Students receiving notes act like resistors - they convert and respond to the energy",
+			"Ohm's Law: V = IR (Voltage = Current × Resistance)"
+		],
+		"solution": {
+			"Alex (Source)": "Battery/EMF",
+			"Locker System": "Conductors",
+			"Students (Recipients)": "Resistors"
+		},
+		"explanation": "[b]Physics: Electrical Circuits (Q4)[/b]\n\n• [b]Battery/EMF (Alex):[/b]\n  - Source of energy (electromotive force)\n  - Creates 'voltage' (motivation to spread notes)\n  - Drives current through circuit\n  - Maintains potential difference\n\n• [b]Conductors (Locker System):[/b]\n  - Low resistance pathway\n  - Allows charge (information) to flow\n  - Connects source to load\n  - Made of conductive material (accessible lockers)\n\n• [b]Resistors (Students):[/b]\n  - Convert electrical energy to other forms\n  - Provide resistance to current flow\n  - V = IR (Ohm's Law)\n  - Power dissipated: P = I²R or P = V²/R\n\n[b]Circuit Analysis:[/b]\nWhen students reported notes (increased R), current decreased (fewer distributions). When investigation started (circuit broken), current stopped completely!\n\n[b]Ohm's Law Application:[/b] Higher resistance → Lower current → Investigation success!"
+	},
+	# Chapter 4, Scene 2 - Suspect Behavior Analysis (Math focus: Logic, conditional statements)
+	"logic_grid_suspect_behavior_math": {
+		"title": "Suspect Behavior Deduction",
+		"context": "Three students are suspects. Match each student to their behavior pattern using logical reasoning.",
+		"rows": ["Alex", "Ben", "Alice"],
+		"cols": ["Archive Access", "Note Witness", "Uninvolved"],
+		"clues": [
+			"Ben witnessed someone receiving a note but didn't report it",
+			"Alice was not involved in any way",
+			"The person with archive access is the key to solving this case",
+			"Alex is NOT uninvolved"
+		],
+		"solution": {
+			"Alex": "Archive Access",
+			"Ben": "Note Witness",
+			"Alice": "Uninvolved"
+		},
+		"explanation": "[b]Logical Deduction (Math):[/b]\n• Ben = Note Witness (Clue 1: direct statement)\n• Alice = Uninvolved (Clue 2: direct statement)\n• Alex ≠ Uninvolved (Clue 4: negation)\n• Alex ≠ Note Witness (already assigned to Ben)\n• Therefore: Alex = Archive Access (only remaining option)\n\nThis uses conditional logic and proof by elimination - if all other options are false, the remaining must be true."
+	},
+	# Chapter 4, Scene 3 - Teaching Methods Analysis (Math focus: Venn diagrams, set relationships)
+	"logic_grid_pedagogy_math": {
+		"title": "Teaching Method Classification",
+		"context": "Alex found three teaching methods in the old journal. Match each method to its category.",
+		"rows": ["Socratic Question", "Moral Reflection", "Experience-Based"],
+		"cols": ["Dialogue", "Ethics", "Practice"],
+		"clues": [
+			"Socratic methods focus on questioning and dialogue",
+			"Moral reflection deals with ethical consideration",
+			"Experience-based learning emphasizes practical application",
+			"Each method has one primary category"
+		],
+		"solution": {
+			"Socratic Question": "Dialogue",
+			"Moral Reflection": "Ethics",
+			"Experience-Based": "Practice"
+		},
+		"explanation": "[b]Set Classification (Math):[/b]\n• Let S = {Socratic, Moral, Experience} (teaching methods)\n• Let C = {Dialogue, Ethics, Practice} (categories)\n• Function f: S → C (one-to-one mapping)\n• f(Socratic) = Dialogue (Clue 1)\n• f(Moral) = Ethics (Clue 2)\n• f(Experience) = Practice (Clue 3)\n\nThis demonstrates function mapping where each input has exactly one output, and categories form disjoint sets."
+	},
+	# Chapter 5, Scene 2 - Teaching Principles Integration (Math focus: Advanced synthesis)
+	"logic_grid_teaching_principles_math": {
+		"title": "Teaching Principles Synthesis",
+		"context": "B.C.'s teaching philosophy integrates three core mathematical principles. Match each principle to its application.",
+		"rows": ["Observation", "Guidance", "Reflection"],
+		"cols": ["Data Collection", "Function Mapping", "Meta-Analysis"],
+		"clues": [
+			"Observation involves systematically gathering information (data)",
+			"Guidance creates relationships between problems and solutions (functions)",
+			"Reflection examines one's own thinking process (meta-cognition)",
+			"Each principle uses a different mathematical approach"
+		],
+		"solution": {
+			"Observation": "Data Collection",
+			"Guidance": "Function Mapping",
+			"Reflection": "Meta-Analysis"
+		},
+		"explanation": "[b]Advanced Mathematical Synthesis:[/b]\n• Observation → Data Collection (gathering evidence systematically)\n• Guidance → Function Mapping (input problem → output solution)\n• Reflection → Meta-Analysis (analyzing how we think)\n\nThis demonstrates how mathematical thinking mirrors teaching philosophy: observe patterns (data), guide understanding (functions), and reflect on learning (meta-cognition). B.C. used mathematical reasoning as a teaching framework."
+	},
+	# Chapter 5, Scene 3 - Four Lessons Logic Grid (Math focus: Comprehensive review)
+	"logic_grid_four_lessons_math": {
+		"title": "The Four Lessons Integration",
+		"context": "Each B.C. card taught a moral lesson through mathematical reasoning. Match each lesson to its core mathematical concept.",
+		"rows": ["Truth", "Responsibility", "Creativity", "Wisdom"],
+		"cols": ["Time Analysis", "Causality", "Classification", "Patterns"],
+		"clues": [
+			"Truth required calculating time intervals to verify alibis",
+			"Responsibility involved understanding cause-and-effect sequences",
+			"Creativity focused on categorizing evidence systematically",
+			"Wisdom demanded recognizing patterns in behavior"
+		],
+		"solution": {
+			"Truth": "Time Analysis",
+			"Responsibility": "Causality",
+			"Creativity": "Classification",
+			"Wisdom": "Patterns"
+		},
+		"explanation": "[b]Comprehensive Integration (Math):[/b]\n• Truth = Time Analysis (Ch 1: distance-rate-time, chronology)\n• Responsibility = Causality (Ch 2: A leads to B, sequential logic)\n• Creativity = Classification (Ch 3: categorical organization, sets)\n• Wisdom = Patterns (Ch 4: frequency analysis, data trends)\n\nThis final synthesis shows how moral lessons and mathematical concepts are interconnected. Each mystery taught both ethics and reasoning - you cannot separate truth from evidence, responsibility from consequences, creativity from organization, or wisdom from pattern recognition. B.C.'s teaching integrated mathematics and morality seamlessly."
+	},
+	# Chapter 5, Scene 2 - Teaching Principles (Science focus: Light reflection and refraction)
+	"logic_grid_teaching_principles_science": {
+		"title": "Light Behavior Analysis",
+		"context": "B.C.'s teaching philosophy mirrors how light behaves. Match each teaching principle to its corresponding light phenomenon.",
+		"rows": ["Observation", "Guidance", "Reflection"],
+		"cols": ["Absorption", "Refraction", "Reflection"],
+		"clues": [
+			"Observation is like absorption - taking in information from the environment",
+			"Guidance bends the path like refraction - changing direction without changing nature",
+			"Reflection bounces back - examining what you already know from a different angle",
+			"Each principle corresponds to a different light behavior"
+		],
+		"solution": {
+			"Observation": "Absorption",
+			"Guidance": "Refraction",
+			"Reflection": "Reflection"
+		},
+		"explanation": "[b]Physics: Light Behavior & Optics (Q4)[/b]\n\n• [b]Observation → Absorption:[/b]\n  - Light energy absorbed by material\n  - Information taken in and internalized\n  - Energy transforms (photons → knowledge)\n  - B.C. absorbed student behavior patterns\n\n• [b]Guidance → Refraction:[/b]\n  - Light bends when changing medium (air → glass)\n  - Snell's Law: n₁sinθ₁ = n₂sinθ₂\n  - Path changes but nature remains light\n  - B.C. redirected students without changing who they are\n  - Student enters at one angle, emerges at different angle (wiser)\n\n• [b]Reflection → Reflection:[/b]\n  - Light bounces off surface (angle in = angle out)\n  - Law of Reflection: θᵢ = θᵣ\n  - Students examine their own actions from new perspective\n  - Mirror shows truth you already possess\n\n[b]Teaching Philosophy as Optics:[/b]\nB.C. uses light principles for education:\n1. Observe (absorb information)\n2. Guide (refract student's path gently)\n3. Reflect (help them see themselves clearly)\n\nJust as light reveals the world, teaching reveals potential!"
+	},
+	# Chapter 5, Scene 3 - Four Lessons Integration (Science focus: Energy forms and transformation)
+	"logic_grid_four_lessons_science": {
+		"title": "Energy Transformation Analysis",
+		"context": "Each B.C. lesson transformed one form of energy into another, like physics principles. Match each moral lesson to the energy transformation it represents.",
+		"rows": ["Truth", "Responsibility", "Creativity", "Wisdom"],
+		"cols": ["Potential→Kinetic", "Chemical→Thermal", "Electrical→Light", "Nuclear→Mass"],
+		"clues": [
+			"Truth revealed hidden potential and set it in motion (Chapter 1: Greg's confession)",
+			"Responsibility involved burning energy through choices (Chapter 2: Ryan's actions)",
+			"Creativity illuminated darkness with bright ideas (Chapter 3: Victor's art turned dark)",
+			"Wisdom is the fundamental force binding everything (Chapter 4: Alex's power misused)"
+		],
+		"solution": {
+			"Truth": "Potential→Kinetic",
+			"Responsibility": "Chemical→Thermal",
+			"Creativity": "Electrical→Light",
+			"Wisdom": "Nuclear→Mass"
+		},
+		"explanation": "[b]Physics: Energy Transformation & Conservation (Q4)[/b]\n\n• [b]Truth → Potential to Kinetic:[/b]\n  - PE = mgh (stored energy of hidden truth)\n  - KE = ½mv² (active confession, motion)\n  - Greg's secret (potential) became confession (kinetic)\n  - Energy Conservation: PE converts to KE\n\n• [b]Responsibility → Chemical to Thermal:[/b]\n  - Chemical bonds store energy (choices)\n  - Combustion releases heat (consequences)\n  - Ryan's actions burned bridges (exothermic)\n  - Energy released can't be taken back\n\n• [b]Creativity → Electrical to Light:[/b]\n  - P = VI (electrical power input)\n  - Light output (photons emitted)\n  - Victor's electrical anger → destructive \"light\"\n  - True creativity should emit positive illumination\n\n• [b]Wisdom → Nuclear to Mass:[/b]\n  - E = mc² (Einstein's mass-energy equivalence)\n  - Strongest force in universe (nuclear)\n  - Alex had knowledge (mass) but not wisdom (binding energy)\n  - Wisdom holds knowledge together like strong nuclear force\n\n[b]Law of Energy Conservation:[/b]\nTotal energy remains constant - just changes form\nEach lesson transformed student potential into actual growth!\n\n[b]Four Fundamental Forces:[/b]\n1. Truth (Gravity) - pulls hidden things to light\n2. Responsibility (Electromagnetic) - actions repel/attract consequences\n3. Creativity (Weak Nuclear) - transforms one state to another\n4. Wisdom (Strong Nuclear) - binds everything together"
+	},
+	# Chapter 1, Scene 3 - WiFi Connection Timeline (Science focus: Signal physics and electromagnetic waves)
+	"logic_grid_wifi_science": {
+		"title": "WiFi Signal Analysis",
+		"context": "Two devices connected to the Faculty WiFi router. Use physics principles to determine which suspect owns which device based on signal strength and location data.",
+		"rows": ["Greg", "Ben", "Alex"],
+		"cols": ["Galaxy_A52", "Redmi_Note_10", "No Connection"],
+		"clues": [
+			"Greg's device connected at 9:00 PM with -45 dBm signal strength (very strong - close range)",
+			"Ben's device had -72 dBm signal strength at 8:00 PM (moderate - medium distance)",
+			"Signal strength follows inverse square law: closer = stronger signal",
+			"Alex was home all evening (confirmed by family) - no WiFi connection"
+		],
+		"solution": {
+			"Greg": "Galaxy_A52",
+			"Ben": "Redmi_Note_10",
+			"Alex": "No Connection"
+		},
+		"explanation": "[b]Physics: Electromagnetic Wave Propagation[/b]\n• WiFi uses electromagnetic waves (2.4 GHz or 5 GHz)\n• Signal strength measured in dBm (decibel-milliwatts)\n• Inverse square law: Power ∝ 1/r² (closer = stronger)\n• -45 dBm = very strong (1-2 meters from router)\n• -72 dBm = moderate (10-15 meters away)\n• Greg was inside faculty room (strong signal)\n• Ben was in hallway (weaker signal)\n\nUnderstanding electromagnetic wave behavior helps solve technical mysteries!"
+	},
+}
+
+# ====================
+# TIMELINE RECONSTRUCTION CONFIGURATIONS
+# ====================
+var timeline_reconstruction_configs = {
+	# Chapter 1, Scene 2 - Footprint Timeline (Math focus: Evaporation rate calculations)
+	"timeline_footprints_math": {
+		"title": "Footprint Timeline Analysis",
+		"context": "Arrange the events in chronological order. The janitor mopped at 3:00 PM. The floor dries completely in 45 minutes. Use time calculations to determine when the footprints were made.",
+		"events": [
+			{"id": "event1", "text": "Janitor mops hallway floor (3:00 PM)"},
+			{"id": "event2", "text": "Floor begins drying (3:00 PM - 3:45 PM)"},
+			{"id": "event3", "text": "Someone enters faculty room, leaving footprints (3:30 PM)"},
+			{"id": "event4", "text": "Floor completely dry (3:45 PM)"},
+			{"id": "event5", "text": "Footprints discovered by Conrad/Celestine (5:30 PM)"}
+		],
+		"correct_order": ["event1", "event2", "event3", "event4", "event5"],
+		"explanation": "[b]Mathematical Reasoning:[/b]\n• Mop time: 3:00 PM (t = 0 min)\n• Drying period: 45 minutes (t = 0 to t = 45)\n• Footprint time: 3:30 PM (t = 30 min) - still slightly wet\n• Fully dry: 3:45 PM (t = 45 min)\n• Discovery: 5:30 PM (t = 150 min)\n\nCalculating time intervals helps determine when events occurred during the theft."
+	},
+	# Chapter 1 - Theft Sequence (Math focus: Time intervals)
+	"timeline_theft_math": {
+		"title": "Theft Timeline Analysis",
+		"context": "Arrange the events in chronological order based on time stamps and durations.",
+		"events": [
+			{"id": "event1", "text": "Janitor mops faculty room floor (3:00 PM)"},
+			{"id": "event2", "text": "Air conditioner starts leaking (3:15 PM)"},
+			{"id": "event3", "text": "Wet footprints appear on floor (3:30 PM)"},
+			{"id": "event4", "text": "Exam papers get soaked (3:45 PM)"},
+			{"id": "event5", "text": "Teacher discovers wet papers (7:30 AM next day)"}
+		],
+		"correct_order": ["event1", "event2", "event3", "event4", "event5"],
+		"explanation": "[b]Timeline Reasoning (Math):[/b]\n• Floor mopped at 3:00 PM (t = 0)\n• AC leaks at 3:15 PM (t = +15 min)\n• Footprints at 3:30 PM (t = +30 min)\n• Papers soaked at 3:45 PM (t = +45 min)\n• Discovery at 7:30 AM (t = +16.5 hours)\n\nUnderstanding time intervals and chronological sequencing is essential for mathematical problem-solving."
+	},
+	# Chapter 1, Scene 5 - Greg's Alibi Timeline (Math focus: Distance, rate, time calculations)
+	"timeline_analysis_greg_math": {
+		"title": "Greg's Alibi Analysis",
+		"context": "Calculate Greg's timeline using distance, rate, and time. School ends at 5:00 PM. His house is 2.5 km away. Walking speed is 5 km/h.",
+		"events": [
+			{"id": "event1", "text": "School dismissal (5:00 PM)"},
+			{"id": "event2", "text": "Greg leaves school campus (5:10 PM)"},
+			{"id": "event3", "text": "Greg arrives home - calculated (5:30 PM)"},
+			{"id": "event4", "text": "Greg's phone connects to Faculty WiFi (9:00 PM)"},
+			{"id": "event5", "text": "Confrontation with Conrad/Celestine (next day)"}
+		],
+		"correct_order": ["event1", "event2", "event3", "event4", "event5"],
+		"explanation": "[b]Mathematical Calculation:[/b]\n• Distance = 2.5 km\n• Rate = 5 km/h\n• Time = Distance ÷ Rate = 2.5 ÷ 5 = 0.5 hours (30 minutes)\n• Departure: 5:00 PM\n• Arrival: 5:00 PM + 30 min = 5:30 PM\n• WiFi connection: 9:00 PM (3.5 hours later!)\n\nThis proves Greg returned to school after going home, contradicting his alibi."
+	},
+	# Chapter 2 - Threatening Note Timeline (Math focus: Chronological analysis)
+	"timeline_threat_note_math": {
+		"title": "Threatening Note Timeline",
+		"context": "Analyze the sequence of events related to Ria's threatening note. Use chronological reasoning to determine when each event occurred.",
+		"events": [
+			{"id": "event1", "text": "Ryan discovers Ria's mistake with last year's funds"},
+			{"id": "event2", "text": "Ryan writes the threatening note to Ria"},
+			{"id": "event3", "text": "Ria finds the note in her locker (morning)"},
+			{"id": "event4", "text": "Ria becomes distracted and fearful"},
+			{"id": "event5", "text": "Student Council money goes missing"}
+		],
+		"correct_order": ["event1", "event2", "event3", "event4", "event5"],
+		"explanation": "[b]Chronological Analysis (Math):[/b]\n• Discovery (t = 0): Ryan learns about the error\n• Planning (t = +1 day): Ryan writes the note\n• Delivery (t = +2 days): Note placed in locker\n• Psychological effect (t = +2 to +7 days): Ria becomes fearful\n• Crime execution (t = +7 days): Money stolen while Ria is distracted\n\nThis demonstrates how sequential events follow a logical timeline, with each step enabling the next. Understanding chronology helps detect patterns in complex situations."
+	},
+	# Chapter 2, Scene 3 - Threatening Note Force Analysis (Science focus: Work, Energy, Power - Q2)
+	"timeline_threat_note_science": {
+		"title": "Force and Work Analysis",
+		"context": "Ryan applied force to write the threatening note. Arrange events in order, considering the physics of force, work, and pressure.",
+		"events": [
+			{"id": "event1", "text": "Ryan discovers Ria's accounting error"},
+			{"id": "event2", "text": "Ryan applies force (F) with pen on paper to write threat"},
+			{"id": "event3", "text": "Work done (W = F × d) creates visible ink marks on paper"},
+			{"id": "event4", "text": "Note placed in Ria's locker - gravitational potential energy"},
+			{"id": "event5", "text": "Ria finds note - reads message created by applied force"}
+		],
+		"correct_order": ["event1", "event2", "event3", "event4", "event5"],
+		"explanation": "[b]Physics: Work and Force (Q2)[/b]\n• Force (F): Ryan pressed pen against paper (contact force)\n• Displacement (d): Pen moved across paper surface\n• Work (W): W = F × d × cos(θ), where θ = 0° (parallel)\n• Pressure: F/A created indentations on paper\n• Potential Energy: Note gained PE = mgh when placed in elevated locker\n\n[b]Key Physics Principle:[/b] Work = Force × Distance\nEvery written word required Ryan to apply force over a distance, transferring energy from his hand to the paper. The threatening note is physical evidence of work done!\n\n[b]Energy Transfer:[/b] Chemical energy (muscles) → Kinetic energy (hand motion) → Work (pen marking paper)"
+	},
+	# Chapter 3 - Vandalism Sequence (Science focus: Cause and effect)
+	"timeline_vandalism_science": {
+		"title": "Vandalism Event Sequence",
+		"context": "Order the events based on cause-and-effect relationships.",
+		"events": [
+			{"id": "event1", "text": "Victor feels overshadowed by Mia's success"},
+			{"id": "event2", "text": "Victor purchases paint supplies (8:47 PM)"},
+			{"id": "event3", "text": "Victor returns to school after hours"},
+			{"id": "event4", "text": "Sculpture is vandalized with paint"},
+			{"id": "event5", "text": "Paint-stained cloth left at scene"}
+		],
+		"correct_order": ["event1", "event2", "event3", "event4", "event5"],
+		"explanation": "[b]Causal Chain (Science):[/b]\n• Cause 1: Emotional trigger (jealousy)\n• Effect 1: Decision to act (buy supplies)\n• Cause 2: Opportunity (after hours)\n• Effect 2: Action (vandalism)\n• Effect 3: Evidence (cloth left behind)\n\nUnderstanding cause-and-effect relationships is fundamental to scientific thinking and the scientific method."
+	},
+	# Chapter 3, Scene 3 - Receipt Time Analysis (Math focus: Time intervals, word problems)
+	"timeline_receipt_analysis_math": {
+		"title": "Receipt Timeline Analysis",
+		"context": "Victor claimed he was home all night. The receipt shows a purchase at 8:47 PM. The store is 1.2 km from school. Walking speed is 6 km/h.",
+		"events": [
+			{"id": "event1", "text": "Art Week ends, students leave (6:00 PM)"},
+			{"id": "event2", "text": "Victor goes to art supply store (8:35 PM - calculated)"},
+			{"id": "event3", "text": "Victor makes purchase at store (8:47 PM - receipt)"},
+			{"id": "event4", "text": "Victor returns to school (9:00 PM - calculated)"},
+			{"id": "event5", "text": "Sculpture vandalized (estimated 9:15 PM)"}
+		],
+		"correct_order": ["event1", "event2", "event3", "event4", "event5"],
+		"explanation": "[b]Time Interval Calculations:[/b]\n• Store distance from school: 1.2 km\n• Walking speed: 6 km/h\n• Time to walk = Distance ÷ Speed = 1.2 ÷ 6 = 0.2 hours (12 minutes)\n\n[b]Timeline Reconstruction:[/b]\n• Purchase time: 8:47 PM (from receipt)\n• Time to return to school: 12 minutes\n• Estimated arrival: 8:47 PM + 12 min = 8:59 PM ≈ 9:00 PM\n• Vandalism window: 9:00 PM - 9:30 PM\n\nThe receipt proves Victor was near the school during the vandalism time, contradicting his alibi of being home all night."
+	},
+	# Chapter 3, Scene 3 - Vandalism Energy Sequence (Science focus: Work, Energy, Power - Q3)
+	"timeline_receipt_analysis_science": {
+		"title": "Vandalism Energy Sequence",
+		"context": "Victor's vandalism involved multiple energy transformations. Arrange events in order based on work, energy, and power principles.",
+		"events": [
+			{"id": "event1", "text": "Victor stores chemical energy (eating dinner before leaving)"},
+			{"id": "event2", "text": "Victor walks to store - chemical energy → kinetic energy (KE = ½mv²)"},
+			{"id": "event3", "text": "Victor lifts paint cans - work done against gravity (W = mgh)"},
+			{"id": "event4", "text": "Victor pushes sculpture - applies force over distance (W = F×d)"},
+			{"id": "event5", "text": "Victor runs away - kinetic energy increases with velocity²"}
+		],
+		"correct_order": ["event1", "event2", "event3", "event4", "event5"],
+		"explanation": "[b]Physics: Work, Energy, Power (Q3)[/b]\n\n• [b]Chemical Energy (stored):[/b]\n  - Food provides energy (ATP)\n  - Stored in molecular bonds\n  - Source for all physical activity\n\n• [b]Kinetic Energy (KE = ½mv²):[/b]\n  - Walking: velocity = 1.5 m/s\n  - Running: velocity = 5 m/s\n  - KE increases with v² (running = 11× more energy!)\n\n• [b]Work Against Gravity (W = mgh):[/b]\n  - Lifting 2kg paint can 1.5m high\n  - W = 2 × 10 × 1.5 = 30 Joules\n  - PE gained = 30 J\n\n• [b]Work (W = F × d):[/b]\n  - Pushing sculpture with 200N force\n  - Sculpture moved 0.3m\n  - W = 200 × 0.3 = 60 Joules\n\n[b]Energy Conservation:[/b] Chemical → Kinetic → Potential → Work → Kinetic\nEvery criminal action follows energy conservation laws! Victor's body converted stored chemical energy through multiple transformations."
+	},
+	# Chapter 4, Scene 1 - Anonymous Notes Pattern (Math focus: Frequency analysis, data patterns)
+	"timeline_notes_pattern_math": {
+		"title": "Anonymous Notes Timeline",
+		"context": "Six students received anonymous notes over the past week. Analyze the pattern to understand when and how the notes were distributed.",
+		"events": [
+			{"id": "event1", "text": "Alex accesses archive, finds old teaching journal (Day 1)"},
+			{"id": "event2", "text": "Alex studies the journal's methods (Day 2-3)"},
+			{"id": "event3", "text": "First note appears - Ben's locker (Day 5)"},
+			{"id": "event4", "text": "More notes distributed - 5 additional students (Day 6-7)"},
+			{"id": "event5", "text": "Conrad/Celestine begins investigation (Day 8)"}
+		],
+		"correct_order": ["event1", "event2", "event3", "event4", "event5"],
+		"explanation": "[b]Pattern Analysis (Math):[/b]\n• Discovery phase: Days 1-3 (Alex learns methods)\n• Implementation phase: Days 5-7 (Notes distributed)\n• Gap: 2 days between learning and first note (planning time)\n• Frequency: 1 note on Day 5, then 5 notes over Days 6-7 (increasing rate)\n• Total: 6 notes in 3 days (average 2 notes/day)\n\nThis demonstrates data pattern recognition - identifying frequency, rate of change, and time intervals in a sequence of events."
+	},
+	# Chapter 5, Scene 1 - Four Lessons Integration (Math focus: Synthesis, meta-cognition)
+	"timeline_lessons_synthesis_math": {
+		"title": "The Four Lessons Timeline",
+		"context": "Reconstruct the journey of learning. Each B.C. card built upon the previous, teaching different mathematical reasoning skills.",
+		"events": [
+			{"id": "event1", "text": "Lesson 1: Truth - Time intervals & chronological sequencing (Chapter 1)"},
+			{"id": "event2", "text": "Lesson 2: Responsibility - Sequential events & cause-effect (Chapter 2)"},
+			{"id": "event3", "text": "Lesson 3: Creativity - Pattern recognition & categorical logic (Chapter 3)"},
+			{"id": "event4", "text": "Lesson 4: Wisdom - Frequency analysis & conditional logic (Chapter 4)"},
+			{"id": "event5", "text": "Final Understanding: All lessons converge to teach Choice"}
+		],
+		"correct_order": ["event1", "event2", "event3", "event4", "event5"],
+		"explanation": "[b]Meta-Cognitive Synthesis (Math):[/b]\n• Chapter 1 → Basic foundations (time, sequences)\n• Chapter 2 → Causality understanding (A leads to B)\n• Chapter 3 → Classification systems (organizing knowledge)\n• Chapter 4 → Advanced analysis (patterns, logic)\n• Chapter 5 → Integration (all skills combine)\n\nThis demonstrates how mathematical thinking builds progressively - each concept depends on mastering previous ones. True understanding comes from seeing the connections between isolated skills."
+	},
+	# Chapter 1, Scene 5 - Alibi Verification (Science focus: Motion physics and kinematics)
+	"timeline_alibi_science": {
+		"title": "Alibi Motion Analysis",
+		"context": "Greg claims he went straight home after school at 5:00 PM. His house is 2.5 km away. Arrange events chronologically using physics principles (distance, velocity, time).",
+		"events": [
+			{"id": "event1", "text": "School dismissal - Greg leaves campus (5:00 PM)"},
+			{"id": "event2", "text": "Greg walks home at average velocity 5 km/h"},
+			{"id": "event3", "text": "Greg arrives home - calculated time (5:30 PM)"},
+			{"id": "event4", "text": "Greg's phone detected at school WiFi (9:00 PM)"},
+			{"id": "event5", "text": "Confrontation: Greg must explain the gap"}
+		],
+		"correct_order": ["event1", "event2", "event3", "event4", "event5"],
+		"explanation": "[b]Physics: Kinematics (Motion)[/b]\n• Distance (d) = 2.5 km\n• Velocity (v) = 5 km/h (average walking speed)\n• Time (t) = d/v = 2.5 km ÷ 5 km/h = 0.5 hours = 30 minutes\n• Departure: 5:00 PM (t₀)\n• Arrival home: 5:30 PM (t₁ = t₀ + 30 min)\n• WiFi detection: 9:00 PM (t₂ = t₁ + 3.5 hours)\n\n[b]Key Physics Principle:[/b] Velocity = Distance/Time (v = d/t)\nThis fundamental kinematic equation proves Greg returned to school 3.5 hours after going home - his alibi fails!\n\n[b]Newton's First Law Application:[/b] An object in motion stays in motion. Greg's motion pattern shows intentional return to school, not accidental presence."
+	},
+	# Chapter 4, Scene 1 - Note Distribution Timeline (Science focus: Electrical signals and circuits)
+	"timeline_notes_distribution_science": {
+		"title": "Electrical Signal Analysis",
+		"context": "Six anonymous notes were distributed over a week. Using electrical circuit principles, analyze the pattern of information flow from source to recipients.",
+		"events": [
+			{"id": "event1", "text": "Day 1: Alex finds journal - closes the circuit (completes learning loop)"},
+			{"id": "event2", "text": "Day 3: First note delivered - current begins flowing (I = ΔQ/Δt)"},
+			{"id": "event3", "text": "Day 4-5: Rapid note distribution - high current (6 notes in 48 hours)"},
+			{"id": "event4", "text": "Day 6: Students report notes - resistance builds in the circuit"},
+			{"id": "event5", "text": "Day 7: Investigation starts - circuit breaks (information flow stops)"}
+		],
+		"correct_order": ["event1", "event2", "event3", "event4", "event5"],
+		"explanation": "[b]Physics: Electricity - Current and Charge Flow[/b]\n• Electric Current (I) = Charge/Time (I = ΔQ/Δt)\n• 6 notes in 48 hours = high current flow\n• Average rate: 6 notes ÷ 2 days = 3 notes/day\n• Information flows like electrical current through a circuit\n\n[b]Circuit Analogy:[/b]\n• Source: Alex (battery/EMF)\n• Conductors: Locker system (wires)\n• Recipients: Students (resistors receiving energy)\n• Resistance: Student reports (opposing current flow)\n• Open Circuit: Investigation stops the flow\n\n[b]Ohm's Law Connection (V = IR):[/b] More resistance (R↑) = lower current (I↓). When students resisted (reported notes), the distribution stopped!"
+	},
+	# Chapter 5, Scene 1 - Teaching Lessons Timeline (Science focus: Wave interference and synthesis)
+	"timeline_lessons_synthesis_science": {
+		"title": "Wave Interference Synthesis",
+		"context": "Each B.C. lesson was like a wave - individual oscillations that interfere constructively to create wisdom. Arrange the four lessons in order, understanding how they combine like waves.",
+		"events": [
+			{"id": "event1", "text": "Lesson 1 (Truth) - First wave λ₁: Evidence & honesty (Chapter 1)"},
+			{"id": "event2", "text": "Lesson 2 (Responsibility) - Second wave λ₂: Actions & consequences (Chapter 2)"},
+			{"id": "event3", "text": "Lesson 3 (Creativity) - Third wave λ₃: Expression over competition (Chapter 3)"},
+			{"id": "event4", "text": "Lesson 4 (Wisdom) - Fourth wave λ₄: Knowledge + guidance (Chapter 4)"},
+			{"id": "event5", "text": "Constructive Interference: All waves combine → Complete understanding"}
+		],
+		"correct_order": ["event1", "event2", "event3", "event4", "event5"],
+		"explanation": "[b]Physics: Wave Interference & Superposition (Q4)[/b]\n\n• [b]Wave Superposition Principle:[/b]\n  - Multiple waves combine at same point\n  - Total amplitude = sum of individual waves\n  - Each lesson (wave) adds to total understanding\n\n• [b]Constructive Interference:[/b]\n  - Waves in phase reinforce each other\n  - Lessons 1-4 aligned perfectly (in phase)\n  - Result: Maximum amplitude (wisdom)\n  - Formula: A_total = A₁ + A₂ + A₃ + A₄\n\n• [b]Wave Properties:[/b]\n  - Wavelength (λ): Each lesson has unique 'frequency'\n  - Amplitude: Depth of understanding\n  - Phase: Timing of lesson delivery\n  - B.C. timed each lesson perfectly (phase alignment)\n\n• [b]Application to Learning:[/b]\n  - Truth (wave 1) establishes foundation\n  - Responsibility (wave 2) adds depth\n  - Creativity (wave 3) increases amplitude\n  - Wisdom (wave 4) completes the pattern\n  - All four waves interfere constructively → Complete knowledge\n\n[b]Wave Equation Connection:[/b] v = fλ\nEach lesson travels at the speed of understanding (v), with its own frequency (f) and wavelength (λ)!"
+	}
+}
+
 func _get_subject_variant_id(base_id: String) -> String:
 	"""
 	Returns the subject-specific variant of a minigame ID.
@@ -2055,6 +2717,14 @@ func _get_subject_variant_id(base_id: String) -> String:
 
 	var subject = PlayerStats.selected_subject
 	print("DEBUG: PlayerStats.selected_subject = ", subject)
+
+	# First, check if base_id already exists in any config
+	# This handles subject-specific minigames that don't have variants (e.g., "timeline_footprints_math")
+	if fillinTheblank_configs.has(base_id) or hear_and_fill_configs.has(base_id) or \
+	   riddle_configs.has(base_id) or dialogue_choice_configs.has(base_id) or \
+	   logic_grid_configs.has(base_id) or timeline_reconstruction_configs.has(base_id):
+		print("DEBUG: Base ID exists in configs, using as-is: ", base_id)
+		return base_id
 
 	if subject == "english":
 		print("DEBUG: Subject is English, using base ID: ", base_id)
@@ -2076,6 +2746,12 @@ func _get_subject_variant_id(base_id: String) -> String:
 		return variant_id
 	elif dialogue_choice_configs.has(variant_id):
 		print("DEBUG: Found in dialogue_choice_configs!")
+		return variant_id
+	elif logic_grid_configs.has(variant_id):
+		print("DEBUG: Found in logic_grid_configs!")
+		return variant_id
+	elif timeline_reconstruction_configs.has(variant_id):
+		print("DEBUG: Found in timeline_reconstruction_configs!")
 		return variant_id
 
 	# No variant found, use base (English)
@@ -2119,6 +2795,12 @@ func start_minigame(puzzle_id: String) -> void:
 		_start_riddle(puzzle_id)
 	elif dialogue_choice_configs.has(puzzle_id):
 		_start_dialogue_choice(puzzle_id)
+	elif detective_analysis_configs.has(puzzle_id):
+		_start_detective_analysis(puzzle_id)
+	elif logic_grid_configs.has(puzzle_id):
+		_start_logic_grid(puzzle_id)
+	elif timeline_reconstruction_configs.has(puzzle_id):
+		_start_timeline_reconstruction(puzzle_id)
 	# Oral Communication Module configs
 	elif _get_oralcom_config(puzzle_id) != null:
 		_start_oralcom_minigame(puzzle_id)
@@ -2289,6 +2971,7 @@ func _start_dialogue_choice(puzzle_id: String) -> void:
 
 func _on_dialogue_choice_finished(success: bool, puzzle_id: String) -> void:
 	print("DEBUG: Dialogue Choice minigame finished. Success: ", success, ", Puzzle: ", puzzle_id)
+	last_minigame_success = success
 	if success:
 		Dialogic.VAR.minigames_completed += 1
 	minigame_completed.emit(puzzle_id, success)
@@ -2305,6 +2988,7 @@ func _start_hear_and_fill(puzzle_id: String) -> void:
 
 func _on_hear_and_fill_finished(success: bool, puzzle_id: String) -> void:
 	print("DEBUG: Hear and Fill minigame finished. Success: ", success, ", Puzzle: ", puzzle_id)
+	last_minigame_success = success
 	if success:
 		Dialogic.VAR.minigames_completed += 1
 	minigame_completed.emit(puzzle_id, success)
@@ -2321,13 +3005,133 @@ func _start_riddle(puzzle_id: String) -> void:
 
 func _on_riddle_finished(success: bool, puzzle_id: String) -> void:
 	print("DEBUG: Riddle minigame finished. Success: ", success, ", Puzzle: ", puzzle_id)
+	last_minigame_success = success
 	if success:
 		Dialogic.VAR.minigames_completed += 1
 	minigame_completed.emit(puzzle_id, success)
 	current_minigame = null
 
+func _start_detective_analysis(puzzle_id: String) -> void:
+	print("DEBUG: Starting Detective Analysis minigame: ", puzzle_id)
+	var config = detective_analysis_configs[puzzle_id]
+	current_minigame = detective_analysis_scene.instantiate()
+
+	# Pause Dialogic while minigame is active
+	Dialogic.paused = true
+
+	# Wrap minigame in a CanvasLayer to ensure it renders on top
+	var canvas_layer = CanvasLayer.new()
+	canvas_layer.layer = 100  # High layer number to render on top
+	get_tree().root.add_child(canvas_layer)
+	canvas_layer.add_child(current_minigame)
+	print("DEBUG: Detective Analysis minigame added to CanvasLayer 100")
+
+	current_minigame.configure_puzzle(config)
+	current_minigame.minigame_completed.connect(_on_detective_analysis_finished.bind(puzzle_id))
+	print("DEBUG: Detective Analysis minigame should now be visible")
+
+func _on_detective_analysis_finished(success: bool, time_taken: float, puzzle_id: String) -> void:
+	print("DEBUG: Detective Analysis finished. Success: ", success, ", Time: ", time_taken, "s, Puzzle: ", puzzle_id)
+	last_minigame_success = success
+
+	# Track speed bonus (< 60 seconds = fast)
+	last_minigame_speed_bonus = (time_taken < 60.0)
+
+	if success:
+		Dialogic.VAR.minigames_completed += 1
+
+	# Resume Dialogic
+	Dialogic.paused = false
+	print("DEBUG: Dialogic resumed")
+
+	minigame_completed.emit(puzzle_id, success)
+	current_minigame = null
+
+func _start_logic_grid(puzzle_id: String) -> void:
+	print("DEBUG: Starting Logic Grid minigame: ", puzzle_id)
+	var config = logic_grid_configs[puzzle_id]
+	current_minigame = logic_grid_scene.instantiate()
+
+	# Pause Dialogic while minigame is active
+	Dialogic.paused = true
+
+	# Wrap minigame in a CanvasLayer to ensure it renders on top
+	var canvas_layer = CanvasLayer.new()
+	canvas_layer.layer = 100  # High layer number to render on top
+	get_tree().root.add_child(canvas_layer)
+	canvas_layer.add_child(current_minigame)
+
+	current_minigame.minigame_completed.connect(_on_logic_grid_finished.bind(puzzle_id))
+	# Defer configuration until next frame (after _ready() is called)
+	current_minigame.configure_puzzle.call_deferred(config)
+	print("DEBUG: Logic Grid minigame should now be visible")
+
+func _on_logic_grid_finished(success: bool, time_taken: float, puzzle_id: String) -> void:
+	print("DEBUG: Logic Grid finished. Success: ", success, ", Time: ", time_taken, "s, Puzzle: ", puzzle_id)
+	last_minigame_success = success
+	last_minigame_speed_bonus = (time_taken < 60.0)
+
+	if success:
+		Dialogic.VAR.minigames_completed += 1
+
+	# Resume Dialogic
+	Dialogic.paused = false
+
+	minigame_completed.emit(puzzle_id, success)
+	current_minigame = null
+
+func _start_timeline_reconstruction(puzzle_id: String) -> void:
+	print("DEBUG: Starting Timeline Reconstruction minigame: ", puzzle_id)
+	print("DEBUG: Config keys: ", timeline_reconstruction_configs.keys())
+
+	if not timeline_reconstruction_configs.has(puzzle_id):
+		push_error("Timeline Reconstruction config not found for: " + puzzle_id)
+		return
+
+	var config = timeline_reconstruction_configs[puzzle_id]
+	print("DEBUG: Config loaded: ", config.get("title", "NO TITLE"))
+
+	current_minigame = timeline_reconstruction_scene.instantiate()
+	print("DEBUG: Minigame instantiated: ", current_minigame)
+	print("DEBUG: Minigame type: ", current_minigame.get_class())
+
+	# Pause Dialogic while minigame is active
+	Dialogic.paused = true
+	print("DEBUG: Dialogic paused")
+
+	# Wrap minigame in a CanvasLayer to ensure it renders on top
+	var canvas_layer = CanvasLayer.new()
+	canvas_layer.layer = 100  # High layer number to render on top
+	get_tree().root.add_child(canvas_layer)
+	canvas_layer.add_child(current_minigame)
+	print("DEBUG: Minigame added to CanvasLayer 100")
+
+	current_minigame.minigame_completed.connect(_on_timeline_reconstruction_finished.bind(puzzle_id))
+	print("DEBUG: Signal connected")
+
+	# Defer configuration until next frame (after _ready() is called)
+	current_minigame.configure_puzzle.call_deferred(config)
+	print("DEBUG: Configuration deferred")
+	print("DEBUG: Timeline Reconstruction minigame should now be visible")
+
+func _on_timeline_reconstruction_finished(success: bool, time_taken: float, puzzle_id: String) -> void:
+	print("DEBUG: Timeline Reconstruction finished. Success: ", success, ", Time: ", time_taken, "s, Puzzle: ", puzzle_id)
+	last_minigame_success = success
+	last_minigame_speed_bonus = (time_taken < 60.0)
+
+	if success:
+		Dialogic.VAR.minigames_completed += 1
+
+	# Resume Dialogic
+	Dialogic.paused = false
+	print("DEBUG: Dialogic resumed")
+
+	minigame_completed.emit(puzzle_id, success)
+	current_minigame = null
+
 func _on_minigame_finished(success: bool, score: int, puzzle_id: String) -> void:
 	print("DEBUG: Minigame finished. Success: ", success, ", Score: ", score, ", Puzzle: ", puzzle_id)
+	last_minigame_success = success
 	if success:
 		Dialogic.VAR.minigames_completed += 1
 	minigame_completed.emit(puzzle_id, success)

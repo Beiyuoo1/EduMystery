@@ -27,7 +27,7 @@ else:
 [background arg="res://Bg/classroom.png" fade="1.0"]
 if {selected_character} == "celestine":
 	join Celestine (half) left
-	join Ben (half) center
+	join Ben (animated) center
 	Ben holds a folded piece of paper, looking uncomfortable.
 	Ben: I found this in my locker yesterday morning. No idea who put it there.
 	Ben hands the note to Celestine.
@@ -52,7 +52,7 @@ if {selected_character} == "celestine":
 	Celestine: Or a moral lesson. Someone thinks they're teaching.
 else:
 	join Conrad (half) left
-	join Ben (half) center
+	join Ben (animated) center
 	Ben holds a folded piece of paper, looking uncomfortable.
 	Ben: I found this in my locker yesterday morning. No idea who put it there.
 	Ben hands the note to Conrad.
@@ -96,7 +96,23 @@ if {selected_character} == "celestine":
 	join "Diwata Laya" (Half_mirror) center
 	[signal arg="laya_start"]
 	"Diwata Laya": A new case begins. Prepare your mind.
-	[signal arg="start_minigame anonymous_notes"]
+	if {selected_subject} == "english":
+		[signal arg="start_minigame anonymous_notes"]
+	elif {selected_subject} == "math":
+		Celestine: Six students received notes over the past week. Let me analyze the pattern.
+		Celestine: If I can establish a timeline with frequency analysis...
+		Celestine: I can understand when and how the notes were distributed.
+		[signal arg="start_minigame timeline_notes_pattern_math"]
+	elif {selected_subject} == "science":
+		if {selected_character} == "celestine":
+			Celestine: Six notes distributed over a week - like electrical current flowing through a circuit.
+			Celestine: If I analyze the information flow using circuit principles...
+			Celestine: I can determine the pattern of distribution and resistance points!
+		else:
+			Conrad: Six notes distributed over a week - like electrical current flowing through a circuit.
+			Conrad: If I analyze the information flow using circuit principles...
+			Conrad: I can determine the pattern of distribution and resistance points!
+		[signal arg="start_minigame timeline_notes_distribution_science"]
 	"Diwata Laya": Good. You are ready.
 	[signal arg="laya_end"]
 	leave "Diwata Laya"
@@ -122,7 +138,23 @@ else:
 	join "Diwata Laya" (Half_mirror) center
 	[signal arg="laya_start"]
 	"Diwata Laya": A new case begins. Prepare your mind.
-	[signal arg="start_minigame anonymous_notes"]
+	if {selected_subject} == "english":
+		[signal arg="start_minigame anonymous_notes"]
+	elif {selected_subject} == "math":
+		Conrad: Six students received notes over the past week. Let me analyze the pattern.
+		Conrad: If I can establish a timeline with frequency analysis...
+		Conrad: I can understand when and how the notes were distributed.
+		[signal arg="start_minigame timeline_notes_pattern_math"]
+	elif {selected_subject} == "science":
+		if {selected_character} == "celestine":
+			Celestine: Six notes distributed over a week - like electrical current flowing through a circuit.
+			Celestine: If I analyze the information flow using circuit principles...
+			Celestine: I can determine the pattern of distribution and resistance points!
+		else:
+			Conrad: Six notes distributed over a week - like electrical current flowing through a circuit.
+			Conrad: If I analyze the information flow using circuit principles...
+			Conrad: I can determine the pattern of distribution and resistance points!
+		[signal arg="start_minigame timeline_notes_distribution_science"]
 	"Diwata Laya": Good. You are ready.
 	[signal arg="laya_end"]
 	leave "Diwata Laya"

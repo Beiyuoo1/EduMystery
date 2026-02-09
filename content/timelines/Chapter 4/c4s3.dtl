@@ -50,7 +50,28 @@ else:
 	"Diwata Laya": [i][color=#9999ff]Knowledge without context is dangerous, Conrad.[/color][/i]
 	"Diwata Laya": [i][color=#9999ff]She learned the methods but not the wisdom behind them.[/color][/i]
 	"Diwata Laya": [i][color=#9999ff]To see clearly, you must understand how pieces connect. Focus your mind.[/color][/i]
-[signal arg="start_minigame pedagogy_methods"]
+if {selected_subject} == "english":
+	[signal arg="start_minigame pedagogy_methods"]
+elif {selected_subject} == "math":
+	if {selected_character} == "celestine":
+		Celestine: Three teaching methods were in that journal. Let me classify them systematically.
+		Celestine: Using set theory and function mapping...
+		Celestine: I can match each method to its proper category.
+	else:
+		Conrad: Three teaching methods were in that journal. Let me classify them systematically.
+		Conrad: Using set theory and function mapping...
+		Conrad: I can match each method to its proper category.
+	[signal arg="start_minigame logic_grid_pedagogy_math"]
+elif {selected_subject} == "science":
+	if {selected_character} == "celestine":
+		Celestine: The journal transferred teaching energy to Alex over 6 hours of reading.
+		Celestine: Then she distributed 6 notes in 48 hours - like power flowing through a system.
+		Celestine: Let me calculate her 'teaching power' using physics principles!
+	else:
+		Conrad: The journal transferred teaching energy to Alex over 6 hours of reading.
+		Conrad: Then she distributed 6 notes in 48 hours - like power flowing through a system.
+		Conrad: Let me calculate her 'teaching power' using physics principles!
+	[signal arg="start_minigame teaching_power_analysis_science"]
 "Diwata Laya": [i][color=#9999ff]Good. Your mind sees the pattern now.[/color][/i]
 "Diwata Laya": [i][color=#9999ff]Look at the archive log more carefully. The timing reveals much.[/color][/i]
 [signal arg="laya_end"]

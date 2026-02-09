@@ -10,7 +10,7 @@ else:
 join Mark (Mark_half) right
 The figure turns slowly.
 It's the Principal.
-join Principal (half) center
+join Principal (Principal_half) center
 But something is different. Their expression is softer, more contemplative.
 if {selected_character} == "celestine":
 	In their hand, they hold Celestine's card.
@@ -132,13 +132,32 @@ else:
 	Conrad stands, pacing thoughtfully.
 	Conrad: So each case... each lesson...
 	Conrad: They were all building toward something. Training me for something.
-join Principal (half) right
+join Principal (Principal_half) right
 Principal: They were. But not for what you might think.
 Principal: Come. There's one more thing you need to understand.
 join "Diwata Laya" (Half_mirror) center
 [signal arg="laya_start"]
 "Diwata Laya": Before the final lesson, prove your readiness once more.
-[signal arg="start_minigame observation_teaching"]
+if {selected_subject} == "english":
+	[signal arg="start_minigame observation_teaching"]
+elif {selected_subject} == "math":
+	if {selected_character} == "celestine":
+		Celestine: B.C.'s teaching philosophy... it's built on three mathematical principles.
+		Celestine: Observation, guidance, and reflection. Each using different reasoning.
+	else:
+		Conrad: B.C.'s teaching philosophy... it's built on three mathematical principles.
+		Conrad: Observation, guidance, and reflection. Each using different reasoning.
+	[signal arg="start_minigame logic_grid_teaching_principles_math"]
+elif {selected_subject} == "science":
+	if {selected_character} == "celestine":
+		Celestine: B.C.'s teaching philosophy... it's like how light behaves!
+		Celestine: Observation is absorption, guidance is refraction, reflection is... reflection.
+		Celestine: Each principle mirrors a different light phenomenon!
+	else:
+		Conrad: B.C.'s teaching philosophy... it's like how light behaves!
+		Conrad: Observation is absorption, guidance is refraction, reflection is... reflection.
+		Conrad: Each principle mirrors a different light phenomenon!
+	[signal arg="start_minigame logic_grid_teaching_principles_science"]
 "Diwata Laya": Good. Your journey nears completion.
 [signal arg="laya_end"]
 leave "Diwata Laya"

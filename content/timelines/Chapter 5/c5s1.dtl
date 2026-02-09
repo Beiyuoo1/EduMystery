@@ -121,7 +121,26 @@ else:
 join "Diwata Laya" (Half) center
 [signal arg="laya_start"]
 "Diwata Laya": This final case requires all your skills. Prepare yourself.
-[signal arg="start_minigame dialogue_choice_bc_approach"]
+if {selected_subject} == "english":
+	[signal arg="start_minigame dialogue_choice_bc_approach"]
+elif {selected_subject} == "math":
+	if {selected_character} == "celestine":
+		Celestine: Four lessons. Four mathematical concepts. Each building on the last.
+		Celestine: Let me reconstruct the entire journey from beginning to end.
+	else:
+		Conrad: Four lessons. Four mathematical concepts. Each building on the last.
+		Conrad: Let me reconstruct the entire journey from beginning to end.
+	[signal arg="start_minigame timeline_lessons_synthesis_math"]
+elif {selected_subject} == "science":
+	if {selected_character} == "celestine":
+		Celestine: Four lessons. Four waves of knowledge. Each building on the last.
+		Celestine: Like wave interference - when perfectly timed, they create wisdom!
+		Celestine: Let me analyze how these lessons combined constructively.
+	else:
+		Conrad: Four lessons. Four waves of knowledge. Each building on the last.
+		Conrad: Like wave interference - when perfectly timed, they create wisdom!
+		Conrad: Let me analyze how these lessons combined constructively.
+	[signal arg="start_minigame timeline_lessons_synthesis_science"]
 "Diwata Laya": You are ready to face the truth.
 [signal arg="laya_end"]
 leave "Diwata Laya"

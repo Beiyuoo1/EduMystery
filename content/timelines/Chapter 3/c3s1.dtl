@@ -1,11 +1,15 @@
+[signal arg="c3s1_entered"]
+[signal arg="debug_character_check"]
 [background arg="res://Bg/courtyard.png" fade="1.0"]
 Art Week. The courtyard buzzes with excitement as students gather around colorful displays.
 Paintings line the walls. Sculptures stand on pedestals. The air smells of fresh paint and possibility.
+[wait time="0.1"]
+[signal arg="debug_before_conditional"]
 if {selected_character} == "celestine":
 	join Celestine (half) left
 	join Mark (Mark_half) right
 	Mark: Man, after the exam sabotage and the missing fund... it's nice to have something normal for once.
-	Celestine: "Normal" is relative. But yes, this is refreshing.
+	Celestine: "Normal" is relative. But yes, this is refreshing...
 	Mark: Two cases solved. You're getting quite the reputation, you know.
 	Celestine: I'm just following the evidence. Anyone could do it.
 	Mark: Not anyone has a mysterious spirit guide helping them.
@@ -21,7 +25,7 @@ else:
 	join Conrad (half) left
 	join Mark (Mark_half) right
 	Mark: Man, after the exam sabotage and the missing fund... it's nice to have something normal for once.
-	Conrad: "Normal" is relative. But yes, this is refreshing.
+	Conrad: "Normal" is relative. But yes, this is refreshing...
 	Mark: Two cases solved. You're getting quite the reputation, you know.
 	Conrad: I'm just following the evidence. Anyone could do it.
 	Mark: Not anyone has a mysterious spirit guide helping them.
@@ -33,8 +37,8 @@ else:
 	Conrad: "The Reader"? I've heard it's the centerpiece of the exhibit.
 	Mark: Let's check it out. Everyone's been talking about it.
 	Conrad: Lead the way.
-leave Celestine [if {selected_character} == "celestine"]
-leave Conrad [if {selected_character} == "conrad"]
+leave Celestine
+leave Conrad
 leave Mark
 [background arg="res://Bg/courtyard.png" fade="0.5"]
 They walk toward the center of the courtyard.
@@ -52,10 +56,12 @@ if {selected_character} == "celestine":
 	leave Celestine
 	leave Mark
 	[wait time="0.5"]
-	join Celestine (half) left
+	[background arg="res://Bg/broken_sculpture.png" fade="0.0"]
 	The sculpture lies shattered on the ground.
 	Clay fragments spread across the stone tiles. What was once art is now debris.
 	The pedestal stands empty, its plaque a bitter reminder of what was.
+	[background arg="res://Bg/courtyard.png" fade="0.0"]
+	join Celestine (half) left
 	join Mia (half) right
 	Mia kneels among the pieces, her hands hovering over the fragments as if afraid to touch them.
 	Tears stream silently down her face.
@@ -91,7 +97,23 @@ if {selected_character} == "celestine":
 	Celestine: That's right. And whoever did this made a mistake.
 	Celestine: They left evidence. Evidence always tells a story.
 	Celestine crouches near the debris, examining the scene with practiced eyes.
-	[signal arg="start_minigame dialogue_choice_cruel_note"]
+	if {selected_subject} == "english":
+		[signal arg="start_minigame dialogue_choice_cruel_note"]
+	elif {selected_subject} == "math":
+		Celestine: Let me analyze the evidence pattern systematically.
+		Celestine: Three types of evidence: the note, the cloth, and the timing.
+		Celestine: Each tells us something different about the culprit.
+		[signal arg="start_minigame logic_grid_evidence_math"]
+	elif {selected_subject} == "science":
+		if {selected_character} == "celestine":
+			Celestine: The vandalism involved different types of work and energy.
+			Celestine: Pushing the sculpture, spray painting, running away...
+			Celestine: I can analyze each action using physics principles!
+		else:
+			Conrad: The vandalism involved different types of work and energy.
+			Conrad: Pushing the sculpture, spray painting, running away...
+			Conrad: I can analyze each action using physics principles!
+		[signal arg="start_minigame logic_grid_evidence_science"]
 	Celestine: They left evidence.
 	Celestine: The note itself is a clue. Handwritten. Emotional. Personal.
 	Celestine: The sculpture was pushed, not kicked. Someone got close to it.
@@ -158,7 +180,23 @@ else:
 	Conrad: That's right. And whoever did this made a mistake.
 	Conrad: They left evidence. Evidence always tells a story.
 	Conrad crouches near the debris, examining the scene with practiced eyes.
-	[signal arg="start_minigame dialogue_choice_cruel_note"]
+	if {selected_subject} == "english":
+		[signal arg="start_minigame dialogue_choice_cruel_note"]
+	elif {selected_subject} == "math":
+		Conrad: Let me analyze the evidence pattern systematically.
+		Conrad: Three types of evidence: the note, the cloth, and the timing.
+		Conrad: Each tells us something different about the culprit.
+		[signal arg="start_minigame logic_grid_evidence_math"]
+	elif {selected_subject} == "science":
+		if {selected_character} == "celestine":
+			Celestine: The vandalism involved different types of work and energy.
+			Celestine: Pushing the sculpture, spray painting, running away...
+			Celestine: I can analyze each action using physics principles!
+		else:
+			Conrad: The vandalism involved different types of work and energy.
+			Conrad: Pushing the sculpture, spray painting, running away...
+			Conrad: I can analyze each action using physics principles!
+		[signal arg="start_minigame logic_grid_evidence_science"]
 	Conrad: They left evidence.
 	Conrad: The note itself is a clue. Handwritten. Emotional. Personal.
 	Conrad: The sculpture was pushed, not kicked. Someone got close to it.

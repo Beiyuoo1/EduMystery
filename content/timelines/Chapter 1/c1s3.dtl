@@ -4,7 +4,7 @@ if {selected_character} == "celestine":
 	[background arg="res://Bg/faculty_few.png" fade="1.5"]
 	Celestine enters the school faculty room. She sees that some teachers and student are doing schoolwork.
 	She sees the Principal and approaches him.
-	join Principal right [animation="Instant In" length="0.0"]
+	join Principal (Principal_half) right [animation="Instant In" length="0.0"]
 	join Celestine (half) left [animation="Slide From Left"]
 	Celestine: Excuse me Principal Alan, do you have time to talk sir?
 	Principal: Classes are over, you should head home as soon as possible to stay out of trouble. However, students do have a right to ask their principal for advice.
@@ -59,9 +59,15 @@ if {selected_character} == "celestine":
 	if {selected_subject} == "english":
 		[signal arg="start_minigame wifi_router"]
 	elif {selected_subject} == "math":
-		[signal arg="start_minigame curriculum:maze"]
+		Celestine: Two devices connected to the WiFi - at 8:00 PM and 9:00 PM.
+		Celestine: If I use logical deduction to match devices to suspects...
+		Celestine: I can systematically eliminate possibilities and identify who was here!
+		[signal arg="start_minigame logic_grid_wifi_math"]
 	elif {selected_subject} == "science":
-		[signal arg="start_minigame curriculum:pacman"]
+		Celestine: Two WiFi connections logged - different times and signal strengths.
+		Celestine: Using physics principles, I can analyze signal propagation patterns...
+		Celestine: Signal strength follows the inverse square law - closer devices = stronger signals!
+		[signal arg="start_minigame logic_grid_wifi_science"]
 	[background arg="res://Bg/faculty_few.png" fade="0.0"]
 	join Celestine (half) left
 	Celestine: Sir, does this room have a dedicated Wi-Fi router?
@@ -187,9 +193,15 @@ else:
 	if {selected_subject} == "english":
 		[signal arg="start_minigame wifi_router"]
 	elif {selected_subject} == "math":
-		[signal arg="start_minigame curriculum:maze"]
+		Conrad: Two devices connected to the WiFi - at 8:00 PM and 9:00 PM.
+		Conrad: If I use logical deduction to match devices to suspects...
+		Conrad: I can systematically eliminate possibilities and identify who was here!
+		[signal arg="start_minigame logic_grid_wifi_math"]
 	elif {selected_subject} == "science":
-		[signal arg="start_minigame curriculum:pacman"]
+		Conrad: Two WiFi connections logged - different times and signal strengths.
+		Conrad: Using physics principles, I can analyze signal propagation patterns...
+		Conrad: Signal strength follows the inverse square law - closer devices = stronger signals!
+		[signal arg="start_minigame logic_grid_wifi_science"]
 	[background arg="res://Bg/faculty_few.png" fade="0.0"]
 	join Conrad (half) left
 	Conrad: Sir, does this room have a dedicated Wi-Fi router?

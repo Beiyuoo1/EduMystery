@@ -119,7 +119,26 @@ if {selected_character} == "celestine":
 else:
 	"Conrad (Thinking)": Another test?
 "Diwata Laya": [i][color=#9999ff]Consider it... sharpening your tools.[/color][/i]
-[signal arg="start_minigame receipt_riddle"]
+if {selected_subject} == "english":
+	[signal arg="start_minigame receipt_riddle"]
+elif {selected_subject} == "math":
+	if {selected_character} == "celestine":
+		Celestine: The receipt shows a time and location. I need to reconstruct the timeline.
+		Celestine: If I can calculate when Victor was where, I can verify his alibi.
+	else:
+		Conrad: The receipt shows a time and location. I need to reconstruct the timeline.
+		Conrad: If I can calculate when Victor was where, I can verify his alibi.
+	[signal arg="start_minigame timeline_receipt_analysis_math"]
+elif {selected_subject} == "science":
+	if {selected_character} == "celestine":
+		Celestine: Victor's actions involved energy transformations at every step.
+		Celestine: Chemical energy, kinetic energy, work against gravity...
+		Celestine: I can reconstruct the sequence using energy conservation principles!
+	else:
+		Conrad: Victor's actions involved energy transformations at every step.
+		Conrad: Chemical energy, kinetic energy, work against gravity...
+		Conrad: I can reconstruct the sequence using energy conservation principles!
+	[signal arg="start_minigame timeline_receipt_analysis_science"]
 "Diwata Laya": [i][color=#9999ff]Good. Your mind is clear now.[/color][/i]
 "Diwata Laya": [i][color=#9999ff]Consider this\: the cloth you found at the scene. Look more closely.[/color][/i]
 [signal arg="laya_end"]

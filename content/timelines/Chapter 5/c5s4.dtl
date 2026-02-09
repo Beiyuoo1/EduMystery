@@ -3,7 +3,7 @@ if {selected_character} == "celestine":
 	Principal B.C. stands at the center of the stage, Celestine and Mark seated before them.
 else:
 	Principal B.C. stands at the center of the stage, Conrad and Mark seated before them.
-join Principal (half) center
+join Principal (Principal_half) center
 if {selected_character} == "celestine":
 	join Celestine (animated) left
 else:

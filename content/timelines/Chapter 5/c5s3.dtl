@@ -3,7 +3,7 @@ if {selected_character} == "celestine":
 	Principal B.C. stands near the arrangement Celestine created, examining each symbolic representation.
 else:
 	Principal B.C. stands near the arrangement Conrad created, examining each symbolic representation.
-join Principal (half) center
+join Principal (Principal_half) center
 if {selected_character} == "celestine":
 	join Celestine (animated) left
 else:
@@ -116,7 +116,23 @@ if {selected_character} == "celestine":
 	Celestine nods solemnly.
 	Celestine: I am.
 	Principal: Then let's review what you've learned. To see it clearly, you must reflect deeply.
-	[signal arg="start_minigame curriculum:fillinblank"]
+	if {selected_subject} == "english":
+		[signal arg="start_minigame curriculum:fillinblank"]
+	elif {selected_subject} == "math":
+		Celestine: Four lessons. Four mathematical concepts. Truth, Responsibility, Creativity, Wisdom.
+		Celestine: Each lesson taught me both morality and mathematical reasoning.
+		Celestine: Let me see the complete pattern one final time.
+		[signal arg="start_minigame logic_grid_four_lessons_math"]
+	elif {selected_subject} == "science":
+		if {selected_character} == "celestine":
+			Celestine: Four lessons. Four energy transformations.
+			Celestine: Truth revealed potential energy, Responsibility burned like fire...
+			Celestine: Creativity illuminated, and Wisdom bound everything together!
+		else:
+			Conrad: Four lessons. Four energy transformations.
+			Conrad: Truth revealed potential energy, Responsibility burned like fire...
+			Conrad: Creativity illuminated, and Wisdom bound everything together!
+		[signal arg="start_minigame logic_grid_four_lessons_science"]
 	Principal: Good. Your mind sees the connections now.
 	Principal: Each lesson built on the last. Truth, Responsibility, Creativity, Wisdom.
 	Principal: But they all serve one greater principle.
@@ -136,7 +152,23 @@ else:
 	Conrad nods solemnly.
 	Conrad: I am.
 	Principal: Then let's review what you've learned. To see it clearly, you must reflect deeply.
-	[signal arg="start_minigame curriculum:fillinblank"]
+	if {selected_subject} == "english":
+		[signal arg="start_minigame curriculum:fillinblank"]
+	elif {selected_subject} == "math":
+		Conrad: Four lessons. Four mathematical concepts. Truth, Responsibility, Creativity, Wisdom.
+		Conrad: Each lesson taught me both morality and mathematical reasoning.
+		Conrad: Let me see the complete pattern one final time.
+		[signal arg="start_minigame logic_grid_four_lessons_math"]
+	elif {selected_subject} == "science":
+		if {selected_character} == "celestine":
+			Celestine: Four lessons. Four energy transformations.
+			Celestine: Truth revealed potential energy, Responsibility burned like fire...
+			Celestine: Creativity illuminated, and Wisdom bound everything together!
+		else:
+			Conrad: Four lessons. Four energy transformations.
+			Conrad: Truth revealed potential energy, Responsibility burned like fire...
+			Conrad: Creativity illuminated, and Wisdom bound everything together!
+		[signal arg="start_minigame logic_grid_four_lessons_science"]
 	Principal: Good. Your mind sees the connections now.
 	Principal: Each lesson built on the last. Truth, Responsibility, Creativity, Wisdom.
 	Principal: But they all serve one greater principle.

@@ -1,7 +1,7 @@
 [background arg="res://Bg/principal_office.png" fade="1.0"]
 Alex stands before the Principal's desk, the leather-bound journal in her hands.
 join Alex (half) center
-join Principal (half) right
+join Principal (Principal_half) right
 if {selected_character} == "celestine":
 	join Celestine (animated) left
 	join Mark (Mark_half) leftmost

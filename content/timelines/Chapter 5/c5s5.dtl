@@ -33,7 +33,7 @@ if {selected_character} == "celestine":
 	Celestine: He does. Should I talk to him?
 	Mark: That's your call. You're the guide now, remember?
 	Celestine considers, then approaches gently.
-	join Ben (half) center
+	join Ben (animated) center
 	Celestine: Hey, Ben. You okay?
 	Ben looks up, surprised but relieved.
 	Ben: Celestine. Actually... I've been struggling with something.
@@ -62,7 +62,7 @@ else:
 	Conrad: He does. Should I talk to him?
 	Mark: That's your call. You're the guide now, remember?
 	Conrad considers, then approaches gently.
-	join Ben (half) center
+	join Ben (animated) center
 	Conrad: Hey, Ben. You okay?
 	Ben looks up, surprised but relieved.
 	Ben: Conrad. Actually... I've been struggling with something.

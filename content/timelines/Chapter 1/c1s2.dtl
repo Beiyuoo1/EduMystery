@@ -17,13 +17,22 @@ if {selected_character} == "celestine":
 	her chest tightening with every step. When she reached the door, she froze.
 	join Celestine (half) left
 	Celestine: (Okay, Celestine, get it together)
-	Celestine: What is the right way to ask this? How do I approach him without sounding guilty?
 	if {selected_subject} == "english":
+		Celestine: What is the right way to ask this? How do I approach him without sounding guilty?
+		Celestine: I need to use proper communication strategies to get the information I need.
 		[signal arg="start_minigame dialogue_choice_janitor"]
 	elif {selected_subject} == "math":
-		[signal arg="start_minigame curriculum:pacman"]
+		Celestine: The janitor mentioned he mopped the hallway at 3:00 PM yesterday.
+		Celestine: But wait... I see fresh footprints leading to the faculty room.
+		Celestine: The floor dries completely in 45 minutes according to the janitor.
+		Celestine: If I can reconstruct the timeline of events mathematically...
+		Celestine: I can calculate exactly when someone entered the faculty room!
+		[signal arg="start_minigame timeline_footprints_math"]
 	elif {selected_subject} == "science":
-		[signal arg="start_minigame curriculum:runner"]
+		Celestine: The janitor said he mopped at 3:00 PM. The floor dries in 45 minutes in this humidity.
+		Celestine: These footprints still have slight moisture. If I apply physics principles...
+		Celestine: I can calculate the evaporation rate and determine when they were made!
+		[signal arg="start_minigame evaporation_analysis_science"]
 	[background arg="res://Bg/storage_room.png" fade="0.0"]
 	Celestine enters the Storage Room.
 	join Celestine (half) left [animation="Slide From Left" length="3.6"]
@@ -78,13 +87,22 @@ else:
 	his chest tightening with every step. When he reached the door, he froze.
 	join Conrad (half) left
 	Conrad: (Okay, Conrad, get it together)
-	Conrad: What is the right way to ask this? How do I approach him without sounding guilty?
 	if {selected_subject} == "english":
+		Conrad: What is the right way to ask this? How do I approach him without sounding guilty?
+		Conrad: I need to use proper communication strategies to get the information I need.
 		[signal arg="start_minigame dialogue_choice_janitor"]
 	elif {selected_subject} == "math":
-		[signal arg="start_minigame curriculum:pacman"]
+		Conrad: The janitor mentioned he mopped the hallway at 3:00 PM yesterday.
+		Conrad: But wait... I see fresh footprints leading to the faculty room.
+		Conrad: The floor dries completely in 45 minutes according to the janitor.
+		Conrad: If I can reconstruct the timeline of events mathematically...
+		Conrad: I can calculate exactly when someone entered the faculty room!
+		[signal arg="start_minigame timeline_footprints_math"]
 	elif {selected_subject} == "science":
-		[signal arg="start_minigame curriculum:runner"]
+		Conrad: The janitor said he mopped at 3:00 PM. The floor dries in 45 minutes in this humidity.
+		Conrad: These footprints still have slight moisture. If I apply physics principles...
+		Conrad: I can calculate the evaporation rate and determine when they were made!
+		[signal arg="start_minigame evaporation_analysis_science"]
 	[background arg="res://Bg/storage_room.png" fade="0.0"]
 	Conrad enters the Storage Room.
 	join Conrad (half) left [animation="Slide From Left" length="3.6"]

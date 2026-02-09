@@ -57,9 +57,23 @@ else:
 if {selected_subject} == "english":
 	[signal arg="start_minigame bracelet_riddle"]
 elif {selected_subject} == "math":
-	[signal arg="start_minigame curriculum:pacman"]
+	if {selected_character} == "celestine":
+		Celestine: This bracelet carries strong emotions... let me focus my mind.
+		Celestine: I'll use logical deduction to understand its significance.
+	else:
+		Conrad: This bracelet carries strong emotions... let me focus my mind.
+		Conrad: I'll use logical deduction to understand its significance.
+	[signal arg="start_minigame logic_grid_alibi_math"]
 elif {selected_subject} == "science":
-	[signal arg="start_minigame curriculum:runner"]
+	if {selected_character} == "celestine":
+		Celestine: Greg's alibi needs verification. Let me analyze the motion physics.
+		Celestine: Using kinematics - distance, velocity, time - I can calculate when he arrived home.
+		Celestine: If his timeline doesn't match the WiFi data... his alibi fails!
+	else:
+		Conrad: Greg's alibi needs verification. Let me analyze the motion physics.
+		Conrad: Using kinematics - distance, velocity, time - I can calculate when he arrived home.
+		Conrad: If his timeline doesn't match the WiFi data... his alibi fails!
+	[signal arg="start_minigame timeline_alibi_science"]
 "Diwata Laya": [i][color=#9999ff]Good. Your focus has cleared the path. Now I can see...[/color][/i]
 "Diwata Laya": [i][color=#9999ff]This bracelet carries immense grief. It belonged to someone who has passed - a grandmother, I think. The owner treasures it above all else.[/color][/i]
 "Diwata Laya": [i][color=#9999ff]Whoever owns this would confess to anything to get it back. Use that.[/color][/i]
@@ -79,7 +93,7 @@ else:
 	leave --All--
 	[background arg="res://Bg/hallway.png" fade="1.0"]
 	Conrad and Mark track down the students from the WiFi logs.
-join Ben (Ben_half) right
+join characters/Ben (Ben_half) right
 if {selected_character} == "celestine":
 	join Celestine (half) left
 	Celestine: Ben, we need to ask you something. Your phone connected to the Faculty WiFi at 8\:00 PM yesterday evening. Can you explain why?
@@ -90,53 +104,69 @@ if {selected_character} == "celestine":
 	"Diwata Laya": [i][color=#9999ff](Whispering) He speaks the truth. His flow is calm.[/color][/i]
 	[signal arg="laya_end"]
 	Celestine: Thanks for clearing that up, Ben. You can go.
-	leave Ben
+	leave characters/Ben
 	join Mark (Mark_half) right
 	Mark: Okay, that leaves Greg. And 9\:00 PM is way more suspicious.
 	Celestine: Let's find him. And I have something that might help us get the truth.
 else:
 	join Conrad (half) left
 	Conrad: Ben, we need to ask you something. Your phone connected to the Faculty WiFi at 8\:00 PM yesterday evening. Can you explain why?
-	Ben: Oh, that? I went back after the library closed. I'd left my lucky pen in the faculty room earlier when I was asking Ms. Cruz about the homework.
+	characters/Ben (Ben_half): Oh, that? I went back after the library closed. I'd left my lucky pen in the faculty room earlier when I was asking Ms. Cruz about the homework.
 	Ben: Mr. Santos was still working late. He let me in to grab it, then I left right after.
 	join "Diwata Laya" (Half_mirror) rightmost
 	[signal arg="laya_start"]
 	"Diwata Laya": [i][color=#9999ff](Whispering) He speaks the truth. His flow is calm.[/color][/i]
 	[signal arg="laya_end"]
 	Conrad: Thanks for clearing that up, Ben. You can go.
-	leave Ben
+	leave characters/Ben
 	join Mark (Mark_half) right
 	Mark: Okay, that leaves Greg. And 9\:00 PM is way more suspicious.
 	Conrad: Let's find him. And I have something that might help us get the truth.
 leave --All--
 [background arg="res://Bg/hallway.png" fade="1.0"]
-join Greg (Greg_half) right
+join characters/Greg (Greg_half) right
 if {selected_character} == "celestine":
 	join Celestine (half) left
 	Celestine: Greg, we need to ask you something. Were you inside the faculty room yesterday evening?
-	Greg: What? No! I went straight home after class. I wasn't anywhere near there!
+	characters/Greg (Greg_half): What? No! I went straight home after class. I wasn't anywhere near there!
+	if {selected_subject} == "math":
+		Celestine: Straight home? Let me verify that mathematically.
+		Celestine: School ends at 5\:00 PM. Your house is 2.5 kilometers away.
+		Celestine: If you walk at a normal speed of 5 km/h... when would you have arrived?
+		[signal arg="start_minigame timeline_analysis_greg_math"]
+		Celestine: The math shows you'd arrive home at 5\:30 PM.
+		Celestine: But your phone connected to the WiFi at 9\:00 PM - hours later.
+		Celestine: So you weren't home. You came back to school.
 	join "Diwata Laya" (Half_mirror) rightmost
 	[signal arg="laya_start"]
 	"Diwata Laya": [i][color=#9999ff](Whispering) Deceit clouds his words. He is lying.[/color][/i]
 	[signal arg="laya_end"]
 	join Mark (Mark_half_mirror) leftmost
 	Celestine: Greg, your phone connected to the Faculty WiFi at exactly 9\:00 PM last night. The faculty room was supposed to be empty by then.
-	Greg: That doesn't mean anything! Maybe my phone just auto-connected while I was passing by!
+	characters/Greg (Greg_half): That doesn't mean anything! Maybe my phone just auto-connected while I was passing by!
 	Mark: The Faculty WiFi signal doesn't reach the hallway. Your phone would only connect if you were right outside the door... or inside.
 else:
 	join Conrad (half) left
 	Conrad: Greg, we need to ask you something. Were you inside the faculty room yesterday evening?
-	Greg: What? No! I went straight home after class. I wasn't anywhere near there!
+	characters/Greg (Greg_half): What? No! I went straight home after class. I wasn't anywhere near there!
+	if {selected_subject} == "math":
+		Conrad: Straight home? Let me verify that mathematically.
+		Conrad: School ends at 5\:00 PM. Your house is 2.5 kilometers away.
+		Conrad: If you walk at a normal speed of 5 km/h... when would you have arrived?
+		[signal arg="start_minigame timeline_analysis_greg_math"]
+		Conrad: The math shows you'd arrive home at 5\:30 PM.
+		Conrad: But your phone connected to the WiFi at 9\:00 PM - hours later.
+		Conrad: So you weren't home. You came back to school.
 	join "Diwata Laya" (Half_mirror) rightmost
 	[signal arg="laya_start"]
 	"Diwata Laya": [i][color=#9999ff](Whispering) Deceit clouds his words. He is lying.[/color][/i]
 	[signal arg="laya_end"]
 	join Mark (Mark_half_mirror) leftmost
 	Conrad: Greg, your phone connected to the Faculty WiFi at exactly 9\:00 PM last night. The faculty room was supposed to be empty by then.
-	Greg: That doesn't mean anything! Maybe my phone just auto-connected while I was passing by!
+	characters/Greg (Greg_half): That doesn't mean anything! Maybe my phone just auto-connected while I was passing by!
 	Mark: The Faculty WiFi signal doesn't reach the hallway. Your phone would only connect if you were right outside the door... or inside.
 label Choice_3
-Greg: You still can't prove I did anything wrong!
+characters/Greg (Greg_half): You still can't prove I did anything wrong!
 [signal arg="minigame_evidence_choice"]
 label Correct_3
 if {selected_character} == "celestine":
@@ -148,10 +178,10 @@ if {selected_character} == "celestine":
 	[background arg="res://Bg/hallway.png" fade="1.0"]
 	join Celestine left
 	join Mark right
-	join Greg center
+	join characters/Greg (Greg_half) center
 	join "Diwata Laya" rightmost
 	Celestine: It was on the floor, partially hidden under the desk. It must have fallen off during the sabotage.
-	Greg (Greg_sad_half): (Eyes widen) That's... that could belong to anyone!
+	characters/Greg (Greg_sad_half): (Eyes widen) That's... that could belong to anyone!
 	Celestine: It has very specific beads - blue, red, and white, with a tiny silver cross. Pretty distinctive.
 else:
 	Conrad: You're right. The WiFi log alone isn't definitive proof. But I found something else.
@@ -162,10 +192,10 @@ else:
 	[background arg="res://Bg/hallway.png" fade="1.0"]
 	join Conrad left
 	join Mark right
-	join Greg center
+	join characters/Greg (Greg_half) center
 	join "Diwata Laya" rightmost
 	Conrad: It was on the floor, partially hidden under the desk. It must have fallen off during the sabotage.
-	Greg (Greg_sad_half): (Eyes widen) That's... that could belong to anyone!
+	characters/Greg (Greg_sad_half): (Eyes widen) That's... that could belong to anyone!
 	Conrad: It has very specific beads - blue, red, and white, with a tiny silver cross. Pretty distinctive.
 [signal arg="laya_start"]
 "Diwata Laya": [i][color=#9999ff](Whispering) His heart... the emotional surge is unmistakable. This is his. The grief and longing are overwhelming him.[/color][/i]
@@ -178,13 +208,13 @@ if {selected_character} == "celestine":
 	"Celestine (Thinking)": Got it.
 	[signal arg="laya_end"]
 	Celestine: You know, I'm planning to show this bracelet around school. Ask if anyone recognizes it. Something this special... someone must be missing it.
-	Greg: (Visibly shaken) I...
+	characters/Greg (Greg_sad_half): (Visibly shaken) I...
 	Celestine: Unless... you know who it belongs to?
-	Greg: Wait! Don't... don't show that to anyone else.
+	characters/Greg (Greg_sad_half): Wait! Don't... don't show that to anyone else.
 	Celestine: Why not? If it's not yours—
-	Greg: It's mine! Okay? It's mine!
-	Greg: My grandmother gave it to me before she passed away. It's the only thing I have left from her.
-	Greg: Please, I'll tell you everything. Just... just give it back to me. Please.
+	characters/Greg (Greg_sad_half): It's mine! Okay? It's mine!
+	characters/Greg (Greg_sad_half): My grandmother gave it to me before she passed away. It's the only thing I have left from her.
+	characters/Greg (Greg_sad_half): Please, I'll tell you everything. Just... just give it back to me. Please.
 	Mark whispers to Celestine
 	Mark: How did you know?
 	Celestine looks at Diwata Laya
@@ -198,13 +228,13 @@ else:
 	"Conrad (Thinking)": Got it.
 	[signal arg="laya_end"]
 	Conrad: You know, I'm planning to show this bracelet around school. Ask if anyone recognizes it. Something this special... someone must be missing it.
-	Greg: (Visibly shaken) I...
+	characters/Greg (Greg_sad_full): (Visibly shaken) I...
 	Conrad: Unless... you know who it belongs to?
-	Greg: Wait! Don't... don't show that to anyone else.
+	characters/Greg (Greg_sad_half): Wait! Don't... don't show that to anyone else.
 	Conrad: Why not? If it's not yours—
-	Greg: It's mine! Okay? It's mine!
-	Greg: My grandmother gave it to me before she passed away. It's the only thing I have left from her.
-	Greg: Please, I'll tell you everything. Just... just give it back to me. Please.
+	characters/Greg (Greg_sad_half): It's mine! Okay? It's mine!
+	characters/Greg (Greg_sad_half): My grandmother gave it to me before she passed away. It's the only thing I have left from her.
+	characters/Greg (Greg_sad_half): Please, I'll tell you everything. Just... just give it back to me. Please.
 	Mark whispers to Conrad
 	Mark: How did you know?
 	Conrad looks at Diwata Laya
@@ -215,43 +245,43 @@ if {selected_character} == "celestine":
 else:
 	Mark notices that Conrad suddenly looking at a part of the room that has nothing near it.
 	Conrad: Now, Greg. Tell us the truth. How did you get into the faculty room?
-Greg: I didn't steal the key. I swear I didn't.
-Greg: I was panicking about the exam. I studied the wrong chapters and I knew I was going to fail.
-Greg: Then yesterday, I found an envelope in my locker. It had a key inside and a note that just said "For your problem."
-Mark: Someone just gave you a key? And you didn't question it?
-Greg: I know it sounds crazy! But I was desperate. I thought... I thought if I could just delay the exam, I'd have time to study properly.
-Greg: I went to the faculty room at 9\:00 PM. I used the key, got inside, and... I cut the AC tube to make it leak.
-Greg: The bracelet must have fallen off when I was reaching up to the unit. I didn't even notice it was gone until now.
+characters/Greg (Greg_sad_half): I didn't steal the key. I swear I didn't.
+characters/Greg (Greg_sad_half): I was panicking about the exam. I studied the wrong chapters and I knew I was going to fail.
+characters/Greg (Greg_sad_half): Then yesterday, I found an envelope in my locker. It had a key inside and a note that just said "For your problem."
+characters/Greg (Greg_sad_half): Someone just gave you a key? And you didn't question it?
+characters/Greg (Greg_sad_half): I know it sounds crazy! But I was desperate. I thought... I thought if I could just delay the exam, I'd have time to study properly.
+characters/Greg (Greg_sad_half): I went to the faculty room at 9\:00 PM. I used the key, got inside, and... I cut the AC tube to make it leak.
+characters/Greg (Greg_sad_half): The bracelet must have fallen off when I was reaching up to the unit. I didn't even notice it was gone until now.
 if {selected_character} == "celestine":
 	Celestine: Do you still have the envelope?
-	Greg: Yes, here.
+	characters/Greg (Greg_sad_half): Yes, here.
 	[signal]
 	Celestine examines the envelope. There is no name, but a small symbol is stamped on the inside flap\: a pixelated spider.
 else:
 	Conrad: Do you still have the envelope?
-	Greg: Yes, here.
+	characters/Greg (Greg_sad_half): Yes, here.
 	[signal]
 	Conrad examines the envelope. There is no name, but a small symbol is stamped on the inside flap\: a pixelated spider.
 join Principal (Principa_half_mirror) leftmost
 Principal: I believe I've heard enough.
-Greg: Principal Alan! I'm so sorry, I—
+characters/Greg (Greg_sad_half): Principal Alan! I'm so sorry, I—
 Principal: I am deeply disappointed, Greg. But we need to discuss this "mysterious person" who gave you the key. This is clearly more complex than simple academic pressure.
 "Principal Alan": Come to my office. We'll need to contact your parents and discuss consequences.
 if {selected_character} == "celestine":
 	Greg pleads to Celestine
-	Greg: My bracelet... please...
+	characters/Greg (Greg_sad_half): My bracelet... please...
 	Celestine hands the bracelet back to Greg gently.
 	Celestine: Here. I understand what it means to you.
 	Greg clutches the bracelet tightly
-	Greg: Thank you... I'm sorry for everything.
+	characters/Greg (Greg_sad_half): Thank you... I'm sorry for everything.
 	Principal: Celestine, Mark. You have shown great responsibility and intellect. The school thanks you both.
 else:
 	Greg pleads to Conrad
-	Greg: My bracelet... please...
+	characters/Greg (Greg_sad_half): My bracelet... please...
 	Conrad hands the bracelet back to Greg gently.
 	Conrad: Here. I understand what it means to you.
 	Greg clutches the bracelet tightly
-	Greg: Thank you... I'm sorry for everything.
+	characters/Greg (Greg_sad_half): Thank you... I'm sorry for everything.
 	Principal: Conrad, Mark. You have shown great responsibility and intellect. The school thanks you both.
 leave --All--
 [background arg="res://Bg/door.png" fade="0.0"]

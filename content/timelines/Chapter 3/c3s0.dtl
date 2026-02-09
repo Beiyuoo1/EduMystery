@@ -1,4 +1,7 @@
 [signal arg="show_title_card 3"]
+# Initialize selected_character from PlayerStats if not already set
+# Don't reset it to "" as that would overwrite the value set by debug skip
+[signal arg="init_character_var"]
 [background arg="res://Bg/art_room.png" fade="2.0"]
 set {chapter3_score} = 0
 The evening before Art Week...
@@ -64,9 +67,11 @@ Mystery: Forgive me.
 Then - a push.
 [wait time="0.5"]
 leave Mystery
+[background arg="res://Bg/broken_sculpture_night.png" fade="0.0"]
 The crash echoes through the empty courtyard.
 Clay and plaster scatter across the ground. The Reader lies in pieces.
 [wait time="1.0"]
+[background arg="res://Bg/courtyard_night.png" fade="0.0"]
 join Mystery center
 The Mysterious Character stumbles backward, staring at what he's done.
 Mystery: What... what have I done?
@@ -81,4 +86,5 @@ The broken sculpture lies alone, waiting to be discovered.
 [background arg="res://Bg/hallway.png" fade="2.0"]
 [wait time="1.0"]
 The next morning...
+[signal arg="about_to_jump_to_c3s1"]
 jump c3s1/

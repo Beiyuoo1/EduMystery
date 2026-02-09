@@ -1,4 +1,7 @@
 [signal arg="show_title_card 2"]
+# Initialize variable (will be overwritten by init_character_var signal)
+set {selected_character} = ""
+[signal arg="init_character_var"]
 [background arg="res://Bg/council_room.png" fade="2.0"]
 set {chapter2_score} = 0
 A few days before the incident...

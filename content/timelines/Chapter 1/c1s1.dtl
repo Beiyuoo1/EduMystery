@@ -1,5 +1,6 @@
 [signal arg="show_title_card 1"]
-set {selected_character} = "conrad"
+# Initialize variable (will be overwritten by init_character_var signal)
+set {selected_character} = ""
 [signal arg="init_character_var"]
 set {c1s1_principal_tried} = false
 [background arg="res://Bg/faculty_exam.png" fade="1.0"]

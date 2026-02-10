@@ -7,15 +7,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 EduMys is an educational mystery visual novel built in Godot 4.5. The player solves detective cases through dialogue choices and minigames while leveling up to unlock abilities.
 
 **Current Status:**
-- **Chapter 1:** Complete with 7 evidence items (bracelet, WiFi logs, spider envelope, etc.) - **Multi-subject support** (Math, Science, English) - **Celestine variant complete** - **Detective Analysis minigames integrated** (proof-of-concept for capstone)
-- **Chapter 2:** Complete with 2 evidence items (lockbox, threatening note) - **Celestine variant complete**
-- **Chapter 3:** Complete with 4 evidence items (cruel note, paint cloth, Victor's sketchbook, receipt) - **Celestine variant complete**
-- **Chapter 4:** Complete with 1+ evidence items (anonymous note, etc.) - **Celestine variant complete**
-- **Chapter 5:** Complete - B.C. revelation chapter - **Celestine variant complete** (both protagonists can experience the climax)
+- **Chapter 1:** Complete with 7 evidence items (bracelet, WiFi logs, spider envelope, etc.) - **Multi-subject support** (Math, Science, English) - **Celestine variant complete** - **Detective Analysis minigames integrated** - **Physics Q1 minigames complete**
+- **Chapter 2:** Complete with 2 evidence items (lockbox, threatening note) - **Celestine variant complete** - **Physics Q1 minigames complete**
+- **Chapter 3:** Complete with 4 evidence items (cruel note, paint cloth, Victor's sketchbook, receipt) - **Celestine variant complete** - **Physics Q2 minigames complete**
+- **Chapter 4:** Complete with 1+ evidence items (anonymous note, etc.) - **Celestine variant complete** - **Physics Q3 minigames complete**
+- **Chapter 5:** Complete - B.C. revelation chapter - **Celestine variant complete** (both protagonists can experience the climax) - **Physics Q4 minigames complete**
 - **Dual Protagonist System:** Players can choose between Conrad (male) or Celestine (female) at game start
   - **100% feature parity** - ALL chapters (1-5) fully support both protagonists
   - Character selection screen: `scenes/ui/character_selection.tscn`
-- **Multi-Subject Curriculum System** - Math, Science, and English tracks with subject-specific minigames
+- **Multi-Subject Curriculum System** - **100% COMPLETE** - Math, Science (Physics), and English tracks with subject-specific minigames
+  - **23 total story-integrated minigames** (10 Detective Analysis + 13 Physics minigames across all chapters)
+  - All chapters fully support Math, Science, and English paths with context-appropriate minigames
 - Voice recognition minigames using Vosk (dialogue choice system)
 - Save/load system with 10 manual slots, 3 auto-save slots, and quick save
 - **Animated character portraits** - Conrad, Celestine, Mark, Janitor Fred, Principal Alan, and Alex have mouth animation when speaking
@@ -36,6 +38,11 @@ Open the project in Godot 4.5 and press F5, or run from command line:
 # Windows (adjust path to your Godot installation)
 "C:/Program Files/Godot/Godot.exe" --path .
 ```
+
+**Main Menu:**
+- Custom background image: `Bg/main_menu_bg.png`
+- Title displayed without background box (uses Control node instead of PanelContainer)
+- Scene: `scenes/ui/main_menu.tscn`
 
 ### Debug Chapter Skip
 
@@ -84,6 +91,7 @@ The game uses custom dialogue box and namebox textures from `assets/VisualNovelD
 - Configured in: `addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_layer.tscn`
 - StyleBox: `assets/VisualNovelDialogueGUI_PNG/textbox_dark_yellow_style.tres`
 - Texture margins: 40px on all sides to preserve corner decorations
+- **Font size:** 40px (configured in `vn_textbox_layer.gd` with `text_use_global_size = false`)
 
 **Character-Specific Nameboxes:**
 Each character has a unique namebox color that appears when they speak:
@@ -446,7 +454,9 @@ elif {selected_subject} == "science":
     [signal arg="start_minigame evaporation_analysis_science"]
 ```
 
-**Available Minigames (10 total - 5 Math + 5 Science):**
+**Available Minigames (23 total - 10 Detective Analysis + 13 Story-Integrated Science):**
+
+**Detective Analysis (Math & Science) - 10 minigames:**
 
 **Chapter 1:**
 - `timeline_analysis_greg_math` - Speed-Distance-Time calculation to verify alibi
@@ -467,6 +477,31 @@ elif {selected_subject} == "science":
 **Chapter 5:**
 - `pattern_recognition_math` - Arithmetic sequences and sum formulas for B.C.'s pattern
 - `light_analysis_science` - Light dispersion and wavelengths for B.C.'s prism metaphor
+
+**Story-Integrated Science Minigames (Physics Q1-Q4) - 13 minigames:**
+
+**Chapter 1 (Physics Q1: Motion & Forces):**
+- `timeline_footprints_science` (Timeline Reconstruction) - Newton's Laws of Motion and acceleration
+- `logic_grid_wifi_science` (Logic Grid) - Velocity and displacement calculations
+
+**Chapter 2 (Physics Q1: Motion & Forces):**
+- `timeline_investigation_science` (Timeline Reconstruction) - Force vectors and free-body diagrams
+- `logic_grid_funds_science` (Logic Grid) - Impulse-momentum theorem (F·Δt = Δp)
+
+**Chapter 3 (Physics Q2: Work, Energy, Power):**
+- `timeline_vandalism_science` (Timeline Reconstruction) - Work formula (W = F·d·cos θ)
+- `logic_grid_alibis_science` (Logic Grid) - Kinetic energy and energy conservation
+
+**Chapter 4 (Physics Q3: Electricity & Magnetism):**
+- `timeline_notes_distribution_science` (Timeline Reconstruction) - Electric current and charge flow (I = ΔQ/Δt)
+- `logic_grid_pedagogy_science` (Logic Grid) - Ohm's Law and circuit analysis (V = IR)
+
+**Chapter 5 (Physics Q4: Waves, Light, Modern Physics):**
+- `timeline_bc_pattern_science` (Timeline Reconstruction) - Wave equation and frequency (v = fλ)
+- `logic_grid_bc_identity_science` (Logic Grid) - Wave interference and reflection patterns
+- `teaching_power_analysis_science` (Detective Analysis) - Power analysis using P = W/t formula
+- `evaporation_timeline_science` (Timeline Reconstruction) - Phase transitions and molecular kinetics
+- `wavelength_pattern_science` (Logic Grid) - Wavelength calculations and electromagnetic spectrum
 
 **Technical Details:**
 - Script: `minigames/DetectiveAnalysis/scenes/Main.gd`

@@ -153,7 +153,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_btn_normal")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_btn_normal")
 theme_override_styles/hover = SubResource("StyleBoxTexture_btn_hover")
 theme_override_styles/focus = SubResource("StyleBoxTexture_btn_normal")
-text = "NEW GAME"
+text = "NEW  test"
 
 [node name="ContinueButton" type="Button" parent="LeftPanel/MenuButtons"]
 custom_minimum_size = Vector2(380, 120)

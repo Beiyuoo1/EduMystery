@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bibon0ns4bbwj"
+path="res://.godot/imported/The hallway buses.mp3-a193571fbb27fbf25a823b7da957f88c.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/c2s1 mathilda HALLWAY/The hallway buses.mp3"
+dest_files=["res://.godot/imported/The hallway buses.mp3-a193571fbb27fbf25a823b7da957f88c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

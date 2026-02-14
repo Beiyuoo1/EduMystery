@@ -352,12 +352,11 @@ func _handle_chapter_results():
 	print("DEBUG: Reviewer dismissed!")
 	canvas_layer2.queue_free()
 
-	# STEP 3: Show "The End" screen only for Chapter 5
+	# STEP 3: Show "The chain continues." screen only for Chapter 5, then go to main menu
 	if chapter_num == 5:
 		print("DEBUG: Chapter 5 complete - showing The End screen...")
-		var the_end_script = load("res://scenes/ui/the_end_screen.gd")
-		var the_end_screen = Control.new()
-		the_end_screen.set_script(the_end_script)
+		var the_end_scene = load("res://scenes/ui/the_end_screen.tscn")
+		var the_end_screen = the_end_scene.instantiate()
 
 		var canvas_layer3 = CanvasLayer.new()
 		canvas_layer3.layer = 200
@@ -366,13 +365,13 @@ func _handle_chapter_results():
 
 		the_end_screen.show_the_end()
 
-		# Wait for user to dismiss The End screen
+		# Wait for signal - the_end_screen itself calls change_scene_to_file
 		print("DEBUG: Waiting for The End screen to be dismissed...")
 		await the_end_screen.the_end_dismissed
-		print("DEBUG: The End screen dismissed!")
-		canvas_layer3.queue_free()
+		print("DEBUG: The End screen dismissed - main menu transition in progress")
+		return
 
-	# Resume dialogic
+	# Resume dialogic (for chapters 1-4)
 	print("DEBUG: Resuming Dialogic...")
 	if is_instance_valid(Dialogic) and Dialogic.current_timeline != null:
 		Dialogic.paused = false

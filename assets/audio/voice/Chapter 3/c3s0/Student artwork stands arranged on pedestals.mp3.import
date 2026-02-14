@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cb361cxw84xuw"
+path="res://.godot/imported/Student artwork stands arranged on pedestals.mp3-0bb73ed6fba0f48064e3a74f8cb6845b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s0/Student artwork stands arranged on pedestals.mp3"
+dest_files=["res://.godot/imported/Student artwork stands arranged on pedestals.mp3-0bb73ed6fba0f48064e3a74f8cb6845b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

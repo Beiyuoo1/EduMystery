@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhsr57pipe5rt"
+path="res://.godot/imported/c4s4 the library reading room.mp3-300f57f36cde2d3de2bb4278efc2baf7.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/c4S4/c4s4 the library reading room.mp3"
+dest_files=["res://.godot/imported/c4s4 the library reading room.mp3-300f57f36cde2d3de2bb4278efc2baf7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

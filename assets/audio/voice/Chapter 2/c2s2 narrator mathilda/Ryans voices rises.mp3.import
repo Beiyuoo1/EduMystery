@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2mw7s43hqx02"
+path="res://.godot/imported/Ryans voices rises.mp3-fd5de9b9d7ff417ee74e2f74d2dfc51a.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Ryans voices rises.mp3"
+dest_files=["res://.godot/imported/Ryans voices rises.mp3-fd5de9b9d7ff417ee74e2f74d2dfc51a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

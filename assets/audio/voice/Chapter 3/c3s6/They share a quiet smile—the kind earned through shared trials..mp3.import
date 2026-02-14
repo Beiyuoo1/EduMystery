@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://wmn4mhi0dorp"
+path="res://.godot/imported/They share a quiet smile—the kind earned through shared trials..mp3-ad289aebea6c23ac6bb397040da34ef2.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s6/They share a quiet smile—the kind earned through shared trials..mp3"
+dest_files=["res://.godot/imported/They share a quiet smile—the kind earned through shared trials..mp3-ad289aebea6c23ac6bb397040da34ef2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

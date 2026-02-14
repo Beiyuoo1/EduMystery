@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwxyyk7hfeqb2"
+path="res://.godot/imported/Conrad reads the card aloud..mp3-cd92e582a2122241001b285798e683d7.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/c2s6 mathilda/Conrad reads the card aloud..mp3"
+dest_files=["res://.godot/imported/Conrad reads the card aloud..mp3-cd92e582a2122241001b285798e683d7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

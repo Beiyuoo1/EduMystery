@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://jyv03c0qhpqk"
+path="res://.godot/imported/A tear slides down.mp3-17350549341a4ebde3b24c55d79f034b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s0/A tear slides down.mp3"
+dest_files=["res://.godot/imported/A tear slides down.mp3-17350549341a4ebde3b24c55d79f034b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

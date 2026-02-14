@@ -29,8 +29,8 @@ enum AnimationsNewText {NONE, WIGGLE}
 
 @export_subgroup("Alignment & Size")
 @export var text_alignment: Alignments= Alignments.LEFT
-@export var text_use_global_size: bool = true
-@export var text_size: int = 15
+@export var text_use_global_size: bool = false
+@export var text_size: int = 40
 
 @export_subgroup("Color")
 @export var text_use_global_color: bool = true

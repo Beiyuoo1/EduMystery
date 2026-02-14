@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://m06d10v8s4lx"
+path="res://.godot/imported/Conrad shows a photo.mp3-75a332026a271b1caf0ab2f061047b07.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 1/c1s5/Conrad shows a photo.mp3"
+dest_files=["res://.godot/imported/Conrad shows a photo.mp3-75a332026a271b1caf0ab2f061047b07.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

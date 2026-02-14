@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://7lji1tnkj2t0"
+path="res://.godot/imported/Conrad looks at the collaborative sculpture, then back at the card..mp3-9f7a3bdc55d682e3c5e534319e167d44.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s6/Conrad looks at the collaborative sculpture, then back at the card..mp3"
+dest_files=["res://.godot/imported/Conrad looks at the collaborative sculpture, then back at the card..mp3-9f7a3bdc55d682e3c5e534319e167d44.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

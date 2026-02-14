@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bi3myx2erghrx"
+path="res://.godot/imported/greg pleads.mp3-a50e7c82cb5a46231f3c821fac225d90.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 1/c1s5/greg pleads.mp3"
+dest_files=["res://.godot/imported/greg pleads.mp3-a50e7c82cb5a46231f3c821fac225d90.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,27 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://1iibj03nb2fm"]
+[gd_scene load_steps=10 format=3 uid="uid://1iibj03nb2fm"]
 
 [ext_resource type="Script" uid="uid://8q2rvtkyyes0" path="res://scripts/main_menu.gd" id="1_menu"]
 [ext_resource type="Theme" uid="uid://lbkbgl5rfv1g" path="res://resources/ui/game_theme.tres" id="2_theme"]
 [ext_resource type="AudioStream" uid="uid://80a0sq1eo3ie" path="res://Bg/main menu bg music.mp3" id="3_1g8jr"]
+[ext_resource type="Texture2D" uid="uid://1kpocyw4yl2h" path="res://Bg/edumystery_main_menu_background.png" id="4_bgimg"]
+[ext_resource type="Texture2D" uid="uid://sad0buo2op3p" path="res://Bg/edumystery_title.png" id="5_title"]
+[ext_resource type="Texture2D" uid="uid://c23tgli8nwful" path="res://assets/button/button1.png" id="6_btn"]
+[ext_resource type="Texture2D" uid="uid://dtoxgxe0kvjbi" path="res://assets/button/button1_hover.png" id="7_btnhover"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_title_panel"]
-bg_color = Color(0.08, 0.06, 0.12, 0.85)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.55, 0.45, 0.75, 0.6)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_color = Color(0.55, 0.4, 0.8, 0.15)
-shadow_size = 20
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_btn_normal"]
+texture = ExtResource("6_btn")
+texture_margin_left = 16.0
+texture_margin_top = 10.0
+texture_margin_right = 16.0
+texture_margin_bottom = 10.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_accent_line"]
-content_margin_top = 2.0
-content_margin_bottom = 2.0
-bg_color = Color(0.55, 0.45, 0.75, 0.8)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_btn_hover"]
+texture = ExtResource("7_btnhover")
+texture_margin_left = 16.0
+texture_margin_top = 10.0
+texture_margin_right = 16.0
+texture_margin_bottom = 10.0
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -33,128 +32,164 @@ grow_vertical = 2
 theme = ExtResource("2_theme")
 script = ExtResource("1_menu")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.08, 0.06, 0.12, 1)
+texture = ExtResource("4_bgimg")
+expand_mode = 1
+stretch_mode = 6
 
-[node name="GradientTop" type="ColorRect" parent="."]
+[node name="ParticleLayer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="FloatingParticles" type="CPUParticles2D" parent="ParticleLayer"]
+position = Vector2(960, -20)
+amount = 50
+lifetime = 18.0
+preprocess = 3.0
+randomness = 0.5
+lifetime_randomness = 0.4
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 20)
+direction = Vector2(0, 1)
+spread = 12.0
+gravity = Vector2(0, 6)
+initial_velocity_min = 8.0
+initial_velocity_max = 20.0
+angular_velocity_min = -25.0
+angular_velocity_max = 25.0
+scale_amount_max = 3.5
+color = Color(0.75, 0.88, 1, 0.35)
+
+[node name="TitleArea" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 300.0
+offset_top = 10.0
+offset_bottom = 480.0
 grow_horizontal = 2
-color = Color(0.15, 0.1, 0.22, 0.5)
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="GradientBottom" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -200.0
-grow_horizontal = 2
-grow_vertical = 0
-color = Color(0.05, 0.03, 0.08, 0.6)
-
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="TitleGlow" type="ColorRect" parent="TitleArea"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+color = Color(0.1, 0.15, 0.35, 0)
 
-[node name="MainPanel" type="PanelContainer" parent="CenterContainer"]
-custom_minimum_size = Vector2(500, 600)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_title_panel")
+[node name="TitleLogo" type="TextureRect" parent="TitleArea"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.455
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -628.0
+offset_top = -447.85
+offset_right = 652.0
+offset_bottom = 331.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_title")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MainPanel"]
-layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 40
+[node name="TitleShimmer" type="ColorRect" parent="TitleArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 2.0
+offset_right = 12.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MainPanel/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
+[node name="LeftPanel" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 520.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="TitleContainer" type="VBoxContainer" parent="CenterContainer/MainPanel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 8
+[node name="MenuButtons" type="VBoxContainer" parent="LeftPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = 20.0
+offset_right = 450.0
+offset_bottom = 300.0
+grow_vertical = 2
+theme_override_constants/separation = 14
 
-[node name="Title" type="Label" parent="CenterContainer/MainPanel/MarginContainer/VBoxContainer/TitleContainer"]
+[node name="NewGameButton" type="Button" parent="LeftPanel/MenuButtons"]
+custom_minimum_size = Vector2(440, 120)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.95, 0.85, 0.65, 1)
-theme_override_colors/font_shadow_color = Color(0.3, 0.2, 0.5, 0.8)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 3
-theme_override_font_sizes/font_size = 64
-text = "EduMystery"
-horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.95, 0.92, 0.8, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.85, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxTexture_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxTexture_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxTexture_btn_normal")
+text = "NEW GAME"
 
-[node name="Subtitle" type="Label" parent="CenterContainer/MainPanel/MarginContainer/VBoxContainer/TitleContainer"]
+[node name="ContinueButton" type="Button" parent="LeftPanel/MenuButtons"]
+custom_minimum_size = Vector2(380, 120)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.75, 0.65, 0.85, 1)
-theme_override_font_sizes/font_size = 20
-text = "An Educational Mystery"
-horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.95, 0.92, 0.8, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.85, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxTexture_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxTexture_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxTexture_btn_normal")
+text = "LOAD GAME"
 
-[node name="AccentLine" type="Panel" parent="CenterContainer/MainPanel/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 4)
+[node name="SettingsButton" type="Button" parent="LeftPanel/MenuButtons"]
+custom_minimum_size = Vector2(380, 120)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_accent_line")
+theme_override_colors/font_color = Color(0.95, 0.92, 0.8, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.85, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxTexture_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxTexture_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxTexture_btn_normal")
+text = "OPTIONS"
 
-[node name="Spacer" type="Control" parent="CenterContainer/MainPanel/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 20)
+[node name="QuitButton" type="Button" parent="LeftPanel/MenuButtons"]
+custom_minimum_size = Vector2(380, 120)
 layout_mode = 2
-
-[node name="MenuButtons" type="VBoxContainer" parent="CenterContainer/MainPanel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 12
-
-[node name="NewGameButton" type="Button" parent="CenterContainer/MainPanel/MarginContainer/VBoxContainer/MenuButtons"]
-custom_minimum_size = Vector2(300, 50)
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "New Game"
-
-[node name="ContinueButton" type="Button" parent="CenterContainer/MainPanel/MarginContainer/VBoxContainer/MenuButtons"]
-custom_minimum_size = Vector2(300, 50)
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Continue"
-
-[node name="SettingsButton" type="Button" parent="CenterContainer/MainPanel/MarginContainer/VBoxContainer/MenuButtons"]
-custom_minimum_size = Vector2(300, 50)
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Settings"
-
-[node name="QuitButton" type="Button" parent="CenterContainer/MainPanel/MarginContainer/VBoxContainer/MenuButtons"]
-custom_minimum_size = Vector2(300, 50)
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Quit"
-
-[node name="Spacer2" type="Control" parent="CenterContainer/MainPanel/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-size_flags_vertical = 10
-
-[node name="Footer" type="Label" parent="CenterContainer/MainPanel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.5, 0.45, 0.6, 0.8)
-theme_override_font_sizes/font_size = 14
-text = "A Visual Novel Detective Game"
-horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.95, 0.92, 0.8, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.85, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxTexture_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxTexture_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxTexture_btn_normal")
+text = "EXIT"
 
 [node name="VersionLabel" type="Label" parent="."]
 layout_mode = 1
@@ -168,7 +203,7 @@ offset_top = -30.0
 offset_right = -10.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_colors/font_color = Color(0.4, 0.35, 0.5, 0.6)
+theme_override_colors/font_color = Color(0.5, 0.65, 0.75, 0.6)
 theme_override_font_sizes/font_size = 12
 text = "v1.0"
 horizontal_alignment = 2

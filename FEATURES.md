@@ -88,9 +88,9 @@
 - ✅ **Configurable** - Easy to add new questions
 - ✅ **Visual Feedback** - Clear success/failure indicators
 
-## 🎙️ Voice Recognition
+## 🎙️ Voice & Audio
 
-### Vosk Integration
+### Voice Recognition (Vosk Integration)
 - ✅ **Large English Model** - 2.7GB high-accuracy model
 - ✅ **Real-Time Transcription** - See what you're saying live
 - ✅ **Silence Detection** - Automatic speech end detection
@@ -103,6 +103,17 @@
 - ✅ **Dialogue Choice** - Speak the correct response
 - ✅ **Pronunciation** - Practice word pronunciation
 - ✅ **TTS Playback** - Hear correct pronunciation
+
+### Voice Narration System
+- ✅ **Full Story Narration** - 583 voice events across all chapters
+- ✅ **Chapter 1** - 69 narration voice files (5 scenes)
+- ✅ **Chapter 2** - 130 narration voice files (7 scenes)
+- ✅ **Chapter 3** - 223 narration voice files (7 scenes)
+- ✅ **Chapter 4** - 55 narration voice files (7 scenes)
+- ✅ **Chapter 5** - 106 narration voice files (6 scenes)
+- ✅ **Dual Protagonist** - Both Conrad and Celestine branches have full voice coverage
+- ✅ **Scene Transitions** - Background descriptions and atmospheric narration
+- ✅ **Auto-Play** - Narration plays automatically as story progresses
 
 ## 💾 Save/Load System
 
@@ -235,5 +246,5 @@
 ---
 
 **Total Features Implemented**: 100+ features across 10 major systems
-**Development Status**: Production-ready for Chapters 1-4, Chapter 5 in progress
-**Last Updated**: 2026-02-05
+**Development Status**: Production-ready - All Chapters 1-5 complete with full voice narration
+**Last Updated**: 2026-02-14

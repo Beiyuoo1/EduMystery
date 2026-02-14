@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://rwmsoxjhhuk6"
+path="res://.godot/imported/Victor stands near the edge of the courtyard, watching students pass by his ignored display..mp3-814cb769ae452a3bf8f98bf5c9318be7.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s4/Victor stands near the edge of the courtyard, watching students pass by his ignored display..mp3"
+dest_files=["res://.godot/imported/Victor stands near the edge of the courtyard, watching students pass by his ignored display..mp3-814cb769ae452a3bf8f98bf5c9318be7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

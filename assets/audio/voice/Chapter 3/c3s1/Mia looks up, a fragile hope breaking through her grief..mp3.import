@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ci2r3k6uvb86n"
+path="res://.godot/imported/Mia looks up, a fragile hope breaking through her grief..mp3-a3efdb903cb4f26d29e8c6e54f329d0d.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s1/Mia looks up, a fragile hope breaking through her grief..mp3"
+dest_files=["res://.godot/imported/Mia looks up, a fragile hope breaking through her grief..mp3-a3efdb903cb4f26d29e8c6e54f329d0d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

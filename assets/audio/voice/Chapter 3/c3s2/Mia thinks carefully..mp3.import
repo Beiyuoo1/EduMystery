@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d1g13vjuk6xjl"
+path="res://.godot/imported/Mia thinks carefully..mp3-1a16c68051c61f55ae8d4652ef9de01e.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s2/Mia thinks carefully..mp3"
+dest_files=["res://.godot/imported/Mia thinks carefully..mp3-1a16c68051c61f55ae8d4652ef9de01e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

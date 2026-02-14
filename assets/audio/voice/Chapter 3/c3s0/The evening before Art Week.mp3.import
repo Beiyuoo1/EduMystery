@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b1v1tdeup23sn"
+path="res://.godot/imported/The evening before Art Week.mp3-052f8179f3c431a8185ef8d864e807d8.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s0/The evening before Art Week.mp3"
+dest_files=["res://.godot/imported/The evening before Art Week.mp3-052f8179f3c431a8185ef8d864e807d8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

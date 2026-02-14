@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnbpkka77i4nc"
+path="res://.godot/imported/She pulls out a thick binder and flips through pages..mp3-ff70d5626c3f17bf80b8b5a04b99f5ab.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s3/She pulls out a thick binder and flips through pages..mp3"
+dest_files=["res://.godot/imported/She pulls out a thick binder and flips through pages..mp3-ff70d5626c3f17bf80b8b5a04b99f5ab.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

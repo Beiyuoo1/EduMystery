@@ -18,19 +18,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.85)
+color = Color(0.05, 0.08, 0.12, 0.95)
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -700.0
-offset_top = -400.0
-offset_right = 700.0
-offset_bottom = 400.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -39,85 +37,154 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -20.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 20
 
-[node name="TitleLabel" type="Label" parent="Panel/VBox"]
+[node name="Header" type="PanelContainer" parent="Panel/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
-theme_override_font_sizes/font_size = 32
-text = "Timeline Reconstruction"
+
+[node name="HeaderVBox" type="VBoxContainer" parent="Panel/VBox/Header"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TitleLabel" type="Label" parent="Panel/VBox/Header/HeaderVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.85, 0.4, 1)
+theme_override_font_sizes/font_size = 38
+text = "⏱ Timeline Reconstruction"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="Panel/VBox/Header/HeaderVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.75, 0.8, 1)
+theme_override_font_sizes/font_size = 18
+text = "Arrange events in chronological order using mathematical reasoning"
 horizontal_alignment = 1
 
 [node name="TopBar" type="HBoxContainer" parent="Panel/VBox"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 15
 
-[node name="TimerLabel" type="Label" parent="Panel/VBox/TopBar"]
+[node name="TimerPanel" type="PanelContainer" parent="Panel/VBox/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 24
-text = "Time: 02:00"
 
-[node name="HintButton" type="Button" parent="Panel/VBox/TopBar"]
+[node name="TimerLabel" type="Label" parent="Panel/VBox/TopBar/TimerPanel"]
 layout_mode = 2
-text = "💡 Hint"
+theme_override_font_sizes/font_size = 26
+text = "⏱ Time: 02:00"
 
-[node name="HintCounter" type="Label" parent="Panel/VBox/TopBar"]
+[node name="HintPanel" type="PanelContainer" parent="Panel/VBox/TopBar"]
+layout_mode = 2
+
+[node name="HintHBox" type="HBoxContainer" parent="Panel/VBox/TopBar/HintPanel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HintButton" type="Button" parent="Panel/VBox/TopBar/HintPanel/HintHBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "💡 Use Hint"
+
+[node name="HintCounter" type="Label" parent="Panel/VBox/TopBar/HintPanel/HintHBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Hints: 3"
 
-[node name="ContextLabel" type="RichTextLabel" parent="Panel/VBox"]
-custom_minimum_size = Vector2(0, 50)
+[node name="ContextPanel" type="PanelContainer" parent="Panel/VBox"]
 layout_mode = 2
+
+[node name="ContextLabel" type="RichTextLabel" parent="Panel/VBox/ContextPanel"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "[Context explaining the puzzle]"
 fit_content = true
 scroll_active = false
 
-[node name="HBox" type="HBoxContainer" parent="Panel/VBox"]
+[node name="Separator1" type="HSeparator" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="MainContent" type="VBoxContainer" parent="Panel/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 20
+theme_override_constants/separation = 50
 
-[node name="EventsPanel" type="PanelContainer" parent="Panel/VBox/HBox"]
+[node name="TimelineContainer" type="VBoxContainer" parent="Panel/VBox/MainContent"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 12
 
-[node name="EventsPool" type="VBoxContainer" parent="Panel/VBox/HBox/EventsPanel"]
+[node name="HeaderPanel" type="PanelContainer" parent="Panel/VBox/MainContent/TimelineContainer"]
 layout_mode = 2
-theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="Panel/VBox/HBox/EventsPanel/EventsPool"]
+[node name="Header" type="HBoxContainer" parent="Panel/VBox/MainContent/TimelineContainer/HeaderPanel"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Events Pool"
-horizontal_alignment = 1
 
-[node name="TimelinePanel" type="PanelContainer" parent="Panel/VBox/HBox"]
+[node name="Label" type="Label" parent="Panel/VBox/MainContent/TimelineContainer/HeaderPanel/Header"]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="TimelineSlots" type="VBoxContainer" parent="Panel/VBox/HBox/TimelinePanel"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="Label" type="Label" parent="Panel/VBox/HBox/TimelinePanel/TimelineSlots"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Timeline (Earliest → Latest)"
+theme_override_colors/font_color = Color(0.4, 0.85, 0.5, 1)
+theme_override_font_sizes/font_size = 28
+text = "TIMELINE"
 horizontal_alignment = 1
+
+[node name="TimelinePanel" type="PanelContainer" parent="Panel/VBox/MainContent/TimelineContainer"]
+layout_mode = 2
+
+[node name="TimelineSlots" type="HBoxContainer" parent="Panel/VBox/MainContent/TimelineContainer/TimelinePanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="EventsContainer" type="VBoxContainer" parent="Panel/VBox/MainContent"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="HeaderPanel" type="PanelContainer" parent="Panel/VBox/MainContent/EventsContainer"]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="Panel/VBox/MainContent/EventsContainer/HeaderPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBox/MainContent/EventsContainer/HeaderPanel/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.6, 0.3, 1)
+theme_override_font_sizes/font_size = 28
+text = "EVENT POOL"
+horizontal_alignment = 1
+
+[node name="EventsPanel" type="PanelContainer" parent="Panel/VBox/MainContent/EventsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EventsPool" type="HBoxContainer" parent="Panel/VBox/MainContent/EventsContainer/EventsPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+alignment = 0
+
+[node name="Separator2" type="HSeparator" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 2
 
 [node name="SubmitButton" type="Button" parent="Panel/VBox"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 55)
 layout_mode = 2
-text = "Submit Timeline"
+theme_override_font_sizes/font_size = 24
+text = "✓ Submit Timeline"
 
 [node name="FeedbackPanel" type="Panel" parent="."]
 visible = false
@@ -127,10 +194,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -250.0
-offset_right = 400.0
-offset_bottom = 250.0
+offset_left = -500.0
+offset_top = -350.0
+offset_right = 500.0
+offset_bottom = 350.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -139,21 +206,42 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -20.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="FeedbackLabel" type="RichTextLabel" parent="FeedbackPanel/VBox"]
+[node name="FeedbackIcon" type="Label" parent="FeedbackPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "✓"
+horizontal_alignment = 1
+
+[node name="FeedbackTitle" type="Label" parent="FeedbackPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "CORRECT!"
+horizontal_alignment = 1
+
+[node name="Separator" type="HSeparator" parent="FeedbackPanel/VBox"]
+layout_mode = 2
+
+[node name="FeedbackScroll" type="ScrollContainer" parent="FeedbackPanel/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="FeedbackLabel" type="RichTextLabel" parent="FeedbackPanel/VBox/FeedbackScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "[center]Feedback goes here[/center]"
 fit_content = true
-scroll_active = true
+scroll_active = false
 
 [node name="ButtonsHBox" type="HBoxContainer" parent="FeedbackPanel/VBox"]
 layout_mode = 2
@@ -162,11 +250,13 @@ alignment = 1
 
 [node name="RetryButton" type="Button" parent="FeedbackPanel/VBox/ButtonsHBox"]
 visible = false
-custom_minimum_size = Vector2(150, 50)
+custom_minimum_size = Vector2(180, 55)
 layout_mode = 2
-text = "Try Again"
+theme_override_font_sizes/font_size = 22
+text = "🔄 Try Again"
 
 [node name="ContinueButton" type="Button" parent="FeedbackPanel/VBox/ButtonsHBox"]
-custom_minimum_size = Vector2(150, 50)
+custom_minimum_size = Vector2(180, 55)
 layout_mode = 2
-text = "Continue"
+theme_override_font_sizes/font_size = 22
+text = "→ Continue"

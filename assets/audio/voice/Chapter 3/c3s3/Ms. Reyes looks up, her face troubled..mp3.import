@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://m4rb5euddufv"
+path="res://.godot/imported/Ms. Reyes looks up, her face troubled..mp3-900f7d159c7fb34e586b0cc45f7a6538.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s3/Ms. Reyes looks up, her face troubled..mp3"
+dest_files=["res://.godot/imported/Ms. Reyes looks up, her face troubled..mp3-900f7d159c7fb34e586b0cc45f7a6538.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

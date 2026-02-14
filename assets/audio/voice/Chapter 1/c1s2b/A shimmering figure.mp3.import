@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c3joy1hutxxqk"
+path="res://.godot/imported/A shimmering figure.mp3-d7e837a90609e01e36ed37c585c60389.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 1/c1s2b/A shimmering figure.mp3"
+dest_files=["res://.godot/imported/A shimmering figure.mp3-d7e837a90609e01e36ed37c585c60389.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

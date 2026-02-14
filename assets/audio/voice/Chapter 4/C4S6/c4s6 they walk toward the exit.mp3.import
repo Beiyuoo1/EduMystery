@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://2dny2wbk7gvc"
+path="res://.godot/imported/c4s6 they walk toward the exit.mp3-4fe325c353df1b059beed456fe1cfeb6.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/C4S6/c4s6 they walk toward the exit.mp3"
+dest_files=["res://.godot/imported/c4s6 they walk toward the exit.mp3-4fe325c353df1b059beed456fe1cfeb6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

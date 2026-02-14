@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dal4ckkyaqv1r"
+path="res://.godot/imported/She’s sitting on a bench, staring at the spot where her sculpture once stood..mp3-5fb2dffc974477e8cb1662c4ad546d47.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s2/She’s sitting on a bench, staring at the spot where her sculpture once stood..mp3"
+dest_files=["res://.godot/imported/She’s sitting on a bench, staring at the spot where her sculpture once stood..mp3-5fb2dffc974477e8cb1662c4ad546d47.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

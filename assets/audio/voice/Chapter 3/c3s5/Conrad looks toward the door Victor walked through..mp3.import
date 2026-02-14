@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c2dc2ndhjur4c"
+path="res://.godot/imported/Conrad looks toward the door Victor walked through..mp3-106c4a6a43d4ad74b011412f546fa40a.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s5/Conrad looks toward the door Victor walked through..mp3"
+dest_files=["res://.godot/imported/Conrad looks toward the door Victor walked through..mp3-106c4a6a43d4ad74b011412f546fa40a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dy132f1mnbt5j"
+path="res://.godot/imported/Conrad reaches.mp3-17d690c770d83cf66a8ec753539ff8d1.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 1/c1s5/Conrad reaches.mp3"
+dest_files=["res://.godot/imported/Conrad reaches.mp3-17d690c770d83cf66a8ec753539ff8d1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://nbnrh8j0vlid"
+path="res://.godot/imported/Conrad pulls out a small bundle of cloth rags, stained with various paint colors..mp3-2914082d3cbfb0699b4483e4da08ccf6.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s3/Conrad pulls out a small bundle of cloth rags, stained with various paint colors..mp3"
+dest_files=["res://.godot/imported/Conrad pulls out a small bundle of cloth rags, stained with various paint colors..mp3-2914082d3cbfb0699b4483e4da08ccf6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

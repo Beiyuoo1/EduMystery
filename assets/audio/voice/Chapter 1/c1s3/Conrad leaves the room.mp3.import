@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cicd7tpiawv3k"
+path="res://.godot/imported/Conrad leaves the room.mp3-039e4f300a2746f1db871e707bc84fe5.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 1/c1s3/Conrad leaves the room.mp3"
+dest_files=["res://.godot/imported/Conrad leaves the room.mp3-039e4f300a2746f1db871e707bc84fe5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

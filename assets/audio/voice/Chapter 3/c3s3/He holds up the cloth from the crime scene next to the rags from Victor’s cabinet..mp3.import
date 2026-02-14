@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bpu5n3bqeywkr"
+path="res://.godot/imported/He holds up the cloth from the crime scene next to the rags from Victor’s cabinet..mp3-2a7da1283513be49d2f91dc4106ac7d5.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s3/He holds up the cloth from the crime scene next to the rags from Victor’s cabinet..mp3"
+dest_files=["res://.godot/imported/He holds up the cloth from the crime scene next to the rags from Victor’s cabinet..mp3-2a7da1283513be49d2f91dc4106ac7d5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

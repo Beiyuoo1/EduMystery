@@ -18,6 +18,10 @@ EduMys is an educational mystery visual novel built in Godot 4.5. The player sol
 - **Multi-Subject Curriculum System** - **100% COMPLETE** - Math, Science (Physics), and English tracks with subject-specific minigames
   - **23 total story-integrated minigames** (10 Detective Analysis + 13 Physics minigames across all chapters)
   - All chapters fully support Math, Science, and English paths with context-appropriate minigames
+- **Voice Narration System** - **100% COMPLETE** - 583 voice events across all 5 chapters
+  - Chapter 1: 69 narration files | Chapter 2: 130 files | Chapter 3: 223 files | Chapter 4: 55 files | Chapter 5: 106 files
+  - Full dual protagonist support (both Conrad and Celestine branches have voice coverage)
+  - Auto-play integration with story progression
 - Voice recognition minigames using Vosk (dialogue choice system)
 - Save/load system with 10 manual slots, 3 auto-save slots, and quick save
 - **Animated character portraits** - Conrad, Celestine, Mark, Janitor Fred, Principal Alan, and Alex have mouth animation when speaking
@@ -605,25 +609,49 @@ elif {selected_subject} == "science":
 - **Engagement**: Students naturally want to solve the puzzle to progress the story
 - **Capstone Defense**: Strong justification - teaches mathematical proof techniques through gameplay
 
-#### Timeline Reconstruction (Causal Reasoning & Sequencing)
+#### Timeline Reconstruction (Causal Reasoning & Sequencing) - **🎨 NEW: Image-Based Horizontal Layout**
 
 Located at `minigames/TimelineReconstruction/scenes/Main.tscn`.
 
-**Purpose:** Students drag-and-drop events into correct chronological order based on time stamps, causality, and evidence. Develops temporal reasoning and cause-effect understanding.
+**Purpose:** Students arrange **visual event cards** into correct chronological order based on time stamps, causality, and evidence. Develops temporal reasoning and cause-effect understanding through an intuitive horizontal timeline interface.
 
-**Features:**
-- Events pool (left side) with shuffled events
-- Timeline slots (right side) for correct sequence
-- Click cards to move between pool and timeline
-- 2:00 timer countdown
-- Hint system places next correct event
+**Modern Features:**
+- **Horizontal layout** - Timeline flows left-to-right (more intuitive than vertical)
+- **Click-based interaction** - Click orange cards to place on timeline, click blue slots to return cards
+- **Smart placement** - Cards automatically go to first empty timeline slot (1 → 2 → 3 → 4 → 5 in order)
+- **Original position return** - Clicking filled slots returns cards to their original shuffled position in pool
+- **Image-based event cards** - 180x220px cards with 164x164px images and text captions below
+- **Timeline in middle** - 5 numbered blue slots (1-5) that receive clicked cards
+- **Event pool at bottom** - Orange shuffled image cards displayed horizontally
+- **Visual feedback** - Cards flash on click, slots highlight when filled, hover effects on both
+- **Protagonist-specific images** - Use `{protagonist}` placeholder for Conrad/Celestine variants
+- 2:00 timer countdown with color warnings
+- Hint system places next correct event with yellow flash animation
 - Speed bonus: Complete within 1 minute = +1 hint reward
-- Visual feedback showing correct sequence with reasoning
 - **F5 to skip** - Press F5 to instantly complete the minigame
+- Modern card styling with gradients, borders, and smooth animations
+
+**Layout Structure:**
+```
+Header: Title + Context
+─────────────────────────
+Timeline Row (Middle):
+  [1] [2] [3] [4] [5]  ← Numbered slots
+─────────────────────────
+Event Pool (Bottom):
+  [IMG] [IMG] [IMG] [IMG] [IMG]  ← Shuffled cards
+  Text  Text  Text  Text  Text
+```
 
 **Chapter 1 Math Integration:**
-- **c1s2 (Footprint Analysis):** `timeline_footprints_math` - Calculate when footprints were made using evaporation rates
+- **c1s2 (Footprint Analysis):** `timeline_footprints_math` - Visual timeline with images of janitor mopping, floor drying, footprints discovered
 - **c1s5 (Greg's Alibi):** `timeline_analysis_greg_math` - Use distance-rate-time formula to expose false alibi
+
+**Image Asset Requirements:**
+- **Format**: PNG images, 164x164px minimum
+- **Location**: `assets/minigame_asset/timeline_analysis/chapter_N_name/`
+- **Protagonist variants**: Use `{protagonist}` in path → replaced with "conrad" or "celestine"
+- **Example**: `footprint_discovered_{protagonist}.png` → `footprint_discovered_conrad.png`
 
 **Usage in Timelines:**
 ```
@@ -639,37 +667,69 @@ elif {selected_subject} == "science":
 **Educational Value:**
 - **Math**: Time intervals, duration calculation, sequence ordering, temporal reasoning, functions
 - **Science**: Cause-and-effect relationships, experimental sequencing, scientific process order
-- **Real-World**: Forensic timeline reconstruction technique
+- **Visual Learning**: Images enhance comprehension and memory retention
+- **Real-World**: Forensic timeline reconstruction technique with visual evidence
 - **Bloom's Taxonomy**: Analysis/Synthesis level (understanding relationships)
 
-**Sample Configurations:**
+**Updated Configuration Format (with images):**
 ```gdscript
-"timeline_theft_math": {
-    "title": "Theft Timeline Analysis",
+"timeline_footprints_math": {
+    "title": "Footprint Timeline Analysis",
+    "context": "Arrange events in chronological order...",
     "events": [
-        {"id": "event1", "text": "Janitor mops floor (3:00 PM)"},
-        {"id": "event2", "text": "AC starts leaking (3:15 PM)"},
-        {"id": "event3", "text": "Wet footprints appear (3:30 PM)"},
-        ...
+        {
+            "id": "event1",
+            "text": "Janitor mops floor\n(3:00 PM)",
+            "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_1_time_analysis/janitor_mopping.png"
+        },
+        {
+            "id": "event5",
+            "text": "Footprints discovered\n(5:30 PM)",
+            "image_path": "res://assets/.../footprint_discovered_{protagonist}.png"  // Protagonist-specific!
+        }
     ],
-    "correct_order": ["event1", "event2", "event3", "event4", "event5"]
+    "correct_order": ["event1", "event2", "event3", "event4", "event5"],
+    "explanation": "[b]Mathematical Reasoning:[/b]\n..."
 }
 ```
 
+**Interaction Flow:**
+1. Event pool shows 5 shuffled orange image cards at bottom
+2. **Click** an orange card in the event pool
+3. Card automatically moves to the **first empty** blue timeline slot (fills 1, then 2, then 3, etc.)
+4. **Click** a filled blue slot to return the card to its **original position** in the event pool
+5. Arrange all cards in chronological order (left to right) by clicking
+6. **Submit** when ready - correct order shows success with explanation
+
+**Controls:**
+- **Click orange cards** → Moves to first empty timeline slot (sequential placement)
+- **Click filled blue slots** → Returns card to original pool position
+- **Hover** → Visual feedback (lighter colors, flash animations)
+- **Hint button** → Places next correct card automatically
+- **F5** → Skip minigame instantly
+
 **Pedagogical Benefits:**
-- **Contextual Learning**: Students see WHY chronological order matters (solves mystery)
-- **Transfer of Knowledge**: Time calculation skills transfer to other math problems
-- **Engagement**: Story context provides intrinsic motivation
-- **Capstone Defense**: Better than generic sequencing - embedded in meaningful narrative
+- **Visual Context**: Images make abstract time concepts concrete
+- **Dual Coding**: Combines visual and textual information for better learning
+- **Engagement**: More interesting than text-only cards
+- **Story Integration**: Images show actual evidence from the mystery
+- **Accessibility**: Visual cues help diverse learners
+- **Capstone Defense**: Strong justification - visual timeline reconstruction mirrors real forensic techniques
 
-**Why These Replace Maze/Pacman:**
-Both new minigames offer superior pedagogical value:
-1. **Story Integration**: Directly help solve mysteries (vs. interrupting gameplay)
-2. **Higher-Order Thinking**: Analysis/Evaluation level (vs. simple recall)
-3. **Authentic Assessment**: Real detective techniques (vs. abstract challenges)
-4. **Subject Integration**: Math/Science naturally embedded (vs. forced question overlays)
+**Why Images Matter:**
+1. **Memory**: Visual information is processed 60,000x faster than text
+2. **Retention**: People remember 80% of what they see vs 20% of what they read
+3. **Engagement**: Visual content increases student interest and motivation
+4. **Real-World**: Actual detective work uses visual timelines with photos/evidence
 
-See [NEW_MINIGAMES_IMPLEMENTATION.md](NEW_MINIGAMES_IMPLEMENTATION.md) for complete implementation guide.
+**Technical Details:**
+- Script: `minigames/TimelineReconstruction/scenes/Main.gd`
+- Images loaded via `load(image_path)` with protagonist replacement
+- Cards are 180x220px PanelContainers (164x164 image + 56px caption)
+- Horizontal HBoxContainers for both timeline and event pool
+- Modern gradient styling with drop shadows and hover effects
+
+See [IMAGE_BASED_TIMELINE.md](minigames/TimelineReconstruction/IMAGE_BASED_TIMELINE.md) for complete documentation and [MODERN_UI_DESIGN.md](minigames/TimelineReconstruction/MODERN_UI_DESIGN.md) for styling details.
 
 #### Vosk Loading Screen
 
@@ -689,6 +749,59 @@ The large Vosk model (2.7GB) is preloaded asynchronously on game startup to avoi
 - Shared Vosk instance used by all voice recognition minigames
 
 To add a new minigame, register it in `MinigameManager.start_minigame()` and create the corresponding handler function.
+
+### Voice Narration System
+
+The game features a complete voice narration system with **583 pre-recorded voice events** across all 5 chapters. These narration files provide atmospheric storytelling and scene descriptions that complement the dialogue.
+
+**System Overview:**
+- **583 total voice events** integrated into timeline (.dtl) files
+- Voice files organized by chapter and scene in `assets/audio/voice/Chapter X/FOLDER/`
+- Narration triggers automatically via `[voice path="..." volume=0 bus="Master"]` events
+- Placed immediately before matching narration-only lines (non-dialogue text)
+
+**Chapter Breakdown:**
+- **Chapter 1**: 69 voice files across 5 scenes (c1s1-c1s5)
+- **Chapter 2**: 130 voice files across 7 scenes (c2s0-c2s6)
+- **Chapter 3**: 223 voice files across 7 scenes (c3s0-c3s6)
+- **Chapter 4**: 55 voice files across 7 scenes (c4s0-c4s6)
+- **Chapter 5**: 106 voice files across 6 scenes (c5s0-c5s5)
+
+**Dual Protagonist Support:**
+- Both Conrad and Celestine story branches have full voice coverage
+- Voice tags placed in both `if {selected_character} == "celestine"` and `else` branches
+- Ensures consistent narration experience regardless of protagonist choice
+
+**Voice Event Format:**
+```dtl
+[voice path="res://assets/audio/voice/Chapter 1/C1S1/c1s1 the hallway.mp3" volume=0 bus="Master"]
+The hallway is quiet, bathed in the soft light of the afternoon sun.
+```
+
+**Technical Details:**
+- Voice files are MP3 format
+- Volume set to 0 (uses default bus volume)
+- Plays on "Master" audio bus
+- Narration text immediately follows voice event
+- Voice files named after partial text of the narration line they accompany
+
+**File Organization:**
+- Base path: `assets/audio/voice/Chapter X/`
+- Folder naming varies (C1S1, c2s0, etc.) - case inconsistent but functional
+- Voice files named descriptively: `c1s1 the hallway.mp3`, `c5s5 the next day.mp3`
+
+**Usage in Timelines:**
+Voice events are placed directly before narration lines:
+```dtl
+[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 the next day.mp3" volume=0 bus="Master"]
+The next day. The school courtyard is busy with students moving between classes.
+```
+
+**Important Notes:**
+- Voice narration is for **scene descriptions only**, NOT character dialogue
+- Character dialogue uses character portraits and text-to-speech or voice recognition systems
+- Voice events auto-play as the story progresses
+- No manual interaction required - fully integrated into narrative flow
 
 ### Multi-Subject Curriculum System
 

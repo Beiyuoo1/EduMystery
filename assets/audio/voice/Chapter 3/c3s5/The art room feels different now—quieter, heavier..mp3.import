@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bbuob3drmirx"
+path="res://.godot/imported/The art room feels different now—quieter, heavier..mp3-a17b5db1a5986f3eaa9a1d1f6c930477.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s5/The art room feels different now—quieter, heavier..mp3"
+dest_files=["res://.godot/imported/The art room feels different now—quieter, heavier..mp3-a17b5db1a5986f3eaa9a1d1f6c930477.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

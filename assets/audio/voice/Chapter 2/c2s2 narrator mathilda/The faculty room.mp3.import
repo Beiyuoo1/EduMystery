@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://osn36crkq7ui"
+path="res://.godot/imported/The faculty room.mp3-7470a10437ba234a5bc90934ebc7f0c8.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/The faculty room.mp3"
+dest_files=["res://.godot/imported/The faculty room.mp3-7470a10437ba234a5bc90934ebc7f0c8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -124,6 +124,24 @@ func configure_puzzle(config: Dictionary):
 	print("DEBUG: Dialogue choice configured - Question: ", question_text)
 	print("DEBUG: Correct answer index: ", correct_answer)
 
+	# Update UI nodes directly if they're already initialized (configure called after _ready)
+	_apply_config_to_ui()
+
+func _apply_config_to_ui():
+	"""Apply configured question and choices to UI nodes (safe to call before or after _ready)"""
+	if not is_inside_tree():
+		return  # Nodes not ready yet, _ready() will handle it
+
+	if question_text != "" and question_label:
+		question_label.text = question_text
+		print("DEBUG: Question label set to: ", question_text)
+
+	if choice_texts.size() > 0:
+		for i in range(min(choice_buttons.size(), choice_texts.size())):
+			if choice_buttons[i]:
+				choice_buttons[i].text = choice_texts[i]
+				print("DEBUG: Button ", i, " text set to: ", choice_texts[i])
+
 func _ready():
 	print("DEBUG: DialogueChoice minigame _ready() called")
 
@@ -139,20 +157,8 @@ func _ready():
 	print("DEBUG: DialogueChoice minigame visible: ", visible)
 	print("DEBUG: DialogueChoice layer: ", layer)
 
-	# Set the question text if configured
-	if question_text != "":
-		if question_label:
-			question_label.text = question_text
-			print("DEBUG: Question label set to: ", question_text)
-		else:
-			push_error("DialogueChoice: question_label is null!")
-
-	# Set up choice buttons with configured text
-	if choice_texts.size() > 0:
-		for i in range(min(choice_buttons.size(), choice_texts.size())):
-			if choice_buttons[i]:
-				choice_buttons[i].text = choice_texts[i]
-				print("DEBUG: Button ", i, " text set to: ", choice_texts[i])
+	# Apply configured text to UI
+	_apply_config_to_ui()
 
 	# Debug button connections
 	for i in range(choice_buttons.size()):

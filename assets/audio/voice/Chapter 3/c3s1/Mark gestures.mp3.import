@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cc3m8pti4qpq"
+path="res://.godot/imported/Mark gestures.mp3-f5afcced5cf34a0f07583f0ad9c912cc.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s1/Mark gestures.mp3"
+dest_files=["res://.godot/imported/Mark gestures.mp3-f5afcced5cf34a0f07583f0ad9c912cc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

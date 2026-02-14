@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cjnuq5snkixsk"
+path="res://.godot/imported/Diwata Laya appears.mp3-f31293408ddaf55d0af44339eacdb132.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/c2s6 mathilda/Diwata Laya appears.mp3"
+dest_files=["res://.godot/imported/Diwata Laya appears.mp3-f31293408ddaf55d0af44339eacdb132.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -31,8 +31,12 @@ func _drop_data(at_position, data):
 		add_child(new_label)
 		new_label.text = data
 		new_label.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-		new_label.align = HORIZONTAL_ALIGNMENT_CENTER
-		new_label.valign = VERTICAL_ALIGNMENT_CENTER
+		new_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		new_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		new_label.add_theme_font_size_override("font_size", 22)
+		new_label.autowrap_mode = TextServer.AUTOWRAP_OFF
+		new_label.clip_text = true
+		new_label.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
 		
 		_handle_successful_drop()
 

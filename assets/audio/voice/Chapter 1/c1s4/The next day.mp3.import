@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dkqrpey5q7awt"
+path="res://.godot/imported/The next day.mp3-405c5d309eeb2a232dfd7a1915a96cbc.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 1/c1s4/The next day.mp3"
+dest_files=["res://.godot/imported/The next day.mp3-405c5d309eeb2a232dfd7a1915a96cbc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

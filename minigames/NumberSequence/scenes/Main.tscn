@@ -1,0 +1,165 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://minigames/NumberSequence/scenes/Main.gd" id="1_script"]
+
+[node name="NumberSequenceMinigame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.06, 0.06, 0.12, 0.97)
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -560.0
+offset_top = -360.0
+offset_right = 560.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="TitleLabel" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size = 36
+text = "Number Sequence Decoder"
+horizontal_alignment = 1
+
+[node name="TopRow" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TimerLabel" type="Label" parent="Panel/VBox/TopRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Time: 01:30"
+
+[node name="HintButton" type="Button" parent="Panel/VBox/TopRow"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "💡 Hint"
+
+[node name="HintCounter" type="Label" parent="Panel/VBox/TopRow"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Hints: 4"
+
+[node name="ContextLabel" type="RichTextLabel" parent="Panel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 60)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Context goes here."
+fit_content = true
+
+[node name="PatternHintLabel" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Pattern hint"
+horizontal_alignment = 1
+visible = false
+
+[node name="SequenceContainer" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 90)
+alignment = 1
+theme_override_constants/separation = 4
+
+[node name="InstructionLabel" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.75, 0.75, 1)
+theme_override_font_sizes/font_size = 18
+text = "Click a blank (?) to select it, then use the number pad below to enter your answer."
+autowrap_mode = 3
+horizontal_alignment = 1
+
+[node name="NumberPad" type="GridContainer" parent="Panel/VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 5
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+
+[node name="ActionRow" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ClearButton" type="Button" parent="Panel/VBox/ActionRow"]
+custom_minimum_size = Vector2(160, 55)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Clear"
+
+[node name="SubmitButton" type="Button" parent="Panel/VBox/ActionRow"]
+custom_minimum_size = Vector2(260, 55)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1, 0.1, 0.1, 1)
+theme_override_font_sizes/font_size = 24
+text = "Submit Answer"
+
+[node name="FeedbackOverlay" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.65)
+
+[node name="FeedbackPanel" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = -200.0
+offset_right = 380.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="FeedbackPanel"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="FeedbackLabel" type="RichTextLabel" parent="FeedbackPanel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 200)
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = ""
+fit_content = false
+
+[node name="ContinueButton" type="Button" parent="FeedbackPanel/VBox"]
+custom_minimum_size = Vector2(200, 55)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "Continue"

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://2727gpa22xbd"
+path="res://.godot/imported/C4S0 a week after.mp3-eb01bbf747b1d00bbda3c5a73e885ef2.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/C4S0/C4S0 a week after.mp3"
+dest_files=["res://.godot/imported/C4S0 a week after.mp3-eb01bbf747b1d00bbda3c5a73e885ef2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

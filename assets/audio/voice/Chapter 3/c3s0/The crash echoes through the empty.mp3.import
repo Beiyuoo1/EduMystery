@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ciotf8nm2eurs"
+path="res://.godot/imported/The crash echoes through the empty.mp3-e1282062819a265f2bd8b01cf4a4a143.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s0/The crash echoes through the empty.mp3"
+dest_files=["res://.godot/imported/The crash echoes through the empty.mp3-e1282062819a265f2bd8b01cf4a4a143.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dsdbpfrupfd21"
+path="res://.godot/imported/Victor collapses onto a nearby bench, his head in his hands..mp3-9ffb9d78a93cc458eade495dca6deccf.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s4/Victor collapses onto a nearby bench, his head in his hands..mp3"
+dest_files=["res://.godot/imported/Victor collapses onto a nearby bench, his head in his hands..mp3-9ffb9d78a93cc458eade495dca6deccf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

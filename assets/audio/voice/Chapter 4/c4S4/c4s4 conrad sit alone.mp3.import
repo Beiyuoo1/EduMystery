@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cy3x75a4syvxh"
+path="res://.godot/imported/c4s4 conrad sit alone.mp3-1e94b22c8edefa251bee300dd548f90d.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/c4S4/c4s4 conrad sit alone.mp3"
+dest_files=["res://.godot/imported/c4s4 conrad sit alone.mp3-1e94b22c8edefa251bee300dd548f90d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

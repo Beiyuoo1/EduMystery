@@ -113,7 +113,7 @@ size_flags_horizontal = 4
 
 [node name="Label" type="Label" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 22
 text = "\"Conrad"
 
 [node name="drop1" type="ColorRect" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer"]
@@ -123,7 +123,7 @@ color = Color(1, 1, 1, 0.33333334)
 
 [node name="Label2" type="Label" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 22
 text = "the enelope closely\""
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer"]

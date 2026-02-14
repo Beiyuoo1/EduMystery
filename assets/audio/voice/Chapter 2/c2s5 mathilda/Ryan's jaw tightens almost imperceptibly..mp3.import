@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c8gapwphilnes"
+path="res://.godot/imported/Ryan's jaw tightens almost imperceptibly..mp3-93d842e44fe2a1a133f9ef3ad0a913c4.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/c2s5 mathilda/Ryan's jaw tightens almost imperceptibly..mp3"
+dest_files=["res://.godot/imported/Ryan's jaw tightens almost imperceptibly..mp3-93d842e44fe2a1a133f9ef3ad0a913c4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

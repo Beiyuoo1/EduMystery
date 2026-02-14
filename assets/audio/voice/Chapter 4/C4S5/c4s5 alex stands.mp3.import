@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bv8najypqff4t"
+path="res://.godot/imported/c4s5 alex stands.mp3-fe2d1fe67034441cf18cd4cb57ede46f.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/C4S5/c4s5 alex stands.mp3"
+dest_files=["res://.godot/imported/c4s5 alex stands.mp3-fe2d1fe67034441cf18cd4cb57ede46f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

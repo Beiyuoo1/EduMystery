@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bv6qnr58plsuq"
+path="res://.godot/imported/Conrad continues through the sketchbook and finds a loose receipt tucked between pages..mp3-3e801a68dfa502c746f8c3efb9ff764f.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s3/Conrad continues through the sketchbook and finds a loose receipt tucked between pages..mp3"
+dest_files=["res://.godot/imported/Conrad continues through the sketchbook and finds a loose receipt tucked between pages..mp3-3e801a68dfa502c746f8c3efb9ff764f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

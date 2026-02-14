@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnjkbx8i6ygux"
+path="res://.godot/imported/c4s5 alex leaves the office.mp3-dadeb5fee2dca1db0a7ccfb534b1ffb0.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/C4S5/c4s5 alex leaves the office.mp3"
+dest_files=["res://.godot/imported/c4s5 alex leaves the office.mp3-dadeb5fee2dca1db0a7ccfb534b1ffb0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cqy8i8ymc6fct"
+path="res://.godot/imported/A plaque beneath it reads.mp3-d92edc1a8f3fd943dd1acb68804b24ae.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s6/A plaque beneath it reads.mp3"
+dest_files=["res://.godot/imported/A plaque beneath it reads.mp3-d92edc1a8f3fd943dd1acb68804b24ae.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

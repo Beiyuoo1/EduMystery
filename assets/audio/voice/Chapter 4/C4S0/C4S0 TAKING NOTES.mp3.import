@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bwrw0cea5y11e"
+path="res://.godot/imported/C4S0 TAKING NOTES.mp3-e3dd75e9c4a71c7f7d00833b910c9bd8.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/C4S0/C4S0 TAKING NOTES.mp3"
+dest_files=["res://.godot/imported/C4S0 TAKING NOTES.mp3-e3dd75e9c4a71c7f7d00833b910c9bd8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

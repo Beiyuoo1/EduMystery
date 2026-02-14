@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dj7url7ghcre0"
+path="res://.godot/imported/Alex scoffs.mp3-6ac78862aab9a0a8691a9168ebfd919b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Alex scoffs.mp3"
+dest_files=["res://.godot/imported/Alex scoffs.mp3-6ac78862aab9a0a8691a9168ebfd919b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

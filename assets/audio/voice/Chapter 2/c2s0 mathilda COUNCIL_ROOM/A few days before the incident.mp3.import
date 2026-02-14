@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ds1q05acnvjix"
+path="res://.godot/imported/A few days before the incident.mp3-cab04ad1a1f49c465e2c799871f4a540.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/c2s0 mathilda COUNCIL_ROOM/A few days before the incident.mp3"
+dest_files=["res://.godot/imported/A few days before the incident.mp3-cab04ad1a1f49c465e2c799871f4a540.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

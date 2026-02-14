@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3gf7xn3mmjed"
+path="res://.godot/imported/His hands tremble as he reaches towar.mp3-f5dcc509e37b5efddd05fb9308b2afbd.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s0/His hands tremble as he reaches towar.mp3"
+dest_files=["res://.godot/imported/His hands tremble as he reaches towar.mp3-f5dcc509e37b5efddd05fb9308b2afbd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

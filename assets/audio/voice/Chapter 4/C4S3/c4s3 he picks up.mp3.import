@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b15l03wrvhug5"
+path="res://.godot/imported/c4s3 he picks up.mp3-64bee95de77039587e64184c82bd68ec.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/C4S3/c4s3 he picks up.mp3"
+dest_files=["res://.godot/imported/c4s3 he picks up.mp3-64bee95de77039587e64184c82bd68ec.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

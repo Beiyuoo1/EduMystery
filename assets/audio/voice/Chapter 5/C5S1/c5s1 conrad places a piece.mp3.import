@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b6gtwnf3uvn7j"
+path="res://.godot/imported/c5s1 conrad places a piece.mp3-263d17398225a83121fbbff5d2739c2d.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/C5S1/c5s1 conrad places a piece.mp3"
+dest_files=["res://.godot/imported/c5s1 conrad places a piece.mp3-263d17398225a83121fbbff5d2739c2d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

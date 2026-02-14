@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cjdjvbvk0uxn3"
+path="res://.godot/imported/Conrad holds up the crumpled.mp3-94e21d8af19933d74256019e039a3e6f.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/c2s5 mathilda/Conrad holds up the crumpled.mp3"
+dest_files=["res://.godot/imported/Conrad holds up the crumpled.mp3-94e21d8af19933d74256019e039a3e6f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -38,23 +38,21 @@ theme_override_colors/font_color = Color(1, 0.95, 0.8, 1)
 theme_override_colors/font_outline_color = Color(0.2, 0.15, 0.1, 1)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 96
-text = "The End"
+text = "The chain continues."
 horizontal_alignment = 1
 
 [node name="SubtitleLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8, 0.85, 1, 1)
 theme_override_font_sizes/font_size = 32
-text = "The Chain Continues"
+text = ""
 horizontal_alignment = 1
 
 [node name="CreditsLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
 theme_override_font_sizes/font_size = 24
-text = "Thank you for playing EduMys
-Conrad's journey may be complete,
-but yours continues..."
+text = ""
 horizontal_alignment = 1
 
 [node name="ContinueHint" type="Label" parent="CenterContainer/VBoxContainer"]

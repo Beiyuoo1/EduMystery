@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://4ey1yfa27rll"
+path="res://.godot/imported/c5s0 the next day.mp3-a73cbee03f89c393111815ce4e262b63.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/C5S0/c5s0 the next day.mp3"
+dest_files=["res://.godot/imported/c5s0 the next day.mp3-a73cbee03f89c393111815ce4e262b63.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

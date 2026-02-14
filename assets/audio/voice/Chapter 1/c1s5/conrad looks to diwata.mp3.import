@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cjpdxaj55srw1"
+path="res://.godot/imported/conrad looks to diwata.mp3-7f4ccd6d3220ce47b8ab963f45f49e0c.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 1/c1s5/conrad looks to diwata.mp3"
+dest_files=["res://.godot/imported/conrad looks to diwata.mp3-7f4ccd6d3220ce47b8ab963f45f49e0c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

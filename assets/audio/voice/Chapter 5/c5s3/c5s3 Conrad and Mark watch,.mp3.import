@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bypv6e4p56gg2"
+path="res://.godot/imported/c5s3 Conrad and Mark watch,.mp3-58f8abad94dc64a532082a16174aa609.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s3/c5s3 Conrad and Mark watch,.mp3"
+dest_files=["res://.godot/imported/c5s3 Conrad and Mark watch,.mp3-58f8abad94dc64a532082a16174aa609.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

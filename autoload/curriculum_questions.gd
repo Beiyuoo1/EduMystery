@@ -1149,10 +1149,13 @@ var questions = {
 				"answers_needed": 3
 			},
 			"fillinblank": {
+				"title": "Communication Model",
+				"subtitle": "Drag the correct word into the blank",
+				"context": "",
 				"sentence_parts": [
-					"The ", " sends the message while the ", " interprets it."
+					"The ", " creates and transmits the message to the receiver."
 				],
-				"answers": ["sender", "receiver"],
+				"answers": ["sender"],
 				"choices": [
 					"sender", "receiver", "message", "channel",
 					"feedback", "noise", "encoder", "decoder"

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bshrnssen5yev"
+path="res://.godot/imported/Ria_s expression.mp3-7bc88e9a41a2fdc6650a21a3a7a78d00.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/c2s0 mathilda COUNCIL_ROOM/Ria_s expression.mp3"
+dest_files=["res://.godot/imported/Ria_s expression.mp3-7bc88e9a41a2fdc6650a21a3a7a78d00.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

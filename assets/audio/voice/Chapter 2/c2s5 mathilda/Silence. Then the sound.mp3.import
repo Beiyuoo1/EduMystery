@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xwc53cn0bpyr"
+path="res://.godot/imported/Silence. Then the sound.mp3-f40c52f9e61cb5fbc4e2e6747f0fe73b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/c2s5 mathilda/Silence. Then the sound.mp3"
+dest_files=["res://.godot/imported/Silence. Then the sound.mp3-f40c52f9e61cb5fbc4e2e6747f0fe73b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

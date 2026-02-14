@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://eiiu2uqn3d8n"
+path="res://.godot/imported/Mark moves past Ryan.mp3-a1a6138dccbe47f3b855e7030557dad0.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/c2s5 mathilda/Mark moves past Ryan.mp3"
+dest_files=["res://.godot/imported/Mark moves past Ryan.mp3-a1a6138dccbe47f3b855e7030557dad0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

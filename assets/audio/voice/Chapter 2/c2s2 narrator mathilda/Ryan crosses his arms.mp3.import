@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c8hq60xgm2syk"
+path="res://.godot/imported/Ryan crosses his arms.mp3-3e07be7832bcf8783353dff036b6012c.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Ryan crosses his arms.mp3"
+dest_files=["res://.godot/imported/Ryan crosses his arms.mp3-3e07be7832bcf8783353dff036b6012c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

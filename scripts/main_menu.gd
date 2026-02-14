@@ -1,10 +1,12 @@
 extends Control
 
-@onready var new_game_button = $CenterContainer/MainPanel/MarginContainer/VBoxContainer/MenuButtons/NewGameButton
-@onready var continue_button = $CenterContainer/MainPanel/MarginContainer/VBoxContainer/MenuButtons/ContinueButton
-@onready var settings_button = $CenterContainer/MainPanel/MarginContainer/VBoxContainer/MenuButtons/SettingsButton
-@onready var quit_button = $CenterContainer/MainPanel/MarginContainer/VBoxContainer/MenuButtons/QuitButton
+@onready var new_game_button = $LeftPanel/MenuButtons/NewGameButton
+@onready var continue_button = $LeftPanel/MenuButtons/ContinueButton
+@onready var settings_button = $LeftPanel/MenuButtons/SettingsButton
+@onready var quit_button = $LeftPanel/MenuButtons/QuitButton
 @onready var background_music = $BackgroundMusic
+@onready var title_logo: TextureRect = $TitleArea/TitleLogo
+@onready var title_shimmer: ColorRect = $TitleArea/TitleShimmer
 
 const SAVE_LOAD_SCREEN = preload("res://scenes/ui/save_load_screen.tscn")
 
@@ -13,10 +15,8 @@ var music_started: bool = false
 func _ready() -> void:
 	# Wait for Vosk to load before starting background music
 	if MinigameManager and not MinigameManager.vosk_is_loaded:
-		# Connect to MinigameManager's process to check when Vosk is loaded
 		set_process(true)
 	else:
-		# Vosk already loaded, start music immediately
 		_start_background_music()
 
 	# Check if any saves exist to enable/disable continue button
@@ -30,6 +30,35 @@ func _ready() -> void:
 	continue_button.pressed.connect(_on_continue_pressed)
 	settings_button.pressed.connect(_on_settings_pressed)
 	quit_button.pressed.connect(_on_quit_pressed)
+
+	# Start title logo effects
+	_start_title_effects()
+
+func _start_title_effects() -> void:
+	# Fade-in on load
+	title_logo.modulate.a = 0.0
+	var fade_in = create_tween()
+	fade_in.tween_property(title_logo, "modulate:a", 1.0, 1.2).set_ease(Tween.EASE_OUT)
+	fade_in.tween_callback(_start_title_pulse)
+
+func _start_title_pulse() -> void:
+	# Continuous gentle pulse (scale breathe)
+	var pulse = create_tween().set_loops()
+	pulse.tween_property(title_logo, "scale", Vector2(1.03, 1.03), 2.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	pulse.tween_property(title_logo, "scale", Vector2(1.0, 1.0), 2.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	title_logo.pivot_offset = title_logo.size / 2.0
+
+	# Repeating shimmer sweep across the title every 4 seconds
+	_run_shimmer_loop()
+
+func _run_shimmer_loop() -> void:
+	# Shimmer: a bright flash that sweeps left→right over the logo
+	title_shimmer.modulate = Color(1, 1, 1, 0)
+	var shimmer = create_tween()
+	shimmer.tween_property(title_shimmer, "modulate:a", 0.18, 0.3).set_ease(Tween.EASE_OUT)
+	shimmer.tween_property(title_shimmer, "modulate:a", 0.0, 0.5).set_ease(Tween.EASE_IN)
+	shimmer.tween_interval(3.5)
+	shimmer.tween_callback(_run_shimmer_loop)
 
 func _input(event: InputEvent) -> void:
 	# Debug: Press Delete key to clear all save data
@@ -65,6 +94,8 @@ func _on_new_game_pressed() -> void:
 
 	# Reset player stats for new game
 	PlayerStats.reset_stats()
+	PlayerStats.logic_grid_tutorial_seen = false
+	PlayerStats.save_stats()
 
 	# Reset evidence for new game
 	EvidenceManager.reset_evidence()

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://colcqtpserrcg"
+path="res://.godot/imported/c5s4 principal BC.mp3-9fc904db580db43e4dbe5ac0a9cd031c.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/C5S4/c5s4 principal BC.mp3"
+dest_files=["res://.godot/imported/c5s4 principal BC.mp3-9fc904db580db43e4dbe5ac0a9cd031c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c6xtpxlnkyhf7"
+path="res://.godot/imported/Victor looks up, surprised..mp3-349e20293a2ffc9eb83b8a96a08c9f54.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s5/Victor looks up, surprised..mp3"
+dest_files=["res://.godot/imported/Victor looks up, surprised..mp3-349e20293a2ffc9eb83b8a96a08c9f54.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

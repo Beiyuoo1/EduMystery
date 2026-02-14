@@ -7,9 +7,10 @@ signal stats_changed(stats)
 var score: int = 0
 var xp: int = 0
 var level: int = 1
-var hints: int = 3  # Starting hints for minigames
+var hints: int = 4  # Starting hints for minigames
 var selected_subject: String = "english"  # Subject choice: "english", "math", "science"
 var selected_character: String = "conrad"  # Character choice: "conrad", "thebe"
+var logic_grid_tutorial_seen: bool = false  # Persisted tutorial flag
 
 # How much XP is needed to reach the next level.
 # This could be a constant, or a value from a curve (e.g., exponential).
@@ -74,7 +75,8 @@ func get_stats() -> Dictionary:
 		"xp_needed": XP_PER_LEVEL,
 		"hints": hints,
 		"selected_subject": selected_subject,
-		"selected_character": selected_character
+		"selected_character": selected_character,
+		"logic_grid_tutorial_seen": logic_grid_tutorial_seen
 	}
 
 
@@ -103,9 +105,10 @@ func load_stats():
 				score = data.get("score", 0)
 				xp = data.get("xp", 0)
 				level = data.get("level", 1)
-				hints = data.get("hints", 10)
+				hints = data.get("hints", 4)
 				selected_subject = data.get("selected_subject", "english")
 				selected_character = data.get("selected_character", "conrad")
+				logic_grid_tutorial_seen = data.get("logic_grid_tutorial_seen", false)
 
 	emit_signal("stats_changed", get_stats())
 
@@ -124,6 +127,6 @@ func reset_stats():
 	score = 0
 	xp = 0
 	level = 1
-	hints = 10
+	hints = 4
 	emit_signal("stats_changed", get_stats())
 	save_stats()

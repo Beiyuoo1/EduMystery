@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://mpmavv2reaqo"
+path="res://.godot/imported/Her fingers.mp3-4cb9d20743cbdcc32bd61fe56605922c.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/c2s0 mathilda COUNCIL_ROOM/Her fingers.mp3"
+dest_files=["res://.godot/imported/Her fingers.mp3-4cb9d20743cbdcc32bd61fe56605922c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

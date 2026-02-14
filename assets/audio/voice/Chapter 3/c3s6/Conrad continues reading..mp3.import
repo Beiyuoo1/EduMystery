@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://js0c1y3qsn8s"
+path="res://.godot/imported/Conrad continues reading..mp3-6fc3b49e7715ded29a6e61be905b60e0.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s6/Conrad continues reading..mp3"
+dest_files=["res://.godot/imported/Conrad continues reading..mp3-6fc3b49e7715ded29a6e61be905b60e0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

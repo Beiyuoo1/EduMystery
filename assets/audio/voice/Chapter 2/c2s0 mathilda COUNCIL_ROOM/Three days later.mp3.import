@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ckx2oj02t88yc"
+path="res://.godot/imported/Three days later.mp3-b1d288deb039adc2e48258311f105fb5.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/c2s0 mathilda COUNCIL_ROOM/Three days later.mp3"
+dest_files=["res://.godot/imported/Three days later.mp3-b1d288deb039adc2e48258311f105fb5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

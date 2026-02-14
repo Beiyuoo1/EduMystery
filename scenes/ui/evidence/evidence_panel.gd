@@ -19,6 +19,7 @@ func _ready():
 
 func show_evidence_panel():
 	visible = true
+	current_page = 0
 	# Get current chapter from Dialogic
 	current_chapter = Dialogic.VAR.current_chapter
 	update_evidence_display()
@@ -30,7 +31,7 @@ func update_evidence_display():
 	# Update title
 	title_label.text = "Clues in Chapter " + str(current_chapter)
 
-	# Get evidence for current chapter
+	# Get all evidence for current chapter
 	evidence_list = EvidenceManager.get_evidence_by_chapter(current_chapter)
 
 	# Calculate page range
@@ -43,25 +44,24 @@ func update_evidence_display():
 
 	for i in range(items_per_page):
 		var evidence_index = start_index + i
+		# ClueImage -> MarginContainer -> ClueFrame(PanelContainer) -> Clue1Container(VBoxContainer)
+		var slot_container = clue_images[i].get_parent().get_parent().get_parent()
 
 		if evidence_index < evidence_list.size():
 			var evidence = evidence_list[evidence_index]
-
-			# Load and set image (or use placeholder if not available)
-			if ResourceLoader.exists(evidence["image_path"]):
-				clue_images[i].texture = load(evidence["image_path"])
+			# Try to load image
+			var img_path = evidence.get("image_path", "")
+			if img_path != "" and ResourceLoader.exists(img_path):
+				clue_images[i].texture = load(img_path)
+				clue_images[i].get_parent().get_parent().visible = true  # Show ClueFrame
 			else:
-				# Use placeholder or set to null
 				clue_images[i].texture = null
-
-			# Set label text
+				clue_images[i].get_parent().get_parent().visible = false  # Hide ClueFrame
 			clue_labels[i].text = evidence["title"]
-
-			# Show the container
-			clue_images[i].get_parent().get_parent().visible = true
+			slot_container.visible = true
 		else:
-			# Hide unused slots
-			clue_images[i].get_parent().get_parent().visible = false
+			# Hide entire slot container
+			slot_container.visible = false
 
 	# Update Next button visibility
 	next_button.visible = (end_index < evidence_list.size())

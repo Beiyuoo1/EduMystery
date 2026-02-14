@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b156cfq0rbj1g"
+path="res://.godot/imported/c5s0 diwata laya materializes.mp3-87821cb1e9b8a9b0ec6e69070ea6f1ea.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/C5S0/c5s0 diwata laya materializes.mp3"
+dest_files=["res://.godot/imported/c5s0 diwata laya materializes.mp3-87821cb1e9b8a9b0ec6e69070ea6f1ea.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

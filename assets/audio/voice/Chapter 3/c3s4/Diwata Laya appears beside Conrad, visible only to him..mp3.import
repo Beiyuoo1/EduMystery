@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://df14l3w6p2ns6"
+path="res://.godot/imported/Diwata Laya appears beside Conrad, visible only to him..mp3-65089f8fc9f221a8a071a1d135d1d2ab.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s4/Diwata Laya appears beside Conrad, visible only to him..mp3"
+dest_files=["res://.godot/imported/Diwata Laya appears beside Conrad, visible only to him..mp3-65089f8fc9f221a8a071a1d135d1d2ab.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

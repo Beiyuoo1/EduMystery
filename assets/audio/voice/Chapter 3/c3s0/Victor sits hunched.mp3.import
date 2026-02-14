@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bggvt1ax7rkh8"
+path="res://.godot/imported/Victor sits hunched.mp3-ac26aa4109508d7374ac0ab33a411d1d.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s0/Victor sits hunched.mp3"
+dest_files=["res://.godot/imported/Victor sits hunched.mp3-ac26aa4109508d7374ac0ab33a411d1d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

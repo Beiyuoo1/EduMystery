@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://0c4f1f2mrfq4"
+path="res://.godot/imported/Mark tries to lighten the mood..mp3-34e943f9f3e5bd73a5157c5c3731d7ca.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/c2s6 mathilda/Mark tries to lighten the mood..mp3"
+dest_files=["res://.godot/imported/Mark tries to lighten the mood..mp3-34e943f9f3e5bd73a5157c5c3731d7ca.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

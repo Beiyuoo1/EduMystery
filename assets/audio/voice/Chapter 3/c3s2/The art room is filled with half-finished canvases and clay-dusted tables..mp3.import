@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ba03gkwscq2dv"
+path="res://.godot/imported/The art room is filled with half-finished canvases and clay-dusted tables..mp3-7b9c1c40b2c02e2c3f747039cd82b824.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s2/The art room is filled with half-finished canvases and clay-dusted tables..mp3"
+dest_files=["res://.godot/imported/The art room is filled with half-finished canvases and clay-dusted tables..mp3-7b9c1c40b2c02e2c3f747039cd82b824.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

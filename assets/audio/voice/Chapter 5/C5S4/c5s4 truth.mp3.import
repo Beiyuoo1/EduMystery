@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dhujn4bs1ufoq"
+path="res://.godot/imported/c5s4 truth.mp3-1ef166a099952de66821ced62530ec62.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/C5S4/c5s4 truth.mp3"
+dest_files=["res://.godot/imported/c5s4 truth.mp3-1ef166a099952de66821ced62530ec62.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

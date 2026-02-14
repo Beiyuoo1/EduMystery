@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://6y0bsyvf4r8a"
+path="res://.godot/imported/Victor’s voice cracks.mp3-ded758ba8dbe459d4a8a012721967034.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s0/Victor’s voice cracks.mp3"
+dest_files=["res://.godot/imported/Victor’s voice cracks.mp3-ded758ba8dbe459d4a8a012721967034.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

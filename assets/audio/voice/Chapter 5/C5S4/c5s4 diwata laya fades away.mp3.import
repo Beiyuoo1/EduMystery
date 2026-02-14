@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b7rubbkmpc5mm"
+path="res://.godot/imported/c5s4 diwata laya fades away.mp3-9e99495ba55bdff7097666b763d40bad.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/C5S4/c5s4 diwata laya fades away.mp3"
+dest_files=["res://.godot/imported/c5s4 diwata laya fades away.mp3-9e99495ba55bdff7097666b763d40bad.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

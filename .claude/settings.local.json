@@ -25,7 +25,15 @@
       "Bash(git credential-manager delete:*)",
       "Bash(GCM_INTERACTIVE=never GIT_ASKPASS=echo git push:*)",
       "Bash(gh:*)",
-      "Bash(GIT_TERMINAL_PROMPT=0 GCM_INTERACTIVE=never GCM_PROVIDER=generic git -c credential.helper= push -u origin feature/science-minigames-all-chapters)"
+      "Bash(GIT_TERMINAL_PROMPT=0 GCM_INTERACTIVE=never GCM_PROVIDER=generic git -c credential.helper= push -u origin feature/science-minigames-all-chapters)",
+      "Bash(dir:*)",
+      "Bash(victor_sketchbook \")",
+      "Bash(cmd.exe:*)",
+      "Bash(powershell.exe:*)",
+      "Bash(xargs:*)",
+      "Bash(powershell:*)",
+      "Bash(git remote remove:*)",
+      "Bash(git remote add:*)"
     ]
   }
 }

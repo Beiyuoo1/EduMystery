@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ra5w17gmlqav"
+path="res://.godot/imported/She looks up, eyes red and hollow..mp3-3eb8c6bf8ac8ed475a083913269dd4c9.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s1/She looks up, eyes red and hollow..mp3"
+dest_files=["res://.godot/imported/She looks up, eyes red and hollow..mp3-3eb8c6bf8ac8ed475a083913269dd4c9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

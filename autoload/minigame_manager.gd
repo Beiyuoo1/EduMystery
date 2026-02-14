@@ -16,6 +16,7 @@ var riddle_scene = preload("res://minigames/Riddle/scenes/Main.tscn")
 var detective_analysis_scene = preload("res://minigames/DetectiveAnalysis/scenes/Main.tscn")
 var logic_grid_scene = preload("res://minigames/LogicGrid/scenes/Main.tscn")
 var timeline_reconstruction_scene = preload("res://minigames/TimelineReconstruction/scenes/Main.tscn")
+var number_sequence_scene = preload("res://minigames/NumberSequence/scenes/Main.tscn")
 var current_minigame = null
 
 # Track if last minigame earned speed bonus (for ChapterStatsTracker)
@@ -1827,7 +1828,7 @@ var riddle_configs = {
 		"letters": ["B", "R", "A", "C", "E", "L", "E", "T", "W", "H", "V", "M", "K", "O", "I", "G"]
 	},
 	"receipt_riddle": {
-		"riddle": "I am the sound of paper in motion, a quick motion of the wrist and hand. As I was ____ the pages, something fell out onto the land.",
+		"riddle": "I am the sound of paper in motion, a quick motion of the wrist and hand. Through pages I go swiftly, making a rustling so grand.",
 		"answer": "FLIPPING",
 		"letters": ["F", "L", "I", "P", "P", "I", "N", "G", "A", "S", "T", "R", "M", "O", "B", "W"]
 	},
@@ -2074,7 +2075,7 @@ var dialogue_choice_configs = {
 		"correct_index": 0  # Choice A
 	},
 	"dialogue_choice_approach_suspect": {
-		"question": "How should Conrad approach Alex, who might be sending the anonymous notes?",
+		"question": "How should you approach Alex, who might be sending the anonymous notes?",
 		"choices": [
 			"We should confront her directly and ask if she's been sending the notes.",
 			"We should observe her behavior carefully before making assumptions about her intentions.",
@@ -2084,7 +2085,7 @@ var dialogue_choice_configs = {
 		"correct_index": 1  # Choice 2 (0-indexed) - Observe carefully before assumptions
 	},
 	"dialogue_choice_bc_approach": {
-		"question": "How should Conrad approach B.C., the mysterious teacher who has been guiding him?",
+		"question": "How should you approach B.C., the mysterious teacher who has been guiding you?",
 		"choices": [
 			"Enter respectfully and thank them for the lessons they have taught through the cards.",
 			"Demand answers about why they manipulated events and left cryptic messages.",
@@ -2136,7 +2137,7 @@ var dialogue_choice_configs = {
 	# MATH VARIANTS - Chapter 4
 	# ====================
 	"dialogue_choice_approach_suspect_math": {
-		"question": "Conrad notices a pattern in when the anonymous notes were delivered. If the angle between the library and the archive on a map is 45 degrees, and Conrad walks along the hypotenuse of this right triangle, which trigonometric ratio should he use to calculate the shortest path?",
+		"question": "You notice a pattern in when the anonymous notes were delivered. If the angle between the library and the archive on a map is 45 degrees, and you walk along the hypotenuse of this right triangle, which trigonometric ratio should you use to calculate the shortest path?",
 		"choices": [
 			"Use sine to find the opposite side divided by the hypotenuse",
 			"Use cosine to find the adjacent side divided by the hypotenuse, then apply the Pythagorean theorem",
@@ -2149,7 +2150,7 @@ var dialogue_choice_configs = {
 	# MATH VARIANTS - Chapter 5
 	# ====================
 	"dialogue_choice_bc_approach_math": {
-		"question": "Conrad collected data from all 5 B.C. cards. If the mean time between cards was 8 days with a standard deviation of 2 days, what does this tell him about the pattern?",
+		"question": "You collected data from all 5 B.C. cards. If the mean time between cards was 8 days with a standard deviation of 2 days, what does this tell you about the pattern?",
 		"choices": [
 			"The pattern is consistent with most cards appearing within 6-10 days of each other",
 			"The pattern is random with no predictable timing",
@@ -2201,7 +2202,7 @@ var dialogue_choice_configs = {
 	# SCIENCE VARIANTS - Chapter 4 (Electricity and Magnetism)
 	# ====================
 	"dialogue_choice_approach_suspect_science": {
-		"question": "Conrad finds that the library's computer uses 120 Watts of power and runs on 24 Volts. What current does it draw?",
+		"question": "You find that the library's computer uses 120 Watts of power and runs on 24 Volts. What current does it draw?",
 		"choices": [
 			"Divide power by voltage to get 5 Amperes using P equals V times I",
 			"Multiply power by voltage to get 2880 Amperes",
@@ -2214,7 +2215,7 @@ var dialogue_choice_configs = {
 	# SCIENCE VARIANTS - Chapter 5 (Waves, Light, Modern Physics)
 	# ====================
 	"dialogue_choice_bc_approach_science": {
-		"question": "Conrad observes light patterns in the auditorium. If a wave has a frequency of 5 Hertz and a wavelength of 3 meters, what is its speed?",
+		"question": "You observe light patterns in the auditorium. If a wave has a frequency of 5 Hertz and a wavelength of 3 meters, what is its speed?",
 		"choices": [
 			"Multiply frequency by wavelength to get 15 meters per second using wave equation v equals f lambda",
 			"Divide frequency by wavelength to get 1.67 meters per second",
@@ -2523,15 +2524,36 @@ var logic_grid_configs = {
 # ====================
 var timeline_reconstruction_configs = {
 	# Chapter 1, Scene 2 - Footprint Timeline (Math focus: Evaporation rate calculations)
+	# NOW WITH VISUAL IMAGES! 🎨
 	"timeline_footprints_math": {
 		"title": "Footprint Timeline Analysis",
 		"context": "Arrange the events in chronological order. The janitor mopped at 3:00 PM. The floor dries completely in 45 minutes. Use time calculations to determine when the footprints were made.",
 		"events": [
-			{"id": "event1", "text": "Janitor mops hallway floor (3:00 PM)"},
-			{"id": "event2", "text": "Floor begins drying (3:00 PM - 3:45 PM)"},
-			{"id": "event3", "text": "Someone enters faculty room, leaving footprints (3:30 PM)"},
-			{"id": "event4", "text": "Floor completely dry (3:45 PM)"},
-			{"id": "event5", "text": "Footprints discovered by Conrad/Celestine (5:30 PM)"}
+			{
+				"id": "event1",
+				"text": "Janitor mops floor\n(3:00 PM)",
+				"image_path": "res://assets/minigame_asset/timeline_analysis/chapter_1_time_analysis/janitor_mopping.png"
+			},
+			{
+				"id": "event2",
+				"text": "Floor begins drying\n(3:00 PM - 3:45 PM)",
+				"image_path": "res://assets/minigame_asset/timeline_analysis/chapter_1_time_analysis/floor_drying.png"
+			},
+			{
+				"id": "event3",
+				"text": "Someone enters\n(3:30 PM)",
+				"image_path": "res://assets/minigame_asset/timeline_analysis/chapter_1_time_analysis/entered_faculty.png"
+			},
+			{
+				"id": "event4",
+				"text": "Floor completely dry\n(3:45 PM)",
+				"image_path": "res://assets/minigame_asset/timeline_analysis/chapter_1_time_analysis/complete_dry.png"
+			},
+			{
+				"id": "event5",
+				"text": "Footprints discovered\n(5:30 PM)",
+				"image_path": "res://assets/minigame_asset/timeline_analysis/chapter_1_time_analysis/footprint_discovered_{protagonist}.png"
+			}
 		],
 		"correct_order": ["event1", "event2", "event3", "event4", "event5"],
 		"explanation": "[b]Mathematical Reasoning:[/b]\n• Mop time: 3:00 PM (t = 0 min)\n• Drying period: 45 minutes (t = 0 to t = 45)\n• Footprint time: 3:30 PM (t = 30 min) - still slightly wet\n• Fully dry: 3:45 PM (t = 45 min)\n• Discovery: 5:30 PM (t = 150 min)\n\nCalculating time intervals helps determine when events occurred during the theft."
@@ -2555,11 +2577,11 @@ var timeline_reconstruction_configs = {
 		"title": "Greg's Alibi Analysis",
 		"context": "Calculate Greg's timeline using distance, rate, and time. School ends at 5:00 PM. His house is 2.5 km away. Walking speed is 5 km/h.",
 		"events": [
-			{"id": "event1", "text": "School dismissal (5:00 PM)"},
-			{"id": "event2", "text": "Greg leaves school campus (5:10 PM)"},
-			{"id": "event3", "text": "Greg arrives home - calculated (5:30 PM)"},
-			{"id": "event4", "text": "Greg's phone connects to Faculty WiFi (9:00 PM)"},
-			{"id": "event5", "text": "Confrontation with Conrad/Celestine (next day)"}
+			{"id": "event1", "text": "School dismissal\n(5:00 PM)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_1_time_analysis/greg_analysis/school_dismissal.png"},
+			{"id": "event2", "text": "Greg leaves campus\n(5:10 PM)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_1_time_analysis/greg_analysis/leaves_school_campus.png"},
+			{"id": "event3", "text": "Greg arrives home\n(5:30 PM)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_1_time_analysis/greg_analysis/arrived_home.png"},
+			{"id": "event4", "text": "WiFi connected\n(9:00 PM)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_1_time_analysis/greg_analysis/wifi_connected.png"},
+			{"id": "event5", "text": "Confrontation\n(next day)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_1_time_analysis/greg_analysis/conforntation.png"}
 		],
 		"correct_order": ["event1", "event2", "event3", "event4", "event5"],
 		"explanation": "[b]Mathematical Calculation:[/b]\n• Distance = 2.5 km\n• Rate = 5 km/h\n• Time = Distance ÷ Rate = 2.5 ÷ 5 = 0.5 hours (30 minutes)\n• Departure: 5:00 PM\n• Arrival: 5:00 PM + 30 min = 5:30 PM\n• WiFi connection: 9:00 PM (3.5 hours later!)\n\nThis proves Greg returned to school after going home, contradicting his alibi."
@@ -2569,11 +2591,11 @@ var timeline_reconstruction_configs = {
 		"title": "Threatening Note Timeline",
 		"context": "Analyze the sequence of events related to Ria's threatening note. Use chronological reasoning to determine when each event occurred.",
 		"events": [
-			{"id": "event1", "text": "Ryan discovers Ria's mistake with last year's funds"},
-			{"id": "event2", "text": "Ryan writes the threatening note to Ria"},
-			{"id": "event3", "text": "Ria finds the note in her locker (morning)"},
-			{"id": "event4", "text": "Ria becomes distracted and fearful"},
-			{"id": "event5", "text": "Student Council money goes missing"}
+			{"id": "event1", "text": "Ryan discovers Ria's mistake with last year's funds", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_2_time_analysis/mistake_last_years_fund.png"},
+			{"id": "event2", "text": "Ryan writes the threatening note to Ria", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_2_time_analysis/theatening_note.png"},
+			{"id": "event3", "text": "Ria finds the note in her locker (morning)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_2_time_analysis/note_in_her_locker.png"},
+			{"id": "event4", "text": "Ria becomes distracted and fearful", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_2_time_analysis/disctracted_and_fearful.png"},
+			{"id": "event5", "text": "Student Council money goes missing", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_2_time_analysis/money_goes_missing.png"}
 		],
 		"correct_order": ["event1", "event2", "event3", "event4", "event5"],
 		"explanation": "[b]Chronological Analysis (Math):[/b]\n• Discovery (t = 0): Ryan learns about the error\n• Planning (t = +1 day): Ryan writes the note\n• Delivery (t = +2 days): Note placed in locker\n• Psychological effect (t = +2 to +7 days): Ria becomes fearful\n• Crime execution (t = +7 days): Money stolen while Ria is distracted\n\nThis demonstrates how sequential events follow a logical timeline, with each step enabling the next. Understanding chronology helps detect patterns in complex situations."
@@ -2611,11 +2633,11 @@ var timeline_reconstruction_configs = {
 		"title": "Receipt Timeline Analysis",
 		"context": "Victor claimed he was home all night. The receipt shows a purchase at 8:47 PM. The store is 1.2 km from school. Walking speed is 6 km/h.",
 		"events": [
-			{"id": "event1", "text": "Art Week ends, students leave (6:00 PM)"},
-			{"id": "event2", "text": "Victor goes to art supply store (8:35 PM - calculated)"},
-			{"id": "event3", "text": "Victor makes purchase at store (8:47 PM - receipt)"},
-			{"id": "event4", "text": "Victor returns to school (9:00 PM - calculated)"},
-			{"id": "event5", "text": "Sculpture vandalized (estimated 9:15 PM)"}
+			{"id": "event1", "text": "Art Week ends, students leave (6:00 PM)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_3_time_analysis/art_week_ends.png"},
+			{"id": "event2", "text": "Victor goes to art supply store (8:35 PM - calculated)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_3_time_analysis/art_supply_store.png"},
+			{"id": "event3", "text": "Victor makes purchase at store (8:47 PM - receipt)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_3_time_analysis/purchase_at_store.png"},
+			{"id": "event4", "text": "Victor returns to school (9:00 PM - calculated)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_3_time_analysis/returns_to_school.png"},
+			{"id": "event5", "text": "Sculpture vandalized (estimated 9:15 PM)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_3_time_analysis/sculpture_vandalized.png"}
 		],
 		"correct_order": ["event1", "event2", "event3", "event4", "event5"],
 		"explanation": "[b]Time Interval Calculations:[/b]\n• Store distance from school: 1.2 km\n• Walking speed: 6 km/h\n• Time to walk = Distance ÷ Speed = 1.2 ÷ 6 = 0.2 hours (12 minutes)\n\n[b]Timeline Reconstruction:[/b]\n• Purchase time: 8:47 PM (from receipt)\n• Time to return to school: 12 minutes\n• Estimated arrival: 8:47 PM + 12 min = 8:59 PM ≈ 9:00 PM\n• Vandalism window: 9:00 PM - 9:30 PM\n\nThe receipt proves Victor was near the school during the vandalism time, contradicting his alibi of being home all night."
@@ -2639,11 +2661,11 @@ var timeline_reconstruction_configs = {
 		"title": "Anonymous Notes Timeline",
 		"context": "Six students received anonymous notes over the past week. Analyze the pattern to understand when and how the notes were distributed.",
 		"events": [
-			{"id": "event1", "text": "Alex accesses archive, finds old teaching journal (Day 1)"},
-			{"id": "event2", "text": "Alex studies the journal's methods (Day 2-3)"},
-			{"id": "event3", "text": "First note appears - Ben's locker (Day 5)"},
-			{"id": "event4", "text": "More notes distributed - 5 additional students (Day 6-7)"},
-			{"id": "event5", "text": "Conrad/Celestine begins investigation (Day 8)"}
+			{"id": "event1", "text": "Alex accesses archive, finds old teaching journal (Day 1)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_4_time_analysis/old_teachich_journal.png"},
+			{"id": "event2", "text": "Alex studies the journal's methods (Day 2-3)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_4_time_analysis/studies_the_journal.png"},
+			{"id": "event3", "text": "First note appears - Ben's locker (Day 5)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_4_time_analysis/first_note_appear.png"},
+			{"id": "event4", "text": "More notes distributed - 5 additional students (Day 6-7)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_4_time_analysis/5_students_received_notes.png"},
+			{"id": "event5", "text": "Conrad/Celestine begins investigation (Day 8)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_4_time_analysis/begin_investigation.png"}
 		],
 		"correct_order": ["event1", "event2", "event3", "event4", "event5"],
 		"explanation": "[b]Pattern Analysis (Math):[/b]\n• Discovery phase: Days 1-3 (Alex learns methods)\n• Implementation phase: Days 5-7 (Notes distributed)\n• Gap: 2 days between learning and first note (planning time)\n• Frequency: 1 note on Day 5, then 5 notes over Days 6-7 (increasing rate)\n• Total: 6 notes in 3 days (average 2 notes/day)\n\nThis demonstrates data pattern recognition - identifying frequency, rate of change, and time intervals in a sequence of events."
@@ -2653,11 +2675,11 @@ var timeline_reconstruction_configs = {
 		"title": "The Four Lessons Timeline",
 		"context": "Reconstruct the journey of learning. Each B.C. card built upon the previous, teaching different mathematical reasoning skills.",
 		"events": [
-			{"id": "event1", "text": "Lesson 1: Truth - Time intervals & chronological sequencing (Chapter 1)"},
-			{"id": "event2", "text": "Lesson 2: Responsibility - Sequential events & cause-effect (Chapter 2)"},
-			{"id": "event3", "text": "Lesson 3: Creativity - Pattern recognition & categorical logic (Chapter 3)"},
-			{"id": "event4", "text": "Lesson 4: Wisdom - Frequency analysis & conditional logic (Chapter 4)"},
-			{"id": "event5", "text": "Final Understanding: All lessons converge to teach Choice"}
+			{"id": "event1", "text": "Lesson 1: Truth - Time intervals & chronological sequencing (Chapter 1)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_5_time_analysis/BC_card1.png"},
+			{"id": "event2", "text": "Lesson 2: Responsibility - Sequential events & cause-effect (Chapter 2)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_5_time_analysis/BC_card2.png"},
+			{"id": "event3", "text": "Lesson 3: Creativity - Pattern recognition & categorical logic (Chapter 3)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_5_time_analysis/BC_card3.png"},
+			{"id": "event4", "text": "Lesson 4: Wisdom - Frequency analysis & conditional logic (Chapter 4)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_5_time_analysis/BC_card4.png"},
+			{"id": "event5", "text": "Final Understanding: All lessons converge to teach Choice", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_5_time_analysis/final_understanding.png"}
 		],
 		"correct_order": ["event1", "event2", "event3", "event4", "event5"],
 		"explanation": "[b]Meta-Cognitive Synthesis (Math):[/b]\n• Chapter 1 → Basic foundations (time, sequences)\n• Chapter 2 → Causality understanding (A leads to B)\n• Chapter 3 → Classification systems (organizing knowledge)\n• Chapter 4 → Advanced analysis (patterns, logic)\n• Chapter 5 → Integration (all skills combine)\n\nThis demonstrates how mathematical thinking builds progressively - each concept depends on mastering previous ones. True understanding comes from seeing the connections between isolated skills."
@@ -2705,6 +2727,70 @@ var timeline_reconstruction_configs = {
 		"explanation": "[b]Physics: Wave Interference & Superposition (Q4)[/b]\n\n• [b]Wave Superposition Principle:[/b]\n  - Multiple waves combine at same point\n  - Total amplitude = sum of individual waves\n  - Each lesson (wave) adds to total understanding\n\n• [b]Constructive Interference:[/b]\n  - Waves in phase reinforce each other\n  - Lessons 1-4 aligned perfectly (in phase)\n  - Result: Maximum amplitude (wisdom)\n  - Formula: A_total = A₁ + A₂ + A₃ + A₄\n\n• [b]Wave Properties:[/b]\n  - Wavelength (λ): Each lesson has unique 'frequency'\n  - Amplitude: Depth of understanding\n  - Phase: Timing of lesson delivery\n  - B.C. timed each lesson perfectly (phase alignment)\n\n• [b]Application to Learning:[/b]\n  - Truth (wave 1) establishes foundation\n  - Responsibility (wave 2) adds depth\n  - Creativity (wave 3) increases amplitude\n  - Wisdom (wave 4) completes the pattern\n  - All four waves interfere constructively → Complete knowledge\n\n[b]Wave Equation Connection:[/b] v = fλ\nEach lesson travels at the speed of understanding (v), with its own frequency (f) and wavelength (λ)!"
 	}
 }
+
+# ====================
+# NUMBER SEQUENCE DECODER CONFIGS
+# ====================
+var number_sequence_configs = {
+	# Chapter 4, Scene 3 - Anonymous Notes Pattern (Math: arithmetic/quadratic sequences)
+	"number_sequence_pedagogy_math": {
+		"title": "The Journal's Coded Pattern",
+		"context": "Alex found a number sequence hidden in the old teaching journal — a coded message about how often the teacher gave guidance to students. Fill in the missing numbers to decode the pattern.",
+		"sequence": [2, 5, null, 14, null, 32],
+		"answers": [9, 23],
+		"pattern_hint": "Hint: Look at the differences between consecutive numbers.",
+		"explanation": "[b]Pattern Analysis (Math):[/b]\n\nSequence: 2 → 5 → [b]9[/b] → 14 → [b]23[/b] → 32\n\nDifferences: +3, +4, +5, [b]+9[/b], +9\n\nWait — let's look more carefully:\n• 2, 5, 9, 14... differences are +3, +4, +5 (increasing by 1 each step)\n• This is a [b]quadratic sequence[/b]: 2nd differences are constant (+1)\n• General term: aₙ = n² + n ÷ 2 pattern\n\n[b]What this reveals:[/b] The teacher used an increasing pattern of guidance — each week slightly more than the last. This mirrors how learning compounds over time.\n\n[b]Key concept:[/b] In quadratic sequences, the 2nd difference is constant. If 1st differences increase by +1 each time, the sequence is quadratic."
+	},
+	# Chapter 2 variant — Student Council fund tracking pattern
+	"number_sequence_funds_math": {
+		"title": "Missing Fund Pattern",
+		"context": "The Student Council treasury records show monthly balances. Some entries were erased. Fill in the missing values to reconstruct the original sequence and find the anomaly.",
+		"sequence": [500, 450, null, 350, null, 250],
+		"answers": [400, 300],
+		"pattern_hint": "Hint: The council spends a fixed amount each month.",
+		"explanation": "[b]Arithmetic Sequence (Math):[/b]\n\nSequence: 500 → 450 → [b]400[/b] → 350 → [b]300[/b] → 250\n\nCommon difference: [b]d = -50[/b] (₱50 spent each month)\n\n[b]Arithmetic sequence formula:[/b]\naₙ = a₁ + (n-1)d\n• a₁ = 500 (starting balance)\n• d = -50 (monthly spending)\n• a₆ = 500 + 5(-50) = 250 ✓\n\n[b]What this reveals:[/b] The spending was perfectly regular — until the missing month. The anomaly in the records suggests someone altered the entries to hide a larger withdrawal.\n\n[b]Key concept:[/b] Arithmetic sequences have a constant difference between terms. If any term breaks this pattern, it indicates an irregularity."
+	},
+	# Chapter 3 variant — Art week attendance pattern
+	"number_sequence_artweek_math": {
+		"title": "Art Week Attendance Sequence",
+		"context": "The art week attendance records show a pattern in daily visitors. Two days' records are missing. Identify the sequence and fill in the blanks to determine who could have been present during the vandalism.",
+		"sequence": [3, 6, null, 24, null, 96],
+		"answers": [12, 48],
+		"pattern_hint": "Hint: Each day had double the visitors of the day before.",
+		"explanation": "[b]Geometric Sequence (Math):[/b]\n\nSequence: 3 → 6 → [b]12[/b] → 24 → [b]48[/b] → 96\n\nCommon ratio: [b]r = 2[/b] (doubles each day)\n\n[b]Geometric sequence formula:[/b]\naₙ = a₁ × rⁿ⁻¹\n• a₁ = 3 (first day)\n• r = 2 (doubling ratio)\n• a₅ = 3 × 2⁴ = 48 ✓\n\n[b]What this reveals:[/b] Attendance grew exponentially — the vandalism on day 3 happened when 12 students were present, not 0 as the suspect claimed. Someone was definitely there.\n\n[b]Key concept:[/b] Geometric sequences multiply by a constant ratio. Exponential growth is common in real-world data like attendance, population, and compound interest."
+	}
+}
+
+func _start_number_sequence(puzzle_id: String) -> void:
+	print("DEBUG: Starting Number Sequence minigame: ", puzzle_id)
+	if not number_sequence_configs.has(puzzle_id):
+		push_error("Number Sequence config not found for: " + puzzle_id)
+		return
+
+	var config = number_sequence_configs[puzzle_id]
+	current_minigame = number_sequence_scene.instantiate()
+
+	Dialogic.paused = true
+
+	var canvas_layer = CanvasLayer.new()
+	canvas_layer.layer = 100
+	get_tree().root.add_child(canvas_layer)
+	canvas_layer.add_child(current_minigame)
+
+	current_minigame.minigame_completed.connect(_on_number_sequence_finished.bind(puzzle_id))
+	current_minigame.configure_puzzle.call_deferred(config)
+
+func _on_number_sequence_finished(success: bool, time_taken: float, puzzle_id: String) -> void:
+	print("DEBUG: Number Sequence finished. Success: ", success, ", Time: ", time_taken, "s")
+	last_minigame_success = success
+	last_minigame_speed_bonus = (time_taken < 60.0)
+
+	if success:
+		Dialogic.VAR.minigames_completed += 1
+
+	Dialogic.paused = false
+	minigame_completed.emit(puzzle_id, success)
+	current_minigame = null
 
 func _get_subject_variant_id(base_id: String) -> String:
 	"""
@@ -2801,6 +2887,8 @@ func start_minigame(puzzle_id: String) -> void:
 		_start_logic_grid(puzzle_id)
 	elif timeline_reconstruction_configs.has(puzzle_id):
 		_start_timeline_reconstruction(puzzle_id)
+	elif number_sequence_configs.has(puzzle_id):
+		_start_number_sequence(puzzle_id)
 	# Oral Communication Module configs
 	elif _get_oralcom_config(puzzle_id) != null:
 		_start_oralcom_minigame(puzzle_id)

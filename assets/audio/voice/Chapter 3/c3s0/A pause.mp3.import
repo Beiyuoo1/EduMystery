@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://caer05vqonnp7"
+path="res://.godot/imported/A pause.mp3-f34bce473d0ec27426aff41e279b9622.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s0/A pause.mp3"
+dest_files=["res://.godot/imported/A pause.mp3-f34bce473d0ec27426aff41e279b9622.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

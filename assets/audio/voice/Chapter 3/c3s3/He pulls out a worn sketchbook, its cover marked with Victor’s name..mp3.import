@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d1glkmy0jvrsp"
+path="res://.godot/imported/He pulls out a worn sketchbook, its cover marked with Victor’s name..mp3-37745884c25df300a7db540e075024e3.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s3/He pulls out a worn sketchbook, its cover marked with Victor’s name..mp3"
+dest_files=["res://.godot/imported/He pulls out a worn sketchbook, its cover marked with Victor’s name..mp3-37745884c25df300a7db540e075024e3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

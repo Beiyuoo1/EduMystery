@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dpk7onnt780yv"
+path="res://.godot/imported/Conrad continues searching, then pauses..mp3-82ffe195e2e72e1c243298e1785e01bf.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s3/Conrad continues searching, then pauses..mp3"
+dest_files=["res://.godot/imported/Conrad continues searching, then pauses..mp3-82ffe195e2e72e1c243298e1785e01bf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

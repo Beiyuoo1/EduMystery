@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://lxtnebt1him5"
+path="res://.godot/imported/C5S0 TWO WEEKS AFTER THE JOURNAL.mp3-4f3aa87a5dbdab52d587e16109652e9d.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/C5S0/C5S0 TWO WEEKS AFTER THE JOURNAL.mp3"
+dest_files=["res://.godot/imported/C5S0 TWO WEEKS AFTER THE JOURNAL.mp3-4f3aa87a5dbdab52d587e16109652e9d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

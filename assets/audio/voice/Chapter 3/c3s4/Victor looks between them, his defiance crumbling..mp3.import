@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cr3cprjb6x80p"
+path="res://.godot/imported/Victor looks between them, his defiance crumbling..mp3-c4d4e7f2215e965bb43303764646277e.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s4/Victor looks between them, his defiance crumbling..mp3"
+dest_files=["res://.godot/imported/Victor looks between them, his defiance crumbling..mp3-c4d4e7f2215e965bb43303764646277e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

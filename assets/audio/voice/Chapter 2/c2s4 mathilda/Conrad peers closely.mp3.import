@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bw4u4arjf0is6"
+path="res://.godot/imported/Conrad peers closely.mp3-451fc7f17795850c20b313c2abd936f9.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Conrad peers closely.mp3"
+dest_files=["res://.godot/imported/Conrad peers closely.mp3-451fc7f17795850c20b313c2abd936f9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

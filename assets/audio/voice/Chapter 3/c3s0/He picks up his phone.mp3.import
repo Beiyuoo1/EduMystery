@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bh8q6tv86txd7"
+path="res://.godot/imported/He picks up his phone.mp3-1692a847cf7f0dff9b030a05625bd6b9.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s0/He picks up his phone.mp3"
+dest_files=["res://.godot/imported/He picks up his phone.mp3-1692a847cf7f0dff9b030a05625bd6b9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

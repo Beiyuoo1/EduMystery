@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnv7skaf5nwip"
+path="res://.godot/imported/Conrad shows Mark the note..mp3-9b80df7116c8a42e0268343afa7a8011.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s1/Conrad shows Mark the note..mp3"
+dest_files=["res://.godot/imported/Conrad shows Mark the note..mp3-9b80df7116c8a42e0268343afa7a8011.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

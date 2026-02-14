@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dy3gt8yiorre2"
+path="res://.godot/imported/Conrad passes it to her discreetly, careful not to draw attention..mp3-4c5bef8ae5ba033d80aff5d19b20fe6a.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s2/Conrad passes it to her discreetly, careful not to draw attention..mp3"
+dest_files=["res://.godot/imported/Conrad passes it to her discreetly, careful not to draw attention..mp3-4c5bef8ae5ba033d80aff5d19b20fe6a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

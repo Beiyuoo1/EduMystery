@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cfxu5tw3cpmvn"
+path="res://.godot/imported/Victor walks away toward the art room..mp3-43e3082db8804715adf9e17d5d9d4f0e.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s4/Victor walks away toward the art room..mp3"
+dest_files=["res://.godot/imported/Victor walks away toward the art room..mp3-43e3082db8804715adf9e17d5d9d4f0e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

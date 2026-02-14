@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://tq4kmid5qklm"
+path="res://.godot/imported/c5s3 principal moves.mp3-c2810b93331171f9bb04fbf5f5e182a4.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s3/c5s3 principal moves.mp3"
+dest_files=["res://.godot/imported/c5s3 principal moves.mp3-c2810b93331171f9bb04fbf5f5e182a4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

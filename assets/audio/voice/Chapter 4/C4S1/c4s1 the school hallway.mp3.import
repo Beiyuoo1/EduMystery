@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d2g3oke4g0hue"
+path="res://.godot/imported/c4s1 the school hallway.mp3-97e0c5f3f714a26c499e05309ead9676.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/C4S1/c4s1 the school hallway.mp3"
+dest_files=["res://.godot/imported/c4s1 the school hallway.mp3-97e0c5f3f714a26c499e05309ead9676.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

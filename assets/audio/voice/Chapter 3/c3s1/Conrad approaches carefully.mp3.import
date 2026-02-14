@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dn278t3l0fbgx"
+path="res://.godot/imported/Conrad approaches carefully.mp3-ce84de8f063f721dac600964ac573267.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s1/Conrad approaches carefully.mp3"
+dest_files=["res://.godot/imported/Conrad approaches carefully.mp3-ce84de8f063f721dac600964ac573267.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

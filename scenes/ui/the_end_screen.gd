@@ -74,7 +74,7 @@ func _input(event):
 		_on_continue()
 
 func _on_continue():
-	"""Fade out and dismiss"""
+	"""Fade out and go to main menu"""
 	set_process_input(false)
 
 	var tween = create_tween()
@@ -82,4 +82,28 @@ func _on_continue():
 	await tween.finished
 
 	emit_signal("the_end_dismissed")
-	queue_free()
+
+	# Stop Dialogic cleanly so its CanvasLayer doesn't render over the main menu
+	if Dialogic:
+		Dialogic.paused = false
+		if Dialogic.current_timeline != null:
+			Dialogic.end_timeline()
+
+	# Clean up active minigames (similar to SaveManager cleanup)
+	if MinigameManager and MinigameManager.current_minigame != null:
+		print("DEBUG: Cleaning up active minigame before main menu transition")
+		MinigameManager.current_minigame.queue_free()
+		MinigameManager.current_minigame = null
+
+	# Clean up all CanvasLayers that might be blocking input
+	var root = get_tree().root
+	for child in root.get_children():
+		if child is CanvasLayer and child.layer >= 100:
+			print("DEBUG: Cleaning up CanvasLayer with layer ", child.layer)
+			child.queue_free()
+
+	# Wait for cleanup
+	await get_tree().process_frame
+
+	# Change scene to main menu
+	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")

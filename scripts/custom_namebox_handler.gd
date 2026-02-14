@@ -64,6 +64,55 @@ func _on_speaker_updated(character: DialogicCharacter):
 			namebox_panel.add_theme_stylebox_override("panel", default_style)
 			print("CustomNameboxHandler: Applied default namebox for ", character_name)
 
+	# Position namebox based on character portrait position (left/right)
+	_update_namebox_position(character, namebox_panel)
+
+func _update_namebox_position(character: DialogicCharacter, namebox_panel: PanelContainer) -> void:
+	# Get the character's portrait position from Dialogic
+	var position_id := ""
+
+	var info = Dialogic.Portraits.get_character_info(character)
+	print("CustomNameboxHandler: Portrait info = ", info)
+	if info.get("joined", false):
+		position_id = str(info.get("position_id", ""))
+	print("CustomNameboxHandler: Position ID = '", position_id, "'")
+
+	# Find the dialog text panel for margin calculations
+	var dialog_text_panel = _find_unique_node(get_tree().root, "DialogTextPanel") as PanelContainer
+	var margin_left := 0.0
+	var margin_right := 0.0
+	var margin_top := 0.0
+	if dialog_text_panel:
+		var panel_style = dialog_text_panel.get_theme_stylebox(&'panel', &'PanelContainer')
+		if panel_style:
+			margin_left = panel_style.content_margin_left
+			margin_right = panel_style.content_margin_right
+			margin_top = panel_style.content_margin_top
+
+	# Check if the position contains "right" (handles "right", "rightmost", etc.)
+	var is_right := position_id.contains("right")
+
+	# Use fixed offset values to avoid drift when called repeatedly.
+	# Setting offsets directly (not position) is anchor-independent.
+	var x_offset := -margin_left
+	var y_offset := -40.0 - margin_top
+
+	# Set anchors and grow direction
+	if is_right:
+		namebox_panel.anchor_left = 1.0
+		namebox_panel.anchor_right = 1.0
+		namebox_panel.grow_horizontal = Control.GROW_DIRECTION_BEGIN  # grow left
+		print("CustomNameboxHandler: Namebox moved to RIGHT")
+	else:
+		namebox_panel.anchor_left = 0.0
+		namebox_panel.anchor_right = 0.0
+		namebox_panel.grow_horizontal = Control.GROW_DIRECTION_END  # grow right
+		print("CustomNameboxHandler: Namebox moved to LEFT")
+
+	# Apply offsets directly - these are absolute values that won't compound
+	namebox_panel.offset_left = x_offset
+	namebox_panel.offset_top = y_offset
+
 func _find_namebox_panel() -> PanelContainer:
 	# Try to find using unique name first (faster)
 	var root = get_tree().root

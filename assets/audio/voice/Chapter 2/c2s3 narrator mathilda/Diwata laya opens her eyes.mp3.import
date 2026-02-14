@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cmeg4470qvrgk"
+path="res://.godot/imported/Diwata laya opens her eyes.mp3-55f047fda29897f8d410ccf834d5c683.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Diwata laya opens her eyes.mp3"
+dest_files=["res://.godot/imported/Diwata laya opens her eyes.mp3-55f047fda29897f8d410ccf834d5c683.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

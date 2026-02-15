@@ -34,7 +34,7 @@ var question_text: String = ""
 var choice_texts: Array = []  # Will be populated by configure_puzzle()
 
 # Voice recognition using GodotVoskRecognizer
-var vosk_recognizer: GodotVoskRecognizer = null
+var vosk_recognizer = null
 var audio_effect_capture: AudioEffectCapture = null
 var audio_bus_index: int = -1
 var microphone_player: AudioStreamPlayer = null
@@ -310,7 +310,7 @@ func _initialize_vosk():
 
 	# Fallback: Load Vosk now if not preloaded
 	print("Vosk not preloaded, loading now...")
-	vosk_recognizer = GodotVoskRecognizer.new()
+	vosk_recognizer = ClassDB.instantiate("GodotVoskRecognizer")
 	var absolute_path = ProjectSettings.globalize_path(MODEL_PATH)
 
 	if not vosk_recognizer.initialize(absolute_path, SAMPLE_RATE):

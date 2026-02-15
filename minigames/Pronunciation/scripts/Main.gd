@@ -232,7 +232,7 @@ func _setup_vosk():
 		_setup_skip_fallback()
 		return
 
-	vosk = GodotVoskRecognizer.new()
+	vosk = ClassDB.instantiate("GodotVoskRecognizer")
 	var absolute_path = ProjectSettings.globalize_path(model_path)
 	print("DEBUG: Vosk model path: ", absolute_path)
 

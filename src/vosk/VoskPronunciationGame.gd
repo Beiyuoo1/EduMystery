@@ -16,7 +16,7 @@ signal pronunciation_incorrect(word: String, recognized: String)
 @export var show_debug_ui: bool = true
 
 # Internal variables
-var vosk: GodotVoskRecognizer
+var vosk = null
 var audio_effect_capture: AudioEffectCapture
 var audio_bus_index: int
 var is_recording: bool = false
@@ -36,7 +36,7 @@ func _ready():
 	_setup_ui()
 
 func _setup_vosk():
-	vosk = GodotVoskRecognizer.new()
+	vosk = ClassDB.instantiate("GodotVoskRecognizer")
 	var absolute_path = ProjectSettings.globalize_path(model_path)
 	
 	if not vosk.initialize(absolute_path, sample_rate):

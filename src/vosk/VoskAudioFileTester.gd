@@ -2,7 +2,7 @@
 # Universal audio file tester with guaranteed confidence scores
 extends Control
 
-var vosk: GodotVoskRecognizer
+var vosk = null
 var model_path: String = "res://addons/vosk/models/vosk-model-small-en-us-0.15"
 
 @onready var file_dialog: FileDialog = $FileDialog
@@ -17,7 +17,7 @@ func _ready():
 	_setup_ui()
 
 func _setup_vosk():
-	vosk = GodotVoskRecognizer.new()
+	vosk = ClassDB.instantiate("GodotVoskRecognizer")
 	var absolute_path = ProjectSettings.globalize_path(model_path)
 	
 	if not vosk.initialize(absolute_path, 16000.0):

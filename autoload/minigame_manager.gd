@@ -51,17 +51,25 @@ func _preload_vosk_async():
 	# Wait one frame to let the loading screen appear
 	await get_tree().process_frame
 
+	# Check if Vosk GDExtension is available
+	if not ClassDB.class_exists("GodotVoskRecognizer"):
+		print("MinigameManager: Vosk plugin not loaded. Skipping voice recognition.")
+		print("MinigameManager: Voice minigames can still be completed with F5 skip.")
+		vosk_loading_progress = 1.0
+		vosk_is_loaded = true
+		shared_vosk_recognizer = null
+		return
+
 	print("MinigameManager: Initializing Vosk recognizer...")
 
-	# Simulate progress (since GodotVoskRecognizer.initialize() doesn't report progress)
-	# We'll fake the progress bar animation
+	# Simulate progress
 	var progress_tween = create_tween()
 	progress_tween.tween_property(self, "vosk_loading_progress", 0.3, 1.0)
 
 	await get_tree().create_timer(1.0).timeout
 
 	# Actually initialize Vosk (this is the slow part)
-	shared_vosk_recognizer = GodotVoskRecognizer.new()
+	shared_vosk_recognizer = ClassDB.instantiate("GodotVoskRecognizer")
 	var absolute_path = ProjectSettings.globalize_path(VOSK_MODEL_PATH)
 
 	# Continue progress animation
@@ -78,7 +86,9 @@ func _preload_vosk_async():
 		print("MinigameManager: ✓ Vosk model loaded and ready!")
 		vosk_is_loaded = true
 	else:
-		push_error("MinigameManager: Failed to load Vosk model at: " + absolute_path)
+		print("WARNING: Failed to load Vosk model at: " + absolute_path)
+		print("WARNING: Voice recognition minigames will be disabled.")
+		print("WARNING: The game will continue without voice features.")
 		shared_vosk_recognizer = null
 		vosk_is_loaded = false
 
@@ -88,7 +98,15 @@ func _initialize_vosk_threaded(absolute_path: String) -> bool:
 	await get_tree().process_frame
 	vosk_loading_progress = 0.75
 
+	print("DEBUG: Attempting to initialize Vosk with path: ", absolute_path)
+	print("DEBUG: Directory exists: ", DirAccess.dir_exists_absolute(absolute_path))
+	print("DEBUG: Checking for key files:")
+	print("  - am/final.mdl exists: ", FileAccess.file_exists(absolute_path + "/am/final.mdl"))
+	print("  - graph/HCLG.fst exists: ", FileAccess.file_exists(absolute_path + "/graph/HCLG.fst"))
+	print("  - conf/model.conf exists: ", FileAccess.file_exists(absolute_path + "/conf/model.conf"))
+
 	var result = shared_vosk_recognizer.initialize(absolute_path, VOSK_SAMPLE_RATE)
+	print("DEBUG: Vosk initialization result: ", result)
 
 	await get_tree().process_frame
 	vosk_loading_progress = 0.95

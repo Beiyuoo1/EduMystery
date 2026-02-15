@@ -30,6 +30,14 @@ func _ready():
 	progress_bar.value = 0
 	_randomize_tip()
 
+func _unhandled_input(event):
+	# F6 to skip Vosk loading (hidden debug feature)
+	if event is InputEventKey and event.pressed and event.keycode == KEY_F6:
+		MinigameManager.vosk_is_loaded = true
+		MinigameManager.shared_vosk_recognizer = null
+		MinigameManager.vosk_loading_progress = 1.0
+		_on_loading_complete()
+
 func _process(delta):
 	# Animate spinner
 	spinner_timer += delta

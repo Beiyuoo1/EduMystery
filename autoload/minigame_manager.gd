@@ -34,8 +34,41 @@ const VOSK_SAMPLE_RATE = 16000.0
 var loading_screen_scene = preload("res://scenes/ui/vosk_loading_screen.tscn")
 
 func _ready():
+	# Check local configuration file (not committed to git)
+	if _is_vosk_disabled_locally():
+		print("MinigameManager: Vosk loading disabled via local_config.json")
+		print("MinigameManager: Skipping Vosk preload for faster startup")
+		vosk_is_loaded = true
+		shared_vosk_recognizer = null
+		return
+
 	print("MinigameManager: Starting Vosk preload with loading screen...")
 	_show_loading_screen_and_load()
+
+func _is_vosk_disabled_locally() -> bool:
+	"""Check if Vosk loading is disabled in local configuration"""
+	var config_path = "res://local_config.json"
+	if not FileAccess.file_exists(config_path):
+		return false
+
+	var file = FileAccess.open(config_path, FileAccess.READ)
+	if not file:
+		return false
+
+	var json_text = file.get_as_text()
+	file.close()
+
+	var json = JSON.new()
+	var error = json.parse(json_text)
+	if error != OK:
+		print("WARNING: Failed to parse local_config.json")
+		return false
+
+	var data = json.data
+	if typeof(data) == TYPE_DICTIONARY and data.has("disable_vosk_loading"):
+		return data["disable_vosk_loading"] == true
+
+	return false
 
 func _show_loading_screen_and_load():
 	"""Show loading screen and load Vosk model with progress tracking"""
@@ -69,7 +102,7 @@ func _preload_vosk_async():
 	await get_tree().create_timer(1.0).timeout
 
 	# Actually initialize Vosk (this is the slow part)
-	shared_vosk_recognizer = ClassDB.instantiate("GodotVoskRecognizer")
+	shared_vosk_recognizer = GodotVoskRecognizer.new()
 	var absolute_path = ProjectSettings.globalize_path(VOSK_MODEL_PATH)
 
 	# Continue progress animation
@@ -90,7 +123,7 @@ func _preload_vosk_async():
 		print("WARNING: Voice recognition minigames will be disabled.")
 		print("WARNING: The game will continue without voice features.")
 		shared_vosk_recognizer = null
-		vosk_is_loaded = false
+		vosk_is_loaded = true  # Set true so loading screen dismisses
 
 func _initialize_vosk_threaded(absolute_path: String) -> bool:
 	"""Initialize Vosk in a way that doesn't completely freeze the UI"""
@@ -98,15 +131,7 @@ func _initialize_vosk_threaded(absolute_path: String) -> bool:
 	await get_tree().process_frame
 	vosk_loading_progress = 0.75
 
-	print("DEBUG: Attempting to initialize Vosk with path: ", absolute_path)
-	print("DEBUG: Directory exists: ", DirAccess.dir_exists_absolute(absolute_path))
-	print("DEBUG: Checking for key files:")
-	print("  - am/final.mdl exists: ", FileAccess.file_exists(absolute_path + "/am/final.mdl"))
-	print("  - graph/HCLG.fst exists: ", FileAccess.file_exists(absolute_path + "/graph/HCLG.fst"))
-	print("  - conf/model.conf exists: ", FileAccess.file_exists(absolute_path + "/conf/model.conf"))
-
 	var result = shared_vosk_recognizer.initialize(absolute_path, VOSK_SAMPLE_RATE)
-	print("DEBUG: Vosk initialization result: ", result)
 
 	await get_tree().process_frame
 	vosk_loading_progress = 0.95
@@ -136,9 +161,9 @@ var fillinTheblank_configs = {
 	# MATH VARIANTS - Chapter 1
 	# ====================
 	"locker_examination_math": {
-		"sentence_parts": ["In the equation y = mx + b, m represents the ", "."],
-		"answers": ["slope"],
-		"choices": ["slope", "intercept", "coefficient", "constant", "variable", "exponent", "base", "power"]
+		"sentence_parts": ["The locker combination follows a pattern: 2, 4, 8, ", ". What comes next?"],
+		"answers": ["16"],
+		"choices": ["16", "12", "10", "14", "18", "20", "24", "32"]
 	},
 	"locker_examination_science": {
 		"sentence_parts": ["Newton's second law states that force equals mass times ", "."],
@@ -2822,21 +2847,14 @@ func _get_subject_variant_id(base_id: String) -> String:
 	var subject = PlayerStats.selected_subject
 	print("DEBUG: PlayerStats.selected_subject = ", subject)
 
-	# First, check if base_id already exists in any config
-	# This handles subject-specific minigames that don't have variants (e.g., "timeline_footprints_math")
-	if fillinTheblank_configs.has(base_id) or hear_and_fill_configs.has(base_id) or \
-	   riddle_configs.has(base_id) or dialogue_choice_configs.has(base_id) or \
-	   logic_grid_configs.has(base_id) or timeline_reconstruction_configs.has(base_id):
-		print("DEBUG: Base ID exists in configs, using as-is: ", base_id)
-		return base_id
-
+	# If subject is English, use base ID (English is the default)
 	if subject == "english":
 		print("DEBUG: Subject is English, using base ID: ", base_id)
-		return base_id  # English is the base/default
+		return base_id
 
-	# Try to find subject-specific variant
+	# For Math/Science subjects, FIRST try to find subject-specific variant
 	var variant_id = base_id + "_" + subject
-	print("DEBUG: Looking for variant: ", variant_id)
+	print("DEBUG: Looking for", subject, "variant:", variant_id)
 
 	# Check if variant exists in any config
 	if fillinTheblank_configs.has(variant_id):

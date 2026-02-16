@@ -8,19 +8,19 @@ if {selected_character} == "celestine":
 	join Celestine (half) left
 	join Mark (Mark_half) right
 	join Ria (half) center
-	Ria looks smaller than before, her shoulders hunched. Her eyes are red from crying.
+	Ria looks smaller than before, your shoulders hunched. your eyes are red from crying.
 	Mark: Ria, are you okay?
-	Her voice is barely above a whisper.
+	your voice is barely above a whisper.
 	Ria: Everyone thinks I did it. I can hear them whispering.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Her voice is barely.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Her voice is barely.mp3" volume=25 bus="Voice"]
 	Celestine: We don't think that. We're trying to find out what really happened.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/The student council.mp3" volume=0 bus="Master"]
-	Ria looks up, a flicker of hope in her eyes.
+	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/The student council.mp3" volume=25 bus="Voice"]
+	Ria looks up, a flicker of hope in your eyes.
 	Ria: You... you believe me?
 	Celestine: I believe in evidence. And right now, there's no evidence against you.
 	Celestine: But I need to ask you some questions. Is there anything you haven't told anyone?
 	Ria's hands tremble slightly. She looks down at the floor.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Ria looks up.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Ria looks up.mp3" volume=25 bus="Voice"]
 	Ria: I... there is something.
 	Mark: What is it?
 	Ria takes a shaky breath.
@@ -28,26 +28,26 @@ if {selected_character} == "celestine":
 	Celestine: What kind of note?
 	Ria's voice breaks.
 	Ria: A threat.
-	She reaches into her pocket and pulls out a folded piece of paper.
+	She reaches into your pocket and pulls out a folded piece of paper.
 	Ria: It said... "I know what you did with last year's fund. Resign or I'll expose you."
 	Mark: Someone was threatening you? Why didn't you tell anyone?
 	Tears begin to form in Ria's eyes.
 	Ria: I was scared! I thought if I told someone, it would make me look guilty.
 	Ria: Like I had something to hide. So I just... kept it to myself.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/She reaches in.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/She reaches in.mp3" volume=25 bus="Voice"]
 	Celestine: What did you do with last year's fund, Ria?
 	Ria: Nothing! I mean... I made a mistake once.
 	Ria: I was rushing to get home for my grandmother's birthday. I forgot to lock the money box overnight.
 	Ria: But nothing was taken! I checked first thing the next morning.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Tears begin to form.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Tears begin to form.mp3" volume=25 bus="Voice"]
 	Ria: I fixed it immediately. I thought no one knew.
 	Celestine: Someone knew. And they used it against you.
-	Celestine reaches out her hand.
+	Celestine reaches out your hand.
 	Celestine: May I see the note?
-	Ria hands it over, her hand shaking.
+	Ria hands it over, your hand shaking.
 	[signal arg="unlock_evidence threat_note_c2"]
 	Celestine studies the paper carefully, holding it up to the light.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Ria hands it over.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Ria hands it over.mp3" volume=25 bus="Voice"]
 	Celestine: The handwriting is careful. Each letter formed with precision.
 	Celestine: This wasn't written in anger or haste. Someone planned this message.
 	Mark: So whoever wrote this had time to think it through.
@@ -57,16 +57,16 @@ else:
 	join Conrad (half) left
 	join Mark (Mark_half) right
 	join Ria (half) center
-	Ria looks smaller than before, her shoulders hunched. Her eyes are red from crying.
+	Ria looks smaller than before, your shoulders hunched. your eyes are red from crying.
 	Mark: Ria, are you okay?
-	Her voice is barely above a whisper.
+	your voice is barely above a whisper.
 	Ria: Everyone thinks I did it. I can hear them whispering.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Her voice is barely.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Her voice is barely.mp3" volume=25 bus="Voice"]
 	Conrad: We don't think that. We're trying to find out what really happened.
-	Ria looks up, a flicker of hope in her eyes.
+	Ria looks up, a flicker of hope in your eyes.
 	Ria: You... you believe me?
 	Conrad: I believe in evidence. And right now, there's no evidence against you.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Ria looks up.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Ria looks up.mp3" volume=25 bus="Voice"]
 	Conrad: But I need to ask you some questions. Is there anything you haven't told anyone?
 	Ria's hands tremble slightly. She looks down at the floor.
 	Ria: I... there is something.
@@ -76,25 +76,25 @@ else:
 	Conrad: What kind of note?
 	Ria's voice breaks.
 	Ria: A threat.
-	She reaches into her pocket and pulls out a folded piece of paper.
+	She reaches into your pocket and pulls out a folded piece of paper.
 	Ria: It said... "I know what you did with last year's fund. Resign or I'll expose you."
 	Mark: Someone was threatening you? Why didn't you tell anyone?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/She reaches in.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/She reaches in.mp3" volume=25 bus="Voice"]
 	Tears begin to form in Ria's eyes.
 	Ria: I was scared! I thought if I told someone, it would make me look guilty.
 	Ria: Like I had something to hide. So I just... kept it to myself.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Tears begin to form.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Tears begin to form.mp3" volume=25 bus="Voice"]
 	Conrad: What did you do with last year's fund, Ria?
 	Ria: Nothing! I mean... I made a mistake once.
 	Ria: I was rushing to get home for my grandmother's birthday. I forgot to lock the money box overnight.
 	Ria: But nothing was taken! I checked first thing the next morning.
 	Ria: I fixed it immediately. I thought no one knew.
 	Conrad: Someone knew. And they used it against you.
-	Conrad reaches out his hand.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Conrad reaches out.mp3" volume=0 bus="Master"]
+	Conrad reaches out your hand.
+	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Conrad reaches out.mp3" volume=25 bus="Voice"]
 	Conrad: May I see the note?
-	Ria hands it over, her hand shaking.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Ria hands it over.mp3" volume=0 bus="Master"]
+	Ria hands it over, your hand shaking.
+	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Ria hands it over.mp3" volume=25 bus="Voice"]
 	[signal arg="unlock_evidence threat_note_c2"]
 	Conrad studies the paper carefully, holding it up to the light.
 	Conrad: The handwriting is careful. Each letter formed with precision.
@@ -105,18 +105,18 @@ else:
 join "Diwata Laya" (Half) leftmost
 [signal arg="laya_start"]
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Diwata laya appears.mp3" volume=0 bus="Master"]
-	"Diwata Laya" appears beside Celestine, her form shimmering faintly.
+	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Diwata laya appears.mp3" volume=25 bus="Voice"]
+	"Diwata Laya" appears beside Celestine, your form shimmering faintly.
 	"Diwata Laya": There is more to this note than paper and ink.
 	"Diwata Laya": May I examine it?
 	Celestine passes the note to the diwata.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Diwata laya holds the note.mp3" volume=0 bus="Master"]
-	"Diwata Laya" holds the note gently, closing her eyes.
+	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Diwata laya holds the note.mp3" volume=25 bus="Voice"]
+	"Diwata Laya" holds the note gently, closing your eyes.
 	"Diwata Laya": I sense... calculation. Cold purpose behind these words.
 	"Diwata Laya": The person who wrote this... they wanted control. Not just revenge.
 	"Diwata Laya": They wanted Ria afraid. Distracted. Unable to defend herself.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Diwata laya opens her eyes.mp3" volume=0 bus="Master"]
-	"Diwata Laya" opens her eyes.
+	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Diwata laya opens her eyes.mp3" volume=25 bus="Voice"]
+	"Diwata Laya" opens your eyes.
 	"Diwata Laya": This threat was the first step in a larger plan.
 	"Diwata Laya": Someone set Ria up to take the blame.
 	"Diwata Laya": Before we proceed, sharpen your analytical mind. Face this challenge.
@@ -136,23 +136,23 @@ if {selected_character} == "celestine":
 		[signal arg="start_minigame timeline_threat_note_science"]
 	"Diwata Laya": Good. Your mind sees clearly now.
 	[signal arg="laya_end"]
-	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Diwata leaves.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Diwata leaves.mp3" volume=25 bus="Voice"]
 	leave "Diwata Laya"
 	update Ria (half) center
 else:
-	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Diwata laya appears.mp3" volume=0 bus="Master"]
-	"Diwata Laya" appears beside Conrad, her form shimmering faintly.
+	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Diwata laya appears.mp3" volume=25 bus="Voice"]
+	"Diwata Laya" appears beside Conrad, your form shimmering faintly.
 	"Diwata Laya": There is more to this note than paper and ink.
 	"Diwata Laya": May I examine it?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Conrad passes the note.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Conrad passes the note.mp3" volume=25 bus="Voice"]
 	Conrad passes the note to the diwata.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Diwata laya holds the note.mp3" volume=0 bus="Master"]
-	"Diwata Laya" holds the note gently, closing her eyes.
+	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Diwata laya holds the note.mp3" volume=25 bus="Voice"]
+	"Diwata Laya" holds the note gently, closing your eyes.
 	"Diwata Laya": I sense... calculation. Cold purpose behind these words.
 	"Diwata Laya": The person who wrote this... they wanted control. Not just revenge.
 	"Diwata Laya": They wanted Ria afraid. Distracted. Unable to defend herself.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Diwata laya opens her eyes.mp3" volume=0 bus="Master"]
-	"Diwata Laya" opens her eyes.
+	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Diwata laya opens her eyes.mp3" volume=25 bus="Voice"]
+	"Diwata Laya" opens your eyes.
 	"Diwata Laya": This threat was the first step in a larger plan.
 	"Diwata Laya": Someone set Ria up to take the blame.
 	"Diwata Laya": Before we proceed, sharpen your analytical mind. Face this challenge.
@@ -172,7 +172,7 @@ else:
 		[signal arg="start_minigame timeline_threat_note_science"]
 	"Diwata Laya": Good. Your mind sees clearly now.
 	[signal arg="laya_end"]
-	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Diwata leaves.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Diwata leaves.mp3" volume=25 bus="Voice"]
 	leave "Diwata Laya"
 	update Ria (half) center
 label note_choice
@@ -257,7 +257,7 @@ else:
 	Hope flickers in Ria's eyes.
 	Ria: You really think you can prove I didn't do it?
 	Conrad: I don't think. I investigate. And right now, the evidence is pointing away from you.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Conrad leaves.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s3 narrator mathilda/Conrad leaves.mp3" volume=25 bus="Voice"]
 	leave Conrad
 	leave Mark
 	leave Ria

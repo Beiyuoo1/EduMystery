@@ -240,6 +240,33 @@ text = "80%"
 horizontal_alignment = 2
 vertical_alignment = 1
 
+[node name="VoiceVolumeContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="VoiceVolumeLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/VoiceVolumeContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+text = "Voice Narration"
+vertical_alignment = 1
+
+[node name="VoiceVolumeSlider" type="HSlider" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/VoiceVolumeContainer"]
+custom_minimum_size = Vector2(220, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 100.0
+step = 5.0
+value = 100.0
+
+[node name="VoiceVolumeValue" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/VoiceVolumeContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.65, 0.85, 1)
+text = "100%"
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="DisplaySectionLabel" type="PanelContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_section_header")

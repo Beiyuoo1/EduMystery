@@ -25,12 +25,17 @@ signal back_pressed
 @onready var music_volume_value = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/MusicVolumeContainer/MusicVolumeValue
 @onready var sfx_volume_slider = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/SFXVolumeContainer/SFXVolumeSlider
 @onready var sfx_volume_value = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/SFXVolumeContainer/SFXVolumeValue
+@onready var voice_volume_slider = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/VoiceVolumeContainer/VoiceVolumeSlider
+@onready var voice_volume_value = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/VoiceVolumeContainer/VoiceVolumeValue
 @onready var fullscreen_check = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/FullscreenContainer/FullscreenCheck
 @onready var back_button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/BackButton
 
 var config := ConfigFile.new()
 
 func _ready() -> void:
+	# Ensure Voice audio bus exists
+	_ensure_voice_bus()
+
 	load_settings()
 
 	# Connect signals
@@ -40,6 +45,7 @@ func _ready() -> void:
 	master_volume_slider.value_changed.connect(_on_master_volume_changed)
 	music_volume_slider.value_changed.connect(_on_music_volume_changed)
 	sfx_volume_slider.value_changed.connect(_on_sfx_volume_changed)
+	voice_volume_slider.value_changed.connect(_on_voice_volume_changed)
 	fullscreen_check.toggled.connect(_on_fullscreen_toggled)
 	back_button.pressed.connect(_on_back_pressed)
 
@@ -63,6 +69,7 @@ func load_settings() -> void:
 	var master_vol = config.get_value("audio", "master_volume", 100)
 	var music_vol = config.get_value("audio", "music_volume", 80)
 	var sfx_vol = config.get_value("audio", "sfx_volume", 80)
+	var voice_vol = config.get_value("audio", "voice_volume", 100)
 
 	master_volume_slider.value = master_vol
 	master_volume_value.text = str(int(master_vol)) + "%"
@@ -70,11 +77,14 @@ func load_settings() -> void:
 	music_volume_value.text = str(int(music_vol)) + "%"
 	sfx_volume_slider.value = sfx_vol
 	sfx_volume_value.text = str(int(sfx_vol)) + "%"
+	voice_volume_slider.value = voice_vol
+	voice_volume_value.text = str(int(voice_vol)) + "%"
 
 	# Apply audio settings
 	_apply_audio_volume("Master", master_vol)
 	_apply_audio_volume("Music", music_vol)
 	_apply_audio_volume("SFX", sfx_vol)
+	_apply_audio_volume("Voice", voice_vol)
 
 	# Fullscreen
 	var is_fullscreen = config.get_value("display", "fullscreen", false)
@@ -95,6 +105,7 @@ func save_settings() -> void:
 	config.set_value("audio", "master_volume", master_volume_slider.value)
 	config.set_value("audio", "music_volume", music_volume_slider.value)
 	config.set_value("audio", "sfx_volume", sfx_volume_slider.value)
+	config.set_value("audio", "voice_volume", voice_volume_slider.value)
 	config.set_value("display", "fullscreen", fullscreen_check.button_pressed)
 
 	config.save(USER_SETTINGS_PATH)
@@ -138,6 +149,23 @@ func _on_sfx_volume_changed(value: float) -> void:
 	_apply_audio_volume("SFX", value)
 	sfx_volume_value.text = str(int(value)) + "%"
 	save_settings()
+
+func _on_voice_volume_changed(value: float) -> void:
+	_apply_audio_volume("Voice", value)
+	voice_volume_value.text = str(int(value)) + "%"
+	save_settings()
+
+func _ensure_voice_bus() -> void:
+	"""Create Voice audio bus if it doesn't exist"""
+	var voice_bus_idx = AudioServer.get_bus_index("Voice")
+	if voice_bus_idx == -1:
+		# Voice bus doesn't exist, create it
+		AudioServer.add_bus()
+		var new_bus_idx = AudioServer.bus_count - 1
+		AudioServer.set_bus_name(new_bus_idx, "Voice")
+		# Make Voice bus a child of Master bus (index 0)
+		AudioServer.set_bus_send(new_bus_idx, "Master")
+		print("Created Voice audio bus at index ", new_bus_idx)
 
 func _apply_audio_volume(bus_name: String, volume_percent: float) -> void:
 	var bus_idx = AudioServer.get_bus_index(bus_name)

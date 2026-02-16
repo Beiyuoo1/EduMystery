@@ -3,7 +3,7 @@ set {chapter1_score} = 0
 set {c1s2_repair_tried} = false
 set {c1s2_teacher_tried} = false
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 1/c1s2/The time is now 5 30.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 1/c1s2/The time is now 5 30.mp3" volume="0.0"]
 	The time is now 5\:30. Today's classes are over. Instead of going home, Celestine and Mark stay in the classroom to talk.
 	join Celestine (half) left
 	join Mark (Mark_half) right
@@ -14,7 +14,7 @@ if {selected_character} == "celestine":
 	leave Celestine [animation="Instant Out"]
 	[background arg="res://Bg/storage room front door.png" fade="0.0"]
 	...
-	[voice path="res://assets/audio/voice/Chapter 1/c1s2/Conrad immediately.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 1/c1s2/Conrad immediately.mp3" volume="0.0"]
 	Celestine immediately went to the classroom
 	her chest tightening with every step. When she reached the door, she froze.
 	join Celestine (half) left
@@ -24,24 +24,24 @@ if {selected_character} == "celestine":
 		Celestine: I need to use proper communication strategies to get the information I need.
 		[signal arg="start_minigame dialogue_choice_janitor"]
 	elif {selected_subject} == "math":
-		Celestine: The janitor mentioned he mopped the hallway at 3:00 PM yesterday.
+		Celestine: The janitor mentioned he mopped the hallway at 3\:00 PM yesterday.
 		Celestine: But wait... I see fresh footprints leading to the faculty room.
 		Celestine: The floor dries completely in 45 minutes according to the janitor.
 		Celestine: If I can reconstruct the timeline of events mathematically...
 		Celestine: I can calculate exactly when someone entered the faculty room!
 		[signal arg="start_minigame timeline_footprints_math"]
 	elif {selected_subject} == "science":
-		Celestine: The janitor said he mopped at 3:00 PM. The floor dries in 45 minutes in this humidity.
+		Celestine: The janitor said he mopped at 3\:00 PM. The floor dries in 45 minutes in this humidity.
 		Celestine: These footprints still have slight moisture. If I apply physics principles...
 		Celestine: I can calculate the evaporation rate and determine when they were made!
 		[signal arg="start_minigame evaporation_analysis_science"]
 	[background arg="res://Bg/storage_room.png" fade="0.0"]
-	[voice path="res://assets/audio/voice/Chapter 1/c1s2/Conrad enters.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 1/c1s2/Conrad enters.mp3" volume="0.0"]
 	Celestine enters the Storage Room.
 	join Celestine (half) left [animation="Slide From Left" length="3.6"]
 	join "Janitor Fred" (Janitor_half) right [animation="Slide From Right" length="1.5" move_time="2.0"]
 	Celestine: Good afternoon, sir. I was hoping you could help me. I'm looking for something I lost in this room—have you come across anything unusual while you were sweeping?
-	[voice path="res://assets/audio/voice/Chapter 1/c1s2/The Janitor brings.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 1/c1s2/The Janitor brings.mp3" volume="0.0"]
 	The Janitor brings in his cleaning equipment in the room.
 	"Janitor Fred": No young woman, what do you need from me?
 	Celestine: I noticed earlier today that there seems to be a problem with the exam papers? Do you know what that's about?
@@ -53,7 +53,7 @@ if {selected_character} == "celestine":
 	Celestine: Thanks for answering my questions.
 	"Janitor Fred": No problem kid.
 	leave "Janitor Fred" [animation="Slide To Right"]
-	[voice path="res://assets/audio/voice/Chapter 1/c1s2/Janitor leaves.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 1/c1s2/Janitor leaves.mp3" volume="0.0"]
 	Janitor leaves the room after checking how dirty it is, but does not clean the room yet.
 	Celestine: Hmmm, nothing is really suspicious from what I have gathered so far.
 	label choice_1_celestine
@@ -75,11 +75,11 @@ if {selected_character} == "celestine":
 		Celestine: That's it. The leak happened yesterday, but was only found this morning. What happened in between? That feels like the real mystery.
 	Celestine: I have a strange feeling about this. Something doesn't add up. I should keep digging for more information.
 	leave --All-- [animation="Slide To Right"]
-	[voice path="res://assets/audio/voice/Chapter 1/c1s2/Conrad goes out.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 1/c1s2/Conrad goes out.mp3" volume="0.0"]
 	Celestine goes out of the room and heads for the faculty room.
 	jump c1s3/
 else:
-	[voice path="res://assets/audio/voice/Chapter 1/c1s2/The time is now 5 30.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 1/c1s2/The time is now 5 30.mp3" volume="0.0"]
 	The time is now 5\:30. Today's classes are over. Instead of going home, Conrad and Mark stay in the classroom to talk.
 	join Conrad (half) left
 	join Mark (Mark_half) right
@@ -90,7 +90,7 @@ else:
 	leave Conrad [animation="Instant Out"]
 	[background arg="res://Bg/storage room front door.png" fade="0.0"]
 	...
-	[voice path="res://assets/audio/voice/Chapter 1/c1s2/Conrad immediately.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 1/c1s2/Conrad immediately.mp3" volume="0.0"]
 	Conrad immediately went to the classroom
 	his chest tightening with every step. When he reached the door, he froze.
 	join Conrad (half) left
@@ -100,24 +100,24 @@ else:
 		Conrad: I need to use proper communication strategies to get the information I need.
 		[signal arg="start_minigame dialogue_choice_janitor"]
 	elif {selected_subject} == "math":
-		Conrad: The janitor mentioned he mopped the hallway at 3:00 PM yesterday.
+		Conrad: The janitor mentioned he mopped the hallway at 3\:00 PM yesterday.
 		Conrad: But wait... I see fresh footprints leading to the faculty room.
 		Conrad: The floor dries completely in 45 minutes according to the janitor.
 		Conrad: If I can reconstruct the timeline of events mathematically...
 		Conrad: I can calculate exactly when someone entered the faculty room!
 		[signal arg="start_minigame timeline_footprints_math"]
 	elif {selected_subject} == "science":
-		Conrad: The janitor said he mopped at 3:00 PM. The floor dries in 45 minutes in this humidity.
+		Conrad: The janitor said he mopped at 3\:00 PM. The floor dries in 45 minutes in this humidity.
 		Conrad: These footprints still have slight moisture. If I apply physics principles...
 		Conrad: I can calculate the evaporation rate and determine when they were made!
 		[signal arg="start_minigame evaporation_analysis_science"]
 	[background arg="res://Bg/storage_room.png" fade="0.0"]
-	[voice path="res://assets/audio/voice/Chapter 1/c1s2/Conrad enters.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 1/c1s2/Conrad enters.mp3" volume="0.0"]
 	Conrad enters the Storage Room.
 	join Conrad (half) left [animation="Slide From Left" length="3.6"]
 	join "Janitor Fred" (Janitor_half) right [animation="Slide From Right" length="1.5" move_time="2.0"]
 	Conrad: Good afternoon, sir. I was hoping you could help me. I'm looking for something I lost in this room—have you come across anything unusual while you were sweeping?
-	[voice path="res://assets/audio/voice/Chapter 1/c1s2/The Janitor brings.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 1/c1s2/The Janitor brings.mp3" volume="0.0"]
 	The Janitor brings in his cleaning equipment in the room.
 	"Janitor Fred": No young man, what do you need from me?
 	Conrad: I noticed earlier today that there seems to be a problem with the exam papers? Do you know what that's about?
@@ -129,7 +129,7 @@ else:
 	Conrad: Thanks for answering my questions.
 	"Janitor Fred": No problem kid.
 	leave "Janitor Fred" [animation="Slide To Right"]
-	[voice path="res://assets/audio/voice/Chapter 1/c1s2/Janitor leaves.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 1/c1s2/Janitor leaves.mp3" volume="0.0"]
 	Janitor leaves the room after checking how dirty it is, but does not clean the room yet.
 	Conrad: Hmmm, nothing is really suspicious from what I have gathered so far.
 	label choice_1
@@ -151,6 +151,6 @@ else:
 		Conrad: That's it. The leak happened yesterday, but was only found this morning. What happened in between? That feels like the real mystery.
 	Conrad: I have a strange feeling about this. Something doesn't add up. I should keep digging for more information.
 	leave --All-- [animation="Slide To Right"]
-	[voice path="res://assets/audio/voice/Chapter 1/c1s2/Conrad goes out.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 1/c1s2/Conrad goes out.mp3" volume="0.0"]
 	Conrad goes out of the room and heads for the faculty room.
 	jump c1s3/

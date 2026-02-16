@@ -245,12 +245,18 @@ func _on_dialogic_input_action() -> void:
 				dialogic.Inputs.stop_timers()
 		_:
 			if dialogic.Inputs.manual_advance.is_enabled():
+				# Stop voice when advancing to next dialogue
+				if dialogic.has_subsystem('Voice'):
+					dialogic.Voice.stop_audio()
 				advance.emit()
 				dialogic.Inputs.stop_timers()
 
 
 func _on_dialogic_input_autoadvance() -> void:
 	if state == States.IDLE or state == States.DONE:
+		# Stop voice when auto-advancing to next dialogue
+		if dialogic.has_subsystem('Voice'):
+			dialogic.Voice.stop_audio()
 		advance.emit()
 
 

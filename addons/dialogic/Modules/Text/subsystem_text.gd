@@ -390,8 +390,10 @@ func skip_text_reveal() -> void:
 	for text_node in get_tree().get_nodes_in_group('dialogic_dialog_text'):
 		if text_node.is_visible_in_tree():
 			text_node.finish_text()
-	if dialogic.has_subsystem('Voice'):
-		dialogic.Voice.stop_audio()
+	# DON'T stop voice when skipping text animation - let it continue playing
+	# Voice should only stop when advancing to next dialogue
+	#if dialogic.has_subsystem('Voice'):
+	#	dialogic.Voice.stop_audio()
 
 #endregion
 

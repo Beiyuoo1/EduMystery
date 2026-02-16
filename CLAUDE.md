@@ -12,9 +12,11 @@ EduMys is an educational mystery visual novel built in Godot 4.5. The player sol
 - **Chapter 3:** Complete with 4 evidence items (cruel note, paint cloth, Victor's sketchbook, receipt) - **Celestine variant complete** - **Physics Q2 minigames complete**
 - **Chapter 4:** Complete with 1+ evidence items (anonymous note, etc.) - **Celestine variant complete** - **Physics Q3 minigames complete**
 - **Chapter 5:** Complete - B.C. revelation chapter - **Celestine variant complete** (both protagonists can experience the climax) - **Physics Q4 minigames complete**
+  - **Returns to character selection** after completion - Encourages replaying with the other protagonist
 - **Dual Protagonist System:** Players can choose between Conrad (male) or Celestine (female) at game start
   - **100% feature parity** - ALL chapters (1-5) fully support both protagonists
   - Character selection screen: `scenes/ui/character_selection.tscn`
+  - After completing Chapter 5, players return to character selection to easily replay with the other protagonist
 - **Multi-Subject Curriculum System** - **100% COMPLETE** - Math, Science (Physics), and English tracks with subject-specific minigames
   - **23 total story-integrated minigames** (10 Detective Analysis + 13 Physics minigames across all chapters)
   - All chapters fully support Math, Science, and English paths with context-appropriate minigames
@@ -122,6 +124,8 @@ Each character has a unique namebox color that appears when they speak:
 - Dynamically applies character-specific StyleBoxTexture when speaker changes
 - StyleBox files in `assets/VisualNovelDialogueGUI_PNG/*_style.tres`
 - Texture margins: 20px left/right, 15px top/bottom for proper corner rendering
+- **Fixed width**: 360px minimum (based on longest name "Conrad (Thinking)" - 18 chars)
+- **Text alignment**: Center-aligned for consistent, polished appearance
 
 **Choice Buttons:**
 - Idle state: `choice_dark_idle.png`
@@ -757,8 +761,11 @@ The game features a complete voice narration system with **583 pre-recorded voic
 **System Overview:**
 - **583 total voice events** integrated into timeline (.dtl) files
 - Voice files organized by chapter and scene in `assets/audio/voice/Chapter X/FOLDER/`
-- Narration triggers automatically via `[voice path="..." volume=0 bus="Master"]` events
+- Narration triggers automatically via `[voice path="..." volume=25 bus="Voice"]` events
 - Placed immediately before matching narration-only lines (non-dialogue text)
+- **Voice continues playing** when clicking to skip text animation (only stops when advancing to next dialogue)
+- **Voice volume control** - Dedicated "Voice Narration" slider in Settings menu (ESC → Settings)
+- **Maximum volume** - Set to 25 dB for optimal audibility (adjustable via slider 0-100%)
 
 **Chapter Breakdown:**
 - **Chapter 1**: 69 voice files across 5 scenes (c1s1-c1s5)
@@ -774,16 +781,18 @@ The game features a complete voice narration system with **583 pre-recorded voic
 
 **Voice Event Format:**
 ```dtl
-[voice path="res://assets/audio/voice/Chapter 1/C1S1/c1s1 the hallway.mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 1/C1S1/c1s1 the hallway.mp3" volume=25 bus="Voice"]
 The hallway is quiet, bathed in the soft light of the afternoon sun.
 ```
 
 **Technical Details:**
 - Voice files are MP3 format
-- Volume set to 0 (uses default bus volume)
-- Plays on "Master" audio bus
+- Volume set to 25 dB (increased for maximum audibility)
+- Plays on dedicated "Voice" audio bus (independent volume control)
 - Narration text immediately follows voice event
 - Voice files named after partial text of the narration line they accompany
+- **Click behavior**: Clicking to skip text animation does NOT stop voice - voice continues until you advance to next dialogue
+- **Volume control**: Players can adjust voice volume independently via Settings menu slider (0-100%)
 
 **File Organization:**
 - Base path: `assets/audio/voice/Chapter X/`
@@ -793,7 +802,7 @@ The hallway is quiet, bathed in the soft light of the afternoon sun.
 **Usage in Timelines:**
 Voice events are placed directly before narration lines:
 ```dtl
-[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 the next day.mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 the next day.mp3" volume=25 bus="Voice"]
 The next day. The school courtyard is busy with students moving between classes.
 ```
 
@@ -802,6 +811,10 @@ The next day. The school courtyard is busy with students moving between classes.
 - Character dialogue uses character portraits and text-to-speech or voice recognition systems
 - Voice events auto-play as the story progresses
 - No manual interaction required - fully integrated into narrative flow
+- **Voice playback behavior**:
+  - Clicking to skip text animation → Voice continues playing
+  - Clicking to advance to next dialogue → Voice stops
+  - This allows players to read at their own pace while still hearing the full narration
 
 ### Multi-Subject Curriculum System
 

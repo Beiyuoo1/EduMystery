@@ -248,8 +248,10 @@ func _debug_skip_to_chapter(chapter: int) -> void:
 		PlayerStats.selected_character = character_to_use
 		print("DEBUG: Set PlayerStats.selected_character to: ", PlayerStats.selected_character)
 		# Also preserve the subject from subject selection screen
+		# For debug skip, default to Math (change to "science" or "english" if needed for testing)
 		if PlayerStats.selected_subject == "":
-			PlayerStats.selected_subject = "english"  # Fallback to English if not set
+			PlayerStats.selected_subject = "math"  # Debug default: Math
+			print("DEBUG: No subject set, defaulting to MATH for debug skip")
 
 	# Reset player stats for fresh chapter start (but character/subject are preserved)
 	PlayerStats.score = 0

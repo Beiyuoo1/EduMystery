@@ -1,5 +1,5 @@
 [background arg="res://Bg/classroom_night.png" fade="1.0"]
-[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 the auditorium.mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 the auditorium.mp3" volume=25 bus="Voice"]
 The auditorium stage is empty, bathed in soft afternoon light.
 if {selected_character} == "celestine":
 	join Celestine (animated) left
@@ -7,30 +7,30 @@ else:
 	join Conrad (half) left
 join Mark (Mark_half) right
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 conrad and mark.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 conrad and mark.mp3" volume=25 bus="Voice"]
 	Celestine and Mark arrange items carefully across the stage.
 	Celestine: Each case needs to be represented. But not just the crime - the lesson.
 	Mark: So how do we show that?
-	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 conrad places a piece.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 conrad places a piece.mp3" volume=25 bus="Voice"]
 	Celestine places a piece of chalk next to a small evidence bag.
 	Celestine: For the exam case - chalk and evidence. The lesson was Truth.
 	Celestine: Greg cheated, but the evidence revealed the truth. Honesty matters more than success.
-	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 he moves to the next position.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 he moves to the next position.mp3" volume=25 bus="Voice"]
 	She moves to the next position, arranging budget papers in a small maze pattern.
 	Celestine: For the missing fund - the maze of choices. The lesson was Responsibility.
 	Celestine: Ria made a choice out of desperation, but she had to face the consequences.
-	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 mark helps arrange.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 mark helps arrange.mp3" volume=25 bus="Voice"]
 	Mark helps arrange art supplies next to a photo of a sculpture.
 	Mark: The broken sculpture - Creativity. Victor learned that art is about expression, not competition.
 	Celestine: Right. And jealousy destroys what it cannot possess.
-	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 finally, conrad places.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 finally, conrad places.mp3" volume=25 bus="Voice"]
 	Finally, Celestine places the old journal carefully on a pedestal.
 	Celestine: The journal. Wisdom. Alex learned that knowledge without wisdom causes harm.
 	Mark: So what now? We just... wait?
-	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 conrad pulls out.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 conrad pulls out.mp3" volume=25 bus="Voice"]
 	Celestine pulls out a cream-colored card - one she prepared herself, matching B.C.'s style.
 	Celestine: I leave this.
-	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 he places the card.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 he places the card.mp3" volume=25 bus="Voice"]
 	She places the card in the center of the arrangement.
 	Mark: What does it say?
 	Celestine: "Teacher, I've learned your lessons. Each case taught me something about truth, responsibility, creativity, and wisdom. But I still have questions. Will you teach me one more lesson? - C"
@@ -41,30 +41,30 @@ if {selected_character} == "celestine":
 	Celestine: No. We wait outside. If B.C. wants to meet me, they'll send a signal.
 	Celestine: I'll leave the door unlocked. The rest is up to them.
 else:
-	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 conrad and mark.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 conrad and mark.mp3" volume=25 bus="Voice"]
 	Conrad and Mark arrange items carefully across the stage.
 	Conrad: Each case needs to be represented. But not just the crime - the lesson.
 	Mark: So how do we show that?
-	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 conrad places a piece.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 conrad places a piece.mp3" volume=25 bus="Voice"]
 	Conrad places a piece of chalk next to a small evidence bag.
 	Conrad: For the exam case - chalk and evidence. The lesson was Truth.
 	Conrad: Greg cheated, but the evidence revealed the truth. Honesty matters more than success.
-	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 he moves to the next position.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 he moves to the next position.mp3" volume=25 bus="Voice"]
 	He moves to the next position, arranging budget papers in a small maze pattern.
 	Conrad: For the missing fund - the maze of choices. The lesson was Responsibility.
 	Conrad: Ria made a choice out of desperation, but she had to face the consequences.
-	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 mark helps arrange.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 mark helps arrange.mp3" volume=25 bus="Voice"]
 	Mark helps arrange art supplies next to a photo of a sculpture.
 	Mark: The broken sculpture - Creativity. Victor learned that art is about expression, not competition.
 	Conrad: Right. And jealousy destroys what it cannot possess.
-	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 finally, conrad places.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 finally, conrad places.mp3" volume=25 bus="Voice"]
 	Finally, Conrad places the old journal carefully on a pedestal.
 	Conrad: The journal. Wisdom. Alex learned that knowledge without wisdom causes harm.
 	Mark: So what now? We just... wait?
-	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 conrad pulls out.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 conrad pulls out.mp3" volume=25 bus="Voice"]
 	Conrad pulls out a cream-colored card - one he prepared himself, matching B.C.'s style.
 	Conrad: I leave this.
-	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 he places the card.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 he places the card.mp3" volume=25 bus="Voice"]
 	He places the card in the center of the arrangement.
 	Mark: What does it say?
 	Conrad: "Teacher, I've learned your lessons. Each case taught me something about truth, responsibility, creativity, and wisdom. But I still have questions. Will you teach me one more lesson? - C"
@@ -74,7 +74,7 @@ else:
 	Mark: So do we hide and wait to see if they show up?
 	Conrad: No. We wait outside. If B.C. wants to meet me, they'll send a signal.
 	Conrad: I'll leave the door unlocked. The rest is up to them.
-[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 they step back.mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 they step back.mp3" volume=25 bus="Voice"]
 They step back, examining their work.
 The stage looks like a museum of moral lessons, each case represented with care.
 if {selected_character} == "celestine":
@@ -90,11 +90,11 @@ else:
 leave Mark
 [background arg="res://Bg/hallway_night.png" fade="1.0"]
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 later, conrad and mark.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 later, conrad and mark.mp3" volume=25 bus="Voice"]
 	Celestine and Mark sit on a bench outside the auditorium, waiting.
 	join Celestine (animated) left
 else:
-	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 later, conrad and mark.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 later, conrad and mark.mp3" volume=25 bus="Voice"]
 	Conrad and Mark sit on a bench outside the auditorium, waiting.
 	join Conrad (half) left
 join Mark (Mark_half) right
@@ -114,7 +114,7 @@ else:
 	Mark: The Principal? Ms. Santos? Janitor Fred?
 	Conrad: Any of them could be. Or someone else entirely.
 [wait time="1.0"]
-[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 the auditorium door.mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 the auditorium door.mp3" volume=25 bus="Voice"]
 The auditorium door opens quietly.
 Someone has entered.
 if {selected_character} == "celestine":
@@ -124,7 +124,7 @@ if {selected_character} == "celestine":
 	Celestine: We give them a moment. Let them see the arrangement, read the card.
 	Celestine: Then we go in. Respectfully.
 	[wait time="1.5"]
-	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 conrad stands.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 conrad stands.mp3" volume=25 bus="Voice"]
 	Celestine stands, taking a deep breath.
 	Celestine: This is it. After four cases, four lessons, four cards...
 	Celestine: Finally, I meet my teacher.
@@ -135,14 +135,14 @@ else:
 	Conrad: We give them a moment. Let them see the arrangement, read the card.
 	Conrad: Then we go in. Respectfully.
 	[wait time="1.5"]
-	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 conrad stands.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 conrad stands.mp3" volume=25 bus="Voice"]
 	Conrad stands, taking a deep breath.
 	Conrad: This is it. After four cases, four lessons, four cards...
 	Conrad: Finally, I meet my teacher.
 join "Diwata Laya" (Half) center
 [signal arg="laya_start"]
-[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 diwata laya materializes.mp3" volume=0 bus="Master"]
-[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 conrad readies.mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 diwata laya materializes.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 5/C5S1/c5s1 conrad readies.mp3" volume=25 bus="Voice"]
 "Diwata Laya": This final case requires all your skills. Prepare yourself.
 if {selected_subject} == "english":
 	[signal arg="start_minigame dialogue_choice_bc_approach"]

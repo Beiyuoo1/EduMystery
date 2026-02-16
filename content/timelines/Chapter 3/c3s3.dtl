@@ -1,7 +1,7 @@
 [background arg="res://Bg/art_room.png" fade="1.0"]
 set {c3s3_sketchbook_tried} = false
 set {c3s3_receipt_tried} = false
-[voice path="res://assets/audio/voice/Chapter 3/c3s3/The art room storage area is cluttered with supplies half-finished projects and dusty easels..mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s3/The art room storage area is cluttered with supplies half-finished projects and dusty easels..mp3" volume=25 bus="Voice"]
 The art room storage area is cluttered with supplies, half-finished projects, and dusty easels.
 if {selected_character} == "celestine":
 	join Celestine (animated) left
@@ -16,104 +16,104 @@ else:
 	Mark: Is this legal? Going through his stuff?
 	Conrad: We're not taking anything. Just observing.
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Mark gives him a look..mp3" volume=0 bus="Master"]
-	Mark gives her a look.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Mark gives him a look..mp3" volume=25 bus="Voice"]
+	Mark gives your a look.
 else:
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Mark gives him a look..mp3" volume=0 bus="Master"]
-	Mark gives him a look.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Mark gives him a look..mp3" volume=25 bus="Voice"]
+	Mark gives you a look.
 Mark: That's a very specific distinction.
 if {selected_character} == "celestine":
 	Celestine: Evidence collected properly can help everyone, including Victor if he's innocent.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/They move through the storage area..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/They move through the storage area..mp3" volume=25 bus="Voice"]
 	They move through the storage area.
 	Celestine: Here. Victor Lim.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad opens the cabinet carefully..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad opens the cabinet carefully..mp3" volume=25 bus="Voice"]
 	Celestine opens the cabinet carefully.
 else:
 	Conrad: Evidence collected properly can help everyone, including Victor if he's innocent.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/They move through the storage area..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/They move through the storage area..mp3" volume=25 bus="Voice"]
 	They move through the storage area.
 	Conrad: Here. Victor Lim.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad opens the cabinet carefully..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad opens the cabinet carefully..mp3" volume=25 bus="Voice"]
 	Conrad opens the cabinet carefully.
-[voice path="res://assets/audio/voice/Chapter 3/c3s3/Inside are neatly organized supplies—brushes arranged by size paints sorted by color pristine tools..mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s3/Inside are neatly organized supplies—brushes arranged by size paints sorted by color pristine tools..mp3" volume=25 bus="Voice"]
 Inside are neatly organized supplies\: brushes arranged by size, paints sorted by color, pristine tools.
 if {selected_character} == "celestine":
 	Celestine: Meticulous. Everything in perfect order.
 	Mark: So he's organized. Lots of people are organized.
 	Celestine: Look here.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad pulls out a small bundle of cloth rags stained with various paint colors..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad pulls out a small bundle of cloth rags stained with various paint colors..mp3" volume=25 bus="Voice"]
 	Celestine pulls out a small bundle of cloth rags, stained with various paint colors.
 else:
 	Conrad: Meticulous. Everything in perfect order.
 	Mark: So he's organized. Lots of people are organized.
 	Conrad: Look here.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad pulls out a small bundle of cloth rags stained with various paint colors..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad pulls out a small bundle of cloth rags stained with various paint colors..mp3" volume=25 bus="Voice"]
 	Conrad pulls out a small bundle of cloth rags, stained with various paint colors.
 [signal arg="unlock_evidence paint_cloth_c3"]
 if {selected_character} == "celestine":
 	Celestine: Paint cloths. Let me compare.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/He holds up the cloth from the crime scene next to the rags from Victor's cabinet..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/He holds up the cloth from the crime scene next to the rags from Victor's cabinet..mp3" volume=25 bus="Voice"]
 	She holds up the cloth from the crime scene next to the rags from Victor's cabinet.
 	Celestine: Same type of fabric. Same paint patterns.
 	Mark: That's not definitive. All the art students probably use similar cloths.
 	Celestine: True. We need something more concrete.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad continues searching then pauses..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad continues searching then pauses..mp3" volume=25 bus="Voice"]
 	Celestine continues searching, then pauses.
 	Celestine: What's this?
 else:
 	Conrad: Paint cloths. Let me compare.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/He holds up the cloth from the crime scene next to the rags from Victor's cabinet..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/He holds up the cloth from the crime scene next to the rags from Victor's cabinet..mp3" volume=25 bus="Voice"]
 	He holds up the cloth from the crime scene next to the rags from Victor's cabinet.
 	Conrad: Same type of fabric. Same paint patterns.
 	Mark: That's not definitive. All the art students probably use similar cloths.
 	Conrad: True. We need something more concrete.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad continues searching then pauses..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad continues searching then pauses..mp3" volume=25 bus="Voice"]
 	Conrad continues searching, then pauses.
 	Conrad: What's this?
 [signal arg="unlock_evidence victor_sketchbook_c3"]
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/He pulls out a worn sketchbook its cover marked with Victor's name..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/He pulls out a worn sketchbook its cover marked with Victor's name..mp3" volume=25 bus="Voice"]
 	She pulls out a worn sketchbook, its cover marked with Victor's name.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad flips through the pages..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad flips through the pages..mp3" volume=25 bus="Voice"]
 	Celestine flips through the pages.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/The first half is filled with technical studies—anatomy perspective shading techniques..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/The first half is filled with technical studies—anatomy perspective shading techniques..mp3" volume=25 bus="Voice"]
 	The first half is filled with technical studies\: anatomy, perspective, shading techniques.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Then the tone changes..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Then the tone changes..mp3" volume=25 bus="Voice"]
 	Then the tone changes.
 	Celestine: Mark, look at this.
 else:
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/He pulls out a worn sketchbook its cover marked with Victor's name..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/He pulls out a worn sketchbook its cover marked with Victor's name..mp3" volume=25 bus="Voice"]
 	He pulls out a worn sketchbook, its cover marked with Victor's name.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad flips through the pages..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad flips through the pages..mp3" volume=25 bus="Voice"]
 	Conrad flips through the pages.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/The first half is filled with technical studies—anatomy perspective shading techniques..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/The first half is filled with technical studies—anatomy perspective shading techniques..mp3" volume=25 bus="Voice"]
 	The first half is filled with technical studies\: anatomy, perspective, shading techniques.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Then the tone changes..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Then the tone changes..mp3" volume=25 bus="Voice"]
 	Then the tone changes.
 	Conrad: Mark, look at this.
-[voice path="res://assets/audio/voice/Chapter 3/c3s3/Angry sketches fill the later pages. Crossed-out figures. Dark violent imagery..mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s3/Angry sketches fill the later pages. Crossed-out figures. Dark violent imagery..mp3" volume=25 bus="Voice"]
 Angry sketches fill the later pages. Crossed-out figures. Dark, violent imagery.
-[voice path="res://assets/audio/voice/Chapter 3/c3s3/One page shows a sculpture that looks unmistakably like The Reader slashed with harsh X marks..mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s3/One page shows a sculpture that looks unmistakably like The Reader slashed with harsh X marks..mp3" volume=25 bus="Voice"]
 One page shows a sculpture that looks unmistakably like "The Reader" - with harsh X marks drawn over it.
 Mark: That's... disturbing.
 if {selected_character} == "celestine":
 	Celestine: It shows his state of mind. But it's not proof he acted on these feelings.
 	Celestine: Artists often express dark thoughts through their work. It's actually healthy.
 	Mark: So what do we need?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad continues through the sketchbook and finds a loose receipt tucked between pages..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad continues through the sketchbook and finds a loose receipt tucked between pages..mp3" volume=25 bus="Voice"]
 	Celestine continues through the sketchbook and finds a loose receipt tucked between pages.
 	Celestine: Hello. What's this?
 else:
 	Conrad: It shows his state of mind. But it's not proof he acted on these feelings.
 	Conrad: Artists often express dark thoughts through their work. It's actually healthy.
 	Mark: So what do we need?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad continues through the sketchbook and finds a loose receipt tucked between pages..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad continues through the sketchbook and finds a loose receipt tucked between pages..mp3" volume=25 bus="Voice"]
 	Conrad continues through the sketchbook and finds a loose receipt tucked between pages.
 	Conrad: Hello. What's this?
 [signal arg="unlock_evidence receipt_c3"]
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/He examines the receipt..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/He examines the receipt..mp3" volume=25 bus="Voice"]
 	She examines the receipt.
 	Celestine: Art supply store. Dated yesterday. Time stamp\: 8\:47 PM.
 	Mark: That's late. Why would he need supplies so urgently?
@@ -121,10 +121,10 @@ if {selected_character} == "celestine":
 	Mark: His alibi was that he was home all night. This proves he was out.
 	Celestine: It proves he was at the store. Not that he came here.
 	Celestine: We need something that directly links him to the courtyard last night.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad closes the sketchbook..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad closes the sketchbook..mp3" volume=25 bus="Voice"]
 	Celestine closes the sketchbook.
 else:
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/He examines the receipt..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/He examines the receipt..mp3" volume=25 bus="Voice"]
 	He examines the receipt.
 	Conrad: Art supply store. Dated yesterday. Time stamp\: 8\:47 PM.
 	Mark: That's late. Why would he need supplies so urgently?
@@ -132,12 +132,12 @@ else:
 	Mark: His alibi was that he was home all night. This proves he was out.
 	Conrad: It proves he was at the store. Not that he came here.
 	Conrad: We need something that directly links him to the courtyard last night.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad closes the sketchbook..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad closes the sketchbook..mp3" volume=25 bus="Voice"]
 	Conrad closes the sketchbook.
 join "Diwata Laya" (Half_mirror) center
 [signal arg="laya_start"]
-[voice path="res://assets/audio/voice/Chapter 3/c3s3/Diwata Laya appears her expression thoughtful..mp3" volume=0 bus="Master"]
-"Diwata Laya" appears, her expression thoughtful.
+[voice path="res://assets/audio/voice/Chapter 3/c3s3/Diwata Laya appears her expression thoughtful..mp3" volume=25 bus="Voice"]
+"Diwata Laya" appears, your expression thoughtful.
 "Diwata Laya": [i][color=#9999ff]You are gathering pieces, but the picture remains incomplete.[/color][/i]
 if {selected_character} == "celestine":
 	"Celestine (Thinking)": I have motive, I have circumstantial evidence. But nothing definitive.
@@ -175,17 +175,17 @@ elif {selected_subject} == "science":
 [signal arg="laya_end"]
 leave "Diwata Laya"
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad examines the paint cloth more carefully..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad examines the paint cloth more carefully..mp3" volume=25 bus="Voice"]
 	Celestine examines the paint cloth more carefully.
 	Celestine: Wait. There's something here. A small tag.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/He holds it up to the light..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/He holds it up to the light..mp3" volume=25 bus="Voice"]
 	She holds it up to the light.
 	Celestine: Student art supplies are labeled for inventory. This tag has a number.
 else:
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad examines the paint cloth more carefully..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Conrad examines the paint cloth more carefully..mp3" volume=25 bus="Voice"]
 	Conrad examines the paint cloth more carefully.
 	Conrad: Wait. There's something here. A small tag.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/He holds it up to the light..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/He holds it up to the light..mp3" volume=25 bus="Voice"]
 	He holds it up to the light.
 	Conrad: Student art supplies are labeled for inventory. This tag has a number.
 Mark: And if we can match that number to Victor's assigned supplies...
@@ -205,12 +205,12 @@ if {selected_character} == "celestine":
 	join "Ms Reyes" (half) right
 	"Ms Reyes": An inventory number? Yes, we track all school-provided supplies.
 	"Ms Reyes": Let me check the log.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/She pulls out a thick binder and flips through pages..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/She pulls out a thick binder and flips through pages..mp3" volume=25 bus="Voice"]
 	She pulls out a thick binder and flips through pages.
 	"Ms Reyes": The number you mentioned... that corresponds to supplies assigned to cabinet 14.
 	Celestine: Whose cabinet is that?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Ms. Reyes looks up her face troubled..mp3" volume=0 bus="Master"]
-	"Ms Reyes" looks up, her face troubled.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Ms. Reyes looks up her face troubled..mp3" volume=25 bus="Voice"]
+	"Ms Reyes" looks up, your face troubled.
 	"Ms Reyes": Victor Lim.
 	Celestine: Thank you, Ms. Reyes.
 	leave "Ms Reyes"
@@ -219,12 +219,12 @@ else:
 	join "Ms Reyes" (half) right
 	"Ms Reyes": An inventory number? Yes, we track all school-provided supplies.
 	"Ms Reyes": Let me check the log.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/She pulls out a thick binder and flips through pages..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/She pulls out a thick binder and flips through pages..mp3" volume=25 bus="Voice"]
 	She pulls out a thick binder and flips through pages.
 	"Ms Reyes": The number you mentioned... that corresponds to supplies assigned to cabinet 14.
 	Conrad: Whose cabinet is that?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Ms. Reyes looks up her face troubled..mp3" volume=0 bus="Master"]
-	"Ms Reyes" looks up, her face troubled.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s3/Ms. Reyes looks up her face troubled..mp3" volume=25 bus="Voice"]
+	"Ms Reyes" looks up, your face troubled.
 	"Ms Reyes": Victor Lim.
 	Conrad: Thank you, Ms. Reyes.
 	leave "Ms Reyes"

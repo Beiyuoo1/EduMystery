@@ -17,20 +17,20 @@
    - Download: https://alphacephei.com/vosk/models/vosk-model-en-us-0.22.zip (2.7GB)
    - Extract the zip file
    - Place the `vosk-model-en-us-0.22` folder in:
-     `Desktop/edu-mys-dev/addons/vosk/models/`
+     `Desktop/edu-mystery-dev/addons/vosk/models/`
 
 4. **Clone the Project**
    ```bash
    # Open Git Bash (right-click desktop → Git Bash Here)
    cd Desktop
-   git clone https://github.com/AmeDesuwa/edu-mys-dev.git
-   cd edu-mys-dev
+   git clone https://github.com/AmeDesuwa/edu-mystery-dev.git
+   cd edu-mystery-dev
    ```
 
 4. **Open in Godot**
    - Open Godot
    - Click "Import"
-   - Navigate to `Desktop/edu-mys-dev/project.godot`
+   - Navigate to `Desktop/edu-mystery-dev/project.godot`
    - Click "Import & Edit"
 
 ---
@@ -41,7 +41,7 @@ When the project lead (AmeDesuwa) tells you there are new updates:
 
 ```bash
 # Open Git Bash in the project folder
-cd Desktop/edu-mys-dev
+cd Desktop/edu-mystery-dev
 
 # Get latest changes
 git pull
@@ -54,7 +54,7 @@ That's it! The game will automatically update.
 ## 🚀 How to Run the Game
 
 1. Open Godot 4.5
-2. Select the `edu-mys-dev` project
+2. Select the `edu-mystery-dev` project
 3. Press **F5** or click the Play button ▶
 
 ---

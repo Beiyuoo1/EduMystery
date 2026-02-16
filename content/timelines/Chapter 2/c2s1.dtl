@@ -1,17 +1,17 @@
 ﻿[background arg="res://Bg/hallway.png" fade="1.0"]
-[voice path="res://assets/audio/voice/Chapter 2/c2s1 mathilda HALLWAY/The hallway buses.mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 2/c2s1 mathilda HALLWAY/The hallway buses.mp3" volume=25 bus="Voice"]
 The hallway buzzes with whispered conversations. Students cluster in groups, shooting glances toward the council room.
 if {selected_character} == "celestine":
 	join Celestine (half) left
 	Celestine notices the unusual atmosphere as she walks to class.
 	join Mark (Mark_half) right
-	[voice path="res://assets/audio/voice/Chapter 2/c2s1 mathilda HALLWAY/Mark rushes up.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s1 mathilda HALLWAY/Mark rushes up.mp3" volume=25 bus="Voice"]
 	Mark rushes up, slightly out of breath.
 	Mark: Celestine! There you are. Did you hear?
 	Celestine: Hear what? Everyone's acting strange today.
 	Mark: The Student Council fund is missing. Twenty thousand pesos. Gone.
 	Celestine: The outreach fund? For students who need supplies?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s1 mathilda HALLWAY/Mark rushes up.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s1 mathilda HALLWAY/Mark rushes up.mp3" volume=25 bus="Voice"]
 	Mark: That's the one. Ria discovered it this morning when she went to prepare the distribution list.
 	Mark: The lockbox was empty. Not a single peso left.
 	Celestine: That's a lot of money. When did this happen?
@@ -22,15 +22,15 @@ if {selected_character} == "celestine":
 	Celestine frowns, processing the information.
 	Celestine: So it was either someone with inside knowledge, or...
 	Mark: Or someone who figured it out. But here's the worst part.
-	Mark lowers his voice.
+	Mark lowers your voice.
 	Mark: Everyone's blaming Ria. Saying the treasurer must have taken it.
 	Celestine: That's a serious accusation. Is there any evidence?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s1 mathilda HALLWAY/Mark lowers his voice.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s1 mathilda HALLWAY/Mark lowers his voice.mp3" volume=25 bus="Voice"]
 	Mark: Nothing solid. Just... she had access. She's the treasurer. People are connecting dots that might not exist.
 	Celestine: Circumstantial at best. That's not proof of guilt.
 	Mark: I know. But the rumors are spreading fast. I saw her crying in the bathroom earlier.
 	Mark: Some kids were calling her a thief to her face.
-	Celestine's expression hardens.
+	your expression hardens.
 	Celestine: We can't let someone be condemned without proper evidence.
 	Celestine: If Ria is innocent, she deserves someone to find the truth.
 	Mark: I was hoping you'd say that. So we're taking the case?
@@ -51,11 +51,11 @@ else:
 	join Conrad (half) left
 	Conrad notices the unusual atmosphere as he walks to class.
 	join Mark (Mark_half) right
-	[voice path="res://assets/audio/voice/Chapter 2/c2s1 mathilda HALLWAY/Conrad notices.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s1 mathilda HALLWAY/Conrad notices.mp3" volume=25 bus="Voice"]
 	Mark rushes up, slightly out of breath.
 	Mark: Conrad! There you are. Did you hear?
 	Conrad: Hear what? Everyone's acting strange today.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s1 mathilda HALLWAY/Mark rushes up.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s1 mathilda HALLWAY/Mark rushes up.mp3" volume=25 bus="Voice"]
 	Mark: The Student Council fund is missing. Twenty thousand pesos. Gone.
 	Conrad: The outreach fund? For students who need supplies?
 	Mark: That's the one. Ria discovered it this morning when she went to prepare the distribution list.
@@ -66,19 +66,19 @@ else:
 	Mark: That's the problem. The key is kept in Ms. Santos's desk drawer in the faculty room.
 	Mark: Only she and the council officers know that.
 	Conrad frowns, processing the information.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s1 mathilda HALLWAY/Conrad frowns.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s1 mathilda HALLWAY/Conrad frowns.mp3" volume=25 bus="Voice"]
 	Conrad: So it was either someone with inside knowledge, or...
 	Mark: Or someone who figured it out. But here's the worst part.
-	Mark lowers his voice.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s1 mathilda HALLWAY/Mark lowers his voice.mp3" volume=0 bus="Master"]
+	Mark lowers your voice.
+	[voice path="res://assets/audio/voice/Chapter 2/c2s1 mathilda HALLWAY/Mark lowers his voice.mp3" volume=25 bus="Voice"]
 	Mark: Everyone's blaming Ria. Saying the treasurer must have taken it.
 	Conrad: That's a serious accusation. Is there any evidence?
 	Mark: Nothing solid. Just... she had access. She's the treasurer. People are connecting dots that might not exist.
 	Conrad: Circumstantial at best. That's not proof of guilt.
 	Mark: I know. But the rumors are spreading fast. I saw her crying in the bathroom earlier.
 	Mark: Some kids were calling her a thief to her face.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s1 mathilda HALLWAY/Conrad expression hardens.mp3" volume=0 bus="Master"]
-	Conrad's expression hardens.
+	[voice path="res://assets/audio/voice/Chapter 2/c2s1 mathilda HALLWAY/Conrad expression hardens.mp3" volume=25 bus="Voice"]
+	your expression hardens.
 	Conrad: We can't let someone be condemned without proper evidence.
 	Conrad: If Ria is innocent, she deserves someone to find the truth.
 	Mark: I was hoping you'd say that. So we're taking the case?
@@ -89,7 +89,7 @@ else:
 	Mark: Actually... I heard Alex was here too. Staying late for some club thing.
 	Conrad: Alex? The former treasurer?
 	Mark: Yeah. Ria replaced her last year. Some people say Alex took it personally.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s1 mathilda HALLWAY/Conrad considers.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s1 mathilda HALLWAY/Conrad considers.mp3" volume=25 bus="Voice"]
 	Conrad considers this for a moment.
 	Conrad: So we have three people with potential access... and two of them have reasons to resent the current council.
 	Mark: Who do we talk to first?

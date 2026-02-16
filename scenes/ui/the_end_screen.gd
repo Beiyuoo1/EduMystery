@@ -91,19 +91,32 @@ func _on_continue():
 
 	# Clean up active minigames (similar to SaveManager cleanup)
 	if MinigameManager and MinigameManager.current_minigame != null:
-		print("DEBUG: Cleaning up active minigame before main menu transition")
+		print("DEBUG: Cleaning up active minigame before scene transition")
 		MinigameManager.current_minigame.queue_free()
 		MinigameManager.current_minigame = null
 
-	# Clean up all CanvasLayers that might be blocking input
+	# Clean up ALL scenes in the scene tree except the root viewport
+	# This ensures we don't carry over Load Game screens, Main Menu, or other UI
 	var root = get_tree().root
-	for child in root.get_children():
-		if child is CanvasLayer and child.layer >= 100:
-			print("DEBUG: Cleaning up CanvasLayer with layer ", child.layer)
-			child.queue_free()
+	var children_to_remove = []
 
-	# Wait for cleanup
+	for child in root.get_children():
+		# Skip the current scene (we'll remove it when changing scenes)
+		if child == get_tree().current_scene:
+			continue
+		# Skip Window nodes (essential system nodes)
+		if child is Window:
+			continue
+		# Queue everything else for removal (UI screens, CanvasLayers, etc.)
+		children_to_remove.append(child)
+
+	for child in children_to_remove:
+		print("DEBUG: Cleaning up scene tree child: ", child.name, " (", child.get_class(), ")")
+		child.queue_free()
+
+	# Wait for cleanup to complete
 	await get_tree().process_frame
 
-	# Change scene to main menu
-	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+	# Change scene to character selection screen (to allow replaying with different character)
+	print("DEBUG: Transitioning to character selection screen")
+	get_tree().change_scene_to_file("res://scenes/ui/character_selection.tscn")

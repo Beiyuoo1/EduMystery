@@ -1,14 +1,14 @@
 [background arg="res://Bg/hallway.png" fade="1.0"]
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 1/c1s2b/Conrad walks.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 1/c1s2b/Conrad walks.mp3" volume=25 bus="Voice"]
 	Celestine walks through the hallway toward the faculty room.
 	join Celestine (half) left
 	Celestine: The janitor said the leak started yesterday, but no one noticed until this morning...
 	Celestine: If someone sabotaged it, they would've needed access after hours. But how?
 	join "Diwata Laya" (Half_mirror) right
 	[signal arg="laya_start"]
-	[voice path="res://assets/audio/voice/Chapter 1/c1s2b/A shimmering figure.mp3" volume=0 bus="Master"]
-	A shimmering figure appears beside Celestine - visible only to her. This is Diwata Laya, a spirit bound to Celestine. Only she can see and hear her.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s2b/A shimmering figure.mp3" volume=25 bus="Voice"]
+	A shimmering figure appears beside Celestine - visible only to you. This is Diwata Laya, a spirit bound to Celestine. Only you can see and hear her.
 	"Diwata Laya": [i][color=#9999ff]You seem troubled, Celestine. Your thoughts are scattered.[/color][/i]
 	"Celestine (Thinking)": Laya! I know the timeline is suspicious, but I don't know what to look for when I get to the faculty room.
 	"Diwata Laya": [i][color=#9999ff]I may be able to guide you... but first, prove your mind is focused enough to receive my insight.[/color][/i]
@@ -19,20 +19,20 @@ if {selected_character} == "celestine":
 	"Diwata Laya": [i][color=#9999ff]Saboteurs are careless. They leave traces - not just of their actions, but of their presence.[/color][/i]
 	"Celestine (Thinking)": So I should search for physical evidence... something the culprit might have dropped or left behind.
 	"Diwata Laya": [i][color=#9999ff]Precisely. And speak with those in authority. They may have information they don't realize is important.[/color][/i]
-	"Celestine (Thinking)": Got it. The principal should be there. I'll talk to him and examine the scene myself.
+	"Celestine (Thinking)": Got it. The principal should be there. I'll talk to you and examine the scene myself.
 	[signal arg="laya_end"]
 	leave --All--
 	jump c1s3/
 else:
-	[voice path="res://assets/audio/voice/Chapter 1/c1s2b/Conrad walks.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 1/c1s2b/Conrad walks.mp3" volume=25 bus="Voice"]
 	Conrad walks through the hallway toward the faculty room.
 	join Conrad (half) left
 	Conrad: The janitor said the leak started yesterday, but no one noticed until this morning...
 	Conrad: If someone sabotaged it, they would've needed access after hours. But how?
 	join "Diwata Laya" (Half_mirror) right
 	[signal arg="laya_start"]
-	[voice path="res://assets/audio/voice/Chapter 1/c1s2b/A shimmering figure.mp3" volume=0 bus="Master"]
-	A shimmering figure appears beside Conrad - visible only to him. This is Diwata Laya, a spirit bound to Conrad. Only he can see and hear her.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s2b/A shimmering figure.mp3" volume=25 bus="Voice"]
+	A shimmering figure appears beside Conrad - visible only to you. This is Diwata Laya, a spirit bound to Conrad. Only you can see and hear her.
 	"Diwata Laya": [i][color=#9999ff]You seem troubled, Conrad. Your thoughts are scattered.[/color][/i]
 	"Conrad (Thinking)": Laya! I know the timeline is suspicious, but I don't know what to look for when I get to the faculty room.
 	"Diwata Laya": [i][color=#9999ff]I may be able to guide you... but first, prove your mind is focused enough to receive my insight.[/color][/i]
@@ -43,7 +43,7 @@ else:
 	"Diwata Laya": [i][color=#9999ff]Saboteurs are careless. They leave traces - not just of their actions, but of their presence.[/color][/i]
 	"Conrad (Thinking)": So I should search for physical evidence... something the culprit might have dropped or left behind.
 	"Diwata Laya": [i][color=#9999ff]Precisely. And speak with those in authority. They may have information they don't realize is important.[/color][/i]
-	"Conrad (Thinking)": Got it. The principal should be there. I'll talk to him and examine the scene myself.
+	"Conrad (Thinking)": Got it. The principal should be there. I'll talk to you and examine the scene myself.
 	[signal arg="laya_end"]
 	leave --All--
 	jump c1s3/

@@ -1,5 +1,5 @@
 [background arg="res://Bg/classroom.png" fade="1.0"]
-[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 the next day.mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 the next day.mp3" volume=25 bus="Voice"]
 The next day. The school courtyard is busy with students moving between classes.
 if {selected_character} == "celestine":
 	join Celestine (animated) left
@@ -33,7 +33,7 @@ Mark: That's Ben. From the exam case. He looks stressed.
 if {selected_character} == "celestine":
 	Celestine: He does. Should I talk to him?
 	Mark: That's your call. You're the guide now, remember?
-	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 conrad approaches.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 conrad approaches.mp3" volume=25 bus="Voice"]
 	Celestine considers, then approaches gently.
 	join characters/Ben center
 	Celestine: Hey, Ben. You okay?
@@ -43,7 +43,7 @@ if {selected_character} == "celestine":
 	Ben: But I know the coach will ask me directly if he was there. And I don't want to lie.
 	Celestine: So you're torn between helping your friend and being honest.
 	Ben: Exactly. What would you do?
-	Celestine pauses. Old Celestine might have told him the answer.
+	Celestine pauses. Old Celestine might have told you the answer.
 	New Celestine understands better.
 	Celestine: I can't make that choice for you, Ben. It's yours to make.
 	Celestine: But I can help you think through it.
@@ -63,7 +63,7 @@ if {selected_character} == "celestine":
 else:
 	Conrad: He does. Should I talk to him?
 	Mark: That's your call. You're the guide now, remember?
-	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 conrad approaches.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 conrad approaches.mp3" volume=25 bus="Voice"]
 	Conrad considers, then approaches gently.
 	join Ben (animated) center
 	Conrad: Hey, Ben. You okay?
@@ -73,7 +73,7 @@ else:
 	Ben: But I know the coach will ask me directly if he was there. And I don't want to lie.
 	Conrad: So you're torn between helping your friend and being honest.
 	Ben: Exactly. What would you do?
-	Conrad pauses. Old Conrad might have told him the answer.
+	Conrad pauses. Old Conrad might have told you the answer.
 	New Conrad understands better.
 	Conrad: I can't make that choice for you, Ben. It's yours to make.
 	Conrad: But I can help you think through it.
@@ -91,7 +91,7 @@ else:
 	Conrad: That's the lesson B.C. taught me. People grow when they make their own choices.
 	Conrad: I can guide. I can ask questions. But the choice is theirs.
 join Alice (half) center
-[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 alice approaches.mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 alice approaches.mp3" volume=25 bus="Voice"]
 Alice approaches, looking curious.
 if {selected_character} == "celestine":
 	Alice: Celestine, I heard you helped solve four major cases this year.
@@ -102,7 +102,7 @@ if {selected_character} == "celestine":
 	Alice: So you're like... a detective psychologist?
 	Celestine: Maybe. Or maybe just someone trying to help.
 	Alice: Could you teach me? How to observe like you do?
-	Celestine considers. B.C. taught her through experience, not lectures.
+	Celestine considers. B.C. taught your through experience, not lectures.
 	Celestine: I can't teach you directly. But I can suggest something.
 	Celestine: Pay attention. Really look at what's around you. Listen when people speak.
 	Celestine: Try to understand motivations, not just actions.
@@ -112,7 +112,7 @@ if {selected_character} == "celestine":
 	Alice: Thanks, Celestine. I'll try.
 	leave Alice
 	leave Mark
-	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 alice leaves.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 alice leaves.mp3" volume=25 bus="Voice"]
 	Celestine stands alone for a moment, watching students move through the courtyard.
 	Each one carrying their own struggles, making their own choices.
 else:
@@ -124,7 +124,7 @@ else:
 	Alice: So you're like... a detective psychologist?
 	Conrad: Maybe. Or maybe just someone trying to help.
 	Alice: Could you teach me? How to observe like you do?
-	Conrad considers. B.C. taught him through experience, not lectures.
+	Conrad considers. B.C. taught you through experience, not lectures.
 	Conrad: I can't teach you directly. But I can suggest something.
 	Conrad: Pay attention. Really look at what's around you. Listen when people speak.
 	Conrad: Try to understand motivations, not just actions.
@@ -134,13 +134,13 @@ else:
 	Alice: Thanks, Conrad. I'll try.
 	leave Alice
 	leave Mark
-	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 alice leaves.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 alice leaves.mp3" volume=25 bus="Voice"]
 	Conrad stands alone for a moment, watching students move through the courtyard.
 	Each one carrying their own struggles, making their own choices.
 join "Diwata Laya" (Half) center
 [signal arg="laya_start"]
-[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 diwata laya appears.mp3" volume=0 bus="Master"]
-"Diwata Laya" appears, her expression proud.
+[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 diwata laya appears.mp3" volume=25 bus="Voice"]
+"Diwata Laya" appears, your expression proud.
 if {selected_character} == "celestine":
 	"Diwata Laya": [i][color=#9999ff]You have completed your transformation, Celestine.[/color][/i]
 	"Diwata Laya": [i][color=#9999ff]Student. Detective. Guide. Teacher.[/color][/i]
@@ -165,18 +165,18 @@ else:
 leave "Diwata Laya"
 [background arg="res://Bg/hallway.png" fade="1.0"]
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 conrad returns.mp3" volume=0 bus="Master"]
-	Celestine returns to her locker, pulling out her notebook.
+	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 conrad returns.mp3" volume=25 bus="Voice"]
+	Celestine returns to you locker, pulling out your notebook.
 	Inside are the five B.C. cards, carefully preserved.
 	Truth. Responsibility. Creativity. Wisdom. Choice.
 	join Celestine (animated) center
 	Celestine: Five lessons. Five mysteries. Five transformations.
-	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 he pulls out a blank.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 he pulls out a blank.mp3" volume=25 bus="Voice"]
 	She pulls out a blank cream-colored card she prepared herself.
 	Celestine carefully writes on it in precise handwriting, echoing B.C.'s style.
 	Celestine: "To future students\: Look beneath the surface. Understand before judging. Guide without controlling."
 	Celestine: "The chain continues, but it is yours to shape. - C"
-	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 he places hisk own.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 he places hisk own.mp3" volume=25 bus="Voice"]
 	She places her own card with B.C.'s cards.
 	Celestine: The student has become the teacher. The chain transforms.
 	Celestine: But the journey doesn't end. It never ends.
@@ -185,19 +185,19 @@ if {selected_character} == "celestine":
 	Celestine: But as myself. Celestine. A student who learned to guide others.
 	leave Celestine
 else:
-	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 conrad returns.mp3" volume=0 bus="Master"]
-	Conrad returns to his locker, pulling out his notebook.
+	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 conrad returns.mp3" volume=25 bus="Voice"]
+	Conrad returns to you locker, pulling out your notebook.
 	Inside are the five B.C. cards, carefully preserved.
 	Truth. Responsibility. Creativity. Wisdom. Choice.
 	join Conrad (half) center
 	Conrad: Five lessons. Five mysteries. Five transformations.
-	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 he pulls out a blank.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 he pulls out a blank.mp3" volume=25 bus="Voice"]
 	He pulls out a blank cream-colored card he prepared himself.
 	Conrad carefully writes on it in precise handwriting, echoing B.C.'s style.
 	Conrad: "To future students\: Look beneath the surface. Understand before judging. Guide without controlling."
 	Conrad: "The chain continues, but it is yours to shape. - C"
-	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 he places hisk own.mp3" volume=0 bus="Master"]
-	He places his own card with B.C.'s cards.
+	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 he places hisk own.mp3" volume=25 bus="Voice"]
+	He places your own card with B.C.'s cards.
 	Conrad: The student has become the teacher. The chain transforms.
 	Conrad: But the journey doesn't end. It never ends.
 	Conrad: There will always be mysteries. Always people needing help.
@@ -206,20 +206,20 @@ else:
 	leave Conrad
 [wait time="1.0"]
 [background arg="res://Bg/courtyard.png" fade="2.0"]
-[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 the school continues.mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 the school continues.mp3" volume=25 bus="Voice"]
 The school continues its rhythm. Students laugh, study, struggle, and grow.
 if {selected_character} == "celestine":
 	And somewhere among them, Celestine watches. Learns. Helps.
 	[wait time="1.0"]
-	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 the chain continues.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 the chain continues.mp3" volume=25 bus="Voice"]
 	The chain that began with mysterious cards has transformed.
-	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 the chain.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 the chain.mp3" volume=25 bus="Voice"]
 	B.C.'s lessons have taken root in a new generation.
 	Truth. Responsibility. Creativity. Wisdom. Choice.
-	Five lessons that will guide Celestine for the rest of her life.
-	And through her, guide countless others.
+	Five lessons that will guide Celestine for the rest of your life.
+	And through your, guide countless others.
 	[wait time="1.5"]
-	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 the mystery.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 the mystery.mp3" volume=25 bus="Voice"]
 	The mystery is solved. The teacher revealed. The lessons learned.
 	But the story doesn't end.
 	It transforms.
@@ -230,20 +230,20 @@ if {selected_character} == "celestine":
 else:
 	And somewhere among them, Conrad watches. Learns. Helps.
 	[wait time="1.0"]
-	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 the chain continues.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 the chain continues.mp3" volume=25 bus="Voice"]
 	The chain that began with mysterious cards has transformed.
-	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 the chain.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 the chain.mp3" volume=25 bus="Voice"]
 	B.C.'s lessons have taken root in a new generation.
 	Truth. Responsibility. Creativity. Wisdom. Choice.
-	Five lessons that will guide Conrad for the rest of his life.
-	And through him, guide countless others.
+	Five lessons that will guide Conrad for the rest of your life.
+	And through you, guide countless others.
 	[wait time="1.5"]
-	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 the mystery.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 5/C5S5/c5s5 the mystery.mp3" volume=25 bus="Voice"]
 	The mystery is solved. The teacher revealed. The lessons learned.
 	But the story doesn't end.
 	It transforms.
 	Into something new.
-	Something Conrad will write with his own choices.
+	Something Conrad will write with your own choices.
 	His own wisdom.
 	His own compassion.
 [wait time="1.0"]

@@ -23,3 +23,7 @@ export_presets.cfg
 
 # Vosk speech recognition models (too large for GitHub, download separately)
 addons/vosk/models/
+
+# Local configuration files (per-user settings, not committed to repo)
+*.local.json
+local_config.json

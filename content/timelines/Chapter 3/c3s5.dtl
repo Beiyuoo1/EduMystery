@@ -1,16 +1,16 @@
 [background arg="res://Bg/art_room.png" fade="1.0"]
-[voice path="res://assets/audio/voice/Chapter 3/c3s5/The art room feels different now—quieter heavier..mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s5/The art room feels different now—quieter heavier..mp3" volume="0.0" bus="Voice"]
 The art room feels different now. Quieter. Heavy with the weight of what happened.
 if {selected_character} == "celestine":
 	join Celestine (animated) leftmost
 	join Mark (Mark_half) left
-	[voice path="res://assets/audio/voice/Chapter 3/c3s5/Conrad and Mark stand near the doorway watching in silence..mp3" volume=25 bus="Voice"]
-	Celestine and Mark stand near the door, watching the scene unfold.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s5/Conrad and Mark stand near the doorway watching in silence..mp3" volume="0.0" bus="Voice"]
+	The protagonist and Mark stand near the door, watching the scene unfold.
 else:
 	join Conrad (half) leftmost
 	join Mark (Mark_half) left
-	[voice path="res://assets/audio/voice/Chapter 3/c3s5/Conrad and Mark stand near the doorway watching in silence..mp3" volume=25 bus="Voice"]
-	Conrad and Mark stand near the door, watching the scene unfold.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s5/Conrad and Mark stand near the doorway watching in silence..mp3" volume="0.0" bus="Voice"]
+	The protagonist and Mark stand near the door, watching the scene unfold.
 join "Ms Reyes" (half) center
 Ms. Reyes stands near your desk, your expression a mix of disappointment and sadness.
 join Victor (half) right
@@ -20,7 +20,7 @@ Victor sits on a stool, shoulders hunched, unable to meet anyone's eyes.
 Victor: I know. I understand that now.
 "Ms Reyes": The principal has decided on your consequences.
 "Ms Reyes": You'll be suspended from the art program for the rest of the semester.
-[voice path="res://assets/audio/voice/Chapter 3/c3s5/Victor winces but does not argue..mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s5/Victor winces but does not argue..mp3" volume="0.0" bus="Voice"]
 Victor winces but doesn't protest.
 "Ms Reyes": And you'll help organize next year's Art Week. Setting up displays. Supporting other students.
 "Ms Reyes": Learning that art is about community, not competition.
@@ -30,16 +30,16 @@ leave Victor
 leave "Ms Reyes"
 [wait time="0.5"]
 join Mia (half) right
-[voice path="res://assets/audio/voice/Chapter 3/c3s5/Mia enters quietly. Her eyes are red but her expression is steady..mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s5/Mia enters quietly. Her eyes are red but her expression is steady..mp3" volume="0.0" bus="Voice"]
 Mia enters quietly. your eyes are still red, but your expression is steady.
 Victor looks up as she approaches. He flinches, expecting anger.
 join Victor (half) center
 Victor: Mia... I...
 Mia: Let me speak first.
-[voice path="res://assets/audio/voice/Chapter 3/c3s5/Victor falls silent bracing himself..mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s5/Victor falls silent bracing himself..mp3" volume="0.0" bus="Voice"]
 Victor falls silent.
 Mia: Victor, I always thought you were amazing.
-[voice path="res://assets/audio/voice/Chapter 3/c3s5/Victor looks up surprised..mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s5/Victor looks up surprised..mp3" volume="0.0" bus="Voice"]
 Victor looks up, genuinely surprised.
 Mia: Your technical skill is incredible. The way you render light and shadow...
 Mia: I could never do what you do. I just... feel things and try to capture them.
@@ -52,11 +52,11 @@ Victor: I... I never thought of it that way.
 Mia: My sculpture wasn't meant to win competitions.
 Mia: I made it because I missed my grandfather. I wanted to remember how it felt when he read to me.
 Mia: The judges responded to that feeling. Not the technique.
-[voice path="res://assets/audio/voice/Chapter 3/c3s5/Victor's voice breaks..mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s5/Victor's voice breaks..mp3" volume="0.0" bus="Voice"]
 Victor's voice breaks.
 Victor: And I destroyed it because I was jealous.
 Victor: I'm so sorry, Mia. I'm so, so sorry.
-[voice path="res://assets/audio/voice/Chapter 3/c3s5/Mia takes a slow breath..mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s5/Mia takes a slow breath..mp3" volume="0.0" bus="Voice"]
 Mia takes a deep breath, steadying herself.
 Mia: I can't forgive you yet. It hurts too much.
 Mia: But... I understand hurt. I understand feeling invisible.
@@ -68,25 +68,25 @@ Victor: Something with heart. Something real.
 Mia nods slowly.
 Mia: I'd like to see that.
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 3/c3s5/Mia turns toward the door and pauses beside Conrad..mp3" volume=25 bus="Voice"]
-	Mia turns and walks toward the door, pausing beside Celestine.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s5/Mia turns toward the door and pauses beside Conrad..mp3" volume="0.0" bus="Voice"]
+	Mia turns and walks toward the door, pausing beside the protagonist.
 	Mia: Thank you. For finding the truth.
 	Celestine: The truth was always there. I just helped it come to light.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s5/Mia leaves the room..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s5/Mia leaves the room..mp3" volume="0.0" bus="Voice"]
 	Mia manages a small, sad smile before leaving.
 else:
-	[voice path="res://assets/audio/voice/Chapter 3/c3s5/Mia turns toward the door and pauses beside Conrad..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s5/Mia turns toward the door and pauses beside Conrad..mp3" volume="0.0" bus="Voice"]
 	Mia turns and walks toward the door, pausing beside Conrad.
 	Mia: Thank you. For finding the truth.
 	Conrad: The truth was always there. I just helped it come to light.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s5/Mia leaves the room..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s5/Mia leaves the room..mp3" volume="0.0" bus="Voice"]
 	Mia manages a small, sad smile before leaving.
 leave Mia
 leave Victor
 [background arg="res://Bg/art_room.png" fade="0.5"]
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 3/c3s5/Conrad and Mark remain surrounded by unfinished art and heavy thoughts..mp3" volume=25 bus="Voice"]
-	Celestine and Mark remain in the art room.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s5/Conrad and Mark remain surrounded by unfinished art and heavy thoughts..mp3" volume="0.0" bus="Voice"]
+	The protagonist and Mark remain in the art room.
 	Mark: That was... heavy.
 	Celestine: Justice isn't always satisfying.
 	Celestine: Victor will face consequences. But the real punishment is what he's feeling right now.
@@ -94,8 +94,8 @@ if {selected_character} == "celestine":
 	Celestine: She's an artist. She understands that pain can make people do terrible things.
 	Celestine: That doesn't excuse what Victor did. But understanding matters.
 else:
-	[voice path="res://assets/audio/voice/Chapter 3/c3s5/Conrad and Mark remain surrounded by unfinished art and heavy thoughts..mp3" volume=25 bus="Voice"]
-	Conrad and Mark remain in the art room.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s5/Conrad and Mark remain surrounded by unfinished art and heavy thoughts..mp3" volume="0.0" bus="Voice"]
+	 The protagonist and Mark remain in the art room.
 	Mark: That was... heavy.
 	Conrad: Justice isn't always satisfying.
 	Conrad: Victor will face consequences. But the real punishment is what he's feeling right now.
@@ -108,8 +108,8 @@ if {selected_character} == "celestine":
 	Celestine: His father's expectations. His need to be the best. His loneliness.
 	Celestine: Whether he takes that chance is up to him.
 	Mark: You think he will?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s5/Conrad looks toward the door Victor walked through..mp3" volume=25 bus="Voice"]
-	Celestine looks toward the door where Victor left.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s5/Conrad looks toward the door Victor walked through..mp3" volume="0.0" bus="Voice"]
+	The protagonist looks toward the door where Victor left.
 	Celestine: I think he wants to. And sometimes, that's enough to start.
 	leave Celestine
 	leave Mark
@@ -118,8 +118,8 @@ else:
 	Conrad: His father's expectations. His need to be the best. His loneliness.
 	Conrad: Whether he takes that chance is up to him.
 	Mark: You think he will?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s5/Conrad looks toward the door Victor walked through..mp3" volume=25 bus="Voice"]
-	Conrad looks at the door where Victor left.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s5/Conrad looks toward the door Victor walked through..mp3" volume="0.0" bus="Voice"]
+	The protagonist looks toward the door where Victor left.
 	Conrad: I think he wants to. And sometimes, that's enough to start.
 	leave Conrad
 	leave Mark

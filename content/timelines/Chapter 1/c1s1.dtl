@@ -11,11 +11,11 @@ characters/Principal: The Grade 12-A History exams were ruined last night due to
 [signal arg="debug_character_check"]
 if {selected_character} == "celestine":
 	join Celestine (full) center [animation="Fade In" length="2.0" wait="true"]
-	[voice path="res://assets/audio/voice/Chapter 1/c1s1/Outside, near the student bulletin.mp3" volume="0.0"]
+	[voice path="res://assets/audio/Chapter 1/C1s1/Outside_near_the_student_bulletin_Celestine.mp3" volume=50 bus="Voice"]
 	Outside, near the student bulletin, Celestine Santos listened quietly.\
 	Unlike most of her classmates who found it exciting gossip, she felt something strange — a [b][wave]pull[/wave][/b].
 	update Celestine (half)
-	[voice path="res://assets/audio/voice/Chapter 1/c1s1/Mysteries had always fascinated.mp3" volume="0.0"]
+	[voice path="res://assets/audio/Chapter 1/C1s1/Mysteries_had_always_fascinated.mp3" volume=50 bus="Voice"]
 	Mysteries had always fascinated her, especially since she and her best friends \
 	accidentally solved the missing ID case last semester.
 	update Celestine left
@@ -45,11 +45,11 @@ if {selected_character} == "celestine":
 		jump fork_1_celestine
 else:
 	join Conrad (full) center [animation="Fade In" length="2.0" wait="true"]
-	[voice path="res://assets/audio/voice/Chapter 1/c1s1/Outside, near the student bulletin.mp3" volume="0.0"]
+	[voice path="res://assets/audio/Chapter 1/C1s1/Outside_near_the_student_bulletin_Conrad.mp3" volume=50 bus="Voice"]
 	Outside, near the student bulletin, Conrad Santos listened quietly.\
 	Unlike most of his classmates who found it exciting gossip, he felt something strange — a [b][wave]pull[/wave][/b].
 	update Conrad (half)
-	[voice path="res://assets/audio/voice/Chapter 1/c1s1/Mysteries had always fascinated.mp3" volume="0.0"]
+	[voice path="res://assets/audio/Chapter 1/C1s1/Mysteries_had_always_fascinated.mp3" volume=50 bus="Voice"]
 	Mysteries had always fascinated him, especially since he and his best friends \
 	accidentally solved the missing ID case last semester.
 	update Conrad left

@@ -1,6 +1,6 @@
 [background arg="res://Bg/computer_lab.png" fade="1.0"]
 The computer lab is empty now. The printer sits in the corner, its paper tray half-full.
-[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/The computer lab is empty now.mp3" volume="0.0"]
+[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/The computer lab is empty now.mp3" volume=0 bus="Master"]
 if {selected_character} == "celestine":
 	join Celestine (animated) left
 	join Mark (Mark_half) right
@@ -11,21 +11,21 @@ else:
 	join Mark (Mark_half) right
 	Mark heads toward the printer while Conrad examines the room.
 	Mark: Let me check the reject tray. If the printer was jamming, there might be messed up prints.
-[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Mark rummages through.mp3" volume="0.0"]
+[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Mark rummages through.mp3" volume=0 bus="Master"]
 Mark rummages through the small compartment beneath the printer.
 Mark: Here! A crumpled paper. It looks like... yeah, it's a budget proposal draft.
 if {selected_character} == "celestine":
-	Celestine takes the paper and carefully smooths it out on a nearby desk.
+	The Protagonist takes the paper and carefully smooths it out on a nearby desk.
 	Celestine: "Student Council Budget Reallocation Proposal - Draft 3."
 	Celestine: He was working on this for a while. Look at all these revision marks.
 	Mark: What's that in the margin?
-	Celestine peers closely at the handwritten notes scrawled along the edge.
-	She reads the margin notes aloud.
+	The Protagonist peers closely at the handwritten notes scrawled along the edge.
+	The Protagonist reads the margin notes aloud.
 	Celestine: "If they won't listen, I'll have to make them see reason."
 	Mark: That sounds like a threat.
 	Celestine: Or a declaration of intent.
-	Celestine pulls out the threatening note Ria gave them and places it beside the budget draft.
-	Celestine holds both papers side by side, comparing them carefully.
+	The Protagonist pulls out the threatening note Ria gave them and places it beside the budget draft.
+	The Protagonist holds both papers side by side, comparing them carefully.
 	Celestine: Look at the letter 'e'. The same small loop at the bottom.
 	Celestine: And the 'k' in 'know' matches the 'k' in 'make'. Same sharp angle.
 	Mark: The handwriting matches?
@@ -35,20 +35,20 @@ if {selected_character} == "celestine":
 	Celestine: So when the money went missing, everyone would suspect her first.
 	Celestine: She was too afraid to defend herself. The perfect scapegoat.
 else:
-	[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Conrad takes the paper.mp3" volume="0.0"]
-	Conrad takes the paper and carefully smooths it out on a nearby desk.
+	[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Conrad takes the paper.mp3" volume=0 bus="Master"]
+	The Protagonist takes the paper and carefully smooths it out on a nearby desk.
 	Conrad: "Student Council Budget Reallocation Proposal - Draft 3."
 	Conrad: He was working on this for a while. Look at all these revision marks.
 	Mark: What's that in the margin?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Conrad peers closely.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Conrad peers closely.mp3" volume=0 bus="Master"]
 	Conrad peers closely at the handwritten notes scrawled along the edge.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/He reads the margin notes aloud..mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/He reads the margin notes aloud..mp3" volume=0 bus="Master"]
 	He reads the margin notes aloud.
 	Conrad: "If they won't listen, I'll have to make them see reason."
 	Mark: That sounds like a threat.
 	Conrad: Or a declaration of intent.
 	Conrad pulls out the threatening note Ria gave them and places it beside the budget draft.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Conrad holds both papers side by side, comparing them carefully.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Conrad holds both papers side by side, comparing them carefully.mp3" volume=0 bus="Master"]
 	Conrad holds both papers side by side, comparing them carefully.
 	Conrad: Look at the letter 'e'. The same small loop at the bottom.
 	Conrad: And the 'k' in 'know' matches the 'k' in 'make'. Same sharp angle.
@@ -60,7 +60,7 @@ else:
 	Conrad: She was too afraid to defend herself. The perfect scapegoat.
 join "Diwata Laya" (Half_mirror) center
 [signal arg="laya_start"]
-[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Diwata Laya materializes,.mp3" volume="0.0"]
+[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Diwata Laya materializes,.mp3" volume=0 bus="Master"]
 "Diwata Laya" materializes, her expression troubled.
 "Diwata Laya": Before we proceed, test your knowledge. Complete this challenge.
 if {selected_subject} == "english":
@@ -79,15 +79,15 @@ elif {selected_subject} == "science":
 	[signal arg="start_minigame logic_grid_blackmail_science"]
 "Diwata Laya": Good. Your understanding deepens. You grow stronger.
 "Diwata Laya": Now let me see if I can sense his full intention.
-[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Diwata laya closes her eyes.mp3" volume="0.0"]
+[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Diwata laya closes her eyes.mp3" volume=0 bus="Master"]
 "Diwata Laya" closes her eyes, her hands hovering over both papers.
-[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/For a moment.mp3" volume="0.0"]
+[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/For a moment.mp3" volume=0 bus="Master"]
 For a moment, her form flickers with soft light.
 "Diwata Laya": I see... a plan. Careful steps, like pieces on a game board.
 "Diwata Laya": First, the threat. Create fear in the treasurer.
 "Diwata Laya": Then, the theft. Take the money while suspicion falls elsewhere.
 "Diwata Laya": But the plan doesn't end there...
-[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/diwata laya opens her eyes slowly.mp3" volume="0.0"]
+[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/diwata laya opens her eyes slowly.mp3" volume=0 bus="Master"]
 "Diwata Laya" opens her eyes slowly.
 "Diwata Laya": He was going to become the hero.
 [signal arg="laya_end"]

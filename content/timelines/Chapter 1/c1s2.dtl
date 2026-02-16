@@ -4,7 +4,7 @@ set {c1s2_repair_tried} = false
 set {c1s2_teacher_tried} = false
 if {selected_character} == "celestine":
 	[voice path="res://assets/audio/voice/Chapter 1/c1s2/The time is now 5 30.mp3" volume="0.0"]
-	The time is now 5\:30. Today's classes are over. Instead of going home, Celestine and Mark stay in the classroom to talk.
+	The time is now 5\:30. Today's classes are over. Instead of going home, the protagonist  and Mark stay in the classroom to talk.
 	join Celestine (half) left
 	join Mark (Mark_half) right
 	Celestine: Finally, classes are over. Let's go find that Janitor!
@@ -15,8 +15,8 @@ if {selected_character} == "celestine":
 	[background arg="res://Bg/storage room front door.png" fade="0.0"]
 	...
 	[voice path="res://assets/audio/voice/Chapter 1/c1s2/Conrad immediately.mp3" volume="0.0"]
-	Celestine immediately went to the classroom
-	her chest tightening with every step. When she reached the door, she froze.
+	The protagonist  immediately went to the classroom.
+	The protagonist chest tightening with every step. When she reached the door, she froze.
 	join Celestine (half) left
 	Celestine: (Okay, Celestine, get it together)
 	if {selected_subject} == "english":
@@ -37,7 +37,7 @@ if {selected_character} == "celestine":
 		[signal arg="start_minigame evaporation_analysis_science"]
 	[background arg="res://Bg/storage_room.png" fade="0.0"]
 	[voice path="res://assets/audio/voice/Chapter 1/c1s2/Conrad enters.mp3" volume="0.0"]
-	Celestine enters the Storage Room.
+	The protagonist enters the Storage Room.
 	join Celestine (half) left [animation="Slide From Left" length="3.6"]
 	join "Janitor Fred" (Janitor_half) right [animation="Slide From Right" length="1.5" move_time="2.0"]
 	Celestine: Good afternoon, sir. I was hoping you could help me. I'm looking for something I lost in this room—have you come across anything unusual while you were sweeping?
@@ -76,11 +76,11 @@ if {selected_character} == "celestine":
 	Celestine: I have a strange feeling about this. Something doesn't add up. I should keep digging for more information.
 	leave --All-- [animation="Slide To Right"]
 	[voice path="res://assets/audio/voice/Chapter 1/c1s2/Conrad goes out.mp3" volume="0.0"]
-	Celestine goes out of the room and heads for the faculty room.
+	The protagonist leaves the room and heads for the faculty room.
 	jump c1s3/
 else:
 	[voice path="res://assets/audio/voice/Chapter 1/c1s2/The time is now 5 30.mp3" volume="0.0"]
-	The time is now 5\:30. Today's classes are over. Instead of going home, Conrad and Mark stay in the classroom to talk.
+	The time is now 5\:30. Today's classes are over. Instead of going home, the protagonist and Mark stay in the classroom to talk.
 	join Conrad (half) left
 	join Mark (Mark_half) right
 	Conrad: Finally, classes are over. Dude, let's go find that Janitor!
@@ -91,8 +91,8 @@ else:
 	[background arg="res://Bg/storage room front door.png" fade="0.0"]
 	...
 	[voice path="res://assets/audio/voice/Chapter 1/c1s2/Conrad immediately.mp3" volume="0.0"]
-	Conrad immediately went to the classroom
-	his chest tightening with every step. When he reached the door, he froze.
+	The protagonist immediately went to the classroom
+	The protagonist chest tightening with every step. When he reached the door, he froze.
 	join Conrad (half) left
 	Conrad: (Okay, Conrad, get it together)
 	if {selected_subject} == "english":
@@ -113,7 +113,7 @@ else:
 		[signal arg="start_minigame evaporation_analysis_science"]
 	[background arg="res://Bg/storage_room.png" fade="0.0"]
 	[voice path="res://assets/audio/voice/Chapter 1/c1s2/Conrad enters.mp3" volume="0.0"]
-	Conrad enters the Storage Room.
+	The protagonist enters the Storage Room.
 	join Conrad (half) left [animation="Slide From Left" length="3.6"]
 	join "Janitor Fred" (Janitor_half) right [animation="Slide From Right" length="1.5" move_time="2.0"]
 	Conrad: Good afternoon, sir. I was hoping you could help me. I'm looking for something I lost in this room—have you come across anything unusual while you were sweeping?
@@ -152,5 +152,5 @@ else:
 	Conrad: I have a strange feeling about this. Something doesn't add up. I should keep digging for more information.
 	leave --All-- [animation="Slide To Right"]
 	[voice path="res://assets/audio/voice/Chapter 1/c1s2/Conrad goes out.mp3" volume="0.0"]
-	Conrad goes out of the room and heads for the faculty room.
+	The protagonist leaves the room and heads for the faculty room
 	jump c1s3/

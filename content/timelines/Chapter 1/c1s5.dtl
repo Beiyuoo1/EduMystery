@@ -1,38 +1,38 @@
 [background arg="res://Bg/faculty_empty.png" fade="1.0"]
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Before confronting the suspects.mp3" volume=25 bus="Voice"]
-	Before confronting the suspects, Celestine returns to the faculty room one more time to examine the scene.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Before confronting the suspects.mp3" volume="0.0"]
+	Before confronting the suspects, the protagonist returns to the faculty room one more time to examine the scene.
 	join Celestine (half) left
 	join "Diwata Laya" (Half_mirror) right
 	[signal arg="laya_start"]
 	Celestine: Laya, help me look around. There has to be something we missed.
 	"Diwata Laya": [i][color=#9999ff]I will try, but remember - my ability to interact with the physical world is limited.[/color][/i]
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad walks around the room.mp3" volume=25 bus="Voice"]
-	Celestine walks around the room, carefully examining the area near the AC unit.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad walks around the room.mp3" volume="0.0"]
+	The protagonist walks around the room, carefully examining the area near the AC unit.
 	Celestine: The WiFi logs put Greg here at 9\:00 PM, but that's still circumstantial. I need something more concrete.
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad crouches near the desk.mp3" volume=25 bus="Voice"]
-	Celestine crouches near the desk below the AC unit, looking under it.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad crouches near the desk.mp3" volume="0.0"]
+	The protagonist crouches near the desk below the AC unit, looking under it.
 	Celestine: Wait, what's this?
 else:
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Before confronting the suspects.mp3" volume=25 bus="Voice"]
-	Before confronting the suspects, Conrad returns to the faculty room one more time to examine the scene.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Before confronting the suspects.mp3" volume="0.0"]
+	Before confronting the suspects, the protagonist returns to the faculty room one more time to examine the scene.
 	join Conrad (half) left
 	join "Diwata Laya" (Half_mirror) right
 	[signal arg="laya_start"]
 	Conrad: Laya, help me look around. There has to be something we missed.
 	"Diwata Laya": [i][color=#9999ff]I will try, but remember - my ability to interact with the physical world is limited.[/color][/i]
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad walks around the room.mp3" volume=25 bus="Voice"]
-	Conrad walks around the room, carefully examining the area near the AC unit.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad walks around the room.mp3" volume="0.0"]
+	The protagonist walks around the room, carefully examining the area near the AC unit.
 	Conrad: The WiFi logs put Greg here at 9\:00 PM, but that's still circumstantial. I need something more concrete.
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad crouches near the desk.mp3" volume=25 bus="Voice"]
-	Conrad crouches near the desk below the AC unit, looking under it.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad crouches near the desk.mp3" volume="0.0"]
+	The protagonist crouches near the desk below the AC unit, looking under it.
 	Conrad: Wait, what's this?
 [signal arg="laya_end"]
 leave --All--
 [background arg="res://Pics/Charm.png" fade="0.3"]
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad reaches.mp3" volume=25 bus="Voice"]
-	Celestine reaches under the desk and pulls out a small, worn charm bracelet with distinctive blue, red, and white beads, and a tiny silver cross.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad reaches.mp3" volume="0.0"]
+	The protagonist reaches under the desk and pulls out a small, worn charm bracelet with distinctive blue, red, and white beads, and a tiny silver cross.
 	[signal arg="laya_start"]
 	"Diwata Laya": [i][color=#9999ff](Suddenly alert) Celestine, wait! That object...[/color][/i]
 	"Diwata Laya": [i][color=#9999ff]I sense something powerful emanating from it. Strong emotions... but I can't read it clearly.[/color][/i]
@@ -47,8 +47,8 @@ if {selected_character} == "celestine":
 	"Diwata Laya": [i][color=#9999ff]If you want my help, yes.[/color][/i]
 	Celestine: Alright, let's do it.
 else:
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad reaches.mp3" volume=25 bus="Voice"]
-	Conrad reaches under the desk and pulls out a small, worn charm bracelet with distinctive blue, red, and white beads, and a tiny silver cross.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad reaches.mp3" volume="0.0"]
+	The protagonist reaches under the desk and pulls out a small, worn charm bracelet with distinctive blue, red, and white beads, and a tiny silver cross.
 	[signal arg="laya_start"]
 	"Diwata Laya": [i][color=#9999ff](Suddenly alert) Conrad, wait! That object...[/color][/i]
 	"Diwata Laya": [i][color=#9999ff]I sense something powerful emanating from it. Strong emotions... but I can't read it clearly.[/color][/i]
@@ -87,24 +87,24 @@ elif {selected_subject} == "science":
 "Diwata Laya": [i][color=#9999ff]Whoever owns this would confess to anything to get it back. Use that.[/color][/i]
 if {selected_character} == "celestine":
 	Celestine: So if I threaten to show it around or give it away... they'd panic and confess just to reclaim it.
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad takes a photo.mp3" volume=25 bus="Voice"]
-	Celestine takes a photo of the bracelet with your phone, then carefully places it in your pocket.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad takes a photo.mp3" volume="0.0"]
+	The protagonist takes a photo of the bracelet with her phone, then carefully places it in her pocket.
 	Celestine: This is our leverage. Let's go find our suspects.
 	[signal arg="laya_end"]
 	leave --All--
 	[background arg="res://Bg/hallway.png" fade="1.0"]
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad and Mark track.mp3" volume=25 bus="Voice"]
-	Celestine and Mark track down the students from the WiFi logs.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad and Mark track.mp3" volume="0.0"]
+	The protagonist and Mark track down the students from the WiFi logs.
 else:
 	Conrad: So if I threaten to show it around or give it away... they'd panic and confess just to reclaim it.
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad takes a photo.mp3" volume=25 bus="Voice"]
-	Conrad takes a photo of the bracelet with your phone, then carefully places it in your pocket.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad takes a photo.mp3" volume="0.0"]
+	The protagonist takes a photo of the bracelet with his phone, then carefully places it in his pocket.
 	Conrad: This is our leverage. Let's go find our suspects.
 	[signal arg="laya_end"]
 	leave --All--
 	[background arg="res://Bg/hallway.png" fade="1.0"]
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad and Mark track.mp3" volume=25 bus="Voice"]
-	Conrad and Mark track down the students from the WiFi logs.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad and Mark track.mp3" volume="0.0"]
+	The protagonist and Mark track down the students from the WiFi logs.
 join characters/Ben (Ben_half) right
 if {selected_character} == "celestine":
 	join Celestine (half) left
@@ -151,7 +151,7 @@ if {selected_character} == "celestine":
 		Celestine: So you weren't home. You came back to school.
 	join "Diwata Laya" (Half_mirror) rightmost
 	[signal arg="laya_start"]
-	"Diwata Laya": [i][color=#9999ff](Whispering) Deceit clouds your words. He is lying.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff](Whispering) Deceit clouds his words. He is lying.[/color][/i]
 	[signal arg="laya_end"]
 	join Mark (Mark_half_mirror) leftmost
 	Celestine: Greg, your phone connected to the Faculty WiFi at exactly 9\:00 PM last night. The faculty room was supposed to be empty by then.
@@ -171,7 +171,7 @@ else:
 		Conrad: So you weren't home. You came back to school.
 	join "Diwata Laya" (Half_mirror) rightmost
 	[signal arg="laya_start"]
-	"Diwata Laya": [i][color=#9999ff](Whispering) Deceit clouds your words. He is lying.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff](Whispering) Deceit clouds his words. He is lying.[/color][/i]
 	[signal arg="laya_end"]
 	join Mark (Mark_half_mirror) leftmost
 	Conrad: Greg, your phone connected to the Faculty WiFi at exactly 9\:00 PM last night. The faculty room was supposed to be empty by then.
@@ -186,8 +186,8 @@ if {selected_character} == "celestine":
 	Celestine: When I was examining the faculty room earlier, I found this near the AC unit.
 	leave --All--
 	[background arg="res://Pics/Charm.png" fade="0.3"]
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad shows a photo.mp3" volume=25 bus="Voice"]
-	Celestine shows a photo on your phone - a small, worn charm bracelet with distinctive beads.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad shows a photo.mp3" volume="0.0"]
+	The protagonist shows a photo on the phone - a small, worn charm bracelet with distinctive beads.
 	[background arg="res://Bg/hallway.png" fade="1.0"]
 	join Celestine left
 	join Mark right
@@ -201,8 +201,8 @@ else:
 	Conrad: When I was examining the faculty room earlier, I found this near the AC unit.
 	leave --All--
 	[background arg="res://Pics/Charm.png" fade="0.3"]
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad shows a photo.mp3" volume=25 bus="Voice"]
-	Conrad shows a photo on your phone - a small, worn charm bracelet with distinctive beads.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad shows a photo.mp3" volume="0.0"]
+	The protagonist shows a photo on the phone - a small, worn charm bracelet with distinctive beads.
 	[background arg="res://Bg/hallway.png" fade="1.0"]
 	join Conrad left
 	join Mark right
@@ -212,13 +212,13 @@ else:
 	characters/Greg (Greg_sad_half): (Eyes widen) That's... that could belong to anyone!
 	Conrad: It has very specific beads - blue, red, and white, with a tiny silver cross. Pretty distinctive.
 [signal arg="laya_start"]
-"Diwata Laya": [i][color=#9999ff](Whispering) His heart... the emotional surge is unmistakable. This is your. The grief and longing are overwhelming you.[/color][/i]
+"Diwata Laya": [i][color=#9999ff](Whispering) His heart... the emotional surge is unmistakable. This is his. The grief and longing are overwhelming him.[/color][/i]
 if {selected_character} == "celestine":
-	"Celestine (Thinking)": You're sure it's your?
+	"Celestine (Thinking)": You're sure it's his?
 	"Diwata Laya": [i][color=#9999ff](Whispering) Absolutely. But he will not confess easily. You need the right approach.[/color][/i]
 	"Celestine (Thinking)": What should I do?
 	"Diwata Laya": [i][color=#9999ff](Whispering) Clear your mind first. Then I will guide you.[/color][/i]
-	"Diwata Laya": [i][color=#9999ff](Whispering) Good. Now listen - threaten to show the bracelet to others. His fear of losing it will break you.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff](Whispering) Good. Now listen - threaten to show the bracelet to others. His fear of losing it will break him.[/color][/i]
 	"Celestine (Thinking)": Got it.
 	[signal arg="laya_end"]
 	Celestine: You know, I'm planning to show this bracelet around school. Ask if anyone recognizes it. Something this special... someone must be missing it.
@@ -227,20 +227,20 @@ if {selected_character} == "celestine":
 	characters/Greg (Greg_sad_half): Wait! Don't... don't show that to anyone else.
 	Celestine: Why not? If it's not yours—
 	characters/Greg (Greg_sad_half): It's mine! Okay? It's mine!
-	characters/Greg (Greg_sad_half): My grandmother gave it to me before you passed away. It's the only thing I have left from your.
+	characters/Greg (Greg_sad_half): My grandmother gave it to me before she passed away. It's the only thing I have left from her.
 	characters/Greg (Greg_sad_half): Please, I'll tell you everything. Just... just give it back to me. Please.
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Mark whispers to Conrad.mp3" volume=25 bus="Voice"]
-	Mark whispers to Celestine
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Mark whispers to Conrad.mp3" volume="0.0"]
+	Mark whispers to the protagonist.
 	Mark: How did you know?
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/conrad looks to diwata.mp3" volume=25 bus="Voice"]
-	Celestine looks at Diwata Laya
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/conrad looks to diwata.mp3" volume="0.0"]
+	The protagonist looks at Diwata Laya
 	Celestine: I had a hunch.
 else:
-	"Conrad (Thinking)": You're sure it's your?
+	"Conrad (Thinking)": You're sure it's his?
 	"Diwata Laya": [i][color=#9999ff](Whispering) Absolutely. But he will not confess easily. You need the right approach.[/color][/i]
 	"Conrad (Thinking)": What should I do?
 	"Diwata Laya": [i][color=#9999ff](Whispering) Clear your mind first. Then I will guide you.[/color][/i]
-	"Diwata Laya": [i][color=#9999ff](Whispering) Good. Now listen - threaten to show the bracelet to others. His fear of losing it will break you.[/color][/i]
+	"Diwata Laya": [i][color=#9999ff](Whispering) Good. Now listen - threaten to show the bracelet to others. His fear of losing it will break him.[/color][/i]
 	"Conrad (Thinking)": Got it.
 	[signal arg="laya_end"]
 	Conrad: You know, I'm planning to show this bracelet around school. Ask if anyone recognizes it. Something this special... someone must be missing it.
@@ -249,21 +249,21 @@ else:
 	characters/Greg (Greg_sad_half): Wait! Don't... don't show that to anyone else.
 	Conrad: Why not? If it's not yours—
 	characters/Greg (Greg_sad_half): It's mine! Okay? It's mine!
-	characters/Greg (Greg_sad_half): My grandmother gave it to me before you passed away. It's the only thing I have left from your.
+	characters/Greg (Greg_sad_half): My grandmother gave it to me before she passed away. It's the only thing I have left from her.
 	characters/Greg (Greg_sad_half): Please, I'll tell you everything. Just... just give it back to me. Please.
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Mark whispers to Conrad.mp3" volume=25 bus="Voice"]
-	Mark whispers to Conrad
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Mark whispers to Conrad.mp3" volume="0.0"]
+	Mark whispers to the protagonist.
 	Mark: How did you know?
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/conrad looks to diwata.mp3" volume=25 bus="Voice"]
-	Conrad looks at Diwata Laya
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/conrad looks to diwata.mp3" volume="0.0"]
+	The protagonist looks at Diwata Laya
 	Conrad: I had a hunch.
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Mark notices that Conrad.mp3" volume=25 bus="Voice"]
-	Mark notices that Celestine suddenly looking at a part of the room that has nothing near it.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Mark notices that Conrad.mp3" volume="0.0"]
+	Mark notices that the protagonist suddenly looking at a part of the room that has nothing near it.
 	Celestine: Now, Greg. Tell us the truth. How did you get into the faculty room?
 else:
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Mark notices that Conrad.mp3" volume=25 bus="Voice"]
-	Mark notices that Conrad suddenly looking at a part of the room that has nothing near it.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Mark notices that Conrad.mp3" volume="0.0"]
+	Mark notices that the protagonist suddenly looking at a part of the room that has nothing near it.
 	Conrad: Now, Greg. Tell us the truth. How did you get into the faculty room?
 characters/Greg (Greg_sad_half): I didn't steal the key. I swear I didn't.
 characters/Greg (Greg_sad_half): I was panicking about the exam. I studied the wrong chapters and I knew I was going to fail.
@@ -276,36 +276,36 @@ if {selected_character} == "celestine":
 	Celestine: Do you still have the envelope?
 	characters/Greg (Greg_sad_half): Yes, here.
 	[signal]
-	Celestine examines the envelope. There is no name, but a small symbol is stamped on the inside flap\: a pixelated spider.
+	The protagonist examines the envelope. There is no name, but a small symbol is stamped on the inside flap\: a pixelated spider.
 else:
 	Conrad: Do you still have the envelope?
 	characters/Greg (Greg_sad_half): Yes, here.
 	[signal]
-	Conrad examines the envelope. There is no name, but a small symbol is stamped on the inside flap\: a pixelated spider.
+	The protagonist examines the envelope. There is no name, but a small symbol is stamped on the inside flap\: a pixelated spider.
 join Principal (Principa_half_mirror) leftmost
 Principal: I believe I've heard enough.
 characters/Greg (Greg_sad_half): Principal Alan! I'm so sorry, I—
 Principal: I am deeply disappointed, Greg. But we need to discuss this "mysterious person" who gave you the key. This is clearly more complex than simple academic pressure.
 "Principal Alan": Come to my office. We'll need to contact your parents and discuss consequences.
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/greg pleads.mp3" volume=25 bus="Voice"]
-	Greg pleads to Celestine
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/greg pleads.mp3" volume="0.0"]
+	Greg pleads to the protagonist
 	characters/Greg (Greg_sad_half): My bracelet... please...
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/conrad hands.mp3" volume=25 bus="Voice"]
-	Celestine hands the bracelet back to Greg gently.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/conrad hands.mp3" volume="0.0"]
+	The protagonist hands the bracelet back to Greg gently.
 	Celestine: Here. I understand what it means to you.
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/greg clutches.mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/greg clutches.mp3" volume="0.0"]
 	Greg clutches the bracelet tightly
 	characters/Greg (Greg_sad_half): Thank you... I'm sorry for everything.
 	Principal: Celestine, Mark. You have shown great responsibility and intellect. The school thanks you both.
 else:
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/greg pleads.mp3" volume=25 bus="Voice"]
-	Greg pleads to Conrad
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/greg pleads.mp3" volume="0.0"]
+	Greg pleads to the protagonist
 	characters/Greg (Greg_sad_half): My bracelet... please...
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/conrad hands.mp3" volume=25 bus="Voice"]
-	Conrad hands the bracelet back to Greg gently.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/conrad hands.mp3" volume="0.0"]
+	The protagonist hands the bracelet back to Greg gently.
 	Conrad: Here. I understand what it means to you.
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/greg clutches.mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/greg clutches.mp3" volume="0.0"]
 	Greg clutches the bracelet tightly
 	characters/Greg (Greg_sad_half): Thank you... I'm sorry for everything.
 	Principal: Conrad, Mark. You have shown great responsibility and intellect. The school thanks you both.
@@ -314,43 +314,43 @@ leave --All--
 if {selected_character} == "celestine":
 	join Celestine left
 	join Mark right
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/conrad sighs.mp3" volume=25 bus="Voice"]
-	Celestine Sighs...
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/conrad sighs.mp3" volume="0.0"]
+	The protagonist Sighs...
 	Celestine: Hold on - this case isn't closed yet. I need to check the envelope.
 	leave Celestine
 	leave Mark
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad and Mark headed back.mp3" volume=25 bus="Voice"]
-	Narrator: Celestine and Mark headed back to the classroom and inspect the locker
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad and Mark headed back.mp3" volume="0.0"]
+	Narrator: The protagonist and Mark headed back to the classroom and inspect the locker
 	[background arg="res://Bg/envelope1.png" fade="0.0"]
 	join Celestine left
 	join Mark right
 	[style name="hide_textbox"]
 	[signal arg="start_minigame locker_examination"]
 	[style]
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/conrad examines.mp3" volume=25 bus="Voice"]
-	Narrator: Celestine Studies the envelope closely.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/conrad examines.mp3" volume="0.0"]
+	Narrator: The protagonist Studies the envelope closely.
 else:
 	join Conrad left
 	join Mark right
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/conrad sighs.mp3" volume=25 bus="Voice"]
-	Conrad Sighs...
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/conrad sighs.mp3" volume="0.0"]
+	The protagonist Sighs...
 	Conrad: Hold on - this case isn't closed yet. I need to check the envelope.
 	leave Conrad
 	leave Mark
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad and Mark headed back.mp3" volume=25 bus="Voice"]
-	Narrator: Conrad and Mark headed back to the classroom and inspect the locker
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/Conrad and Mark headed back.mp3" volume="0.0"]
+	Narrator: The protagonist and Mark headed back to the classroom and inspect the locker
 	[background arg="res://Bg/envelope1.png" fade="0.0"]
 	join Conrad left
 	join Mark right
 	[style name="hide_textbox"]
 	[signal arg="start_minigame locker_examination"]
 	[style]
-	[voice path="res://assets/audio/voice/Chapter 1/c1s5/conrad examines.mp3" volume=25 bus="Voice"]
-	Narrator: Conrad Studies the envelope closely.
-[voice path="res://assets/audio/voice/Chapter 1/c1s5/no name.mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 1/c1s5/conrad examines.mp3" volume="0.0"]
+	Narrator: The protagonist Studies the envelope closely.
+[voice path="res://assets/audio/voice/Chapter 1/c1s5/no name.mp3" volume="0.0"]
 Narrator: No name is written on it...
 Narrator: but inside the flap is a stameped symbol
-[voice path="res://assets/audio/voice/Chapter 1/c1s5/ABC card.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 1/c1s5/ABC card.mp3" volume="0.0"]
 Narrator: A B.C card...
 [signal arg="unlock_evidence bc_card_truth_c1"]
 leave --All--

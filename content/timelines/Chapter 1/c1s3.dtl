@@ -2,10 +2,10 @@ set {c1s3_old_ac_tried} = false
 set {c1s3_animal_tried} = false
 if {selected_character} == "celestine":
 	[background arg="res://Bg/faculty_few.png" fade="1.5"]
-	[voice path="res://assets/audio/voice/Chapter 1/c1s3/Conrad enters.mp3" volume=25 bus="Voice"]
-	Celestine enters the school faculty room. She sees that some teachers and student are doing schoolwork.
-	[voice path="res://assets/audio/voice/Chapter 1/c1s3/He sees the Principal.mp3" volume=25 bus="Voice"]
-	She sees the Principal and approaches you.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s3/Conrad enters.mp3" volume="0.0"]
+	The protagonist enters the school faculty room. She sees that some teachers and student are doing schoolwork.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s3/He sees the Principal.mp3" volume="0.0"]
+	The protagonist sees the Principal and approaches him.
 	join Principal (Principal_half) right [animation="Instant In" length="0.0"]
 	join Celestine (half) left [animation="Slide From Left"]
 	Celestine: Excuse me Principal Alan, do you have time to talk sir?
@@ -61,7 +61,7 @@ if {selected_character} == "celestine":
 	if {selected_subject} == "english":
 		[signal arg="start_minigame wifi_router"]
 	elif {selected_subject} == "math":
-		Celestine: Two devices connected to the WiFi - at 8:00 PM and 9:00 PM.
+		Celestine: Two devices connected to the WiFi - at 8\:00 PM and 9\:00 PM.
 		Celestine: If I use logical deduction to match devices to suspects...
 		Celestine: I can systematically eliminate possibilities and identify who was here!
 		[signal arg="start_minigame logic_grid_wifi_math"]
@@ -98,15 +98,15 @@ if {selected_character} == "celestine":
 	leave Celestine [animation="Instant Out"]
 	[background arg="res://Bg/hallway.png" fade="1.5"]
 	join Celestine center
-	[voice path="res://assets/audio/voice/Chapter 1/c1s3/Conrad leaves the room.mp3" volume=25 bus="Voice"]
-	Celestine leaves the room and is walking in the hallway
-	[voice path="res://assets/audio/voice/Chapter 1/c1s3/Conrad walks in the hallway.mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 1/c1s3/Conrad leaves the room.mp3" volume="0.0"]
+	The protagonist  leaves the room and is walking in the hallway
+	[voice path="res://assets/audio/voice/Chapter 1/c1s3/Conrad walks in the hallway.mp3" volume="0.0"]
 	join Celestine (half) left
 	"Celestine (Thinking)": Of course the students of 12-A are definitely suspects but it's gonna take a long time to question them all individually, which makes it impossible to catch them before the grades are permanently recorded.
 	"Celestine (Thinking)": It would also alert the perp which makes the investigation harder.
 	"Celestine (Thinking)": Also it wouldn't be impossible for this to be coordinated by multiple people.
 	Celestine: Ughhhh... This is so hard. Why did I think that I could do this.
-	Celestine walks in the hallway to leave the building to go to the school gate
+	The protagonist  walks in the hallway to leave the building to go to the school gate
 	leave Celestine
 	# Celestine goes to find Alice (Placeholder: Janitor Fred)
 	[background arg="res://Bg/school_gate.png" fade="1.5"]
@@ -132,8 +132,8 @@ if {selected_character} == "celestine":
 	Celestine: This case is kinda rough though, I really need your help.
 	"Diwata Laya": I've seen what's been happening even though I've been resting for a while. Don't worry too much, do what you can and we'll see how I can help. Since I've recovered quite a bit, my ability to compel people to tell the truth or cooperate has come back to me.
 	Celestine: Well that's gonna be super helpful.
-	[voice path="res://assets/audio/voice/Chapter 1/c1s3/Diwata Laya is a helper!.mp3" volume=25 bus="Voice"]
-	Diwata Laya is your helper! She is very intelligent and can help you quite a lot. However you is very limited as you is not allowed to interact much with the human world, so you is limited in the help you can give.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s3/Diwata Laya is a helper!.mp3" volume="0.0"]
+	Diwata Laya is your helper! She is very intelligent and can help you quite a lot. However she is very limited as she is not allowed to interact much with the human world, so she is limited in the help she can give.
 	Celestine: Great, I'll tell Mark what we've learned later. Help me brainstorm once we get home later.
 	"Diwata Laya": Ok.
 	[signal arg="laya_end"]
@@ -141,10 +141,10 @@ if {selected_character} == "celestine":
 	jump c1s4/
 else:
 	[background arg="res://Bg/faculty_few.png" fade="1.5"]
-	[voice path="res://assets/audio/voice/Chapter 1/c1s3/Conrad enters.mp3" volume=25 bus="Voice"]
-	Conrad enters the school faculty room. He sees that some teachers and student are doing schoolwork.
-	[voice path="res://assets/audio/voice/Chapter 1/c1s3/He sees the Principal.mp3" volume=25 bus="Voice"]
-	He sees the Principal and approaches you.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s3/Conrad enters.mp3" volume="0.0"]
+	The protagonist enters the school faculty room. She sees that some teachers and student are doing schoolwork.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s3/He sees the Principal.mp3" volume="0.0"]
+	The protagonist sees the Principal and approaches him.
 	join Principal right [animation="Instant In" length="0.0"]
 	join Conrad (half) left [animation="Slide From Left"]
 	Conrad: Excuse me Principal Alan, do you have time to talk sir?
@@ -200,7 +200,7 @@ else:
 	if {selected_subject} == "english":
 		[signal arg="start_minigame wifi_router"]
 	elif {selected_subject} == "math":
-		Conrad: Two devices connected to the WiFi - at 8:00 PM and 9:00 PM.
+		Conrad: Two devices connected to the WiFi - at 8\:00 PM and 9\:00 PM.
 		Conrad: If I use logical deduction to match devices to suspects...
 		Conrad: I can systematically eliminate possibilities and identify who was here!
 		[signal arg="start_minigame logic_grid_wifi_math"]
@@ -237,15 +237,15 @@ else:
 	leave Conrad [animation="Instant Out"]
 	[background arg="res://Bg/hallway.png" fade="1.5"]
 	join Conrad center
-	[voice path="res://assets/audio/voice/Chapter 1/c1s3/Conrad leaves the room.mp3" volume=25 bus="Voice"]
-	Conrad leaves the room and is walking in the hallway
-	[voice path="res://assets/audio/voice/Chapter 1/c1s3/Conrad walks in the hallway.mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 1/c1s3/Conrad leaves the room.mp3" volume="0.0"]
+	 The protagonist  leaves the room and is walking in the hallway.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s3/Conrad walks in the hallway.mp3" volume="0.0"]
 	join Conrad (half) left
 	"Conrad (Thinking)": Of course the students of 12-A are definitely suspects but it's gonna take a long time to question them all individually, which makes it impossible to catch them before the grades are permanently recorded.
 	"Conrad (Thinking)": It would also alert the perp which makes the investigation harder.
 	"Conrad (Thinking)": Also it wouldn't be impossible for this to be coordinated by multiple people.
 	Conrad: Ughhhh... This is so hard. Why did I think that I could do this.
-	Conrad walks in the hallway to leave the building to go to the school gate
+	 The protagonist walks in the hallway to leave the building to go to the school gate
 	leave Conrad
 	# Conrad goes to find Alice (Placeholder: Janitor Fred)
 	[background arg="res://Bg/school_gate.png" fade="1.5"]
@@ -271,8 +271,8 @@ else:
 	Conrad: This case is kinda rough though, I really need your help.
 	"Diwata Laya": I've seen what's been happening even though I've been resting for a while. Don't worry too much, do what you can and we'll see how I can help. Since I've recovered quite a bit, my ability to compel people to tell the truth or cooperate has come back to me.
 	Conrad: Well that's gonna be super helpful.
-	[voice path="res://assets/audio/voice/Chapter 1/c1s3/Diwata Laya is a helper!.mp3" volume=25 bus="Voice"]
-	Diwata Laya is your helper! She is very intelligent and can help you quite a lot. However you is very limited as you is not allowed to interact much with the human world, so you is limited in the help you can give.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s3/Diwata Laya is a helper!.mp3" volume="0.0"]
+	Diwata Laya is your helper! She is very intelligent and can help you quite a lot. However she is very limited as she is not allowed to interact much with the human world, so she is limited in the help she can give.
 	Conrad: Great, I'll tell Mark what we've learned later. Help me brainstorm once we get home later.
 	"Diwata Laya": Ok.
 	[signal arg="laya_end"]

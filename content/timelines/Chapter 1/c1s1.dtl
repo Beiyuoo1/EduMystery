@@ -4,7 +4,9 @@ set {selected_character} = ""
 [signal arg="init_character_var"]
 set {c1s1_principal_tried} = false
 [background arg="res://Bg/faculty_exam.png" fade="1.0"]
-Principal: The Grade 12-A History exams were ruined last night due to a water leak. We'll suspend the test until further notice. The faculty room is off-limits.
+[voice path="res://assets/audio/voice/Chapter 1/c1s1/The grade 12-A.mp3" volume="0.0"]
+The Grade 12-A History exams were ruined last night due to a water leak. We'll suspend the test until further notice. \
+The faculty room is off-limits.
 [background arg="res://Bg/hallway.png" fade="2.0"]
 [wait time="2.0"]
 [signal arg="debug_character_check"]
@@ -15,7 +17,7 @@ if {selected_character} == "celestine":
 	Unlike most of her classmates who found it exciting gossip, she felt something strange — a [b][wave]pull[/wave][/b].
 	update Celestine (half)
 	[voice path="res://assets/audio/voice/Chapter 1/c1s1/Mysteries had always fascinated.mp3" volume="0.0"]
-	Mysteries had always fascinated her, especially since she and her best friends \
+	Mysteries had always fascinated her, especially since she and her best friends Eli Vergara and Hannah Lim \
 	accidentally solved the missing ID case last semester.
 	update Celestine left
 	join Mark (Mark_half) right
@@ -49,7 +51,7 @@ else:
 	Unlike most of his classmates who found it exciting gossip, he felt something strange — a [b][wave]pull[/wave][/b].
 	update Conrad (half)
 	[voice path="res://assets/audio/voice/Chapter 1/c1s1/Mysteries had always fascinated.mp3" volume="0.0"]
-	Mysteries had always fascinated him, especially since he and his best friends \
+	Mysteries had always fascinated him, especially since he and her best friends Eli Vergara and Hannah Lim \
 	accidentally solved the missing ID case last semester.
 	update Conrad left
 	join Mark (Mark_half) right

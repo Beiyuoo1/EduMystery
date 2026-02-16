@@ -1,6 +1,6 @@
-﻿[background arg="res://Bg/computer_lab.png" fade="1.0"]
+[background arg="res://Bg/computer_lab.png" fade="1.0"]
 The computer lab is empty now. The printer sits in the corner, its paper tray half-full.
-[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/The computer lab is empty now.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/The computer lab is empty now.mp3" volume="0.0"]
 if {selected_character} == "celestine":
 	join Celestine (animated) left
 	join Mark (Mark_half) right
@@ -11,7 +11,7 @@ else:
 	join Mark (Mark_half) right
 	Mark heads toward the printer while Conrad examines the room.
 	Mark: Let me check the reject tray. If the printer was jamming, there might be messed up prints.
-[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Mark rummages through.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Mark rummages through.mp3" volume="0.0"]
 Mark rummages through the small compartment beneath the printer.
 Mark: Here! A crumpled paper. It looks like... yeah, it's a budget proposal draft.
 if {selected_character} == "celestine":
@@ -35,20 +35,20 @@ if {selected_character} == "celestine":
 	Celestine: So when the money went missing, everyone would suspect her first.
 	Celestine: She was too afraid to defend herself. The perfect scapegoat.
 else:
-	[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Conrad takes the paper.mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Conrad takes the paper.mp3" volume="0.0"]
 	Conrad takes the paper and carefully smooths it out on a nearby desk.
 	Conrad: "Student Council Budget Reallocation Proposal - Draft 3."
 	Conrad: He was working on this for a while. Look at all these revision marks.
 	Mark: What's that in the margin?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Conrad peers closely.mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Conrad peers closely.mp3" volume="0.0"]
 	Conrad peers closely at the handwritten notes scrawled along the edge.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/He reads the margin notes aloud..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/He reads the margin notes aloud..mp3" volume="0.0"]
 	He reads the margin notes aloud.
 	Conrad: "If they won't listen, I'll have to make them see reason."
 	Mark: That sounds like a threat.
 	Conrad: Or a declaration of intent.
 	Conrad pulls out the threatening note Ria gave them and places it beside the budget draft.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Conrad holds both papers side by side, comparing them carefully.mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Conrad holds both papers side by side, comparing them carefully.mp3" volume="0.0"]
 	Conrad holds both papers side by side, comparing them carefully.
 	Conrad: Look at the letter 'e'. The same small loop at the bottom.
 	Conrad: And the 'k' in 'know' matches the 'k' in 'make'. Same sharp angle.
@@ -60,8 +60,8 @@ else:
 	Conrad: She was too afraid to defend herself. The perfect scapegoat.
 join "Diwata Laya" (Half_mirror) center
 [signal arg="laya_start"]
-[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Diwata Laya materializes,.mp3" volume=25 bus="Voice"]
-"Diwata Laya" materializes, your expression troubled.
+[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Diwata Laya materializes,.mp3" volume="0.0"]
+"Diwata Laya" materializes, her expression troubled.
 "Diwata Laya": Before we proceed, test your knowledge. Complete this challenge.
 if {selected_subject} == "english":
 	[signal arg="start_minigame curriculum:fillinblank"]
@@ -78,25 +78,25 @@ elif {selected_subject} == "science":
 		Conrad: I can deduce the sequence by analyzing energy transformations!
 	[signal arg="start_minigame logic_grid_blackmail_science"]
 "Diwata Laya": Good. Your understanding deepens. You grow stronger.
-"Diwata Laya": Now let me see if I can sense your full intention.
-[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Diwata laya closes her eyes.mp3" volume=25 bus="Voice"]
-"Diwata Laya" closes your eyes, your hands hovering over both papers.
-[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/For a moment.mp3" volume=25 bus="Voice"]
-For a moment, your form flickers with soft light.
+"Diwata Laya": Now let me see if I can sense his full intention.
+[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/Diwata laya closes her eyes.mp3" volume="0.0"]
+"Diwata Laya" closes her eyes, her hands hovering over both papers.
+[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/For a moment.mp3" volume="0.0"]
+For a moment, her form flickers with soft light.
 "Diwata Laya": I see... a plan. Careful steps, like pieces on a game board.
 "Diwata Laya": First, the threat. Create fear in the treasurer.
 "Diwata Laya": Then, the theft. Take the money while suspicion falls elsewhere.
 "Diwata Laya": But the plan doesn't end there...
-[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/diwata laya opens her eyes slowly.mp3" volume=25 bus="Voice"]
-"Diwata Laya" opens your eyes slowly.
+[voice path="res://assets/audio/voice/Chapter 2/c2s4 mathilda/diwata laya opens her eyes slowly.mp3" volume="0.0"]
+"Diwata Laya" opens her eyes slowly.
 "Diwata Laya": He was going to become the hero.
 [signal arg="laya_end"]
 if {selected_character} == "celestine":
 	Celestine: What do you mean?
 	[signal arg="laya_start"]
-	"Diwata Laya": I saw you in the vision. Returning the money himself. "Finding" it somewhere.
-	"Diwata Laya": He wanted everyone to praise your responsibility. His diligence.
-	"Diwata Laya": And then... propose your own budget. Show how much better you could manage things.
+	"Diwata Laya": I saw him in the vision. Returning the money himself. "Finding" it somewhere.
+	"Diwata Laya": He wanted everyone to praise his responsibility. His diligence.
+	"Diwata Laya": And then... propose his own budget. Show how much better he could manage things.
 	[signal arg="laya_end"]
 	leave "Diwata Laya"
 	Mark: He was going to "discover" the money and look like a hero?
@@ -122,9 +122,9 @@ if {selected_character} == "celestine":
 else:
 	Conrad: What do you mean?
 	[signal arg="laya_start"]
-	"Diwata Laya": I saw you in the vision. Returning the money himself. "Finding" it somewhere.
-	"Diwata Laya": He wanted everyone to praise your responsibility. His diligence.
-	"Diwata Laya": And then... propose your own budget. Show how much better you could manage things.
+	"Diwata Laya": I saw him in the vision. Returning the money himself. "Finding" it somewhere.
+	"Diwata Laya": He wanted everyone to praise his responsibility. His diligence.
+	"Diwata Laya": And then... propose his own budget. Show how much better he could manage things.
 	[signal arg="laya_end"]
 	leave "Diwata Laya"
 	Mark: He was going to "discover" the money and look like a hero?

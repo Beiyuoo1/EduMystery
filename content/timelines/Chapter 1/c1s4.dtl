@@ -1,7 +1,7 @@
 [background arg="res://Bg/hallway.png" fade="1.0"]
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 1/c1s4/The next day.mp3" volume=25 bus="Voice"]
-	The next day, Celestine meets Mark in the hallway before classes start.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s4/The next day.mp3" volume="0.0"]
+	The next day, the protagonist meets Mark in the hallway before classes start.
 	join Celestine (half) left [animation="Slide From Right"]
 	join Mark (Mark_half) right [animation="Instant In" length="0.1"]
 	Celestine: Mark, I've gone over the evidence regarding the ruined exam papers.
@@ -14,8 +14,8 @@ if {selected_character} == "celestine":
 	Celestine: The timing is what matters. 8\:00 PM could be innocent - someone working late. But 9\:00 PM? The faculty should've been completely empty by then.
 	join "Diwata Laya" (Half_mirror) rightmost
 	[signal arg="laya_start"]
-	[voice path="res://assets/audio/voice/Chapter 1/c1s4/Laya appears.mp3" volume=25 bus="Voice"]
-	Laya appears beside Celestine, unseen by Mark.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s4/Laya appears.mp3" volume="0.0"]
+	Laya appears beside the protagonist , unseen by Mark.
 	"Diwata Laya": [i][color=#9999ff](Whispering) I can assist. I will listen to their hearts. If they speak deceit, I will know.[/color][/i]
 	"Celestine (Thinking)": Perfect.
 	[signal arg="laya_end"]
@@ -23,8 +23,8 @@ if {selected_character} == "celestine":
 	leave --All-- [animation="Instant Out" length="0.4"]
 	jump c1s5/
 else:
-	[voice path="res://assets/audio/voice/Chapter 1/c1s4/The next day.mp3" volume=25 bus="Voice"]
-	The next day, Conrad meets Mark in the hallway before classes start.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s4/The next day.mp3" volume="0.0"]
+	The next day, the protagonist meets Mark in the hallway before classes start.
 	join Conrad (half) left [animation="Slide From Right"]
 	join Mark (Mark_half) right [animation="Instant In" length="0.1"]
 	Conrad: Mark, I've gone over the evidence regarding the ruined exam papers.
@@ -37,8 +37,8 @@ else:
 	Conrad: The timing is what matters. 8\:00 PM could be innocent - someone working late. But 9\:00 PM? The faculty should've been completely empty by then.
 	join "Diwata Laya" (Half_mirror) rightmost
 	[signal arg="laya_start"]
-	[voice path="res://assets/audio/voice/Chapter 1/c1s4/Laya appears.mp3" volume=25 bus="Voice"]
-	Laya appears beside Conrad, unseen by Mark.
+	[voice path="res://assets/audio/voice/Chapter 1/c1s4/Laya appears.mp3" volume="0.0"]
+	 Laya appears beside the protagonist , unseen by Mark.
 	"Diwata Laya": [i][color=#9999ff](Whispering) I can assist. I will listen to their hearts. If they speak deceit, I will know.[/color][/i]
 	"Conrad (Thinking)": Perfect.
 	[signal arg="laya_end"]

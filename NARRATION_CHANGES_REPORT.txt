@@ -1,0 +1,1564 @@
+================================================================================
+NARRATOR DIALOGUE CONVERSION REPORT
+3rd Person → 2nd Person Changes
+================================================================================
+
+Total changes: 139
+
+INSTRUCTIONS:
+  - Review each change below
+  - Fix any grammatical errors or awkward phrasing
+  - Mark issues that need manual editing
+  - Re-record voice narration to match the new text
+
+================================================================================
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 1/c1s1.dtl
+--------------------------------------------------------------------------------
+
+Change #1:
+
+  BEFORE (3rd person):
+    - 	Unlike most of her classmates who found it exciting gossip, she felt something strange — a [b][wave]pull[/wave][/b].
+    - 	Mysteries had always fascinated her, especially since she and her best friends Eli Vergara and Hannah Lim \
+  AFTER (2nd person):
+    + 	Unlike most of your classmates who found it exciting gossip, she felt something strange — a [b][wave]pull[/wave][/b].
+    + 	Mysteries had always fascinated your, especially since she and your best friends Eli Vergara and Hannah Lim \
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #2:
+
+  BEFORE (3rd person):
+    - 	Unlike most of his classmates who found it exciting gossip, he felt something strange — a [b][wave]pull[/wave][/b].
+    - 	Mysteries had always fascinated him, especially since he and his best friends Eli Vergara and Hannah Lim \
+  AFTER (2nd person):
+    + 	Unlike most of your classmates who found it exciting gossip, he felt something strange — a [b][wave]pull[/wave][/b].
+    + 	Mysteries had always fascinated you, especially since he and your best friends Eli Vergara and Hannah Lim \
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 1/c1s2.dtl
+--------------------------------------------------------------------------------
+
+Change #3:
+
+  BEFORE (3rd person):
+    - 	her chest tightening with every step. When she reached the door, she froze.
+  AFTER (2nd person):
+    + 	your chest tightening with every step. When she reached the door, she froze.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #4:
+
+  BEFORE (3rd person):
+    - 	The Janitor brings in his cleaning equipment in the room.
+  AFTER (2nd person):
+    + 	The Janitor brings in your cleaning equipment in the room.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #5:
+
+  BEFORE (3rd person):
+    - 	his chest tightening with every step. When he reached the door, he froze.
+  AFTER (2nd person):
+    + 	your chest tightening with every step. When he reached the door, he froze.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #6:
+
+  BEFORE (3rd person):
+    - 	The Janitor brings in his cleaning equipment in the room.
+  AFTER (2nd person):
+    + 	The Janitor brings in your cleaning equipment in the room.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 1/c1s2b.dtl
+--------------------------------------------------------------------------------
+
+Change #7:
+
+  BEFORE (3rd person):
+    - 	A shimmering figure appears beside Celestine - visible only to her. This is Diwata Laya, a spirit bound to Celestine. Only she can see and hear her.
+  AFTER (2nd person):
+    + 	A shimmering figure appears beside Celestine - visible only to your. This is Diwata Laya, a spirit bound to Celestine. Only she can see and hear your.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #8:
+
+  BEFORE (3rd person):
+    - 	"Celestine (Thinking)": Got it. The principal should be there. I'll talk to him and examine the scene myself.
+  AFTER (2nd person):
+    + 	"Celestine (Thinking)": Got it. The principal should be there. I'll talk to you and examine the scene myself.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #9:
+
+  BEFORE (3rd person):
+    - 	A shimmering figure appears beside Conrad - visible only to him. This is Diwata Laya, a spirit bound to Conrad. Only he can see and hear her.
+  AFTER (2nd person):
+    + 	A shimmering figure appears beside Conrad - visible only to you. This is Diwata Laya, a spirit bound to Conrad. Only he can see and hear your.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #10:
+
+  BEFORE (3rd person):
+    - 	"Conrad (Thinking)": Got it. The principal should be there. I'll talk to him and examine the scene myself.
+  AFTER (2nd person):
+    + 	"Conrad (Thinking)": Got it. The principal should be there. I'll talk to you and examine the scene myself.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 1/c1s3.dtl
+--------------------------------------------------------------------------------
+
+Change #11:
+
+  BEFORE (3rd person):
+    - 	She sees the Principal and approaches him.
+  AFTER (2nd person):
+    + 	She sees the Principal and approaches you.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #12:
+
+  BEFORE (3rd person):
+    - 	He sees the Principal and approaches him.
+  AFTER (2nd person):
+    + 	He sees the Principal and approaches you.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 1/c1s5.dtl
+--------------------------------------------------------------------------------
+
+Change #13:
+
+  BEFORE (3rd person):
+    - 	Celestine takes a photo of the bracelet with her phone, then carefully places it in her pocket.
+  AFTER (2nd person):
+    + 	Celestine takes a photo of the bracelet with your phone, then carefully places it in your pocket.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #14:
+
+  BEFORE (3rd person):
+    - 	Conrad takes a photo of the bracelet with his phone, then carefully places it in his pocket.
+  AFTER (2nd person):
+    + 	Conrad takes a photo of the bracelet with your phone, then carefully places it in your pocket.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #15:
+
+  BEFORE (3rd person):
+    - 	"Diwata Laya": [i][color=#9999ff](Whispering) Deceit clouds his words. He is lying.[/color][/i]
+  AFTER (2nd person):
+    + 	"Diwata Laya": [i][color=#9999ff](Whispering) Deceit clouds your words. He is lying.[/color][/i]
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #16:
+
+  BEFORE (3rd person):
+    - 	"Diwata Laya": [i][color=#9999ff](Whispering) Deceit clouds his words. He is lying.[/color][/i]
+  AFTER (2nd person):
+    + 	"Diwata Laya": [i][color=#9999ff](Whispering) Deceit clouds your words. He is lying.[/color][/i]
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #17:
+
+  BEFORE (3rd person):
+    - 	Celestine shows a photo on her phone - a small, worn charm bracelet with distinctive beads.
+  AFTER (2nd person):
+    + 	Celestine shows a photo on your phone - a small, worn charm bracelet with distinctive beads.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #18:
+
+  BEFORE (3rd person):
+    - 	Conrad shows a photo on his phone - a small, worn charm bracelet with distinctive beads.
+  AFTER (2nd person):
+    + 	Conrad shows a photo on your phone - a small, worn charm bracelet with distinctive beads.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #19:
+
+  BEFORE (3rd person):
+    - "Diwata Laya": [i][color=#9999ff](Whispering) His heart... the emotional surge is unmistakable. This is his. The grief and longing are overwhelming him.[/color][/i]
+    - 	"Celestine (Thinking)": You're sure it's his?
+    - 	"Diwata Laya": [i][color=#9999ff](Whispering) Good. Now listen - threaten to show the bracelet to others. His fear of losing it will break him.[/color][/i]
+  AFTER (2nd person):
+    + "Diwata Laya": [i][color=#9999ff](Whispering) His heart... the emotional surge is unmistakable. This is your. The grief and longing are overwhelming you.[/color][/i]
+    + 	"Celestine (Thinking)": You're sure it's your?
+    + 	"Diwata Laya": [i][color=#9999ff](Whispering) Good. Now listen - threaten to show the bracelet to others. His fear of losing it will break you.[/color][/i]
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #20:
+
+  BEFORE (3rd person):
+    - 	characters/Greg (Greg_sad_half): My grandmother gave it to me before she passed away. It's the only thing I have left from her.
+  AFTER (2nd person):
+    + 	characters/Greg (Greg_sad_half): My grandmother gave it to me before she passed away. It's the only thing I have left from your.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #21:
+
+  BEFORE (3rd person):
+    - 	"Conrad (Thinking)": You're sure it's his?
+    - 	"Diwata Laya": [i][color=#9999ff](Whispering) Good. Now listen - threaten to show the bracelet to others. His fear of losing it will break him.[/color][/i]
+  AFTER (2nd person):
+    + 	"Conrad (Thinking)": You're sure it's your?
+    + 	"Diwata Laya": [i][color=#9999ff](Whispering) Good. Now listen - threaten to show the bracelet to others. His fear of losing it will break you.[/color][/i]
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #22:
+
+  BEFORE (3rd person):
+    - 	characters/Greg (Greg_sad_half): My grandmother gave it to me before she passed away. It's the only thing I have left from her.
+  AFTER (2nd person):
+    + 	characters/Greg (Greg_sad_half): My grandmother gave it to me before she passed away. It's the only thing I have left from your.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 2/c2s0.dtl
+--------------------------------------------------------------------------------
+
+Change #23:
+
+  BEFORE (3rd person):
+    - Her fingers trace the list gently, pausing at certain names.
+  AFTER (2nd person):
+    + your fingers trace the list gently, pausing at certain names.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #24:
+
+  BEFORE (3rd person):
+    - She gathers her bag, taking one last look at the lockbox.
+  AFTER (2nd person):
+    + She gathers your bag, taking one last look at the lockbox.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 2/c2s1.dtl
+--------------------------------------------------------------------------------
+
+Change #25:
+
+  BEFORE (3rd person):
+    - 	Mark lowers his voice.
+  AFTER (2nd person):
+    + 	Mark lowers your voice.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #26:
+
+  BEFORE (3rd person):
+    - 	Celestine's expression hardens.
+  AFTER (2nd person):
+    + 	your expression hardens.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #27:
+
+  BEFORE (3rd person):
+    - 	Mark lowers his voice.
+  AFTER (2nd person):
+    + 	Mark lowers your voice.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #28:
+
+  BEFORE (3rd person):
+    - 	Conrad's expression hardens.
+  AFTER (2nd person):
+    + 	your expression hardens.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 2/c2s2.dtl
+--------------------------------------------------------------------------------
+
+Change #29:
+
+  BEFORE (3rd person):
+    - 	Ryan looks up, his expression immediately guarded.
+    - 	Ryan crosses his arms, but his posture relaxes slightly.
+  AFTER (2nd person):
+    + 	Ryan looks up, your expression immediately guarded.
+    + 	Ryan crosses your arms, but your posture relaxes slightly.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #30:
+
+  BEFORE (3rd person):
+    - 	Ryan returns to his computer, typing more aggressively than before.
+  AFTER (2nd person):
+    + 	Ryan returns to your computer, typing more aggressively than before.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #31:
+
+  BEFORE (3rd person):
+    - 	Ryan looks up, his expression immediately guarded.
+    - 	Ryan crosses his arms, but his posture relaxes slightly.
+  AFTER (2nd person):
+    + 	Ryan looks up, your expression immediately guarded.
+    + 	Ryan crosses your arms, but your posture relaxes slightly.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #32:
+
+  BEFORE (3rd person):
+    - 	Ryan returns to his computer, typing more aggressively than before.
+  AFTER (2nd person):
+    + 	Ryan returns to your computer, typing more aggressively than before.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #33:
+
+  BEFORE (3rd person):
+    - The faculty room is quiet. Ms. Santos sits at her desk, surrounded by stacks of papers.
+  AFTER (2nd person):
+    + The faculty room is quiet. Ms. Santos sits at your desk, surrounded by stacks of papers.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #34:
+
+  BEFORE (3rd person):
+    - 	Her voice drops to barely above a whisper.
+    - 	Her tone becomes defensive.
+    - 	"Ms Santos" slumps in her chair.
+  AFTER (2nd person):
+    + 	your voice drops to barely above a whisper.
+    + 	your tone becomes defensive.
+    + 	"Ms Santos" slumps in your chair.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #35:
+
+  BEFORE (3rd person):
+    - 	"Ms Santos": I told her to just put them in the inbox by the door.
+    - 	Uncertainty crosses her face.
+  AFTER (2nd person):
+    + 	"Ms Santos": I told your to just put them in the inbox by the door.
+    + 	Uncertainty crosses your face.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #36:
+
+  BEFORE (3rd person):
+    - 	Her voice drops to barely above a whisper.
+    - 	Her tone becomes defensive.
+    - 	"Ms Santos" slumps in her chair.
+  AFTER (2nd person):
+    + 	your voice drops to barely above a whisper.
+    + 	your tone becomes defensive.
+    + 	"Ms Santos" slumps in your chair.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #37:
+
+  BEFORE (3rd person):
+    - 	"Ms Santos": I told her to just put them in the inbox by the door.
+    - 	Uncertainty crosses her face.
+  AFTER (2nd person):
+    + 	"Ms Santos": I told your to just put them in the inbox by the door.
+    + 	Uncertainty crosses your face.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #38:
+
+  BEFORE (3rd person):
+    - 	Alex turns as they approach, her expression wary.
+    - 	Bitterness creeps into her voice.
+  AFTER (2nd person):
+    + 	Alex turns as they approach, your expression wary.
+    + 	Bitterness creeps into your voice.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #39:
+
+  BEFORE (3rd person):
+    - 	Alex hesitates, crossing her arms defensively.
+  AFTER (2nd person):
+    + 	Alex hesitates, crossing your arms defensively.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #40:
+
+  BEFORE (3rd person):
+    - 	Alex turns as they approach, her expression wary.
+    - 	Bitterness creeps into her voice.
+  AFTER (2nd person):
+    + 	Alex turns as they approach, your expression wary.
+    + 	Bitterness creeps into your voice.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #41:
+
+  BEFORE (3rd person):
+    - 	Alex hesitates, crossing her arms defensively.
+  AFTER (2nd person):
+    + 	Alex hesitates, crossing your arms defensively.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 2/c2s3.dtl
+--------------------------------------------------------------------------------
+
+Change #42:
+
+  BEFORE (3rd person):
+    - 	Ria looks smaller than before, her shoulders hunched. Her eyes are red from crying.
+    - 	Her voice is barely above a whisper.
+    - 	Ria looks up, a flicker of hope in her eyes.
+  AFTER (2nd person):
+    + 	Ria looks smaller than before, your shoulders hunched. your eyes are red from crying.
+    + 	your voice is barely above a whisper.
+    + 	Ria looks up, a flicker of hope in your eyes.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #43:
+
+  BEFORE (3rd person):
+    - 	She reaches into her pocket and pulls out a folded piece of paper.
+  AFTER (2nd person):
+    + 	She reaches into your pocket and pulls out a folded piece of paper.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #44:
+
+  BEFORE (3rd person):
+    - 	Celestine reaches out her hand.
+    - 	Ria hands it over, her hand shaking.
+  AFTER (2nd person):
+    + 	Celestine reaches out your hand.
+    + 	Ria hands it over, your hand shaking.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #45:
+
+  BEFORE (3rd person):
+    - 	Ria looks smaller than before, her shoulders hunched. Her eyes are red from crying.
+    - 	Her voice is barely above a whisper.
+    - 	Ria looks up, a flicker of hope in her eyes.
+  AFTER (2nd person):
+    + 	Ria looks smaller than before, your shoulders hunched. your eyes are red from crying.
+    + 	your voice is barely above a whisper.
+    + 	Ria looks up, a flicker of hope in your eyes.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #46:
+
+  BEFORE (3rd person):
+    - 	She reaches into her pocket and pulls out a folded piece of paper.
+  AFTER (2nd person):
+    + 	She reaches into your pocket and pulls out a folded piece of paper.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #47:
+
+  BEFORE (3rd person):
+    - 	Conrad reaches out his hand.
+    - 	Ria hands it over, her hand shaking.
+  AFTER (2nd person):
+    + 	Conrad reaches out your hand.
+    + 	Ria hands it over, your hand shaking.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #48:
+
+  BEFORE (3rd person):
+    - 	"Diwata Laya" appears beside Celestine, her form shimmering faintly.
+    - 	"Diwata Laya" holds the note gently, closing her eyes.
+    - 	"Diwata Laya" opens her eyes.
+  AFTER (2nd person):
+    + 	"Diwata Laya" appears beside Celestine, your form shimmering faintly.
+    + 	"Diwata Laya" holds the note gently, closing your eyes.
+    + 	"Diwata Laya" opens your eyes.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #49:
+
+  BEFORE (3rd person):
+    - 	"Diwata Laya" appears beside Conrad, her form shimmering faintly.
+    - 	"Diwata Laya" holds the note gently, closing her eyes.
+    - 	"Diwata Laya" opens her eyes.
+  AFTER (2nd person):
+    + 	"Diwata Laya" appears beside Conrad, your form shimmering faintly.
+    + 	"Diwata Laya" holds the note gently, closing your eyes.
+    + 	"Diwata Laya" opens your eyes.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 2/c2s4.dtl
+--------------------------------------------------------------------------------
+
+Change #50:
+
+  BEFORE (3rd person):
+    - "Diwata Laya" materializes, her expression troubled.
+  AFTER (2nd person):
+    + "Diwata Laya" materializes, your expression troubled.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #51:
+
+  BEFORE (3rd person):
+    - "Diwata Laya": Now let me see if I can sense his full intention.
+    - "Diwata Laya" closes her eyes, her hands hovering over both papers.
+    - For a moment, her form flickers with soft light.
+    - "Diwata Laya" opens her eyes slowly.
+    - 	"Diwata Laya": I saw him in the vision. Returning the money himself. "Finding" it somewhere.
+    - 	"Diwata Laya": He wanted everyone to praise his responsibility. His diligence.
+    - 	"Diwata Laya": And then... propose his own budget. Show how much better he could manage things.
+  AFTER (2nd person):
+    + "Diwata Laya": Now let me see if I can sense your full intention.
+    + "Diwata Laya" closes your eyes, your hands hovering over both papers.
+    + For a moment, your form flickers with soft light.
+    + "Diwata Laya" opens your eyes slowly.
+    + 	"Diwata Laya": I saw you in the vision. Returning the money himself. "Finding" it somewhere.
+    + 	"Diwata Laya": He wanted everyone to praise your responsibility. His diligence.
+    + 	"Diwata Laya": And then... propose your own budget. Show how much better he could manage things.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #52:
+
+  BEFORE (3rd person):
+    - 	"Diwata Laya": I saw him in the vision. Returning the money himself. "Finding" it somewhere.
+    - 	"Diwata Laya": He wanted everyone to praise his responsibility. His diligence.
+    - 	"Diwata Laya": And then... propose his own budget. Show how much better he could manage things.
+  AFTER (2nd person):
+    + 	"Diwata Laya": I saw you in the vision. Returning the money himself. "Finding" it somewhere.
+    + 	"Diwata Laya": He wanted everyone to praise your responsibility. His diligence.
+    + 	"Diwata Laya": And then... propose your own budget. Show how much better he could manage things.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 2/c2s5.dtl
+--------------------------------------------------------------------------------
+
+Change #53:
+
+  BEFORE (3rd person):
+    - The door opens wider. Ryan stands inside, his expression caught between surprise and defiance.
+  AFTER (2nd person):
+    + The door opens wider. Ryan stands inside, your expression caught between surprise and defiance.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #54:
+
+  BEFORE (3rd person):
+    - 	Ryan waves his hand dismissively.
+  AFTER (2nd person):
+    + 	Ryan waves your hand dismissively.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #55:
+
+  BEFORE (3rd person):
+    - 	Ryan stands frozen, his eyes darting around the room.
+  AFTER (2nd person):
+    + 	Ryan stands frozen, your eyes darting around the room.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #56:
+
+  BEFORE (3rd person):
+    - 	Ryan waves his hand dismissively.
+  AFTER (2nd person):
+    + 	Ryan waves your hand dismissively.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #57:
+
+  BEFORE (3rd person):
+    - 	Ryan stands frozen, his eyes darting around the room.
+    - Ryan's shoulders slump. The defiance drains from his face.
+  AFTER (2nd person):
+    + 	Ryan stands frozen, your eyes darting around the room.
+    + Ryan's shoulders slump. The defiance drains from your face.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #58:
+
+  BEFORE (3rd person):
+    - 	Ryan flinches at Celestine's words.
+  AFTER (2nd person):
+    + 	Ryan flinches at your words.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #59:
+
+  BEFORE (3rd person):
+    - 	Ryan looks at the floor, unable to meet Celestine's eyes.
+  AFTER (2nd person):
+    + 	Ryan looks at the floor, unable to meet your eyes.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #60:
+
+  BEFORE (3rd person):
+    - 	Ryan flinches at Conrad's words.
+  AFTER (2nd person):
+    + 	Ryan flinches at your words.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #61:
+
+  BEFORE (3rd person):
+    - 	Ryan looks at the floor, unable to meet Conrad's eyes.
+  AFTER (2nd person):
+    + 	Ryan looks at the floor, unable to meet your eyes.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 2/c2s6.dtl
+--------------------------------------------------------------------------------
+
+Change #62:
+
+  BEFORE (3rd person):
+    - 	"Diwata Laya" shakes her head slowly.
+  AFTER (2nd person):
+    + 	"Diwata Laya" shakes your head slowly.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #63:
+
+  BEFORE (3rd person):
+    - 	"Diwata Laya" shakes her head slowly.
+  AFTER (2nd person):
+    + 	"Diwata Laya" shakes your head slowly.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 3/c3s0.dtl
+--------------------------------------------------------------------------------
+
+Change #64:
+
+  BEFORE (3rd person):
+    - A Mysterious Character sits hunched over a sculpture, his hands moving with mechanical precision.
+    - He leans back, examining his work - a geometric abstract piece, technically flawless.
+    - He picks up his phone, scrolling through photos.
+  AFTER (2nd person):
+    + A Mysterious Character sits hunched over a sculpture, your hands moving with mechanical precision.
+    + He leans back, examining your work - a geometric abstract piece, technically flawless.
+    + He picks up your phone, scrolling through photos.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #65:
+
+  BEFORE (3rd person):
+    - A tear slides down his cheek. He wipes it away angrily.
+  AFTER (2nd person):
+    + A tear slides down your cheek. He wipes it away angrily.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #66:
+
+  BEFORE (3rd person):
+    - He shakes his head violently.
+    - But his gaze keeps returning to the window.
+    - He stands abruptly, knocking over his chair.
+  AFTER (2nd person):
+    + He shakes your head violently.
+    + But your gaze keeps returning to the window.
+    + He stands abruptly, knocking over your chair.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #67:
+
+  BEFORE (3rd person):
+    - Something small falls from his pocket, landing silently among the debris.
+  AFTER (2nd person):
+    + Something small falls from your pocket, landing silently among the debris.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 3/c3s1.dtl
+--------------------------------------------------------------------------------
+
+Change #68:
+
+  BEFORE (3rd person):
+    - 	Celestine pushes through the crowd, her detective instincts taking over.
+  AFTER (2nd person):
+    + 	Celestine pushes through the crowd, your detective instincts taking over.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #69:
+
+  BEFORE (3rd person):
+    - 	Mia kneels among the pieces, her hands hovering over the fragments as if afraid to touch them.
+    - 	Tears stream silently down her face.
+    - 	Celestine approaches carefully, keeping her voice gentle.
+  AFTER (2nd person):
+    + 	Mia kneels among the pieces, your hands hovering over the fragments as if afraid to touch them.
+    + 	Tears stream silently down your face.
+    + 	Celestine approaches carefully, keeping your voice gentle.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #70:
+
+  BEFORE (3rd person):
+    - 	Celestine's expression hardens with determination.
+    - 	She turns to Mia, her voice firm but kind.
+    - 	Mia looks up, a fragile hope breaking through her grief.
+  AFTER (2nd person):
+    + 	your expression hardens with determination.
+    + 	She turns to Mia, your voice firm but kind.
+    + 	Mia looks up, a fragile hope breaking through your grief.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #71:
+
+  BEFORE (3rd person):
+    - 	Conrad pushes through the crowd, his detective instincts taking over.
+  AFTER (2nd person):
+    + 	Conrad pushes through the crowd, your detective instincts taking over.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #72:
+
+  BEFORE (3rd person):
+    - 	Mia kneels among the pieces, her hands hovering over the fragments as if afraid to touch them.
+    - 	Tears stream silently down her face.
+    - 	Conrad approaches carefully, keeping his voice gentle.
+  AFTER (2nd person):
+    + 	Mia kneels among the pieces, your hands hovering over the fragments as if afraid to touch them.
+    + 	Tears stream silently down your face.
+    + 	Conrad approaches carefully, keeping your voice gentle.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #73:
+
+  BEFORE (3rd person):
+    - 	Conrad's expression hardens with determination.
+    - 	He turns to Mia, his voice firm but kind.
+    - 	Mia looks up, a fragile hope breaking through her grief.
+  AFTER (2nd person):
+    + 	your expression hardens with determination.
+    + 	He turns to Mia, your voice firm but kind.
+    + 	Mia looks up, a fragile hope breaking through your grief.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 3/c3s2.dtl
+--------------------------------------------------------------------------------
+
+Change #74:
+
+  BEFORE (3rd person):
+    - 	"Ms Reyes": Because it was extraordinary. Mia poured her heart into that piece.
+  AFTER (2nd person):
+    + 	"Ms Reyes": Because it was extraordinary. Mia poured your heart into that piece.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #75:
+
+  BEFORE (3rd person):
+    - 	"Ms Reyes": But his work lacks... soul. It's precise but cold.
+    - 	"Ms Reyes": He didn't say much. But I've seen him staring at Mia's sculpture.
+    - 	"Ms Reyes": He should be in the courtyard, setting up his display. He insisted on being part of Art Week despite... well.
+  AFTER (2nd person):
+    + 	"Ms Reyes": But your work lacks... soul. It's precise but cold.
+    + 	"Ms Reyes": He didn't say much. But I've seen you staring at Mia's sculpture.
+    + 	"Ms Reyes": He should be in the courtyard, setting up your display. He insisted on being part of Art Week despite... well.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #76:
+
+  BEFORE (3rd person):
+    - 	"Ms Reyes": Because it was extraordinary. Mia poured her heart into that piece.
+  AFTER (2nd person):
+    + 	"Ms Reyes": Because it was extraordinary. Mia poured your heart into that piece.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #77:
+
+  BEFORE (3rd person):
+    - 	"Ms Reyes": But his work lacks... soul. It's precise but cold.
+    - 	"Ms Reyes": He didn't say much. But I've seen him staring at Mia's sculpture.
+    - 	"Ms Reyes": He should be in the courtyard, setting up his display. He insisted on being part of Art Week despite... well.
+  AFTER (2nd person):
+    + 	"Ms Reyes": But your work lacks... soul. It's precise but cold.
+    + 	"Ms Reyes": He didn't say much. But I've seen you staring at Mia's sculpture.
+    + 	"Ms Reyes": He should be in the courtyard, setting up your display. He insisted on being part of Art Week despite... well.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #78:
+
+  BEFORE (3rd person):
+    - 	Victor uncrosses his arms, stepping closer.
+    - 	Victor turns back to his ignored display.
+  AFTER (2nd person):
+    + 	Victor uncrosses your arms, stepping closer.
+    + 	Victor turns back to your ignored display.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #79:
+
+  BEFORE (3rd person):
+    - 	Victor uncrosses his arms, stepping closer.
+    - 	Victor turns back to his ignored display.
+  AFTER (2nd person):
+    + 	Victor uncrosses your arms, stepping closer.
+    + 	Victor turns back to your ignored display.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #80:
+
+  BEFORE (3rd person):
+    - 	She's sitting on a bench, staring at the spot where her sculpture once stood.
+  AFTER (2nd person):
+    + 	She's sitting on a bench, staring at the spot where your sculpture once stood.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #81:
+
+  BEFORE (3rd person):
+    - 	"Diwata Laya" materializes beside Celestine, her form shimmering faintly.
+    - 	Celestine passes it to her discretely, careful not to draw attention.
+    - 	"Diwata Laya" holds the paper gently, closing her eyes.
+  AFTER (2nd person):
+    + 	"Diwata Laya" materializes beside Celestine, your form shimmering faintly.
+    + 	Celestine passes it to your discretely, careful not to draw attention.
+    + 	"Diwata Laya" holds the paper gently, closing your eyes.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #82:
+
+  BEFORE (3rd person):
+    - 	She's sitting on a bench, staring at the spot where her sculpture once stood.
+  AFTER (2nd person):
+    + 	She's sitting on a bench, staring at the spot where your sculpture once stood.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #83:
+
+  BEFORE (3rd person):
+    - 	"Diwata Laya" materializes beside Conrad, her form shimmering faintly.
+    - 	Conrad passes it to her discretely, careful not to draw attention.
+    - 	"Diwata Laya" holds the paper gently, closing her eyes.
+  AFTER (2nd person):
+    + 	"Diwata Laya" materializes beside Conrad, your form shimmering faintly.
+    + 	Conrad passes it to your discretely, careful not to draw attention.
+    + 	"Diwata Laya" holds the paper gently, closing your eyes.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 3/c3s3.dtl
+--------------------------------------------------------------------------------
+
+Change #84:
+
+  BEFORE (3rd person):
+    - 	Mark gives her a look.
+    - 	Mark gives him a look.
+  AFTER (2nd person):
+    + 	Mark gives your a look.
+    + 	Mark gives you a look.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #85:
+
+  BEFORE (3rd person):
+    - "Diwata Laya" appears, her expression thoughtful.
+  AFTER (2nd person):
+    + "Diwata Laya" appears, your expression thoughtful.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #86:
+
+  BEFORE (3rd person):
+    - 	"Ms Reyes" looks up, her face troubled.
+  AFTER (2nd person):
+    + 	"Ms Reyes" looks up, your face troubled.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #87:
+
+  BEFORE (3rd person):
+    - 	"Ms Reyes" looks up, her face troubled.
+  AFTER (2nd person):
+    + 	"Ms Reyes" looks up, your face troubled.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 3/c3s4.dtl
+--------------------------------------------------------------------------------
+
+Change #88:
+
+  BEFORE (3rd person):
+    - Victor stands near the edge of the courtyard, watching students pass by his ignored display.
+  AFTER (2nd person):
+    + Victor stands near the edge of the courtyard, watching students pass by your ignored display.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #89:
+
+  BEFORE (3rd person):
+    - Victor looks between them, his defiance crumbling.
+    - 	Celestine's tone softens.
+  AFTER (2nd person):
+    + Victor looks between them, your defiance crumbling.
+    + 	your tone softens.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #90:
+
+  BEFORE (3rd person):
+    - 	Conrad's tone softens.
+  AFTER (2nd person):
+    + 	your tone softens.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #91:
+
+  BEFORE (3rd person):
+    - Victor collapses onto a nearby bench, his head in his hands.
+  AFTER (2nd person):
+    + Victor collapses onto a nearby bench, your head in your hands.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #92:
+
+  BEFORE (3rd person):
+    - 	He looks up at Celestine, tears streaming down his face.
+  AFTER (2nd person):
+    + 	He looks up at Celestine, tears streaming down your face.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #93:
+
+  BEFORE (3rd person):
+    - 	He looks up at Conrad, tears streaming down his face.
+    - Victor stands, wiping his eyes.
+  AFTER (2nd person):
+    + 	He looks up at Conrad, tears streaming down your face.
+    + Victor stands, wiping your eyes.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 3/c3s5.dtl
+--------------------------------------------------------------------------------
+
+Change #94:
+
+  BEFORE (3rd person):
+    - Ms. Reyes stands near her desk, her expression a mix of disappointment and sadness.
+  AFTER (2nd person):
+    + Ms. Reyes stands near your desk, your expression a mix of disappointment and sadness.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #95:
+
+  BEFORE (3rd person):
+    - Mia enters quietly. Her eyes are still red, but her expression is steady.
+  AFTER (2nd person):
+    + Mia enters quietly. your eyes are still red, but your expression is steady.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 3/c3s6.dtl
+--------------------------------------------------------------------------------
+
+Change #96:
+
+  BEFORE (3rd person):
+    - 	Celestine nods, her expression growing serious.
+  AFTER (2nd person):
+    + 	Celestine nods, your expression growing serious.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #97:
+
+  BEFORE (3rd person):
+    - 	Conrad nods, his expression growing serious.
+  AFTER (2nd person):
+    + 	Conrad nods, your expression growing serious.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #98:
+
+  BEFORE (3rd person):
+    - "Diwata Laya" appears, her eyes fixed on the card with unusual intensity.
+  AFTER (2nd person):
+    + "Diwata Laya" appears, your eyes fixed on the card with unusual intensity.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #99:
+
+  BEFORE (3rd person):
+    - "Diwata Laya" shakes her head slowly, her form flickering.
+  AFTER (2nd person):
+    + "Diwata Laya" shakes your head slowly, your form flickering.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 4/c4s0.dtl
+--------------------------------------------------------------------------------
+
+Change #100:
+
+  BEFORE (3rd person):
+    - Mysterious person thinks of Conrad and his detective work - solving cases that taught real lessons.
+  AFTER (2nd person):
+    + Mysterious person thinks of Conrad and your detective work - solving cases that taught real lessons.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 4/c4s2.dtl
+--------------------------------------------------------------------------------
+
+Change #101:
+
+  BEFORE (3rd person):
+    - 	Celestine sits at a desk, notes spread before her. Mark stands nearby.
+  AFTER (2nd person):
+    + 	Celestine sits at a desk, notes spread before your. Mark stands nearby.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #102:
+
+  BEFORE (3rd person):
+    - 	"Diwata Laya" materializes, her expression thoughtful.
+  AFTER (2nd person):
+    + 	"Diwata Laya" materializes, your expression thoughtful.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #103:
+
+  BEFORE (3rd person):
+    - 	Conrad sits at a desk, notes spread before him. Mark stands nearby.
+  AFTER (2nd person):
+    + 	Conrad sits at a desk, notes spread before you. Mark stands nearby.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #104:
+
+  BEFORE (3rd person):
+    - 	"Diwata Laya" materializes, her expression thoughtful.
+  AFTER (2nd person):
+    + 	"Diwata Laya" materializes, your expression thoughtful.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #105:
+
+  BEFORE (3rd person):
+    - 	The librarian pulls up records on her computer.
+  AFTER (2nd person):
+    + 	The librarian pulls up records on your computer.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #106:
+
+  BEFORE (3rd person):
+    - 	The librarian pulls up records on her computer.
+  AFTER (2nd person):
+    + 	The librarian pulls up records on your computer.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 4/c4s3.dtl
+--------------------------------------------------------------------------------
+
+Change #107:
+
+  BEFORE (3rd person):
+    - 	"Diwata Laya": [i][color=#9999ff]She found something that changed her perspective.[/color][/i]
+    - 	"Diwata Laya": [i][color=#9999ff]Something that made her believe she could guide others.[/color][/i]
+    - 	"Diwata Laya": [i][color=#9999ff]She found something that changed her perspective.[/color][/i]
+    - 	"Diwata Laya": [i][color=#9999ff]Something that made her believe she could guide others.[/color][/i]
+  AFTER (2nd person):
+    + 	"Diwata Laya": [i][color=#9999ff]She found something that changed your perspective.[/color][/i]
+    + 	"Diwata Laya": [i][color=#9999ff]Something that made your believe she could guide others.[/color][/i]
+    + 	"Diwata Laya": [i][color=#9999ff]She found something that changed your perspective.[/color][/i]
+    + 	"Diwata Laya": [i][color=#9999ff]Something that made your believe she could guide others.[/color][/i]
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 4/c4s4.dtl
+--------------------------------------------------------------------------------
+
+Change #108:
+
+  BEFORE (3rd person):
+    - 	Celestine approaches carefully and sits across from her.
+    - 	Alex looks up, and for a moment, her expression flickers with something - fear? Guilt?
+  AFTER (2nd person):
+    + 	Celestine approaches carefully and sits across from your.
+    + 	Alex looks up, and for a moment, your expression flickers with something - fear? Guilt?
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #109:
+
+  BEFORE (3rd person):
+    - 	Conrad approaches carefully and sits across from her.
+    - 	Alex looks up, and for a moment, her expression flickers with something - fear? Guilt?
+  AFTER (2nd person):
+    + 	Conrad approaches carefully and sits across from your.
+    + 	Alex looks up, and for a moment, your expression flickers with something - fear? Guilt?
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #110:
+
+  BEFORE (3rd person):
+    - Alex's shoulders slump. She sets down her pen.
+  AFTER (2nd person):
+    + Alex's shoulders slump. She sets down your pen.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #111:
+
+  BEFORE (3rd person):
+    - 	"Celestine (Thinking)": How do I make her understand?
+  AFTER (2nd person):
+    + 	"Celestine (Thinking)": How do I make your understand?
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #112:
+
+  BEFORE (3rd person):
+    - 	Alex shakes her head.
+  AFTER (2nd person):
+    + 	Alex shakes your head.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #113:
+
+  BEFORE (3rd person):
+    - 	Alex covers her face with her hands.
+    - 	Alex nods, wiping her eyes.
+  AFTER (2nd person):
+    + 	Alex covers your face with your hands.
+    + 	Alex nods, wiping your eyes.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #114:
+
+  BEFORE (3rd person):
+    - 	"Conrad (Thinking)": How do I make her understand?
+  AFTER (2nd person):
+    + 	"Conrad (Thinking)": How do I make your understand?
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #115:
+
+  BEFORE (3rd person):
+    - 	Alex shakes her head.
+  AFTER (2nd person):
+    + 	Alex shakes your head.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #116:
+
+  BEFORE (3rd person):
+    - 	Alex covers her face with her hands.
+    - 	Alex nods, wiping her eyes.
+  AFTER (2nd person):
+    + 	Alex covers your face with your hands.
+    + 	Alex nods, wiping your eyes.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 4/c4s5.dtl
+--------------------------------------------------------------------------------
+
+Change #117:
+
+  BEFORE (3rd person):
+    - Alex stands before the Principal's desk, the leather-bound journal in her hands.
+  AFTER (2nd person):
+    + Alex stands before the Principal's desk, the leather-bound journal in your hands.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 4/c4s6.dtl
+--------------------------------------------------------------------------------
+
+Change #118:
+
+  BEFORE (3rd person):
+    - 	Her expression shifts from surprise to understanding.
+    - 	Celestine reads aloud, her voice thoughtful.
+  AFTER (2nd person):
+    + 	your expression shifts from surprise to understanding.
+    + 	Celestine reads aloud, your voice thoughtful.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #119:
+
+  BEFORE (3rd person):
+    - 	Conrad reads aloud, his voice thoughtful.
+  AFTER (2nd person):
+    + 	Conrad reads aloud, your voice thoughtful.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #120:
+
+  BEFORE (3rd person):
+    - 	"Diwata Laya" appears, her expression serene but knowing.
+    - 	"Celestine (Thinking)": Alex chose to use the knowledge she found. I chose to guide her with compassion instead of judgment.
+  AFTER (2nd person):
+    + 	"Diwata Laya" appears, your expression serene but knowing.
+    + 	"Celestine (Thinking)": Alex chose to use the knowledge she found. I chose to guide your with compassion instead of judgment.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #121:
+
+  BEFORE (3rd person):
+    - 	"Diwata Laya" appears, her expression serene but knowing.
+    - 	"Conrad (Thinking)": Alex chose to use the knowledge she found. I chose to guide her with compassion instead of judgment.
+  AFTER (2nd person):
+    + 	"Diwata Laya" appears, your expression serene but knowing.
+    + 	"Conrad (Thinking)": Alex chose to use the knowledge she found. I chose to guide your with compassion instead of judgment.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 5/c5s0.dtl
+--------------------------------------------------------------------------------
+
+Change #122:
+
+  BEFORE (3rd person):
+    - 	Celestine sits at her desk, the four B.C. cards spread before her like pieces of a puzzle.
+    - 	Conrad sits at his desk, the four B.C. cards spread before him like pieces of a puzzle.
+  AFTER (2nd person):
+    + 	Celestine sits at your desk, the four B.C. cards spread before your like pieces of a puzzle.
+    + 	Conrad sits at your desk, the four B.C. cards spread before you like pieces of a puzzle.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #123:
+
+  BEFORE (3rd person):
+    - 	Celestine traces the edge of the first card with her finger.
+  AFTER (2nd person):
+    + 	Celestine traces the edge of the first card with your finger.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #124:
+
+  BEFORE (3rd person):
+    - 	Conrad traces the edge of the first card with his finger.
+  AFTER (2nd person):
+    + 	Conrad traces the edge of the first card with your finger.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #125:
+
+  BEFORE (3rd person):
+    - "Diwata Laya" materializes, her expression serene.
+  AFTER (2nd person):
+    + "Diwata Laya" materializes, your expression serene.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 5/c5s2.dtl
+--------------------------------------------------------------------------------
+
+Change #126:
+
+  BEFORE (3rd person):
+    - 	In their hand, they hold Celestine's card.
+    - 	Celestine's eyes widen with realization.
+  AFTER (2nd person):
+    + 	In their hand, they hold your card.
+    + 	your eyes widen with realization.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #127:
+
+  BEFORE (3rd person):
+    - 	In their hand, they hold Conrad's card.
+    - 	Conrad's eyes widen with realization.
+  AFTER (2nd person):
+    + 	In their hand, they hold your card.
+    + 	your eyes widen with realization.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 5/c5s4.dtl
+--------------------------------------------------------------------------------
+
+Change #128:
+
+  BEFORE (3rd person):
+    - 	"Celestine (Thinking)": Victor needed someone to see his pain. Alex needed someone to show her a better way.
+  AFTER (2nd person):
+    + 	"Celestine (Thinking)": Victor needed someone to see your pain. Alex needed someone to show your a better way.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #129:
+
+  BEFORE (3rd person):
+    - 	"Conrad (Thinking)": Victor needed someone to see his pain. Alex needed someone to show her a better way.
+  AFTER (2nd person):
+    + 	"Conrad (Thinking)": Victor needed someone to see your pain. Alex needed someone to show your a better way.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+
+--------------------------------------------------------------------------------
+FILE: Chapter 5/c5s5.dtl
+--------------------------------------------------------------------------------
+
+Change #130:
+
+  BEFORE (3rd person):
+    - 	Celestine pauses. Old Celestine might have told him the answer.
+  AFTER (2nd person):
+    + 	Celestine pauses. Old Celestine might have told you the answer.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #131:
+
+  BEFORE (3rd person):
+    - 	Conrad pauses. Old Conrad might have told him the answer.
+  AFTER (2nd person):
+    + 	Conrad pauses. Old Conrad might have told you the answer.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #132:
+
+  BEFORE (3rd person):
+    - 	Celestine considers. B.C. taught her through experience, not lectures.
+  AFTER (2nd person):
+    + 	Celestine considers. B.C. taught your through experience, not lectures.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #133:
+
+  BEFORE (3rd person):
+    - 	Conrad considers. B.C. taught him through experience, not lectures.
+  AFTER (2nd person):
+    + 	Conrad considers. B.C. taught you through experience, not lectures.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #134:
+
+  BEFORE (3rd person):
+    - "Diwata Laya" appears, her expression proud.
+  AFTER (2nd person):
+    + "Diwata Laya" appears, your expression proud.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #135:
+
+  BEFORE (3rd person):
+    - 	Celestine returns to her locker, pulling out her notebook.
+  AFTER (2nd person):
+    + 	Celestine returns to your locker, pulling out your notebook.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #136:
+
+  BEFORE (3rd person):
+    - 	Conrad returns to his locker, pulling out his notebook.
+  AFTER (2nd person):
+    + 	Conrad returns to your locker, pulling out your notebook.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #137:
+
+  BEFORE (3rd person):
+    - 	He places his own card with B.C.'s cards.
+  AFTER (2nd person):
+    + 	He places your own card with B.C.'s cards.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #138:
+
+  BEFORE (3rd person):
+    - 	Five lessons that will guide Celestine for the rest of her life.
+    - 	And through her, guide countless others.
+  AFTER (2nd person):
+    + 	Five lessons that will guide Celestine for the rest of your life.
+    + 	And through your, guide countless others.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+Change #139:
+
+  BEFORE (3rd person):
+    - 	Five lessons that will guide Conrad for the rest of his life.
+    - 	And through him, guide countless others.
+    - 	Something Conrad will write with his own choices.
+  AFTER (2nd person):
+    + 	Five lessons that will guide Conrad for the rest of your life.
+    + 	And through you, guide countless others.
+    + 	Something Conrad will write with your own choices.
+
+  [ ] Reviewed  [ ] Needs Fix  [ ] Voice Re-record Needed
+
+================================================================================
+END OF REPORT
+================================================================================

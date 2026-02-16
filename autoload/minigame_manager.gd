@@ -2648,11 +2648,11 @@ var timeline_reconstruction_configs = {
 		"title": "Force and Work Analysis",
 		"context": "Ryan applied force to write the threatening note. Arrange events in order, considering the physics of force, work, and pressure.",
 		"events": [
-			{"id": "event1", "text": "Ryan discovers Ria's accounting error"},
-			{"id": "event2", "text": "Ryan applies force (F) with pen on paper to write threat"},
-			{"id": "event3", "text": "Work done (W = F × d) creates visible ink marks on paper"},
-			{"id": "event4", "text": "Note placed in Ria's locker - gravitational potential energy"},
-			{"id": "event5", "text": "Ria finds note - reads message created by applied force"}
+			{"id": "event1", "text": "Discovery phase\nRyan finds accounting error", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_2_time_analysis/force_and_work_analysis/accounting_error.png"},
+			{"id": "event2", "text": "Force applied (F)\nRyan writes threatening note", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_2_time_analysis/force_and_work_analysis/ryan_applies_force.png"},
+			{"id": "event3", "text": "Work done (W = F × d)\nNote placed in locker", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_2_time_analysis/force_and_work_analysis/note_place_in_ria_locker.png"},
+			{"id": "event4", "text": "Energy transfer\nRia discovers note", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_2_time_analysis/force_and_work_analysis/ria_finds_note.png"},
+			{"id": "event5", "text": "Consequence\nStudent Council money missing", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_2_time_analysis/force_and_work_analysis/money_goes_missing.png"}
 		],
 		"correct_order": ["event1", "event2", "event3", "event4", "event5"],
 		"explanation": "[b]Physics: Work and Force (Q2)[/b]\n• Force (F): Ryan pressed pen against paper (contact force)\n• Displacement (d): Pen moved across paper surface\n• Work (W): W = F × d × cos(θ), where θ = 0° (parallel)\n• Pressure: F/A created indentations on paper\n• Potential Energy: Note gained PE = mgh when placed in elevated locker\n\n[b]Key Physics Principle:[/b] Work = Force × Distance\nEvery written word required Ryan to apply force over a distance, transferring energy from his hand to the paper. The threatening note is physical evidence of work done!\n\n[b]Energy Transfer:[/b] Chemical energy (muscles) → Kinetic energy (hand motion) → Work (pen marking paper)"
@@ -2732,11 +2732,11 @@ var timeline_reconstruction_configs = {
 		"title": "Alibi Motion Analysis",
 		"context": "Greg claims he went straight home after school at 5:00 PM. His house is 2.5 km away. Arrange events chronologically using physics principles (distance, velocity, time).",
 		"events": [
-			{"id": "event1", "text": "School dismissal - Greg leaves campus (5:00 PM)"},
-			{"id": "event2", "text": "Greg walks home at average velocity 5 km/h"},
-			{"id": "event3", "text": "Greg arrives home - calculated time (5:30 PM)"},
-			{"id": "event4", "text": "Greg's phone detected at school WiFi (9:00 PM)"},
-			{"id": "event5", "text": "Confrontation: Greg must explain the gap"}
+			{"id": "event1", "text": "Initial position (x₀)\nSchool dismissal", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_1_time_analysis/alibi_motion_analysis/school_dismissal.png"},
+			{"id": "event2", "text": "Motion begins (v = 5 km/h)\nGreg leaves campus", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_1_time_analysis/alibi_motion_analysis/leaves_school_campus.png"},
+			{"id": "event3", "text": "Displacement d = 2.5 km\nArrives home (t = 30 min)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_1_time_analysis/alibi_motion_analysis/arrived_home.png"},
+			{"id": "event4", "text": "Return detected (Δx < 0)\nWiFi at school (t = +3.5h)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_1_time_analysis/alibi_motion_analysis/wifi_connected.png"},
+			{"id": "event5", "text": "Analysis complete\nAlibi contradicted", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_1_time_analysis/alibi_motion_analysis/conforntation.png"}
 		],
 		"correct_order": ["event1", "event2", "event3", "event4", "event5"],
 		"explanation": "[b]Physics: Kinematics (Motion)[/b]\n• Distance (d) = 2.5 km\n• Velocity (v) = 5 km/h (average walking speed)\n• Time (t) = d/v = 2.5 km ÷ 5 km/h = 0.5 hours = 30 minutes\n• Departure: 5:00 PM (t₀)\n• Arrival home: 5:30 PM (t₁ = t₀ + 30 min)\n• WiFi detection: 9:00 PM (t₂ = t₁ + 3.5 hours)\n\n[b]Key Physics Principle:[/b] Velocity = Distance/Time (v = d/t)\nThis fundamental kinematic equation proves Greg returned to school 3.5 hours after going home - his alibi fails!\n\n[b]Newton's First Law Application:[/b] An object in motion stays in motion. Greg's motion pattern shows intentional return to school, not accidental presence."

@@ -2,121 +2,122 @@
 # Initialize selected_character from PlayerStats if not already set
 # Don't reset it to "" as that would overwrite the value set by debug skip
 [signal arg="init_character_var"]
+[music path="res://assets/audio/comfortable-mystery-4.mp3" fade="2.0" volume="0.0" loop="true"]
 [background arg="res://Bg/art_room.png" fade="2.0"]
 set {chapter3_score} = 0
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/The evening before Art Week.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/The evening before Art Week.mp3" volume=50 bus="Voice"]
 The evening before Art Week...
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/The art room is empty.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/The art room is empty.mp3" volume=50 bus="Voice"]
 The art room is empty except for one student, working under the dim glow of a desk lamp.
 join Mystery center [animation="Fade In" length="1.0" wait="true"]
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/Victor sits hunched.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/Victor sits hunched.mp3" volume=50 bus="Voice"]
 A Mysterious Character sits hunched over a sculpture, your hands moving with mechanical precision.
 Mystery: Twenty-three hours. That's how long this took.
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/He leans back examining.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/He leans back examining.mp3" volume=50 bus="Voice"]
 He leans back, examining your work - a geometric abstract piece, technically flawless.
 Mystery: Every angle calculated. Every proportion perfect.
 update Mystery (vignette) center [move_time="0.3"]
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/He picks up his phone.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/He picks up his phone.mp3" volume=50 bus="Voice"]
 He picks up your phone, scrolling through photos.
 Mystery: And Mia spent... what? A few weeks on hers?
 update Mystery center [move_time="0.3"]
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/Victor's expression darkens.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/Victor's expression darkens.mp3" volume=50 bus="Voice"]
 The Mysterious Character expression darkens as he stares at a photo of "The Reader."
 Mystery: "Emotionally transcendent." That's what the judges said.
 Mystery: They didn't even look at mine. One glance and they moved on.
 update Mystery right [move_time="0.3"]
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/His hands clench.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/His hands clench.mp3" volume=50 bus="Voice"]
 His hands clench into fists.
 Mystery: Dad was right. Second place is first loser.
 Mystery: "Why can't you be more like your sister? She's a doctor now."
 Mystery: "Art is a waste of time unless you're the best."
 update Mystery center [move_time="0.3"]
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/Victor's voice cracks.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/Victor's voice cracks.mp3" volume=50 bus="Voice"]
 The Mysterious Character voice cracks.
 Mystery: I've tried so hard, Dad. I've given everything.
 Mystery: But it's never enough. I'm never enough.
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/He stares at his reflection.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/He stares at his reflection.mp3" volume=50 bus="Voice"]
 Mystery: He stares at his reflection in the darkened window.
 Mystery: At school, I'm invisible. At home, I'm a disappointment.
 Mystery: The only time anyone notices me is when I fail.
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/A tear slides down.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/A tear slides down.mp3" volume=50 bus="Voice"]
 A tear slides down your cheek. He wipes it away angrily.
 Mystery: Tomorrow is Art Week. Everyone will gather around Mia's sculpture.
 Mystery: They'll take photos. They'll applaud. They'll call her a genius.
 Mystery: And I'll stand next to my perfect, soulless piece... alone.
 update Mystery left [move_time="0.3"]
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/His eyes drift to The Reader.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/His eyes drift to The Reader.mp3" volume=50 bus="Voice"]
 The Mysterious Character eyes drift to "The Reader" visible through the window, illuminated by moonlight in the courtyard.
 Mystery: Unless...
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/He shakes his head violently.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/He shakes his head violently.mp3" volume=50 bus="Voice"]
 He shakes your head violently.
 Mystery: No. I can't. That's insane.
 update Mystery center [move_time="0.3"]
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/But his gaze keeps returning.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/But his gaze keeps returning.mp3" volume=50 bus="Voice"]
 But your gaze keeps returning to the window.
 Mystery: If it's gone... people would have to look at something else.
 Mystery: They'd have to look at... me.
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/He stands abruptly.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/He stands abruptly.mp3" volume=50 bus="Voice"]
 He stands abruptly, knocking over your chair.
 Mystery: Just once. I want someone to see my work first.
 Mystery: Is that so wrong?
 leave Mystery [animation="Fade Out" length="0.8"]
 [background arg="res://Bg/courtyard_night.png" fade="2.0"]
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/The courtyard lies quiet.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/The courtyard lies quiet.mp3" volume=50 bus="Voice"]
 The courtyard lies quiet under a pale moon.
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/Student artwork stands arranged on pedestals.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/Student artwork stands arranged on pedestals.mp3" volume=50 bus="Voice"]
 Student artwork stands arranged on pedestals, waiting for tomorrow's opening.
 [wait time="1.0"]
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/In the center The Reader catches the moonlight.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/In the center The Reader catches the moonlight.mp3" volume=50 bus="Voice"]
 In the center, "The Reader" catches the moonlight - a student reading under a tree, carved in clay with loving hands.
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/A plaque reads.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/A plaque reads.mp3" volume=50 bus="Voice"]
 A plaque reads\: "The Reader - by Mia Santos. Regional Art Competition Winner."
 [wait time="1.5"]
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/A shadow moves between.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/A shadow moves between.mp3" volume=50 bus="Voice"]
 A shadow moves between the displays.
 join Mystery center
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/Victor approaches the sculpture.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/Victor approaches the sculpture.mp3" volume=50 bus="Voice"]
 A Mysterious Character approaches the sculpture, breathing unsteadily.
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/His hands tremble as he reaches towar.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/His hands tremble as he reaches towar.mp3" volume=50 bus="Voice"]
 His hands tremble as he reaches toward the clay figure.
 [wait time="0.5"]
 Mystery: Mia... I'm sorry.
 Mystery: But no one will ever see me if you're in the way.
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/His hands press against the sculpture.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/His hands press against the sculpture.mp3" volume=50 bus="Voice"]
 Mystery: A Mysterious Character's hand press against the sculpture.
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/A pause.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/A pause.mp3" volume=50 bus="Voice"]
 A pause. A shaky breath.
 Mystery: Forgive me.
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/Then— a push.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/Then— a push.mp3" volume=50 bus="Voice"]
 Then - a push.
 [wait time="0.5"]
 leave Mystery
 [background arg="res://Bg/broken_sculpture_night.png" fade="0.0"]
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/The crash echoes through the empty.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/The crash echoes through the empty.mp3" volume=50 bus="Voice"]
 The crash echoes through the empty courtyard.
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/Clay and plaster scatter across the.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/Clay and plaster scatter across the.mp3" volume=50 bus="Voice"]
 Clay and plaster scatter across the ground. The Reader lies in pieces.
 [wait time="1.0"]
 [background arg="res://Bg/courtyard_night.png" fade="0.0"]
 join Mystery center
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/Victor stumbles backward staring.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/Victor stumbles backward staring.mp3" volume=50 bus="Voice"]
 The Mysterious Character stumbles backward, staring at what he's done.
 Mystery: What... what have I done?
 Mystery: This won't bring them to me. This won't make Dad proud.
 Mystery: I've just... destroyed something beautiful.
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/He turns and flees into the darkness.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/He turns and flees into the darkness.mp3" volume=50 bus="Voice"]
 He turns and flees into the darkness.
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/Something small falls from his pocket.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/Something small falls from his pocket.mp3" volume=50 bus="Voice"]
 Something small falls from your pocket, landing silently among the debris.
 leave Mystery
 [wait time="1.5"]
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/The courtyard returns to silence.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/The courtyard returns to silence.mp3" volume=50 bus="Voice"]
 The courtyard returns to silence.
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/The broken sculpture lies alone.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/The broken sculpture lies alone.mp3" volume=50 bus="Voice"]
 The broken sculpture lies alone, waiting to be discovered.
 [background arg="res://Bg/hallway.png" fade="2.0"]
 [wait time="1.0"]
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/The next morning.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/The next morning.mp3" volume=50 bus="Voice"]
 The next morning...
 [signal arg="about_to_jump_to_c3s1"]
 jump c3s1/

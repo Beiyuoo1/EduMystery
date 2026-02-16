@@ -41,9 +41,9 @@ func _on_speaker_updated(character: DialogicCharacter):
 	# Remove any self_modulate that might be making it dark
 	namebox_panel.self_modulate = Color(1, 1, 1, 1)
 
-	# Set fixed minimum width for consistent namebox size (based on longest name "Conrad (Thinking)")
-	# Font size 30 * 18 chars ≈ 280px + padding (40px left + 40px right) = 360px
-	namebox_panel.custom_minimum_size = Vector2(360, 0)
+	# Set fixed minimum width for consistent namebox size (based on longest name "Celestine (Thinking)" - 20 chars)
+	# Font size 30 * 20 chars ≈ 360px + padding (40px left + 40px right) = 440px
+	namebox_panel.custom_minimum_size = Vector2(440, 0)
 
 	# Find and center-align the name label
 	var name_label = _find_unique_node(namebox_panel, "DialogicNode_NameLabel")

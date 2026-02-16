@@ -1,9 +1,9 @@
 [background arg="res://Bg/art_room.png" fade="1.0"]
 set {c3s2_reyes_tried} = false
 set {c3s2_outsider_tried} = false
-[voice path="res://assets/audio/voice/Chapter 3/c3s2/The art room is filled with half-finished canvases and clay-dusted tables..mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s2/The art room is filled with half-finished canvases and clay-dusted tables..mp3" volume=50 bus="Voice"]
 The art room is filled with half-finished canvases and clay-dusted tables.
-[voice path="res://assets/audio/voice/Chapter 3/c3s2/Ms. Reyes the art teacher sorts through supplies with trembling hands..mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s2/Ms. Reyes the art teacher sorts through supplies with trembling hands..mp3" volume=50 bus="Voice"]
 Ms. Reyes, the art teacher, sorts through supplies with trembling hands.
 if {selected_character} == "celestine":
 	join Celestine (half) left
@@ -11,7 +11,7 @@ if {selected_character} == "celestine":
 	"Ms Reyes": This is devastating. Art Week was supposed to celebrate our students' creativity.
 	"Ms Reyes": Now all anyone will remember is the destruction.
 	Celestine: Ms. Reyes, I'm trying to find out who did this. Can you help me understand the situation?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Ms. Reyes sets down the brushes she was holding..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Ms. Reyes sets down the brushes she was holding..mp3" volume=50 bus="Voice"]
 	"Ms Reyes" sets down the brushes she was holding.
 	"Ms Reyes": I'll tell you what I know. Ask me anything.
 	Celestine: Tell me about Mia's sculpture. Why was it the centerpiece?
@@ -19,7 +19,7 @@ if {selected_character} == "celestine":
 	"Ms Reyes": She won the regional competition last month. The judges called it "emotionally transcendent."
 	"Ms Reyes": For a high school student to create something so moving... it's rare.
 	Celestine: Did anyone have a problem with Mia winning?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Ms. Reyes hesitates glancing toward the door..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Ms. Reyes hesitates glancing toward the door..mp3" volume=50 bus="Voice"]
 	"Ms Reyes" hesitates, glancing toward the door.
 	"Ms Reyes": Art is competitive. There's always... tension when one student excels.
 	Celestine: Anyone specific?
@@ -48,7 +48,7 @@ else:
 	"Ms Reyes": This is devastating. Art Week was supposed to celebrate our students' creativity.
 	"Ms Reyes": Now all anyone will remember is the destruction.
 	Conrad: Ms. Reyes, I'm trying to find out who did this. Can you help me understand the situation?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Ms. Reyes sets down the brushes she was holding..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Ms. Reyes sets down the brushes she was holding..mp3" volume=50 bus="Voice"]
 	"Ms Reyes" sets down the brushes she was holding.
 	"Ms Reyes": I'll tell you what I know. Ask me anything.
 	Conrad: Tell me about Mia's sculpture. Why was it the centerpiece?
@@ -56,7 +56,7 @@ else:
 	"Ms Reyes": She won the regional competition last month. The judges called it "emotionally transcendent."
 	"Ms Reyes": For a high school student to create something so moving... it's rare.
 	Conrad: Did anyone have a problem with Mia winning?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Ms. Reyes hesitates glancing toward the door..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Ms. Reyes hesitates glancing toward the door..mp3" volume=50 bus="Voice"]
 	"Ms Reyes" hesitates, glancing toward the door.
 	"Ms Reyes": Art is competitive. There's always... tension when one student excels.
 	Conrad: Anyone specific?
@@ -80,27 +80,27 @@ else:
 	leave Conrad
 	leave Mark
 [background arg="res://Bg/courtyard.png" fade="1.0"]
-[voice path="res://assets/audio/voice/Chapter 3/c3s2/Victor stands near a small display at the edge of the courtyard arms crossed..mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s2/Victor stands near a small display at the edge of the courtyard arms crossed..mp3" volume=50 bus="Voice"]
 Victor stands near a small display at the edge of the courtyard, arms crossed.
-[voice path="res://assets/audio/voice/Chapter 3/c3s2/His sculpture—a geometric abstract piece—sits ignored while crowds gather near the crime scene..mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s2/His sculpture—a geometric abstract piece—sits ignored while crowds gather near the crime scene..mp3" volume=50 bus="Voice"]
 His sculpture - a geometric abstract piece - sits ignored while crowds gather near the crime scene.
 if {selected_character} == "celestine":
 	join Celestine (half) left
 	join Victor (half) right
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Victor's eyes narrow as Conrad approaches..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Victor's eyes narrow as Conrad approaches..mp3" volume=50 bus="Voice"]
 	Victor's eyes narrow as Celestine approaches.
 	Victor: Let me guess. You're here to accuse me.
 	Celestine: I'm here to ask questions. Everyone is a potential witness.
 	Victor: Witness? I wasn't anywhere near the courtyard last night.
 	Celestine: I didn't mention when it happened.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Victor's jaw tightens..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Victor's jaw tightens..mp3" volume=50 bus="Voice"]
 	Victor's jaw tightens.
 	Victor: It's obvious. The sculpture was fine yesterday. Destroyed this morning. Basic logic.
 	Celestine: You seem upset.
 	Victor: Of course I'm upset. Everyone's making this about Mia. "Poor Mia, her beautiful sculpture."
 	Victor: No one even looks at my work. No one ever does.
 	Celestine: Your sculpture is technically impressive.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Victor scoffs..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Victor scoffs..mp3" volume=50 bus="Voice"]
 	Victor scoffs.
 	Victor: "Technically impressive." That's what they always say. Right before they give the award to someone else.
 	Victor: Do you know how many hours I practice? How many techniques I've mastered?
@@ -108,13 +108,13 @@ if {selected_character} == "celestine":
 	Victor: Yet everyone loves her work and ignores mine.
 	Celestine: That sounds frustrating.
 	Victor: Frustrating doesn't begin to cover it.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Victor uncrosses his arms stepping closer..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Victor uncrosses his arms stepping closer..mp3" volume=50 bus="Voice"]
 	Victor uncrosses your arms, stepping closer.
 	Victor: But I didn't destroy her sculpture. I'm not a criminal.
 	Victor: Besides, I was home all night. Ask my parents.
 	Celestine: We might do that.
 	Victor: You do that.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Victor turns back to his ignored display..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Victor turns back to his ignored display..mp3" volume=50 bus="Voice"]
 	Victor turns back to you ignored display.
 	Victor: Now leave me alone. Some of us have actual art to show.
 	leave Victor
@@ -131,20 +131,20 @@ if {selected_character} == "celestine":
 else:
 	join Conrad (half) left
 	join Victor (half) right
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Victor's eyes narrow as Conrad approaches..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Victor's eyes narrow as Conrad approaches..mp3" volume=50 bus="Voice"]
 	Victor's eyes narrow as Conrad approaches.
 	Victor: Let me guess. You're here to accuse me.
 	Conrad: I'm here to ask questions. Everyone is a potential witness.
 	Victor: Witness? I wasn't anywhere near the courtyard last night.
 	Conrad: I didn't mention when it happened.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Victor's jaw tightens..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Victor's jaw tightens..mp3" volume=50 bus="Voice"]
 	Victor's jaw tightens.
 	Victor: It's obvious. The sculpture was fine yesterday. Destroyed this morning. Basic logic.
 	Conrad: You seem upset.
 	Victor: Of course I'm upset. Everyone's making this about Mia. "Poor Mia, her beautiful sculpture."
 	Victor: No one even looks at my work. No one ever does.
 	Conrad: Your sculpture is technically impressive.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Victor scoffs..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Victor scoffs..mp3" volume=50 bus="Voice"]
 	Victor scoffs.
 	Victor: "Technically impressive." That's what they always say. Right before they give the award to someone else.
 	Victor: Do you know how many hours I practice? How many techniques I've mastered?
@@ -152,13 +152,13 @@ else:
 	Victor: Yet everyone loves her work and ignores mine.
 	Conrad: That sounds frustrating.
 	Victor: Frustrating doesn't begin to cover it.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Victor uncrosses his arms stepping closer..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Victor uncrosses his arms stepping closer..mp3" volume=50 bus="Voice"]
 	Victor uncrosses your arms, stepping closer.
 	Victor: But I didn't destroy her sculpture. I'm not a criminal.
 	Victor: Besides, I was home all night. Ask my parents.
 	Conrad: We might do that.
 	Victor: You do that.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Victor turns back to his ignored display..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Victor turns back to his ignored display..mp3" volume=50 bus="Voice"]
 	Victor turns back to you ignored display.
 	Victor: Now leave me alone. Some of us have actual art to show.
 	leave Victor
@@ -174,21 +174,21 @@ else:
 	leave Mark
 [background arg="res://Bg/courtyard.png" fade="0.5"]
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Conrad returns to where he found Mia..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Conrad returns to where he found Mia..mp3" volume=50 bus="Voice"]
 	Celestine returns to where she found Mia.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/She's sitting on a bench staring at the spot where her sculpture once stood..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/She's sitting on a bench staring at the spot where her sculpture once stood..mp3" volume=50 bus="Voice"]
 	She's sitting on a bench, staring at the spot where your sculpture once stood.
 	join Celestine (half) left
 	join Mia (half) right
 	Celestine: Mia, can I ask you a few more questions?
 	Mia: Of course. Anything to help find who did this.
 	Celestine: Did you have any conflicts with other students? Anyone who might wish you harm?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Mia thinks carefully..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Mia thinks carefully..mp3" volume=50 bus="Voice"]
 	Mia thinks carefully.
 	Mia: I try to get along with everyone. I don't... I don't understand competition.
 	Mia: Art isn't about winning. It's about expressing what's inside you.
 	Celestine: What about Victor Lim?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Mia's expression softens with sadness..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Mia's expression softens with sadness..mp3" volume=50 bus="Voice"]
 	Mia's expression softens with sadness.
 	Mia: Victor is talented. Really talented.
 	Mia: But he's always so focused on being better than everyone else.
@@ -198,7 +198,7 @@ if {selected_character} == "celestine":
 	Mia: He works so hard, but he's working for the wrong reasons.
 	Mia: Art should come from love, not from wanting to be superior.
 	Celestine: Do you think Victor could have done this?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Mia hesitates..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Mia hesitates..mp3" volume=50 bus="Voice"]
 	Mia hesitates.
 	Mia: I... I don't want to accuse anyone. But the note...
 	Mia: "Not everyone deserves to shine." That sounds like something someone says when they feel overlooked.
@@ -206,12 +206,12 @@ if {selected_character} == "celestine":
 	Celestine: Thank you, Mia. I'm going to find the truth.
 	join "Diwata Laya" (Half) leftmost
 	[signal arg="laya_start"]
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Diwata Laya materializes beside Conrad her form shimmering faintly..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Diwata Laya materializes beside Conrad her form shimmering faintly..mp3" volume=50 bus="Voice"]
 	"Diwata Laya" materializes beside Celestine, your form shimmering faintly.
 	"Diwata Laya": [i][color=#9999ff]Celestine. May I see the note?[/color][/i]
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Conrad passes it to her discreetly careful not to draw attention..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Conrad passes it to her discreetly careful not to draw attention..mp3" volume=50 bus="Voice"]
 	Celestine passes it to you discretely, careful not to draw attention.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Diwata Laya holds the paper gently closing her eyes..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Diwata Laya holds the paper gently closing her eyes..mp3" volume=50 bus="Voice"]
 	"Diwata Laya" holds the paper gently, closing your eyes.
 	"Diwata Laya": [i][color=#9999ff]I sense... pain. Deep, festering pain.[/color][/i]
 	"Diwata Laya": [i][color=#9999ff]The person who wrote this has been hurting for a long time.[/color][/i]
@@ -225,21 +225,21 @@ if {selected_character} == "celestine":
 	leave Mia
 	join Mark (Mark_half) right
 else:
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Conrad returns to where he found Mia..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Conrad returns to where he found Mia..mp3" volume=50 bus="Voice"]
 	Conrad returns to where he found Mia.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/She's sitting on a bench staring at the spot where her sculpture once stood..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/She's sitting on a bench staring at the spot where her sculpture once stood..mp3" volume=50 bus="Voice"]
 	She's sitting on a bench, staring at the spot where your sculpture once stood.
 	join Conrad (half) left
 	join Mia (half) right
 	Conrad: Mia, can I ask you a few more questions?
 	Mia: Of course. Anything to help find who did this.
 	Conrad: Did you have any conflicts with other students? Anyone who might wish you harm?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Mia thinks carefully..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Mia thinks carefully..mp3" volume=50 bus="Voice"]
 	Mia thinks carefully.
 	Mia: I try to get along with everyone. I don't... I don't understand competition.
 	Mia: Art isn't about winning. It's about expressing what's inside you.
 	Conrad: What about Victor Lim?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Mia's expression softens with sadness..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Mia's expression softens with sadness..mp3" volume=50 bus="Voice"]
 	Mia's expression softens with sadness.
 	Mia: Victor is talented. Really talented.
 	Mia: But he's always so focused on being better than everyone else.
@@ -249,7 +249,7 @@ else:
 	Mia: He works so hard, but he's working for the wrong reasons.
 	Mia: Art should come from love, not from wanting to be superior.
 	Conrad: Do you think Victor could have done this?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Mia hesitates..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Mia hesitates..mp3" volume=50 bus="Voice"]
 	Mia hesitates.
 	Mia: I... I don't want to accuse anyone. But the note...
 	Mia: "Not everyone deserves to shine." That sounds like something someone says when they feel overlooked.
@@ -257,12 +257,12 @@ else:
 	Conrad: Thank you, Mia. I'm going to find the truth.
 	join "Diwata Laya" (Half) leftmost
 	[signal arg="laya_start"]
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Diwata Laya materializes beside Conrad her form shimmering faintly..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Diwata Laya materializes beside Conrad her form shimmering faintly..mp3" volume=50 bus="Voice"]
 	"Diwata Laya" materializes beside Conrad, your form shimmering faintly.
 	"Diwata Laya": [i][color=#9999ff]Conrad. May I see the note?[/color][/i]
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Conrad passes it to her discreetly careful not to draw attention..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Conrad passes it to her discreetly careful not to draw attention..mp3" volume=50 bus="Voice"]
 	Conrad passes it to you discretely, careful not to draw attention.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Diwata Laya holds the paper gently closing her eyes..mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/Diwata Laya holds the paper gently closing her eyes..mp3" volume=50 bus="Voice"]
 	"Diwata Laya" holds the paper gently, closing your eyes.
 	"Diwata Laya": [i][color=#9999ff]I sense... pain. Deep, festering pain.[/color][/i]
 	"Diwata Laya": [i][color=#9999ff]The person who wrote this has been hurting for a long time.[/color][/i]

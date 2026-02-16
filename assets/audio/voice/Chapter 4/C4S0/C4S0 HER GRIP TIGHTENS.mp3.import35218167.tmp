@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bk2yj585xrdhj"
+path="res://.godot/imported/C4S0 HER GRIP TIGHTENS.mp3-908760d0d8d0c2e9b7c9371519a10f92.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/C4S0/C4S0 HER GRIP TIGHTENS.mp3"
+dest_files=["res://.godot/imported/C4S0 HER GRIP TIGHTENS.mp3-908760d0d8d0c2e9b7c9371519a10f92.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

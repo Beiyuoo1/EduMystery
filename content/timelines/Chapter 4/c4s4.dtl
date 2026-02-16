@@ -1,5 +1,5 @@
 [background arg="res://Bg/library.png" fade="1.0"]
-[voice path="res://assets/audio/voice/Chapter 4/c4S4/c4s4 the library reading room.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/c4S4/c4s4 the library reading room.mp3" volume=50 bus="Voice"]
 The library reading room is quiet. Alex sits alone at a table, surrounded by books and notes.
 if {selected_character} == "celestine":
 	join Celestine (animated) left
@@ -77,7 +77,7 @@ if {selected_character} == "celestine":
 	Alex: I understand now. I really do.
 	leave Alex
 	leave Mark
-	[voice path="res://assets/audio/voice/Chapter 4/c4S4/c4s4 conrad sit alone.mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/c4S4/c4s4 conrad sit alone.mp3" volume=50 bus="Voice"]
 	Celestine sits alone for a moment, reflecting.
 	Celestine: Knowledge is powerful. But it's not the same as wisdom.
 	Celestine: Wisdom is knowing not just what to do, but when, and whether you should do it at all.
@@ -130,7 +130,7 @@ else:
 	Alex: I understand now. I really do.
 	leave Alex
 	leave Mark
-	[voice path="res://assets/audio/voice/Chapter 4/c4S4/c4s4 conrad sit alone.mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/c4S4/c4s4 conrad sit alone.mp3" volume=50 bus="Voice"]
 	Conrad sits alone for a moment, reflecting.
 	Conrad: Knowledge is powerful. But it's not the same as wisdom.
 	Conrad: Wisdom is knowing not just what to do, but when, and whether you should do it at all.

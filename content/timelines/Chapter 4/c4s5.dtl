@@ -1,5 +1,5 @@
 [background arg="res://Bg/principal_office.png" fade="1.0"]
-[voice path="res://assets/audio/voice/Chapter 4/C4S5/c4s5 alex stands.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/C4S5/c4s5 alex stands.mp3" volume=50 bus="Voice"]
 Alex stands before the Principal's desk, the leather-bound journal in your hands.
 join Alex (half) center
 join Principal (Principal_half) right
@@ -29,7 +29,7 @@ Principal: You'll serve detention for unauthorized use of school property.
 Principal: And you'll assist the guidance counselor in organizing a proper peer mentorship program.
 Principal: One that respects consent and boundaries.
 Alex: I accept all of that. Thank you for giving me a chance to make this right.
-[voice path="res://assets/audio/voice/Chapter 4/C4S5/c4s5 alex leaves the office.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/C4S5/c4s5 alex leaves the office.mp3" volume=50 bus="Voice"]
 leave Alex
 leave Principal
 [wait time="0.5"]

@@ -1,5 +1,5 @@
 [background arg="res://Bg/library_archive.png" fade="1.0"]
-[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 later that afternoon.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 later that afternoon.mp3" volume=50 bus="Voice"]
 Later that afternoon...
 if {selected_character} == "celestine":
 	join Celestine (animated) left
@@ -16,7 +16,7 @@ if {selected_character} == "celestine":
 else:
 	join Conrad (half) left
 	join Mark (Mark_half) right
-	[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 the leather-bound journal rests.mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 the leather-bound journal rests.mp3" volume=50 bus="Voice"]
 	Conrad returns to the archive to verify the journal was properly stored.
 	The librarian has already filed it back in its correct location, deep in the drawer where Alex found it.
 	Conrad: It's back where it belongs. Safely archived.
@@ -25,7 +25,7 @@ else:
 	As he slides it back, something falls from between the pages.
 	A cream-colored card lands softly on the floor.
 	Mark: What's that?
-	[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 conrad reaches for the journal.mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 conrad reaches for the journal.mp3" volume=50 bus="Voice"]
 	Conrad picks it up, recognizing the familiar handwriting immediately.
 [signal arg="unlock_evidence bc_card_wisdom_c4"]
 if {selected_character} == "celestine":
@@ -63,7 +63,7 @@ else:
 join "Diwata Laya" (Half_mirror) center
 [signal arg="laya_start"]
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 diwata laya appears.mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 diwata laya appears.mp3" volume=50 bus="Voice"]
 	"Diwata Laya" appears, your expression serene but knowing.
 	"Diwata Laya": [i][color=#9999ff]The chain continues to teach you, Celestine.[/color][/i]
 	"Celestine (Thinking)": B.C. planned for this. The journal being in the archive, someone finding it, the consequences that followed.
@@ -102,7 +102,7 @@ else:
 	"Diwata Laya": [i][color=#9999ff]That is wisdom - knowing you have more to learn.[/color][/i]
 	[signal arg="laya_end"]
 	leave "Diwata Laya"
-	[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 conrad looks at the card again.mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 conrad looks at the card again.mp3" volume=50 bus="Voice"]
 	Conrad looks at the card again, then carefully places it with the others he's collected.
 if {selected_character} == "celestine":
 	Celestine: Four cases. Four lessons. Four cards.
@@ -177,12 +177,12 @@ else:
 	Mark: Hey, the body needs fuel for all this deep thinking.
 	Conrad smiles.
 	Conrad: Fair point. Let's go.
-	[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 they walk toward the exit.mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 they walk toward the exit.mp3" volume=50 bus="Voice"]
 	They walk toward the exit, leaving the archive and its hidden secrets behind.
 	leave Conrad
 leave Mark
 [wait time="1.0"]
-[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 The B.C. card rests safely.mp3" volume=25 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 The B.C. card rests safely.mp3" volume=50 bus="Voice"]
 The leather-bound journal rests in its drawer, properly archived once more.
 The knowledge it contains is preserved but contained.
 Waiting for someone with the wisdom to understand it properly.
@@ -191,7 +191,7 @@ if {selected_character} == "celestine":
 	The B.C. card rests safely with Celestine, the fourth in a growing collection.
 	Four lessons learned. Four mysteries solved.
 	Truth. Responsibility. Creativity. Wisdom.
-	[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 But the chain continues.mp3" volume=25 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 But the chain continues.mp3" volume=50 bus="Voice"]
 	But the chain continues, stretching forward into unknown territory.
 	And somewhere, watching with patient eyes, B.C. prepares the next chapter.
 	The next lesson.

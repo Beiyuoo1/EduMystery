@@ -637,17 +637,23 @@ func _create_event_card(event: Dictionary) -> Control:
 
 	vbox.add_child(texture_rect)
 
-	# Text below image
+	# Text below image - fixed height container for consistent card sizes
+	var label_container = CenterContainer.new()
+	label_container.custom_minimum_size = Vector2(164, 44)  # Fixed height to match card total minus image
+	label_container.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	vbox.add_child(label_container)
+
 	var label = Label.new()
 	label.text = event.get("text", "")
-	label.add_theme_font_size_override("font_size", 14)
+	label.add_theme_font_size_override("font_size", 13)
 	label.add_theme_color_override("font_color", Color(0.05, 0.05, 0.05))
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	label.custom_minimum_size = Vector2(0, 30)
+	label.custom_minimum_size = Vector2(156, 0)  # Fixed width for text wrapping
+	label.size_flags_vertical = Control.SIZE_SHRINK_CENTER  # Center vertically in container
 	label.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Don't block drag events
-	vbox.add_child(label)
+	label_container.add_child(label)
 
 	return card_wrapper
 

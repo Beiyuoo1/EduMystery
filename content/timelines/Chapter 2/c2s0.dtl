@@ -2,6 +2,7 @@
 # Initialize variable (will be overwritten by init_character_var signal)
 set {selected_character} = ""
 [signal arg="init_character_var"]
+[music path="res://assets/audio/comfortable-mystery-4.mp3" fade="2.0" volume="0.0" loop="true"]
 [background arg="res://Bg/council_room.png" fade="2.0"]
 set {chapter2_score} = 0
 [voice path="res://assets/audio/voice/Chapter 2/c2s0 mathilda COUNCIL_ROOM/A few days before the incident.mp3" volume="0.0"]

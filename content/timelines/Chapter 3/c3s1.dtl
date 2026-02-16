@@ -1,9 +1,9 @@
 [signal arg="c3s1_entered"]
 [signal arg="debug_character_check"]
 [background arg="res://Bg/courtyard.png" fade="1.0"]
-[voice path="res://assets/audio/voice/Chapter 3/c3s1/Art Week..mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s1/Art Week..mp3" volume="0.0" bus="Voice"]
 Art Week. The courtyard buzzes with excitement as students gather around colorful displays.
-[voice path="res://assets/audio/voice/Chapter 3/c3s1/Paintings line the walls..mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s1/Paintings line the walls..mp3" volume="0.0" bus="Voice"]
 Paintings line the walls. Sculptures stand on pedestals. The air smells of fresh paint and possibility.
 [wait time="0.1"]
 [signal arg="debug_before_conditional"]
@@ -15,11 +15,11 @@ if {selected_character} == "celestine":
 	Mark: Two cases solved. You're getting quite the reputation, you know.
 	Celestine: I'm just following the evidence. Anyone could do it.
 	Mark: Not anyone has a mysterious spirit guide helping them.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad shoots Mark.mp3" volume=50 bus="Voice"]
-	Celestine shoots Mark a warning look.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad shoots Mark.mp3" volume="0.0" bus="Voice"]
+	The protagonist shoots Mark a warning look.
 	Celestine: Keep your voice down.
 	Mark: Relax, no one's listening. They're all too busy with the art.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Mark gestures.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Mark gestures.mp3" volume="0.0" bus="Voice"]
 	Mark gestures at the colorful displays surrounding them.
 	Mark: Speaking of which - have you seen Mia's sculpture? The one that won regionals?
 	Celestine: "The Reader"? I've heard it's the centerpiece of the exhibit.
@@ -33,11 +33,11 @@ else:
 	Mark: Two cases solved. You're getting quite the reputation, you know.
 	Conrad: I'm just following the evidence. Anyone could do it.
 	Mark: Not anyone has a mysterious spirit guide helping them.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad shoots Mark.mp3" volume=50 bus="Voice"]
-	Conrad shoots Mark a warning look.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad shoots Mark.mp3" volume="0.0" bus="Voice"]
+	The protagonist shoots Mark a warning look.
 	Conrad: Keep your voice down.
 	Mark: Relax, no one's listening. They're all too busy with the art.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Mark gestures.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Mark gestures.mp3" volume="0.0" bus="Voice"]
 	Mark gestures at the colorful displays surrounding them.
 	Mark: Speaking of which - have you seen Mia's sculpture? The one that won regionals?
 	Conrad: "The Reader"? I've heard it's the centerpiece of the exhibit.
@@ -47,86 +47,86 @@ leave Celestine
 leave Conrad
 leave Mark
 [background arg="res://Bg/courtyard.png" fade="0.5"]
-[voice path="res://assets/audio/voice/Chapter 3/c3s1/They walk toward the center.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s1/They walk toward the center.mp3" volume="0.0" bus="Voice"]
 They walk toward the center of the courtyard.
-[voice path="res://assets/audio/voice/Chapter 3/c3s1/A crowd has gathered.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s1/A crowd has gathered.mp3" volume="0.0" bus="Voice"]
 A crowd has gathered, but something feels wrong.
-[voice path="res://assets/audio/voice/Chapter 3/c3s1/The murmurs.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s1/The murmurs.mp3" volume="0.0" bus="Voice"]
 The murmurs aren't of admiration. They're of shock.
 [wait time="0.5"]
 if {selected_character} == "celestine":
 	join Celestine (half) left
 	join Mark (Mark_half) right
 	Mark: What's going on? Why does everyone look so...
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/A student rushes past.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/A student rushes past.mp3" volume="0.0" bus="Voice"]
 	A student rushes past, face pale.
 	Student: Someone destroyed Mia's sculpture! It's completely smashed!
 	Celestine: What?
-	Celestine pushes through the crowd, your detective instincts taking over.
+	The protagonist pushes through the crowd, your detective instincts taking over.
 	leave Celestine
 	leave Mark
 	[wait time="0.5"]
 	[background arg="res://Bg/broken_sculpture.png" fade="0.0"]
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/The sculpture lies.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/The sculpture lies.mp3" volume="0.0" bus="Voice"]
 	The sculpture lies shattered on the ground.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Clay fragments spread across.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Clay fragments spread across.mp3" volume="0.0" bus="Voice"]
 	Clay fragments spread across the stone tiles. What was once art is now debris.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/The pedestal stands empty.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/The pedestal stands empty.mp3" volume="0.0" bus="Voice"]
 	The pedestal stands empty, its plaque a bitter reminder of what was.
 	[background arg="res://Bg/courtyard.png" fade="0.0"]
 	join Celestine (half) left
 	join Mia (half) right
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Mia kneels among the pieces.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Mia kneels among the pieces.mp3" volume="0.0" bus="Voice"]
 	Mia kneels among the pieces, your hands hovering over the fragments as if afraid to touch them.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Tears stream silently.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Tears stream silently.mp3" volume="0.0" bus="Voice"]
 	Tears stream silently down your face.
 	Mia: Grandpa... I made this for you...
 	Mia: You always said I could do anything. That my hands could create magic.
 	Mia: Now it's gone. It's all gone.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad approaches carefully.mp3" volume=50 bus="Voice"]
-	Celestine approaches carefully, keeping your voice gentle.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad approaches carefully.mp3" volume="0.0" bus="Voice"]
+	The protagonist approaches carefully, keeping your voice gentle.
 	Celestine: Mia?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/She looks up eyes red and hollow..mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/She looks up eyes red and hollow..mp3" volume="0.0" bus="Voice"]
 	She looks up, eyes red and hollow.
 	Mia: Three months. Every night after school. Every weekend.
 	Mia: My grandfather used to read to me under the mango tree in our backyard.
 	Mia: He passed away last year. This was... this was my way of keeping him with me.
 	Celestine: I'm so sorry. Truly.
 	Mia: Who would do this? Why would anyone want to destroy something made from love?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad notices something on the empty pedestal..mp3" volume=50 bus="Voice"]
-	Celestine notices something on the empty pedestal.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad notices something on the empty pedestal..mp3" volume="0.0" bus="Voice"]
+	The protagonist notices something on the empty pedestal.
 	Celestine: Wait. What's that?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/A small note is tucked under the edge of the plaque..mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/A small note is tucked under the edge of the plaque..mp3" volume="0.0" bus="Voice"]
 	A small note is tucked under the edge of the plaque.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad picks it up carefully reading aloud..mp3" volume=50 bus="Voice"]
-	Celestine picks it up carefully, reading aloud.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad picks it up carefully reading aloud..mp3" volume="0.0" bus="Voice"]
+	The protagonist picks it up carefully, reading aloud.
 	[signal arg="unlock_evidence cruel_note_c3"]
 	join Mark (Mark_half) leftmost
 	Mark: Celestine! What happened? Is Mia...
 	Celestine: Someone destroyed her sculpture deliberately. And left this message.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad shows Mark the note..mp3" volume=50 bus="Voice"]
-	Celestine shows Mark the note.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad shows Mark the note..mp3" volume="0.0" bus="Voice"]
+	The protagonist shows Mark the note.
 	Mark: That's... that's cruel. Who writes something like that?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad's expression hardens with determination..mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad's expression hardens with determination..mp3" volume="0.0" bus="Voice"]
 	your expression hardens with determination.
 	Celestine: Someone who feels overshadowed. Someone who wanted to hurt her specifically.
 	Celestine: This wasn't random vandalism, Mark. This was personal.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/He turns to Mia his voice firm but kind..mp3" volume=50 bus="Voice"]
-	She turns to Mia, your voice firm but kind.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/He turns to Mia his voice firm but kind..mp3" volume="0.0" bus="Voice"]
+	The protagonist  turns to Mia, your voice firm but kind.
 	Celestine: Mia, I've solved cases like this before. The exam sabotage. The missing outreach fund.
 	Celestine: I promise you - I'm going to find out who did this and why.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Mia looks up a fragile hope breaking through her grief..mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Mia looks up a fragile hope breaking through her grief..mp3" volume="0.0" bus="Voice"]
 	Mia looks up, a fragile hope breaking through your grief.
 	Mia: You... you're the one who caught Greg? And found the missing money?
 	Celestine: That's right. And whoever did this made a mistake.
 	Celestine: They left evidence. Evidence always tells a story.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad crouches near the debris examining the scene with practiced eyes..mp3" volume=50 bus="Voice"]
-	Celestine crouches near the debris, examining the scene with practiced eyes.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad crouches near the debris examining the scene with practiced eyes..mp3" volume="0.0" bus="Voice"]
+	The protagonist crouches near the debris, examining the scene with practiced eyes.
 	if {selected_subject} == "english":
 		[signal arg="start_minigame dialogue_choice_cruel_note"]
 	elif {selected_subject} == "math":
 		Celestine: Let me analyze the evidence pattern systematically.
-		Celestine: Three types of evidence: the note, the cloth, and the timing.
+		Celestine: Three types of evidence\: the note, the cloth, and the timing.
 		Celestine: Each tells us something different about the culprit.
 		[signal arg="start_minigame logic_grid_evidence_math"]
 	elif {selected_subject} == "science":
@@ -143,13 +143,13 @@ if {selected_character} == "celestine":
 	Celestine: The note itself is a clue. Handwritten. Emotional. Personal.
 	Celestine: The sculpture was pushed, not kicked. Someone got close to it.
 	Celestine: And... what's this?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/He picks up a small piece of cloth stained with various colors..mp3" volume=50 bus="Voice"]
-	She picks up a small piece of cloth, stained with various colors.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/He picks up a small piece of cloth stained with various colors..mp3" volume="0.0" bus="Voice"]
+	The protagonist picks up a small piece of cloth, stained with various colors.
 	Celestine: Paint-stained fabric. Someone dropped this.
 	Mark: A clue already?
 	Celestine: The beginning of one.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad straightens pocketing the cloth and the note carefully..mp3" volume=50 bus="Voice"]
-	Celestine straightens, pocketing the cloth and the note carefully.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad straightens pocketing the cloth and the note carefully..mp3" volume="0.0" bus="Voice"]
+	The protagonist straightens, pocketing the cloth and the note carefully.
 	Celestine: Mark, we have work to do.
 	Mark: Just like old times.
 	Celestine: Someone knows something. They always do.
@@ -161,73 +161,73 @@ else:
 	join Conrad (half) left
 	join Mark (Mark_half) right
 	Mark: What's going on? Why does everyone look so...
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/A student rushes past.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/A student rushes past.mp3" volume="0.0" bus="Voice"]
 	A student rushes past, face pale.
 	Student: Someone destroyed Mia's sculpture! It's completely smashed!
 	Conrad: What?
-	Conrad pushes through the crowd, your detective instincts taking over.
+	The protagonist pushes through the crowd, your detective instincts taking over.
 	leave Conrad
 	leave Mark
 	[wait time="0.5"]
 	join Conrad (half) left
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/The sculpture lies.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/The sculpture lies.mp3" volume="0.0" bus="Voice"]
 	The sculpture lies shattered on the ground.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Clay fragments spread across.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Clay fragments spread across.mp3" volume="0.0" bus="Voice"]
 	Clay fragments spread across the stone tiles. What was once art is now debris.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/The pedestal stands empty.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/The pedestal stands empty.mp3" volume="0.0" bus="Voice"]
 	The pedestal stands empty, its plaque a bitter reminder of what was.
 	join Mia (half) right
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Mia kneels among the pieces.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Mia kneels among the pieces.mp3" volume="0.0" bus="Voice"]
 	Mia kneels among the pieces, your hands hovering over the fragments as if afraid to touch them.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Tears stream silently.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Tears stream silently.mp3" volume="0.0" bus="Voice"]
 	Tears stream silently down your face.
 	Mia: Grandpa... I made this for you...
 	Mia: You always said I could do anything. That my hands could create magic.
 	Mia: Now it's gone. It's all gone.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad approaches carefully.mp3" volume=50 bus="Voice"]
-	Conrad approaches carefully, keeping your voice gentle.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad approaches carefully.mp3" volume="0.0" bus="Voice"]
+	The protagonist approaches carefully, keeping your voice gentle.
 	Conrad: Mia?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/She looks up eyes red and hollow..mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/She looks up eyes red and hollow..mp3" volume="0.0" bus="Voice"]
 	She looks up, eyes red and hollow.
 	Mia: Three months. Every night after school. Every weekend.
 	Mia: My grandfather used to read to me under the mango tree in our backyard.
 	Mia: He passed away last year. This was... this was my way of keeping him with me.
 	Conrad: I'm so sorry. Truly.
 	Mia: Who would do this? Why would anyone want to destroy something made from love?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad notices something on the empty pedestal..mp3" volume=50 bus="Voice"]
-	Conrad notices something on the empty pedestal.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad notices something on the empty pedestal..mp3" volume="0.0" bus="Voice"]
+	The protagonist notices something on the empty pedestal.
 	Conrad: Wait. What's that?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/A small note is tucked under the edge of the plaque..mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/A small note is tucked under the edge of the plaque..mp3" volume="0.0" bus="Voice"]
 	A small note is tucked under the edge of the plaque.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad picks it up carefully reading aloud..mp3" volume=50 bus="Voice"]
-	Conrad picks it up carefully, reading aloud.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad picks it up carefully reading aloud..mp3" volume="0.0" bus="Voice"]
+	The protagonist picks it up carefully, reading aloud.
 	[signal arg="unlock_evidence cruel_note_c3"]
 	join Mark (Mark_half) leftmost
 	Mark: Conrad! What happened? Is Mia...
 	Conrad: Someone destroyed her sculpture deliberately. And left this message.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad shows Mark the note..mp3" volume=50 bus="Voice"]
-	Conrad shows Mark the note.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad shows Mark the note..mp3" volume="0.0" bus="Voice"]
+	The protagonist shows Mark the note.
 	Mark: That's... that's cruel. Who writes something like that?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad's expression hardens with determination..mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad's expression hardens with determination..mp3" volume="0.0" bus="Voice"]
 	your expression hardens with determination.
 	Conrad: Someone who feels overshadowed. Someone who wanted to hurt her specifically.
 	Conrad: This wasn't random vandalism, Mark. This was personal.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/He turns to Mia his voice firm but kind..mp3" volume=50 bus="Voice"]
-	He turns to Mia, your voice firm but kind.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/He turns to Mia his voice firm but kind..mp3" volume="0.0" bus="Voice"]
+	The protagonist turns to Mia, your voice firm but kind.
 	Conrad: Mia, I've solved cases like this before. The exam sabotage. The missing outreach fund.
 	Conrad: I promise you - I'm going to find out who did this and why.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Mia looks up a fragile hope breaking through her grief..mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Mia looks up a fragile hope breaking through her grief..mp3" volume="0.0" bus="Voice"]
 	Mia looks up, a fragile hope breaking through your grief.
 	Mia: You... you're the one who caught Greg? And found the missing money?
 	Conrad: That's right. And whoever did this made a mistake.
 	Conrad: They left evidence. Evidence always tells a story.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad crouches near the debris examining the scene with practiced eyes..mp3" volume=50 bus="Voice"]
-	Conrad crouches near the debris, examining the scene with practiced eyes.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad crouches near the debris examining the scene with practiced eyes..mp3" volume="0.0" bus="Voice"]
+	The protagonist crouches near the debris, examining the scene with practiced eyes.
 	if {selected_subject} == "english":
 		[signal arg="start_minigame dialogue_choice_cruel_note"]
 	elif {selected_subject} == "math":
 		Conrad: Let me analyze the evidence pattern systematically.
-		Conrad: Three types of evidence: the note, the cloth, and the timing.
+		Conrad: Three types of evidence\: the note, the cloth, and the timing.
 		Conrad: Each tells us something different about the culprit.
 		[signal arg="start_minigame logic_grid_evidence_math"]
 	elif {selected_subject} == "science":
@@ -244,13 +244,13 @@ else:
 	Conrad: The note itself is a clue. Handwritten. Emotional. Personal.
 	Conrad: The sculpture was pushed, not kicked. Someone got close to it.
 	Conrad: And... what's this?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/He picks up a small piece of cloth stained with various colors..mp3" volume=50 bus="Voice"]
-	He picks up a small piece of cloth, stained with various colors.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/He picks up a small piece of cloth stained with various colors..mp3" volume="0.0" bus="Voice"]
+	The protagonist picks up a small piece of cloth, stained with various colors.
 	Conrad: Paint-stained fabric. Someone dropped this.
 	Mark: A clue already?
 	Conrad: The beginning of one.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad straightens pocketing the cloth and the note carefully..mp3" volume=50 bus="Voice"]
-	Conrad straightens, pocketing the cloth and the note carefully.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s1/Conrad straightens pocketing the cloth and the note carefully..mp3" volume="0.0" bus="Voice"]
+	The protagonist straightens, pocketing the cloth and the note carefully.
 	Conrad: Mark, we have work to do.
 	Mark: Just like old times.
 	Conrad: Someone knows something. They always do.

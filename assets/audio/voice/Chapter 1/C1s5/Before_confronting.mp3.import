@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c0f83lqk4peoo"
+path="res://.godot/imported/Before_confronting.mp3-5f0fa0d75c05d044f8ce1cf7f1b3fc8c.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 1/C1s5/Before_confronting.mp3"
+dest_files=["res://.godot/imported/Before_confronting.mp3-5f0fa0d75c05d044f8ce1cf7f1b3fc8c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

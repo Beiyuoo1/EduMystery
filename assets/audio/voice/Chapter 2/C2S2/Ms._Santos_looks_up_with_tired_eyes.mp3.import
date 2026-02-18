@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhp5d04jdk71j"
+path="res://.godot/imported/Ms._Santos_looks_up_with_tired_eyes.mp3-00227fdf054eab25f346df57fc1c8948.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/C2S2/Ms._Santos_looks_up_with_tired_eyes.mp3"
+dest_files=["res://.godot/imported/Ms._Santos_looks_up_with_tired_eyes.mp3-00227fdf054eab25f346df57fc1c8948.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

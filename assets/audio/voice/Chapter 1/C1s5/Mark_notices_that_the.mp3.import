@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c0qi3jwk1ox68"
+path="res://.godot/imported/Mark_notices_that_the.mp3-a10c62979f12ede5df158d889a9b0fe7.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 1/C1s5/Mark_notices_that_the.mp3"
+dest_files=["res://.godot/imported/Mark_notices_that_the.mp3-a10c62979f12ede5df158d889a9b0fe7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

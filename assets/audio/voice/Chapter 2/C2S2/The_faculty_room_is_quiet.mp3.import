@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dcm0t0vx552qo"
+path="res://.godot/imported/The_faculty_room_is_quiet.mp3-8b399a18edd3aa9a982ef47f0937774c.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/C2S2/The_faculty_room_is_quiet.mp3"
+dest_files=["res://.godot/imported/The_faculty_room_is_quiet.mp3-8b399a18edd3aa9a982ef47f0937774c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

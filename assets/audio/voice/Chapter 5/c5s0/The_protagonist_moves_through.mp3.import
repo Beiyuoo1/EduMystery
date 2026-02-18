@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c3s74xlx1gihg"
+path="res://.godot/imported/The_protagonist_moves_through.mp3-4bb51d39bc39a5651869d7dab908ead1.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s0/The_protagonist_moves_through.mp3"
+dest_files=["res://.godot/imported/The_protagonist_moves_through.mp3-4bb51d39bc39a5651869d7dab908ead1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

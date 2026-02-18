@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://52lbaniq1tec"
+path="res://.godot/imported/the_protagonist_approaches.mp3-a865e0664a7e0026f183532f1d915b99.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/c4s4/the_protagonist_approaches.mp3"
+dest_files=["res://.godot/imported/the_protagonist_approaches.mp3-a865e0664a7e0026f183532f1d915b99.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

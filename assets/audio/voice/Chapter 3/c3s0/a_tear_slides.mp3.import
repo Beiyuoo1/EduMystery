@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dqmcwof1tywqg"
+path="res://.godot/imported/a_tear_slides.mp3-0a7bad4a8761132e76bd2c8ba2301e8a.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s0/a_tear_slides.mp3"
+dest_files=["res://.godot/imported/a_tear_slides.mp3-0a7bad4a8761132e76bd2c8ba2301e8a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

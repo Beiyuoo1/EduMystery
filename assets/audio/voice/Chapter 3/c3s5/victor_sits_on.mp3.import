@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://o8brl2x21dpf"
+path="res://.godot/imported/victor_sits_on.mp3-c11c641ba729675d3e0a7e71f60b77d6.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s5/victor_sits_on.mp3"
+dest_files=["res://.godot/imported/victor_sits_on.mp3-c11c641ba729675d3e0a7e71f60b77d6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

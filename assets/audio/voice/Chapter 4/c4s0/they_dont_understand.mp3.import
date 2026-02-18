@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bymlu27kekufg"
+path="res://.godot/imported/they_dont_understand.mp3-c0ac5bdcc4691e34ab5283c4a297b13b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/c4s0/they_dont_understand.mp3"
+dest_files=["res://.godot/imported/they_dont_understand.mp3-c0ac5bdcc4691e34ab5283c4a297b13b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

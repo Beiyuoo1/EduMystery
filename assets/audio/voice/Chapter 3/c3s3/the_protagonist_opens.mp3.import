@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://4f82udqtjlsx"
+path="res://.godot/imported/the_protagonist_opens.mp3-151a95fd77ec2258a6ec1b9858833ce9.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s3/the_protagonist_opens.mp3"
+dest_files=["res://.godot/imported/the_protagonist_opens.mp3-151a95fd77ec2258a6ec1b9858833ce9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

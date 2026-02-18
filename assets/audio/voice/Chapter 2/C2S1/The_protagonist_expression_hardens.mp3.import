@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c1llhppqfyimk"
+path="res://.godot/imported/The_protagonist_expression_hardens.mp3-72e09f029e20a0f6e1d36e35920881e3.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/C2S1/The_protagonist_expression_hardens.mp3"
+dest_files=["res://.godot/imported/The_protagonist_expression_hardens.mp3-72e09f029e20a0f6e1d36e35920881e3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

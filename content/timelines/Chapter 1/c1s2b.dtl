@@ -1,13 +1,13 @@
 [background arg="res://Bg/hallway.png" fade="1.0"]
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/Chapter 1/C1s2b/The_protagonist_walks.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 1/C1s2b/The_protagonist_walks.mp3" volume="0.0" bus="Voice"]
 	The protagonist walks through the hallway toward the faculty room.
 	join Celestine (half) left
 	Celestine: The janitor said the leak started yesterday, but no one noticed until this morning...
 	Celestine: If someone sabotaged it, they would've needed access after hours. But how?
 	join "Diwata Laya" (Half_mirror) right
 	[signal arg="laya_start"]
-	[voice path="res://assets/audio/Chapter 1/C1s2b/A_shimmering_figure.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 1/C1s2b/A_shimmering_figure.mp3" volume="0.0" bus="Voice"]
 	A shimmering figure appears beside the protagonist — visible only to the protagonist. This is Diwata Laya, a spirit bound to the protagonist. The protagonist is the only one who can see and hear.
 	"Diwata Laya": [i][color=#9999ff]You seem troubled, Celestine. Your thoughts are scattered.[/color][/i]
 	"Celestine (Thinking)": Laya! I know the timeline is suspicious, but I don't know what to look for when I get to the faculty room.
@@ -24,14 +24,14 @@ if {selected_character} == "celestine":
 	leave --All--
 	jump c1s3/
 else:
-	[voice path="res://assets/audio/Chapter 1/C1s2b/The_protagonist_walks.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 1/C1s2b/The_protagonist_walks.mp3" volume="0.0" bus="Voice"]
 	The protagonist walks through the hallway toward the faculty room.
 	join Conrad (half) left
 	Conrad: The janitor said the leak started yesterday, but no one noticed until this morning...
 	Conrad: If someone sabotaged it, they would've needed access after hours. But how?
 	join "Diwata Laya" (Half_mirror) right
 	[signal arg="laya_start"]
-	[voice path="res://assets/audio/Chapter 1/C1s2b/A_shimmering_figure.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 1/C1s2b/A_shimmering_figure.mp3" volume="0.0" bus="Voice"]
 	A shimmering figure appears beside the protagonist — visible only to the protagonist. This is Diwata Laya, a spirit bound to the protagonist. The protagonist is the only one who can see and hear.
 	"Diwata Laya": [i][color=#9999ff]You seem troubled, Conrad. Your thoughts are scattered.[/color][/i]
 	"Conrad (Thinking)": Laya! I know the timeline is suspicious, but I don't know what to look for when I get to the faculty room.

@@ -948,8 +948,20 @@ func _on_submit_pressed() -> void:
 
 	_show_feedback(is_correct, elapsed)
 
+func _play_sfx(path: String) -> void:
+	var player = AudioStreamPlayer.new()
+	player.stream = load(path)
+	player.bus = "SFX"
+	add_child(player)
+	player.play()
+	player.finished.connect(player.queue_free)
+
 func _show_feedback(is_correct: bool, time_taken: float) -> void:
 	"""Show feedback panel with modern presentation"""
+	if is_correct:
+		_play_sfx("res://assets/audio/sound_effect/correct.wav")
+	else:
+		_play_sfx("res://assets/audio/sound_effect/wrong.wav")
 	var feedback_text = ""
 
 	if is_correct:

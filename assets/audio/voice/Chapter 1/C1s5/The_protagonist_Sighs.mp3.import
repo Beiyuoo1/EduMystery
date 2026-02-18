@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ccim2lca4wb42"
+path="res://.godot/imported/The_protagonist_Sighs.mp3-f682d2e47e9565383f067ac7ee445902.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 1/C1s5/The_protagonist_Sighs.mp3"
+dest_files=["res://.godot/imported/The_protagonist_Sighs.mp3-f682d2e47e9565383f067ac7ee445902.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

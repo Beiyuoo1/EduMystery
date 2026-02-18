@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://p20x4snq8hba"
+path="res://.godot/imported/The_Protagonist_returns_to_your_locker_pulling_out_your_notebook.mp3-9865a1ac6036f610e81b08a3b5019a3b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s5/The_Protagonist_returns_to_your_locker_pulling_out_your_notebook.mp3"
+dest_files=["res://.godot/imported/The_Protagonist_returns_to_your_locker_pulling_out_your_notebook.mp3-9865a1ac6036f610e81b08a3b5019a3b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

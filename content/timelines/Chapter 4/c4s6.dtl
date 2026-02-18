@@ -1,40 +1,51 @@
+audio music "res://assets/audio/bg/chill2.mp3" [loop="true"]
 [background arg="res://Bg/library_archive.png" fade="1.0"]
-[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 later that afternoon.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/c4s6/later_that_afternoon.mp3" volume="0.0" bus="Voice"]
 Later that afternoon...
 if {selected_character} == "celestine":
 	join Celestine (animated) left
 	join Mark (Mark_half) right
-	Celestine returns to the archive to verify the journal was properly stored.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/the_protagonist_returns.mp3" volume="0.0" bus="Voice"]
+	The protagonist returns to the archive to verify the journal was properly stored.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/the_librarian_has.mp3" volume="0.0" bus="Voice"]
 	The librarian has already filed it back in its correct location, deep in the drawer where Alex found it.
 	Celestine: It's back where it belongs. Safely archived.
 	Mark: Feels like closing the book on this case. Literally.
-	Celestine reaches for the journal to ensure it's properly positioned.
-	As she slides it back, something falls from between the pages.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/the_protagonist_reaches.mp3" volume="0.0" bus="Voice"]
+	The protagonist reaches for the journal to ensure it's properly positioned.
+	As they slide it back, something falls from between the pages.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/a_cream_colored.mp3" volume="0.0" bus="Voice"]
 	A cream-colored card lands softly on the floor.
 	Mark: What's that?
-	Celestine picks it up, recognizing the familiar handwriting immediately.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/the_protagonist_picks.mp3" volume="0.0" bus="Voice"]
+	The protagonist picks it up, recognizing the familiar handwriting immediately.
 else:
 	join Conrad (half) left
 	join Mark (Mark_half) right
-	[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 the leather-bound journal rests.mp3" volume=50 bus="Voice"]
-	Conrad returns to the archive to verify the journal was properly stored.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/the_protagonist_returns.mp3" volume="0.0" bus="Voice"]
+	The protagonist returns to the archive to verify the journal was properly stored.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/the_librarian_has.mp3" volume="0.0" bus="Voice"]
 	The librarian has already filed it back in its correct location, deep in the drawer where Alex found it.
 	Conrad: It's back where it belongs. Safely archived.
 	Mark: Feels like closing the book on this case. Literally.
-	Conrad reaches for the journal to ensure it's properly positioned.
-	As he slides it back, something falls from between the pages.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/the_protagonist_reaches.mp3" volume="0.0" bus="Voice"]
+	The protagonist reaches for the journal to ensure it's properly positioned.
+	As they slide it back, something falls from between the pages.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/a_cream_colored.mp3" volume="0.0" bus="Voice"]
 	A cream-colored card lands softly on the floor.
 	Mark: What's that?
-	[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 conrad reaches for the journal.mp3" volume=50 bus="Voice"]
-	Conrad picks it up, recognizing the familiar handwriting immediately.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/the_protagonist_picks.mp3" volume="0.0" bus="Voice"]
+	The protagonist picks it up, recognizing the familiar handwriting immediately.
 [signal arg="unlock_evidence bc_card_wisdom_c4"]
 if {selected_character} == "celestine":
-	your expression shifts from surprise to understanding.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/the_protagonists_expression.mp3" volume="0.0" bus="Voice"]
+	The protagonist's expression shifts from surprise to understanding.
 	Celestine: It's another B.C. card.
 	Mark: What? How did that get in there?
 	Celestine: It must have been placed there recently. After Alex returned the journal.
 	Mark: Or... it was there all along, waiting for someone to find it.
-	Celestine reads aloud, your voice thoughtful.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/the_protagonist_reads.mp3" volume="0.0" bus="Voice"]
+	The protagonist reads aloud, voice thoughtful.
 	Celestine: "Lesson 4\: Wisdom."
 	Celestine: "Knowledge illuminates, but wisdom guides. The eager student learned what the patient teacher already knew."
 	Celestine: "Those who find truth must then choose what to do with it. Choice defines character."
@@ -45,12 +56,14 @@ if {selected_character} == "celestine":
 	Celestine: Not orchestrated. Observed. B.C. didn't make Alex take the journal.
 	Celestine: They just knew that curiosity and good intentions without wisdom can lead to harm.
 else:
-	His expression shifts from surprise to understanding.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/the_protagonists_expression.mp3" volume="0.0" bus="Voice"]
+	The protagonist's expression shifts from surprise to understanding.
 	Conrad: It's another B.C. card.
 	Mark: What? How did that get in there?
 	Conrad: It must have been placed there recently. After Alex returned the journal.
 	Mark: Or... it was there all along, waiting for someone to find it.
-	Conrad reads aloud, your voice thoughtful.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/the_protagonist_reads.mp3" volume="0.0" bus="Voice"]
+	Conrad reads aloud, voice thoughtful.
 	Conrad: "Lesson 4\: Wisdom."
 	Conrad: "Knowledge illuminates, but wisdom guides. The eager student learned what the patient teacher already knew."
 	Conrad: "Those who find truth must then choose what to do with it. Choice defines character."
@@ -63,13 +76,13 @@ else:
 join "Diwata Laya" (Half_mirror) center
 [signal arg="laya_start"]
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 diwata laya appears.mp3" volume=50 bus="Voice"]
-	"Diwata Laya" appears, your expression serene but knowing.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/diwata_laya_appears.mp3" volume="0.0" bus="Voice"]
+	"Diwata Laya" appears, her expression serene but knowing.
 	"Diwata Laya": [i][color=#9999ff]The chain continues to teach you, Celestine.[/color][/i]
 	"Celestine (Thinking)": B.C. planned for this. The journal being in the archive, someone finding it, the consequences that followed.
 	"Diwata Laya": [i][color=#9999ff]Or they simply understood human nature.[/color][/i]
 	"Diwata Laya": [i][color=#9999ff]Curiosity leads to discovery. Discovery leads to choice. Choice reveals character.[/color][/i]
-	"Celestine (Thinking)": Alex chose to use the knowledge you found. I chose to guide your with compassion instead of judgment.
+	"Celestine (Thinking)": Alex chose to use the knowledge she found. I chose to guide her with compassion instead of judgment.
 	"Diwata Laya": [i][color=#9999ff]Both lessons were necessary. Hers, and yours.[/color][/i]
 	"Diwata Laya": [i][color=#9999ff]Alex learned that knowledge without wisdom brings harm.[/color][/i]
 	"Diwata Laya": [i][color=#9999ff]You learned that teaching requires patience, not punishment.[/color][/i]
@@ -82,14 +95,16 @@ if {selected_character} == "celestine":
 	"Diwata Laya": [i][color=#9999ff]That is wisdom - knowing you have more to learn.[/color][/i]
 	[signal arg="laya_end"]
 	leave "Diwata Laya"
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/the_protagonist_looks.mp3" volume="0.0" bus="Voice"]
 	Celestine looks at the card again, then carefully places it with the others she's collected.
 else:
-	"Diwata Laya" appears, your expression serene but knowing.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/diwata_laya_appears.mp3" volume="0.0" bus="Voice"]
+	"Diwata Laya" appears, her expression serene but knowing.
 	"Diwata Laya": [i][color=#9999ff]The chain continues to teach you, Conrad.[/color][/i]
 	"Conrad (Thinking)": B.C. planned for this. The journal being in the archive, someone finding it, the consequences that followed.
 	"Diwata Laya": [i][color=#9999ff]Or they simply understood human nature.[/color][/i]
 	"Diwata Laya": [i][color=#9999ff]Curiosity leads to discovery. Discovery leads to choice. Choice reveals character.[/color][/i]
-	"Conrad (Thinking)": Alex chose to use the knowledge you found. I chose to guide your with compassion instead of judgment.
+	"Conrad (Thinking)": Alex chose to use the knowledge she found. I chose to guide her with compassion instead of judgment.
 	"Diwata Laya": [i][color=#9999ff]Both lessons were necessary. Hers, and yours.[/color][/i]
 	"Diwata Laya": [i][color=#9999ff]Alex learned that knowledge without wisdom brings harm.[/color][/i]
 	"Diwata Laya": [i][color=#9999ff]You learned that teaching requires patience, not punishment.[/color][/i]
@@ -102,7 +117,7 @@ else:
 	"Diwata Laya": [i][color=#9999ff]That is wisdom - knowing you have more to learn.[/color][/i]
 	[signal arg="laya_end"]
 	leave "Diwata Laya"
-	[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 conrad looks at the card again.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/the_protagonist_looks.mp3" volume="0.0" bus="Voice"]
 	Conrad looks at the card again, then carefully places it with the others he's collected.
 if {selected_character} == "celestine":
 	Celestine: Four cases. Four lessons. Four cards.
@@ -162,6 +177,7 @@ else:
 	Conrad: That's the key difference between B.C. and that educator who wrote the journal.
 	Conrad: B.C. guides with patience. The educator tried to control with manipulation.
 	Conrad: One creates growth. The other creates resentment.
+[voice path="res://assets/audio/voice/Chapter 4/c4s6/they_stand_in.mp3" volume="0.0" bus="Voice"]
 They stand in the quiet archive, dust motes dancing in the dim light.
 Mark: Come on. Let's get out of here. All this wisdom talk is making me need fresh air.
 Mark: And food. Definitely food.
@@ -170,6 +186,7 @@ if {selected_character} == "celestine":
 	Mark: Hey, the body needs fuel for all this deep thinking.
 	Celestine smiles.
 	Celestine: Fair point. Let's go.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/they_walk_toward.mp3" volume="0.0" bus="Voice"]
 	They walk toward the exit, leaving the archive and its hidden secrets behind.
 	leave Celestine
 else:
@@ -177,35 +194,41 @@ else:
 	Mark: Hey, the body needs fuel for all this deep thinking.
 	Conrad smiles.
 	Conrad: Fair point. Let's go.
-	[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 they walk toward the exit.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/they_walk_toward.mp3" volume="0.0" bus="Voice"]
 	They walk toward the exit, leaving the archive and its hidden secrets behind.
 	leave Conrad
 leave Mark
 [wait time="1.0"]
-[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 The B.C. card rests safely.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/c4s6/the_leather_bound.mp3" volume="0.0" bus="Voice"]
 The leather-bound journal rests in its drawer, properly archived once more.
 The knowledge it contains is preserved but contained.
 Waiting for someone with the wisdom to understand it properly.
 [wait time="1.0"]
 if {selected_character} == "celestine":
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/the_bc_card.mp3" volume="0.0" bus="Voice"]
 	The B.C. card rests safely with Celestine, the fourth in a growing collection.
 	Four lessons learned. Four mysteries solved.
 	Truth. Responsibility. Creativity. Wisdom.
-	[voice path="res://assets/audio/voice/Chapter 4/C4S6/c4s6 But the chain continues.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/but_the_chain.mp3" volume="0.0" bus="Voice"]
 	But the chain continues, stretching forward into unknown territory.
 	And somewhere, watching with patient eyes, B.C. prepares the next chapter.
 	The next lesson.
 	The next step on a journey whose destination remains hidden.
 	But whose path grows clearer with each mystery solved.
 else:
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/the_bc_card.mp3" volume="0.0" bus="Voice"]
 	The B.C. card rests safely with Conrad, the fourth in a growing collection.
 	Four lessons learned. Four mysteries solved.
 	Truth. Responsibility. Creativity. Wisdom.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s6/but_the_chain.mp3" volume="0.0" bus="Voice"]
 	But the chain continues, stretching forward into unknown territory.
 	And somewhere, watching with patient eyes, B.C. prepares the next chapter.
 	The next lesson.
 	The next step on a journey whose destination remains hidden.
 	But whose path grows clearer with each mystery solved.
 [wait time="1.0"]
+audio music "res://assets/audio/chapter_end_bg.mp3" [fade="0.5" volume="0.0" bus="Music" loop="true"]
+[wait time="1.0"]
 [signal arg="show_chapter_results"]
+audio stop_music "[fade="2.0"]"
 jump c5s0/

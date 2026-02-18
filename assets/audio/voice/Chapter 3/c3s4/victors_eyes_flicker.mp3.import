@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://jhqao68ioihs"
+path="res://.godot/imported/victors_eyes_flicker.mp3-bcf3e8c5a8c55bd3d1642730408454ef.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s4/victors_eyes_flicker.mp3"
+dest_files=["res://.godot/imported/victors_eyes_flicker.mp3-bcf3e8c5a8c55bd3d1642730408454ef.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

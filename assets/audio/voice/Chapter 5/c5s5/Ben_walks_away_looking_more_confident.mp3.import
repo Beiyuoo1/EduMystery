@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bc7doqvw0tx5y"
+path="res://.godot/imported/Ben_walks_away_looking_more_confident.mp3-2a243788f5bf142b4cc822de1ebee961.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s5/Ben_walks_away_looking_more_confident.mp3"
+dest_files=["res://.godot/imported/Ben_walks_away_looking_more_confident.mp3-2a243788f5bf142b4cc822de1ebee961.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

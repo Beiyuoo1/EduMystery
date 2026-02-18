@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://4cefdsk0ju6j"
+path="res://.godot/imported/the_protagonist_checks.mp3-eecb2bf7cdd6790314c79785987007d3.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/c4s3/the_protagonist_checks.mp3"
+dest_files=["res://.godot/imported/the_protagonist_checks.mp3-eecb2bf7cdd6790314c79785987007d3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ls6avcgfdl0w"
+path="res://.godot/imported/Ryans_face_goes_pale.mp3-9522c5e077fbd048a947029f13fc87f0.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/C2S5/Ryans_face_goes_pale.mp3"
+dest_files=["res://.godot/imported/Ryans_face_goes_pale.mp3-9522c5e077fbd048a947029f13fc87f0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

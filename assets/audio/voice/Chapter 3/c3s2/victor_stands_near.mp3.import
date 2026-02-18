@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b31myc6v0xg31"
+path="res://.godot/imported/victor_stands_near.mp3-79ee3896a2434ae99a3baa4c69a1d31f.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s2/victor_stands_near.mp3"
+dest_files=["res://.godot/imported/victor_stands_near.mp3-79ee3896a2434ae99a3baa4c69a1d31f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

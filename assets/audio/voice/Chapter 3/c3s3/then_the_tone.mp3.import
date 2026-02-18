@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://6hs2t8q2on4e"
+path="res://.godot/imported/then_the_tone.mp3-ac7443c8f52e9361d0688c65b27e5a90.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s3/then_the_tone.mp3"
+dest_files=["res://.godot/imported/then_the_tone.mp3-ac7443c8f52e9361d0688c65b27e5a90.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

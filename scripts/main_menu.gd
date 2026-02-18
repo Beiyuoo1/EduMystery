@@ -11,8 +11,15 @@ extends Control
 const SAVE_LOAD_SCREEN = preload("res://scenes/ui/save_load_screen.tscn")
 
 var music_started: bool = false
+var music_manually_stopped: bool = false  # Prevent _process from auto-restarting
 
 func _ready() -> void:
+	# Wait for AudioBusSetup to fully initialize before starting music
+	while not AudioBusSetup.is_ready:
+		await get_tree().process_frame
+
+	print("DEBUG: AudioBusSetup is ready, proceeding with music setup")
+
 	# Wait for Vosk to load before starting background music
 	if MinigameManager and not MinigameManager.vosk_is_loaded:
 		set_process(true)
@@ -70,15 +77,29 @@ func _input(event: InputEvent) -> void:
 
 func _process(_delta: float) -> void:
 	# Check if Vosk has finished loading and start music
-	if not music_started and MinigameManager and MinigameManager.vosk_is_loaded:
+	# But don't auto-restart if music was manually stopped
+	if not music_started and not music_manually_stopped and MinigameManager and MinigameManager.vosk_is_loaded:
 		_start_background_music()
 		set_process(false)  # Stop processing once music starts
 
 func _start_background_music() -> void:
 	if background_music and not music_started:
+		# Explicitly set bus to Music (fixes .tscn file not loading correctly on first run)
+		background_music.bus = "Music"
+
+		# Debug: Check Music bus volume and mute state before starting
+		var music_bus_idx = AudioServer.get_bus_index("Music")
+		if music_bus_idx >= 0:
+			var music_db = AudioServer.get_bus_volume_db(music_bus_idx)
+			var is_muted = AudioServer.is_bus_mute(music_bus_idx)
+			print("DEBUG: Music bus volume when starting music = ", music_db, " dB")
+			print("DEBUG: Music bus muted = ", is_muted)
+
 		background_music.play()
 		music_started = true
 		print("Main menu background music started")
+		print("DEBUG: BackgroundMusic node volume_db = ", background_music.volume_db, " dB")
+		print("DEBUG: BackgroundMusic node bus = ", background_music.bus)
 
 func stop_background_music() -> void:
 	"""Public function to stop background music (called when loading save)"""
@@ -86,6 +107,22 @@ func stop_background_music() -> void:
 		background_music.stop()
 		music_started = false
 		print("Main menu background music stopped")
+
+func _on_load_screen_closed() -> void:
+	"""Called when load screen close button is pressed - restart music"""
+	print("DEBUG: _on_load_screen_closed() called!")
+	print("DEBUG: music_started = ", music_started)
+
+	# Clear the manually stopped flag and restart music
+	music_manually_stopped = false
+
+	# This is only called when user clicks close button (not when loading a save)
+	# So we can safely restart the music
+	if not music_started:
+		print("DEBUG: Restarting music...")
+		_start_background_music()
+	else:
+		print("DEBUG: Music already started, not restarting")
 
 func _on_new_game_pressed() -> void:
 	# Stop background music
@@ -122,6 +159,11 @@ func _on_new_game_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/ui/subject_selection.tscn")
 
 func _on_continue_pressed() -> void:
+	print("DEBUG: Continue button pressed")
+
+	# Mark that we manually stopped the music (prevents _process from restarting)
+	music_manually_stopped = true
+
 	# Stop background music before showing load screen
 	stop_background_music()
 
@@ -129,6 +171,10 @@ func _on_continue_pressed() -> void:
 	var load_screen = SAVE_LOAD_SCREEN.instantiate()
 	get_tree().root.add_child(load_screen)
 	load_screen.set_mode(1)  # LOAD mode
+
+	# Set callback to restart music when load screen closes (if user cancels without loading)
+	load_screen.on_close_callback = _on_load_screen_closed
+	print("DEBUG: Callback set on load screen")
 
 func _on_settings_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/ui/settings_menu.tscn")

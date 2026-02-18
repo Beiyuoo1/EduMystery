@@ -19,6 +19,12 @@ var timeline_reconstruction_scene = preload("res://minigames/TimelineReconstruct
 var number_sequence_scene = preload("res://minigames/NumberSequence/scenes/Main.tscn")
 var current_minigame = null
 
+# Minigame background music player
+var minigame_music_player: AudioStreamPlayer = null
+const MINIGAME_MUSIC_PATH = "res://assets/audio/minigame.mp3"
+const MINIGAME_MUSIC_FULL_VOLUME = 0.0    # dB - normal volume for non-Vosk minigames
+const MINIGAME_MUSIC_VOSK_VOLUME = -9.0   # dB - ~75% volume for Vosk minigames (so STT isn't interrupted)
+
 # Track if last minigame earned speed bonus (for ChapterStatsTracker)
 var last_minigame_speed_bonus: bool = false
 # Track if last minigame succeeded or failed (for ChapterStatsTracker)
@@ -2811,6 +2817,7 @@ func _start_number_sequence(puzzle_id: String) -> void:
 		return
 
 	var config = number_sequence_configs[puzzle_id]
+	_play_minigame_music()
 	current_minigame = number_sequence_scene.instantiate()
 
 	Dialogic.paused = true
@@ -2825,6 +2832,7 @@ func _start_number_sequence(puzzle_id: String) -> void:
 
 func _on_number_sequence_finished(success: bool, time_taken: float, puzzle_id: String) -> void:
 	print("DEBUG: Number Sequence finished. Success: ", success, ", Time: ", time_taken, "s")
+	_stop_minigame_music()
 	last_minigame_success = success
 	last_minigame_speed_bonus = (time_taken < 60.0)
 
@@ -2879,6 +2887,25 @@ func _get_subject_variant_id(base_id: String) -> String:
 	# No variant found, use base (English)
 	print("DEBUG: Variant not found, falling back to base ID: ", base_id)
 	return base_id
+
+func _play_minigame_music(volume_db: float = MINIGAME_MUSIC_FULL_VOLUME) -> void:
+	"""Start looping minigame background music at the given volume."""
+	if minigame_music_player and is_instance_valid(minigame_music_player):
+		minigame_music_player.queue_free()
+	minigame_music_player = AudioStreamPlayer.new()
+	minigame_music_player.stream = load(MINIGAME_MUSIC_PATH)
+	minigame_music_player.bus = "Music"
+	minigame_music_player.volume_db = volume_db
+	if minigame_music_player.stream and "loop" in minigame_music_player.stream:
+		minigame_music_player.stream.loop = true
+	add_child(minigame_music_player)
+	minigame_music_player.play()
+
+func _stop_minigame_music() -> void:
+	"""Stop and clean up the minigame background music."""
+	if minigame_music_player and is_instance_valid(minigame_music_player):
+		minigame_music_player.queue_free()
+		minigame_music_player = null
 
 func start_minigame(puzzle_id: String) -> void:
 	print("DEBUG: MinigameManager.start_minigame called with: ", puzzle_id)
@@ -2947,6 +2974,7 @@ func _start_oralcom_minigame(puzzle_id: String) -> void:
 		push_error("Could not find oral com config for: " + puzzle_id)
 		return
 
+	_play_minigame_music()
 	# Determine minigame type from puzzle_id suffix
 	if puzzle_id.ends_with("_pacman"):
 		print("DEBUG: Starting Oral Com Pacman minigame...")
@@ -2980,6 +3008,7 @@ func _start_fillinblank(puzzle_id: String) -> void:
 	print("DEBUG: Starting fill-in-the-blank minigame...")
 	print("DEBUG: Puzzle ID = ", puzzle_id)
 	print("DEBUG: Puzzle config = ", fillinTheblank_configs[puzzle_id])
+	_play_minigame_music()
 	current_minigame = fillinTheblank_scene.instantiate()
 	get_tree().root.add_child(current_minigame)
 	current_minigame.configure_puzzle(fillinTheblank_configs[puzzle_id])
@@ -2988,6 +3017,7 @@ func _start_fillinblank(puzzle_id: String) -> void:
 
 func _start_pacman(puzzle_id: String) -> void:
 	print("DEBUG: Starting Pacman minigame...")
+	_play_minigame_music()
 	current_minigame = pacman_scene.instantiate()
 	get_tree().root.add_child(current_minigame)
 	current_minigame.configure_puzzle(pacman_configs[puzzle_id])
@@ -2996,6 +3026,7 @@ func _start_pacman(puzzle_id: String) -> void:
 
 func _start_runner(puzzle_id: String) -> void:
 	print("DEBUG: Starting Runner minigame...")
+	_play_minigame_music()
 	current_minigame = runner_scene.instantiate()
 	get_tree().root.add_child(current_minigame)
 	current_minigame.configure_puzzle(runner_configs[puzzle_id])
@@ -3004,6 +3035,7 @@ func _start_runner(puzzle_id: String) -> void:
 
 func _start_platformer(puzzle_id: String) -> void:
 	print("DEBUG: Starting Platformer minigame...")
+	_play_minigame_music()
 	current_minigame = platformer_scene.instantiate()
 	get_tree().root.add_child(current_minigame)
 	current_minigame.configure_puzzle(platformer_configs[puzzle_id])
@@ -3012,6 +3044,7 @@ func _start_platformer(puzzle_id: String) -> void:
 
 func _start_maze(puzzle_id: String) -> void:
 	print("DEBUG: Starting Maze minigame...")
+	_play_minigame_music()
 	current_minigame = maze_scene.instantiate()
 	get_tree().root.add_child(current_minigame)
 	# The maze scene has Main (CanvasLayer) > Game (Node2D with script)
@@ -3022,6 +3055,7 @@ func _start_maze(puzzle_id: String) -> void:
 
 func _start_pronunciation(puzzle_id: String) -> void:
 	print("DEBUG: Starting Pronunciation minigame...")
+	_play_minigame_music(MINIGAME_MUSIC_VOSK_VOLUME)
 	current_minigame = pronunciation_scene.instantiate()
 	get_tree().root.add_child(current_minigame)
 	current_minigame.configure_puzzle(pronunciation_configs[puzzle_id])
@@ -3030,6 +3064,7 @@ func _start_pronunciation(puzzle_id: String) -> void:
 
 func _start_math(puzzle_id: String) -> void:
 	print("DEBUG: Starting Math minigame...")
+	_play_minigame_music()
 	current_minigame = math_scene.instantiate()
 	get_tree().root.add_child(current_minigame)
 	current_minigame.configure_puzzle(math_configs[puzzle_id])
@@ -3044,6 +3079,7 @@ func _start_curriculum_minigame(minigame_type: String) -> void:
 
 	var puzzle_id = "curriculum_" + minigame_type
 	print("DEBUG: Starting curriculum minigame: ", minigame_type)
+	_play_minigame_music()
 
 	match minigame_type:
 		"pacman":
@@ -3087,6 +3123,7 @@ func _start_dialogue_choice(puzzle_id: String) -> void:
 	print("DEBUG: Starting Dialogue Choice minigame: ", puzzle_id)
 	var config = dialogue_choice_configs[puzzle_id]
 	print("DEBUG: Question being shown: ", config.get("question", "Unknown question"))
+	_play_minigame_music(MINIGAME_MUSIC_VOSK_VOLUME)
 	current_minigame = dialogue_choice_scene.instantiate()
 	get_tree().root.add_child(current_minigame)
 	current_minigame.configure_puzzle(config)
@@ -3095,6 +3132,7 @@ func _start_dialogue_choice(puzzle_id: String) -> void:
 
 func _on_dialogue_choice_finished(success: bool, puzzle_id: String) -> void:
 	print("DEBUG: Dialogue Choice minigame finished. Success: ", success, ", Puzzle: ", puzzle_id)
+	_stop_minigame_music()
 	last_minigame_success = success
 	if success:
 		Dialogic.VAR.minigames_completed += 1
@@ -3104,6 +3142,7 @@ func _on_dialogue_choice_finished(success: bool, puzzle_id: String) -> void:
 func _start_hear_and_fill(puzzle_id: String) -> void:
 	print("DEBUG: Starting Hear and Fill minigame...")
 	var config = hear_and_fill_configs[puzzle_id]
+	_play_minigame_music(MINIGAME_MUSIC_VOSK_VOLUME)
 	current_minigame = hear_and_fill_scene.instantiate()
 	get_tree().root.add_child(current_minigame)
 	current_minigame.configure_puzzle(config)
@@ -3112,6 +3151,7 @@ func _start_hear_and_fill(puzzle_id: String) -> void:
 
 func _on_hear_and_fill_finished(success: bool, puzzle_id: String) -> void:
 	print("DEBUG: Hear and Fill minigame finished. Success: ", success, ", Puzzle: ", puzzle_id)
+	_stop_minigame_music()
 	last_minigame_success = success
 	if success:
 		Dialogic.VAR.minigames_completed += 1
@@ -3121,6 +3161,7 @@ func _on_hear_and_fill_finished(success: bool, puzzle_id: String) -> void:
 func _start_riddle(puzzle_id: String) -> void:
 	print("DEBUG: Starting Riddle minigame: ", puzzle_id)
 	var config = riddle_configs[puzzle_id]
+	_play_minigame_music()
 	current_minigame = riddle_scene.instantiate()
 	get_tree().root.add_child(current_minigame)
 	current_minigame.configure_puzzle(config)
@@ -3129,6 +3170,7 @@ func _start_riddle(puzzle_id: String) -> void:
 
 func _on_riddle_finished(success: bool, puzzle_id: String) -> void:
 	print("DEBUG: Riddle minigame finished. Success: ", success, ", Puzzle: ", puzzle_id)
+	_stop_minigame_music()
 	last_minigame_success = success
 	if success:
 		Dialogic.VAR.minigames_completed += 1
@@ -3138,6 +3180,7 @@ func _on_riddle_finished(success: bool, puzzle_id: String) -> void:
 func _start_detective_analysis(puzzle_id: String) -> void:
 	print("DEBUG: Starting Detective Analysis minigame: ", puzzle_id)
 	var config = detective_analysis_configs[puzzle_id]
+	_play_minigame_music()
 	current_minigame = detective_analysis_scene.instantiate()
 
 	# Pause Dialogic while minigame is active
@@ -3156,6 +3199,7 @@ func _start_detective_analysis(puzzle_id: String) -> void:
 
 func _on_detective_analysis_finished(success: bool, time_taken: float, puzzle_id: String) -> void:
 	print("DEBUG: Detective Analysis finished. Success: ", success, ", Time: ", time_taken, "s, Puzzle: ", puzzle_id)
+	_stop_minigame_music()
 	last_minigame_success = success
 
 	# Track speed bonus (< 60 seconds = fast)
@@ -3174,6 +3218,7 @@ func _on_detective_analysis_finished(success: bool, time_taken: float, puzzle_id
 func _start_logic_grid(puzzle_id: String) -> void:
 	print("DEBUG: Starting Logic Grid minigame: ", puzzle_id)
 	var config = logic_grid_configs[puzzle_id]
+	_play_minigame_music()
 	current_minigame = logic_grid_scene.instantiate()
 
 	# Pause Dialogic while minigame is active
@@ -3192,6 +3237,7 @@ func _start_logic_grid(puzzle_id: String) -> void:
 
 func _on_logic_grid_finished(success: bool, time_taken: float, puzzle_id: String) -> void:
 	print("DEBUG: Logic Grid finished. Success: ", success, ", Time: ", time_taken, "s, Puzzle: ", puzzle_id)
+	_stop_minigame_music()
 	last_minigame_success = success
 	last_minigame_speed_bonus = (time_taken < 60.0)
 
@@ -3215,6 +3261,7 @@ func _start_timeline_reconstruction(puzzle_id: String) -> void:
 	var config = timeline_reconstruction_configs[puzzle_id]
 	print("DEBUG: Config loaded: ", config.get("title", "NO TITLE"))
 
+	_play_minigame_music()
 	current_minigame = timeline_reconstruction_scene.instantiate()
 	print("DEBUG: Minigame instantiated: ", current_minigame)
 	print("DEBUG: Minigame type: ", current_minigame.get_class())
@@ -3240,6 +3287,7 @@ func _start_timeline_reconstruction(puzzle_id: String) -> void:
 
 func _on_timeline_reconstruction_finished(success: bool, time_taken: float, puzzle_id: String) -> void:
 	print("DEBUG: Timeline Reconstruction finished. Success: ", success, ", Time: ", time_taken, "s, Puzzle: ", puzzle_id)
+	_stop_minigame_music()
 	last_minigame_success = success
 	last_minigame_speed_bonus = (time_taken < 60.0)
 
@@ -3255,6 +3303,7 @@ func _on_timeline_reconstruction_finished(success: bool, time_taken: float, puzz
 
 func _on_minigame_finished(success: bool, score: int, puzzle_id: String) -> void:
 	print("DEBUG: Minigame finished. Success: ", success, ", Score: ", score, ", Puzzle: ", puzzle_id)
+	_stop_minigame_music()
 	last_minigame_success = success
 	if success:
 		Dialogic.VAR.minigames_completed += 1

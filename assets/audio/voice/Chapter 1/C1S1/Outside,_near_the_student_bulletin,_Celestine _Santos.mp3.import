@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bme78rf6ygdnm"
+path="res://.godot/imported/Outside,_near_the_student_bulletin,_Celestine _Santos.mp3-fd37b746a6ecc55220c95fb9253f4904.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 1/C1S1/Outside,_near_the_student_bulletin,_Celestine _Santos.mp3"
+dest_files=["res://.godot/imported/Outside,_near_the_student_bulletin,_Celestine _Santos.mp3-fd37b746a6ecc55220c95fb9253f4904.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

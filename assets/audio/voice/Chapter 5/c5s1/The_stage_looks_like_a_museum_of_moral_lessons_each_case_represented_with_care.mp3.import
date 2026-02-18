@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1dw5jk10c85k"
+path="res://.godot/imported/The_stage_looks_like_a_museum_of_moral_lessons_each_case_represented_with_care.mp3-61a900b8bf08db3560f51390aafadabb.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s1/The_stage_looks_like_a_museum_of_moral_lessons_each_case_represented_with_care.mp3"
+dest_files=["res://.godot/imported/The_stage_looks_like_a_museum_of_moral_lessons_each_case_represented_with_care.mp3-61a900b8bf08db3560f51390aafadabb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

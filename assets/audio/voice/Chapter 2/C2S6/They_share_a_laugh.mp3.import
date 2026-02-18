@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://pc514blga0gr"
+path="res://.godot/imported/They_share_a_laugh.mp3-00cffedce29e256638ab00ed0648b4fe.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/C2S6/They_share_a_laugh.mp3"
+dest_files=["res://.godot/imported/They_share_a_laugh.mp3-00cffedce29e256638ab00ed0648b4fe.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://mtfl7sh87px3"
+path="res://.godot/imported/a_shadow_moves.mp3-f8e91c2967332b6cbe73ea62e9e89890.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s0/a_shadow_moves.mp3"
+dest_files=["res://.godot/imported/a_shadow_moves.mp3-f8e91c2967332b6cbe73ea62e9e89890.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

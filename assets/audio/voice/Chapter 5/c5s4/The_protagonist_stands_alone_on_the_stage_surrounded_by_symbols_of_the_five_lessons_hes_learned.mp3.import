@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://td1nw7nel07k"
+path="res://.godot/imported/The_protagonist_stands_alone_on_the_stage_surrounded_by_symbols_of_the_five_lessons_hes_learned.mp3-0b61dd0d3066584c87e4e094211b132c.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s4/The_protagonist_stands_alone_on_the_stage_surrounded_by_symbols_of_the_five_lessons_hes_learned.mp3"
+dest_files=["res://.godot/imported/The_protagonist_stands_alone_on_the_stage_surrounded_by_symbols_of_the_five_lessons_hes_learned.mp3-0b61dd0d3066584c87e4e094211b132c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

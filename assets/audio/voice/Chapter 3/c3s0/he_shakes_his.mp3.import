@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d0k5gmxoqxhd"
+path="res://.godot/imported/he_shakes_his.mp3-30c9ac0b1d09208aafd105a8f3afef84.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s0/he_shakes_his.mp3"
+dest_files=["res://.godot/imported/he_shakes_his.mp3-30c9ac0b1d09208aafd105a8f3afef84.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

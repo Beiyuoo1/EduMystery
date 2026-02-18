@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://4qv0pwvfmuw6"
+path="res://.godot/imported/The_protagonist_looks.mp3-225046706589fe640493419a6f61be6e.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 1/C1s5/The_protagonist_looks.mp3"
+dest_files=["res://.godot/imported/The_protagonist_looks.mp3-225046706589fe640493419a6f61be6e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

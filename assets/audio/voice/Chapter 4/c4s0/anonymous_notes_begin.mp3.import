@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bghga0hov181d"
+path="res://.godot/imported/anonymous_notes_begin.mp3-3ea5b0162b0a8f50a17473ee97cf1e57.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/c4s0/anonymous_notes_begin.mp3"
+dest_files=["res://.godot/imported/anonymous_notes_begin.mp3-3ea5b0162b0a8f50a17473ee97cf1e57.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

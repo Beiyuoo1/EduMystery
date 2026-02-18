@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://8kst0dxcu1db"
+path="res://.godot/imported/msreyes_sets_down.mp3-56d041a97897301d63f26af5c6496a41.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s2/msreyes_sets_down.mp3"
+dest_files=["res://.godot/imported/msreyes_sets_down.mp3-56d041a97897301d63f26af5c6496a41.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

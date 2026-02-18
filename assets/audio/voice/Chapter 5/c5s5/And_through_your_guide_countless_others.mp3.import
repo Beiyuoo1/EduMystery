@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bh2dmmw6kfcnq"
+path="res://.godot/imported/And_through_your_guide_countless_others.mp3-abcac70f1027d3234d5ebb1f4a2a6996.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s5/And_through_your_guide_countless_others.mp3"
+dest_files=["res://.godot/imported/And_through_your_guide_countless_others.mp3-abcac70f1027d3234d5ebb1f4a2a6996.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

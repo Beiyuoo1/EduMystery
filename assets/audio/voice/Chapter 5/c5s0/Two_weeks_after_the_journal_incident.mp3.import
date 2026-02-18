@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bxt4dv5dxhyic"
+path="res://.godot/imported/Two_weeks_after_the_journal_incident.mp3-840e1d322fa5c7524c25de5210e10078.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s0/Two_weeks_after_the_journal_incident.mp3"
+dest_files=["res://.godot/imported/Two_weeks_after_the_journal_incident.mp3-840e1d322fa5c7524c25de5210e10078.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

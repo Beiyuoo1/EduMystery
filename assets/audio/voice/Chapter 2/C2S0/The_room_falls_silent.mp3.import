@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://g4albkhcbtb8"
+path="res://.godot/imported/The_room_falls_silent.mp3-993ad0467c9d1fb0ff4dfedaab19de0b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/C2S0/The_room_falls_silent.mp3"
+dest_files=["res://.godot/imported/The_room_falls_silent.mp3-993ad0467c9d1fb0ff4dfedaab19de0b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

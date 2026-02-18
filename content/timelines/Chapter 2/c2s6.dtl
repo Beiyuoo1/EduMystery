@@ -1,5 +1,6 @@
+audio music "res://assets/audio/bg/chill3.mp3" [loop="true"]
 [background arg="res://Bg/council_room.png" fade="1.0"]
-[voice path="res://assets/audio/voice/Chapter 2/c2s6 mathilda/The Student Council.mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 2/C2S6/The_Student_Council_room_looks_different_now.mp3" volume="0.0"]
 The Student Council room looks different now. Afternoon light streams through the windows, warm and hopeful.
 if {selected_character} == "celestine":
 	join Celestine (animated) left
@@ -35,55 +36,61 @@ else:
 	Mark: She said she'll be more careful with the money from now on. Double-check everything.
 	Mark: And she'll speak up if something feels wrong. No more keeping secrets out of fear.
 	Conrad: That's all we can ask for.
+[voice path="res://assets/audio/voice/Chapter 2/C2S6/The_Protagonist_notices_something.mp3" volume="0.0"]
 if {selected_character} == "celestine":
-	The room falls quiet. Celestine notices something on the table that wasn't there before.
+	The Protagonist notices something on the table that wasn't there before.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/A_small_elegant_card.mp3" volume="0.0"]
 	A small, elegant card rests on the surface, its edges crisp and clean.
 	[signal arg="unlock_evidence bc_card_responsibility_c2"]
 	Celestine: What's this?
-	Celestine picks it up, examining it with curiosity.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/The_Protagonist_picks_it_up.mp3" volume="0.0"]
+	The Protagonist picks it up, examining it with curiosity.
 	Mark: Another one? Like after the last case?
-	Celestine reads the card aloud.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/The_Protagonist_reads_the_card_aloud.mp3" volume="0.0"]
+	The Protagonist reads the card aloud.
 	Celestine: "Lesson 2\: Responsibility."
 	Celestine: "True responsibility isn't about pointing out others' failures."
 	Celestine: "It's about building trust, even when no one is watching."
 	Mark: That's... actually pretty deep.
-	She continues reading.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/The_Protagonist_continues_reading.mp3" volume="0.0"]
+	The Protagonist continues reading.
 	Celestine: "The one who manipulates in the name of righteousness is still a manipulator."
 	Celestine: "Well done, detectives. The chain continues."
 	Celestine: "Signed... B.C."
 else:
-	[voice path="res://assets/audio/voice/Chapter 2/c2s6 mathilda/The room falls quiet.mp3" volume=0 bus="Master"]
-	The room falls quiet. Conrad notices something on the table that wasn't there before.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s6 mathilda/A small, elegant.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/The_Protagonist_notices_something.mp3" volume="0.0"]
+	The Protagonist notices something on the table that wasn't there before.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/A_small_elegant_card.mp3" volume="0.0"]
 	A small, elegant card rests on the surface, its edges crisp and clean.
 	[signal arg="unlock_evidence bc_card_responsibility_c2"]
 	Conrad: What's this?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s6 mathilda/Conrad picks it up.mp3" volume=0 bus="Master"]
-	Conrad picks it up, examining it with curiosity.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/The_Protagonist_picks_it_up.mp3" volume="0.0"]
+	The Protagonist picks it up, examining it with curiosity.
 	Mark: Another one? Like after the last case?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s6 mathilda/Conrad reads the card aloud..mp3" volume=0 bus="Master"]
-	Conrad reads the card aloud.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/The_Protagonist_reads_the_card_aloud.mp3" volume="0.0"]
+	The Protagonist reads the card aloud.
 	Conrad: "Lesson 2\: Responsibility."
 	Conrad: "True responsibility isn't about pointing out others' failures."
 	Conrad: "It's about building trust, even when no one is watching."
 	Mark: That's... actually pretty deep.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s6 mathilda/He continues reading..mp3" volume=0 bus="Master"]
-	He continues reading.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/The_Protagonist_continues_reading.mp3" volume="0.0"]
+	The Protagonist continues reading.
 	Conrad: "The one who manipulates in the name of righteousness is still a manipulator."
 	Conrad: "Well done, detectives. The chain continues."
 	Conrad: "Signed... B.C."
 Mark: B.C. again. Just like the note from the first case.
 Mark: Who is this person? How do they keep leaving these notes?
-[voice path="res://assets/audio/voice/Chapter 2/c2s6 mathilda/Conrad stares at the note.mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 2/c2s6 mathilda/Conrad stares at the note.mp3" volume="0.0"]
 join "Diwata Laya" (Half_mirror) center
 [signal arg="laya_start"]
-[voice path="res://assets/audio/voice/Chapter 2/c2s6 mathilda/Diwata Laya appears.mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 2/C2S6/Diwata_Laya_appears,_studying_the_card_with_ancient_eyes.mp3" volume="0.0"]
 "Diwata Laya" appears, studying the card with ancient eyes.
 "Diwata Laya": B.C. The same presence I sensed before.
 "Diwata Laya": They are watching your progress. Testing you, perhaps.
 "Diwata Laya": "The chain continues." There will be more mysteries to solve.
 if {selected_character} == "celestine":
 	Celestine: Do you know who B.C. is?
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/Diwata_Laya_shakes_her_head_slowly.mp3" volume="0.0"]
 	"Diwata Laya" shakes her head slowly.
 	"Diwata Laya": Even I cannot see them clearly. They move between moments, leaving only traces.
 	"Diwata Laya": But I sense no malice. Only... purpose. A lesson being taught, across time.
@@ -96,42 +103,52 @@ if {selected_character} == "celestine":
 	Mark: First lesson was about truth. This one was about responsibility.
 	Mark: I wonder what's next.
 	Celestine: We'll find out when we're meant to.
-	Celestine stares at the note, deep in thought.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/The_Protagonist_stares_at_the_note.mp3" volume="0.0"]
+	The Protagonist stares at the note, deep in thought.
 	Celestine: Every case, we learn something new. About others. About ourselves.
 	Celestine: Ryan thought he was being responsible. Protecting the school from carelessness.
 	Celestine: But real responsibility isn't about controlling others or proving them wrong.
 	Mark: It's about what you do when no one else is looking.
-	Celestine nods.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/The_Protagonist_nods.mp3" volume="0.0"]
+	The Protagonist nods.
 	Celestine: Ria checked that lockbox every day. Counted every peso. Not because anyone was watching.
 	Celestine: Because she remembered what it felt like to need help. And she wanted to be there for others.
 	Mark: That's the real difference, isn't it?
 	Mark: Ryan wanted to be seen as responsible. Ria just... was.
 	Celestine: Exactly.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/Mark_tries_to_lighten_the_mood.mp3" volume="0.0"]
 	Mark tries to lighten the mood.
 	Mark: Deep thoughts, sis. You're getting philosophical on me.
 	Celestine: Just thinking out loud.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/A_comfortable_silence_settles_between_them.mp3" volume="0.0"]
 	A comfortable silence settles between them.
 	Celestine: Come on. Let's go get some lunch. I'm starving.
 	Mark: Some things never change.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/They_share_a_laugh.mp3" volume="0.0"]
 	They share a laugh as they head toward the door.
-	Celestine pauses at the door.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/The_Protagonist_pauses_at_the_door.mp3" volume="0.0"]
+	The Protagonist pauses at the door.
 	Celestine: Hey, Mark?
 	Mark: Yeah?
 	Celestine: Thanks for believing in me. For taking these cases seriously.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/Mark_grins.mp3" volume="0.0"]
 	Mark grins.
 	Mark: What are partners for?
 	Celestine: Partners. I like the sound of that.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/They_leave_the_room_together.mp3" volume="0.0"]
 	They leave the room together, their footsteps echoing down the hallway.
 	leave Celestine
 	leave Mark
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/The_BC_card_remains_on_the_table.mp3" volume="0.0"]
 	The B.C. card remains on the table, catching the last rays of afternoon sunlight.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/The_chain_continues.mp3" volume="0.0"]
 	The chain continues.
 	[wait time="1.0"]
 	[signal arg="show_chapter_results"]
 	jump c3s0/
 else:
 	Conrad: Do you know who B.C. is?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s6 mathilda/diwata laya shakes.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/Diwata_Laya_shakes_her_head_slowly.mp3" volume="0.0"]
 	"Diwata Laya" shakes her head slowly.
 	"Diwata Laya": Even I cannot see them clearly. They move between moments, leaving only traces.
 	"Diwata Laya": But I sense no malice. Only... purpose. A lesson being taught, across time.
@@ -144,43 +161,49 @@ else:
 	Mark: First lesson was about truth. This one was about responsibility.
 	Mark: I wonder what's next.
 	Conrad: We'll find out when we're meant to.
-	Conrad stares at the note, deep in thought.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/The_Protagonist_stares_at_the_note.mp3" volume="0.0"]
+	The Protagonist stares at the note, deep in thought.
 	Conrad: Every case, we learn something new. About others. About ourselves.
 	Conrad: Ryan thought he was being responsible. Protecting the school from carelessness.
 	Conrad: But real responsibility isn't about controlling others or proving them wrong.
 	Mark: It's about what you do when no one else is looking.
-	Conrad nods.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/The_Protagonist_nods.mp3" volume="0.0"]
+	The Protagonist nods.
 	Conrad: Ria checked that lockbox every day. Counted every peso. Not because anyone was watching.
 	Conrad: Because she remembered what it felt like to need help. And she wanted to be there for others.
 	Mark: That's the real difference, isn't it?
 	Mark: Ryan wanted to be seen as responsible. Ria just... was.
 	Conrad: Exactly.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s6 mathilda/Mark tries to lighten the mood..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/Mark_tries_to_lighten_the_mood.mp3" volume="0.0"]
 	Mark tries to lighten the mood.
 	Mark: Deep thoughts, Conrad. You're getting philosophical on me.
 	Conrad: Just thinking out loud.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s6 mathilda/A comfortable silence settles between them.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/A_comfortable_silence_settles_between_them.mp3" volume="0.0"]
 	A comfortable silence settles between them.
 	Conrad: Come on. Let's go get some lunch. I'm starving.
 	Mark: Some things never change.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/They_share_a_laugh.mp3" volume="0.0"]
 	They share a laugh as they head toward the door.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s6 mathilda/Conrad pauses at the door..mp3" volume=0 bus="Master"]
-	Conrad pauses at the door.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/The_Protagonist_pauses_at_the_door.mp3" volume="0.0"]
+	The Protagonist pauses at the door.
 	Conrad: Hey, Mark?
 	Mark: Yeah?
 	Conrad: Thanks for believing in me. For taking these cases seriously.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s6 mathilda/Mark grins..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/Mark_grins.mp3" volume="0.0"]
 	Mark grins.
 	Mark: What are partners for?
 	Conrad: Partners. I like the sound of that.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s6 mathilda/They leave the room together.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/They_leave_the_room_together.mp3" volume="0.0"]
 	They leave the room together, their footsteps echoing down the hallway.
 	leave Conrad
 	leave Mark
-	[voice path="res://assets/audio/voice/Chapter 2/c2s6 mathilda/The B.C. card remains on the table.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/The_BC_card_remains_on_the_table.mp3" volume="0.0"]
 	The B.C. card remains on the table, catching the last rays of afternoon sunlight.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s6 mathilda/Conrad nods..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S6/The_chain_continues.mp3" volume="0.0"]
 	The chain continues.
 	[wait time="1.0"]
+	audio music "res://assets/audio/chapter_end_bg.mp3" [fade="0.5" volume="0.0" bus="Music" loop="true"]
+	[wait time="1.0"]
 	[signal arg="show_chapter_results"]
+	audio stop_music "[fade="
 	jump c3s0/

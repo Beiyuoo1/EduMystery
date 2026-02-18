@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d2w58ix7gti4g"
+path="res://.godot/imported/Principal_picks_up_the_chalk_evidence.mp3-136c73c55f51df368b90314d88725e6e.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s3/Principal_picks_up_the_chalk_evidence.mp3"
+dest_files=["res://.godot/imported/Principal_picks_up_the_chalk_evidence.mp3-136c73c55f51df368b90314d88725e6e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

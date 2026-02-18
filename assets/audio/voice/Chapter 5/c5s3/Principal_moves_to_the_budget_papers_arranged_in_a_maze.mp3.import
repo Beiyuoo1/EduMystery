@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://batucsm20dnvj"
+path="res://.godot/imported/Principal_moves_to_the_budget_papers_arranged_in_a_maze.mp3-454976ed7c82e61d6901a20a554b2aad.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s3/Principal_moves_to_the_budget_papers_arranged_in_a_maze.mp3"
+dest_files=["res://.godot/imported/Principal_moves_to_the_budget_papers_arranged_in_a_maze.mp3-454976ed7c82e61d6901a20a554b2aad.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

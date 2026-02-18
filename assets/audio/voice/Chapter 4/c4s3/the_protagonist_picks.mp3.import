@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dk7hfdwuvei7"
+path="res://.godot/imported/the_protagonist_picks.mp3-4f31d92a3d17ad85678373941ff5277a.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/c4s3/the_protagonist_picks.mp3"
+dest_files=["res://.godot/imported/the_protagonist_picks.mp3-4f31d92a3d17ad85678373941ff5277a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

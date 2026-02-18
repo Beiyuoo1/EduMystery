@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://x1ti3ja6554j"
+path="res://.godot/imported/three_lessons_learned.mp3-81deb29afdb4868cf0cf6117c6da917b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s6/three_lessons_learned.mp3"
+dest_files=["res://.godot/imported/three_lessons_learned.mp3-81deb29afdb4868cf0cf6117c6da917b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

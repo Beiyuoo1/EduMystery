@@ -1,5 +1,5 @@
 [background arg="res://Bg/library_archive.png" fade="1.0"]
-[voice path="res://assets/audio/voice/Chapter 4/C4S3/c4s3 the archive is dim.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/c4s3/the_archive_is.mp3" volume=10 bus="Voice"]
 The archive is dim, dusty, and cramped. Shelves tower overhead, packed with decades of materials.
 if {selected_character} == "celestine":
 	join Celestine (animated) left
@@ -10,14 +10,14 @@ Mark: This place is ancient. How are we supposed to find anything?
 if {selected_character} == "celestine":
 	Celestine: The librarian said Alex was looking at educational records from the 1990s.
 	Celestine: Let's check that section.
-	[voice path="res://assets/audio/voice/Chapter 4/C4S3/c4s3 they move to a filing.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/c4s3/they_move_to.mp3" volume=10 bus="Voice"]
 	They move to a filing cabinet marked "1990-1995 Educational Materials."
 	Celestine pulls open a drawer.
 	Celestine: Wait. There's a gap here. Something's been removed.
 	Mark: Recently?
 	Celestine: The dust pattern suggests yes. Within the last week or two.
 	Celestine: And look at this.
-	[voice path="res://assets/audio/voice/Chapter 4/C4S3/c4s3 he picks up.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/c4s3/the_protagonist_picks.mp3" volume=10 bus="Voice"]
 	She picks up a small piece of paper that had fallen behind the files.
 	Celestine: A bookmark. With Alex's name on it from the school bookstore.
 	Mark: That's pretty solid evidence she was here.
@@ -25,14 +25,14 @@ if {selected_character} == "celestine":
 else:
 	Conrad: The librarian said Alex was looking at educational records from the 1990s.
 	Conrad: Let's check that section.
-	[voice path="res://assets/audio/voice/Chapter 4/C4S3/c4s3 they move to a filing.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/c4s3/they_move_to.mp3" volume=10 bus="Voice"]
 	They move to a filing cabinet marked "1990-1995 Educational Materials."
 	Conrad pulls open a drawer.
 	Conrad: Wait. There's a gap here. Something's been removed.
 	Mark: Recently?
 	Conrad: The dust pattern suggests yes. Within the last week or two.
 	Conrad: And look at this.
-	[voice path="res://assets/audio/voice/Chapter 4/C4S3/c4s3 he picks up.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/c4s3/the_protagonist_picks.mp3" volume=10 bus="Voice"]
 	He picks up a small piece of paper that had fallen behind the files.
 	Conrad: A bookmark. With Alex's name on it from the school bookstore.
 	Mark: That's pretty solid evidence she was here.
@@ -82,7 +82,7 @@ elif {selected_subject} == "science":
 [signal arg="laya_end"]
 leave "Diwata Laya"
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 4/C4S3/c4s3 conrad examines the archive.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/c4s3/the_protagonist_examines.mp3" volume=10 bus="Voice"]
 	Celestine examines the archive access log the librarian provided.
 	Celestine: Alex accessed the archive on two dates\: one week ago, and three days ago.
 	Celestine: The first mysterious note appeared five days ago.
@@ -99,13 +99,13 @@ if {selected_character} == "celestine":
 	Celestine: We need to talk to her before this escalates further.
 	leave Celestine
 else:
-	[voice path="res://assets/audio/voice/Chapter 4/C4S3/c4s3 conrad examines the archive.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/c4s3/the_protagonist_examines.mp3" volume=10 bus="Voice"]
 	Conrad examines the archive access log the librarian provided.
 	Conrad: Alex accessed the archive on two dates\: one week ago, and three days ago.
 	Conrad: The first mysterious note appeared five days ago.
 	Mark: So she found something a week ago, and started creating notes two days later.
 	Conrad: After she had time to read and plan.
-	[voice path="res://assets/audio/voice/Chapter 4/C4S3/c4s3 conrad checks.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/c4s3/the_protagonist_checks.mp3" volume=10 bus="Voice"]
 	Conrad checks the remaining files in the drawer.
 	Conrad: The missing item was catalogued as "Educator's Journal - Anonymous - 1992-1995."
 	Conrad: Description\: "Personal teaching philosophy and experimental pedagogy notes."
@@ -115,7 +115,7 @@ else:
 	Mark: But she's not a teacher. She doesn't have the training to do this ethically.
 	Conrad: That's the problem. She has the knowledge but not the wisdom to use it properly.
 	Conrad: We need to talk to her before this escalates further.
-	[voice path="res://assets/audio/voice/Chapter 4/C4S3/c4s3 they leave the archive.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/c4s3/the_protagonist_pulls.mp3" volume=10 bus="Voice"]
 	leave Conrad
 leave Mark
 [background arg="res://Bg/hallway.png" fade="1.0"]

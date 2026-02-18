@@ -1,51 +1,53 @@
 [background arg="res://Bg/computer_lab.png" fade="1.0"]
+audio music "res://assets/audio/bg/suspicious.mp3" [loop="true"]
 set {c2s2_santos_tried} = false
 set {c2s2_outsider_tried} = false
 set {c2s2_alex_tried} = false
-[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/The computer lab.mp3" volume="0.0"]
+[voice path="res://assets/audio/voice/Chapter 2/C2S2/The_computer_lab_hums.mp3" volume="0.0"]
 The computer lab hums with the sound of cooling fans. Ryan sits alone at a terminal, typing rapidly.
 if {selected_character} == "celestine":
 	join Celestine (half) left
 	join Ryan (half) right
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Ryan looks up.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Ryan_looks_up_his_expression.mp3" volume="0.0"]
 	Ryan looks up, his expression immediately guarded.
 	Ryan: Great. More people coming to interrogate me.
 	Celestine: We're not interrogating anyone. Just gathering information.
 	Ryan: That's what everyone says before they point fingers.
 	Celestine: We're trying to find the truth, Ryan. Not assign blame.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Ryan_crosses_his_arms.mp3" volume="0.0"]
 	Ryan crosses his arms, but his posture relaxes slightly.
 	Ryan: Fine. What do you want to know?
 	Celestine: You were here yesterday evening. What were you working on?
 	Ryan: My budget proposal. The one the council rejected last week.
 	Celestine: Why were you revising a rejected proposal?
 	Ryan: Because they were wrong to reject it. I was adding more data to prove my point.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Ryan_s_voice_with_frustration.mp3" volume="0.0"]
 	Ryan's voice rises with frustration.
 	Ryan: Do you know how much the council wastes on decorations? Fifteen thousand pesos for Foundation Day banners.
 	Ryan: Meanwhile, the basketball team is using balls held together with tape.
 	Celestine: That sounds frustrating.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Ryans voices rises.mp3" volume="0.0"]
 	Ryan: Frustrating doesn't begin to cover it. I've been fighting for better resource allocation for months.
 	Ryan: Nobody listens. They just smile and vote no.
 	Celestine: Where were you between 6\:30 and 7\:00 yesterday?
 	Ryan: Here. Printing documents. The printer kept jamming.
 	Celestine: Did you leave the lab at any point during that time?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Ryan hesitates for just a moment.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Ryan_hesitates_for_just_a_moment.mp3" volume="0.0"]
 	Ryan hesitates for just a moment.
 	Ryan: I... went to the bathroom once. Maybe 6\:40? It was just a few minutes.
 	Celestine: Did you see anyone in the hallway?
 	Ryan: Ms. Santos was walking toward the cafeteria. Probably getting coffee.
 	Ryan: And I think I saw Alex heading toward the faculty room around the same time.
 	Celestine: Alex? The former treasurer?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Ryan shrugs.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Ryan_shrugs.mp3" volume="0.0"]
 	Ryan shrugs.
 	Ryan: Yeah. She was carrying some folders. Probably club stuff.
 	Celestine: Anyone else?
 	Ryan: No. The building was pretty empty by then.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Ryan stands abruptly.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Ryan_stands_abruptly.mp3" volume="0.0"]
 	Ryan stands abruptly.
 	Ryan: Look, I didn't take the money. I have my complaints about the council, but I'm not a thief.
 	Ryan: Now if you'll excuse me, I have work to do.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Ryan returns to his computer.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Ryan_returns_to_his_computer.mp3" volume="0.0"]
 	Ryan returns to his computer, typing more aggressively than before.
 	leave Ryan
 	join Mark (Mark_half) right
@@ -58,20 +60,20 @@ if {selected_character} == "celestine":
 else:
 	join Conrad (half) left
 	join Ryan (half) right
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Ryan looks up.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Ryan_looks_up_his_expression.mp3" volume="0.0"]
 	Ryan looks up, his expression immediately guarded.
 	Ryan: Great. More people coming to interrogate me.
 	Conrad: We're not interrogating anyone. Just gathering information.
 	Ryan: That's what everyone says before they point fingers.
 	Conrad: We're trying to find the truth, Ryan. Not assign blame.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Ryan crosses his arms.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Ryan_crosses_his_arms.mp3" volume="0.0"]
 	Ryan crosses his arms, but his posture relaxes slightly.
 	Ryan: Fine. What do you want to know?
 	Conrad: You were here yesterday evening. What were you working on?
 	Ryan: My budget proposal. The one the council rejected last week.
 	Conrad: Why were you revising a rejected proposal?
 	Ryan: Because they were wrong to reject it. I was adding more data to prove my point.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Ryans voices rises.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Ryan_s_voice_with_frustration.mp3" volume="0.0"]
 	Ryan's voice rises with frustration.
 	Ryan: Do you know how much the council wastes on decorations? Fifteen thousand pesos for Foundation Day banners.
 	Ryan: Meanwhile, the basketball team is using balls held together with tape.
@@ -81,23 +83,23 @@ else:
 	Conrad: Where were you between 6\:30 and 7\:00 yesterday?
 	Ryan: Here. Printing documents. The printer kept jamming.
 	Conrad: Did you leave the lab at any point during that time?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Ryan hesitates for just a moment.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Ryan_hesitates_for_just_a_moment.mp3" volume="0.0"]
 	Ryan hesitates for just a moment.
 	Ryan: I... went to the bathroom once. Maybe 6\:40? It was just a few minutes.
 	Conrad: Did you see anyone in the hallway?
 	Ryan: Ms. Santos was walking toward the cafeteria. Probably getting coffee.
 	Ryan: And I think I saw Alex heading toward the faculty room around the same time.
 	Conrad: Alex? The former treasurer?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Ryan shrugs.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Ryan_shrugs.mp3" volume="0.0"]
 	Ryan shrugs.
 	Ryan: Yeah. She was carrying some folders. Probably club stuff.
 	Conrad: Anyone else?
 	Ryan: No. The building was pretty empty by then.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Ryan stands abruptly.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Ryan_stands_abruptly.mp3" volume="0.0"]
 	Ryan stands abruptly.
 	Ryan: Look, I didn't take the money. I have my complaints about the council, but I'm not a thief.
 	Ryan: Now if you'll excuse me, I have work to do.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Ryan returns to his computer.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Ryan_returns_to_his_computer.mp3" volume="0.0"]
 	Ryan returns to his computer, typing more aggressively than before.
 	leave Ryan
 	join Mark (Mark_half) right
@@ -108,13 +110,14 @@ else:
 	leave Conrad
 	leave Mark
 [background arg="res://Bg/faculty_empty.png" fade="1.0"]
-[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/The faculty room.mp3" volume="0.0"]
+[voice path="res://assets/audio/voice/Chapter 2/C2S2/The_faculty_room_is_quiet.mp3" volume="0.0"]
 The faculty room is quiet. Ms. Santos sits at her desk, surrounded by stacks of papers.
 if {selected_character} == "celestine":
 	join Celestine (half) left
 	join "Ms Santos" (half) right
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Ms santos looks up.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Ms._Santos_looks_up_with_tired_eyes.mp3" volume="0.0"]
 	Ms. Santos looks up with tired eyes. Dark circles suggest she hasn't slept well.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/She_sighs_heavily.mp3" volume="0.0"]
 	She sighs heavily.
 	"Ms Santos": More questions. I've already spoken to the principal twice.
 	Celestine: We're sorry to bother you, Ma'am. We just want to understand what happened.
@@ -123,24 +126,25 @@ if {selected_character} == "celestine":
 	"Ms Santos": I was grading papers. Test week means mountains of work.
 	"Ms Santos": I stayed until 8 PM to finish the Grade 9 exams.
 	Celestine: Did you leave your desk at any point?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Ms santos fidget with the pen.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Ms._Santos_fidgets_with_a_pen.mp3" volume="0.0"]
 	Ms. Santos fidgets with a pen, avoiding eye contact.
 	"Ms Santos": I... took a coffee break around 6\:30. Maybe fifteen minutes.
 	Celestine: Did you lock your desk drawer before leaving?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Her voice drops.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Her_voice_drops_to_barely.mp3" volume="0.0"]
 	Her voice drops to barely above a whisper.
 	"Ms Santos": I'm not sure. I might have forgotten.
 	"Ms Santos": With all the grading, I've been so scattered lately. Small things slip my mind.
 	Celestine: The council office key is kept in that drawer, correct?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Her tone becomes defensive.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Her_tone_becomes_defensive.mp3" volume="0.0"]
 	Her tone becomes defensive.
 	"Ms Santos": Yes. And I know what you're thinking.
 	"Ms Santos": I'm the one who let this happen. If I had just remembered to lock it...
 	Celestine: We're not blaming you, Ma'am. We're trying to understand who had opportunity.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Ms._Santos_slumps_in_her_hair.mp3" volume="0.0"]
 	"Ms Santos" slumps in her chair.
 	"Ms Santos": Anyone could have taken that key during my break. The faculty room door was unlocked.
 	Celestine: Did you see anyone when you returned from your break?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/She pauses to think.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/She_pauses_to_think.mp3" volume="0.0"]
 	She pauses to think.
 	"Ms Santos": When I was coming back... I think I saw Ryan. Near the stairwell.
 	"Ms Santos": And now that I think about it... Alex was in the hallway too.
@@ -150,7 +154,7 @@ if {selected_character} == "celestine":
 	Celestine: What time was that?
 	"Ms Santos": Around 6\:45. Maybe a few minutes before.
 	Celestine: Did Alex go into the faculty room?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Uncetainty crosses her face.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Uncertainty_crosses_her_face.mp3" volume="0.0"]
 	Uncertainty crosses her face.
 	"Ms Santos": I... I don't know. I went to get my coffee. She was still in the hallway when I left.
 	Celestine: Thank you, Ma'am. This is helpful.
@@ -166,8 +170,9 @@ if {selected_character} == "celestine":
 else:
 	join Conrad (half) left
 	join "Ms Santos" (half) right
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Ms santos looks up.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Ms._Santos_looks_up_with_tired_eyes.mp3" volume="0.0"]
 	"Ms Santos" looks up with tired eyes. Dark circles suggest she hasn't slept well.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/She_sighs_heavily.mp3" volume="0.0"]
 	She sighs heavily.
 	"Ms Santos": More questions. I've already spoken to the principal twice.
 	Conrad: We're sorry to bother you, Ma'am. We just want to understand what happened.
@@ -176,25 +181,25 @@ else:
 	"Ms Santos": I was grading papers. Test week means mountains of work.
 	"Ms Santos": I stayed until 8 PM to finish the Grade 9 exams.
 	Conrad: Did you leave your desk at any point?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Ms santos fidget with the pen.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Ms._Santos_fidgets_with_a_pen.mp3" volume="0.0"]
 	"Ms Santos" fidgets with a pen, avoiding eye contact.
 	"Ms Santos": I... took a coffee break around 6\:30. Maybe fifteen minutes.
 	Conrad: Did you lock your desk drawer before leaving?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Her voice drops.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Her_voice_drops_to_barely.mp3" volume="0.0"]
 	Her voice drops to barely above a whisper.
 	"Ms Santos": I'm not sure. I might have forgotten.
 	"Ms Santos": With all the grading, I've been so scattered lately. Small things slip my mind.
 	Conrad: The council office key is kept in that drawer, correct?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Her tone becomes defensive.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Her_tone_becomes_defensive.mp3" volume="0.0"]
 	Her tone becomes defensive.
 	"Ms Santos": Yes. And I know what you're thinking.
 	"Ms Santos": I'm the one who let this happen. If I had just remembered to lock it...
 	Conrad: We're not blaming you, Ma'am. We're trying to understand who had opportunity.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Ms._Santos_slumps_in_her_hair.mp3" volume="0.0"]
 	Ms. Santos slumps in her chair.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Her voice drops.mp3" volume="0.0"]
 	"Ms Santos": Anyone could have taken that key during my break. The faculty room door was unlocked.
 	Conrad: Did you see anyone when you returned from your break?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/She pauses to think.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/She_pauses_to_think.mp3" volume="0.0"]
 	She pauses to think.
 	"Ms Santos": When I was coming back... I think I saw Ryan. Near the stairwell.
 	"Ms Santos": And now that I think about it... Alex was in the hallway too.
@@ -204,7 +209,7 @@ else:
 	Conrad: What time was that?
 	"Ms Santos": Around 6\:45. Maybe a few minutes before.
 	Conrad: Did Alex go into the faculty room?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Uncetainty crosses her face.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Uncertainty_crosses_her_face.mp3" volume="0.0"]
 	Uncertainty crosses her face.
 	"Ms Santos": I... I don't know. I went to get my coffee. She was still in the hallway when I left.
 	Conrad: Thank you, Ma'am. This is helpful.
@@ -218,16 +223,16 @@ else:
 	leave Conrad
 	leave Mark
 [background arg="res://Bg/hallway.png" fade="1.0"]
-[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/They find alex.mp3" volume="0.0"]
+[voice path="res://assets/audio/voice/Chapter 2/C2S2/They_find_Alex_near_the_bulletin_board.mp3" volume="0.0"]
 They find Alex near the bulletin board, studying the club announcements.
 if {selected_character} == "celestine":
 	join Celestine (half) left
 	join Alex (half) right
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Alex turns.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Alex_turns_as_they_approach.mp3" volume="0.0"]
 	Alex turns as they approach, her expression wary.
 	Alex: Let me guess. You're here about the missing money.
 	Celestine: Word travels fast.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Bitterness creeps.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Bitterness_creeps_in_her_voice.mp3" volume="0.0"]
 	Bitterness creeps into her voice.
 	Alex: Especially when people are looking for someone to blame besides precious Ria.
 	Celestine: You sound frustrated.
@@ -239,7 +244,7 @@ if {selected_character} == "celestine":
 	Alex: I had some old documents to return to the faculty room.
 	Alex: Club budget records from last year. They needed them for the audit.
 	Celestine: Did you go inside the faculty room?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Alex hesitates.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Alex_hesistates_crossing.mp3" volume="0.0"]
 	Alex hesitates, crossing her arms defensively.
 	Alex: I... stepped in briefly. Ms. Santos wasn't there.
 	Alex: I left the folders in her inbox and left. That's it.
@@ -247,22 +252,22 @@ if {selected_character} == "celestine":
 	Alex: Ryan was lurking around. Near the stairs.
 	Alex: He's always complaining about the budget. Wouldn't surprise me if he finally snapped.
 	Celestine: You seem to know a lot about what happened.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Alex_s tones.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Alex_s_tone_turns_defensive.mp3" volume="0.0"]
 	Alex's tone turns defensive.
 	Alex: Because I was there! And because I actually pay attention.
 	Alex: Unlike some people who just waltz in and take over positions they didn't earn.
 	Mark: You mean Ria?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Alex scoffs.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Alex_scoffs.mp3" volume="0.0"]
 	Alex scoffs.
 	Alex: She made mistakes I never would have made. Leaving the lockbox unlocked overnight?
 	Alex: If I were still treasurer, this never would have happened.
 	Celestine: How do you know about Ria's mistake last year?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Alex expression flickers.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Alex_s _expression_flickers.mp3" volume="0.0"]
 	Alex's expression flickers for just a moment.
 	Alex: Everyone knows. Council gossip travels fast.
 	Alex: Look, I didn't take the money. I have nothing to prove and nothing to gain.
 	Alex: If you want a suspect, look at the guy who's been publicly ranting about budget waste for months.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Alex walk away.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Alex_waks_away.mp3" volume="0.0"]
 	Alex walks away before The Protagonist can ask more questions.
 	leave Alex
 	join Mark (Mark_half) right
@@ -275,11 +280,11 @@ if {selected_character} == "celestine":
 else:
 	join Conrad (half) left
 	join Alex (half) right
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Alex turns.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Alex_turns_as_they_approach.mp3" volume="0.0"]
 	Alex turns as they approach, her expression wary.
 	Alex: Let me guess. You're here about the missing money.
 	Conrad: Word travels fast.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Bitterness creeps.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Bitterness_creeps_in_her_voice.mp3" volume="0.0"]
 	Bitterness creeps into her voice.
 	Alex: Especially when people are looking for someone to blame besides precious Ria.
 	Conrad: You sound frustrated.
@@ -291,7 +296,7 @@ else:
 	Alex: I had some old documents to return to the faculty room.
 	Alex: Club budget records from last year. They needed them for the audit.
 	Conrad: Did you go inside the faculty room?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Alex hesitates.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Alex_hesistates_crossing.mp3" volume="0.0"]
 	Alex hesitates, crossing her arms defensively.
 	Alex: I... stepped in briefly. Ms. Santos wasn't there.
 	Alex: I left the folders in her inbox and left. That's it.
@@ -299,22 +304,22 @@ else:
 	Alex: Ryan was lurking around. Near the stairs.
 	Alex: He's always complaining about the budget. Wouldn't surprise me if he finally snapped.
 	Conrad: You seem to know a lot about what happened.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Alex_s tones.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Alex_s_tone_turns_defensive.mp3" volume="0.0"]
 	Alex's tone turns defensive.
 	Alex: Because I was there! And because I actually pay attention.
 	Alex: Unlike some people who just waltz in and take over positions they didn't earn.
 	Mark: You mean Ria?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Alex scoffs.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Alex_scoffs.mp3" volume="0.0"]
 	Alex scoffs.
 	Alex: She made mistakes I never would have made. Leaving the lockbox unlocked overnight?
 	Alex: If I were still treasurer, this never would have happened.
 	Conrad: How do you know about Ria's mistake last year?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Alex expression flickers.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Alex_s _expression_flickers.mp3" volume="0.0"]
 	Alex's expression flickers for just a moment.
 	Alex: Everyone knows. Council gossip travels fast.
 	Alex: Look, I didn't take the money. I have nothing to prove and nothing to gain.
 	Alex: If you want a suspect, look at the guy who's been publicly ranting about budget waste for months.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s2 narrator mathilda/Alex walk away.mp3" volume="0.0"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S2/Alex_waks_away.mp3" volume="0.0"]
 	Alex walks away before Conrad can ask more questions.
 	leave Alex
 	join Mark (Mark_half) right

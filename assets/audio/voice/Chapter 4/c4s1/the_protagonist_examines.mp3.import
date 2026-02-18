@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://nt8d1harqynh"
+path="res://.godot/imported/the_protagonist_examines.mp3-55d91ac07ba0323324c089e57677b94a.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/c4s1/the_protagonist_examines.mp3"
+dest_files=["res://.godot/imported/the_protagonist_examines.mp3-55d91ac07ba0323324c089e57677b94a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

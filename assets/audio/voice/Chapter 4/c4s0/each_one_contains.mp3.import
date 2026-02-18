@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ca5lnt2oeqbsv"
+path="res://.godot/imported/each_one_contains.mp3-afe0d26e9aca8c29390064f2b0ae043d.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/c4s0/each_one_contains.mp3"
+dest_files=["res://.godot/imported/each_one_contains.mp3-afe0d26e9aca8c29390064f2b0ae043d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dv1j6umd5a37g"
+path="res://.godot/imported/victors_voice_breaks.mp3-8dfbd7409e0965fd63537975969276d8.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s4/victors_voice_breaks.mp3"
+dest_files=["res://.godot/imported/victors_voice_breaks.mp3-8dfbd7409e0965fd63537975969276d8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

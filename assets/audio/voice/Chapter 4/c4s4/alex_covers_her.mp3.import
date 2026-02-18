@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://drh2sd5uhjhbo"
+path="res://.godot/imported/alex_covers_her.mp3-b839d555c2a0dfbaecb1984515bd1dc4.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/c4s4/alex_covers_her.mp3"
+dest_files=["res://.godot/imported/alex_covers_her.mp3-b839d555c2a0dfbaecb1984515bd1dc4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bb3wwujx3frj1"
+path="res://.godot/imported/the_protagonist_sits_at.mp3-a6eb7ca706299110d012207d88c3f993.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/c4s2/the_protagonist_sits_at.mp3"
+dest_files=["res://.godot/imported/the_protagonist_sits_at.mp3-a6eb7ca706299110d012207d88c3f993.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

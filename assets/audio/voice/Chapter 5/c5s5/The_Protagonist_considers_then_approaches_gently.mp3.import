@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c3c3qqhtuxe4h"
+path="res://.godot/imported/The_Protagonist_considers_then_approaches_gently.mp3-a803041f61edd96de5289dd0ad96f3c3.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s5/The_Protagonist_considers_then_approaches_gently.mp3"
+dest_files=["res://.godot/imported/The_Protagonist_considers_then_approaches_gently.mp3-a803041f61edd96de5289dd0ad96f3c3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

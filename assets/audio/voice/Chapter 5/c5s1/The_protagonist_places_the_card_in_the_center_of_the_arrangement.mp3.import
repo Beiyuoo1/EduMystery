@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cfnjw52kke4ih"
+path="res://.godot/imported/The_protagonist_places_the_card_in_the_center_of_the_arrangement.mp3-d7f1f848c5c0f89ec77b6d16d6b70aeb.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s1/The_protagonist_places_the_card_in_the_center_of_the_arrangement.mp3"
+dest_files=["res://.godot/imported/The_protagonist_places_the_card_in_the_center_of_the_arrangement.mp3-d7f1f848c5c0f89ec77b6d16d6b70aeb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

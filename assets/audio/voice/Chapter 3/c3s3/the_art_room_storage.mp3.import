@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cdo1h3pgs5j75"
+path="res://.godot/imported/the_art_room_storage.mp3-ccc4218d1495a534299cd4e76e473ef7.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s3/the_art_room_storage.mp3"
+dest_files=["res://.godot/imported/the_art_room_storage.mp3-ccc4218d1495a534299cd4e76e473ef7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

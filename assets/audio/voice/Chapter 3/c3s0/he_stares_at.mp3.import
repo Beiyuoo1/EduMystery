@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ceqgf8nthtcml"
+path="res://.godot/imported/he_stares_at.mp3-568ce3c9b4498544ce41fef94615d8fb.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s0/he_stares_at.mp3"
+dest_files=["res://.godot/imported/he_stares_at.mp3-568ce3c9b4498544ce41fef94615d8fb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

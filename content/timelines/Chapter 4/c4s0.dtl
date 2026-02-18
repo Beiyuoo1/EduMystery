@@ -2,64 +2,62 @@
 # Initialize variable (will be overwritten by init_character_var signal)
 set {selected_character} = ""
 [signal arg="init_character_var"]
-[music path="res://assets/audio/comfortable-mystery-4.mp3" fade="2.0" volume="0.0" loop="true"]
+audio music "res://assets/audio/comfortable-mystery-4.mp3" [fade="2.0" volume="0.0" bus="Music" loop="true"]
 [background arg="res://Bg/library_archive.png" fade="2.0"]
 set {chapter4_score} = 0
-[voice path="res://assets/audio/voice/Chapter 4/C4S0/c4s0 a week after.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/c4s0/a_week_after.mp3" volume="0.0" bus="Voice"]
 A week after the broken sculpture case...
-[voice path="res://assets/audio/voice/Chapter 4/C4S0/C4SO THE LIBRARY ARCHIVE.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/c4s0/the_library_archive.mp3" volume="0.0" bus="Voice"]
 The library archive is quiet, dusty, and forgotten. Shelves tower in the dim light, packed with decades of records.
 join Mystery (sillhouette) center [animation="Fade In" length="1.0" wait="true"]
-[voice path="res://assets/audio/voice/Chapter 4/C4S0/C4S0 ALEX SEARCHES THROUGH.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/c4s0/a_mysterious_person.mp3" volume="0.0" bus="Voice"]
 A mysterious person searches through old filing cabinets, looking for reference materials for a history project.
 Mystery (sillhouette): Let's see... 1995, 1996... no, too recent. I need something from the early 90s.
-[voice path="res://assets/audio/voice/Chapter 4/C4S0/C4S0 SHE PULLS OPEN.mp3" volume=50 bus="Voice"]
-She pulls open a drawer that resists at first, then jerks open with a groan.
+[voice path="res://assets/audio/voice/Chapter 4/c4s0/the_mysterious_person.mp3" volume="0.0" bus="Voice"]
+A mysterious person pulls open a drawer that resists at first, then jerks open with a groan.
 Mystery (sillhouette): What's this?
-[voice path="res://assets/audio/voice/Chapter 4/C4S0/C4S0 A LEATHER BOUND JOURNAL.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/c4s0/a_leather_bound.mp3" volume="0.0" bus="Voice"]
 A leather-bound journal sits wedged behind the files, hidden deliberately.
-[voice path="res://assets/audio/voice/Chapter 4/C4S0/C4S0 ALEX CAREFULLY LIFTS.mp3" volume=50 bus="Voice"]
-Mysterious person carefully lifts it out, brushing off dust.
+[voice path="res://assets/audio/voice/Chapter 4/c4s0/the_mysterious_person_carefully.mp3" volume="0.0" bus="Voice"]
+The Mysterious person carefully lifts it out, brushing off dust.
 Mystery (sillhouette): "Educational Philosophy and Moral Development." No author listed.
-[voice path="res://assets/audio/voice/Chapter 4/C4S0/C4S0 SHE OPENS THE JOURNAL.mp3" volume=50 bus="Voice"]
-She opens to the first page and begins reading.
+[voice path="res://assets/audio/voice/Chapter 4/c4s0/the_mysterious_person_opens.mp3" volume="0.0" bus="Voice"]
+A mysterious person opens to the first page and begins reading.
 Mystery (sillhouette): "Observation teaches lessons that lectures cannot. Students learn best when challenged to think, not told what to think."
 Mystery (sillhouette): This is... interesting.
-[voice path="res://assets/audio/voice/Chapter 4/C4S0/C4S0 SHE FLIPS THROUGH.mp3" volume=50 bus="Voice"]
-She flips through pages filled with psychological puzzles, moral dilemmas, and notes about student behavior.
+[voice path="res://assets/audio/voice/Chapter 4/c4s0/the_mysterious_person_flips.mp3" volume="0.0" bus="Voice"]
+A mysterious person  flips through pages filled with psychological puzzles, moral dilemmas, and notes about student behavior.
 Mystery (sillhouette): "Case Study 3\: Student A cheated because they feared disappointing their parents. Rather than punish, I created a scenario where honesty was rewarded."
 Mystery (sillhouette): Whoever wrote this was trying to teach through experience, not authority.
-[voice path="res://assets/audio/voice/Chapter 4/C4S0/C4S0 SHE CONTINUES READING.mp3" volume=50 bus="Voice"]
-She continues reading, fascinated.
+[voice path="res://assets/audio/voice/Chapter 4/c4s0/the_mysterious_person_continues.mp3" volume="0.0" bus="Voice"]
+A mysterious person continues reading, fascinated.
 Mystery (sillhouette): "The best lessons come from discovery. When students solve problems themselves, they internalize the moral far deeper than any lecture could achieve."
-[voice path="res://assets/audio/voice/Chapter 4/C4S0/C4S0 HER GRIP TIGHTENS.mp3" volume=50 bus="Voice"]
-[voice path="res://assets/audio/voice/Chapter 4/C4S0/C4S0 OBSERVING THEIR REACTIONS.mp3" volume=50 bus="Voice"]
-[voice path="res://assets/audio/voice/Chapter 4/C4S0/C4S0 ALEX PAUSES.mp3" volume=50 bus="Voice"]
-Mysterious person thinks of Conrad and your detective work - solving cases that taught real lessons.
-Mystery (sillhouette): Conrad does this. He helps people learn by uncovering truth.
+[voice path="res://assets/audio/voice/Chapter 4/c4s0/the_mysterious_person_thinks.mp3" volume="0.0" bus="Voice"]
+Mysterious person thinks of the protagonist and their detective work - solving cases that taught real lessons.
+Mystery (sillhouette): Who does this? Why this people helps to learn by uncovering truth.
 Mystery (sillhouette): What if... what if I could do something similar?
 Mystery (sillhouette): These puzzles, these challenges... I could use them to help other students grow.
-[voice path="res://assets/audio/voice/Chapter 4/C4S0/C4SO SHE CLOSES THE JOURNAL.mp3" volume=50 bus="Voice"]
-She closes the journal, decision made.
+[voice path="res://assets/audio/voice/Chapter 4/c4s0/the_mysterious_person_closes.mp3" volume="0.0" bus="Voice"]
+A mysterious person closes the journal, decision made.
 Mystery (sillhouette): The person who wrote this understood something important. Knowledge isn't just about facts.
 Mystery (sillhouette): It's about becoming better people through experience.
 Mystery (sillhouette): I'm going to continue what they started.
 leave Mystery [animation="Fade Out" length="0.8"]
 [background arg="res://Bg/hallway.png" fade="2.0"]
 [wait time="1.0"]
-[voice path="res://assets/audio/voice/Chapter 4/C4S0/c4s0 the next day.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/c4s0/the_next_day.mp3" volume="0.0" bus="Voice"]
 The next day...
-[voice path="res://assets/audio/voice/Chapter 4/C4S0/c4s0 anonymous notes begin.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/c4s0/anonymous_notes_begin.mp3" volume="0.0" bus="Voice"]
 Anonymous notes begin appearing in student lockers.
-[voice path="res://assets/audio/voice/Chapter 4/C4S0/c4s0 each one contains.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/c4s0/each_one_contains.mp3" volume="0.0" bus="Voice"]
 Each one contains a puzzle, a challenge, a moral question.
-[voice path="res://assets/audio/voice/Chapter 4/C4S0/c4s0 the students who receive.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/c4s0/the_students_who.mp3" volume="0.0" bus="Voice"]
 The students who receive them are confused, curious, and some are frightened.
-[voice path="res://assets/audio/voice/Chapter 4/C4S0/c4s0 they dont understand.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/c4s0/they_dont_understand.mp3" volume="0.0" bus="Voice"]
 They don't understand who is testing them, or why.
-[voice path="res://assets/audio/voice/Chapter 4/C4S0/C4s0 BUT SOMEONE IS WATCHING.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/c4s0/but_someone_is.mp3" volume="0.0" bus="Voice"]
 But someone is watching. Observing their reactions.
-[voice path="res://assets/audio/voice/Chapter 4/C4S0/C4S0 TAKING NOTES.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/c4s0/taking_notes.mp3" volume="0.0" bus="Voice"]
 Taking notes, just like the journal taught.
 [wait time="1.5"]
 jump c4s1/

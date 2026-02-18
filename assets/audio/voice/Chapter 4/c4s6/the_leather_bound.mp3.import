@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cqrtdm75vel0p"
+path="res://.godot/imported/the_leather_bound.mp3-58a536b02e1b0cd88ea0edc7c803911a.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/c4s6/the_leather_bound.mp3"
+dest_files=["res://.godot/imported/the_leather_bound.mp3-58a536b02e1b0cd88ea0edc7c803911a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

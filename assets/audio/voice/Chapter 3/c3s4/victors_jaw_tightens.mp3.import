@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://caucybjg0ksfs"
+path="res://.godot/imported/victors_jaw_tightens.mp3-9e001e1a6472bc4d8cd9c3c474f64f20.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s4/victors_jaw_tightens.mp3"
+dest_files=["res://.godot/imported/victors_jaw_tightens.mp3-9e001e1a6472bc4d8cd9c3c474f64f20.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://fdjyjnscl1oo"
+path="res://.godot/imported/The_computer_lab_is_empty_now.mp3-d1c3e06f4d8c1ec98f7029bfc4ce44e6.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/C2S4/The_computer_lab_is_empty_now.mp3"
+dest_files=["res://.godot/imported/The_computer_lab_is_empty_now.mp3-d1c3e06f4d8c1ec98f7029bfc4ce44e6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

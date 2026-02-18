@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8snkye5bvfgv"
+path="res://.godot/imported/The_Protagonist_pulls_out.mp3-bc8d4069631d7e9989ca34921aa1a8b8.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/C2S4/The_Protagonist_pulls_out.mp3"
+dest_files=["res://.godot/imported/The_Protagonist_pulls_out.mp3-bc8d4069631d7e9989ca34921aa1a8b8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bdrptxc7773li"
+path="res://.godot/imported/The_mystery_is_solved_The_teacher_revealed_The_lessons_learned.mp3-d9f413d22b550bbb902b1034298b3c91.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s5/The_mystery_is_solved_The_teacher_revealed_The_lessons_learned.mp3"
+dest_files=["res://.godot/imported/The_mystery_is_solved_The_teacher_revealed_The_lessons_learned.mp3-d9f413d22b550bbb902b1034298b3c91.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

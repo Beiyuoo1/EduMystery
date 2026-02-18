@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dijrmg6ys7nil"
+path="res://.godot/imported/The_Protagonist_stands_alone_for_a_moment_watching_students_move_through_the_courtyard.mp3-23b075e89fea9ea561bc1be8b00bd866.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s5/The_Protagonist_stands_alone_for_a_moment_watching_students_move_through_the_courtyard.mp3"
+dest_files=["res://.godot/imported/The_Protagonist_stands_alone_for_a_moment_watching_students_move_through_the_courtyard.mp3-23b075e89fea9ea561bc1be8b00bd866.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

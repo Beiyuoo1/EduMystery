@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bai4wlea3mx"
+path="res://.godot/imported/Ryan_flinches_at_Celestines_words.mp3-5749c37cd8784ab43e2586c4b36379fe.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/C2S5/Ryan_flinches_at_Celestines_words.mp3"
+dest_files=["res://.godot/imported/Ryan_flinches_at_Celestines_words.mp3-5749c37cd8784ab43e2586c4b36379fe.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

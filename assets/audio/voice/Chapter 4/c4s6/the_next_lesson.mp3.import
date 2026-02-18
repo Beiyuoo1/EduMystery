@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://okpxqvumt77h"
+path="res://.godot/imported/the_next_lesson.mp3-a91ef5498b6819fae9cf4dd43547194e.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/c4s6/the_next_lesson.mp3"
+dest_files=["res://.godot/imported/the_next_lesson.mp3-a91ef5498b6819fae9cf4dd43547194e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

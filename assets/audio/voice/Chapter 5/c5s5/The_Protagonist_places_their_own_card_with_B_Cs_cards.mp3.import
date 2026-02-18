@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b76e3bxwci86e"
+path="res://.godot/imported/The_Protagonist_places_their_own_card_with_B_Cs_cards.mp3-3dfd4932ab6997e7f9e12d4e78b50e70.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s5/The_Protagonist_places_their_own_card_with_B_Cs_cards.mp3"
+dest_files=["res://.godot/imported/The_Protagonist_places_their_own_card_with_B_Cs_cards.mp3-3dfd4932ab6997e7f9e12d4e78b50e70.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

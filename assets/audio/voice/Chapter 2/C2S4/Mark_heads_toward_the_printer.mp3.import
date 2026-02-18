@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bv1bbfw6uqgev"
+path="res://.godot/imported/Mark_heads_toward_the_printer.mp3-11b79f14a22d6a96dc3b9ea61cd5a9f0.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/C2S4/Mark_heads_toward_the_printer.mp3"
+dest_files=["res://.godot/imported/Mark_heads_toward_the_printer.mp3-11b79f14a22d6a96dc3b9ea61cd5a9f0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

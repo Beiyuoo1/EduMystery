@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://t2wl7qpvofi3"
+path="res://.godot/imported/the_broken_sculpture.mp3-9ec36e3571a5b6d052ac34a4e0351276.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s0/the_broken_sculpture.mp3"
+dest_files=["res://.godot/imported/the_broken_sculpture.mp3-9ec36e3571a5b6d052ac34a4e0351276.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

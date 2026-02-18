@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cmg4tbryn1ody"
+path="res://.godot/imported/The_protagonist_reaches.mp3-9fda8b42a23a9b88f5f87e4b28d32322.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 1/C1s5/The_protagonist_reaches.mp3"
+dest_files=["res://.godot/imported/The_protagonist_reaches.mp3-9fda8b42a23a9b88f5f87e4b28d32322.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

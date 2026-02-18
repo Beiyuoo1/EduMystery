@@ -1,14 +1,18 @@
 [background arg="res://Bg/library.png" fade="1.0"]
-[voice path="res://assets/audio/voice/Chapter 4/c4S4/c4s4 the library reading room.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/c4s4/the_library_reading.mp3" volume="0.0" bus="Voice"]
 The library reading room is quiet. Alex sits alone at a table, surrounded by books and notes.
 if {selected_character} == "celestine":
 	join Celestine (animated) left
 	join Alex (half) right
-	Celestine approaches carefully and sits across from your.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s4/the_protagonist_approaches.mp3" volume="0.0" bus="Voice"]
+	The protagonist approaches carefully and sits across from Alex.
 	Celestine: Alex. We need to talk.
-	Alex looks up, and for a moment, your expression flickers with something - fear? Guilt?
+	[voice path="res://assets/audio/voice/Chapter 4/c4s4/alex_looks_up.mp3" volume="0.0" bus="Voice"]
+	Alex looks up, and for a moment, their expression flickers with something - fear? Guilt?
 	Alex: Celestine. About what?
 	Celestine: About the journal you found in the archive. The one about experimental pedagogy.
+	audio music "res://assets/audio/bg/controversy.mp3" [loop="true"]
+	[voice path="res://assets/audio/voice/Chapter 4/c4s4/alexs_face_goes.mp3" volume="0.0" bus="Voice"]
 	Alex's face goes pale.
 	Alex: I... I don't know what you're talking about.
 	Celestine: The archive access log shows you were there twice. The journal is missing from its catalogued location.
@@ -16,18 +20,23 @@ if {selected_character} == "celestine":
 else:
 	join Conrad (half) left
 	join Alex (half) right
-	Conrad approaches carefully and sits across from your.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s4/the_protagonist_approaches.mp3" volume="0.0" bus="Voice"]
+	The protagonist approaches carefully and sits across from Alex.
 	Conrad: Alex. We need to talk.
-	Alex looks up, and for a moment, your expression flickers with something - fear? Guilt?
+	[voice path="res://assets/audio/voice/Chapter 4/c4s4/alex_looks_up.mp3" volume="0.0" bus="Voice"]
+	Alex looks up, and for a moment, their expression flickers with something - fear? Guilt?
 	Alex: Conrad. About what?
 	Conrad: About the journal you found in the archive. The one about experimental pedagogy.
+	audio music "res://assets/audio/bg/controversy.mp3" [loop="true"]
+	[voice path="res://assets/audio/voice/Chapter 4/c4s4/alexs_face_goes.mp3" volume="0.0" bus="Voice"]
 	Alex's face goes pale.
 	Alex: I... I don't know what you're talking about.
 	Conrad: The archive access log shows you were there twice. The journal is missing from its catalogued location.
 	Conrad: And the mysterious notes started appearing two days after your first visit.
 join Mark (Mark_half) leftmost
 Mark: We're not here to get you in trouble, Alex. We just want to understand.
-Alex's shoulders slump. She sets down your pen.
+[voice path="res://assets/audio/voice/Chapter 4/c4s4/alexs_shoulders_slump.mp3" volume="0.0" bus="Voice"]
+Alex's shoulders slump. She sets down her pen.
 Alex: You wouldn't understand.
 if {selected_character} == "celestine":
 	Celestine: Try us.
@@ -42,10 +51,12 @@ if {selected_character} == "celestine":
 	Celestine: By judging them? By confronting them with their mistakes?
 	Alex: Not judging. Teaching. The journal explained how guilt can be a teacher, how self-reflection leads to growth.
 	Mark: But Alex, you were making people feel watched, targeted, unsafe.
+	audio music - [fade="1.0"]
+	[voice path="res://assets/audio/voice/Chapter 4/c4s4/alex_looks_genuinely.mp3" volume="0.0" bus="Voice"]
 	Alex looks genuinely shocked.
 	Alex: I... I didn't mean to frighten anyone. I thought they'd appreciate the guidance.
-	"Diwata Laya" appears, visible only to Celestine.
-	"Celestine (Thinking)": How do I make your understand?
+	"Celestine (Thinking)": How do I make them understand?
+	audio music "res://assets/audio/bg/sad.mp3" [loop="true"]
 	Celestine leans forward, voice gentle but firm.
 	Celestine: Alex, think about how you felt when you found the journal.
 	Celestine: Did you ask permission to take it? Did you consult anyone about whether this was appropriate?
@@ -53,23 +64,26 @@ if {selected_character} == "celestine":
 	Celestine: You thought you knew better. You thought having knowledge was enough.
 	Celestine: But knowledge without wisdom is dangerous. You learned techniques without understanding context.
 	Celestine: The person who wrote that journal? They left the school. Do you know why?
-	Alex shakes your head.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s4/alex_shakes_her.mp3" volume="0.0" bus="Voice"]
+	Alex shakes her head.
 	Celestine: Because their methods, however well-intentioned, crossed ethical lines.
 	Celestine: They manipulated students without consent. They caused harm while trying to teach.
 	Celestine: You found their methods and repeated their mistakes.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s4/alexs_eyes_begin.mp3" volume="0.0" bus="Voice"]
 	Alex's eyes begin to fill with tears.
 	Alex: I just... I wanted to help. I wanted to matter, to make a difference like you do.
 	Mark: Celestine helps people who ask for help. She doesn't force lessons on people.
 	Celestine: The students you sent notes to didn't consent to you teaching.
 	Celestine: You violated their privacy, judged their choices, and made them feel unsafe.
 	Celestine: That's not teaching. That's manipulation.
-	Alex covers your face with your hands.
+	Alex covers her face with her hands.
 	Alex: What have I done? I thought I was doing something good.
 	Celestine: You had good intentions. But intentions aren't enough.
 	Celestine: Real wisdom is knowing when you don't have the right to interfere in someone else's life.
 	Alex: I'm so sorry. To you, to the students I hurt, to everyone.
 	Celestine: Apologizing is a start. But you need to return the journal and face the consequences.
-	Alex nods, wiping your eyes.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s4/alex_nods_wiping.mp3" volume="0.0" bus="Voice"]
+	Alex nods, wiping her eyes.
 	Alex: I will. I'll return it today and apologize to everyone.
 	Alex: Celestine... how do you know when it's right to help someone?
 	Celestine: When they ask. Or when someone is in immediate danger.
@@ -77,8 +91,8 @@ if {selected_character} == "celestine":
 	Alex: I understand now. I really do.
 	leave Alex
 	leave Mark
-	[voice path="res://assets/audio/voice/Chapter 4/c4S4/c4s4 conrad sit alone.mp3" volume=50 bus="Voice"]
-	Celestine sits alone for a moment, reflecting.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s4/the_protagonist_sits.mp3" volume="0.0" bus="Voice"]
+	The protagonist sits alone for a moment, reflecting.
 	Celestine: Knowledge is powerful. But it's not the same as wisdom.
 	Celestine: Wisdom is knowing not just what to do, but when, and whether you should do it at all.
 	leave Celestine
@@ -95,10 +109,14 @@ else:
 	Conrad: By judging them? By confronting them with their mistakes?
 	Alex: Not judging. Teaching. The journal explained how guilt can be a teacher, how self-reflection leads to growth.
 	Mark: But Alex, you were making people feel watched, targeted, unsafe.
+	audio music - [fade="1.0"]
+	[voice path="res://assets/audio/voice/Chapter 4/c4s4/alex_looks_genuinely.mp3" volume="0.0" bus="Voice"]
 	Alex looks genuinely shocked.
 	Alex: I... I didn't mean to frighten anyone. I thought they'd appreciate the guidance.
-	"Diwata Laya" appears, visible only to Conrad.
-	"Conrad (Thinking)": How do I make your understand?
+	[voice path="res://assets/audio/voice/Chapter 4/c4s4/diwata_laya_appears.mp3" volume="0.0" bus="Voice"]
+	"Diwata Laya" appears, visible only to the protagonist.
+	"Conrad (Thinking)": How do I make them understand?
+	audio music "res://assets/audio/bg/sad.mp3" [loop="true"]
 	Conrad leans forward, voice gentle but firm.
 	Conrad: Alex, think about how you felt when you found the journal.
 	Conrad: Did you ask permission to take it? Did you consult anyone about whether this was appropriate?
@@ -106,23 +124,26 @@ else:
 	Conrad: You thought you knew better. You thought having knowledge was enough.
 	Conrad: But knowledge without wisdom is dangerous. You learned techniques without understanding context.
 	Conrad: The person who wrote that journal? They left the school. Do you know why?
-	Alex shakes your head.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s4/alex_shakes_her.mp3" volume="0.0" bus="Voice"]
+	Alex shakes her head.
 	Conrad: Because their methods, however well-intentioned, crossed ethical lines.
 	Conrad: They manipulated students without consent. They caused harm while trying to teach.
 	Conrad: You found their methods and repeated their mistakes.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s4/alexs_eyes_begin.mp3" volume="0.0" bus="Voice"]
 	Alex's eyes begin to fill with tears.
 	Alex: I just... I wanted to help. I wanted to matter, to make a difference like you do.
 	Mark: Conrad helps people who ask for help. He doesn't force lessons on people.
 	Conrad: The students you sent notes to didn't consent to you teaching.
 	Conrad: You violated their privacy, judged their choices, and made them feel unsafe.
 	Conrad: That's not teaching. That's manipulation.
-	Alex covers your face with your hands.
+	Alex covers her face with her hands.
 	Alex: What have I done? I thought I was doing something good.
 	Conrad: You had good intentions. But intentions aren't enough.
 	Conrad: Real wisdom is knowing when you don't have the right to interfere in someone else's life.
 	Alex: I'm so sorry. To you, to the students I hurt, to everyone.
 	Conrad: Apologizing is a start. But you need to return the journal and face the consequences.
-	Alex nods, wiping your eyes.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s4/alex_nods_wiping.mp3" volume="0.0" bus="Voice"]
+	Alex nods, wiping her eyes.
 	Alex: I will. I'll return it today and apologize to everyone.
 	Alex: Conrad... how do you know when it's right to help someone?
 	Conrad: When they ask. Or when someone is in immediate danger.
@@ -130,8 +151,8 @@ else:
 	Alex: I understand now. I really do.
 	leave Alex
 	leave Mark
-	[voice path="res://assets/audio/voice/Chapter 4/c4S4/c4s4 conrad sit alone.mp3" volume=50 bus="Voice"]
-	Conrad sits alone for a moment, reflecting.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s4/the_protagonist_sits.mp3" volume="0.0" bus="Voice"]
+	The protagonist sits alone for a moment, reflecting.
 	Conrad: Knowledge is powerful. But it's not the same as wisdom.
 	Conrad: Wisdom is knowing not just what to do, but when, and whether you should do it at all.
 	leave Conrad

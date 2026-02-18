@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://65clqane5kja"
+path="res://.godot/imported/the_afternoon_sun.mp3-1ae138f9261fbba480229329df34145b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s6/the_afternoon_sun.mp3"
+dest_files=["res://.godot/imported/the_afternoon_sun.mp3-1ae138f9261fbba480229329df34145b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

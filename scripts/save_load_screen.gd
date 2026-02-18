@@ -6,6 +6,7 @@ enum Mode { SAVE, LOAD }
 
 var current_mode: Mode = Mode.SAVE
 var current_tab: String = "manual"  # "manual" or "auto"
+var on_close_callback: Callable  # Callback to call when closed without loading
 
 @onready var title_label: Label = $MarginContainer/VBoxContainer/Header/Title
 @onready var close_button: Button = $MarginContainer/VBoxContainer/Header/CloseButton
@@ -154,6 +155,10 @@ func _show_notification(text: String) -> void:
 	tween.tween_callback(label.queue_free)
 
 func _on_close_button_pressed() -> void:
+	# Call the callback if it was set (for main menu to restart music)
+	if on_close_callback.is_valid():
+		on_close_callback.call()
+
 	# Find and show the pause menu again
 	var pause_menu = get_tree().root.get_node_or_null("CanvasLayer/PauseMenu")
 	if pause_menu:

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bkq5piqbpqdpu"
+path="res://.godot/imported/Vase Breaking (Sound Effect).mp3-b97b6fdd15789e60109c8e21b13b17a8.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sound_effect/Vase Breaking (Sound Effect).mp3"
+dest_files=["res://.godot/imported/Vase Breaking (Sound Effect).mp3-b97b6fdd15789e60109c8e21b13b17a8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

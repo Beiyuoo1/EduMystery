@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://p8xel532gdfq"
+path="res://.godot/imported/Principal_smiles.mp3-2b824a2e8b23e1f40fa97ca8a7b2117d.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s4/Principal_smiles.mp3"
+dest_files=["res://.godot/imported/Principal_smiles.mp3-2b824a2e8b23e1f40fa97ca8a7b2117d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

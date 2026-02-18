@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://eievgxgdsbah"
+path="res://.godot/imported/Ryan_crosses_his_arms.mp3-39d2166dd29812bf9c2fb65f4a15a085.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/C2S2/Ryan_crosses_his_arms.mp3"
+dest_files=["res://.godot/imported/Ryan_crosses_his_arms.mp3-39d2166dd29812bf9c2fb65f4a15a085.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

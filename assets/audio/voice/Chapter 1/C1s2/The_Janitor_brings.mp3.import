@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bmqwu76nrcb10"
+path="res://.godot/imported/The_Janitor_brings.mp3-4ccf7a9935621d688868fed9d6c94d3f.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 1/C1s2/The_Janitor_brings.mp3"
+dest_files=["res://.godot/imported/The_Janitor_brings.mp3-4ccf7a9935621d688868fed9d6c94d3f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

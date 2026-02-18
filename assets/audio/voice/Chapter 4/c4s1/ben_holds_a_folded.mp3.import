@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://7okva4kvyc11"
+path="res://.godot/imported/ben_holds_a_folded.mp3-8b176e1de786ce74b9bbf24f0bd74230.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/c4s1/ben_holds_a_folded.mp3"
+dest_files=["res://.godot/imported/ben_holds_a_folded.mp3-8b176e1de786ce74b9bbf24f0bd74230.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

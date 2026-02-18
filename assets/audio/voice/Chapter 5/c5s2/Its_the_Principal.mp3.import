@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dufvf33f4ospt"
+path="res://.godot/imported/Its_the_Principal.mp3-64aaaa5d2c0e930b98179e34bd2381ec.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s2/Its_the_Principal.mp3"
+dest_files=["res://.godot/imported/Its_the_Principal.mp3-64aaaa5d2c0e930b98179e34bd2381ec.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

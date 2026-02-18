@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://fknuug7jco4h"
+path="res://.godot/imported/The_school_continues_its_rhythm_Students_laugh_study_struggle_and_grow.mp3-636d32929d3efc54c4e37b0dc2c83b05.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s5/The_school_continues_its_rhythm_Students_laugh_study_struggle_and_grow.mp3"
+dest_files=["res://.godot/imported/The_school_continues_its_rhythm_Students_laugh_study_struggle_and_grow.mp3-636d32929d3efc54c4e37b0dc2c83b05.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

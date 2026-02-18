@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bx4cr7h0idlrj"
+path="res://.godot/imported/the_crash_echoes.mp3-7cd1e4d253207241a9b3e77f44803900.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s0/the_crash_echoes.mp3"
+dest_files=["res://.godot/imported/the_crash_echoes.mp3-7cd1e4d253207241a9b3e77f44803900.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cnom4jaubwdwe"
+path="res://.godot/imported/The_invitation_is_being_prepared.mp3-ee35d5f2996c04e067609d297935bcca.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s0/The_invitation_is_being_prepared.mp3"
+dest_files=["res://.godot/imported/The_invitation_is_being_prepared.mp3-ee35d5f2996c04e067609d297935bcca.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

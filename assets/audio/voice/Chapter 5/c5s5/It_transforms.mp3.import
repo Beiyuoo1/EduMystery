@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cxevbdnxmcp7e"
+path="res://.godot/imported/It_transforms.mp3-37bac7e5e35e14c180ec9d54c132ce28.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s5/It_transforms.mp3"
+dest_files=["res://.godot/imported/It_transforms.mp3-37bac7e5e35e14c180ec9d54c132ce28.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

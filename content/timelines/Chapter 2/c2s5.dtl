@@ -1,41 +1,48 @@
 [background arg="res://Bg/storage_room.png" fade="1.0"]
-[voice path="res://assets/audio/voice/Chapter 2/c2s5 mathilda/The sports equipment.mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 2/C2S5/The_sports_equipment_storage_room.mp3" volume="0.0"]
 The sports equipment storage room is dim and dusty. Basketball hoops lean against walls, and volleyball nets hang from hooks.
 if {selected_character} == "celestine":
 	join Celestine (animated) left
 	join Mark (Mark_half) right
 	Mark: This place is a mess. Where would someone hide money in here?
 	Celestine: Somewhere out of sight. Behind equipment that hasn't been used in a while.
-	Celestine knocks firmly on the partially open door.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S5/The_Protagonist_knocks_firmly.mp3" volume="0.0"]
+	The Protagonist knocks firmly on the partially open door.
 	Celestine: Ryan, we know you're in here. We need to talk.
 else:
 	join Conrad (half) left
 	join Mark (Mark_half) right
 	Mark: This place is a mess. Where would someone hide money in here?
 	Conrad: Somewhere out of sight. Behind equipment that hasn't been used in a while.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s5 mathilda/Conrad knocks firmly.mp3" volume=0 bus="Master"]
-	Conrad knocks firmly on the partially open door.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S5/The_Protagonist_knocks_firmly.mp3" volume="0.0"]
+	The Protagonist knocks firmly on the partially open door.
 	Conrad: Ryan, we know you're in here. We need to talk.
-[voice path="res://assets/audio/voice/Chapter 2/c2s5 mathilda/Silence. Then the sound.mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 2/C2S5/Silence_Then_the_sound.mp3" volume="0.0"]
 Silence. Then the sound of something being set down.
-[voice path="res://assets/audio/voice/Chapter 2/c2s5 mathilda/The door opens wider.mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 2/C2S5/The_door_opens_wider.mp3" volume="0.0"]
 The door opens wider. Ryan stands inside, his expression caught between surprise and defiance.
 update Mark rightmost
 join Ryan (half) right
 if {selected_character} == "celestine":
 	Ryan: What are you two doing here? This storage is off-limits to non-committee members.
 	Celestine: We found something interesting in the computer lab.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryans_jaw_tightens_almost_imperceptibly.mp3" volume="0.0"]
 	Ryan's jaw tightens almost imperceptibly.
 	Ryan: The computer lab is public. Whatever you found has nothing to do with me.
 	Celestine: Really? Then explain this.
-	Celestine holds up the crumpled budget proposal draft.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S5/The_Protagonist_holds_up.mp3" volume="0.0"]
+	The Protagonist holds up the crumpled budget proposal draft.
 	Celestine: Your handwriting. Your margin notes.
 	Celestine: "If they won't listen, I'll have to make them see reason."
+	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryan_waves_his_hand_dismissively.mp3" volume="0.0"]
 	Ryan waves his hand dismissively.
 	Ryan: So what? I write notes to myself all the time.
-	Celestine pulls out the second piece of paper - the threatening note.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S5/The_Protagonist_pulls_out_the_second_piece.mp3" volume="0.0"]
+	The Protagonist pulls out the second piece of paper - the threatening note.
 	Celestine: This note was left in Ria's locker three days ago.
 	Celestine: "I know what you did with last year's fund. Resign or I'll expose you."
+	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryans_face_goes_pale.mp3" volume="0.0"]
+	audio music "res://assets/audio/bg/controversy.mp3" [loop="true"]
 	Ryan's face goes pale.
 	Celestine: The handwriting is identical, Ryan. Same loops on the 'e'. Same sharp angles on the 'k'.
 	Celestine: You wrote this threat. You knew about Ria's mistake because you've been watching the council.
@@ -45,52 +52,55 @@ if {selected_character} == "celestine":
 	Celestine: During that exact time, Ms. Santos left the faculty room for coffee.
 	Celestine: You saw her leave. You took the key from her unlocked drawer. You opened the council room.
 	Celestine: And you took the money.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryan_stands_frozen.mp3" volume="0.0"]
 	Ryan stands frozen, his eyes darting around the room.
 	Ryan: I...
 	Celestine: Where's the money, Ryan?
 else:
 	Ryan: What are you two doing here? This storage is off-limits to non-committee members.
 	Conrad: We found something interesting in the computer lab.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryans_jaw_tightens_almost_imperceptibly.mp3" volume="0.0"]
 	Ryan's jaw tightens almost imperceptibly.
 	Ryan: The computer lab is public. Whatever you found has nothing to do with me.
 	Conrad: Really? Then explain this.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s5 mathilda/Conrad holds up the crumpled.mp3" volume=0 bus="Master"]
-	Conrad holds up the crumpled budget proposal draft.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S5/The_Protagonist_holds_up.mp3" volume="0.0"]
+	The Protagonist holds up the crumpled budget proposal draft.
 	Conrad: Your handwriting. Your margin notes.
 	Conrad: "If they won't listen, I'll have to make them see reason."
-	[voice path="res://assets/audio/voice/Chapter 2/c2s5 mathilda/Ryan waves his hand.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryan_waves_his_hand_dismissively.mp3" volume="0.0"]
 	Ryan waves his hand dismissively.
 	Ryan: So what? I write notes to myself all the time.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s5 mathilda/Conrad pulls out.mp3" volume=0 bus="Master"]
-	Conrad pulls out the second piece of paper - the threatening note.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S5/The_Protagonist_pulls_out_the_second_piece.mp3" volume="0.0"]
+	The Protagonist pulls out the second piece of paper - the threatening note.
 	Conrad: This note was left in Ria's locker three days ago.
 	Conrad: "I know what you did with last year's fund. Resign or I'll expose you."
-	[voice path="res://assets/audio/voice/Chapter 2/c2s5 mathilda/Ryan's face goes pale..mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryans_face_goes_pale.mp3" volume="0.0"]
+	audio music "res://assets/audio/bg/controversy.mp3" [loop="true"]
 	Ryan's face goes pale.
 	Conrad: The handwriting is identical, Ryan. Same loops on the 'e'. Same sharp angles on the 'k'.
 	Conrad: You wrote this threat. You knew about Ria's mistake because you've been watching the council.
 	Conrad: Waiting for your chance.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s5 mathilda/Ryan's jaw tightens almost imperceptibly..mp3" volume=0 bus="Master"]
 	Ryan: That... that doesn't prove anything.
 	Conrad: The printer logs show you stopped printing for over an hour yesterday evening.
 	Conrad: During that exact time, Ms. Santos left the faculty room for coffee.
 	Conrad: You saw her leave. You took the key from her unlocked drawer. You opened the council room.
 	Conrad: And you took the money.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s5 mathilda/Ryan stands frozen.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryan_stands_frozen.mp3" volume="0.0"]
 	Ryan stands frozen, his eyes darting around the room.
 	Ryan: I...
 	Conrad: Where's the money, Ryan?
-[voice path="res://assets/audio/voice/Chapter 2/c2s5 mathilda/Ryan's shoulders slump.mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryans_shoulders_slump.mp3" volume="0.0"]
 Ryan's shoulders slump. The defiance drains from his face.
-[voice path="res://assets/audio/voice/Chapter 2/c2s5 mathilda/His voice comes out quiet.mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 2/C2S5/His_voice_comes_out_quiet_defeated.mp3" volume="0.0"]
 His voice comes out quiet, defeated.
 Ryan: Behind the equipment racks. In a gym bag.
-[voice path="res://assets/audio/voice/Chapter 2/c2s5 mathilda/Mark moves past Ryan.mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 2/C2S5/Mark_moves_past_Ryan.mp3" volume="0.0"]
 Mark moves past Ryan and searches behind the dusty equipment.
-[voice path="res://assets/audio/voice/Chapter 2/c2s5 mathilda/Mark pulls out a faded.mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 2/C2S5/Mark_pulls_out_a_faded.mp3" volume="0.0"]
 Mark pulls out a faded blue gym bag and unzips it.
 Mark: Twenty thousand pesos. It's all here.
-[voice path="res://assets/audio/voice/Chapter 2/c2s5 mathilda/Desperation floods.mp3" volume=0 bus="Master"]
+[voice path="res://assets/audio/voice/Chapter 2/C2S5/Desperation_floods_Ryans_voice.mp3" volume="0.0"]
+audio music "res://assets/audio/bg/sad.mp3" [loop="true"]
 Desperation floods Ryan's voice.
 Ryan: I wasn't stealing it! I was going to return it!
 if {selected_character} == "celestine":
@@ -99,6 +109,7 @@ if {selected_character} == "celestine":
 	Ryan: The council is careless! Ria left the box unlocked before. Ms. Santos forgets her drawer constantly.
 	Ryan: Someone had to prove that we need better systems!
 	Celestine: By framing Ria? By making her cry? By letting everyone call her a thief?
+	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryan_flinches_at_the_protagonists_words.mp3" volume="0.0"]
 	Ryan flinches at Celestine's words.
 	Ryan: I... I didn't think about it that way. I just wanted them to listen to me.
 	Ryan: Nobody ever listens. They just smile and vote no. Over and over.
@@ -106,13 +117,15 @@ if {selected_character} == "celestine":
 	Celestine: There are better ways to be heard, Ryan.
 	Celestine: You could have talked to teachers. Gone to the principal. Organized students who agreed with you.
 	Celestine: Instead, you chose to hurt someone innocent. Someone who was already scared and alone.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryans_voice_breaks.mp3" volume="0.0"]
 	Ryan's voice breaks.
 	Ryan: I know. I know that now.
 	Ryan: When I saw Ria crying this morning... I almost told the truth right there.
 	Ryan: But I was too scared. Too proud.
 	Celestine: This wasn't leadership. This was manipulation.
 	Celestine: Good intentions don't excuse harmful actions.
-	Ryan looks at the floor, unable to meet Celestine's eyes.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryan_looks_at_the_floor.mp3" volume="0.0"]
+	Ryan looks at the floor, unable to meet the protagonist's eyes.
 	Ryan: What happens now?
 	Celestine: That's not for us to decide. But the truth will come out.
 	Celestine: What you do next... that's up to you.
@@ -126,22 +139,22 @@ else:
 	Ryan: The council is careless! Ria left the box unlocked before. Ms. Santos forgets her drawer constantly.
 	Ryan: Someone had to prove that we need better systems!
 	Conrad: By framing Ria? By making her cry? By letting everyone call her a thief?
-	[voice path="res://assets/audio/voice/Chapter 2/c2s5 mathilda/Ryan flinches.mp3" volume=0 bus="Master"]
-	Ryan flinches at Conrad's words.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryan_flinches_at_the_protagonists_words.mp3" volume="0.0"]
+	Ryan flinches at the protagonist's words.
 	Ryan: I... I didn't think about it that way. I just wanted them to listen to me.
 	Ryan: Nobody ever listens. They just smile and vote no. Over and over.
 	Ryan: I thought if something bad happened, they'd finally pay attention.
 	Conrad: There are better ways to be heard, Ryan.
 	Conrad: You could have talked to teachers. Gone to the principal. Organized students who agreed with you.
 	Conrad: Instead, you chose to hurt someone innocent. Someone who was already scared and alone.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s5 mathilda/Ryan's voice breaks.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryans_voice_breaks.mp3" volume="0.0"]
 	Ryan's voice breaks.
 	Ryan: I know. I know that now.
 	Ryan: When I saw Ria crying this morning... I almost told the truth right there.
 	Ryan: But I was too scared. Too proud.
 	Conrad: This wasn't leadership. This was manipulation.
 	Conrad: Good intentions don't excuse harmful actions.
-	[voice path="res://assets/audio/voice/Chapter 2/c2s5 mathilda/Ryan looks at the floor.mp3" volume=0 bus="Master"]
+	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryan_looks_at_the_floor.mp3" volume="0.0"]
 	Ryan looks at the floor, unable to meet Conrad's eyes.
 	Ryan: What happens now?
 	Conrad: That's not for us to decide. But the truth will come out.

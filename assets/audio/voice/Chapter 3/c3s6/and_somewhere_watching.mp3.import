@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cpngoxhyq0wwv"
+path="res://.godot/imported/and_somewhere_watching.mp3-0644940b0549b479aefea0ffdec84b17.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s6/and_somewhere_watching.mp3"
+dest_files=["res://.godot/imported/and_somewhere_watching.mp3-0644940b0549b479aefea0ffdec84b17.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

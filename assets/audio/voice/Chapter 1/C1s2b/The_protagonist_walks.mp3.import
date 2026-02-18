@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://hjkkvl3axjsl"
+path="res://.godot/imported/The_protagonist_walks.mp3-8ef168aab4c6daec6f80cf26ec18ac6b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 1/C1s2b/The_protagonist_walks.mp3"
+dest_files=["res://.godot/imported/The_protagonist_walks.mp3-8ef168aab4c6daec6f80cf26ec18ac6b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

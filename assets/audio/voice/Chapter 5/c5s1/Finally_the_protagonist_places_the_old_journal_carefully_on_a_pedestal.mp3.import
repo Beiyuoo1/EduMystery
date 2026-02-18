@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c7gbmyag14u4"
+path="res://.godot/imported/Finally_the_protagonist_places_the_old_journal_carefully_on_a_pedestal.mp3-d35eea607249a889cdb4209d475a87db.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s1/Finally_the_protagonist_places_the_old_journal_carefully_on_a_pedestal.mp3"
+dest_files=["res://.godot/imported/Finally_the_protagonist_places_the_old_journal_carefully_on_a_pedestal.mp3-d35eea607249a889cdb4209d475a87db.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

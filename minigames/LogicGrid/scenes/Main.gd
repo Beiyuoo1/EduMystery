@@ -330,6 +330,7 @@ func _on_submit_pressed() -> void:
 
 func _show_wrong_feedback() -> void:
 	"""Show a brief incorrect message and let player retry"""
+	_play_sfx("res://assets/audio/sound_effect/wrong.wav")
 	feedback_overlay.show()
 	feedback_panel.show()
 	feedback_label.text = "[center][color=#ff5555][b]✗ Not Quite Right[/b][/color][/center]\n\n"
@@ -390,8 +391,17 @@ func _check_solution() -> bool:
 
 	return true
 
+func _play_sfx(path: String) -> void:
+	var player = AudioStreamPlayer.new()
+	player.stream = load(path)
+	player.bus = "SFX"
+	add_child(player)
+	player.play()
+	player.finished.connect(player.queue_free)
+
 func _show_feedback(is_correct: bool, time_taken: float) -> void:
 	"""Show success feedback panel"""
+	_play_sfx("res://assets/audio/sound_effect/correct.wav")
 	var feedback_text = "[center][color=#55ff88][b]✓ CORRECT![/b][/color][/center]\n\n"
 	feedback_text += "[center]Excellent detective work! You successfully deduced all matches.[/center]"
 

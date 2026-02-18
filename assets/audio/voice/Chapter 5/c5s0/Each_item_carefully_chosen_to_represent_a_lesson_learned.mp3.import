@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cj47v46nhqpqe"
+path="res://.godot/imported/Each_item_carefully_chosen_to_represent_a_lesson_learned.mp3-78c1a79bb98b17ba7d063d07f69c6473.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s0/Each_item_carefully_chosen_to_represent_a_lesson_learned.mp3"
+dest_files=["res://.godot/imported/Each_item_carefully_chosen_to_represent_a_lesson_learned.mp3-78c1a79bb98b17ba7d063d07f69c6473.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://batk07p6kxex2"
+path="res://.godot/imported/but_inside_the_flap.mp3-2b3ad621230b0d3dc460c96e3dd8a393.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 1/C1s5/but_inside_the_flap.mp3"
+dest_files=["res://.godot/imported/but_inside_the_flap.mp3-2b3ad621230b0d3dc460c96e3dd8a393.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

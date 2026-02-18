@@ -180,8 +180,17 @@ func _on_choice_selected(choice_index: int):
 		# Wrong answer
 		_show_wrong_feedback(choice_index)
 
+func _play_sfx(path: String) -> void:
+	var player = AudioStreamPlayer.new()
+	player.stream = load(path)
+	player.bus = "SFX"
+	add_child(player)
+	player.play()
+	player.finished.connect(player.queue_free)
+
 func _show_correct_feedback():
 	"""Show feedback for correct answer"""
+	_play_sfx("res://assets/audio/sound_effect/correct.wav")
 	var completion_time = (Time.get_ticks_msec() / 1000.0) - start_time
 
 	# Check if player earned a bonus hint (completed within 1 minute)
@@ -205,6 +214,7 @@ func _show_correct_feedback():
 
 func _show_wrong_feedback(selected_index: int):
 	"""Show feedback for wrong answer"""
+	_play_sfx("res://assets/audio/sound_effect/wrong.wav")
 	feedback_label.text = "Incorrect. The correct answer is: " + blank_word
 	feedback_label.add_theme_color_override("font_color", Color.RED)
 	feedback_label.visible = true

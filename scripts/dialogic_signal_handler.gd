@@ -175,6 +175,13 @@ func _show_evidence_unlock_animation(evidence_id: String):
 	var canvas_layer = _create_evidence_popup(evidence)
 	get_tree().root.add_child(canvas_layer)
 
+	# Play clue found sound effect
+	var sfx_player = AudioStreamPlayer.new()
+	sfx_player.stream = load("res://assets/audio/sound_effect/clue_found.wav")
+	sfx_player.bus = "SFX"
+	canvas_layer.add_child(sfx_player)
+	sfx_player.play()
+
 	# Wait for animation to complete
 	await get_tree().create_timer(3.5).timeout
 
@@ -286,7 +293,17 @@ func _handle_chapter_results():
 		return
 
 	print("DEBUG: Pausing Dialogic and showing results...")
+
+	# Pause Dialogic (this will pause all audio players via Dialogic's audio subsystem)
 	Dialogic.paused = true
+	print("DEBUG: Dialogic paused")
+
+	# Find and unpause the chapter end music player
+	# (Dialogic's pause() sets stream_paused=true on all audio, but we want the music to keep playing)
+	var music_player = _find_chapter_end_music_player()
+	if music_player:
+		music_player.stream_paused = false
+		print("DEBUG: Unpaused chapter end music player - playing=", music_player.playing, " stream_paused=", music_player.stream_paused)
 
 	# End chapter tracking
 	var stats = {}
@@ -400,3 +417,27 @@ func _handle_init_character_var():
 			push_warning("DEBUG: Dialogic variables dictionary not initialized yet")
 	else:
 		print("DEBUG: PlayerStats or PlayerStats.selected_character is null/empty!")
+
+func _debug_find_audio_recursive(node: Node) -> void:
+	"""Recursively find all audio players in the scene tree"""
+	if node is AudioStreamPlayer or node is AudioStreamPlayer2D or node is AudioStreamPlayer3D:
+		var stream_info = ""
+		if node.stream:
+			stream_info = node.stream.resource_path if node.stream.resource_path else str(node.stream)
+		print("DEBUG AUDIO: '%s' (type: %s) playing=%s bus='%s' stream=%s" % [node.name, node.get_class(), node.playing, node.bus, stream_info])
+
+	for child in node.get_children():
+		_debug_find_audio_recursive(child)
+
+func _find_chapter_end_music_player() -> AudioStreamPlayer:
+	"""Find the Dialogic audio player for chapter_end_bg.mp3"""
+	# Dialogic creates an "Audio" node under the Dialogic subsystem
+	# Look for it by checking Dialogic's audio_node
+	if Dialogic and Dialogic.Audio and Dialogic.Audio.audio_node:
+		for child in Dialogic.Audio.audio_node.get_children():
+			if child is AudioStreamPlayer and child.stream:
+				# Check if this is the chapter end music
+				if "chapter_end_bg" in child.stream.resource_path:
+					print("DEBUG: Found chapter end music player: ", child.name)
+					return child
+	return null

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bah2ir3588ajg"
+path="res://.godot/imported/taking_notes.mp3-ee6fb794ac0ebbc8bf3dfd065dbdc570.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/c4s0/taking_notes.mp3"
+dest_files=["res://.godot/imported/taking_notes.mp3-ee6fb794ac0ebbc8bf3dfd065dbdc570.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

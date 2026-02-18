@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://jbfwt0rut0vw"
+path="res://.godot/imported/She_pauses_to_think.mp3-2a0fd809b7deadc08d1e59eba25a16fc.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/C2S2/She_pauses_to_think.mp3"
+dest_files=["res://.godot/imported/She_pauses_to_think.mp3-2a0fd809b7deadc08d1e59eba25a16fc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

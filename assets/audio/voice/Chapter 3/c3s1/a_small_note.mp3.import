@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ctnjgljgqjeui"
+path="res://.godot/imported/a_small_note.mp3-9a784caa2e5e849195c490b06ba916d1.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s1/a_small_note.mp3"
+dest_files=["res://.godot/imported/a_small_note.mp3-9a784caa2e5e849195c490b06ba916d1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

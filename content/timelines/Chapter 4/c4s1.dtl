@@ -1,5 +1,6 @@
 [background arg="res://Bg/hallway.png" fade="1.0"]
-[voice path="res://assets/audio/voice/Chapter 4/C4S1/c4s1 the school hallway.mp3" volume=50 bus="Voice"]
+audio music "res://assets/audio/bg/suspicious.mp3" [loop="true"]
+[voice path="res://assets/audio/voice/Chapter 4/c4s1/the_school_hallway.mp3" volume="0.0" bus="Voice"]
 The school hallway buzzes with nervous energy. Students cluster in small groups, whispering.
 if {selected_character} == "celestine":
 	join Celestine (half) left
@@ -26,11 +27,11 @@ else:
 	leave Conrad
 	leave Mark
 [background arg="res://Bg/classroom.png" fade="1.0"]
-[voice path="res://assets/audio/voice/Chapter 4/C4S1/c4s1 inside a classroom.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/c4s1/ben_holds_a.mp3" volume="0.0" bus="Voice"]
 if {selected_character} == "celestine":
 	join Celestine (half) left
-	join Ben (animated) center
-	[voice path="res://assets/audio/voice/Chapter 4/C4S1/c4s1 ben holds a folded.mp3" volume=50 bus="Voice"]
+	join characters/Ben (Ben_half) center
+	[voice path="res://assets/audio/voice/Chapter 4/c4s1/ben_holds_a_folded.mp3" volume="0.0" bus="Voice"]
 	Ben holds a folded piece of paper, looking uncomfortable.
 	Ben: I found this in my locker yesterday morning. No idea who put it there.
 	Ben hands the note to Celestine.
@@ -43,13 +44,13 @@ if {selected_character} == "celestine":
 	Celestine: Have you told anyone else?
 	Ben: No. The note said 'this is between you and your conscience.'
 	Celestine: May I keep this?
-	[voice path="res://assets/audio/voice/Chapter 4/C4S1/c4s1 ben nods.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/c4s1/ben_nods_looking.mp3" volume="0.0" bus="Voice"]
 	Ben nods, looking relieved to be rid of it.
-	leave Ben
+	leave characters/Ben
 	join Mark (Mark_half) right
 	Mark: That's harsh. Whoever wrote this knows personal details about students.
 	Celestine: It's targeted. Specific. Not random.
-	[voice path="res://assets/audio/voice/Chapter 4/C4S1/c4s1 alice lowers.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/c4s1/alice_looks_down.mp3" volume="0.0" bus="Voice"]
 	Celestine examines the note carefully.
 	Celestine: The handwriting is neat, deliberate. The paper is standard school supply.
 	Celestine: But the content... it's designed to provoke guilt and self-reflection.
@@ -57,11 +58,11 @@ if {selected_character} == "celestine":
 	Celestine: Or a moral lesson. Someone thinks they're teaching.
 else:
 	join Conrad (half) left
-	join Ben (animated) center
-	[voice path="res://assets/audio/voice/Chapter 4/C4S1/c4s1 ben holds a folded.mp3" volume=50 bus="Voice"]
+	join characters/Ben (Ben_half) center
+	[voice path="res://assets/audio/voice/Chapter 4/c4s1/ben_holds_a_folded.mp3" volume="0.0" bus="Voice"]
 	Ben holds a folded piece of paper, looking uncomfortable.
 	Ben: I found this in my locker yesterday morning. No idea who put it there.
-	[voice path="res://assets/audio/voice/Chapter 4/C4S1/c4s1 he hands the note.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/c4s1/ben_hands_the.mp3" volume="0.0" bus="Voice"]
 	Ben hands the note to Conrad.
 	[signal arg="unlock_evidence anonymous_note_c4"]
 	Conrad reads aloud.
@@ -72,20 +73,20 @@ else:
 	Conrad: Have you told anyone else?
 	Ben: No. The note said 'this is between you and your conscience.'
 	Conrad: May I keep this?
-	[voice path="res://assets/audio/voice/Chapter 4/C4S1/c4s1 ben nods.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/c4s1/ben_nods_looking.mp3" volume="0.0" bus="Voice"]
 	Ben nods, looking relieved to be rid of it.
-	leave Ben
+	leave characters/Ben
 	join Mark (Mark_half) right
 	Mark: That's harsh. Whoever wrote this knows personal details about students.
 	Conrad: It's targeted. Specific. Not random.
-	[voice path="res://assets/audio/voice/Chapter 4/C4S1/c4s1 conrad studies.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 4/c4s1/the_protagonist_examines.mp3" volume="0.0" bus="Voice"]
 	Conrad examines the note carefully.
 	Conrad: The handwriting is neat, deliberate. The paper is standard school supply.
 	Conrad: But the content... it's designed to provoke guilt and self-reflection.
 	Mark: Like a psychological experiment?
 	Conrad: Or a moral lesson. Someone thinks they're teaching.
 join Alice (half) rightmost
-[voice path="res://assets/audio/voice/Chapter 4/C4S1/c4s1 another student approaches.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/c4s1/ben_shifts_nervously.mp3" volume="0.0" bus="Voice"]
 Alice approaches, carrying her own note.
 if {selected_character} == "celestine":
 	Alice: Celestine? I heard you're looking into these notes. I got one too.

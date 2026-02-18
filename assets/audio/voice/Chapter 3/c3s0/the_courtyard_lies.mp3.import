@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dxb8si6ruxbbd"
+path="res://.godot/imported/the_courtyard_lies.mp3-ca597e7504f6fc9e906ea592a9ddd343.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s0/the_courtyard_lies.mp3"
+dest_files=["res://.godot/imported/the_courtyard_lies.mp3-ca597e7504f6fc9e906ea592a9ddd343.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

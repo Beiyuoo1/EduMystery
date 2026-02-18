@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://klfivl0ghgdp"
+path="res://.godot/imported/Ryan_waves_his_hand_dismissively.mp3-eca47a7c5a4cf5e1896a9d4f4c295ccd.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/C2S5/Ryan_waves_his_hand_dismissively.mp3"
+dest_files=["res://.godot/imported/Ryan_waves_his_hand_dismissively.mp3-eca47a7c5a4cf5e1896a9d4f4c295ccd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

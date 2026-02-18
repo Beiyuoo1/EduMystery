@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dubq1eisgjayk"
+path="res://.godot/imported/Mark_lowers_his_voice.mp3-c2dcbb7200a6d9f1d696b72a7df72093.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/C2S1/Mark_lowers_his_voice.mp3"
+dest_files=["res://.godot/imported/Mark_lowers_his_voice.mp3-c2dcbb7200a6d9f1d696b72a7df72093.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

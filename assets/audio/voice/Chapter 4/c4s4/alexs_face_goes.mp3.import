@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://btv26akgjqbn6"
+path="res://.godot/imported/alexs_face_goes.mp3-d12ea6ee23688f1e26126d0589ab199c.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/c4s4/alexs_face_goes.mp3"
+dest_files=["res://.godot/imported/alexs_face_goes.mp3-d12ea6ee23688f1e26126d0589ab199c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://trqxqdrjbfh8"
+path="res://.godot/imported/The_protagonist_notices_the_unusual.mp3-9ab73926164caa54193cc27fab351b04.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/C2S1/The_protagonist_notices_the_unusual.mp3"
+dest_files=["res://.godot/imported/The_protagonist_notices_the_unusual.mp3-9ab73926164caa54193cc27fab351b04.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

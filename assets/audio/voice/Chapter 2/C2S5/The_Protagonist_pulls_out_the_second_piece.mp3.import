@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cms22e0f53cjv"
+path="res://.godot/imported/The_Protagonist_pulls_out_the_second_piece.mp3-2cd2f0e6b4d82d573ca894bd6a33cfa1.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/C2S5/The_Protagonist_pulls_out_the_second_piece.mp3"
+dest_files=["res://.godot/imported/The_Protagonist_pulls_out_the_second_piece.mp3-2cd2f0e6b4d82d573ca894bd6a33cfa1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

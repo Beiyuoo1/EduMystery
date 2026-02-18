@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://blx1o33ig00x8"
+path="res://.godot/imported/The_protagonist_and_Mark_sit_the_protagonist_leaning_forward_intently.mp3-64c5bb5527bd72da6387cdd005991bf8.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s2/The_protagonist_and_Mark_sit_the_protagonist_leaning_forward_intently.mp3"
+dest_files=["res://.godot/imported/The_protagonist_and_Mark_sit_the_protagonist_leaning_forward_intently.mp3-64c5bb5527bd72da6387cdd005991bf8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

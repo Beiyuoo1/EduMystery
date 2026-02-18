@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bux8et8ywfeub"
+path="res://.godot/imported/Her_voice_drops_to_barely.mp3-43bfa67a2633cbe1cf6e0a6033c00257.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/C2S2/Her_voice_drops_to_barely.mp3"
+dest_files=["res://.godot/imported/Her_voice_drops_to_barely.mp3-43bfa67a2633cbe1cf6e0a6033c00257.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

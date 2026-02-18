@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bmt7w3ggntwuh"
+path="res://.godot/imported/The_protagonist_takes.mp3-4f343bf9d823de53454c79d969f5227f.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 1/C1s5/The_protagonist_takes.mp3"
+dest_files=["res://.godot/imported/The_protagonist_takes.mp3-4f343bf9d823de53454c79d969f5227f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

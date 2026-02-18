@@ -287,7 +287,16 @@ func _prepare_target_sentence():
 	print("DEBUG: Target sentence: ", target_sentence)
 	print("DEBUG: Target words (", target_words.size(), "): ", target_words)
 
+func _play_sfx(path: String) -> void:
+	var player = AudioStreamPlayer.new()
+	player.stream = load(path)
+	player.bus = "SFX"
+	add_child(player)
+	player.play()
+	player.finished.connect(player.queue_free)
+
 func _show_wrong_feedback():
+	_play_sfx("res://assets/audio/sound_effect/wrong.wav")
 	feedback_label.visible = true
 	feedback_label.text = "This isn't the right way to say it, maybe there's something better."
 
@@ -490,6 +499,7 @@ func _on_all_words_complete():
 	"""Called when all words have been recognized"""
 	is_listening = false
 	print("SUCCESS: All words recognized!")
+	_play_sfx("res://assets/audio/sound_effect/correct.wav")
 
 	# Show completion message
 	status_label.text = "✓ COMPLETE!"

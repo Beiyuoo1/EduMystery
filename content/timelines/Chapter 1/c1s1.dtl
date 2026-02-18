@@ -1,9 +1,8 @@
 [signal arg="show_title_card 1"]
 # Initialize variable (will be overwritten by init_character_var signal)
 set {selected_character} = ""
-[signal arg="init_character_var"]
 set {c1s1_principal_tried} = false
-[music path="res://assets/audio/comfortable-mystery-4.mp3" fade="2.0" volume="0.0" loop="true"]
+audio music "res://assets/audio/bg/suspicious.mp3" [fade="2.0" volume="0.0" bus="Music" loop="true"]
 [background arg="res://Bg/faculty_exam.png" fade="1.0"]
 characters/Principal: The Grade 12-A History exams were ruined last night due to a water leak. We'll suspend the test until further notice. The faculty room is off-limits.
 [background arg="res://Bg/hallway.png" fade="2.0"]
@@ -11,19 +10,19 @@ characters/Principal: The Grade 12-A History exams were ruined last night due to
 [signal arg="debug_character_check"]
 if {selected_character} == "celestine":
 	join Celestine (full) center [animation="Fade In" length="2.0" wait="true"]
-	[voice path="res://assets/audio/Chapter 1/C1s1/Outside_near_the_student_bulletin_Celestine.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 1/C1S1/Outside,_near_the_student_bulletin,_Celestine _Santos.mp3" volume="10.0" bus="Voice"]
 	Outside, near the student bulletin, Celestine Santos listened quietly.\
-	Unlike most of her classmates who found it exciting gossip, she felt something strange — a [b][wave]pull[/wave][/b].
+	Unlike most of her classmates who found it exciting gossip, you felt something strange — a [b][wave]pull[/wave][/b].
 	update Celestine (half)
-	[voice path="res://assets/audio/Chapter 1/C1s1/Mysteries_had_always_fascinated.mp3" volume=50 bus="Voice"]
-	Mysteries had always fascinated her, especially since she and her best friends \
-	accidentally solved the missing ID case last semester.
+	[voice path="res://assets/audio/voice/Chapter 1/C1S1/Mysteries_had_always_fascinated_her.mp3" volume="10.0" bus="Voice"]
+	Mysteries had always fascinated her, especially since she and his best friends accidentally solved the missing ID case last semester.
 	update Celestine left
 	join Mark (Mark_half) right
 	Mark: Hey Celestine, Don't tell me you want to investigate this?
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	Celestine: You know me too well.
 	Mark: Are you sure you wanna do this?
-	Celestine: YESS, now help me.
+	Celestine: YES, now help me.
 	Mark: Alright, but where do we start?
 	Celestine: First we need to find potential witnesses.
 	Mark: Since the incident took place after school hours, we should focus first on the school staff since they should be the last people to leave the school.
@@ -45,16 +44,17 @@ if {selected_character} == "celestine":
 		jump fork_1_celestine
 else:
 	join Conrad (full) center [animation="Fade In" length="2.0" wait="true"]
-	[voice path="res://assets/audio/Chapter 1/C1s1/Outside_near_the_student_bulletin_Conrad.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 1/C1S1/Outside_near_the_student bulletin_Conrad _Santos.mp3" volume="10.0" bus="Voice"]
 	Outside, near the student bulletin, Conrad Santos listened quietly.\
-	Unlike most of his classmates who found it exciting gossip, he felt something strange — a [b][wave]pull[/wave][/b].
+	Unlike most of your classmates who found it exciting gossip, you felt something strange — a [b][wave]pull[/wave][/b].
 	update Conrad (half)
-	[voice path="res://assets/audio/Chapter 1/C1s1/Mysteries_had_always_fascinated.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 1/C1S1/Mysteries _had_always_fascinated _him.mp3" volume="10.0" bus="Voice"]
 	Mysteries had always fascinated him, especially since he and his best friends \
 	accidentally solved the missing ID case last semester.
 	update Conrad left
 	join Mark (Mark_half) right
 	Mark: Hey Conrad, Don't tell me you want to investigate this?
+	audio music "res://assets/audio/bg/suspicious.mp3" [loop="true"]
 	Conrad: You know me too well.
 	Mark: Are you sure you wanna do this?
 	Conrad: YESS, now help me.

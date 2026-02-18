@@ -1,6 +1,7 @@
+audio music "res://assets/audio/bg/chill3.mp3" [loop="true"]
 [background arg="res://Bg/principal_office.png" fade="1.0"]
-[voice path="res://assets/audio/voice/Chapter 4/C4S5/c4s5 alex stands.mp3" volume=50 bus="Voice"]
-Alex stands before the Principal's desk, the leather-bound journal in your hands.
+[voice path="res://assets/audio/voice/Chapter 4/c4s5/alex_stands_before.mp3" volume="0.0" bus="Voice"]
+Alex stands before the Principal's desk, the leather-bound journal in her hands.
 join Alex (half) center
 join Principal (Principal_half) right
 if {selected_character} == "celestine":
@@ -15,8 +16,10 @@ else:
 	Principal: Alex. Conrad explained what happened.
 	Alex: I'm sorry, Principal. I took the journal without permission and used it inappropriately.
 	Alex: I thought I was helping, but I understand now that I caused harm.
+[voice path="res://assets/audio/voice/Chapter 4/c4s5/alex_places.mp3" volume="0.0" bus="Voice"]
 Alex places the journal on the desk.
 Principal: This journal has been missing for over twenty years. I'm surprised it was still in the archive.
+[voice path="res://assets/audio/voice/Chapter 4/c4s5/principal_picks_it.mp3" volume="0.0" bus="Voice"]
 Principal picks it up, examining it thoughtfully.
 Principal: This belonged to a teacher who left the school in 1995.
 Principal: They were brilliant but misguided. They believed students should be challenged constantly, tested, observed.
@@ -29,7 +32,7 @@ Principal: You'll serve detention for unauthorized use of school property.
 Principal: And you'll assist the guidance counselor in organizing a proper peer mentorship program.
 Principal: One that respects consent and boundaries.
 Alex: I accept all of that. Thank you for giving me a chance to make this right.
-[voice path="res://assets/audio/voice/Chapter 4/C4S5/c4s5 alex leaves the office.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/c4s5/the_protagonist_smiles.mp3" volume="0.0" bus="Voice"]
 leave Alex
 leave Principal
 [wait time="0.5"]

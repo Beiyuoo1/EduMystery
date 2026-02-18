@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://blq83dytk7q8s"
+path="res://.godot/imported/angry_sketches_fill.mp3-beb038656cd6057e9a2f766e5c9a9c77.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s3/angry_sketches_fill.mp3"
+dest_files=["res://.godot/imported/angry_sketches_fill.mp3-beb038656cd6057e9a2f766e5c9a9c77.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

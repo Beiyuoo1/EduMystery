@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dnp3rj0msir4r"
+path="res://.godot/imported/But_the_story_doesnt_end.mp3-32fa3e12175001d8597fce3ff198e32b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s5/But_the_story_doesnt_end.mp3"
+dest_files=["res://.godot/imported/But_the_story_doesnt_end.mp3-32fa3e12175001d8597fce3ff198e32b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

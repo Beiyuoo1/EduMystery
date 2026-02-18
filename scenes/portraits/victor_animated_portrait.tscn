@@ -1,16 +1,19 @@
 [gd_scene load_steps=9 format=3 uid="uid://bjskyp7fuujst"]
 
-[ext_resource type="Script" uid="uid://lwxyzabc8jklm" path="res://scenes/portraits/victor_animated_portrait.gd" id="1"]
-[ext_resource type="Texture2D" path="res://Characters/Victor.png" id="2"]
-[ext_resource type="Texture2D" path="res://Sprites/mouth_animation/Victor/Victor_half mouth animation 1.png" id="3"]
-[ext_resource type="Texture2D" path="res://Sprites/mouth_animation/Victor/Victor_half mouth animation 2.png" id="4"]
-[ext_resource type="Texture2D" path="res://Sprites/mouth_animation/Victor/Victor_half mouth animation 3.png" id="5"]
-[ext_resource type="Texture2D" path="res://Sprites/mouth_animation/Victor/Victor_half mouth animation 4.png" id="6"]
-[ext_resource type="Texture2D" path="res://Sprites/mouth_animation/Victor/Victor_half mouth animation 5.png" id="7"]
+[ext_resource type="Script" uid="uid://cqd73jljwxcc" path="res://scenes/portraits/victor_animated_portrait.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dfc5v2q6um8yt" path="res://Characters/Victor.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cpjnhia57kpuo" path="res://Sprites/mouth_animation/Victor/Victor_half mouth animation 1.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bkhw04brugjmr" path="res://Sprites/mouth_animation/Victor/Victor_half mouth animation 2.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bwywykdji7odt" path="res://Sprites/mouth_animation/Victor/Victor_half mouth animation 3.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://qkdetxdkgff" path="res://Sprites/mouth_animation/Victor/Victor_half mouth animation 4.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://vvq3tgchjktw" path="res://Sprites/mouth_animation/Victor/Victor_half mouth animation 5.png" id="7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_victor"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("2")
+}, {
 "duration": 1.0,
 "texture": ExtResource("2")
 }],
@@ -43,7 +46,8 @@ animations = [{
 script = ExtResource("1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-214, -537)
+position = Vector2(-214, -620)
 sprite_frames = SubResource("SpriteFrames_victor")
-animation = &"talking"
+animation = &"idle"
+frame_progress = 0.1971661
 centered = false

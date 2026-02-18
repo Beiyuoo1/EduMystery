@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://oftsx8xxhm6l"
+path="res://.godot/imported/The_protagonist_nods_solemnly.mp3-fea74515f07955ac5beb51ab46bf7ace.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s3/The_protagonist_nods_solemnly.mp3"
+dest_files=["res://.godot/imported/The_protagonist_nods_solemnly.mp3-fea74515f07955ac5beb51ab46bf7ace.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

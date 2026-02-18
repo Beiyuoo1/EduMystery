@@ -37,6 +37,8 @@ func _ready() -> void:
 		Dialogic.Text.text_finished.connect(_on_text_finished)
 		Dialogic.Text.speaker_updated.connect(_on_speaker_updated)
 		print("Victor portrait: Signals connected")
+		# Check immediately in case Victor is already speaking when portrait joins
+		_check_if_speaking()
 
 
 ## Called when text starts showing (character is speaking)
@@ -68,9 +70,13 @@ func _check_if_speaking() -> void:
 		if character.display_name == "Victor":
 			if current_speaker and current_speaker.display_name == "Victor":
 				print("Victor portrait: Victor is speaking!")
+				if animated_sprite:
+					animated_sprite.modulate = Color.WHITE
 				start_talking()
 			else:
 				print("Victor portrait: Victor is NOT speaking")
+				if animated_sprite:
+					animated_sprite.modulate = unhighlighted_color
 				stop_talking()
 	else:
 		print("Victor portrait: character is null!")

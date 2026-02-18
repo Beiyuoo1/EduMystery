@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3oqyvbdwcxnh"
+path="res://.godot/imported/victor_uncrosses_his.mp3-94131828922cded3f64db08f3857b804.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s2/victor_uncrosses_his.mp3"
+dest_files=["res://.godot/imported/victor_uncrosses_his.mp3-94131828922cded3f64db08f3857b804.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

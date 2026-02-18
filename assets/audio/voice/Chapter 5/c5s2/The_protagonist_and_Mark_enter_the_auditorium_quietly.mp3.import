@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3glqfumoeu3b"
+path="res://.godot/imported/The_protagonist_and_Mark_enter_the_auditorium_quietly.mp3-6e4a3fd88f26108ee5abce701689c15d.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s2/The_protagonist_and_Mark_enter_the_auditorium_quietly.mp3"
+dest_files=["res://.godot/imported/The_protagonist_and_Mark_enter_the_auditorium_quietly.mp3-6e4a3fd88f26108ee5abce701689c15d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

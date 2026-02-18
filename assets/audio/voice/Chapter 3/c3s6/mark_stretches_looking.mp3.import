@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cnhjnppvj3dj5"
+path="res://.godot/imported/mark_stretches_looking.mp3-14fa7de5e2c3433271ffec5b6fa60336.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s6/mark_stretches_looking.mp3"
+dest_files=["res://.godot/imported/mark_stretches_looking.mp3-14fa7de5e2c3433271ffec5b6fa60336.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

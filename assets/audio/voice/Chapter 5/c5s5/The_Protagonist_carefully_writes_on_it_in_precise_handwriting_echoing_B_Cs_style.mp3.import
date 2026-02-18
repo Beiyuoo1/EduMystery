@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://8hvmcs434jdf"
+path="res://.godot/imported/The_Protagonist_carefully_writes_on_it_in_precise_handwriting_echoing_B_Cs_style.mp3-05c5fdfdd1bce131c009fef9815bd1f9.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s5/The_Protagonist_carefully_writes_on_it_in_precise_handwriting_echoing_B_Cs_style.mp3"
+dest_files=["res://.godot/imported/The_Protagonist_carefully_writes_on_it_in_precise_handwriting_echoing_B_Cs_style.mp3-05c5fdfdd1bce131c009fef9815bd1f9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

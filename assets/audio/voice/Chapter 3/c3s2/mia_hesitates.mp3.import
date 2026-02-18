@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ck4x0ckdbs2ph"
+path="res://.godot/imported/mia_hesitates.mp3-834c8be5d6d20a2a8d05d98f46e31e8d.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s2/mia_hesitates.mp3"
+dest_files=["res://.godot/imported/mia_hesitates.mp3-834c8be5d6d20a2a8d05d98f46e31e8d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

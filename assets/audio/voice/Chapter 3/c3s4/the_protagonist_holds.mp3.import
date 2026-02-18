@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://46fg8x2m4ibe"
+path="res://.godot/imported/the_protagonist_holds.mp3-c2a978ea236a55f298a35041cd848ad8.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s4/the_protagonist_holds.mp3"
+dest_files=["res://.godot/imported/the_protagonist_holds.mp3-c2a978ea236a55f298a35041cd848ad8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

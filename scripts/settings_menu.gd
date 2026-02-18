@@ -33,8 +33,8 @@ signal back_pressed
 var config := ConfigFile.new()
 
 func _ready() -> void:
-	# Ensure Voice audio bus exists
-	_ensure_voice_bus()
+	# Ensure audio buses exist
+	_ensure_audio_buses()
 
 	load_settings()
 
@@ -155,15 +155,32 @@ func _on_voice_volume_changed(value: float) -> void:
 	voice_volume_value.text = str(int(value)) + "%"
 	save_settings()
 
-func _ensure_voice_bus() -> void:
-	"""Create Voice audio bus if it doesn't exist"""
+func _ensure_audio_buses() -> void:
+	"""Create audio buses if they don't exist"""
+	# Ensure Music bus exists
+	var music_bus_idx = AudioServer.get_bus_index("Music")
+	if music_bus_idx == -1:
+		AudioServer.add_bus()
+		var new_bus_idx = AudioServer.bus_count - 1
+		AudioServer.set_bus_name(new_bus_idx, "Music")
+		AudioServer.set_bus_send(new_bus_idx, "Master")
+		print("Created Music audio bus at index ", new_bus_idx)
+
+	# Ensure SFX bus exists
+	var sfx_bus_idx = AudioServer.get_bus_index("SFX")
+	if sfx_bus_idx == -1:
+		AudioServer.add_bus()
+		var new_bus_idx = AudioServer.bus_count - 1
+		AudioServer.set_bus_name(new_bus_idx, "SFX")
+		AudioServer.set_bus_send(new_bus_idx, "Master")
+		print("Created SFX audio bus at index ", new_bus_idx)
+
+	# Ensure Voice bus exists
 	var voice_bus_idx = AudioServer.get_bus_index("Voice")
 	if voice_bus_idx == -1:
-		# Voice bus doesn't exist, create it
 		AudioServer.add_bus()
 		var new_bus_idx = AudioServer.bus_count - 1
 		AudioServer.set_bus_name(new_bus_idx, "Voice")
-		# Make Voice bus a child of Master bus (index 0)
 		AudioServer.set_bus_send(new_bus_idx, "Master")
 		print("Created Voice audio bus at index ", new_bus_idx)
 

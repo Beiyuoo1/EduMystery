@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbvx15g3xrdqn"
+path="res://.godot/imported/The_protagonist_and_Mark_exchange_glances.mp3-aade59b88a1047ad7104de135ab71291.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s1/The_protagonist_and_Mark_exchange_glances.mp3"
+dest_files=["res://.godot/imported/The_protagonist_and_Mark_exchange_glances.mp3-aade59b88a1047ad7104de135ab71291.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dykvmgjma52st"
+path="res://.godot/imported/They_gesture_to_chairs_on_the_stage.mp3-d7217296d8459ce4da64ba7cfd532c43.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s2/They_gesture_to_chairs_on_the_stage.mp3"
+dest_files=["res://.godot/imported/They_gesture_to_chairs_on_the_stage.mp3-d7217296d8459ce4da64ba7cfd532c43.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

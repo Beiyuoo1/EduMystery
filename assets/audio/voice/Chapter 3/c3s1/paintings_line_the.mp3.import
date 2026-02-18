@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dipf8eweul2y"
+path="res://.godot/imported/paintings_line_the.mp3-beba908f700b1d3d88b0bd2b9767a613.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s1/paintings_line_the.mp3"
+dest_files=["res://.godot/imported/paintings_line_the.mp3-beba908f700b1d3d88b0bd2b9767a613.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

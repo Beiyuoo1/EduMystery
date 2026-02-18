@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwk60svko3edu"
+path="res://.godot/imported/the_protagonist_examines.mp3-abe613c85eb82188b1a4114bf0e04124.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s3/the_protagonist_examines.mp3"
+dest_files=["res://.godot/imported/the_protagonist_examines.mp3-abe613c85eb82188b1a4114bf0e04124.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

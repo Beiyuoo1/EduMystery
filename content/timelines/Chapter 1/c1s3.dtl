@@ -1,10 +1,11 @@
 set {c1s3_old_ac_tried} = false
 set {c1s3_animal_tried} = false
 if {selected_character} == "celestine":
+	audio music "res://assets/audio/bg/suspicious.mp3" [loop="true"]
 	[background arg="res://Bg/faculty_few.png" fade="1.5"]
-	[voice path="res://assets/audio/Chapter 1/C1s3/The_protagonist_enters.mp3" volume=50 bus="Voice"]
-	The protagonist enters the school faculty room. She sees that some teachers and student are doing schoolwork.
-	[voice path="res://assets/audio/Chapter 1/C1s3/The_protagonist_sees.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 1/C1s3/The_protagonist_enters.mp3" volume="0.0" bus="Voice"]
+	The protagonist enters the school faculty room and observes several teachers and students engage in school work.
+	[voice path="res://assets/audio/voice/Chapter 1/C1s3/The_protagonist_sees.mp3" volume="0.0" bus="Voice"]
 	The protagonist sees the Principal and approaches him.
 	join Principal (Principal_half) right [animation="Instant In" length="0.0"]
 	join Celestine (half) left [animation="Slide From Left"]
@@ -20,6 +21,7 @@ if {selected_character} == "celestine":
 	"Celestine (Thinking)": Hmmm...... the water seems to be a bit too much from only a natural leak. The amount of water looks more like from a pipe instead of a leak.
 	[background arg="res://Pics/Ac_leak.png" fade="0.3"]
 	label Deduction_celestine
+	[voice path="res://assets/audio/voice/Chapter 1/C1s3/Whats_wrong.mp3" volume="0.0"]
 	What's wrong with this picture?
 	- The airconditioning unit looks old so it was only natural that it leaked | [if {c1s3_old_ac_tried} == false]
 		set {c1s3_old_ac_tried} = true
@@ -98,14 +100,14 @@ if {selected_character} == "celestine":
 	leave Celestine [animation="Instant Out"]
 	[background arg="res://Bg/hallway.png" fade="1.5"]
 	join Celestine center
-	[voice path="res://assets/audio/Chapter 1/C1s3/The_protagonist_leaves.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 1/C1s3/The_protagonist_leaves.mp3" volume="0.0" bus="Voice"]
 	The protagonist  leaves the room and is walking in the hallway
-	[voice path="res://assets/audio/Chapter 1/C1s3/The_protagonist_walks.mp3" volume=50 bus="Voice"]
 	join Celestine (half) left
 	"Celestine (Thinking)": Of course the students of 12-A are definitely suspects but it's gonna take a long time to question them all individually, which makes it impossible to catch them before the grades are permanently recorded.
 	"Celestine (Thinking)": It would also alert the perp which makes the investigation harder.
 	"Celestine (Thinking)": Also it wouldn't be impossible for this to be coordinated by multiple people.
 	Celestine: Ughhhh... This is so hard. Why did I think that I could do this.
+	[voice path="res://assets/audio/voice/Chapter 1/C1s3/The_protagonist_walks.mp3" volume="0.0" bus="Voice"]
 	The protagonist  walks in the hallway to leave the building to go to the school gate
 	leave Celestine
 	# Celestine goes to find Alice (Placeholder: Janitor Fred)
@@ -132,7 +134,7 @@ if {selected_character} == "celestine":
 	Celestine: This case is kinda rough though, I really need your help.
 	"Diwata Laya": I've seen what's been happening even though I've been resting for a while. Don't worry too much, do what you can and we'll see how I can help. Since I've recovered quite a bit, my ability to compel people to tell the truth or cooperate has come back to me.
 	Celestine: Well that's gonna be super helpful.
-	[voice path="res://assets/audio/Chapter 1/C1s3/Diwata_Laya_is_your_helper.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/Chapter 1/C1s3/Diwata_Laya_is_your_helper.mp3" volume="0.0" bus="Voice"]
 	Diwata Laya is your helper! She is very intelligent and can help you quite a lot. However she is very limited as she is not allowed to interact much with the human world, so she is limited in the help she can give.
 	Celestine: Great, I'll tell Mark what we've learned later. Help me brainstorm once we get home later.
 	"Diwata Laya": Ok.
@@ -141,9 +143,9 @@ if {selected_character} == "celestine":
 	jump c1s4/
 else:
 	[background arg="res://Bg/faculty_few.png" fade="1.5"]
-	[voice path="res://assets/audio/Chapter 1/C1s3/The_protagonist_enters.mp3" volume=50 bus="Voice"]
-	The protagonist enters the school faculty room. She sees that some teachers and student are doing schoolwork.
-	[voice path="res://assets/audio/Chapter 1/C1s3/The_protagonist_sees.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 1/C1s3/The_protagonist_enters.mp3" volume="0.0" bus="Voice"]
+	The protagonist enters the school faculty room and observes several teachers and students engage in school work.
+	[voice path="res://assets/audio/voice/Chapter 1/C1s3/The_protagonist_sees.mp3" volume="0.0" bus="Voice"]
 	The protagonist sees the Principal and approaches him.
 	join Principal right [animation="Instant In" length="0.0"]
 	join Conrad (half) left [animation="Slide From Left"]
@@ -159,6 +161,7 @@ else:
 	"Conrad (Thinking)": Hmmm...... the water seems to be a bit too much from only a natural leak. The amount of water looks more like from a pipe instead of a leak.
 	[background arg="res://Pics/Ac_leak.png" fade="0.3"]
 	label Deduction
+	[voice path="res://assets/audio/voice/Chapter 1/C1s3/Whats_wrong.mp3" volume="0.0"]
 	What's wrong with this picture?
 	- The airconditioning unit looks old so it was only natural that it leaked | [if {c1s3_old_ac_tried} == false]
 		set {c1s3_old_ac_tried} = true
@@ -230,51 +233,53 @@ else:
 	join Principal right
 	join Conrad left
 	Conrad: (Texts Mark) "Hey, do you know anyone in 12-A who uses a Galaxy A52 or a Redmi Note 10?"
+	[voice path="res://assets/audio/voice/Chapter 1/C1s3/Mark_replies_Im_not.mp3" volume="0.0"]
 	Mark replies\: "I'm not sure about the specific models. But Alice, the class monitor, collects our phones during exams. She would know."
+	[voice path="res://assets/audio/voice/Chapter 1/C1s3/Mark_replies_Shes.mp3" volume="0.0"]
 	Mark replies\: "She's usually at the lockers this time."
 	Conrad: Thanks, Sir. I have a lead to follow up on.
 	leave Principal
 	leave Conrad [animation="Instant Out"]
 	[background arg="res://Bg/hallway.png" fade="1.5"]
 	join Conrad center
-	[voice path="res://assets/audio/Chapter 1/C1s3/The_protagonist_leaves.mp3" volume=50 bus="Voice"]
-	 The protagonist  leaves the room and is walking in the hallway.
-	[voice path="res://assets/audio/Chapter 1/C1s3/The_protagonist_walks.mp3" volume=50 bus="Voice"]
-	join Conrad (half) left
-	"Conrad (Thinking)": Of course the students of 12-A are definitely suspects but it's gonna take a long time to question them all individually, which makes it impossible to catch them before the grades are permanently recorded.
-	"Conrad (Thinking)": It would also alert the perp which makes the investigation harder.
-	"Conrad (Thinking)": Also it wouldn't be impossible for this to be coordinated by multiple people.
-	Conrad: Ughhhh... This is so hard. Why did I think that I could do this.
-	 The protagonist walks in the hallway to leave the building to go to the school gate
-	leave Conrad
-	# Conrad goes to find Alice (Placeholder: Janitor Fred)
-	[background arg="res://Bg/school_gate.png" fade="1.5"]
-	join Alice right [animation="Instant In" length="0.1"]
-	join Conrad left [animation="Slide From Left" length="1.0"]
-	Conrad: Excuse me... Alice?
-	# Placeholder: Janitor Fred represents Alice, the class monitor
-	Alice: Yes? What is it, Conrad?
-	Conrad: Mark said you know a lot about our classmates' phones since you collect them. Do you know anyone who uses a Galaxy A52 or a Redmi Note 10?
-	Alice: Hmm... let me think.
-	Alice: Oh, right. Ben has a Galaxy A52. He's always bragging about the camera.
-	Alice: And Greg has a Redmi Note 10. I remember the red case.
-	Conrad: Thanks, Alice. That helps a lot.
-	leave Alice [animation="Slide To Left"]
-	"Conrad (Thinking)": So the devices in the logs belong to Ben and Greg. They were in the faculty room last night.
-	"Conrad (Thinking)": I have the suspects. Now I just need to prove it.
-	join "Diwata Laya" (Half_mirror) right
-	[signal arg="laya_start"]
-	"Diwata Laya": It's alright you can do this.
-	[signal]
-	Conrad: Looks like you're awake. I've narrowed it down to two students.
-	"Diwata Laya": Last time, it took me too much energy so I had to rest. I've recovered mostly but the help I can give is limited.
-	Conrad: This case is kinda rough though, I really need your help.
-	"Diwata Laya": I've seen what's been happening even though I've been resting for a while. Don't worry too much, do what you can and we'll see how I can help. Since I've recovered quite a bit, my ability to compel people to tell the truth or cooperate has come back to me.
-	Conrad: Well that's gonna be super helpful.
-	[voice path="res://assets/audio/Chapter 1/C1s3/Diwata_Laya_is_your_helper.mp3" volume=50 bus="Voice"]
-	Diwata Laya is your helper! She is very intelligent and can help you quite a lot. However she is very limited as she is not allowed to interact much with the human world, so she is limited in the help she can give.
-	Conrad: Great, I'll tell Mark what we've learned later. Help me brainstorm once we get home later.
-	"Diwata Laya": Ok.
-	[signal arg="laya_end"]
-	leave --All-- [animation="Instant Out" length="0.0"]
-	jump c1s4/
+	[voice path="res://assets/audio/Chapter 1/C1s3/The_protagonist_leaves.mp3" volume="0.0" bus="Voice"]
+	The protagonist  leaves the room and is walking in the hallway.
+join Conrad (half) left
+"Conrad (Thinking)": Of course the students of 12-A are definitely suspects but it's gonna take a long time to question them all individually, which makes it impossible to catch them before the grades are permanently recorded.
+"Conrad (Thinking)": It would also alert the perp which makes the investigation harder.
+"Conrad (Thinking)": Also it wouldn't be impossible for this to be coordinated by multiple people.
+Conrad: Ughhhh... This is so hard. Why did I think that I could do this.
+[voice path="res://assets/audio/voice/Chapter 1/C1s3/The_protagonist_walks.mp3" volume="6.0"]
+The protagonist walks in the hallway to leave the building to go to the school gate
+leave Conrad
+# Conrad goes to find Alice (Placeholder: Janitor Fred)
+[background arg="res://Bg/school_gate.png" fade="1.5"]
+join Alice right [animation="Instant In" length="0.1"]
+join Conrad left [animation="Slide From Left" length="1.0"]
+Conrad: Excuse me... Alice?
+# Placeholder: Janitor Fred represents Alice, the class monitor
+Alice: Yes? What is it, Conrad?
+Conrad: Mark said you know a lot about our classmates' phones since you collect them. Do you know anyone who uses a Galaxy A52 or a Redmi Note 10?
+Alice: Hmm... let me think.
+Alice: Oh, right. Ben has a Galaxy A52. He's always bragging about the camera.
+Alice: And Greg has a Redmi Note 10. I remember the red case.
+Conrad: Thanks, Alice. That helps a lot.
+leave Alice [animation="Slide To Left"]
+"Conrad (Thinking)": So the devices in the logs belong to Ben and Greg. They were in the faculty room last night.
+"Conrad (Thinking)": I have the suspects. Now I just need to prove it.
+join "Diwata Laya" (Half_mirror) right
+[signal arg="laya_start"]
+"Diwata Laya": It's alright you can do this.
+[signal]
+Conrad: Looks like you're awake. I've narrowed it down to two students.
+"Diwata Laya": Last time, it took me too much energy so I had to rest. I've recovered mostly but the help I can give is limited.
+Conrad: This case is kinda rough though, I really need your help.
+"Diwata Laya": I've seen what's been happening even though I've been resting for a while. Don't worry too much, do what you can and we'll see how I can help. Since I've recovered quite a bit, my ability to compel people to tell the truth or cooperate has come back to me.
+Conrad: Well that's gonna be super helpful.
+[voice path="res://assets/audio/voice/Chapter 1/C1s3/Diwata_Laya_is_your .mp3" volume="0.0" bus="Voice"]
+Diwata Laya is your helper! She is very intelligent and can help you quite a lot. However she is very limited as she is not allowed to interact much with the human world, so she is limited in the help she can give.
+Conrad: Great, I'll tell Mark what we've learned later. Help me brainstorm once we get home later.
+"Diwata Laya": Ok.
+[signal arg="laya_end"]
+leave --All-- [animation="Instant Out" length="0.0"]
+jump c1s4/

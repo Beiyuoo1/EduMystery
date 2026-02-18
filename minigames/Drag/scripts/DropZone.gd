@@ -42,14 +42,24 @@ func _drop_data(at_position, data):
 
 	else:
 		# Incorrect drop - provide visual feedback
-		color = Color.RED 
+		_play_sfx("res://assets/audio/sound_effect/wrong.wav")
+		color = Color.RED
 		get_tree().create_timer(0.5).timeout.connect(reset_color)
 
 func reset_color():
 	if not is_filled: 
 		color = original_color
 
+func _play_sfx(path: String) -> void:
+	var player = AudioStreamPlayer.new()
+	player.stream = load(path)
+	player.bus = "SFX"
+	add_child(player)
+	player.play()
+	player.finished.connect(player.queue_free)
+
 func _handle_successful_drop():
+	_play_sfx("res://assets/audio/sound_effect/correct.wav")
 	color = Color.GREEN
 	get_tree().create_timer(0.5).timeout.connect(_reset_success_color)
 	minigame_scene.check_win_condition(true)

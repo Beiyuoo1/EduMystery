@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://wh1ylugwi78p"
+path="res://.godot/imported/the_protagonist_flips.mp3-09abc2dada719d0df2bd9b19ac6f2ec8.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s3/the_protagonist_flips.mp3"
+dest_files=["res://.godot/imported/the_protagonist_flips.mp3-09abc2dada719d0df2bd9b19ac6f2ec8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

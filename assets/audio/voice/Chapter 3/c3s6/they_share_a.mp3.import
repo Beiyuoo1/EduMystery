@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dqla6am62pq4i"
+path="res://.godot/imported/they_share_a.mp3-5c733e972afc16053e0bd62cd205e596.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s6/they_share_a.mp3"
+dest_files=["res://.godot/imported/they_share_a.mp3-5c733e972afc16053e0bd62cd205e596.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

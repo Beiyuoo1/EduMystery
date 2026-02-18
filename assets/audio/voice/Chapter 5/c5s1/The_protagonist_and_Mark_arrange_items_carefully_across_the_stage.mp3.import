@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dodpy3aik5orb"
+path="res://.godot/imported/The_protagonist_and_Mark_arrange_items_carefully_across_the_stage.mp3-24729646f0f5547427d2fcee43a14f43.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s1/The_protagonist_and_Mark_arrange_items_carefully_across_the_stage.mp3"
+dest_files=["res://.godot/imported/The_protagonist_and_Mark_arrange_items_carefully_across_the_stage.mp3-24729646f0f5547427d2fcee43a14f43.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://43xur5koyl7a"
+path="res://.godot/imported/shes_sitting_on.mp3-80f9d59bffa595864c22ea9b7f9f4717.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s2/shes_sitting_on.mp3"
+dest_files=["res://.godot/imported/shes_sitting_on.mp3-80f9d59bffa595864c22ea9b7f9f4717.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

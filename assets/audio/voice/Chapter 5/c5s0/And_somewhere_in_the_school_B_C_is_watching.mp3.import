@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://iw6ydstmewsm"
+path="res://.godot/imported/And_somewhere_in_the_school_B_C_is_watching.mp3-51ad993b5f19808ddc72dd1a359c2672.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s0/And_somewhere_in_the_school_B_C_is_watching.mp3"
+dest_files=["res://.godot/imported/And_somewhere_in_the_school_B_C_is_watching.mp3-51ad993b5f19808ddc72dd1a359c2672.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

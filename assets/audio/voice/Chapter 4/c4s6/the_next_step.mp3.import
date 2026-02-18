@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://lfma0evwijlt"
+path="res://.godot/imported/the_next_step.mp3-5dc3117be3279c140ff399f383ee8357.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/c4s6/the_next_step.mp3"
+dest_files=["res://.godot/imported/the_next_step.mp3-5dc3117be3279c140ff399f383ee8357.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

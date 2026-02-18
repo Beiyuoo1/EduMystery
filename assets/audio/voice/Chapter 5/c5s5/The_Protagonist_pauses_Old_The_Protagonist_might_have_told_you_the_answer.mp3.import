@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c62f1yqraad3v"
+path="res://.godot/imported/The_Protagonist_pauses_Old_The_Protagonist_might_have_told_you_the_answer.mp3-200e22c3d1115584624c15a33e1d8f87.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s5/The_Protagonist_pauses_Old_The_Protagonist_might_have_told_you_the_answer.mp3"
+dest_files=["res://.godot/imported/The_Protagonist_pauses_Old_The_Protagonist_might_have_told_you_the_answer.mp3-200e22c3d1115584624c15a33e1d8f87.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

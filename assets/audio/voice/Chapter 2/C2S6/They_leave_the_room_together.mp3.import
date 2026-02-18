@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dxwjcbxa0f516"
+path="res://.godot/imported/They_leave_the_room_together.mp3-ef4cf09948f406f9358ea77f4de231fc.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/C2S6/They_leave_the_room_together.mp3"
+dest_files=["res://.godot/imported/They_leave_the_room_together.mp3-ef4cf09948f406f9358ea77f4de231fc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

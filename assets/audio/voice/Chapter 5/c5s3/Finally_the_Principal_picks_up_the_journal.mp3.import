@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dnkovnt20v3u2"
+path="res://.godot/imported/Finally_the_Principal_picks_up_the_journal.mp3-6dc1e3d2d58a55bebb678f0a7777dd95.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s3/Finally_the_Principal_picks_up_the_journal.mp3"
+dest_files=["res://.godot/imported/Finally_the_Principal_picks_up_the_journal.mp3-6dc1e3d2d58a55bebb678f0a7777dd95.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

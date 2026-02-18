@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bf1oqtfwbbtfd"
+path="res://.godot/imported/Ryan_returns_to_his_computer.mp3-bbee14e77de357ed0baff8fde51bb724.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/C2S2/Ryan_returns_to_his_computer.mp3"
+dest_files=["res://.godot/imported/Ryan_returns_to_his_computer.mp3-bbee14e77de357ed0baff8fde51bb724.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

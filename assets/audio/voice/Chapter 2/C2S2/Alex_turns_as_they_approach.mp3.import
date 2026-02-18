@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bw035s5dsntv6"
+path="res://.godot/imported/Alex_turns_as_they_approach.mp3-0dd3a8b72ca0becaa6c5e4ca87e06d5f.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/C2S2/Alex_turns_as_they_approach.mp3"
+dest_files=["res://.godot/imported/Alex_turns_as_they_approach.mp3-0dd3a8b72ca0becaa6c5e4ca87e06d5f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

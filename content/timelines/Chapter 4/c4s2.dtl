@@ -1,7 +1,7 @@
 [background arg="res://Bg/classroom.png" fade="1.0"]
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 4/C4S2/c4s2 Conrad sits at a desk.mp3" volume=50 bus="Voice"]
-	Celestine sits at a desk, notes spread before your. Mark stands nearby.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s2/the_protagonist_sits.mp3" volume="0.0" bus="Voice"]
+	The protagonist sits at a desk, notes spread before them. Mark stands nearby.
 	join Celestine (half) left
 	join Mark (Mark_half) right
 	Celestine: Let me review what we know.
@@ -13,7 +13,8 @@ if {selected_character} == "celestine":
 	Celestine: That's what bothers me. Is this punishment? Education? Some kind of social experiment?
 	join "Diwata Laya" (Half) center
 	[signal arg="laya_start"]
-	"Diwata Laya" materializes, your expression thoughtful.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s2/diwata_laya_materializes.mp3" volume="0.0" bus="Voice"]
+	"Diwata Laya" materializes, their expression thoughtful.
 	"Diwata Laya": [i][color=#9999ff]These notes carry intention, but not malice.[/color][/i]
 	"Celestine (Thinking)": What do you sense?
 	"Diwata Laya": [i][color=#9999ff]Whoever writes them believes they are helping. Guiding.[/color][/i]
@@ -29,8 +30,8 @@ if {selected_character} == "celestine":
 	Mark: Teachers? The counselor? Student council?
 	Celestine: Or someone who observes very carefully. Someone who pays attention.
 else:
-	[voice path="res://assets/audio/voice/Chapter 4/C4S2/c4s2 Conrad sits at a desk.mp3" volume=50 bus="Voice"]
-	Conrad sits at a desk, notes spread before you. Mark stands nearby.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s2/the_protagonist_sits.mp3" volume="0.0" bus="Voice"]
+	The protagonist sits at a desk, notes spread before them. Mark stands nearby.
 	join Conrad (half) left
 	join Mark (Mark_half) right
 	Conrad: Let me review what we know.
@@ -42,7 +43,8 @@ else:
 	Conrad: That's what bothers me. Is this punishment? Education? Some kind of social experiment?
 	join "Diwata Laya" (Half) center
 	[signal arg="laya_start"]
-	"Diwata Laya" materializes, your expression thoughtful.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s2/diwata_laya_materializes.mp3" volume="0.0" bus="Voice"]
+	"Diwata Laya" materializes, their expression thoughtful.
 	"Diwata Laya": [i][color=#9999ff]These notes carry intention, but not malice.[/color][/i]
 	"Conrad (Thinking)": What do you sense?
 	"Diwata Laya": [i][color=#9999ff]Whoever writes them believes they are helping. Guiding.[/color][/i]
@@ -57,6 +59,7 @@ else:
 	Conrad: We need to find the source. Who has access to this much information about students?
 	Mark: Teachers? The counselor? Student council?
 	Conrad: Or someone who observes very carefully. Someone who pays attention.
+[voice path="res://assets/audio/voice/Chapter 4/c4s2/the_principal_enters.mp3" volume="0.0" bus="Voice"]
 The Principal enters the room.
 join Principal (Principal_half) rightmost
 if {selected_character} == "celestine":
@@ -92,14 +95,16 @@ else:
 	leave Conrad
 	leave Mark
 [background arg="res://Bg/library.png" fade="1.0"]
-[voice path="res://assets/audio/voice/Chapter 4/C4S2/c4s2 the library is quiet.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/c4s2/the_library_is_quiet.mp3" volume="0.0" bus="Voice"]
 if {selected_character} == "celestine":
 	join Celestine (half) left
 	join Mark (Mark_half) right
 	The library is quiet. A few students study at tables.
-	Celestine approaches the circulation desk.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s2/the_protagonist_approaches.mp3" volume="0.0" bus="Voice"]
+	The protagonist approaches the circulation desk.
 	Celestine: Excuse me. I need to check recent book checkouts, particularly psychology and philosophy sections.
-	The librarian pulls up records on your computer.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s2/the_librarian_pulls.mp3" volume="0.0" bus="Voice"]
+	The librarian pulls up records on the computer.
 	Librarian: Let's see... several students have checked out ethics texts recently. That's not unusual.
 	Librarian: But there is something odd. Someone accessed the restricted archive section twice last week.
 	Celestine: The archive? Who has permission?
@@ -141,7 +146,8 @@ else:
 	The library is quiet. A few students study at tables.
 	Conrad approaches the circulation desk.
 	Conrad: Excuse me. I need to check recent book checkouts, particularly psychology and philosophy sections.
-	The librarian pulls up records on your computer.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s2/the_librarian_pulls.mp3" volume="0.0" bus="Voice"]
+	The librarian pulls up records on the computer.
 	Librarian: Let's see... several students have checked out ethics texts recently. That's not unusual.
 	Librarian: But there is something odd. Someone accessed the restricted archive section twice last week.
 	Conrad: The archive? Who has permission?

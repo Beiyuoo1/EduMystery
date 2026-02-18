@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c2ila6ewneons"
+path="res://.godot/imported/a_week_after.mp3-9d23b81d783f4befa33022c88f302b51.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/c4s0/a_week_after.mp3"
+dest_files=["res://.godot/imported/a_week_after.mp3-9d23b81d783f4befa33022c88f302b51.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

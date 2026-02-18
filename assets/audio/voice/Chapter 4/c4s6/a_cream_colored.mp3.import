@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgjsdqkbfx6gj"
+path="res://.godot/imported/a_cream_colored.mp3-96d2ca61cc80e01283efad6b82bb9cf1.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/c4s6/a_cream_colored.mp3"
+dest_files=["res://.godot/imported/a_cream_colored.mp3-96d2ca61cc80e01283efad6b82bb9cf1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

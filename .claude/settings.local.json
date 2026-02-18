@@ -35,7 +35,10 @@
       "Bash(git remote remove:*)",
       "Bash(git remote add:*)",
       "Bash(python3:*)",
-      "Bash(# Check file permissions - maybe OneDrive is locking files icacls \"\"addons/vosk/models/vosk-model-en-us-0.22/am/final.mdl\"\")"
+      "Bash(# Check file permissions - maybe OneDrive is locking files icacls \"\"addons/vosk/models/vosk-model-en-us-0.22/am/final.mdl\"\")",
+      "Bash(git pull:*)",
+      "Bash(ffmpeg:*)",
+      "Bash(winget install:*)"
     ]
   }
 }

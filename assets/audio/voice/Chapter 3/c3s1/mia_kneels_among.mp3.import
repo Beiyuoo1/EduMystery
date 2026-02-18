@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c6jbeshp3i3vt"
+path="res://.godot/imported/mia_kneels_among.mp3-ebef3c0e534a93333ff503ef9ae9dba6.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s1/mia_kneels_among.mp3"
+dest_files=["res://.godot/imported/mia_kneels_among.mp3-ebef3c0e534a93333ff503ef9ae9dba6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

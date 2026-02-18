@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bipadk7dewa2m"
+path="res://.godot/imported/art_week_begins.mp3-f5900e9e343867f1efe8312511dcb93f.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s1/art_week_begins.mp3"
+dest_files=["res://.godot/imported/art_week_begins.mp3-f5900e9e343867f1efe8312511dcb93f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cbnwr1euvt65b"
+path="res://.godot/imported/The_protagonist_leaves.mp3-0437fb5a848469ac20ab5b0b7c8551ed.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 1/C1s2/The_protagonist_leaves.mp3"
+dest_files=["res://.godot/imported/The_protagonist_leaves.mp3-0437fb5a848469ac20ab5b0b7c8551ed.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

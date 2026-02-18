@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bp6p2acwlolil"
+path="res://.godot/imported/the_mysterious_person_opens.mp3-81578c8323aae78f5a6df12b176f4ffc.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/c4s0/the_mysterious_person_opens.mp3"
+dest_files=["res://.godot/imported/the_mysterious_person_opens.mp3-81578c8323aae78f5a6df12b176f4ffc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

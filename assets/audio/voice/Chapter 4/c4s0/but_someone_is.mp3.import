@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://jxcx22vmomjy"
+path="res://.godot/imported/but_someone_is.mp3-3f2238015cef03c662fb50f230e86eb9.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 4/c4s0/but_someone_is.mp3"
+dest_files=["res://.godot/imported/but_someone_is.mp3-3f2238015cef03c662fb50f230e86eb9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

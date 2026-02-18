@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c1p1ts3v4en1h"
+path="res://.godot/imported/Paper_for_the_budget_maze.mp3-4752967ccc7fea0b373ce3d3a0017207.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s0/Paper_for_the_budget_maze.mp3"
+dest_files=["res://.godot/imported/Paper_for_the_budget_maze.mp3-4752967ccc7fea0b373ce3d3a0017207.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

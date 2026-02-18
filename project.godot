@@ -21,6 +21,7 @@ driver/enable_input=true
 
 [autoload]
 
+AudioBusSetup="*res://autoload/audio_bus_setup.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 PlayerStats="*res://src/core/PlayerStats.gd"
 DialogicEffectsManager="*res://scenes/effects/DialogicEffectsManager.gd"
@@ -44,6 +45,7 @@ directories/dch_directory={
 "Alice": "res://Characters/Alice.dch",
 "Ben": "res://Characters/Ben.dch",
 "Celestine": "res://content/characters/Celestine.dch",
+"Characters/Victor": "res://Characters/Victor.dch",
 "Conrad": "res://Characters/Conrad.dch",
 "Conrad (Thinking)": "res://content/characters/Conrad (Thinking).dch",
 "Diwata Laya": "res://Characters/Diwata Laya.dch",

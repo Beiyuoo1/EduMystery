@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bciqs1338rb5u"
+path="res://.godot/imported/Her_tone_becomes_defensive.mp3-0ebf0e36ea158d562527b4c9ddb51fbc.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/C2S2/Her_tone_becomes_defensive.mp3"
+dest_files=["res://.godot/imported/Her_tone_becomes_defensive.mp3-0ebf0e36ea158d562527b4c9ddb51fbc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

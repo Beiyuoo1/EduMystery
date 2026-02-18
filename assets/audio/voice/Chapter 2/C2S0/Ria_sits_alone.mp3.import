@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dxln8w53e1uae"
+path="res://.godot/imported/Ria_sits_alone.mp3-e72051af69259c1d588637a0abaea54f.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/C2S0/Ria_sits_alone.mp3"
+dest_files=["res://.godot/imported/Ria_sits_alone.mp3-e72051af69259c1d588637a0abaea54f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

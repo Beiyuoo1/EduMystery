@@ -167,8 +167,20 @@ func _on_choice_selected(index: int) -> void:
 	_show_feedback(is_correct, elapsed)
 
 
+func _play_sfx(path: String) -> void:
+	var player = AudioStreamPlayer.new()
+	player.stream = load(path)
+	player.bus = "SFX"
+	add_child(player)
+	player.play()
+	player.finished.connect(player.queue_free)
+
 func _show_feedback(is_correct: bool, time_taken: float) -> void:
 	"""Show feedback panel with result"""
+	if is_correct:
+		_play_sfx("res://assets/audio/sound_effect/correct.wav")
+	else:
+		_play_sfx("res://assets/audio/sound_effect/wrong.wav")
 	# Highlight correct/wrong answer
 	if is_correct:
 		choice_buttons[selected_answer].add_theme_color_override("font_color", Color.GREEN)

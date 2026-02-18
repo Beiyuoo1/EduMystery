@@ -239,8 +239,17 @@ func _check_answer():
 		# Wrong answer - allow retry
 		_show_wrong_feedback_retry()
 
+func _play_sfx(path: String) -> void:
+	var player = AudioStreamPlayer.new()
+	player.stream = load(path)
+	player.bus = "SFX"
+	add_child(player)
+	player.play()
+	player.finished.connect(player.queue_free)
+
 func _show_correct_feedback():
 	"""Show feedback for correct answer"""
+	_play_sfx("res://assets/audio/sound_effect/correct.wav")
 	var completion_time = (Time.get_ticks_msec() / 1000.0) - start_time
 
 	# Check if player earned a bonus hint (completed within 1 minute)
@@ -261,6 +270,7 @@ func _show_correct_feedback():
 
 func _show_wrong_feedback_retry():
 	"""Show feedback for wrong answer and allow retry"""
+	_play_sfx("res://assets/audio/sound_effect/wrong.wav")
 	feedback_label.text = "Wrong! Try again! Click the answer to undo letters."
 	feedback_label.add_theme_color_override("font_color", Color.ORANGE)
 	feedback_label.visible = true

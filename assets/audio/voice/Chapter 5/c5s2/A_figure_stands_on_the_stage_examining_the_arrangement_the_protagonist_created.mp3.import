@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvn8pgtxe1ih7"
+path="res://.godot/imported/A_figure_stands_on_the_stage_examining_the_arrangement_the_protagonist_created.mp3-707c7e2ceb1d69abb1f8863b6b2e22b4.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s2/A_figure_stands_on_the_stage_examining_the_arrangement_the_protagonist_created.mp3"
+dest_files=["res://.godot/imported/A_figure_stands_on_the_stage_examining_the_arrangement_the_protagonist_created.mp3-707c7e2ceb1d69abb1f8863b6b2e22b4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dxv807uaik1d1"
+path="res://.godot/imported/But_something_is_different_Their_expression_is_softer_more_contemplative.mp3-e919fac2aced87b72e0dc13a786806a6.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s2/But_something_is_different_Their_expression_is_softer_more_contemplative.mp3"
+dest_files=["res://.godot/imported/But_something_is_different_Their_expression_is_softer_more_contemplative.mp3-e919fac2aced87b72e0dc13a786806a6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

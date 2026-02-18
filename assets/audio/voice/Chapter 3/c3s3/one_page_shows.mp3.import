@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cn7v6tx2snspm"
+path="res://.godot/imported/one_page_shows.mp3-62bd57ec13948076f264b395b563db87.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s3/one_page_shows.mp3"
+dest_files=["res://.godot/imported/one_page_shows.mp3-62bd57ec13948076f264b395b563db87.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

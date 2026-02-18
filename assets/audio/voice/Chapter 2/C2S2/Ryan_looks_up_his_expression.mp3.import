@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cdtvrwrlb3ayj"
+path="res://.godot/imported/Ryan_looks_up_his_expression.mp3-914d3cddbef80043b6d2631797e31395.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 2/C2S2/Ryan_looks_up_his_expression.mp3"
+dest_files=["res://.godot/imported/Ryan_looks_up_his_expression.mp3-914d3cddbef80043b6d2631797e31395.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

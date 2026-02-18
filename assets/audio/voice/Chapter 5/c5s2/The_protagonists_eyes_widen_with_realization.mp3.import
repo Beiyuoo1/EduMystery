@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1fd0jfqrc8l5"
+path="res://.godot/imported/The_protagonists_eyes_widen_with_realization.mp3-81f9daeaa6da9e407df6f44ccab6ba84.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 5/c5s2/The_protagonists_eyes_widen_with_realization.mp3"
+dest_files=["res://.godot/imported/The_protagonists_eyes_widen_with_realization.mp3-81f9daeaa6da9e407df6f44ccab6ba84.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

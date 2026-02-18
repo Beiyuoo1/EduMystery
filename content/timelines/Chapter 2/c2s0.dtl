@@ -2,10 +2,10 @@
 # Initialize variable (will be overwritten by init_character_var signal)
 set {selected_character} = ""
 [signal arg="init_character_var"]
-[music path="res://assets/audio/comfortable-mystery-4.mp3" fade="2.0" volume="0.0" loop="true"]
+audio music "res://assets/audio/bg/chill3.mp3" [fade="2.0" volume="0.0" bus="Music" loop="true"]
 [background arg="res://Bg/council_room.png" fade="2.0"]
 set {chapter2_score} = 0
-[voice path="res://assets/audio/voice/Chapter 2/c2s0 mathilda COUNCIL_ROOM/A few days before the incident.mp3" volume="0.0"]
+[voice path="res://assets/audio/voice/Chapter 2/C2S0/A_few_days_before_the_incident….mp3" volume="0.0"]
 A few days before the incident...
 The late afternoon sun filters through the Student Council room windows, casting long shadows across the desks.
 join Ria (half) center [animation="fade in" length="1.0"]
@@ -16,11 +16,11 @@ Ria: Twenty thousand. Perfect.
 Ria's face softens into a warm smile as she looks at the money.
 Ria: The outreach fund is finally complete.
 update Ria (half) left [move_time="0.3"]
-[voice path="res://assets/audio/voice/Chapter 2/c2s0 mathilda COUNCIL_ROOM/Ria_s face soften.mp3" volume="0.0"]
+[voice path="res://assets/audio/voice/Chapter 2/C2S0/She_picks_up_a_worn_notebook.mp3" volume="0.0"]
 She picks up a worn notebook, its pages filled with careful handwriting.
 Ria: Twelve names. Twelve students who need help.
 update Ria (half) center [move_time="0.3"]
-[voice path="res://assets/audio/voice/Chapter 2/c2s0 mathilda COUNCIL_ROOM/Her fingers.mp3" volume="0.0"]
+[voice path="res://assets/audio/voice/Chapter 2/C2S0/Her_fingers_trace_the_list_gently.mp3" volume="0.0"]
 Her fingers trace the list gently, pausing at certain names.
 Ria: I know what it's like to be on a list like this.
 Ria: Back in Grade 7, my family couldn't afford new notebooks.
@@ -30,16 +30,16 @@ Ria: The other kids noticed. They always do.
 Ria: "Basurera," they called me. Garbage girl.
 Ria: They said I didn't belong in this school.
 update Ria (half) center [move_time="0.3"]
+[voice path="res://assets/audio/voice/Chapter 2/C2S0/Ria_s_expression_shifts_from_pain.mp3" volume="0.0"]
 Ria's expression shifts from pain to determination.
-[voice path="res://assets/audio/voice/Chapter 2/c2s0 mathilda COUNCIL_ROOM/Ria_s expression.mp3" volume="0.0"]
 Ria: But then the student council helped me. Quietly. No announcement. No pity.
 Ria: Just a bag of supplies left on my desk one morning.
 Ria: That small act... it changed everything.
+[voice path="res://assets/audio/voice/Chapter 2/C2S0/She_places_the_money_gently_into_the_lockbox.mp3" volume="0.0"]
 She places the money gently into the lockbox.
 Ria: That's why I became treasurer. So I could be that person for someone else.
-[voice path="res://assets/audio/voice/Chapter 2/c2s0 mathilda COUNCIL_ROOM/She places the money.mp3" volume="0.0"]
 update Ria (half) left [move_time="0.3"]
-[voice path="res://assets/audio/voice/Chapter 2/c2s0 mathilda COUNCIL_ROOM/Ria closes the lockbox.mp3" volume="0.0"]
+[voice path="res://assets/audio/voice/Chapter 2/C2S0/Ria_closes_the_lockbox.mp3" volume="0.0"]
 Ria closes the lockbox and tests the lock twice.
 Ria: This money isn't just paper and ink.
 Ria: It's hope. It's dignity. It's proof that someone cares.
@@ -47,17 +47,17 @@ She walks to Ms. Santos's desk and places the key in the drawer.
 update Ria (half) center [move_time="0.3"]
 Ria: Next week, twelve students will know they're not alone.
 Ria: Just like I learned I wasn't alone.
-[voice path="res://assets/audio/voice/Chapter 2/c2s0 mathilda COUNCIL_ROOM/She gathers her bag.mp3" volume="0.0"]
+[voice path="res://assets/audio/voice/Chapter 2/C2S0/She_gathers_her_bag.mp3" volume="0.0"]
 She gathers her bag, taking one last look at the lockbox.
 Ria: Stay safe, little fund. I'm counting on you.
 leave Ria [animation="fade out" length="0.8"]
-[voice path="res://assets/audio/voice/Chapter 2/c2s0 mathilda COUNCIL_ROOM/The room falls silent.mp3" volume="0.0"]
+[voice path="res://assets/audio/voice/Chapter 2/C2S0/The_room_falls_silent.mp3" volume="0.0"]
 The room falls silent. The lockbox sits alone on the desk.
 [wait time="0.5"]
 Outside the window, a figure watches from the hallway.
 [background arg="res://Bg/hallway.png" fade="1.5"]
 [wait time="1.0"]
-[voice path="res://assets/audio/voice/Chapter 2/c2s0 mathilda COUNCIL_ROOM/Three days later.mp3" volume="0.0"]
+[voice path="res://assets/audio/voice/Chapter 2/C2S0/Three_days_later.mp3" volume="0.0"]
 Three days later...
 if {selected_character} == "celestine":
 	jump c2s1/

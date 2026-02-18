@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bl7b7akeusj2b"
+path="res://.godot/imported/mias_expression_softens.mp3-a2050b2e1469d1a46161021ef5dbf5bf.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s2/mias_expression_softens.mp3"
+dest_files=["res://.godot/imported/mias_expression_softens.mp3-a2050b2e1469d1a46161021ef5dbf5bf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

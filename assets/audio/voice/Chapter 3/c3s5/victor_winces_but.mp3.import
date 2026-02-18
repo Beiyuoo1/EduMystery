@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cci2mac1emm8r"
+path="res://.godot/imported/victor_winces_but.mp3-85b23bf1f1f022ddc0a074e956dfb485.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/voice/Chapter 3/c3s5/victor_winces_but.mp3"
+dest_files=["res://.godot/imported/victor_winces_but.mp3-85b23bf1f1f022ddc0a074e956dfb485.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

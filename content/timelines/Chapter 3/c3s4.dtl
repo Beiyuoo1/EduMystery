@@ -1,47 +1,52 @@
 [background arg="res://Bg/courtyard.png" fade="1.0"]
-[voice path="res://assets/audio/voice/Chapter 3/c3s4/Victor stands near the edge of the courtyard watching students pass by his ignored display..mp3" volume="0.0" bus="Voice"]
-Victor stands near the edge of the courtyard, watching students pass by your ignored display.
+[voice path="res://assets/audio/voice/Chapter 3/c3s4/victor_stands_near.mp3" volume="0.0" bus="Voice"]
+Victor stands near the edge of the courtyard, watching students pass by his ignored display.
 if {selected_character} == "celestine":
 	join Celestine (animated) left
-	join Victor (half) right
+	join Characters/Victor (half) right mirror
 	Celestine: Victor. We need to talk.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s4/Victor's eyes flicker with something—fear Defiance.mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s4/victors_eyes_flicker.mp3" volume="0.0" bus="Voice"]
 	Victor's eyes flicker with something - fear? Defiance?
 	Victor: I already told you everything I know.
 	Celestine: You told me you were home all night. That was a lie.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s4/Victor's jaw tightens..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s4/victors_jaw_tightens.mp3" volume="0.0" bus="Voice"]
+	audio music "res://assets/audio/bg/controversy.mp3" [loop="true"]
+	update Characters/Victor (angry) right mirror
 	Victor's jaw tightens.
 	Victor: I don't know what you're talking about.
 	Celestine: I found a receipt in your sketchbook. Art supply store, 8\:47 PM.
 	Celestine: You weren't home. You were out.
 	Victor: So I went shopping. That doesn't mean I came here.
 	Celestine: Then explain this.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s4/Conrad holds up the paint cloth in a clear bag..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s4/the_protagonist_holds.mp3" volume="0.0" bus="Voice"]
 	The protagonist holds up the paint cloth in a clear bag.
 	Celestine: Found at the scene of the crime. Right next to the broken sculpture.
 else:
 	join Conrad (half) left
-	join Victor (half) right
+	join Characters/Victor (half) right mirror
 	Conrad: Victor. We need to talk.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s4/Victor's eyes flicker with something—fear Defiance.mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s4/victors_eyes_flicker.mp3" volume="0.0" bus="Voice"]
 	Victor's eyes flicker with something - fear? Defiance?
 	Victor: I already told you everything I know.
 	Conrad: You told me you were home all night. That was a lie.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s4/Victor's jaw tightens..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s4/victors_jaw_tightens.mp3" volume="0.0" bus="Voice"]
+	audio music "res://assets/audio/bg/controversy.mp3" [loop="true"]
+	update Characters/Victor (angry) right mirror
 	Victor's jaw tightens.
 	Victor: I don't know what you're talking about.
 	Conrad: I found a receipt in your sketchbook. Art supply store, 8\:47 PM.
 	Conrad: You weren't home. You were out.
 	Victor: So I went shopping. That doesn't mean I came here.
 	Conrad: Then explain this.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s4/Conrad holds up the paint cloth in a clear bag..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s4/the_protagonist_holds.mp3" volume="0.0" bus="Voice"]
 	The protagonist holds up the paint cloth in a clear bag.
 	Conrad: Found at the scene of the crime. Right next to the broken sculpture.
 Victor: That could belong to anyone. We all use cloths like that.
 if {selected_character} == "celestine":
 	Celestine: This one has an inventory tag. Number 14-C.
 	Celestine: That's your cabinet number, Victor. Your assigned supplies.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s4/Victor's face goes pale..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s4/victors_face_goes.mp3" volume="0.0" bus="Voice"]
+	update Characters/Victor (sad) right mirror
 	Victor's face goes pale.
 	Victor: That... someone must have stolen it. Framed me.
 	Celestine: The sketchbook. The receipt. The cloth. Your resentment toward Mia.
@@ -51,7 +56,7 @@ if {selected_character} == "celestine":
 else:
 	Conrad: This one has an inventory tag. Number 14-C.
 	Conrad: That's your cabinet number, Victor. Your assigned supplies.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s4/Victor's face goes pale..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s4/victors_face_goes.mp3" volume="0.0" bus="Voice"]
 	Victor's face goes pale.
 	Victor: That... someone must have stolen it. Framed me.
 	Conrad: The sketchbook. The receipt. The cloth. Your resentment toward Mia.
@@ -60,96 +65,101 @@ else:
 	Conrad: Then help me understand.
 join Mark (Mark_half) leftmost
 Mark: We're not trying to destroy you, Victor. We just want the truth.
-[voice path="res://assets/audio/voice/Chapter 3/c3s4/Victor looks between them his defiance crumbling..mp3" volume="0.0" bus="Voice"]
-Victor looks between them, your defiance crumbling.
-[voice path="res://assets/audio/voice/Chapter 3/c3s4/His hands begin to shake..mp3" volume="0.0" bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s4/victor_looks_between.mp3" volume="0.0" bus="Voice"]
+Victor looks between them, his defiance crumbling.
+[voice path="res://assets/audio/voice/Chapter 3/c3s4/his_hands_begin.mp3" volume="0.0" bus="Voice"]
 His hands begin to shake.
 if {selected_character} == "celestine":
 	"Celestine (Thinking)": What should I do?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s4/Conrad's tone softens..mp3" volume="0.0" bus="Voice"]
-	Your tone softens.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s4/the_protagonists_tone.mp3" volume="0.0" bus="Voice"]
+	audio music "res://assets/audio/bg/sad.mp3" [loop="true"]
+	Their tone softens.
 	Celestine: Victor. I've read your sketchbook.
 	Celestine: Not just the angry parts. The technical studies. The hours of practice.
 	Celestine: You're talented. Really talented.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s4/Victor looks up surprised..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s4/victor_looks_up.mp3" volume="0.0" bus="Voice"]
 	Victor looks up, surprised.
 	Celestine: But you've been hurting for a long time. Feeling invisible.
 	Celestine: Feeling like no matter how hard you work, no one sees you.
 else:
 	"Conrad (Thinking)": What should I do?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s4/Conrad's tone softens..mp3" volume="0.0" bus="Voice"]
-	your tone softens.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s4/the_protagonists_tone.mp3" volume="0.0" bus="Voice"]
+	audio music "res://assets/audio/bg/sad.mp3" [loop="true"]
+	Their tone softens.
 	Conrad: Victor. I've read your sketchbook.
 	Conrad: Not just the angry parts. The technical studies. The hours of practice.
 	Conrad: You're talented. Really talented.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s4/Victor looks up surprised..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s4/victor_looks_up.mp3" volume="0.0" bus="Voice"]
 	Victor looks up, surprised.
 	Conrad: But you've been hurting for a long time. Feeling invisible.
 	Conrad: Feeling like no matter how hard you work, no one sees you.
-[voice path="res://assets/audio/voice/Chapter 3/c3s4/Victor's eyes begin to glisten..mp3" volume="0.0" bus="Voice"]
-Victor's eyes begin to listen.
+[voice path="res://assets/audio/voice/Chapter 3/c3s4/victors_eyes_begin.mp3" volume="0.0" bus="Voice"]
+update Characters/Victor (half) right mirror
+Victor's eyes begin to glisten.
 Victor: You... you don't know what it's like.
 Victor: Every competition, every exhibition, every award. It's always someone else.
 Victor: I practice twice as much as anyone. I study the masters. I perfect my technique.
+update Characters/Victor (sad) right mirror
 Victor: And Mia just... feels her way through it. No discipline. No rigor.
 Victor: Yet everyone calls her a genius and ignores me.
 if {selected_character} == "celestine":
 	Celestine: That must be incredibly painful.
 else:
 	Conrad: That must be incredibly painful.
-[voice path="res://assets/audio/voice/Chapter 3/c3s4/Victor's voice breaks..mp3" volume="0.0" bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s4/victors_voice_breaks.mp3" volume="0.0" bus="Voice"]
+join Characters/Victor (cry) right mirror
 Victor's voice breaks.
 Victor: My parents keep asking why I can't be more like her.
 Victor: My father says art is a waste of time unless you're the best.
 Victor: And I can't be the best. Not with Mia around.
 Mark: So you destroyed her sculpture.
-[voice path="res://assets/audio/voice/Chapter 3/c3s4/Victor collapses onto a nearby bench his head in his hands..mp3" volume="0.0" bus="Voice"]
-Victor collapses onto a nearby bench, your head in your hands.
+[voice path="res://assets/audio/voice/Chapter 3/c3s4/victor_collapses_onto.mp3" volume="0.0" bus="Voice"]
+Victor collapses onto a nearby bench, his head in his hands.
 Victor: I didn't mean to. I just... I wanted to see it gone.
 Victor: I thought if her work disappeared, people would finally look at mine.
 Victor: But they didn't. They just kept talking about her. "Poor Mia. Her beautiful sculpture."
 Victor: It's always about her.
 if {selected_character} == "celestine":
 	Celestine: You wrote the note. "Not everyone deserves to shine."
-	[voice path="res://assets/audio/voice/Chapter 3/c3s4/Victor nods weakly..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s4/victor_nods_weakly.mp3" volume="0.0" bus="Voice"]
 	Victor nods weakly.
 	Victor: I thought... I thought I deserved to shine. More than her.
 	Victor: But now I just feel empty.
 	Victor: Destroying her art didn't make mine better. It just made me... this.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s4/He looks up at Conrad tears streaming down his face..mp3" volume="0.0" bus="Voice"]
-	He looks up at the protagonist, tears streaming down your face.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s4/victor_looks_up.mp3" volume="0.0" bus="Voice"]
+	He looks up at the protagonist, tears streaming down his face.
 	Victor: I'm sorry. I'm so sorry.
 	Celestine: You need to tell Ms. Reyes. And Mia.
 	Victor: I know.
 	Celestine: This isn't going to go away. There will be consequences.
 else:
 	Conrad: You wrote the note. "Not everyone deserves to shine."
-	[voice path="res://assets/audio/voice/Chapter 3/c3s4/Victor nods weakly..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s4/victor_nods_weakly.mp3" volume="0.0" bus="Voice"]
 	Victor nods weakly.
 	Victor: I thought... I thought I deserved to shine. More than her.
 	Victor: But now I just feel empty.
 	Victor: Destroying her art didn't make mine better. It just made me... this.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s4/He looks up at Conrad tears streaming down his face..mp3" volume="0.0" bus="Voice"]
-	He looks up at the protagonist, tears streaming down your face.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s4/victor_looks_up.mp3" volume="0.0" bus="Voice"]
+	He looks up at the protagonist, tears streaming down his face.
 	Victor: I'm sorry. I'm so sorry.
 	Conrad: You need to tell Ms. Reyes. And Mia.
 	Victor: I know.
 	Conrad: This isn't going to go away. There will be consequences.
 Victor: I know that too.
-[voice path="res://assets/audio/voice/Chapter 3/c3s4/Victor stands wiping his eyes..mp3" volume="0.0" bus="Voice"]
-Victor stands, wiping your eyes.
+[voice path="res://assets/audio/voice/Chapter 3/c3s4/victor_stands_wiping.mp3" volume="0.0" bus="Voice"]
+Victor stands, wiping his eyes.
 Victor: I just wanted someone to see me. To say my work mattered.
 Victor: But not like this. Never like this.
-leave Victor
+leave Characters/Victor
 leave Mark
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 3/c3s4/Conrad stands alone in the courtyard..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s4/the_protagonist_stands.mp3" volume="0.0" bus="Voice"]
 	The protagonist stands alone in the courtyard, watching Victor walk toward the art room.
 	Celestine: Every case teaches something.
 	Celestine: But the lessons aren't always easy.
 	leave Celestine
 else:
-	[voice path="res://assets/audio/voice/Chapter 3/c3s4/Conrad stands alone in the courtyard..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s4/the_protagonist_stands.mp3" volume="0.0" bus="Voice"]
 	The protagonist stands alone in the courtyard, watching Victor walk toward the art room.
 	Conrad: Every case teaches something.
 	Conrad: But the lessons aren't always easy.

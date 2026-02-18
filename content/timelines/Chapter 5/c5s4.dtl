@@ -1,9 +1,9 @@
 [background arg="res://Bg/classroom_night.png" fade="1.0"]
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 5/C5S4/c5s4 principal BC.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 5/c5s4/Principal_B_C_stands_at_the_center_of_the_stage_the_protagonist_and_Mark_seated_before_them.mp3" volume="0.0" bus="Voice"]
 	Principal B.C. stands at the center of the stage, Celestine and Mark seated before them.
 else:
-	[voice path="res://assets/audio/voice/Chapter 5/C5S4/c5s4 principal BC.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 5/c5s4/Principal_B_C_stands_at_the_center_of_the_stage_the_protagonist_and_Mark_seated_before_them.mp3" volume="0.0" bus="Voice"]
 	Principal B.C. stands at the center of the stage, Conrad and Mark seated before them.
 join Principal (Principal_half) center
 if {selected_character} == "celestine":
@@ -26,7 +26,7 @@ if {selected_character} == "celestine":
 	Principal: Because preventing every mistake would rob students of the chance to grow.
 	Principal: Real learning comes from experiencing consequences, not from avoiding all failure.
 	Principal: But here's the crucial question, Celestine\: Did I make the right choice?
-	[voice path="res://assets/audio/voice/Chapter 5/C5S4/C5S4 conrad considers.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 5/c5s4/The_protagonist_considers_carefully.mp3" volume="0.0" bus="Voice"]
 	Celestine considers carefully.
 	Celestine: You... prioritized long-term growth over short-term prevention.
 	Celestine: Each student learned something profound because they made mistakes and faced them.
@@ -55,7 +55,7 @@ else:
 	Principal: Because preventing every mistake would rob students of the chance to grow.
 	Principal: Real learning comes from experiencing consequences, not from avoiding all failure.
 	Principal: But here's the crucial question, Conrad\: Did I make the right choice?
-	[voice path="res://assets/audio/voice/Chapter 5/C5S4/C5S4 conrad considers.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 5/c5s4/The_protagonist_considers_carefully.mp3" volume="0.0" bus="Voice"]
 	Conrad considers carefully.
 	Conrad: You... prioritized long-term growth over short-term prevention.
 	Conrad: Each student learned something profound because they made mistakes and faced them.
@@ -73,17 +73,16 @@ else:
 	Principal: You didn't just solve mysteries. You helped people understand themselves.
 join "Diwata Laya" (Half_mirror) leftmost
 [signal arg="laya_start"]
-[voice path="res://assets/audio/voice/Chapter 5/C5S4/C5S4 Diwata Laya appears leftmost.mp3" volume=50 bus="Voice"]
 "Diwata Laya": [i][color=#9999ff]The greatest teachers know when to speak and when to remain silent.[/color][/i]
 "Diwata Laya": [i][color=#9999ff]When to guide and when to let experience be the teacher.[/color][/i]
 if {selected_character} == "celestine":
 	"Diwata Laya": [i][color=#9999ff]You have learned this, Celestine. Not through instruction, but through practice.[/color][/i]
 	"Celestine (Thinking)": Every case taught me something different about how to help people.
 	"Celestine (Thinking)": Greg needed compassion, not judgment. Ria needed understanding, not punishment.
-	"Celestine (Thinking)": Victor needed someone to see your pain. Alex needed someone to show your a better way.
+	"Celestine (Thinking)": Victor needed someone to see his pain. Alex needed someone to show her a better way.
 	"Diwata Laya": [i][color=#9999ff]And in helping them, you became more than a detective.[/color][/i]
 	"Diwata Laya": [i][color=#9999ff]You became a guide. A teacher. Someone who lights the path without forcing the journey.[/color][/i]
-	[voice path="res://assets/audio/voice/Chapter 5/C5S4/c5s4 diwata laya fades away.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 5/c5s4/Principal_smiles.mp3" volume="0.0" bus="Voice"]
 	leave "Diwata Laya"
 	[signal arg="laya_end"]
 	Principal: You've learned all five lessons, Celestine.
@@ -92,7 +91,7 @@ if {selected_character} == "celestine":
 	Principal: Creativity - Expression and connection matter more than competition.
 	Principal: Wisdom - Knowledge requires ethical, compassionate use.
 	Principal: And Choice - True teaching respects free will and guides without controlling.
-	[voice path="res://assets/audio/voice/Chapter 5/C5S4/c5s4 conrad stands.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 5/c5s4/The_protagonist_stands_meeting_Principal_B_C_s_eyes_with_new_understanding.mp3" volume="0.0" bus="Voice"]
 	Celestine stands, meeting Principal B.C.'s eyes with new understanding.
 	Celestine: So what happens now? Do you keep teaching? Keep leaving cards?
 	Principal: No. My work with you is complete.
@@ -106,6 +105,7 @@ if {selected_character} == "celestine":
 	Principal: I'm still here. Diwata Laya guides from the spirit realm. Teachers and counselors guide in their ways.
 	Principal: Celestine simply adds her voice to the chorus. Her unique perspective.
 	Celestine: I understand. But... will I see you again? As B.C., I mean?
+	[voice path="res://assets/audio/voice/Chapter 5/c5s4/Principal_smiles.mp3" volume="0.0" bus="Voice"]
 	Principal smiles.
 	Principal: You see me every day as the Principal. That won't change.
 	Principal: But as B.C.? My task is complete. The chain has served its purpose.
@@ -115,9 +115,9 @@ if {selected_character} == "celestine":
 	Principal: Exactly.
 	leave Principal
 	leave Mark
-	[voice path="res://assets/audio/voice/Chapter 5/C5S4/c5s4 conrad stands alone.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 5/c5s4/The_protagonist_stands_alone_on_the_stage_surrounded_by_symbols_of_the_five_lessons_learned.mp3" volume="0.0" bus="Voice"]
 	Celestine stands alone on the stage, surrounded by symbols of the five lessons she's learned.
-	[voice path="res://assets/audio/voice/Chapter 5/C5S4/c5s4 truth.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 5/c5s4/Truth_Responsibility_Creativity_Wisdom_Choice.mp3" volume="0.0" bus="Voice"]
 	Truth. Responsibility. Creativity. Wisdom. Choice.
 	Celestine: I entered this school as a student learning to observe.
 	Celestine: I became a detective learning to solve mysteries.
@@ -127,6 +127,7 @@ if {selected_character} == "celestine":
 	Mark: Heavy realizations, sis. How do you feel?
 	Celestine: Grateful. Humbled. Ready.
 	Mark: Ready for what?
+	[voice path="res://assets/audio/voice/Chapter 5/c5s4/The_protagonist_smiles.mp3" volume="0.0" bus="Voice"]
 	Celestine smiles.
 	Celestine: Whatever comes next. There will always be mysteries. Always people struggling with choices.
 	Celestine: And I'll be there. Not to solve everything for them.
@@ -137,10 +138,10 @@ else:
 	"Diwata Laya": [i][color=#9999ff]You have learned this, Conrad. Not through instruction, but through practice.[/color][/i]
 	"Conrad (Thinking)": Every case taught me something different about how to help people.
 	"Conrad (Thinking)": Greg needed compassion, not judgment. Ria needed understanding, not punishment.
-	"Conrad (Thinking)": Victor needed someone to see your pain. Alex needed someone to show your a better way.
+	"Conrad (Thinking)": Victor needed someone to see his pain. Alex needed someone to show her a better way.
 	"Diwata Laya": [i][color=#9999ff]And in helping them, you became more than a detective.[/color][/i]
 	"Diwata Laya": [i][color=#9999ff]You became a guide. A teacher. Someone who lights the path without forcing the journey.[/color][/i]
-	[voice path="res://assets/audio/voice/Chapter 5/C5S4/c5s4 diwata laya fades away.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 5/c5s4/Principal_smiles.mp3" volume="0.0" bus="Voice"]
 	leave "Diwata Laya"
 	[signal arg="laya_end"]
 	Principal: You've learned all five lessons, Conrad.
@@ -149,7 +150,7 @@ else:
 	Principal: Creativity - Expression and connection matter more than competition.
 	Principal: Wisdom - Knowledge requires ethical, compassionate use.
 	Principal: And Choice - True teaching respects free will and guides without controlling.
-	[voice path="res://assets/audio/voice/Chapter 5/C5S4/c5s4 conrad stands.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 5/c5s4/The_protagonist_stands_meeting_Principal_B_C_s_eyes_with_new_understanding.mp3" volume="0.0" bus="Voice"]
 	Conrad stands, meeting Principal B.C.'s eyes with new understanding.
 	Conrad: So what happens now? Do you keep teaching? Keep leaving cards?
 	Principal: No. My work with you is complete.
@@ -163,6 +164,7 @@ else:
 	Principal: I'm still here. Diwata Laya guides from the spirit realm. Teachers and counselors guide in their ways.
 	Principal: Conrad simply adds his voice to the chorus. His unique perspective.
 	Conrad: I understand. But... will I see you again? As B.C., I mean?
+	[voice path="res://assets/audio/voice/Chapter 5/c5s4/Principal_smiles.mp3" volume="0.0" bus="Voice"]
 	Principal smiles.
 	Principal: You see me every day as the Principal. That won't change.
 	Principal: But as B.C.? My task is complete. The chain has served its purpose.
@@ -172,9 +174,9 @@ else:
 	Principal: Exactly.
 	leave Principal
 	leave Mark
-	[voice path="res://assets/audio/voice/Chapter 5/C5S4/c5s4 conrad stands alone.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 5/c5s4/The_protagonist_stands_alone_on_the_stage_surrounded_by_symbols_of_the_five_lessons_learned.mp3" volume="0.0" bus="Voice"]
 	Conrad stands alone on the stage, surrounded by symbols of the five lessons he's learned.
-	[voice path="res://assets/audio/voice/Chapter 5/C5S4/c5s4 truth.mp3" volume=50 bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 5/c5s4/Truth_Responsibility_Creativity_Wisdom_Choice.mp3" volume="0.0" bus="Voice"]
 	Truth. Responsibility. Creativity. Wisdom. Choice.
 	Conrad: I entered this school as a student learning to observe.
 	Conrad: I became a detective learning to solve mysteries.
@@ -184,6 +186,7 @@ else:
 	Mark: Heavy realizations, man. How do you feel?
 	Conrad: Grateful. Humbled. Ready.
 	Mark: Ready for what?
+	[voice path="res://assets/audio/voice/Chapter 5/c5s4/The_protagonist_smiles.mp3" volume="0.0" bus="Voice"]
 	Conrad smiles.
 	Conrad: Whatever comes next. There will always be mysteries. Always people struggling with choices.
 	Conrad: And I'll be there. Not to solve everything for them.

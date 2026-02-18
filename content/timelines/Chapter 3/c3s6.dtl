@@ -1,31 +1,33 @@
 [background arg="res://Bg/courtyard.png" fade="1.0"]
-[voice path="res://assets/audio/voice/Chapter 3/c3s6/A few days later Art Week continues.mp3" volume="0.0" bus="Voice"]
+audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s6/a_few_days.mp3" volume="0.0" bus="Voice"]
 A few days later. Art Week continues, transformed by what happened.
+[voice path="res://assets/audio/voice/Chapter 3/c3s6/the_afternoon_sun.mp3" volume="0.0" bus="Voice"]
 The afternoon sun casts long shadows across the courtyard. Students mill about, their conversations softer than before.
-[voice path="res://assets/audio/voice/Chapter 3/c3s6/The space where The Reader once stood now holds something new..mp3" volume="0.0" bus="Voice"]
 The spot where "The Reader" once stood now holds something new.
 if {selected_character} == "celestine":
 	join Celestine (animated) left
 	join Mark (Mark_half) right
 	Mark: Hey, what's that? Where Mia's sculpture used to be?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s6/Conrad steps closer to the pedestal..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s6/the_protagonist_approaches.mp3" volume="0.0" bus="Voice"]
 	The protagonist approaches the pedestal, curious.
 else:
 	join Conrad (half) left
 	join Mark (Mark_half) right
 	Mark: Hey, what's that? Where Mia's sculpture used to be?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s6/Conrad steps closer to the pedestal..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s6/the_protagonist_approaches.mp3" volume="0.0" bus="Voice"]
 	The protagonist approaches the pedestal, curious.
-[voice path="res://assets/audio/voice/Chapter 3/c3s6/A collaborative artwork stands in place of the broken sculpture..mp3" volume="0.0" bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s6/a_collaborative_piece.mp3" volume="0.0" bus="Voice"]
 A collaborative piece stands in place of the broken sculpture.
+[voice path="res://assets/audio/voice/Chapter 3/c3s6/dozens_of_small.mp3" volume="0.0" bus="Voice"]
 Dozens of small clay hands, each made by a different student, reach upward together, holding an open book.
-[voice path="res://assets/audio/voice/Chapter 3/c3s6/A plaque beneath it reads.mp3" volume="0.0" bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s6/a_plaque_reads.mp3" volume="0.0" bus="Voice"]
 A plaque reads\: "Together We Rise - A collaborative tribute to The Reader."
 if {selected_character} == "celestine":
 	Celestine: The art club made this. Each student contributed a hand.
 	Mark: Wait, even Victor?
 	Celestine: Even Victor. His is the one in the center, holding the book's spine.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s6/Mark studies the piece more closely..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s6/mark_examines_the.mp3" volume="0.0" bus="Voice"]
 	Mark examines the piece more closely.
 	Mark: That's... actually kind of beautiful. From destruction, something new.
 	Celestine: Mia said art is about sharing. Looks like everyone learned that lesson.
@@ -34,50 +36,52 @@ else:
 	Conrad: The art club made this. Each student contributed a hand.
 	Mark: Wait, even Victor?
 	Conrad: Even Victor. His is the one in the center, holding the book's spine.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s6/Mark studies the piece more closely..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s6/mark_examines_the.mp3" volume="0.0" bus="Voice"]
 	Mark examines the piece more closely.
 	Mark: That's... actually kind of beautiful. From destruction, something new.
 	Conrad: Mia said art is about sharing. Looks like everyone learned that lesson.
 	Conrad: Even Victor.
-[voice path="res://assets/audio/voice/Chapter 3/c3s6/They stand in comfortable silence.mp3" volume="0.0" bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s6/they_stand_in.mp3" volume="0.0" bus="Voice"]
 They stand in comfortable silence, admiring the collaborative piece.
+[voice path="res://assets/audio/voice/Chapter 3/c3s6/the_afternoon_breeze.mp3" volume="0.0" bus="Voice"]
 The afternoon breeze rustles through the courtyard.
 Mark: Hey, what's that?
-[voice path="res://assets/audio/voice/Chapter 3/c3s6/He points to something tucked.mp3" volume="0.0" bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s6/mark_points_to.mp3" volume="0.0" bus="Voice"]
 He points to something tucked behind the pedestal, partially hidden by shadow.
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 3/c3s6/Conrad reaches down and pulls out a small elegant card..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s6/the_protagonist_reaches.mp3" volume="0.0" bus="Voice"]
 	The protagonist reaches down and pulls out a small, elegant card.
 else:
-	[voice path="res://assets/audio/voice/Chapter 3/c3s6/Conrad reaches down and pulls out a small elegant card..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s6/the_protagonist_reaches.mp3" volume="0.0" bus="Voice"]
 	The protagonist reaches down and pulls out a small, elegant card.
 [signal arg="unlock_evidence bc_card_creativity_c3"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s6/the_paper_is.mp3" volume="0.0" bus="Voice"]
 The paper is thick and cream-colored, the handwriting precise and old-fashioned.
 if {selected_character} == "celestine":
 	Celestine: Another one.
 	Mark: B.C. again?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s6/Conrad nods his expression growing serious..mp3" volume="0.0" bus="Voice"]
-	The protagonist nods, your expression growing serious.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s6/the_protagonist_nods.mp3" volume="0.0" bus="Voice"]
+	The protagonist nods, their expression growing serious.
 	Celestine: "Lesson 3\: Creativity."
 	Celestine: "True artists create to express, not to compete."
 	Celestine: "Envy sees another's light and tries to extinguish it..."
 	Celestine: "...not realizing it could have warmed them both."
 	Mark: That's... exactly what happened with Victor.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s6/Conrad continues reading..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s6/the_protagonist_continues.mp3" volume="0.0" bus="Voice"]
 	The protagonist continues reading.
 	Celestine: "The jealous heart destroys what it cannot possess."
 	Celestine: "The wise heart learns to admire what it cannot be."
 else:
 	Conrad: Another one.
 	Mark: B.C. again?
-	[voice path="res://assets/audio/voice/Chapter 3/c3s6/Conrad nods his expression growing serious..mp3" volume="0.0" bus="Voice"]
-	The protagonist nods, your expression growing serious.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s6/the_protagonist_nods.mp3" volume="0.0" bus="Voice"]
+	The protagonist nods, their expression growing serious.
 	Conrad: "Lesson 3\: Creativity."
 	Conrad: "True artists create to express, not to compete."
 	Conrad: "Envy sees another's light and tries to extinguish it..."
 	Conrad: "...not realizing it could have warmed them both."
 	Mark: That's... exactly what happened with Victor.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s6/Conrad continues reading..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s6/the_protagonist_continues.mp3" volume="0.0" bus="Voice"]
 	The protagonist continues reading.
 	Conrad: "The jealous heart destroys what it cannot possess."
 	Conrad: "The wise heart learns to admire what it cannot be."
@@ -91,8 +95,8 @@ else:
 Mark: But who? And how do they know about these cases before we solve them?
 join "Diwata Laya" (Half_mirror) center
 [signal arg="laya_start"]
-[voice path="res://assets/audio/voice/Chapter 3/c3s6/Diwata Laya appears her gaze fixed on the card..mp3" volume="0.0" bus="Voice"]
-"Diwata Laya" appears, your eyes fixed on the card with unusual intensity.
+[voice path="res://assets/audio/voice/Chapter 3/c3s6/diwata_laya_appears.mp3" volume="0.0" bus="Voice"]
+"Diwata Laya" appears, her eyes fixed on the card with unusual intensity.
 "Diwata Laya": [i][color=#9999ff]B.C. Their presence grows stronger with each lesson.[/color][/i]
 "Diwata Laya": [i][color=#9999ff]They are not merely watching. They are guiding.[/color][/i]
 if {selected_character} == "celestine":
@@ -108,8 +112,8 @@ if {selected_character} == "celestine":
 	"Celestine (Thinking)": Who is B.C.? Can you sense anything about them?
 else:
 	"Conrad (Thinking)": Who is B.C.? Can you sense anything about them?
-[voice path="res://assets/audio/voice/Chapter 3/c3s6/Diwata Laya slowly shakes her head her form flickering..mp3" volume="0.0" bus="Voice"]
-"Diwata Laya" shakes your head slowly, your form flickering.
+[voice path="res://assets/audio/voice/Chapter 3/c3s6/diwata_laya_shakes.mp3" volume="0.0" bus="Voice"]
+"Diwata Laya" shakes her head slowly, her form flickering.
 "Diwata Laya": [i][color=#9999ff]Even I cannot pierce that veil. They exist... outside my sight.[/color][/i]
 "Diwata Laya": [i][color=#9999ff]Older than my awareness. Patient beyond measure.[/color][/i]
 "Diwata Laya": [i][color=#9999ff]But I sense no malice. Only purpose. Ancient and patient.[/color][/i]
@@ -118,7 +122,6 @@ if {selected_character} == "celestine":
 	"Diwata Laya": [i][color=#9999ff]The cards will continue, Celestine. The lessons will grow harder.[/color][/i]
 	"Diwata Laya": [i][color=#9999ff]But you are growing too. Stronger. Wiser. More attuned to truth.[/color][/i]
 	[signal arg="laya_end"]
-	[voice path="res://assets/audio/voice/Chapter 3/c3s6/Diwata Laya fades away..mp3" volume="0.0" bus="Voice"]
 	leave "Diwata Laya"
 	Mark: A mysterious teacher who leaves cryptic cards after we solve crimes.
 	Mark: Our lives have gotten really weird since you found Laya, sis.
@@ -127,13 +130,12 @@ else:
 	"Diwata Laya": [i][color=#9999ff]The cards will continue, Conrad. The lessons will grow harder.[/color][/i]
 	"Diwata Laya": [i][color=#9999ff]But you are growing too. Stronger. Wiser. More attuned to truth.[/color][/i]
 	[signal arg="laya_end"]
-	[voice path="res://assets/audio/voice/Chapter 3/c3s6/Diwata Laya fades away..mp3" volume="0.0" bus="Voice"]
 	leave "Diwata Laya"
 	Mark: A mysterious teacher who leaves cryptic cards after we solve crimes.
 	Mark: Our lives have gotten really weird since you found Laya, Conrad.
 if {selected_character} == "celestine":
 	Celestine: Weird, but meaningful.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s6/Conrad looks at the collaborative sculpture then back at the card..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s6/the_protagonist_looks.mp3" volume="0.0" bus="Voice"]
 	The protagonist looks at the collaborative sculpture, then back at the B.C. card.
 	Celestine: Victor wanted to be seen. To matter.
 	Celestine: But he was looking for validation in the wrong places.
@@ -143,7 +145,7 @@ if {selected_character} == "celestine":
 	Celestine: Victor had real skill. He just forgot why he started making art in the first place.
 else:
 	Conrad: Weird, but meaningful.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s6/Conrad looks at the collaborative sculpture then back at the card..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s6/the_protagonist_looks.mp3" volume="0.0" bus="Voice"]
 	The protagonist looks at the collaborative sculpture, then back at the B.C. card.
 	Conrad: Victor wanted to be seen. To matter.
 	Conrad: But he was looking for validation in the wrong places.
@@ -155,7 +157,7 @@ Mark: And Mia?
 if {selected_character} == "celestine":
 	Celestine: She never forgot. That's why her work resonates.
 	Celestine: It's not about technique. It's about connection. About heart.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s6/Mark stretches watching the sun paint the sky in oranges and purples..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s6/mark_stretches_looking.mp3" volume="0.0" bus="Voice"]
 	Mark stretches, looking at the setting sun painting the sky in oranges and purples.
 	Mark: Three cases solved. Three mysterious cards collected.
 	Mark: Think there'll be more?
@@ -166,7 +168,7 @@ if {selected_character} == "celestine":
 else:
 	Conrad: She never forgot. That's why her work resonates.
 	Conrad: It's not about technique. It's about connection. About heart.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s6/Mark stretches watching the sun paint the sky in oranges and purples..mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s6/mark_stretches_looking.mp3" volume="0.0" bus="Voice"]
 	Mark stretches, looking at the setting sun painting the sky in oranges and purples.
 	Mark: Three cases solved. Three mysterious cards collected.
 	Mark: Think there'll be more?
@@ -174,32 +176,36 @@ else:
 	Conrad: There will definitely be more.
 	Mark: Then we'll be ready.
 	Conrad: Together.
-[voice path="res://assets/audio/voice/Chapter 3/c3s6/They share a quiet smile—the kind earned through shared trials..mp3" volume="0.0" bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s6/they_share_a.mp3" volume="0.0" bus="Voice"]
 They share a smile - the easy, comfortable kind that comes from facing challenges side by side.
 Mark: Come on. Let's get some food. All this detective work makes me hungry.
 if {selected_character} == "celestine":
 	Celestine: Everything makes you hungry, Mark.
 	Mark: Fair point. But also, I'm right.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s6/They walk away from the courtyard.mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s6/they_walk_away.mp3" volume="0.0" bus="Voice"]
 	They walk away from the courtyard, leaving the collaborative sculpture glowing in the afternoon light.
 	leave Celestine
 	leave Mark
 else:
 	Conrad: Everything makes you hungry, Mark.
 	Mark: Fair point. But also, I'm right.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s6/They walk away from the courtyard.mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s6/they_walk_away.mp3" volume="0.0" bus="Voice"]
 	They walk away from the courtyard, leaving the collaborative sculpture glowing in the afternoon light.
 	leave Conrad
 	leave Mark
-[voice path="res://assets/audio/voice/Chapter 3/c3s6/The B.C. card rests beside the sculpture..mp3" volume="0.0" bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s6/the_bc_card.mp3" volume="0.0" bus="Voice"]
 The B.C. card sits on the pedestal beside the sculpture.
+[voice path="res://assets/audio/voice/Chapter 3/c3s6/the_wind_ruffles.mp3" volume="0.0" bus="Voice"]
 The wind ruffles its edge, but it stays in place.
-[voice path="res://assets/audio/voice/Chapter 3/c3s6/Three lessons learned..mp3" volume="0.0" bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s6/three_lessons_learned.mp3" volume="0.0" bus="Voice"]
 Three lessons learned. Three mysteries solved.
-[voice path="res://assets/audio/voice/Chapter 3/c3s6/But the chain continues..mp3" volume="0.0" bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s6/but_the_chain.mp3" volume="0.0" bus="Voice"]
 But the chain continues.
-[voice path="res://assets/audio/voice/Chapter 3/c3s6/And somewhere watching patiently….mp3" volume="0.0" bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s6/and_somewhere_watching.mp3" volume="0.0" bus="Voice"]
 And somewhere, watching, B.C. waits for the next chapter to begin.
 [wait time="1.0"]
+audio music "res://assets/audio/chapter_end_bg.mp3" [fade="0.5" volume="0.0" bus="Music" loop="true"]
+[wait time="1.0"]
 [signal arg="show_chapter_results"]
+audio stop_music "[fade="2.0"]"
 jump c4s0/

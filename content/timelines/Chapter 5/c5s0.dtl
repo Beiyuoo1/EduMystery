@@ -2,39 +2,30 @@
 # Initialize variable (will be overwritten by init_character_var signal)
 set {selected_character} = ""
 [signal arg="init_character_var"]
-[music path="res://assets/audio/comfortable-mystery-4.mp3" fade="2.0" volume="0.0" loop="true"]
+audio music "res://assets/audio/bg/suspicious.mp3" [fade="2.0" volume="0.0" bus="Music" loop="true"]
 [background arg="res://Bg/classroom.png" fade="2.0"]
 set {chapter5_score} = 0
-[voice path="res://assets/audio/voice/Chapter 5/C5S0/C5S0 TWO WEEKS AFTER THE JOURNAL.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 5/c5s0/Two_weeks_after_the_journal_incident.mp3" volume="0.0" bus="Voice"]
 Two weeks after the journal incident...
 if {selected_character} == "celestine":
-	Celestine sits at your desk, the four B.C. cards spread before your like pieces of a puzzle.
-else:
-	Conrad sits at your desk, the four B.C. cards spread before you like pieces of a puzzle.
-[signal arg="unlock_evidence bc_card_truth_c1"]
-[signal arg="unlock_evidence bc_card_responsibility_c2"]
-[signal arg="unlock_evidence bc_card_creativity_c3"]
-[signal arg="unlock_evidence bc_card_wisdom_c4"]
-if {selected_character} == "celestine":
 	join Celestine (animated) left
-else:
-	join Conrad (half) left
-join Mark (Mark_half) right
-if {selected_character} == "celestine":
+	join Mark (Mark_half) right
 	Mark: You've been staring at those cards for an hour, sis. Still trying to figure out who B.C. is?
 	Celestine: Not just who. Why. What's the endgame?
-	[voice path="res://assets/audio/voice/Chapter 5/C5S0/c5s0 conrad traces.mp3" volume=50 bus="Voice"]
-	Celestine traces the edge of the first card with your finger.
+	[voice path="res://assets/audio/voice/Chapter 5/c5s0/The_protagonist_traces_the_edge_of_the_first_card_with_your_finger.mp3" volume="0.0" bus="Voice"]
+	Celestine traces the edge of the first card with her finger.
 	Celestine: Four cases. Four lessons. Truth, Responsibility, Creativity, Wisdom.
 	Celestine: Each card appeared exactly when I needed to understand something deeper.
 	Mark: So B.C. is teaching you. But why the mystery? Why not just... talk to you?
 	Celestine: Because direct teaching doesn't work the same way. I had to discover these lessons myself.
 	Celestine: B.C. knew that. They guided without controlling.
 else:
+	join Conrad (half) left
+	join Mark (Mark_half) right
 	Mark: You've been staring at those cards for an hour. Still trying to figure out who B.C. is?
 	Conrad: Not just who. Why. What's the endgame?
-	[voice path="res://assets/audio/voice/Chapter 5/C5S0/c5s0 conrad traces.mp3" volume=50 bus="Voice"]
-	Conrad traces the edge of the first card with your finger.
+	[voice path="res://assets/audio/voice/Chapter 5/c5s0/The_protagonist_traces_the_edge_of_the_first_card_with_your_finger.mp3" volume="0.0" bus="Voice"]
+	Conrad traces the edge of the first card with his finger.
 	Conrad: Four cases. Four lessons. Truth, Responsibility, Creativity, Wisdom.
 	Conrad: Each card appeared exactly when I needed to understand something deeper.
 	Mark: So B.C. is teaching you. But why the mystery? Why not just... talk to you?
@@ -42,8 +33,8 @@ else:
 	Conrad: B.C. knew that. They guided without controlling.
 join "Diwata Laya" (Half) center
 [signal arg="laya_start"]
-[voice path="res://assets/audio/voice/Chapter 5/C5S0/c5s0 diwata laya materializes.mp3" volume=50 bus="Voice"]
-"Diwata Laya" materializes, your expression serene.
+[voice path="res://assets/audio/voice/Chapter 5/c5s0/Diwata_Laya_materializes_your_expression_serene.mp3" volume="0.0" bus="Voice"]
+"Diwata Laya" materializes, her expression serene.
 if {selected_character} == "celestine":
 	"Diwata Laya": [i][color=#9999ff]You have grown much, Celestine. From a student learning to observe...[/color][/i]
 	"Diwata Laya": [i][color=#9999ff]...to a guide learning to teach.[/color][/i]
@@ -57,6 +48,7 @@ else:
 [signal arg="laya_end"]
 leave "Diwata Laya"
 if {selected_character} == "celestine":
+	[voice path="res://assets/audio/voice/Chapter 5/c5s0/The_protagonist_gathers_the_cards_carefully.mp3" volume="0.0" bus="Voice"]
 	Celestine gathers the cards carefully.
 	Celestine: What if I create an invitation? Something only B.C. would understand.
 	Mark: Like what?
@@ -65,12 +57,14 @@ if {selected_character} == "celestine":
 	Mark: That's... actually kind of brilliant. Where would you set it up?
 	Celestine: The auditorium. Neutral ground. Symbolic - a place for performances, for teaching.
 	Mark: And if B.C. doesn't show?
+	[voice path="res://assets/audio/voice/Chapter 5/c5s0/The_protagonist_smiles_slightly.mp3" volume="0.0" bus="Voice"]
 	Celestine smiles slightly.
 	Celestine: They will. They've been watching all along. They won't be able to resist seeing if I truly understand.
 	Mark: When do we do this?
 	Celestine: Tomorrow evening. After school. When it's quiet.
 	leave Celestine
 else:
+	[voice path="res://assets/audio/voice/Chapter 5/c5s0/The_protagonist_gathers_the_cards_carefully.mp3" volume="0.0" bus="Voice"]
 	Conrad gathers the cards carefully.
 	Conrad: What if I create an invitation? Something only B.C. would understand.
 	Mark: Like what?
@@ -79,31 +73,38 @@ else:
 	Mark: That's... actually kind of brilliant. Where would you set it up?
 	Conrad: The auditorium. Neutral ground. Symbolic - a place for performances, for teaching.
 	Mark: And if B.C. doesn't show?
+	[voice path="res://assets/audio/voice/Chapter 5/c5s0/The_protagonist_smiles_slightly.mp3" volume="0.0" bus="Voice"]
 	Conrad smiles slightly.
 	Conrad: They will. They've been watching all along. They won't be able to resist seeing if I truly understand.
 	Mark: When do we do this?
 	Conrad: Tomorrow evening. After school. When it's quiet.
 	leave Conrad
 leave Mark
+audio music "res://assets/audio/bg/night.mp3" [loop="true"]
 [background arg="res://Bg/hallway_night.png" fade="2.0"]
 [wait time="1.0"]
-[voice path="res://assets/audio/voice/Chapter 5/C5S0/c5s0 the next day.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 5/c5s0/The_next_day.mp3" volume="0.0" bus="Voice"]
 The next day...
+[voice path="res://assets/audio/voice/Chapter 5/c5s0/The_protagonist_moves_through.mp3" volume="0.0" bus="Voice"]
 if {selected_character} == "celestine":
-	[voice path="res://assets/audio/voice/Chapter 5/C5S0/c5s0 conrad gathers.mp3" volume=50 bus="Voice"]
 	Celestine moves through the hallways with purpose, gathering materials.
 else:
-	[voice path="res://assets/audio/voice/Chapter 5/C5S0/c5s0 conrad gathers.mp3" volume=50 bus="Voice"]
 	Conrad moves through the hallways with purpose, gathering materials.
-[voice path="res://assets/audio/voice/Chapter 5/C5S0/c5s0 a piece of chalk.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 5/c5s0/A_piece_of_chalk_for_the_exam_case.mp3" volume="0.0" bus="Voice"]
 A piece of chalk for the exam case.
+[voice path="res://assets/audio/voice/Chapter 5/c5s0/Paper_for_the_budget_maze.mp3" volume="0.0" bus="Voice"]
 Paper for the budget maze.
+[voice path="res://assets/audio/voice/Chapter 5/c5s0/Art_supplies_for_the_sculpture_incident.mp3" volume="0.0" bus="Voice"]
 Art supplies for the sculpture incident.
+[voice path="res://assets/audio/voice/Chapter 5/c5s0/A_notebook_representing_the_journal.mp3" volume="0.0" bus="Voice"]
 A notebook representing the journal.
+[voice path="res://assets/audio/voice/Chapter 5/c5s0/Each_item_carefully_chosen_to_represent_a_lesson_learned.mp3" volume="0.0" bus="Voice"]
 Each item carefully chosen to represent a lesson learned.
 [wait time="1.5"]
-[voice path="res://assets/audio/voice/Chapter 5/C5S0/c5s0 the invitation.mp3" volume=50 bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 5/c5s0/The_invitation_is_being_prepared.mp3" volume="0.0" bus="Voice"]
 The invitation is being prepared.
+[voice path="res://assets/audio/voice/Chapter 5/c5s0/And_somewhere_in_the_school_B_C_is_watching.mp3" volume="0.0" bus="Voice"]
 And somewhere in the school, B.C. is watching.
+[voice path="res://assets/audio/voice/Chapter 5/c5s0/Waiting_to_see_if_their_student_has_truly_grown.mp3" volume="0.0" bus="Voice"]
 Waiting to see if their student has truly grown.
 jump c5s1/

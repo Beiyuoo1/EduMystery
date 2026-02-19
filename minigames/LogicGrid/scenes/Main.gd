@@ -8,20 +8,22 @@ extends Control
 @onready var title_label: Label = $Panel/VBox/TitleLabel
 @onready var context_label: RichTextLabel = $Panel/VBox/ContextLabel
 @onready var clues_container: VBoxContainer = $Panel/VBox/MainHBox/CluesSection/ScrollContainer/CluesContainer
+@onready var chibi_sprite: TextureRect = $Panel/VBox/MainHBox/CluesSection/ChibiSprite
 @onready var grid_container: GridContainer = $Panel/VBox/MainHBox/GridSection/GridPanel/MarginContainer/GridContainer
 @onready var timer_label: Label = $Panel/VBox/HBox/TimerLabel
 @onready var hint_button: Button = $Panel/VBox/HBox/HintButton
 @onready var hint_counter: Label = $Panel/VBox/HBox/HintCounter
 @onready var submit_button: Button = $Panel/VBox/SubmitButton
 @onready var feedback_overlay: ColorRect = $FeedbackOverlay
-@onready var feedback_panel: Panel = $FeedbackPanel
+@onready var feedback_panel: NinePatchRect = $FeedbackPanel
 @onready var feedback_label: RichTextLabel = $FeedbackPanel/VBox/FeedbackLabel
 @onready var continue_button: Button = $FeedbackPanel/VBox/ContinueButton
 @onready var tutorial_overlay: Control = $TutorialOverlay
 @onready var tutorial_page1: Control = $TutorialOverlay/Page1
 @onready var tutorial_page2: Control = $TutorialOverlay/Page2
 @onready var tut_next_button: Button = $TutorialOverlay/Page1/VBox/NextButton
-@onready var tut_done_button: Button = $TutorialOverlay/Page2/VBox/DoneButton
+@onready var tut_back_button: Button = $TutorialOverlay/Page2/VBox/ButtonsRow/BackButton
+@onready var tut_done_button: Button = $TutorialOverlay/Page2/VBox/ButtonsRow/DoneButton
 
 # Minigame data
 var puzzle_config: Dictionary = {}
@@ -37,6 +39,15 @@ var solution: Dictionary = {}  # Correct matches
 var attempts: int = 0
 var help_button: Button = null  # Top-right "?" button shown after tutorial seen once
 
+# Chibi blink system
+var chibi_normal_tex: Texture2D = null
+var chibi_blink_tex: Texture2D = null
+var _blink_timer: float = 0.0
+var _next_blink: float = 0.0
+var _is_blinking: bool = false
+var _blink_close_duration: float = 0.12   # seconds eyes stay closed
+var _blink_elapsed: float = 0.0
+
 signal minigame_completed(success: bool, time_taken: float)
 
 func _ready() -> void:
@@ -47,11 +58,12 @@ func _ready() -> void:
 	submit_button.pressed.connect(_on_submit_pressed)
 	continue_button.pressed.connect(_on_continue_pressed)
 	tut_next_button.pressed.connect(_on_tutorial_next)
+	tut_back_button.pressed.connect(_on_tutorial_back)
 	tut_done_button.pressed.connect(_on_tutorial_done)
 	_update_hint_display()
 	_style_submit_button()
 
-	if not PlayerStats.logic_grid_tutorial_seen:
+	if not TutorialFlags.has_seen("logic_grid"):
 		# First time — show tutorial, timer starts after dismissal
 		tutorial_overlay.show()
 		tutorial_page1.show()
@@ -111,10 +123,13 @@ func _on_tutorial_next() -> void:
 	tutorial_page1.hide()
 	tutorial_page2.show()
 
+func _on_tutorial_back() -> void:
+	tutorial_page2.hide()
+	tutorial_page1.show()
+
 func _on_tutorial_done() -> void:
-	if not PlayerStats.logic_grid_tutorial_seen:
-		PlayerStats.logic_grid_tutorial_seen = true
-		PlayerStats.save_stats()
+	if not TutorialFlags.has_seen("logic_grid"):
+		TutorialFlags.mark_seen("logic_grid")
 		_add_help_button()
 
 	tutorial_overlay.hide()
@@ -130,10 +145,23 @@ func configure_puzzle(config: Dictionary) -> void:
 	title_label.text = config.get("title", "Logic Grid Puzzle")
 	context_label.text = config.get("context", "Use the clues to deduce the correct matches.")
 
+	# Load protagonist chibi for clues panel
+	var protagonist = PlayerStats.selected_character if PlayerStats.selected_character != "" else "conrad"
+	var normal_path = "res://Sprites/%s_chibi_clues.png" % protagonist
+	var blink_path  = "res://Sprites/%s_chibi_clues_eyes_close.png" % protagonist
+	if ResourceLoader.exists(normal_path):
+		chibi_normal_tex = load(normal_path)
+		chibi_blink_tex  = load(blink_path)
+		chibi_sprite.texture = chibi_normal_tex
+		_next_blink = randf_range(3.0, 6.0)
+
 	# Get grid dimensions
-	rows = config.get("rows", [])
+	rows = config.get("rows", []).duplicate()
 	cols = config.get("cols", [])
 	solution = config.get("solution", {})
+
+	# Shuffle rows so order is different each playthrough
+	rows.shuffle()
 
 	# Display clues
 	var clues = config.get("clues", [])
@@ -156,7 +184,7 @@ func _display_clues(clues: Array) -> void:
 		clue_label.text = "• " + clue_text
 		clue_label.add_theme_font_size_override("font_size", 20)
 		clue_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		clue_label.add_theme_color_override("font_color", Color(0.9, 0.9, 0.9))
+		clue_label.add_theme_color_override("font_color", Color(0.15, 0.08, 0.03))
 		clues_container.add_child(clue_label)
 
 func _create_grid() -> void:
@@ -176,7 +204,7 @@ func _create_grid() -> void:
 		header.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		header.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		header.add_theme_font_size_override("font_size", 20)
-		header.add_theme_color_override("font_color", Color(0.4, 0.75, 1.0))
+		header.add_theme_color_override("font_color", Color(0.1, 0.25, 0.5))
 		grid_container.add_child(header)
 
 	# Grid cells
@@ -186,7 +214,7 @@ func _create_grid() -> void:
 		row_label.custom_minimum_size = Vector2(130, 56)
 		row_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		row_label.add_theme_font_size_override("font_size", 20)
-		row_label.add_theme_color_override("font_color", Color(1.0, 0.85, 0.4))
+		row_label.add_theme_color_override("font_color", Color(0.35, 0.15, 0.05))
 		grid_container.add_child(row_label)
 
 		for col in cols:
@@ -285,7 +313,23 @@ func _on_cell_pressed(button: Button) -> void:
 	_style_cell_button(button, new_state)
 
 func _process(delta: float) -> void:
-	"""Update timer and hint cooldown"""
+	"""Update timer, hint cooldown, and chibi blink"""
+	# Chibi blink logic
+	if chibi_normal_tex != null:
+		if _is_blinking:
+			_blink_elapsed += delta
+			if _blink_elapsed >= _blink_close_duration:
+				chibi_sprite.texture = chibi_normal_tex
+				_is_blinking = false
+				_blink_timer = 0.0
+				_next_blink = randf_range(3.0, 6.0)
+		else:
+			_blink_timer += delta
+			if _blink_timer >= _next_blink:
+				chibi_sprite.texture = chibi_blink_tex
+				_is_blinking = true
+				_blink_elapsed = 0.0
+
 	var elapsed = Time.get_ticks_msec() / 1000.0 - start_time
 	var remaining = time_limit - elapsed
 
@@ -303,7 +347,7 @@ func _process(delta: float) -> void:
 	elif remaining <= 30:
 		timer_label.add_theme_color_override("font_color", Color(1.0, 0.85, 0.2))
 	else:
-		timer_label.add_theme_color_override("font_color", Color.WHITE)
+		timer_label.add_theme_color_override("font_color", Color(0.2, 0.1, 0.05))
 
 	# Hint cooldown countdown
 	if hint_cooldown > 0.0:

@@ -131,8 +131,6 @@ func _on_new_game_pressed() -> void:
 
 	# Reset player stats for new game
 	PlayerStats.reset_stats()
-	PlayerStats.logic_grid_tutorial_seen = false
-	PlayerStats.save_stats()
 
 	# Reset evidence for new game
 	EvidenceManager.reset_evidence()

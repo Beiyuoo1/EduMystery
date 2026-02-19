@@ -325,8 +325,7 @@ func _save_slot_data(slot_id: int) -> void:
 			"level": PlayerStats.level,
 			"xp": PlayerStats.xp,
 			"score": PlayerStats.score,
-			"hints": PlayerStats.hints,
-			"logic_grid_tutorial_seen": PlayerStats.logic_grid_tutorial_seen
+			"hints": PlayerStats.hints
 		},
 		"evidence": {
 			"collected": EvidenceManager.collected_evidence
@@ -376,7 +375,6 @@ func _load_slot_data(slot_id: int) -> void:
 		PlayerStats.xp = stats.get("xp", 0)
 		PlayerStats.score = stats.get("score", 0)
 		PlayerStats.hints = stats.get("hints", 3)
-		PlayerStats.logic_grid_tutorial_seen = stats.get("logic_grid_tutorial_seen", false)
 
 	# Restore Evidence
 	if data.has("evidence"):

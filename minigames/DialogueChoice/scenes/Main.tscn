@@ -1,7 +1,96 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=12 format=3 uid="uid://c4qw5s3cxs666"]
 
-[ext_resource type="Script" path="res://minigames/DialogueChoice/scenes/Main.gd" id="1_script"]
-[ext_resource type="Theme" path="res://resources/ui/game_theme.tres" id="2_theme"]
+[ext_resource type="Script" uid="uid://duw45oed7iiqa" path="res://minigames/DialogueChoice/scenes/Main.gd" id="1_script"]
+[ext_resource type="Theme" uid="uid://lbkbgl5rfv1g" path="res://resources/ui/game_theme.tres" id="2_theme"]
+[ext_resource type="Texture2D" uid="uid://bu7mmeepr2ukm" path="res://assets/UI/BGbox_01A.png" id="3_bgbox"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_instruction"]
+bg_color = Color(0.18, 0.12, 0.08, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.45, 0.2, 0.8)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bubble"]
+bg_color = Color(0.95, 0.92, 0.85, 0.97)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.55, 0.4, 0.18, 0.9)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+bg_color = Color(0.2, 0.14, 0.09, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.55, 0.4, 0.18, 0.9)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+bg_color = Color(0.45, 0.3, 0.12, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.95, 0.75, 0.3, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.35, 0.24, 0.12, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.85, 0.65, 0.25, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.8, 0.6, 0.2, 0.3)
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_disabled"]
+bg_color = Color(0.15, 0.1, 0.07, 0.5)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35, 0.28, 0.15, 0.4)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_focus"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mic_panel"]
+bg_color = Color(0.12, 0.08, 0.05, 0.93)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.45, 0.2, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="DialogueChoiceMinigame" type="CanvasLayer"]
 script = ExtResource("1_script")
@@ -24,181 +113,386 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.05, 0.1, 0.2, 1)
 
-[node name="MainContainer" type="MarginContainer" parent="Control"]
+[node name="Panel" type="NinePatchRect" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -12.0
+offset_right = -40.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_bgbox")
+region_rect = Rect2(8.548111, 8.660231, 126.97536, 126.06514)
+patch_margin_left = 28
+patch_margin_top = 29
+patch_margin_right = 28
+patch_margin_bottom = 27
+
+[node name="MainContainer" type="MarginContainer" parent="Control/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 60
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 60
-theme_override_constants/margin_bottom = 40
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MainContainer"]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="HeaderContainer" type="HBoxContainer" parent="Control/MainContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/MainContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="TimerLabel" type="Label" parent="Control/MainContainer/VBoxContainer/HeaderContainer"]
+[node name="HeaderContainer" type="HBoxContainer" parent="Control/Panel/MainContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TimerLabel" type="Label" parent="Control/Panel/MainContainer/VBoxContainer/HeaderContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.95, 0.85, 0.5, 1)
 theme_override_font_sizes/font_size = 36
 text = "03:00"
 horizontal_alignment = 1
 
-[node name="Spacer" type="Control" parent="Control/MainContainer/VBoxContainer/HeaderContainer"]
+[node name="PromptLabel" type="Label" parent="Control/Panel/MainContainer/VBoxContainer/HeaderContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="PromptLabel" type="Label" parent="Control/MainContainer/VBoxContainer/HeaderContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.8, 0.2, 0.2, 1)
+theme_override_colors/font_color = Color(0.9, 0.4, 0.1, 1)
 theme_override_font_sizes/font_size = 32
 text = "Time to use your knowledge!"
 horizontal_alignment = 1
 
-[node name="InstructionPanel" type="PanelContainer" parent="Control/MainContainer/VBoxContainer"]
+[node name="InstructionPanel" type="PanelContainer" parent="Control/Panel/MainContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_instruction")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/MainContainer/VBoxContainer/InstructionPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/Panel/MainContainer/VBoxContainer/InstructionPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/MainContainer/VBoxContainer/InstructionPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="Control/Panel/MainContainer/VBoxContainer/InstructionPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.85, 0.5, 1)
+theme_override_font_sizes/font_size = 36
+text = "\"Approach Carefully\""
+horizontal_alignment = 1
+
+[node name="QuestionLabel" type="Label" parent="Control/Panel/MainContainer/VBoxContainer/InstructionPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.92, 0.85, 1)
+theme_override_font_sizes/font_size = 22
+text = "Choose the best polite request for approaching the janitor"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="SubInstructionLabel" type="Label" parent="Control/Panel/MainContainer/VBoxContainer/InstructionPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.7, 0.58, 1)
+theme_override_font_sizes/font_size = 17
+text = "Select the best line by saying it through the mic."
+horizontal_alignment = 1
+
+[node name="ContentRow" type="HBoxContainer" parent="Control/Panel/MainContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="CharacterPanel" type="Control" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="CharacterImage" type="TextureRect" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow/CharacterPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.4
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 6
+
+[node name="ChibiMicImage" type="TextureRect" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow/CharacterPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.4
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 6
+
+[node name="QuestionMark" type="Label" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow/CharacterPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.93900007
+anchor_top = -0.133
+anchor_right = 1.1420001
+anchor_bottom = 0.060000002
+offset_left = 0.17996216
+offset_top = -0.26000214
+offset_right = 0.039978027
+offset_bottom = 0.19999695
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.1, 1)
+theme_override_font_sizes/font_size = 110
+text = "?"
+horizontal_alignment = 1
+
+[node name="ChatBubble" type="PanelContainer" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow/CharacterPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 10.0
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bubble")
+
+[node name="BubbleMargin" type="MarginContainer" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow/CharacterPanel/ChatBubble"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="BubbleLabel" type="Label" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow/CharacterPanel/ChatBubble/BubbleMargin"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.15, 0.08, 0.02, 1)
+theme_override_font_sizes/font_size = 15
+text = "..."
+autowrap_mode = 2
+
+[node name="RightColumn" type="VBoxContainer" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="ChoicesContainer" type="VBoxContainer" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn"]
+custom_minimum_size = Vector2(850, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/separation = 48
+
+[node name="Choice1" type="Button" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/ChoicesContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.95, 0.92, 0.85, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.9, 0.6, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.9, 1)
+theme_override_colors/font_disabled_color = Color(0.5, 0.45, 0.35, 0.6)
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn_disabled")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+text = "Hey! Stop what you're doing and check under my desk right now."
+autowrap_mode = 3
+
+[node name="Choice2" type="Button" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/ChoicesContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.95, 0.92, 0.85, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.9, 0.6, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.9, 1)
+theme_override_colors/font_disabled_color = Color(0.5, 0.45, 0.35, 0.6)
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn_disabled")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+text = "Good afternoon, sir. Have you seen any unusual item while cleaning this room?"
+autowrap_mode = 3
+
+[node name="Choice3" type="Button" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/ChoicesContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.95, 0.92, 0.85, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.9, 0.6, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.9, 1)
+theme_override_colors/font_disabled_color = Color(0.5, 0.45, 0.35, 0.6)
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn_disabled")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+text = "Move out of the way, I need to look under that desk."
+autowrap_mode = 3
+
+[node name="Choice4" type="Button" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/ChoicesContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.95, 0.92, 0.85, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.9, 0.6, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.9, 1)
+theme_override_colors/font_disabled_color = Color(0.5, 0.45, 0.35, 0.6)
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn_disabled")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+text = "Why are you so slow? Just tell me if you found something or not!"
+autowrap_mode = 3
+
+[node name="MicrophonePanel" type="PanelContainer" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn"]
+visible = false
+custom_minimum_size = Vector2(850, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_mic_panel")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/MicrophonePanel"]
 layout_mode = 2
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MainContainer/VBoxContainer/InstructionPanel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/MicrophonePanel/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 15
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+alignment = 1
 
-[node name="TitleLabel" type="Label" parent="Control/MainContainer/VBoxContainer/InstructionPanel/MarginContainer/VBoxContainer"]
+[node name="SentenceDisplay" type="RichTextLabel" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/MicrophonePanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
-theme_override_font_sizes/font_size = 42
-text = "\"Approach Carefully\""
-horizontal_alignment = 1
-
-[node name="QuestionLabel" type="Label" parent="Control/MainContainer/VBoxContainer/InstructionPanel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Choose the best polite request for approaching the janitor"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="SubInstructionLabel" type="Label" parent="Control/MainContainer/VBoxContainer/InstructionPanel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Select the best line by saying it through the mic."
-horizontal_alignment = 1
-
-[node name="ChoicesContainer" type="VBoxContainer" parent="Control/MainContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 15
-
-[node name="Choice1" type="Button" parent="Control/MainContainer/VBoxContainer/ChoicesContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "\"Excuse me, sir? Sorry to bother your cleaning, but I think I left something under my desk earlier. Mind if I take a quick look?\""
-autowrap_mode = 3
-
-[node name="Choice2" type="Button" parent="Control/MainContainer/VBoxContainer/ChoicesContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "\"Good afternoon, sir. I was hoping you could help me. I'm looking for something I lost in this room—have you come across anything unusual while you were sweeping?\""
-autowrap_mode = 3
-
-[node name="Choice3" type="Button" parent="Control/MainContainer/VBoxContainer/ChoicesContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "\"Hi there! I can move those chairs for you if you need to get into that corner. Actually, I was also looking for a small item I dropped near here. Did you happen to see it?\""
-autowrap_mode = 3
-
-[node name="Choice4" type="Button" parent="Control/MainContainer/VBoxContainer/ChoicesContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "\"Hey, sir. Quick question—did anyone turn in a lost item to you from this classroom today? I'm missing something important and wanted to check with you first.\""
-autowrap_mode = 3
-
-[node name="MicrophonePanel" type="PanelContainer" parent="Control/MainContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Control/MainContainer/VBoxContainer/MicrophonePanel"]
-layout_mode = 2
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 30
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MainContainer/VBoxContainer/MicrophonePanel/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="SentenceDisplay" type="RichTextLabel" parent="Control/MainContainer/VBoxContainer/MicrophonePanel/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 32
+theme_override_colors/default_color = Color(0.95, 0.92, 0.85, 1)
+theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "Read the highlighted word out loud"
 fit_content = true
 scroll_active = false
 
-[node name="Separator" type="Control" parent="Control/MainContainer/VBoxContainer/MicrophonePanel/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
-[node name="MicContainer" type="HBoxContainer" parent="Control/MainContainer/VBoxContainer/MicrophonePanel/MarginContainer/VBoxContainer"]
+[node name="MicContainer" type="HBoxContainer" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/MicrophonePanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="MicIcon" type="Label" parent="Control/MainContainer/VBoxContainer/MicrophonePanel/MarginContainer/VBoxContainer/MicContainer"]
+[node name="MicIcon" type="Label" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/MicrophonePanel/MarginContainer/VBoxContainer/MicContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 60
 text = "🎤"
 horizontal_alignment = 1
 
-[node name="StatusLabel" type="Label" parent="Control/MainContainer/VBoxContainer/MicrophonePanel/MarginContainer/VBoxContainer"]
+[node name="StatusLabel" type="Label" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/MicrophonePanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(0.95, 0.92, 0.85, 1)
+theme_override_font_sizes/font_size = 40
 text = "Say: [word]"
 horizontal_alignment = 1
 
-[node name="TranscriptionLabel" type="Label" parent="Control/MainContainer/VBoxContainer/MicrophonePanel/MarginContainer/VBoxContainer"]
+[node name="TranscriptionLabel" type="Label" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/MicrophonePanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
-theme_override_font_sizes/font_size = 20
-text = ""
+theme_override_colors/font_color = Color(0.7, 0.65, 0.55, 1)
+theme_override_font_sizes/font_size = 40
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="ProgressLabel" type="Label" parent="Control/MainContainer/VBoxContainer/MicrophonePanel/MarginContainer/VBoxContainer"]
+[node name="ProgressLabel" type="Label" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/MicrophonePanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.5, 0.8, 1, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.7, 0.85, 0.6, 1)
+theme_override_font_sizes/font_size = 40
 text = "Progress: 0/0"
 horizontal_alignment = 1
 
-[node name="FeedbackLabel" type="Label" parent="Control/MainContainer/VBoxContainer"]
+[node name="FeedbackLabel" type="Label" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn"]
 visible = false
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)
-theme_override_font_sizes/font_size = 32
-text = "This isn't the right way to say it, maybe there's something better."
+theme_override_colors/font_color = Color(0.95, 0.4, 0.2, 1)
+theme_override_font_sizes/font_size = 24
+text = "That's not quite right. Try another approach!"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[connection signal="pressed" from="Control/MainContainer/VBoxContainer/ChoicesContainer/Choice1" to="." method="_on_choice_selected" binds= [0]]
-[connection signal="pressed" from="Control/MainContainer/VBoxContainer/ChoicesContainer/Choice2" to="." method="_on_choice_selected" binds= [1]]
-[connection signal="pressed" from="Control/MainContainer/VBoxContainer/ChoicesContainer/Choice3" to="." method="_on_choice_selected" binds= [2]]
-[connection signal="pressed" from="Control/MainContainer/VBoxContainer/ChoicesContainer/Choice4" to="." method="_on_choice_selected" binds= [3]]
+[node name="GameOverOverlay" type="Control" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DimBG" type="ColorRect" parent="Control/GameOverOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.75)
+
+[node name="Panel" type="PanelContainer" parent="Control/GameOverOverlay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.25
+anchor_right = 0.75
+anchor_bottom = 0.75
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Control/GameOverOverlay/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="GameOverLabel" type="Label" parent="Control/GameOverOverlay/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.25, 0.15, 1)
+theme_override_font_sizes/font_size = 64
+text = "TIME'S UP!"
+horizontal_alignment = 1
+
+[node name="SubLabel" type="Label" parent="Control/GameOverOverlay/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.85, 0.75, 1)
+theme_override_font_sizes/font_size = 26
+text = "You ran out of time. Try again!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="TryAgainButton" type="Button" parent="Control/GameOverOverlay/Panel/VBox"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1, 0.05, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Try Again"
+
+[connection signal="pressed" from="Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/ChoicesContainer/Choice1" to="." method="_on_choice_selected" binds= [0]]
+[connection signal="pressed" from="Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/ChoicesContainer/Choice2" to="." method="_on_choice_selected" binds= [1]]
+[connection signal="pressed" from="Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/ChoicesContainer/Choice3" to="." method="_on_choice_selected" binds= [2]]
+[connection signal="pressed" from="Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/ChoicesContainer/Choice4" to="." method="_on_choice_selected" binds= [3]]
+[connection signal="pressed" from="Control/GameOverOverlay/Panel/VBox/TryAgainButton" to="." method="_on_try_again_pressed"]

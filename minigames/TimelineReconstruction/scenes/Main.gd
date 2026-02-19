@@ -5,15 +5,15 @@ extends Control
 ## Students sequence events based on time, causality, and evidence
 
 # UI Nodes
-@onready var title_label: Label = $Panel/VBox/Header/HeaderVBox/TitleLabel
-@onready var subtitle_label: Label = $Panel/VBox/Header/HeaderVBox/SubtitleLabel
+@onready var title_label: Label = $Panel/VBox/Header/TitleLabel
+@onready var subtitle_label: Label = $Panel/VBox/Header/SubtitleLabel
 @onready var context_label: RichTextLabel = $Panel/VBox/ContextPanel/ContextLabel
 @onready var events_pool: HBoxContainer = $Panel/VBox/MainContent/EventsContainer/EventsPanel/EventsPool
 @onready var timeline_slots: HBoxContainer = $Panel/VBox/MainContent/TimelineContainer/TimelinePanel/TimelineSlots
 @onready var timer_label: Label = $Panel/VBox/TopBar/TimerPanel/TimerLabel
 @onready var hint_button: Button = $Panel/VBox/TopBar/HintPanel/HintHBox/HintButton
 @onready var hint_counter: Label = $Panel/VBox/TopBar/HintPanel/HintHBox/HintCounter
-@onready var submit_button: Button = $Panel/VBox/SubmitButton
+@onready var submit_button: Button = $Panel/VBox/SubmitButtonContainer/SubmitButton
 @onready var feedback_panel: Panel = $FeedbackPanel
 @onready var feedback_icon: Label = $FeedbackPanel/VBox/FeedbackIcon
 @onready var feedback_title: Label = $FeedbackPanel/VBox/FeedbackTitle
@@ -36,11 +36,17 @@ var tutorial_image_page1: String = ""
 var tutorial_image_page2: String = ""
 
 # Style references
-@onready var main_panel: Panel = $Panel
-@onready var header_panel: PanelContainer = $Panel/VBox/Header
+@onready var main_panel: NinePatchRect = $Panel
+@onready var header_panel: VBoxContainer = $Panel/VBox/Header
 @onready var timer_panel: PanelContainer = $Panel/VBox/TopBar/TimerPanel
 @onready var hint_panel: PanelContainer = $Panel/VBox/TopBar/HintPanel
 @onready var context_panel: PanelContainer = $Panel/VBox/ContextPanel
+
+# Card colors
+const CARD_COLOR_NORMAL := Color(0.72, 0.50, 0.18, 1.0)   # Orange/yellow
+const CARD_COLOR_HOVER  := Color(0.90, 0.65, 0.25, 1.0)   # Brighter on hover
+const SLOT_COLOR_NORMAL := Color(0.22, 0.38, 0.60, 1.0)   # Blue
+const SLOT_COLOR_HOVER  := Color(0.32, 0.52, 0.80, 1.0)   # Lighter blue on hover
 
 # Minigame data
 var puzzle_config: Dictionary = {}
@@ -59,8 +65,23 @@ var hint_cooldown_time: float = 12.0  # 12 seconds cooldown
 var hint_cooldown_remaining: float = 0.0
 var hint_on_cooldown: bool = false
 
+# Timer warning sound tracking (play each only once per round)
+var played_one_minute_sfx: bool = false
+var played_thirty_sec_sfx: bool = false
+var played_ten_sec_sfx: bool = false
+
+# SFX base path
+const SFX_PATH := "res://assets/audio/sound_effect/timeline_analysis_minigame/"
+
 # Drag-and-drop state
 var currently_dragging_card: Control = null
+
+# Tutorial first-time tracking (persists for session)
+static var seen_tutorial: bool = false
+
+# Countdown overlay
+var countdown_overlay: ColorRect
+var countdown_label: Label
 
 signal minigame_completed(success: bool, time_taken: float)
 
@@ -74,6 +95,7 @@ func _ready() -> void:
 	_update_hint_display()
 	_apply_modern_styles()
 	_create_tutorial()
+	_create_countdown_overlay()
 	print("🎮 Timeline Reconstruction _ready() complete")
 
 func _create_tutorial() -> void:
@@ -337,6 +359,7 @@ func _on_tutorial_next_pressed() -> void:
 
 func _on_tutorial_start_pressed() -> void:
 	"""Handle tutorial start button press"""
+	seen_tutorial = true
 	# Fade out tutorial
 	var tween = create_tween()
 	tween.tween_property(tutorial_overlay, "modulate:a", 0.0, 0.3)
@@ -344,37 +367,143 @@ func _on_tutorial_start_pressed() -> void:
 	tutorial_overlay.hide()
 	tutorial_overlay.modulate.a = 1.0
 
-	# Start the minigame timer
+	# Show countdown then start timer
+	await _play_countdown()
 	start_time = Time.get_ticks_msec() / 1000.0
 	set_process(true)
 
+func _create_countdown_overlay() -> void:
+	"""Create the 3-2-1 Start countdown overlay (hidden until needed)"""
+	countdown_overlay = ColorRect.new()
+	countdown_overlay.color = Color(0, 0, 0, 0.6)
+	countdown_overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	countdown_overlay.z_index = 150
+	countdown_overlay.hide()
+	add_child(countdown_overlay)
+
+	countdown_label = Label.new()
+	countdown_label.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	countdown_label.add_theme_font_size_override("font_size", 120)
+	countdown_label.add_theme_color_override("font_color", Color(1, 1, 1, 1))
+	countdown_label.add_theme_color_override("font_outline_color", Color(0, 0, 0, 1))
+	countdown_label.add_theme_constant_override("outline_size", 8)
+	countdown_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	countdown_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	countdown_overlay.add_child(countdown_label)
+
+	# Set pivot to center after adding to tree so size is known
+	await get_tree().process_frame
+	countdown_label.pivot_offset = countdown_label.size / 2.0
+
+
+func _animate_cards_in(tutorial_img_page1: String, tutorial_img_page2: String) -> void:
+	"""Glide event pool cards in from the right, one by one, like being dealt onto a table"""
+	var cards = events_pool.get_children()
+	var screen_width = get_viewport_rect().size.x
+
+	# For each card, reparent it into a same-size Control wrapper so HBoxContainer
+	# controls the wrapper's position, but we can freely animate the card inside it.
+	var wrappers: Array = []
+	for card in cards:
+		# Create a wrapper Control the same size as the card
+		var wrapper = Control.new()
+		wrapper.custom_minimum_size = card.custom_minimum_size
+		wrapper.clip_contents = false
+
+		# Insert wrapper where card is, then move card inside wrapper
+		var idx = card.get_index()
+		events_pool.add_child(wrapper)
+		events_pool.move_child(wrapper, idx)
+		card.get_parent().remove_child(card)
+		wrapper.add_child(card)
+
+		# Position card off-screen to the right inside wrapper
+		card.position = Vector2(screen_width + 200.0, 0.0)
+		card.modulate.a = 0.0
+		wrappers.append(wrapper)
+
+	# Wait a frame for layout
+	await get_tree().process_frame
+
+	# Glide each card into position one by one
+	for i in range(cards.size()):
+		var card = cards[i]
+		var tween = create_tween()
+		tween.set_parallel(true)
+		tween.tween_property(card, "position:x", 0.0, 0.5)\
+			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+		tween.tween_property(card, "modulate:a", 1.0, 0.25)
+
+		# Play card slide sound for each card
+		_play_sfx(SFX_PATH + "card_sound_effect.wav")
+
+		await get_tree().create_timer(0.15).timeout
+
+	# Wait for last card to land
+	await get_tree().create_timer(0.55).timeout
+
+	# Unwrap: move each card back directly into events_pool and remove wrapper
+	for i in range(wrappers.size()):
+		var wrapper = wrappers[i]
+		var card = cards[i]
+		var idx = wrapper.get_index()
+		wrapper.remove_child(card)
+		card.position = Vector2.ZERO
+		events_pool.add_child(card)
+		events_pool.move_child(card, idx)
+		wrapper.queue_free()
+
+	await get_tree().process_frame
+
+	# Show tutorial if first time, otherwise go straight to countdown
+	if not seen_tutorial:
+		_show_tutorial(tutorial_img_page1, tutorial_img_page2)
+	else:
+		await _play_countdown()
+		start_time = Time.get_ticks_msec() / 1000.0
+		set_process(true)
+
+
+func _play_countdown() -> void:
+	"""Show 3, 2, 1, Start! countdown then hide"""
+	countdown_overlay.show()
+
+	var steps = [["3", Color(0.9, 0.3, 0.3, 1)], ["2", Color(0.9, 0.7, 0.2, 1)], ["1", Color(0.3, 0.85, 0.4, 1)], ["START!", Color(1, 1, 1, 1)]]
+
+	# Ensure pivot is at center of the full-rect label
+	countdown_label.pivot_offset = countdown_label.size / 2.0
+
+	for step in steps:
+		var text = step[0]
+		var color = step[1]
+		countdown_label.text = text
+		countdown_label.add_theme_color_override("font_color", color)
+		countdown_label.scale = Vector2(1.5, 1.5)
+		countdown_label.modulate.a = 1.0
+
+		# Play matching sound for each countdown step
+		match text:
+			"3": _play_sfx(SFX_PATH + "three.mp3")
+			"2": _play_sfx(SFX_PATH + "two.mp3")
+			"1": _play_sfx(SFX_PATH + "one.mp3")
+			"START!":
+				_play_sfx(SFX_PATH + "start.mp3")
+				_play_sfx(SFX_PATH + "Whistle.mp3")
+
+		# Animate: scale down and fade slightly
+		var tween = create_tween()
+		tween.set_parallel(true)
+		tween.tween_property(countdown_label, "scale", Vector2(1.0, 1.0), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+		if text == "START!":
+			tween.tween_property(countdown_label, "modulate:a", 0.0, 0.6).set_delay(0.4)
+		await get_tree().create_timer(0.8).timeout
+
+	countdown_overlay.hide()
+
+
 func _apply_modern_styles() -> void:
 	"""Apply modern gradient and shadow styling to all UI elements"""
-	# Main panel - gradient background with shadow
-	var main_style = StyleBoxFlat.new()
-	main_style.bg_color = Color(0.12, 0.15, 0.20, 0.98)
-	main_style.set_corner_radius_all(16)
-	main_style.shadow_color = Color(0, 0, 0, 0.6)
-	main_style.shadow_size = 20
-	main_style.shadow_offset = Vector2(0, 8)
-	main_style.border_width_left = 2
-	main_style.border_width_top = 2
-	main_style.border_width_right = 2
-	main_style.border_width_bottom = 2
-	main_style.border_color = Color(0.3, 0.4, 0.5, 0.4)
-	main_panel.add_theme_stylebox_override("panel", main_style)
-
-	# Header panel - accent gradient
-	var header_style = StyleBoxFlat.new()
-	header_style.bg_color = Color(0.18, 0.22, 0.28, 0.9)
-	header_style.set_corner_radius_all(10)
-	header_style.border_width_bottom = 3
-	header_style.border_color = Color(0.95, 0.85, 0.4, 0.5)
-	header_style.content_margin_left = 20
-	header_style.content_margin_top = 15
-	header_style.content_margin_right = 20
-	header_style.content_margin_bottom = 15
-	header_panel.add_theme_stylebox_override("panel", header_style)
+	# Main panel is NinePatchRect - no stylebox override needed, uses BGbox_01A.png texture
 
 	# Timer panel - info style
 	var timer_style = StyleBoxFlat.new()
@@ -431,26 +560,7 @@ func _apply_modern_styles() -> void:
 	hint_btn_hover.content_margin_bottom = 8
 	hint_button.add_theme_stylebox_override("hover", hint_btn_hover)
 
-	# Submit button - primary action style
-	var submit_normal = StyleBoxFlat.new()
-	submit_normal.bg_color = Color(0.25, 0.65, 0.35, 0.95)
-	submit_normal.set_corner_radius_all(10)
-	submit_normal.content_margin_left = 20
-	submit_normal.content_margin_top = 12
-	submit_normal.content_margin_right = 20
-	submit_normal.content_margin_bottom = 12
-	submit_button.add_theme_stylebox_override("normal", submit_normal)
-
-	var submit_hover = StyleBoxFlat.new()
-	submit_hover.bg_color = Color(0.3, 0.75, 0.45, 1.0)
-	submit_hover.set_corner_radius_all(10)
-	submit_hover.shadow_color = Color(0.3, 0.75, 0.45, 0.4)
-	submit_hover.shadow_size = 10
-	submit_hover.content_margin_left = 20
-	submit_hover.content_margin_top = 12
-	submit_hover.content_margin_right = 20
-	submit_hover.content_margin_bottom = 12
-	submit_button.add_theme_stylebox_override("hover", submit_hover)
+	# Submit button uses button_normal/button_hover textures set in the scene
 
 	# Feedback panel - elevated card style
 	var feedback_style = StyleBoxFlat.new()
@@ -557,11 +667,10 @@ func configure_puzzle(config: Dictionary) -> void:
 		var slot = _create_timeline_slot(i)
 		timeline_slots.add_child(slot)
 
-	# Show tutorial instead of starting timer immediately
-	# Timer will start when tutorial is dismissed
+	# Animate cards sliding in, then show tutorial or countdown
 	var tutorial_img_page1 = config.get("tutorial_image_page1", "")
 	var tutorial_img_page2 = config.get("tutorial_image_page2", "")
-	_show_tutorial(tutorial_img_page1, tutorial_img_page2)
+	_animate_cards_in(tutorial_img_page1, tutorial_img_page2)
 
 	print("🎮 Timeline Reconstruction configuration complete!")
 	print("🎮 Events pool children: ", events_pool.get_child_count())
@@ -570,58 +679,54 @@ func configure_puzzle(config: Dictionary) -> void:
 	print("🎮 Submit button visible: ", submit_button.visible)
 
 func _create_event_card(event: Dictionary) -> Control:
-	"""Create a vertical event card with image on top and text below (draggable)"""
-	var card_wrapper = Control.new()
+	"""Create a vertical event card with image on top and text below (clickable)"""
+	var card_wrapper = PanelContainer.new()
 	card_wrapper.custom_minimum_size = Vector2(180, 220)
-	card_wrapper.mouse_filter = Control.MOUSE_FILTER_STOP  # Enable mouse interaction
+	card_wrapper.mouse_filter = Control.MOUSE_FILTER_STOP
+
+	# StyleBoxFlat for yellow/orange card background
+	var style = StyleBoxFlat.new()
+	style.bg_color = CARD_COLOR_NORMAL
+	style.set_corner_radius_all(6)
+	style.border_width_left = 2
+	style.border_width_top = 2
+	style.border_width_right = 2
+	style.border_width_bottom = 2
+	style.border_color = Color(0.9, 0.72, 0.3, 1.0)
+	style.content_margin_left = 8
+	style.content_margin_top = 8
+	style.content_margin_right = 8
+	style.content_margin_bottom = 8
+	card_wrapper.add_theme_stylebox_override("panel", style)
 
 	# Store event data
 	card_wrapper.set_meta("event_id", event.get("id", ""))
 	card_wrapper.set_meta("event_data", event)
-	card_wrapper.set_meta("in_pool", true)  # Track if card is in pool
-	card_wrapper.set_meta("original_pool_index", -1)  # Will be set after adding to pool
+	card_wrapper.set_meta("in_pool", true)
+	card_wrapper.set_meta("original_pool_index", -1)
+	card_wrapper.set_meta("card_style", style)
 
-	# Enable clicking to move to timeline
+	# Hover + click
+	card_wrapper.mouse_entered.connect(_on_card_hover.bind(card_wrapper, true))
+	card_wrapper.mouse_exited.connect(_on_card_hover.bind(card_wrapper, false))
 	card_wrapper.gui_input.connect(_on_card_clicked.bind(card_wrapper))
 
-	var panel = PanelContainer.new()
-	panel.custom_minimum_size = Vector2(180, 220)
-	panel.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Let parent handle mouse events
-
-	# Panel style - Orange/tan color for event pool
-	var style = StyleBoxFlat.new()
-	style.bg_color = Color(0.85, 0.55, 0.25, 0.95)
-	style.set_corner_radius_all(10)
-	style.border_width_left = 3
-	style.border_width_top = 3
-	style.border_width_right = 3
-	style.border_width_bottom = 3
-	style.border_color = Color(0.7, 0.45, 0.2, 1.0)
-	style.content_margin_left = 12
-	style.content_margin_top = 12
-	style.content_margin_right = 12
-	style.content_margin_bottom = 12
-	panel.add_theme_stylebox_override("panel", style)
-
-	# Hover effects
-	card_wrapper.mouse_entered.connect(_on_card_hover.bind(panel, true))
-	card_wrapper.mouse_exited.connect(_on_card_hover.bind(panel, false))
-
-	card_wrapper.add_child(panel)
-
-	# VBox for image on top, text below
+	# VBox: image on top, text below
 	var vbox = VBoxContainer.new()
-	vbox.add_theme_constant_override("separation", 8)
-	vbox.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Don't block drag events
-	panel.add_child(vbox)
+	vbox.add_theme_constant_override("separation", 6)
+	vbox.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	vbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	vbox.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	card_wrapper.add_child(vbox)
 
-	# Image
+	# Image — fixed size so all cards are uniform
 	var texture_rect = TextureRect.new()
-	texture_rect.custom_minimum_size = Vector2(164, 164)
+	texture_rect.custom_minimum_size = Vector2(156, 150)
+	texture_rect.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	texture_rect.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	texture_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Don't block drag events
+	texture_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	var image_path = event.get("image_path", "")
 	if image_path != "":
@@ -630,74 +735,64 @@ func _create_event_card(event: Dictionary) -> Control:
 			if "selected_character" in PlayerStats:
 				protagonist = PlayerStats.selected_character
 			image_path = image_path.replace("{protagonist}", protagonist)
-
 		var texture = load(image_path)
 		if texture:
 			texture_rect.texture = texture
 
 	vbox.add_child(texture_rect)
 
-	# Text below image - fixed height container for consistent card sizes
-	var label_container = CenterContainer.new()
-	label_container.custom_minimum_size = Vector2(164, 44)  # Fixed height to match card total minus image
-	label_container.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	vbox.add_child(label_container)
-
+	# Text label below image — fixed height so all cards stay uniform
 	var label = Label.new()
 	label.text = event.get("text", "")
+	label.custom_minimum_size = Vector2(156, 44)
 	label.add_theme_font_size_override("font_size", 13)
 	label.add_theme_color_override("font_color", Color(0.05, 0.05, 0.05))
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	label.custom_minimum_size = Vector2(156, 0)  # Fixed width for text wrapping
-	label.size_flags_vertical = Control.SIZE_SHRINK_CENTER  # Center vertically in container
-	label.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Don't block drag events
-	label_container.add_child(label)
+	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	label.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	vbox.add_child(label)
 
 	return card_wrapper
 
 
 func _create_timeline_slot(index: int) -> Control:
-	"""Create a numbered timeline slot box (blue box) that accepts drops"""
-	var slot_wrapper = Control.new()
+	"""Create a numbered timeline slot box (blue) that accepts cards"""
+	var slot_wrapper = PanelContainer.new()
 	slot_wrapper.custom_minimum_size = Vector2(180, 220)
-	slot_wrapper.mouse_filter = Control.MOUSE_FILTER_STOP  # Enable mouse interaction
+	slot_wrapper.mouse_filter = Control.MOUSE_FILTER_STOP
 	slot_wrapper.set_meta("slot_index", index)
 	slot_wrapper.set_meta("is_empty", true)
 
-	var slot = PanelContainer.new()
-	slot.custom_minimum_size = Vector2(180, 220)
-	slot.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	slot.mouse_filter = Control.MOUSE_FILTER_PASS  # Pass through to parent for drag-drop
-
-	# Slot style - Blue color for timeline
+	# StyleBoxFlat for blue slot background
 	var style = StyleBoxFlat.new()
-	style.bg_color = Color(0.25, 0.45, 0.75, 0.95)
-	style.set_corner_radius_all(10)
-	style.border_width_left = 3
-	style.border_width_top = 3
-	style.border_width_right = 3
-	style.border_width_bottom = 3
-	style.border_color = Color(0.2, 0.35, 0.6, 1.0)
-	style.content_margin_left = 0
-	style.content_margin_top = 0
-	style.content_margin_right = 0
-	style.content_margin_bottom = 0
-	slot.add_theme_stylebox_override("panel", style)
+	style.bg_color = SLOT_COLOR_NORMAL
+	style.set_corner_radius_all(6)
+	style.border_width_left = 2
+	style.border_width_top = 2
+	style.border_width_right = 2
+	style.border_width_bottom = 2
+	style.border_color = Color(0.45, 0.65, 1.0, 1.0)
+	style.content_margin_left = 4
+	style.content_margin_top = 4
+	style.content_margin_right = 4
+	style.content_margin_bottom = 4
+	slot_wrapper.add_theme_stylebox_override("panel", style)
+	slot_wrapper.set_meta("slot_style", style)
 
-	# Make clickable for returning cards (use wrapper for input)
+	# Click and hover
 	slot_wrapper.gui_input.connect(_on_slot_gui_input.bind(slot_wrapper))
-	slot_wrapper.mouse_entered.connect(_on_slot_hover.bind(slot, slot_wrapper, true))
-	slot_wrapper.mouse_exited.connect(_on_slot_hover.bind(slot, slot_wrapper, false))
+	slot_wrapper.mouse_entered.connect(_on_slot_hover.bind(slot_wrapper, true))
+	slot_wrapper.mouse_exited.connect(_on_slot_hover.bind(slot_wrapper, false))
 
-	slot_wrapper.add_child(slot)
-
-	# Content container - will hold number or card
+	# Content container - will hold number label or card
 	var content = Control.new()
 	content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	content.set_meta("is_content_area", true)
-	slot.add_child(content)
+	content.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	slot_wrapper.add_child(content)
 
 	# Number label (shows when empty)
 	var number_label = Label.new()
@@ -724,20 +819,16 @@ func _on_card_clicked(event: InputEvent, card_wrapper: Control) -> void:
 					_move_card_to_slot(card_wrapper, slot_wrapper)
 
 					# Flash animation on card
-					var card_panel = card_wrapper.get_child(0)
 					var tween = create_tween()
-					tween.tween_property(card_panel, "modulate", Color(0.5, 0.8, 1.0), 0.1)
-					tween.tween_property(card_panel, "modulate", Color.WHITE, 0.1)
+					tween.tween_property(card_wrapper, "modulate", Color(0.5, 0.8, 1.0), 0.1)
+					tween.tween_property(card_wrapper, "modulate", Color.WHITE, 0.1)
 
 					break
 		else:
 			# Card is in timeline slot - return it to pool
-			# Find which slot contains this card
 			for slot_wrapper in timeline_slots.get_children():
 				if slot_wrapper is Control and not slot_wrapper.get_meta("is_empty", true):
-					var slot_panel = slot_wrapper.get_child(0)
-					var content = slot_panel.get_child(0)
-					# Check if this slot contains our card
+					var content = slot_wrapper.get_child(0)
 					for child in content.get_children():
 						if child == card_wrapper:
 							_move_card_to_pool(card_wrapper, slot_wrapper)
@@ -745,26 +836,11 @@ func _on_card_clicked(event: InputEvent, card_wrapper: Control) -> void:
 
 ## End Click-Based Interaction
 
-func _on_card_hover(panel: PanelContainer, is_hovering: bool) -> void:
-	"""Handle hover effect for event cards"""
-	var style = StyleBoxFlat.new()
-	if is_hovering:
-		style.bg_color = Color(0.95, 0.65, 0.35, 1.0)
-		style.border_color = Color(0.9, 0.6, 0.3, 1.0)
-	else:
-		style.bg_color = Color(0.85, 0.55, 0.25, 0.95)
-		style.border_color = Color(0.7, 0.45, 0.2, 1.0)
-
-	style.set_corner_radius_all(10)
-	style.border_width_left = 3
-	style.border_width_top = 3
-	style.border_width_right = 3
-	style.border_width_bottom = 3
-	style.content_margin_left = 12
-	style.content_margin_top = 12
-	style.content_margin_right = 12
-	style.content_margin_bottom = 12
-	panel.add_theme_stylebox_override("panel", style)
+func _on_card_hover(card_wrapper: PanelContainer, is_hovering: bool) -> void:
+	"""Handle hover effect for event cards - change StyleBoxFlat bg color"""
+	var style = card_wrapper.get_meta("card_style", null) as StyleBoxFlat
+	if style:
+		style.bg_color = CARD_COLOR_HOVER if is_hovering else CARD_COLOR_NORMAL
 
 func _on_slot_gui_input(event: InputEvent, slot_wrapper: Control) -> void:
 	"""Handle mouse click on timeline slot to return card to pool"""
@@ -772,41 +848,17 @@ func _on_slot_gui_input(event: InputEvent, slot_wrapper: Control) -> void:
 		if not slot_wrapper.get_meta("is_empty", true):
 			_on_timeline_slot_pressed(slot_wrapper)
 
-func _on_slot_hover(slot: PanelContainer, slot_wrapper: Control, is_hovering: bool) -> void:
-	"""Handle hover effect for timeline slots"""
-	var is_empty = slot_wrapper.get_meta("is_empty", true)
-	var style = StyleBoxFlat.new()
-
-	if is_hovering and not is_empty:
-		# Hover on filled slot - lighter blue
-		style.bg_color = Color(0.35, 0.55, 0.85, 1.0)
-		style.border_color = Color(0.3, 0.45, 0.7, 1.0)
-	elif not is_empty:
-		# Filled slot - normal blue
-		style.bg_color = Color(0.25, 0.45, 0.75, 0.95)
-		style.border_color = Color(0.2, 0.35, 0.6, 1.0)
-	else:
-		# Empty slot - normal blue
-		style.bg_color = Color(0.25, 0.45, 0.75, 0.95)
-		style.border_color = Color(0.2, 0.35, 0.6, 1.0)
-
-	style.set_corner_radius_all(10)
-	style.border_width_left = 3
-	style.border_width_top = 3
-	style.border_width_right = 3
-	style.border_width_bottom = 3
-	style.content_margin_left = 12
-	style.content_margin_top = 12
-	style.content_margin_right = 12
-	style.content_margin_bottom = 12
-	slot.add_theme_stylebox_override("panel", style)
+func _on_slot_hover(slot_wrapper: PanelContainer, is_hovering: bool) -> void:
+	"""Handle hover effect for timeline slots - change StyleBoxFlat bg color"""
+	var style = slot_wrapper.get_meta("slot_style", null) as StyleBoxFlat
+	if style:
+		style.bg_color = SLOT_COLOR_HOVER if is_hovering else SLOT_COLOR_NORMAL
 
 func _on_timeline_slot_pressed(slot_wrapper: Control) -> void:
 	"""Handle timeline slot click - return card to pool"""
 	if not slot_wrapper.get_meta("is_empty", true):
-		# Find and return the card
-		var slot_panel = slot_wrapper.get_child(0)
-		var content = slot_panel.get_child(0)
+		# Find and return the card (content is first child of slot_wrapper)
+		var content = slot_wrapper.get_child(0)
 		for child in content.get_children():
 			if child is Control and child.has_meta("event_id"):
 				_move_card_to_pool(child, slot_wrapper)
@@ -817,9 +869,8 @@ func _move_card_to_slot(card_wrapper: Control, slot_wrapper: Control) -> void:
 	# Remove from events pool
 	card_wrapper.get_parent().remove_child(card_wrapper)
 
-	# Get content area (slot_wrapper -> PanelContainer -> content)
-	var slot_panel = slot_wrapper.get_child(0)
-	var content = slot_panel.get_child(0)
+	# Content is first child of slot_wrapper (PanelContainer)
+	var content = slot_wrapper.get_child(0)
 
 	# Clear placeholder number
 	for child in content.get_children():
@@ -827,13 +878,8 @@ func _move_card_to_slot(card_wrapper: Control, slot_wrapper: Control) -> void:
 
 	# Add card to slot and mark as not in pool
 	card_wrapper.set_meta("in_pool", false)
-
-	# Reset anchors and set explicit size to match slot (180x220)
-	card_wrapper.set_anchors_preset(Control.PRESET_TOP_LEFT)
-	card_wrapper.position = Vector2.ZERO
-	card_wrapper.custom_minimum_size = Vector2(180, 220)
-	card_wrapper.size = Vector2(180, 220)
-
+	card_wrapper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	card_wrapper.custom_minimum_size = Vector2.ZERO
 	content.add_child(card_wrapper)
 	slot_wrapper.set_meta("is_empty", false)
 
@@ -865,12 +911,13 @@ func _move_card_to_pool(card_wrapper: Control, slot_wrapper: Control) -> void:
 	card_wrapper.set_meta("in_pool", true)
 	var original_index = card_wrapper.get_meta("original_pool_index", 0)
 
-	# Reset card positioning for pool layout
+	# Reset card for pool layout (HBoxContainer controls sizing)
+	card_wrapper.set_anchors_preset(Control.PRESET_TOP_LEFT)
 	card_wrapper.position = Vector2.ZERO
 	card_wrapper.size = Vector2.ZERO
-	card_wrapper.custom_minimum_size = Vector2(180, 220)  # Restore original size
-	card_wrapper.set_anchors_preset(Control.PRESET_TOP_LEFT)
-	card_wrapper.set_offsets_preset(Control.PRESET_TOP_LEFT, Control.PRESET_MODE_MINSIZE)
+	card_wrapper.custom_minimum_size = Vector2(180, 220)
+	card_wrapper.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	card_wrapper.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 
 	# Insert at original index (or at end if index is invalid)
 	if original_index >= 0 and original_index <= events_pool.get_child_count():
@@ -880,10 +927,9 @@ func _move_card_to_pool(card_wrapper: Control, slot_wrapper: Control) -> void:
 		events_pool.add_child(card_wrapper)
 
 	# Flash animation
-	var card_panel = card_wrapper.get_child(0)
 	var tween = create_tween()
-	tween.tween_property(card_panel, "modulate", Color(1.0, 0.8, 0.5), 0.1)
-	tween.tween_property(card_panel, "modulate", Color.WHITE, 0.1)
+	tween.tween_property(card_wrapper, "modulate", Color(1.0, 0.8, 0.5), 0.1)
+	tween.tween_property(card_wrapper, "modulate", Color.WHITE, 0.1)
 
 	_update_current_order()
 
@@ -893,8 +939,8 @@ func _update_current_order() -> void:
 
 	for slot_wrapper in timeline_slots.get_children():
 		if slot_wrapper is Control:
-			var slot_panel = slot_wrapper.get_child(0)
-			var content = slot_panel.get_child(0)
+			# Structure: slot_wrapper (PanelContainer) → content (Control) → card_wrapper
+			var content = slot_wrapper.get_child(0)
 
 			# Check if content has a card (Control wrapper)
 			for child in content.get_children():
@@ -917,8 +963,19 @@ func _process(delta: float) -> void:
 
 	if remaining <= 10:
 		timer_label.add_theme_color_override("font_color", Color.RED)
+		if not played_ten_sec_sfx:
+			played_ten_sec_sfx = true
+			_play_sfx(SFX_PATH + "ten_seconds_left.mp3")
 	elif remaining <= 30:
 		timer_label.add_theme_color_override("font_color", Color.YELLOW)
+		if not played_thirty_sec_sfx:
+			played_thirty_sec_sfx = true
+			_play_sfx(SFX_PATH + "thirty_seconds_left.mp3")
+	elif remaining <= 60:
+		timer_label.add_theme_color_override("font_color", Color.WHITE)
+		if not played_one_minute_sfx:
+			played_one_minute_sfx = true
+			_play_sfx(SFX_PATH + "one_minute_left.mp3")
 	else:
 		timer_label.add_theme_color_override("font_color", Color.WHITE)
 
@@ -1032,8 +1089,8 @@ func _on_retry_pressed() -> void:
 	# Move all cards back to pool
 	for slot_wrapper in timeline_slots.get_children():
 		if slot_wrapper is Control and not slot_wrapper.get_meta("is_empty", true):
-			var slot_panel = slot_wrapper.get_child(0)
-			var content = slot_panel.get_child(0)
+			# Structure: slot_wrapper (PanelContainer) → content (Control) → card_wrapper
+			var content = slot_wrapper.get_child(0)
 
 			# Find card
 			for child in content.get_children():
@@ -1041,7 +1098,10 @@ func _on_retry_pressed() -> void:
 					_move_card_to_pool(child, slot_wrapper)
 					break
 
-	# Reset timer
+	# Reset timer and warning sound flags
+	played_one_minute_sfx = false
+	played_thirty_sec_sfx = false
+	played_ten_sec_sfx = false
 	start_time = Time.get_ticks_msec() / 1000.0
 	set_process(true)
 
@@ -1131,8 +1191,8 @@ func _on_hint_pressed() -> void:
 						# If slot has wrong card, move it back first
 						if not target_slot_wrapper.get_meta("is_empty", true):
 							print("🔍 Hint: Slot ", i, " occupied, clearing it first")
-							var slot_panel = target_slot_wrapper.get_child(0)
-							var content = slot_panel.get_child(0)
+							# Structure: slot_wrapper (PanelContainer) → content (Control) → card_wrapper
+							var content = target_slot_wrapper.get_child(0)
 							for child in content.get_children():
 								if child is Control and child.has_meta("event_id"):
 									_move_card_to_pool(child, target_slot_wrapper)

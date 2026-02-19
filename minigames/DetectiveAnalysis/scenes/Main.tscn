@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://detective_analysis_001"]
+[gd_scene load_steps=3 format=3 uid="uid://rh88umr4bjxa"]
 
-[ext_resource type="Script" path="res://minigames/DetectiveAnalysis/scenes/Main.gd" id="1"]
+[ext_resource type="Script" uid="uid://b051bd8r6evld" path="res://minigames/DetectiveAnalysis/scenes/Main.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bu7mmeepr2ukm" path="res://assets/UI/BGbox_01A.png" id="2_bgbox"]
 
 [node name="DetectiveAnalysis" type="Control"]
 layout_mode = 3
@@ -20,7 +21,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.85)
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="NinePatchRect" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -33,6 +35,12 @@ offset_right = 500.0
 offset_bottom = 350.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_bgbox")
+region_rect = Rect2(8.548111, 8.660231, 126.97536, 126.06514)
+patch_margin_left = 28
+patch_margin_top = 29
+patch_margin_right = 28
+patch_margin_bottom = 27
 
 [node name="VBox" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -126,7 +134,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 10
 
-[node name="FeedbackPanel" type="Panel" parent="."]
+[node name="FeedbackPanel" type="NinePatchRect" parent="."]
+texture_filter = 1
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -140,6 +149,12 @@ offset_right = 400.0
 offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_bgbox")
+region_rect = Rect2(8.548111, 8.660231, 126.97536, 126.06514)
+patch_margin_left = 28
+patch_margin_top = 29
+patch_margin_right = 28
+patch_margin_bottom = 27
 
 [node name="VBox" type="VBoxContainer" parent="FeedbackPanel"]
 layout_mode = 1
@@ -160,7 +175,6 @@ size_flags_vertical = 3
 bbcode_enabled = true
 text = "[center]Feedback goes here[/center]"
 fit_content = true
-scroll_active = true
 
 [node name="ContinueButton" type="Button" parent="FeedbackPanel/VBox"]
 custom_minimum_size = Vector2(0, 50)

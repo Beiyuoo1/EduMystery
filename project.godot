@@ -37,6 +37,7 @@ EvidenceButtonManager="*res://autoload/evidence_button_manager.gd"
 SaveManager="*res://autoload/save_manager.gd"
 ChapterStatsTracker="*res://autoload/chapter_stats_tracker.gd"
 CustomNameboxHandler="*res://scripts/custom_namebox_handler.gd"
+TutorialFlags="*res://autoload/tutorial_flags.gd"
 
 [dialogic]
 

@@ -1,26 +1,47 @@
 extends CanvasLayer
 
+# Set to true to skip Vosk entirely — correct choice click completes the minigame directly.
+# Useful for testing layout/logic when Vosk is not working or causes lag.
+const VOSK_BYPASS: bool = true
+
 # Node references
-@onready var timer_label = $Control/MainContainer/VBoxContainer/HeaderContainer/TimerLabel
-@onready var question_label = $Control/MainContainer/VBoxContainer/InstructionPanel/MarginContainer/VBoxContainer/QuestionLabel
-@onready var choices_container = $Control/MainContainer/VBoxContainer/ChoicesContainer
-@onready var microphone_panel = $Control/MainContainer/VBoxContainer/MicrophonePanel
-@onready var feedback_label = $Control/MainContainer/VBoxContainer/FeedbackLabel
-@onready var sentence_display = $Control/MainContainer/VBoxContainer/MicrophonePanel/MarginContainer/VBoxContainer/SentenceDisplay
-@onready var status_label = $Control/MainContainer/VBoxContainer/MicrophonePanel/MarginContainer/VBoxContainer/StatusLabel
-@onready var transcription_label = $Control/MainContainer/VBoxContainer/MicrophonePanel/MarginContainer/VBoxContainer/TranscriptionLabel
-@onready var progress_label = $Control/MainContainer/VBoxContainer/MicrophonePanel/MarginContainer/VBoxContainer/ProgressLabel
+@onready var timer_label = $Control/Panel/MainContainer/VBoxContainer/HeaderContainer/TimerLabel
+@onready var question_label = $Control/Panel/MainContainer/VBoxContainer/InstructionPanel/MarginContainer/VBoxContainer/QuestionLabel
+@onready var choices_container = $Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/ChoicesContainer
+@onready var microphone_panel = $Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/MicrophonePanel
+@onready var feedback_label = $Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/FeedbackLabel
+@onready var sentence_display = $Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/MicrophonePanel/MarginContainer/VBoxContainer/SentenceDisplay
+@onready var status_label = $Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/MicrophonePanel/MarginContainer/VBoxContainer/StatusLabel
+@onready var transcription_label = $Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/MicrophonePanel/MarginContainer/VBoxContainer/TranscriptionLabel
+@onready var progress_label = $Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/MicrophonePanel/MarginContainer/VBoxContainer/ProgressLabel
+@onready var character_image = $Control/Panel/MainContainer/VBoxContainer/ContentRow/CharacterPanel/CharacterImage
+@onready var chibi_mic_image = $Control/Panel/MainContainer/VBoxContainer/ContentRow/CharacterPanel/ChibiMicImage
+@onready var chat_bubble = $Control/Panel/MainContainer/VBoxContainer/ContentRow/CharacterPanel/ChatBubble
+@onready var bubble_label = $Control/Panel/MainContainer/VBoxContainer/ContentRow/CharacterPanel/ChatBubble/BubbleMargin/BubbleLabel
+@onready var question_mark = $Control/Panel/MainContainer/VBoxContainer/ContentRow/CharacterPanel/QuestionMark
+@onready var game_over_overlay = $Control/GameOverOverlay
+
+# Chibi mic sprites (loaded per protagonist)
+var chibi_normal_texture: Texture2D = null
+var chibi_talking_texture: Texture2D = null
+var _is_chibi_talking: bool = false
+
+# Tutorial overlay (built in code)
+var tutorial_overlay: Control = null
+var tutorial_page1: Control = null
+var tutorial_page2: Control = null
+var tutorial_help_button: Button = null
 
 # Choice buttons
 @onready var choice_buttons = [
-	$Control/MainContainer/VBoxContainer/ChoicesContainer/Choice1,
-	$Control/MainContainer/VBoxContainer/ChoicesContainer/Choice2,
-	$Control/MainContainer/VBoxContainer/ChoicesContainer/Choice3,
-	$Control/MainContainer/VBoxContainer/ChoicesContainer/Choice4
+	$Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/ChoicesContainer/Choice1,
+	$Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/ChoicesContainer/Choice2,
+	$Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/ChoicesContainer/Choice3,
+	$Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/ChoicesContainer/Choice4
 ]
 
 # Timer
-var time_remaining: float = 90.0  # 1:30 in seconds
+var time_remaining: float = 180.0  # 3:00 in seconds
 var timer_active: bool = false
 
 # Correct answer index (configurable)
@@ -43,6 +64,8 @@ var audio_buffer: PackedByteArray = PackedByteArray()
 var silence_timer: float = 0.0
 var has_spoken: bool = false
 const SILENCE_THRESHOLD: float = 1.0  # Stop after 1.0 second of silence (reduced for faster feedback)
+var partial_check_timer: float = 0.0
+const PARTIAL_CHECK_INTERVAL: float = 0.1  # Check Vosk partial results every 100ms, not every frame
 
 # Word-by-word recognition tracking
 var current_word_index: int = 0  # Which word we're currently trying to recognize
@@ -142,39 +165,317 @@ func _apply_config_to_ui():
 				choice_buttons[i].text = choice_texts[i]
 				print("DEBUG: Button ", i, " text set to: ", choice_texts[i])
 
-func _ready():
-	print("DEBUG: DialogueChoice minigame _ready() called")
+func _load_protagonist_image():
+	"""Load the chibi sprite based on selected protagonist"""
+	var protagonist = PlayerStats.selected_character
+	if protagonist.is_empty():
+		protagonist = "conrad"
 
-	# Make sure the control is visible
+	var chibi_path = "res://Sprites/" + protagonist + "_chibi.png"
+	if ResourceLoader.exists(chibi_path):
+		character_image.texture = load(chibi_path)
+		print("DEBUG: Loaded chibi: ", chibi_path)
+	else:
+		push_warning("DialogueChoice: chibi image not found at: " + chibi_path)
+
+	# Load normal/talking mic chibi textures
+	var normal_path = "res://Sprites/" + protagonist + "_chibi_normal.png"
+	var talking_path = "res://Sprites/" + protagonist + "_chibi_talking.png"
+	if ResourceLoader.exists(normal_path):
+		chibi_normal_texture = load(normal_path)
+	if ResourceLoader.exists(talking_path):
+		chibi_talking_texture = load(talking_path)
+
+func _set_chibi_mic_state(talking: bool):
+	"""Switch chibi mic image between normal and talking states"""
+	if _is_chibi_talking == talking:
+		return
+	_is_chibi_talking = talking
+	if talking and chibi_talking_texture:
+		chibi_mic_image.texture = chibi_talking_texture
+	elif chibi_normal_texture:
+		chibi_mic_image.texture = chibi_normal_texture
+
+func _ready():
 	visible = true
 
-	# Verify node references
-	if timer_label == null:
-		push_error("DialogueChoice: timer_label is null!")
-	if choices_container == null:
-		push_error("DialogueChoice: choices_container is null!")
-
-	print("DEBUG: DialogueChoice minigame visible: ", visible)
-	print("DEBUG: DialogueChoice layer: ", layer)
+	# Load protagonist chibi image
+	_load_protagonist_image()
 
 	# Apply configured text to UI
 	_apply_config_to_ui()
 
-	# Debug button connections
-	for i in range(choice_buttons.size()):
-		if choice_buttons[i]:
-			print("DEBUG: Button ", i, " exists: ", choice_buttons[i].name)
-			print("DEBUG: Button ", i, " disabled: ", choice_buttons[i].disabled)
-			print("DEBUG: Button ", i, " visible: ", choice_buttons[i].visible)
-		else:
-			push_error("DialogueChoice: Button ", i, " is null!")
+	# Start idle question mark animation
+	_start_question_mark_idle()
 
-	# Start timer
-	timer_active = true
+	# Show tutorial on first encounter, otherwise show help button
+	_build_tutorial_overlay()
+	if not TutorialFlags.has_seen("dialogue_choice"):
+		tutorial_overlay.show()
+		tutorial_page1.show()
+		tutorial_page2.hide()
+		timer_active = false  # Pause timer until tutorial is dismissed
+	else:
+		tutorial_overlay.hide()
+		_add_tutorial_help_button()
+		timer_active = true  # Already seen — start immediately
 
-	# Initialize Vosk
-	_initialize_vosk()
-	_setup_audio_capture()
+	if VOSK_BYPASS:
+		# Bypass mode: no Vosk, no microphone — just click-to-answer
+		microphone_panel.visible = false
+		print("DialogueChoice: VOSK_BYPASS enabled — click correct answer to complete")
+	else:
+		_initialize_vosk()
+		_setup_audio_capture()
+
+func _build_tutorial_overlay() -> void:
+	"""Build the tutorial overlay in code using page1.png and page2.png"""
+	tutorial_overlay = Control.new()
+	tutorial_overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
+	tutorial_overlay.mouse_filter = Control.MOUSE_FILTER_STOP
+
+	var dim = ColorRect.new()
+	dim.color = Color(0, 0, 0, 0.82)
+	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
+	tutorial_overlay.add_child(dim)
+
+	# --- Page 1: Choice selection (shown first) ---
+	tutorial_page1 = _build_tutorial_page(
+		"HOW TO PLAY — Step 1 of 2",
+		"Read the question at the top, then choose the most polite\nand grammatically correct dialogue option.\nWrong choices will be disabled — think carefully before clicking!",
+		"res://assets/tutorials/dialougechoice/page2.png",
+		false
+	)
+	tutorial_overlay.add_child(tutorial_page1)
+
+	# --- Page 2: Mic panel (shown second) ---
+	tutorial_page2 = _build_tutorial_page(
+		"HOW TO PLAY — Step 2 of 2",
+		"After choosing the correct line, the mic panel appears.\nSpeak the sentence clearly into your microphone.\nThe chibi reacts when audio is detected — keep speaking until done!",
+		"res://assets/tutorials/dialougechoice/page1.png",
+		true
+	)
+	tutorial_overlay.add_child(tutorial_page2)
+
+	add_child(tutorial_overlay)
+
+func _build_tutorial_page(title: String, description: String, image_path: String, is_last: bool) -> Control:
+	"""Create a centered tutorial page with title, description, image, and a Next/Done button"""
+	var page = Control.new()
+	page.set_anchors_preset(Control.PRESET_FULL_RECT)
+	page.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+	# Centered panel — compact, not full screen
+	var panel = PanelContainer.new()
+	panel.anchor_left = 0.2
+	panel.anchor_top = 0.12
+	panel.anchor_right = 0.8
+	panel.anchor_bottom = 0.88
+	panel.grow_horizontal = Control.GROW_DIRECTION_BOTH
+	panel.grow_vertical = Control.GROW_DIRECTION_BOTH
+
+	var style = StyleBoxFlat.new()
+	style.bg_color = Color(0.08, 0.06, 0.04, 0.97)
+	style.border_color = Color(0.6, 0.45, 0.2, 0.9)
+	style.border_width_left = 3
+	style.border_width_top = 3
+	style.border_width_right = 3
+	style.border_width_bottom = 3
+	style.corner_radius_top_left = 12
+	style.corner_radius_top_right = 12
+	style.corner_radius_bottom_left = 12
+	style.corner_radius_bottom_right = 12
+	panel.add_theme_stylebox_override("panel", style)
+
+	var margin = MarginContainer.new()
+	margin.add_theme_constant_override("margin_left", 24)
+	margin.add_theme_constant_override("margin_top", 18)
+	margin.add_theme_constant_override("margin_right", 24)
+	margin.add_theme_constant_override("margin_bottom", 18)
+
+	var vbox = VBoxContainer.new()
+	vbox.add_theme_constant_override("separation", 8)
+
+	# Title label
+	var title_lbl = Label.new()
+	title_lbl.text = title
+	title_lbl.add_theme_font_size_override("font_size", 22)
+	title_lbl.add_theme_color_override("font_color", Color(0.95, 0.8, 0.3, 1.0))
+	title_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	vbox.add_child(title_lbl)
+
+	# Separator line
+	var sep = HSeparator.new()
+	sep.add_theme_color_override("color", Color(0.6, 0.45, 0.2, 0.6))
+	vbox.add_child(sep)
+
+	# Description label
+	var desc_lbl = Label.new()
+	desc_lbl.text = description
+	desc_lbl.add_theme_font_size_override("font_size", 17)
+	desc_lbl.add_theme_color_override("font_color", Color(0.88, 0.85, 0.78, 1.0))
+	desc_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	desc_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	vbox.add_child(desc_lbl)
+
+	# Tutorial image — constrained height
+	var img = TextureRect.new()
+	img.custom_minimum_size = Vector2(0, 40)
+	img.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	img.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	img.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	if ResourceLoader.exists(image_path):
+		img.texture = load(image_path)
+	vbox.add_child(img)
+
+	# Page indicator dots
+	var dots_lbl = Label.new()
+	dots_lbl.text = "● ○" if not is_last else "○ ●"
+	dots_lbl.add_theme_font_size_override("font_size", 14)
+	dots_lbl.add_theme_color_override("font_color", Color(0.6, 0.45, 0.2, 0.8))
+	dots_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	vbox.add_child(dots_lbl)
+
+	# Button
+	var btn_label = "Start Playing!" if is_last else "Next →"
+	var btn = Button.new()
+	btn.text = btn_label
+	btn.custom_minimum_size = Vector2(180, 46)
+	btn.add_theme_font_size_override("font_size", 20)
+
+	var btn_style = StyleBoxFlat.new()
+	btn_style.bg_color = Color(0.2, 0.45, 0.75, 1.0)
+	btn_style.corner_radius_top_left = 8
+	btn_style.corner_radius_top_right = 8
+	btn_style.corner_radius_bottom_left = 8
+	btn_style.corner_radius_bottom_right = 8
+	btn.add_theme_stylebox_override("normal", btn_style)
+	var btn_hover = btn_style.duplicate()
+	btn_hover.bg_color = Color(0.3, 0.6, 1.0, 1.0)
+	btn.add_theme_stylebox_override("hover", btn_hover)
+	btn.add_theme_color_override("font_color", Color.WHITE)
+
+	var btn_row = HBoxContainer.new()
+	btn_row.alignment = BoxContainer.ALIGNMENT_CENTER
+	btn_row.add_theme_constant_override("separation", 16)
+
+	# Back button — only on the last page
+	if is_last:
+		var back_btn = Button.new()
+		back_btn.text = "← Back"
+		back_btn.custom_minimum_size = Vector2(140, 46)
+		back_btn.add_theme_font_size_override("font_size", 20)
+
+		var back_style = StyleBoxFlat.new()
+		back_style.bg_color = Color(0.25, 0.18, 0.1, 1.0)
+		back_style.border_color = Color(0.6, 0.45, 0.2, 0.8)
+		back_style.border_width_left = 2
+		back_style.border_width_top = 2
+		back_style.border_width_right = 2
+		back_style.border_width_bottom = 2
+		back_style.corner_radius_top_left = 8
+		back_style.corner_radius_top_right = 8
+		back_style.corner_radius_bottom_left = 8
+		back_style.corner_radius_bottom_right = 8
+		back_btn.add_theme_stylebox_override("normal", back_style)
+		var back_hover = back_style.duplicate()
+		back_hover.bg_color = Color(0.4, 0.28, 0.14, 1.0)
+		back_btn.add_theme_stylebox_override("hover", back_hover)
+		back_btn.add_theme_color_override("font_color", Color(0.95, 0.85, 0.6, 1.0))
+		back_btn.pressed.connect(_on_tutorial_back)
+		btn_row.add_child(back_btn)
+
+	btn_row.add_child(btn)
+	vbox.add_child(btn_row)
+
+	margin.add_child(vbox)
+	panel.add_child(margin)
+	page.add_child(panel)
+
+	if is_last:
+		btn.pressed.connect(_on_tutorial_done)
+	else:
+		btn.pressed.connect(_on_tutorial_next)
+
+	return page
+
+func _add_tutorial_help_button() -> void:
+	"""Small '?' button at top-right to re-open tutorial after first time"""
+	tutorial_help_button = Button.new()
+	tutorial_help_button.text = "?"
+	tutorial_help_button.tooltip_text = "How to Play"
+	tutorial_help_button.custom_minimum_size = Vector2(42, 42)
+	tutorial_help_button.add_theme_font_size_override("font_size", 22)
+
+	var style = StyleBoxFlat.new()
+	style.bg_color = Color(0.2, 0.35, 0.55, 0.9)
+	style.corner_radius_top_left = 21
+	style.corner_radius_top_right = 21
+	style.corner_radius_bottom_left = 21
+	style.corner_radius_bottom_right = 21
+	style.border_width_top = 2
+	style.border_width_bottom = 2
+	style.border_width_left = 2
+	style.border_width_right = 2
+	style.border_color = Color(0.4, 0.65, 1.0)
+	tutorial_help_button.add_theme_stylebox_override("normal", style)
+	var hover = style.duplicate()
+	hover.bg_color = Color(0.3, 0.5, 0.8, 1.0)
+	tutorial_help_button.add_theme_stylebox_override("hover", hover)
+	tutorial_help_button.add_theme_color_override("font_color", Color.WHITE)
+
+	tutorial_help_button.anchor_left = 1.0
+	tutorial_help_button.anchor_right = 1.0
+	tutorial_help_button.anchor_top = 0.0
+	tutorial_help_button.anchor_bottom = 0.0
+	tutorial_help_button.offset_left = -58.0
+	tutorial_help_button.offset_right = -16.0
+	tutorial_help_button.offset_top = 16.0
+	tutorial_help_button.offset_bottom = 58.0
+	tutorial_help_button.pressed.connect(_open_tutorial_popup)
+	add_child(tutorial_help_button)
+
+func _open_tutorial_popup() -> void:
+	"""Re-open tutorial (pauses timer while open)"""
+	timer_active = false
+	tutorial_overlay.show()
+	tutorial_page1.show()
+	tutorial_page2.hide()
+
+func _on_tutorial_next() -> void:
+	tutorial_page1.hide()
+	tutorial_page2.show()
+
+func _on_tutorial_back() -> void:
+	tutorial_page2.hide()
+	tutorial_page1.show()
+
+func _on_tutorial_done() -> void:
+	if not TutorialFlags.has_seen("dialogue_choice"):
+		TutorialFlags.mark_seen("dialogue_choice")
+		_add_tutorial_help_button()
+	tutorial_overlay.hide()
+	timer_active = true  # Start/resume timer after tutorial dismissed
+
+func _start_question_mark_idle():
+	"""Continuously bob and sway the question mark above the chibi head"""
+	question_mark.visible = true
+	question_mark.pivot_offset = Vector2(question_mark.size.x * 0.5, question_mark.size.y)
+	question_mark.rotation_degrees = 45.0  # Base tilt to the right
+	_question_mark_idle_loop()
+
+func _question_mark_idle_loop():
+	if not is_inside_tree():
+		return
+	var tween = create_tween()
+	tween.set_loops(0)  # Loop forever
+	# Bob up and down
+	tween.tween_property(question_mark, "position:y", -8.0, 0.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(question_mark, "position:y", 0.0, 0.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	# Sway around the 45° base rotation
+	tween.parallel()
+	tween.tween_property(question_mark, "rotation_degrees", 33.0, 0.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(question_mark, "rotation_degrees", 57.0, 0.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 
 func _unhandled_input(event):
 	# F5 to skip minigame
@@ -189,53 +490,58 @@ func _process(delta):
 		if time_remaining <= 0:
 			time_remaining = 0
 			timer_active = false
-			# Timer reached zero - fail the minigame and continue
 			_on_timer_timeout()
-
 		_update_timer_display()
 
-	# Process audio capture for Vosk
-	if is_listening and audio_effect_capture:
-		var frames_available = audio_effect_capture.get_frames_available()
-		if frames_available > 0:
-			var stereo_data = audio_effect_capture.get_buffer(frames_available)
+	# Process audio capture for Vosk (only when actively listening and not bypassed)
+	if VOSK_BYPASS or not is_listening or audio_effect_capture == null:
+		return
 
-			# Convert stereo float to mono PCM 16-bit
-			for i in range(0, stereo_data.size(), 2):
-				if i + 1 < stereo_data.size():
-					# Average left and right channels
-					var mono_sample = (stereo_data[i].x + stereo_data[i].y) / 2.0
-					# Convert to 16-bit PCM
-					var int_sample = int(clamp(mono_sample * 32767.0, -32768, 32767))
-					# Append as little-endian bytes
-					audio_buffer.append(int_sample & 0xFF)
-					audio_buffer.append((int_sample >> 8) & 0xFF)
+	# Collect audio frames into buffer
+	var frames_available = audio_effect_capture.get_frames_available()
+	if frames_available > 0:
+		var stereo_data = audio_effect_capture.get_buffer(frames_available)
+		# Build mono PCM bytes — pre-size a local buffer to avoid per-byte appends
+		var mono_bytes = PackedByteArray()
+		mono_bytes.resize(stereo_data.size())  # 2 bytes per stereo frame (L+R averaged → 1 int16)
+		var byte_idx = 0
+		for i in range(0, stereo_data.size(), 2):
+			if i + 1 < stereo_data.size():
+				var mono_sample = (stereo_data[i].x + stereo_data[i].y) * 0.5
+				var int_sample = int(clamp(mono_sample * 32767.0, -32768.0, 32767.0))
+				mono_bytes[byte_idx] = int_sample & 0xFF
+				mono_bytes[byte_idx + 1] = (int_sample >> 8) & 0xFF
+				byte_idx += 2
+		mono_bytes.resize(byte_idx)
+		audio_buffer.append_array(mono_bytes)
 
-			# Send to Vosk with smaller chunks for faster processing
-			while audio_buffer.size() >= AUDIO_CHUNK_SIZE:
-				var chunk = audio_buffer.slice(0, AUDIO_CHUNK_SIZE)
-				audio_buffer = audio_buffer.slice(AUDIO_CHUNK_SIZE)
+		# Send full chunks to Vosk
+		while audio_buffer.size() >= AUDIO_CHUNK_SIZE:
+			vosk_recognizer.accept_waveform(audio_buffer.slice(0, AUDIO_CHUNK_SIZE))
+			audio_buffer = audio_buffer.slice(AUDIO_CHUNK_SIZE)
 
-				vosk_recognizer.accept_waveform(chunk)
+	# Throttle partial result polling to every 100ms (not every frame)
+	partial_check_timer += delta
+	if partial_check_timer < PARTIAL_CHECK_INTERVAL:
+		return
+	partial_check_timer = 0.0
 
-		# Check partial result every frame for responsiveness
-		if is_listening and vosk_recognizer:
-			var partial_json = vosk_recognizer.get_partial_result()
-			var partial = JSON.parse_string(partial_json)
-			if partial and partial.has("partial") and partial["partial"] != "":
-				var partial_text = partial["partial"]
+	if vosk_recognizer == null:
+		return
 
-				# Process word-by-word updates
-				_process_partial_text(partial_text)
-
-				has_spoken = true
-				silence_timer = 0.0  # Reset silence timer when speech detected
-			elif has_spoken:
-				# User has spoken before, start counting silence
-				silence_timer += delta
-				if silence_timer >= SILENCE_THRESHOLD:
-					print("Silence detected - checking if we have enough words")
-					_check_if_sentence_complete()
+	var partial_json = vosk_recognizer.get_partial_result()
+	var partial = JSON.parse_string(partial_json)
+	if partial and partial.has("partial") and partial["partial"] != "":
+		var partial_text = partial["partial"]
+		_process_partial_text(partial_text)
+		has_spoken = true
+		silence_timer = 0.0
+		_set_chibi_mic_state(true)   # Chibi talks when speech detected
+	elif has_spoken:
+		silence_timer += delta
+		_set_chibi_mic_state(false)  # Chibi goes back to normal during silence
+		if silence_timer >= SILENCE_THRESHOLD:
+			_check_if_sentence_complete()
 
 func _update_timer_display():
 	var minutes = int(time_remaining) / 60
@@ -243,7 +549,6 @@ func _update_timer_display():
 	timer_label.text = "%02d:%02d" % [minutes, seconds]
 
 func _on_choice_selected(choice_index: int):
-	print("DEBUG: Choice selected: ", choice_index)
 	selected_choice_index = choice_index
 
 	# Disable all choice buttons
@@ -251,18 +556,32 @@ func _on_choice_selected(choice_index: int):
 		button.disabled = true
 
 	if choice_index == correct_answer:
-		# Correct choice - show microphone panel
-		print("DEBUG: Correct choice! Showing microphone panel")
-		_show_microphone_panel()
+		if VOSK_BYPASS:
+			# Bypass: show mic panel, animate talking chibi, then auto-complete
+			_show_microphone_panel()
+			# Animate chibi talking for ~1.5s then go back to normal
+			_set_chibi_mic_state(true)
+			await get_tree().create_timer(1.5).timeout
+			_set_chibi_mic_state(false)
+			await get_tree().create_timer(0.5).timeout
+			_play_sfx("res://assets/audio/sound_effect/correct.wav")
+			await get_tree().create_timer(0.6).timeout
+			_complete_minigame(true)
+		else:
+			_show_microphone_panel()
 	else:
-		# Wrong choice - show feedback
-		print("DEBUG: Wrong choice. Showing feedback")
 		_show_wrong_feedback()
 
 func _show_microphone_panel():
 	choices_container.visible = false
 	microphone_panel.visible = true
 	feedback_label.visible = false
+
+	# Swap to chibi mic image, hide original chibi and question mark
+	character_image.visible = false
+	question_mark.visible = false
+	chibi_mic_image.visible = true
+	_set_chibi_mic_state(false)
 
 	# Prepare the target sentence
 	_prepare_target_sentence()
@@ -297,17 +616,48 @@ func _play_sfx(path: String) -> void:
 
 func _show_wrong_feedback():
 	_play_sfx("res://assets/audio/sound_effect/wrong.wav")
-	feedback_label.visible = true
-	feedback_label.text = "This isn't the right way to say it, maybe there's something better."
 
-	# Wait 2 seconds then re-enable buttons
-	await get_tree().create_timer(2.0).timeout
-	feedback_label.visible = false
+	# Show fixed feedback message (not the wrong choice text)
+	bubble_label.text = "That's not the right way to approach someone politely. Try again!"
+
+	# Animate question mark above chibi head
+	_animate_question_mark()
+
+	chat_bubble.modulate.a = 0.0
+	chat_bubble.visible = true
+
+	# Fade in
+	var tween_in = create_tween()
+	tween_in.tween_property(chat_bubble, "modulate:a", 1.0, 0.25)
+	await tween_in.finished
+
+	# Hold for 2.5 seconds
+	await get_tree().create_timer(2.5).timeout
+
+	# Fade out
+	var tween_out = create_tween()
+	tween_out.tween_property(chat_bubble, "modulate:a", 0.0, 0.3)
+	await tween_out.finished
+	chat_bubble.visible = false
 
 	# Re-enable all buttons except the wrong one
 	for i in range(choice_buttons.size()):
 		if i != selected_choice_index:
 			choice_buttons[i].disabled = false
+
+func _animate_question_mark():
+	"""Shake the question mark rapidly left-right on wrong answer"""
+	# Flash color to red briefly, then rapid shake
+	var tween = create_tween()
+	tween.tween_property(question_mark, "modulate", Color(1, 0.2, 0.2, 1), 0.1)
+	tween.tween_property(question_mark, "rotation_degrees", 15.0, 0.07)
+	tween.tween_property(question_mark, "rotation_degrees", 75.0, 0.07)
+	tween.tween_property(question_mark, "rotation_degrees", 15.0, 0.07)
+	tween.tween_property(question_mark, "rotation_degrees", 75.0, 0.07)
+	tween.tween_property(question_mark, "rotation_degrees", 15.0, 0.07)
+	tween.tween_property(question_mark, "rotation_degrees", 45.0, 0.1)
+	tween.tween_property(question_mark, "modulate", Color(1, 0.85, 0.1, 1), 0.2)
+	await tween.finished
 
 func _initialize_vosk():
 	"""Initialize Vosk speech recognizer (use preloaded one if available)"""
@@ -384,6 +734,7 @@ func _start_sentence_recognition():
 	is_listening = true
 	has_spoken = false
 	silence_timer = 0.0
+	partial_check_timer = 0.0
 	audio_buffer.clear()
 	vosk_recognizer.reset()
 	current_word_index = 0
@@ -395,50 +746,32 @@ func _start_sentence_recognition():
 	status_label.text = "Say the highlighted word!"
 	transcription_label.text = ""
 	progress_label.text = "Word 1 / " + str(target_words.size())
-	print("Listening for word-by-word sequential recognition...")
-	print("Waiting for word: '", target_words[current_word_index], "'")
 
 func _process_partial_text(partial_text: String):
 	"""Process partial text and check current word OR multiple words in sequence"""
-	# Check if text has changed
 	if partial_text == last_partial_text or partial_text.strip_edges().is_empty():
 		return
 
 	if word_just_recognized:
-		return  # Waiting for user to say next word
+		return
 
 	var spoken_words = partial_text.to_lower().split(" ", false)
-
-	# Show what's being heard
 	transcription_label.text = "Hearing: " + partial_text
 
-	print("Expected: '", target_words[current_word_index], "' | Got: '", partial_text, "'")
-
-	# FIRST: Try to match multiple consecutive words (sentence detection)
-	# Example: If user says "good afternoon sir", match all 3 words at once
+	# Try to match multiple consecutive words first
 	var words_matched = _check_multiple_words_match(spoken_words)
 	if words_matched > 0:
-		print("✅ CORRECT! Matched ", words_matched, " words in sequence!")
-		# Recognize all matched words at once
 		for i in range(words_matched):
 			_on_word_recognized()
 		return
 
-	# SECOND: Fall back to single word matching (check last word only)
-	# This allows: "it was a" → recognizes "a"
+	# Fall back to single word matching (last spoken word)
 	if spoken_words.size() > 0:
 		var target_word = target_words[current_word_index]
 		var last_spoken_word = spoken_words[spoken_words.size() - 1]
-
 		if _words_match(last_spoken_word, target_word):
-			print("✅ CORRECT! Single word matched!")
 			_on_word_recognized()
 			return
-		else:
-			# Debug: show why it didn't match
-			var similarity = _calculate_similarity(last_spoken_word, target_word)
-			if similarity < 0.5 and not _are_homophones(last_spoken_word, target_word):
-				print("⚠️ Last word '", last_spoken_word, "' doesn't match '", target_word, "' (similarity: ", int(similarity * 100), "%)")
 
 	last_partial_text = partial_text
 
@@ -625,10 +958,50 @@ func _calculate_similarity(text1: String, text2: String) -> float:
 	return 1.0 - (float(distance) / float(max_len))
 
 func _on_timer_timeout():
-	"""Called when timer reaches zero - fail the minigame"""
-	print("Timer ran out - dialogue choice minigame failed")
-	is_listening = false  # Stop listening for audio
-	_complete_minigame(false)  # Complete as failure
+	"""Called when timer reaches zero - show game over overlay, do NOT proceed"""
+	print("Timer ran out - showing game over screen")
+	is_listening = false
+	timer_active = false
+
+	# Disable all choice buttons
+	for button in choice_buttons:
+		button.disabled = true
+
+	# Show game over overlay with fade-in
+	game_over_overlay.modulate.a = 0.0
+	game_over_overlay.visible = true
+	var tween = create_tween()
+	tween.tween_property(game_over_overlay, "modulate:a", 1.0, 0.4)
+
+func _on_try_again_pressed():
+	"""Reset the minigame so player can try again"""
+	print("Try Again pressed - resetting minigame")
+
+	# Hide overlay
+	game_over_overlay.visible = false
+
+	# Reset timer
+	time_remaining = 180.0
+	timer_active = true
+
+	# Restore choice phase UI (hide mic panel, show original chibi + question mark)
+	microphone_panel.visible = false
+	choices_container.visible = true
+	chibi_mic_image.visible = false
+	character_image.visible = true
+	question_mark.visible = true
+	_is_chibi_talking = false
+
+	# Re-enable all choice buttons and clear wrong selections
+	selected_choice_index = -1
+	for button in choice_buttons:
+		button.disabled = false
+
+	# Restart Vosk if not in bypass mode
+	if not VOSK_BYPASS and vosk_recognizer != null:
+		is_listening = false
+		audio_buffer.clear()
+		vosk_recognizer.reset()
 
 func _skip_minigame():
 	"""Skip the minigame when F5 is pressed"""

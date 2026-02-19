@@ -1,6 +1,7 @@
 [signal arg="show_title_card 1"]
-# Initialize variable (will be overwritten by init_character_var signal)
+# Initialize variable then immediately restore from PlayerStats
 set {selected_character} = ""
+[signal arg="init_character_var"]
 set {c1s1_principal_tried} = false
 audio music "res://assets/audio/bg/suspicious.mp3" [fade="2.0" volume="0.0" bus="Music" loop="true"]
 [background arg="res://Bg/faculty_exam.png" fade="1.0"]

@@ -1,6 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://logic_grid_001"]
+[gd_scene load_steps=6 format=3 uid="uid://logic_grid_001"]
 
 [ext_resource type="Script" path="res://minigames/LogicGrid/scenes/Main.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bu7mmeepr2ukm" path="res://assets/UI/BGbox_01A.png" id="2_bgbox"]
+[ext_resource type="Texture2D" path="res://assets/UI/button_normal.png" id="3_btn_normal"]
+[ext_resource type="Texture2D" path="res://assets/UI/button_hover.png" id="4_btn_hover"]
+[ext_resource type="Texture2D" path="res://assets/UI/BGbox_08A.png" id="5_bgbox08"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_btn_normal"]
+texture = ExtResource("3_btn_normal")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_btn_hover"]
+texture = ExtResource("4_btn_hover")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_grid_panel"]
+texture = ExtResource("5_bgbox08")
+texture_margin_left = 30.0
+texture_margin_top = 30.0
+texture_margin_right = 30.0
+texture_margin_bottom = 30.0
 
 [node name="LogicGrid" type="Control"]
 layout_mode = 3
@@ -20,19 +45,26 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.88)
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="NinePatchRect" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -620.0
+offset_left = -700.0
 offset_top = -420.0
-offset_right = 620.0
+offset_right = 700.0
 offset_bottom = 420.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_bgbox")
+region_rect = Rect2(8.548111, 8.660231, 126.97536, 126.06514)
+patch_margin_left = 28
+patch_margin_top = 29
+patch_margin_right = 28
+patch_margin_bottom = 27
 
 [node name="VBox" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -49,7 +81,7 @@ theme_override_constants/separation = 12
 
 [node name="TitleLabel" type="Label" parent="Panel/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
+theme_override_colors/font_color = Color(0.35, 0.15, 0.05, 1)
 theme_override_font_sizes/font_size = 34
 text = "Logic Grid Puzzle"
 horizontal_alignment = 1
@@ -61,15 +93,22 @@ theme_override_constants/separation = 20
 [node name="TimerLabel" type="Label" parent="Panel/VBox/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
 theme_override_font_sizes/font_size = 24
 text = "Time: 02:00"
 
 [node name="HintButton" type="Button" parent="Panel/VBox/HBox"]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxTexture_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxTexture_btn_normal")
+theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
 text = "💡 Hint"
 
 [node name="HintCounter" type="Label" parent="Panel/VBox/HBox"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
 theme_override_font_sizes/font_size = 20
 text = "Hints: 3"
 
@@ -81,6 +120,7 @@ text = "[Context explaining the puzzle]"
 fit_content = true
 scroll_active = false
 theme_override_font_sizes/normal_font_size = 19
+theme_override_colors/default_color = Color(0.15, 0.08, 0.03, 1)
 
 [node name="LegendBar" type="HBoxContainer" parent="Panel/VBox"]
 layout_mode = 2
@@ -89,25 +129,25 @@ theme_override_constants/separation = 16
 [node name="LegendTitle" type="Label" parent="Panel/VBox/LegendBar"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 17
-theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_colors/font_color = Color(0.35, 0.2, 0.1, 1)
 text = "Legend:"
 
 [node name="LegendYes" type="Label" parent="Panel/VBox/LegendBar"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 17
-theme_override_colors/font_color = Color(0.4, 1.0, 0.55, 1)
+theme_override_colors/font_color = Color(0.1, 0.45, 0.15, 1)
 text = "✓ = YES (match)"
 
 [node name="LegendNo" type="Label" parent="Panel/VBox/LegendBar"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 17
-theme_override_colors/font_color = Color(1.0, 0.45, 0.45, 1)
+theme_override_colors/font_color = Color(0.7, 0.1, 0.1, 1)
 text = "✗ = NO (not a match)"
 
 [node name="LegendUnknown" type="Label" parent="Panel/VBox/LegendBar"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 17
-theme_override_colors/font_color = Color(0.6, 0.6, 0.75, 1)
+theme_override_colors/font_color = Color(0.3, 0.25, 0.5, 1)
 text = "? = Unknown"
 
 [node name="MainHBox" type="HBoxContainer" parent="Panel/VBox"]
@@ -123,7 +163,7 @@ theme_override_constants/separation = 6
 [node name="CluesTitle" type="Label" parent="Panel/VBox/MainHBox/CluesSection"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-theme_override_colors/font_color = Color(0.7, 0.85, 1.0, 1)
+theme_override_colors/font_color = Color(0.1, 0.25, 0.5, 1)
 text = "🔍 Clues"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBox/MainHBox/CluesSection"]
@@ -135,25 +175,38 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 8
 
+[node name="ChibiSprite" type="TextureRect" parent="Panel/VBox/MainHBox/CluesSection"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+custom_minimum_size = Vector2(340, 340)
+flip_h = true
+expand_mode = 1
+stretch_mode = 5
+
 [node name="GridSection" type="VBoxContainer" parent="Panel/VBox/MainHBox"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 8
 
 [node name="GridTitle" type="Label" parent="Panel/VBox/MainHBox/GridSection"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-theme_override_colors/font_color = Color(0.7, 0.85, 1.0, 1)
+theme_override_colors/font_color = Color(0.1, 0.25, 0.5, 1)
+horizontal_alignment = 1
 text = "📊 Deduction Grid"
 
 [node name="GridPanel" type="PanelContainer" parent="Panel/VBox/MainHBox/GridSection"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_grid_panel")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/VBox/MainHBox/GridSection/GridPanel"]
 layout_mode = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_bottom = 12
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="GridContainer" type="GridContainer" parent="Panel/VBox/MainHBox/GridSection/GridPanel/MarginContainer"]
 layout_mode = 2
@@ -164,6 +217,11 @@ columns = 4
 [node name="SubmitButton" type="Button" parent="Panel/VBox"]
 custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxTexture_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxTexture_btn_normal")
+theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
 text = "Submit Solution"
 
 [node name="FeedbackOverlay" type="ColorRect" parent="."]
@@ -176,7 +234,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.92)
 
-[node name="FeedbackPanel" type="Panel" parent="."]
+[node name="FeedbackPanel" type="NinePatchRect" parent="."]
+texture_filter = 1
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -190,6 +249,12 @@ offset_right = 420.0
 offset_bottom = 230.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_bgbox")
+region_rect = Rect2(8.548111, 8.660231, 126.97536, 126.06514)
+patch_margin_left = 28
+patch_margin_top = 29
+patch_margin_right = 28
+patch_margin_bottom = 27
 
 [node name="VBox" type="VBoxContainer" parent="FeedbackPanel"]
 layout_mode = 1
@@ -212,10 +277,16 @@ text = "[center]Feedback goes here[/center]"
 fit_content = true
 scroll_active = true
 theme_override_font_sizes/normal_font_size = 20
+theme_override_colors/default_color = Color(0.15, 0.08, 0.03, 1)
 
 [node name="ContinueButton" type="Button" parent="FeedbackPanel/VBox"]
 custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxTexture_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxTexture_btn_normal")
+theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
 theme_override_font_sizes/font_size = 20
 text = "Continue"
 
@@ -237,7 +308,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.94)
 
-[node name="Page1" type="Panel" parent="TutorialOverlay"]
+[node name="Page1" type="NinePatchRect" parent="TutorialOverlay"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -245,36 +317,43 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -480.0
-offset_top = -340.0
+offset_top = -255.0
 offset_right = 480.0
-offset_bottom = 340.0
+offset_bottom = 255.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_bgbox")
+region_rect = Rect2(8.548111, 8.660231, 126.97536, 126.06514)
+patch_margin_left = 28
+patch_margin_top = 29
+patch_margin_right = 28
+patch_margin_bottom = 27
 
 [node name="VBox" type="VBoxContainer" parent="TutorialOverlay/Page1"]
 layout_mode = 1
-anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 36.0
-offset_top = 32.0
+offset_top = 24.0
 offset_right = -36.0
-offset_bottom = -32.0
+offset_bottom = -24.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 18
+grow_vertical = 1
+theme_override_constants/separation = 10
 
 [node name="Title" type="Label" parent="TutorialOverlay/Page1/VBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
+theme_override_colors/font_color = Color(0.35, 0.15, 0.05, 1)
 text = "📋 How to Play: Logic Grid"
 horizontal_alignment = 1
 
 [node name="Intro" type="Label" parent="TutorialOverlay/Page1/VBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_colors/font_color = Color(0.15, 0.08, 0.03, 1)
 autowrap_mode = 3
 text = "A Logic Grid is a classic detective tool. You have a grid of possible matches — your job is to figure out which person matches which item using the clues."
 
@@ -284,41 +363,48 @@ layout_mode = 2
 [node name="HowTitle" type="Label" parent="TutorialOverlay/Page1/VBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
-theme_override_colors/font_color = Color(0.5, 0.85, 1.0, 1)
+theme_override_colors/font_color = Color(0.1, 0.25, 0.5, 1)
 text = "Click any cell to cycle through 3 states:"
 
 [node name="StateYes" type="Label" parent="TutorialOverlay/Page1/VBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
-theme_override_colors/font_color = Color(0.4, 1.0, 0.55, 1)
+theme_override_colors/font_color = Color(0.1, 0.45, 0.15, 1)
 text = "  ✓  YES — This person MATCHES this item"
 
 [node name="StateNo" type="Label" parent="TutorialOverlay/Page1/VBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
-theme_override_colors/font_color = Color(1.0, 0.45, 0.45, 1)
+theme_override_colors/font_color = Color(0.7, 0.1, 0.1, 1)
 text = "  ✗  NO — This person does NOT match this item"
 
 [node name="StateUnknown" type="Label" parent="TutorialOverlay/Page1/VBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
-theme_override_colors/font_color = Color(0.6, 0.6, 0.75, 1)
+theme_override_colors/font_color = Color(0.3, 0.25, 0.5, 1)
 text = "  ?  UNKNOWN — You haven't decided yet"
 
 [node name="Tip" type="Label" parent="TutorialOverlay/Page1/VBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 19
-theme_override_colors/font_color = Color(0.75, 0.75, 0.75, 1)
+theme_override_colors/font_color = Color(0.35, 0.2, 0.1, 1)
 autowrap_mode = 3
 text = "💡 Tip: Each person has exactly ONE correct match. Mark ✗ to eliminate options and ✓ when you're sure of a match."
 
 [node name="NextButton" type="Button" parent="TutorialOverlay/Page1/VBox"]
 custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxTexture_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxTexture_btn_normal")
+theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
 theme_override_font_sizes/font_size = 20
 text = "Next →"
 
-[node name="Page2" type="Panel" parent="TutorialOverlay"]
+[node name="Page2" type="NinePatchRect" parent="TutorialOverlay"]
+texture_filter = 1
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -327,36 +413,43 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -480.0
-offset_top = -300.0
+offset_top = -215.0
 offset_right = 480.0
-offset_bottom = 300.0
+offset_bottom = 215.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_bgbox")
+region_rect = Rect2(8.548111, 8.660231, 126.97536, 126.06514)
+patch_margin_left = 28
+patch_margin_top = 29
+patch_margin_right = 28
+patch_margin_bottom = 27
 
 [node name="VBox" type="VBoxContainer" parent="TutorialOverlay/Page2"]
 layout_mode = 1
-anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 36.0
-offset_top = 32.0
+offset_top = 24.0
 offset_right = -36.0
-offset_bottom = -32.0
+offset_bottom = -24.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 18
+grow_vertical = 1
+theme_override_constants/separation = 10
 
 [node name="Title" type="Label" parent="TutorialOverlay/Page2/VBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
+theme_override_colors/font_color = Color(0.35, 0.15, 0.05, 1)
 text = "📋 Example"
 horizontal_alignment = 1
 
 [node name="Example" type="Label" parent="TutorialOverlay/Page2/VBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_colors/font_color = Color(0.15, 0.08, 0.03, 1)
 autowrap_mode = 3
 text = "Clue: \"Ben was studying in a quiet place\" → Library is quiet, so Ben = Library → mark Ben/Library as ✓ and Ben/Gym, Ben/Cafeteria as ✗"
 
@@ -366,18 +459,41 @@ layout_mode = 2
 [node name="Strategy" type="Label" parent="TutorialOverlay/Page2/VBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
-theme_override_colors/font_color = Color(0.5, 0.85, 1.0, 1)
+theme_override_colors/font_color = Color(0.1, 0.25, 0.5, 1)
 text = "Strategy:"
 
 [node name="Step1" type="Label" parent="TutorialOverlay/Page2/VBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+theme_override_colors/font_color = Color(0.15, 0.08, 0.03, 1)
 autowrap_mode = 3
 text = "1. Read each clue carefully\n2. Mark ✗ for things you can RULE OUT\n3. Mark ✓ when only ONE option remains\n4. Press Submit when all rows have a ✓"
 
-[node name="DoneButton" type="Button" parent="TutorialOverlay/Page2/VBox"]
+[node name="ButtonsRow" type="HBoxContainer" parent="TutorialOverlay/Page2/VBox"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+
+[node name="BackButton" type="Button" parent="TutorialOverlay/Page2/VBox/ButtonsRow"]
 custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxTexture_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxTexture_btn_normal")
+theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
+theme_override_font_sizes/font_size = 20
+text = "← Back"
+
+[node name="DoneButton" type="Button" parent="TutorialOverlay/Page2/VBox/ButtonsRow"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxTexture_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxTexture_btn_normal")
+theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
 theme_override_font_sizes/font_size = 20
 text = "Start Puzzle!"

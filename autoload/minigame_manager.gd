@@ -2096,10 +2096,10 @@ var dialogue_choice_configs = {
 	"dialogue_choice_janitor": {
 		"question": "How do you politely ask the janitor for help?",
 		"choices": [
-			"Excuse me, sir sorry to interrupt, but may I quickly check under my desk for something I left",
-			"Good afternoon, sir have you seen any unusual item while cleaning this room?",
-			"Hi sir, I can help move the chairs, and by the way, did you see a small item I dropped near here",
-			"Sir, did anyone turn in a lost item from this classroom today"
+			"Hey! Stop what you're doing and check under my desk right now.",
+			"Good afternoon, sir. Have you seen any unusual item while cleaning this room?",
+			"Move out of the way, I need to look under that desk.",
+			"Why are you so slow? Just tell me if you found something or not!"
 		],
 		"correct_index": 1  # Choice 2 (0-indexed)
 	},
@@ -2913,6 +2913,9 @@ func start_minigame(puzzle_id: String) -> void:
 		push_warning("Minigame already active!")
 		return
 
+	# Hide evidence button during minigames
+	EvidenceButtonManager.hide_evidence_button()
+
 	# Check for curriculum-based minigames (format: "curriculum:type")
 	if puzzle_id.begins_with("curriculum:"):
 		var minigame_type = puzzle_id.trim_prefix("curriculum:")
@@ -3215,6 +3218,10 @@ func _on_detective_analysis_finished(success: bool, time_taken: float, puzzle_id
 	minigame_completed.emit(puzzle_id, success)
 	current_minigame = null
 
+	# Restore evidence button if a timeline is still running
+	if EvidenceButtonManager.button_enabled:
+		EvidenceButtonManager.show_evidence_button()
+
 func _start_logic_grid(puzzle_id: String) -> void:
 	print("DEBUG: Starting Logic Grid minigame: ", puzzle_id)
 	var config = logic_grid_configs[puzzle_id]
@@ -3249,6 +3256,10 @@ func _on_logic_grid_finished(success: bool, time_taken: float, puzzle_id: String
 
 	minigame_completed.emit(puzzle_id, success)
 	current_minigame = null
+
+	# Restore evidence button if a timeline is still running
+	if EvidenceButtonManager.button_enabled:
+		EvidenceButtonManager.show_evidence_button()
 
 func _start_timeline_reconstruction(puzzle_id: String) -> void:
 	print("DEBUG: Starting Timeline Reconstruction minigame: ", puzzle_id)
@@ -3301,6 +3312,10 @@ func _on_timeline_reconstruction_finished(success: bool, time_taken: float, puzz
 	minigame_completed.emit(puzzle_id, success)
 	current_minigame = null
 
+	# Restore evidence button if a timeline is still running
+	if EvidenceButtonManager.button_enabled:
+		EvidenceButtonManager.show_evidence_button()
+
 func _on_minigame_finished(success: bool, score: int, puzzle_id: String) -> void:
 	print("DEBUG: Minigame finished. Success: ", success, ", Score: ", score, ", Puzzle: ", puzzle_id)
 	_stop_minigame_music()
@@ -3309,3 +3324,7 @@ func _on_minigame_finished(success: bool, score: int, puzzle_id: String) -> void
 		Dialogic.VAR.minigames_completed += 1
 	minigame_completed.emit(puzzle_id, success)
 	current_minigame = null
+
+	# Restore evidence button if a timeline is still running
+	if EvidenceButtonManager.button_enabled:
+		EvidenceButtonManager.show_evidence_button()

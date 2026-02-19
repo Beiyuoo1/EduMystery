@@ -83,8 +83,9 @@ His hands tremble as he reaches toward the clay figure.
 [wait time="0.5"]
 Mystery: Mia... I'm sorry.
 Mystery: But no one will ever see me if you're in the way.
-[voice path="res://assets/audio/voice/Chapter 3/c3s0/a_pause_a.mp3" volume="0.0" bus="Voice"]
+audio -
 A Mysterious Character's hands press against the sculpture.
+[voice path="res://assets/audio/voice/Chapter 3/c3s0/a_pause_a.mp3" volume="0.0" bus="Voice"]
 A pause. A shaky breath.
 Mystery: Forgive me.
 [voice path="res://assets/audio/voice/Chapter 3/c3s0/then_a_push.mp3" volume="0.0" bus="Voice"]

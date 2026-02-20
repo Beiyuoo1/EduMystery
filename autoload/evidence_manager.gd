@@ -163,6 +163,14 @@ func unlock_evidence(evidence_id: String):
 func is_unlocked(evidence_id: String) -> bool:
 	return collected_evidence.has(evidence_id)
 
+func collect_bc_cards_silently() -> void:
+	# Add all B.C. cards to collected evidence without animation or signal
+	var bc_ids = ["bc_card_truth_c1", "bc_card_responsibility_c2", "bc_card_creativity_c3", "bc_card_wisdom_c4"]
+	for id in bc_ids:
+		if not collected_evidence.has(id):
+			collected_evidence.append(id)
+			print("BC card silently collected: ", evidence_definitions[id]["title"])
+
 func get_evidence_by_chapter(chapter: int) -> Array:
 	var chapter_evidence = []
 	for id in collected_evidence:

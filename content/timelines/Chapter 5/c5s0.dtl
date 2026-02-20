@@ -1,4 +1,5 @@
 [signal arg="show_title_card 5"]
+[signal arg="collect_bc_cards"]
 # Initialize variable (will be overwritten by init_character_var signal)
 set {selected_character} = ""
 [signal arg="init_character_var"]

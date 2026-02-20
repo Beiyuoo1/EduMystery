@@ -31,8 +31,14 @@ func update_evidence_display():
 	# Update title
 	title_label.text = "Clues in Chapter " + str(current_chapter)
 
-	# Get all evidence for current chapter
-	evidence_list = EvidenceManager.get_evidence_by_chapter(current_chapter)
+	# Chapter 5 shows all collected evidence across all chapters (the full case review)
+	if current_chapter == 5:
+		evidence_list = []
+		for id in EvidenceManager.collected_evidence:
+			if EvidenceManager.evidence_definitions.has(id):
+				evidence_list.append(EvidenceManager.evidence_definitions[id])
+	else:
+		evidence_list = EvidenceManager.get_evidence_by_chapter(current_chapter)
 
 	# Calculate page range
 	var start_index = current_page * items_per_page

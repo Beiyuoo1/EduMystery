@@ -66,6 +66,12 @@ func _on_dialogic_signal(argument: String):
 		_handle_title_card_signal(chapter)
 		return
 
+	# Handle silent BC card collection for Chapter 5 reveal
+	if argument == "collect_bc_cards":
+		if EvidenceManager:
+			EvidenceManager.collect_bc_cards_silently()
+		return
+
 	# Handle chapter results: "show_chapter_results"
 	if argument == "show_chapter_results":
 		print("DEBUG: show_chapter_results signal received!")

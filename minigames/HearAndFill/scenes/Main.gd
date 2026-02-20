@@ -151,17 +151,24 @@ func _update_timer_display():
 	timer_label.text = "%02d:%02d" % [minutes, seconds]
 
 func _on_time_up():
-	"""Called when timer reaches zero"""
+	"""Called when timer reaches zero - reset and retry"""
 	feedback_label.text = "Time's up! Try again."
 	feedback_label.add_theme_color_override("font_color", Color.ORANGE)
 	feedback_label.visible = true
 
-	# Disable all buttons
+	# Disable all buttons while showing feedback
 	for button in choice_buttons:
 		button.disabled = true
 
 	await get_tree().create_timer(2.0).timeout
-	_complete_minigame(false)
+
+	# Reset timer and re-enable buttons for retry
+	time_remaining = 90.0
+	feedback_label.visible = false
+	for button in choice_buttons:
+		button.disabled = false
+		button.remove_theme_color_override("font_color")
+	timer_active = true
 
 func _on_choice_selected(choice_index: int):
 	"""Called when player selects an answer"""
@@ -213,20 +220,25 @@ func _show_correct_feedback():
 	_complete_minigame(true)
 
 func _show_wrong_feedback(selected_index: int):
-	"""Show feedback for wrong answer"""
+	"""Show feedback for wrong answer - retry until correct"""
 	_play_sfx("res://assets/audio/sound_effect/wrong.wav")
-	feedback_label.text = "Incorrect. The correct answer is: " + blank_word
+	feedback_label.text = "Incorrect! Try again."
 	feedback_label.add_theme_color_override("font_color", Color.RED)
 	feedback_label.visible = true
 
 	# Highlight wrong answer in red
 	choice_buttons[selected_index].add_theme_color_override("font_color", Color.RED)
 
-	# Highlight correct answer in green
-	choice_buttons[correct_answer_index].add_theme_color_override("font_color", Color.GREEN)
+	await get_tree().create_timer(1.5).timeout
 
-	await get_tree().create_timer(3.0).timeout
-	_complete_minigame(false)
+	# Reset and re-enable buttons for retry
+	feedback_label.visible = false
+	for button in choice_buttons:
+		button.disabled = false
+		button.remove_theme_color_override("font_color")
+
+	# Resume timer
+	timer_active = true
 
 func _update_hint_display():
 	"""Update hint label from PlayerStats"""

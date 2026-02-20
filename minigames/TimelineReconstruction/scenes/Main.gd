@@ -87,6 +87,7 @@ signal minigame_completed(success: bool, time_taken: float)
 
 func _ready() -> void:
 	print("🎮 Timeline Reconstruction _ready() called")
+	set_process(false)  # Timer must NOT start until after tutorial + countdown
 	feedback_panel.hide()
 	hint_button.pressed.connect(_on_hint_pressed)
 	submit_button.pressed.connect(_on_submit_pressed)

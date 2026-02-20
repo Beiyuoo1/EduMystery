@@ -122,12 +122,21 @@ func _create_tutorial_overlay() -> void:
 
 	# Tutorial image
 	tutorial_image_rect = TextureRect.new()
-	tutorial_image_rect.custom_minimum_size = Vector2(760, 400)
+	tutorial_image_rect.custom_minimum_size = Vector2(760, 340)
 	tutorial_image_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	tutorial_image_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	if ResourceLoader.exists(TUTORIAL_IMAGE):
 		tutorial_image_rect.texture = load(TUTORIAL_IMAGE)
 	inner.add_child(tutorial_image_rect)
+
+	# Description
+	var desc = RichTextLabel.new()
+	desc.bbcode_enabled = true
+	desc.fit_content = true
+	desc.scroll_active = false
+	desc.text = "[center][color=#A0D8EF]📖 Read the story context and the question carefully.[/color]\n[color=#A0D8EF]🔍 Choose the [b]correct answer[/b] from the options — wrong answers let you retry.[/color]\n[color=#F4D03F]💡 Use [b]Hints[/b] to highlight the correct choice. ⚡ Finish under 1 minute for a bonus hint![/color][/center]"
+	desc.add_theme_font_size_override("normal_font_size", 17)
+	inner.add_child(desc)
 
 	# Start button
 	tutorial_start_button = Button.new()

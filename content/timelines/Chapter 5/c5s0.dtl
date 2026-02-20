@@ -8,25 +8,29 @@ audio music "res://assets/audio/bg/suspicious.mp3" [fade="2.0" volume="0.0" bus=
 set {chapter5_score} = 0
 [voice path="res://assets/audio/voice/Chapter 5/c5s0/Two_weeks_after_the_journal_incident.mp3" volume="0.0" bus="Voice"]
 Two weeks after the journal incident...
+[background arg="res://Bg/b.c cards.png" fade="0.0"]
 if {selected_character} == "celestine":
-	join Celestine (animated) left
-	join Mark (Mark_half) right
 	Mark: You've been staring at those cards for an hour, sis. Still trying to figure out who B.C. is?
 	Celestine: Not just who. Why. What's the endgame?
 	[voice path="res://assets/audio/voice/Chapter 5/c5s0/The_protagonist_traces_the_edge_of_the_first_card_with_your_finger.mp3" volume="0.0" bus="Voice"]
-	Celestine traces the edge of the first card with her finger.
+	The protagonist traces the edge of the first card with her finger.
+	[background arg="res://Bg/classroom.png" fade="0.0"]
+	join Celestine (animated) left
+	join Mark (Mark_half) right
 	Celestine: Four cases. Four lessons. Truth, Responsibility, Creativity, Wisdom.
 	Celestine: Each card appeared exactly when I needed to understand something deeper.
 	Mark: So B.C. is teaching you. But why the mystery? Why not just... talk to you?
 	Celestine: Because direct teaching doesn't work the same way. I had to discover these lessons myself.
 	Celestine: B.C. knew that. They guided without controlling.
 else:
-	join Conrad (half) left
-	join Mark (Mark_half) right
+	[background arg="res://Bg/b.c cards.png" fade="0.0"]
 	Mark: You've been staring at those cards for an hour. Still trying to figure out who B.C. is?
 	Conrad: Not just who. Why. What's the endgame?
 	[voice path="res://assets/audio/voice/Chapter 5/c5s0/The_protagonist_traces_the_edge_of_the_first_card_with_your_finger.mp3" volume="0.0" bus="Voice"]
-	Conrad traces the edge of the first card with his finger.
+	The protagonist traces the edge of the first card with his finger.
+	[background arg="res://Bg/classroom.png" fade="0.0"]
+	join Conrad (half) left
+	join Mark (Mark_half) right
 	Conrad: Four cases. Four lessons. Truth, Responsibility, Creativity, Wisdom.
 	Conrad: Each card appeared exactly when I needed to understand something deeper.
 	Mark: So B.C. is teaching you. But why the mystery? Why not just... talk to you?

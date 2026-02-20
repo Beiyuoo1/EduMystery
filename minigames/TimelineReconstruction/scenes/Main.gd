@@ -110,12 +110,10 @@ func _create_tutorial() -> void:
 
 	# Tutorial panel
 	tutorial_panel = Panel.new()
-	tutorial_panel.custom_minimum_size = Vector2(800, 650)
+	tutorial_panel.custom_minimum_size = Vector2(800, 0)
 	tutorial_panel.set_anchors_preset(Control.PRESET_CENTER)
 	tutorial_panel.offset_left = -400
-	tutorial_panel.offset_top = -325
 	tutorial_panel.offset_right = 400
-	tutorial_panel.offset_bottom = 325
 
 	# Panel style
 	var panel_style = StyleBoxFlat.new()
@@ -244,7 +242,10 @@ func _show_tutorial(image_page1: String = "", image_page2: String = "") -> void:
 func _update_tutorial_page() -> void:
 	"""Update tutorial content based on current page"""
 	if tutorial_current_page == 0:
-		# Page 1: How to Play
+		# Page 1: How to Play - tall panel for large image
+		tutorial_panel.custom_minimum_size = Vector2(800, 650)
+		tutorial_panel.offset_top = -325
+		tutorial_panel.offset_bottom = 325
 		tutorial_title.text = "📚 How to Play"
 		tutorial_instructions.text = "[center][color=#A0D8EF]Click orange cards to place them in timeline slots (1→5)[/color]\n[color=#A0D8EF]Click cards in timeline to return them to the pool[/color]\n[color=#A0D8EF]Arrange all events in correct chronological order[/color][/center]"
 
@@ -272,7 +273,10 @@ func _update_tutorial_page() -> void:
 		tutorial_start_button.hide()
 
 	elif tutorial_current_page == 1:
-		# Page 2: Hints & Timer
+		# Page 2: Hints & Timer - shorter panel, no large image
+		tutorial_panel.custom_minimum_size = Vector2(800, 0)
+		tutorial_panel.offset_top = -240
+		tutorial_panel.offset_bottom = 240
 		tutorial_title.text = "💡 Hints & Timer"
 		tutorial_instructions.text = "[center][color=#F4D03F]💡 Hints & Cooldown:[/color] [color=#A0D8EF]12-second cooldown between uses[/color]\n[color=#F4D03F]⏱ Timer:[/color] [color=#A0D8EF]Complete within 2:00 minutes[/color]\n[color=#F4D03F]⚡ Speed Bonus:[/color] [color=#A0D8EF]Finish under 1:00 to earn +1 hint![/color][/center]"
 

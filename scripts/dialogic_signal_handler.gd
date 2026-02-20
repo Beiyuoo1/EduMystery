@@ -21,7 +21,7 @@ func _on_dialogic_signal(argument: String):
 	# Handle evidence unlock: "unlock_evidence <evidence_id>"
 	if argument.begins_with("unlock_evidence "):
 		var evidence_id = argument.trim_prefix("unlock_evidence ").strip_edges()
-		_handle_evidence_unlock(evidence_id)
+		await _handle_evidence_unlock(evidence_id)
 		return
 
 	# Handle level up check after all minigames complete

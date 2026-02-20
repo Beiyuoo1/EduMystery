@@ -295,8 +295,11 @@ func _handle_chapter_results():
 	print("DEBUG: Pausing Dialogic and showing results...")
 
 	# Show evidence button during chapter results so player can review clues
+	# Layer must be above the chapter results CanvasLayer (200) to receive input
 	if EvidenceButtonManager:
 		EvidenceButtonManager.show_evidence_button()
+		if EvidenceButtonManager.evidence_button_instance and is_instance_valid(EvidenceButtonManager.evidence_button_instance):
+			EvidenceButtonManager.evidence_button_instance.layer = 210
 
 	# Pause Dialogic (this will pause all audio players via Dialogic's audio subsystem)
 	Dialogic.paused = true
@@ -373,8 +376,10 @@ func _handle_chapter_results():
 	print("DEBUG: Reviewer dismissed!")
 	canvas_layer2.queue_free()
 
-	# Hide evidence button now that chapter results are done
+	# Restore evidence button layer and hide it now that chapter results are done
 	if EvidenceButtonManager:
+		if EvidenceButtonManager.evidence_button_instance and is_instance_valid(EvidenceButtonManager.evidence_button_instance):
+			EvidenceButtonManager.evidence_button_instance.layer = 99
 		EvidenceButtonManager.hide_evidence_button()
 
 	# STEP 3: Show "The chain continues." screen only for Chapter 5, then go to main menu

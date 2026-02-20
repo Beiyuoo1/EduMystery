@@ -110,10 +110,12 @@ func _create_tutorial() -> void:
 
 	# Tutorial panel
 	tutorial_panel = Panel.new()
-	tutorial_panel.custom_minimum_size = Vector2(800, 0)
-	tutorial_panel.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-	tutorial_panel.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	tutorial_panel.custom_minimum_size = Vector2(800, 650)
 	tutorial_panel.set_anchors_preset(Control.PRESET_CENTER)
+	tutorial_panel.offset_left = -400
+	tutorial_panel.offset_top = -325
+	tutorial_panel.offset_right = 400
+	tutorial_panel.offset_bottom = 325
 
 	# Panel style
 	var panel_style = StyleBoxFlat.new()
@@ -302,14 +304,16 @@ func _update_tutorial_page() -> void:
 
 			# Create two image slots
 			var img1 = TextureRect.new()
-			img1.custom_minimum_size = Vector2(365, 180)
+			img1.custom_minimum_size = Vector2(355, 300)
+			img1.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			img1.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 			img1.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 			img1.set_meta("is_tutorial_image_2", true)
 			image_container.add_child(img1)
 
 			var img2 = TextureRect.new()
-			img2.custom_minimum_size = Vector2(365, 180)
+			img2.custom_minimum_size = Vector2(355, 300)
+			img2.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			img2.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 			img2.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 			img2.set_meta("is_tutorial_image_3", true)

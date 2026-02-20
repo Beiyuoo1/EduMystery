@@ -34,13 +34,19 @@ var choice_buttons: Array[Button] = []
 var countdown_overlay: ColorRect
 var countdown_label: Label
 
+# Tutorial overlay (created dynamically)
+var tutorial_overlay: ColorRect
+var tutorial_image_rect: TextureRect
+var tutorial_start_button: Button
+
 const SFX_PATH := "res://assets/audio/sound_effect/timeline_analysis_minigame/"
+const TUTORIAL_IMAGE := "res://assets/tutorials/detective_analysis/page1.png"
 
 signal minigame_completed(success: bool, time_taken: float)
 
 
 func _ready() -> void:
-	set_process(false)  # Timer must NOT start until after countdown
+	set_process(false)  # Timer must NOT start until after tutorial + countdown
 
 	# Hide feedback panel initially
 	feedback_panel.hide()
@@ -54,8 +60,118 @@ func _ready() -> void:
 	# Update hint counter
 	_update_hint_display()
 
-	# Create countdown overlay
+	# Create countdown overlay and tutorial
 	_create_countdown_overlay()
+	_create_tutorial_overlay()
+
+
+func _create_tutorial_overlay() -> void:
+	"""Build the first-time tutorial overlay"""
+	tutorial_overlay = ColorRect.new()
+	tutorial_overlay.color = Color(0, 0, 0, 0.88)
+	tutorial_overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	tutorial_overlay.z_index = 200
+	tutorial_overlay.hide()
+	add_child(tutorial_overlay)
+
+	# Centered panel
+	var panel = Panel.new()
+	panel.custom_minimum_size = Vector2(820, 600)
+	panel.set_anchors_preset(Control.PRESET_CENTER)
+	panel.offset_left = -410
+	panel.offset_top = -300
+	panel.offset_right = 410
+	panel.offset_bottom = 300
+
+	var panel_style = StyleBoxFlat.new()
+	panel_style.bg_color = Color(0.14, 0.17, 0.22, 0.98)
+	panel_style.set_corner_radius_all(20)
+	panel_style.shadow_color = Color(0, 0, 0, 0.8)
+	panel_style.shadow_size = 30
+	panel_style.border_width_left = 3
+	panel_style.border_width_top = 3
+	panel_style.border_width_right = 3
+	panel_style.border_width_bottom = 3
+	panel_style.border_color = Color(0.4, 0.5, 0.6, 0.5)
+	panel.add_theme_stylebox_override("panel", panel_style)
+	tutorial_overlay.add_child(panel)
+
+	var vbox = VBoxContainer.new()
+	vbox.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	vbox.add_theme_constant_override("separation", 16)
+	panel.add_child(vbox)
+
+	var margin = MarginContainer.new()
+	margin.add_theme_constant_override("margin_left", 30)
+	margin.add_theme_constant_override("margin_top", 24)
+	margin.add_theme_constant_override("margin_right", 30)
+	margin.add_theme_constant_override("margin_bottom", 24)
+	vbox.add_child(margin)
+
+	var inner = VBoxContainer.new()
+	inner.add_theme_constant_override("separation", 16)
+	margin.add_child(inner)
+
+	# Title
+	var title = Label.new()
+	title.text = "🔍 How to Play"
+	title.add_theme_font_size_override("font_size", 36)
+	title.add_theme_color_override("font_color", Color(0.95, 0.85, 0.4, 1))
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	inner.add_child(title)
+
+	# Tutorial image
+	tutorial_image_rect = TextureRect.new()
+	tutorial_image_rect.custom_minimum_size = Vector2(760, 400)
+	tutorial_image_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	tutorial_image_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	if ResourceLoader.exists(TUTORIAL_IMAGE):
+		tutorial_image_rect.texture = load(TUTORIAL_IMAGE)
+	inner.add_child(tutorial_image_rect)
+
+	# Start button
+	tutorial_start_button = Button.new()
+	tutorial_start_button.text = "Got it! Let's Start"
+	tutorial_start_button.custom_minimum_size = Vector2(220, 52)
+	tutorial_start_button.add_theme_font_size_override("font_size", 22)
+	tutorial_start_button.pressed.connect(_on_tutorial_start_pressed)
+
+	var btn_normal = StyleBoxFlat.new()
+	btn_normal.bg_color = Color(0.25, 0.65, 0.35, 0.95)
+	btn_normal.set_corner_radius_all(10)
+	btn_normal.content_margin_left = 20
+	btn_normal.content_margin_top = 12
+	btn_normal.content_margin_right = 20
+	btn_normal.content_margin_bottom = 12
+	tutorial_start_button.add_theme_stylebox_override("normal", btn_normal)
+
+	var btn_hover = StyleBoxFlat.new()
+	btn_hover.bg_color = Color(0.3, 0.75, 0.45, 1.0)
+	btn_hover.set_corner_radius_all(10)
+	btn_hover.shadow_color = Color(0.3, 0.75, 0.45, 0.4)
+	btn_hover.shadow_size = 10
+	btn_hover.content_margin_left = 20
+	btn_hover.content_margin_top = 12
+	btn_hover.content_margin_right = 20
+	btn_hover.content_margin_bottom = 12
+	tutorial_start_button.add_theme_stylebox_override("hover", btn_hover)
+
+	var btn_center = HBoxContainer.new()
+	btn_center.alignment = BoxContainer.ALIGNMENT_CENTER
+	btn_center.add_child(tutorial_start_button)
+	inner.add_child(btn_center)
+
+
+func _on_tutorial_start_pressed() -> void:
+	TutorialFlags.mark_seen("detective_analysis")
+	var tween = create_tween()
+	tween.tween_property(tutorial_overlay, "modulate:a", 0.0, 0.3)
+	await tween.finished
+	tutorial_overlay.hide()
+	tutorial_overlay.modulate.a = 1.0
+	await _play_countdown()
+	start_time = Time.get_ticks_msec() / 1000.0
+	set_process(true)
 
 
 func _create_countdown_overlay() -> void:
@@ -146,10 +262,14 @@ func configure_puzzle(config: Dictionary) -> void:
 	var choices = config.get("choices", [])
 	_create_choice_buttons(choices)
 
-	# Play countdown then start timer
-	await _play_countdown()
-	start_time = Time.get_ticks_msec() / 1000.0
-	set_process(true)
+	# Show tutorial first time, otherwise go straight to countdown
+	if not TutorialFlags.has_seen("detective_analysis"):
+		tutorial_overlay.show()
+		# Timer starts only after tutorial start button is pressed (_on_tutorial_start_pressed)
+	else:
+		await _play_countdown()
+		start_time = Time.get_ticks_msec() / 1000.0
+		set_process(true)
 
 
 func _create_choice_buttons(choices: Array) -> void:
@@ -248,65 +368,64 @@ func _show_feedback(is_correct: bool, time_taken: float) -> void:
 		_play_sfx("res://assets/audio/sound_effect/correct.wav")
 	else:
 		_play_sfx("res://assets/audio/sound_effect/wrong.wav")
-	# Highlight correct/wrong answer
+
+	# Highlight correct/wrong answer on the buttons
 	if is_correct:
 		choice_buttons[selected_answer].add_theme_color_override("font_color", Color.GREEN)
 	else:
 		choice_buttons[selected_answer].add_theme_color_override("font_color", Color.RED)
-		# Also highlight the correct answer
 		choice_buttons[correct_answer_index].add_theme_color_override("font_color", Color.GREEN)
 
 	# Build feedback message
 	var feedback_text = ""
 	if is_correct:
 		feedback_text = "[center][color=green][b]✓ CORRECT![/b][/color][/center]\n\n"
+		if puzzle_config.has("explanation"):
+			feedback_text += puzzle_config["explanation"]
+		# Speed bonus only on correct
+		if time_taken < 60.0 and not hint_used:
+			PlayerStats.add_hints(1)
+			feedback_text += "\n\n[center][color=yellow]⚡ Speed Bonus: +1 Hint! ⚡[/color][/center]"
+		continue_button.text = "Continue"
 	else:
-		feedback_text = "[center][color=red][b]✗ INCORRECT[/b][/color][/center]\n\n"
-
-	# Add explanation
-	if puzzle_config.has("explanation"):
-		feedback_text += puzzle_config["explanation"]
+		feedback_text = "[center][color=red][b]✗ INCORRECT — Try Again![/b][/color][/center]\n\n"
+		feedback_text += "[color=#FFB347]Think carefully and select a different answer.[/color]"
+		continue_button.text = "Try Again"
 
 	feedback_label.text = feedback_text
-
-	# Show feedback panel
 	feedback_panel.show()
-
-	# Award speed bonus if correct and fast
-	if is_correct and time_taken < 60.0 and not hint_used:
-		PlayerStats.add_hints(1)
-		feedback_label.text += "\n\n[center][color=yellow]⚡ Speed Bonus: +1 Hint! ⚡[/color][/center]"
 
 
 func _on_continue_pressed() -> void:
-	"""Continue to next scene"""
+	"""Continue (correct) or retry (wrong)"""
 	var is_correct = (selected_answer == correct_answer_index)
-	var elapsed = Time.get_ticks_msec() / 1000.0 - start_time
 
-	minigame_completed.emit(is_correct, elapsed)
-
-	# Close minigame
-	queue_free()
+	if is_correct:
+		# Minigame complete — emit signal and close
+		var elapsed = Time.get_ticks_msec() / 1000.0 - start_time
+		minigame_completed.emit(true, elapsed)
+		queue_free()
+	else:
+		# Retry — hide feedback, reset button colors, resume timer
+		feedback_panel.hide()
+		selected_answer = -1
+		for button in choice_buttons:
+			button.remove_theme_color_override("font_color")
+		set_process(true)
 
 
 func _on_time_up() -> void:
-	"""Handle time running out"""
+	"""Time ran out — show hint of correct answer then retry"""
 	set_process(false)
-
-	# Auto-select wrong answer (time out = failure)
 	selected_answer = -1
 
-	feedback_label.text = "[center][color=red][b]⏱ TIME'S UP![/b][/color][/center]\n\n"
-	feedback_label.text += "You ran out of time to analyze the evidence.\n\n"
-	feedback_label.text += "[b]Correct Answer:[/b] " + puzzle_config["choices"][correct_answer_index]
-
-	if puzzle_config.has("explanation"):
-		feedback_label.text += "\n\n" + puzzle_config["explanation"]
-
-	feedback_panel.show()
-
-	# Highlight correct answer
+	# Briefly highlight the correct answer so the player learns
 	choice_buttons[correct_answer_index].add_theme_color_override("font_color", Color.GREEN)
+
+	feedback_label.text = "[center][color=red][b]⏱ TIME'S UP![/b][/color][/center]\n\n"
+	feedback_label.text += "[color=#FFB347]The correct answer has been highlighted. Try again![/color]"
+	continue_button.text = "Try Again"
+	feedback_panel.show()
 
 
 func _on_hint_pressed() -> void:

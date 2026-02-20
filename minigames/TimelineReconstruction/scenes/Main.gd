@@ -275,8 +275,8 @@ func _update_tutorial_page() -> void:
 	elif tutorial_current_page == 1:
 		# Page 2: Hints & Timer - shorter panel, no large image
 		tutorial_panel.custom_minimum_size = Vector2(800, 0)
-		tutorial_panel.offset_top = -240
-		tutorial_panel.offset_bottom = 240
+		tutorial_panel.offset_top = -310
+		tutorial_panel.offset_bottom = 310
 		tutorial_title.text = "💡 Hints & Timer"
 		tutorial_instructions.text = "[center][color=#F4D03F]💡 Hints & Cooldown:[/color] [color=#A0D8EF]12-second cooldown between uses[/color]\n[color=#F4D03F]⏱ Timer:[/color] [color=#A0D8EF]Complete within 2:00 minutes[/color]\n[color=#F4D03F]⚡ Speed Bonus:[/color] [color=#A0D8EF]Finish under 1:00 to earn +1 hint![/color][/center]"
 
@@ -308,7 +308,7 @@ func _update_tutorial_page() -> void:
 
 			# Create two image slots
 			var img1 = TextureRect.new()
-			img1.custom_minimum_size = Vector2(355, 300)
+			img1.custom_minimum_size = Vector2(355, 160)
 			img1.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			img1.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 			img1.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
@@ -316,7 +316,7 @@ func _update_tutorial_page() -> void:
 			image_container.add_child(img1)
 
 			var img2 = TextureRect.new()
-			img2.custom_minimum_size = Vector2(355, 300)
+			img2.custom_minimum_size = Vector2(355, 160)
 			img2.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			img2.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 			img2.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED

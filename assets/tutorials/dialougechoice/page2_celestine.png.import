@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0ib8g4nxrqx8"
-path="res://.godot/imported/page1.png-ea9fcaf88c67738266858c88d93efa40.ctex"
+uid="uid://4jr6hbbhrg5v"
+path="res://.godot/imported/page2_celestine.png-384c90e728aaa5dc6bb3b952f65c9ffe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tutorials/dialougechoice/page1.png"
-dest_files=["res://.godot/imported/page1.png-ea9fcaf88c67738266858c88d93efa40.ctex"]
+source_file="res://assets/tutorials/dialougechoice/page2_celestine.png"
+dest_files=["res://.godot/imported/page2_celestine.png-384c90e728aaa5dc6bb3b952f65c9ffe.ctex"]
 
 [params]
 

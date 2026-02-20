@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mn1oqikckyw"
-path="res://.godot/imported/page2.png-45448cae6d219cf4e464aa0c8235d061.ctex"
+uid="uid://dwbe2uku18snv"
+path="res://.godot/imported/page1.png-5f860945fd3cb8a7d1db8a94262fcb6a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tutorials/dialougechoice/page2.png"
-dest_files=["res://.godot/imported/page2.png-45448cae6d219cf4e464aa0c8235d061.ctex"]
+source_file="res://assets/tutorials/detective_analysis/page1.png"
+dest_files=["res://.godot/imported/page1.png-5f860945fd3cb8a7d1db8a94262fcb6a.ctex"]
 
 [params]
 

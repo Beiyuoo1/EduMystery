@@ -108,34 +108,34 @@ var evidence_definitions = {
 		"image_path": "res://Bg/assets/evidence/anonymous_note.png",
 		"chapter": 4
 	},
-	# B.C. Cards - Overarching Mystery (All shown in Chapter 5)
+	# B.C. Cards - Overarching Mystery (shown in the chapter they are unlocked)
 	"bc_card_truth_c1": {
 		"id": "bc_card_truth_c1",
 		"title": "B.C. Card - Truth",
 		"description": "An elegant card with beautiful calligraphy reading: \"Lesson 1: Truth. Evidence and honesty matter. The chain begins.\" Signed \"B.C.\" A mysterious teacher figure is guiding Conrad's journey.",
 		"image_path": "res://Bg/assets/evidence/BC_card1.png",
-		"chapter": 5
+		"chapter": 1
 	},
 	"bc_card_responsibility_c2": {
 		"id": "bc_card_responsibility_c2",
 		"title": "B.C. Card - Responsibility",
 		"description": "An elegant card reading: \"Lesson 2: Responsibility. True responsibility isn't about pointing out others' failures. It's about building trust, even when no one is watching. The chain continues.\" Signed \"B.C.\"",
 		"image_path": "res://Bg/assets/evidence/BC_card2.png",
-		"chapter": 5
+		"chapter": 2
 	},
 	"bc_card_creativity_c3": {
 		"id": "bc_card_creativity_c3",
 		"title": "B.C. Card - Creativity",
 		"description": "An elegant card reading: \"Lesson 3: Creativity. True artists create to express, not to compete. Envy sees another's light and tries to extinguish it, not realizing it could have warmed them both.\" Signed \"B.C.\"",
 		"image_path": "res://Bg/assets/evidence/BC_card3.png",
-		"chapter": 5
+		"chapter": 3
 	},
 	"bc_card_wisdom_c4": {
 		"id": "bc_card_wisdom_c4",
 		"title": "B.C. Card - Wisdom",
 		"description": "An elegant card reading: \"Lesson 4: Wisdom. Knowledge illuminates, but wisdom guides. The eager student learned what the patient teacher already knew. Choice defines character.\" Signed \"B.C.\"",
 		"image_path": "res://Bg/assets/evidence/BC_card4.png",
-		"chapter": 5
+		"chapter": 4
 	}
 }
 

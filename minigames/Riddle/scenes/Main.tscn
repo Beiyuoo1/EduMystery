@@ -1,6 +1,40 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8j4k9l2m3n5p"]
+[gd_scene load_steps=8 format=3 uid="uid://c8j4k9l2m3n5p"]
 
 [ext_resource type="Script" path="res://minigames/Riddle/scenes/Main.gd" id="1_riddle"]
+[ext_resource type="Texture2D" path="res://assets/UI/BGbox_01A.png" id="2_bgbox"]
+[ext_resource type="Texture2D" path="res://assets/UI/BGbox_08A.png" id="3_bgbox08"]
+[ext_resource type="Texture2D" path="res://assets/UI/button_normal.png" id="4_btn_normal"]
+[ext_resource type="Texture2D" path="res://assets/UI/button_hover.png" id="5_btn_hover"]
+[ext_resource type="Texture2D" path="res://assets/tutorials/riddle/page1.png" id="6_tut_img"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_panel"]
+texture = ExtResource("2_bgbox")
+region_rect = Rect2(8.548111, 8.660231, 126.97536, 126.06514)
+texture_margin_left = 28.0
+texture_margin_top = 29.0
+texture_margin_right = 28.0
+texture_margin_bottom = 27.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_riddle"]
+texture = ExtResource("3_bgbox08")
+texture_margin_left = 28.0
+texture_margin_top = 29.0
+texture_margin_right = 28.0
+texture_margin_bottom = 27.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tut_btn"]
+texture = ExtResource("4_btn_normal")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tut_btn_hover"]
+texture = ExtResource("5_btn_hover")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
 
 [node name="RiddleMinigame" type="CanvasLayer"]
 script = ExtResource("1_riddle")
@@ -22,83 +56,89 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.85)
 
-[node name="MainContainer" type="VBoxContainer" parent="Control"]
+[node name="Panel" type="PanelContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -20.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -520.0
+offset_top = -380.0
+offset_right = 520.0
+offset_bottom = 380.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_panel")
+
+[node name="MainContainer" type="VBoxContainer" parent="Control/Panel"]
+layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="HeaderContainer" type="HBoxContainer" parent="Control/MainContainer"]
+[node name="HeaderContainer" type="HBoxContainer" parent="Control/Panel/MainContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="TimerLabel" type="Label" parent="Control/MainContainer/HeaderContainer"]
+[node name="TimerLabel" type="Label" parent="Control/Panel/MainContainer/HeaderContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
 theme_override_font_sizes/font_size = 32
 text = "01:30"
 
-[node name="Spacer" type="Control" parent="Control/MainContainer/HeaderContainer"]
+[node name="Spacer" type="Control" parent="Control/Panel/MainContainer/HeaderContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HintButton" type="Button" parent="Control/MainContainer/HeaderContainer"]
+[node name="HintButton" type="Button" parent="Control/Panel/MainContainer/HeaderContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.9, 0.3, 1)
 theme_override_font_sizes/font_size = 20
 text = "💡"
 
-[node name="HintLabel" type="Label" parent="Control/MainContainer/HeaderContainer"]
+[node name="HintLabel" type="Label" parent="Control/Panel/MainContainer/HeaderContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.5, 0, 1)
+theme_override_colors/font_color = Color(0.55, 0.25, 0.0, 1)
 theme_override_font_sizes/font_size = 24
 text = "Hint: 10"
 
-[node name="InstructionPanel" type="PanelContainer" parent="Control/MainContainer"]
+[node name="InstructionPanel" type="PanelContainer" parent="Control/Panel/MainContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/MainContainer/InstructionPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/Panel/MainContainer/InstructionPanel"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MainContainer/InstructionPanel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/MainContainer/InstructionPanel/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="TitleLabel" type="Label" parent="Control/MainContainer/InstructionPanel/MarginContainer/VBoxContainer"]
+[node name="TitleLabel" type="Label" parent="Control/Panel/MainContainer/InstructionPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
+theme_override_colors/font_color = Color(0.45, 0.2, 0.05, 1)
 theme_override_font_sizes/font_size = 28
 text = "\"Riddle, What Am I.\""
 horizontal_alignment = 1
 
-[node name="RiddlePanel" type="PanelContainer" parent="Control/MainContainer"]
+[node name="RiddlePanel" type="PanelContainer" parent="Control/Panel/MainContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_riddle")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/MainContainer/RiddlePanel"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/Panel/MainContainer/RiddlePanel"]
 layout_mode = 2
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="RiddleLabel" type="Label" parent="Control/MainContainer/RiddlePanel/MarginContainer"]
+[node name="RiddleLabel" type="Label" parent="Control/Panel/MainContainer/RiddlePanel/MarginContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_color = Color(0.25, 0.1, 0.03, 1)
 theme_override_font_sizes/font_size = 24
 text = "\"Round I go, around your hand,
 I shine and sparkle, isn't that grand?\""
@@ -106,150 +146,271 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="AnswerContainer" type="HBoxContainer" parent="Control/MainContainer"]
+[node name="AnswerContainer" type="HBoxContainer" parent="Control/Panel/MainContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="AnswerDisplay" type="Label" parent="Control/MainContainer/AnswerContainer"]
+[node name="AnswerDisplay" type="Label" parent="Control/Panel/MainContainer/AnswerContainer"]
 layout_mode = 2
 mouse_filter = 0
-theme_override_colors/font_color = Color(1, 0.9, 0.5, 1)
+theme_override_colors/font_color = Color(0.5, 0.2, 0.02, 1)
 theme_override_font_sizes/font_size = 36
 text = "_ _ _ _ (Click to undo)"
 horizontal_alignment = 1
 
-[node name="LetterContainer" type="VBoxContainer" parent="Control/MainContainer"]
+[node name="LetterContainer" type="VBoxContainer" parent="Control/Panel/MainContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Row1" type="HBoxContainer" parent="Control/MainContainer/LetterContainer"]
+[node name="Row1" type="HBoxContainer" parent="Control/Panel/MainContainer/LetterContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Letter1" type="Button" parent="Control/MainContainer/LetterContainer/Row1"]
+[node name="Letter1" type="Button" parent="Control/Panel/MainContainer/LetterContainer/Row1"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "A"
 
-[node name="Letter2" type="Button" parent="Control/MainContainer/LetterContainer/Row1"]
+[node name="Letter2" type="Button" parent="Control/Panel/MainContainer/LetterContainer/Row1"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "W"
 
-[node name="Letter3" type="Button" parent="Control/MainContainer/LetterContainer/Row1"]
+[node name="Letter3" type="Button" parent="Control/Panel/MainContainer/LetterContainer/Row1"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "H"
 
-[node name="Letter4" type="Button" parent="Control/MainContainer/LetterContainer/Row1"]
+[node name="Letter4" type="Button" parent="Control/Panel/MainContainer/LetterContainer/Row1"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "V"
 
-[node name="Letter5" type="Button" parent="Control/MainContainer/LetterContainer/Row1"]
+[node name="Letter5" type="Button" parent="Control/Panel/MainContainer/LetterContainer/Row1"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "M"
 
-[node name="Letter6" type="Button" parent="Control/MainContainer/LetterContainer/Row1"]
+[node name="Letter6" type="Button" parent="Control/Panel/MainContainer/LetterContainer/Row1"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "R"
 
-[node name="Letter7" type="Button" parent="Control/MainContainer/LetterContainer/Row1"]
+[node name="Letter7" type="Button" parent="Control/Panel/MainContainer/LetterContainer/Row1"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "T"
 
-[node name="Letter8" type="Button" parent="Control/MainContainer/LetterContainer/Row1"]
+[node name="Letter8" type="Button" parent="Control/Panel/MainContainer/LetterContainer/Row1"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "K"
 
-[node name="Row2" type="HBoxContainer" parent="Control/MainContainer/LetterContainer"]
+[node name="Row2" type="HBoxContainer" parent="Control/Panel/MainContainer/LetterContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Letter9" type="Button" parent="Control/MainContainer/LetterContainer/Row2"]
+[node name="Letter9" type="Button" parent="Control/Panel/MainContainer/LetterContainer/Row2"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "E"
 
-[node name="Letter10" type="Button" parent="Control/MainContainer/LetterContainer/Row2"]
+[node name="Letter10" type="Button" parent="Control/Panel/MainContainer/LetterContainer/Row2"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "C"
 
-[node name="Letter11" type="Button" parent="Control/MainContainer/LetterContainer/Row2"]
+[node name="Letter11" type="Button" parent="Control/Panel/MainContainer/LetterContainer/Row2"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "B"
 
-[node name="Letter12" type="Button" parent="Control/MainContainer/LetterContainer/Row2"]
+[node name="Letter12" type="Button" parent="Control/Panel/MainContainer/LetterContainer/Row2"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "E"
 
-[node name="Letter13" type="Button" parent="Control/MainContainer/LetterContainer/Row2"]
+[node name="Letter13" type="Button" parent="Control/Panel/MainContainer/LetterContainer/Row2"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "O"
 
-[node name="Letter14" type="Button" parent="Control/MainContainer/LetterContainer/Row2"]
+[node name="Letter14" type="Button" parent="Control/Panel/MainContainer/LetterContainer/Row2"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "L"
 
-[node name="Letter15" type="Button" parent="Control/MainContainer/LetterContainer/Row2"]
+[node name="Letter15" type="Button" parent="Control/Panel/MainContainer/LetterContainer/Row2"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "I"
 
-[node name="Letter16" type="Button" parent="Control/MainContainer/LetterContainer/Row2"]
+[node name="Letter16" type="Button" parent="Control/Panel/MainContainer/LetterContainer/Row2"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "G"
 
-[node name="FeedbackLabel" type="Label" parent="Control/MainContainer"]
+[node name="FeedbackLabel" type="Label" parent="Control/Panel/MainContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 0.4, 1)
+theme_override_colors/font_color = Color(0.6, 0.3, 0.0, 1)
 theme_override_font_sizes/font_size = 28
 text = ""
 horizontal_alignment = 1
 vertical_alignment = 1
 visible = false
+
+[node name="TutorialOverlay" type="Control" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DarkBG" type="ColorRect" parent="Control/TutorialOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.88)
+
+[node name="TutPanel" type="NinePatchRect" parent="Control/TutorialOverlay"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -460.0
+offset_top = -420.0
+offset_right = 460.0
+offset_bottom = 420.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bgbox")
+region_rect = Rect2(8.548111, 8.660231, 126.97536, 126.06514)
+patch_margin_left = 28
+patch_margin_top = 29
+patch_margin_right = 28
+patch_margin_bottom = 27
+
+[node name="VBox" type="VBoxContainer" parent="Control/TutorialOverlay/TutPanel"]
+layout_mode = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = 28.0
+offset_right = -36.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="Control/TutorialOverlay/TutPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(0.35, 0.15, 0.05, 1)
+text = "🔤 How to Play: Riddle"
+horizontal_alignment = 1
+
+[node name="Sep1" type="HSeparator" parent="Control/TutorialOverlay/TutPanel/VBox"]
+layout_mode = 2
+
+[node name="TutImage" type="TextureRect" parent="Control/TutorialOverlay/TutPanel/VBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 200)
+texture = ExtResource("6_tut_img")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Step1" type="Label" parent="Control/TutorialOverlay/TutPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+theme_override_colors/font_color = Color(0.15, 0.08, 0.03, 1)
+autowrap_mode = 3
+text = "1. Read the riddle carefully — it describes a mystery object. Figure out what it is!"
+
+[node name="Step2" type="Label" parent="Control/TutorialOverlay/TutPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+theme_override_colors/font_color = Color(0.15, 0.08, 0.03, 1)
+autowrap_mode = 3
+text = "2. Click the letter buttons to spell out your answer one letter at a time."
+
+[node name="Step3" type="Label" parent="Control/TutorialOverlay/TutPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+theme_override_colors/font_color = Color(0.15, 0.08, 0.03, 1)
+autowrap_mode = 3
+text = "3. Made a mistake? Click on the answer display to remove the last letter (Undo)."
+
+[node name="Step4" type="Label" parent="Control/TutorialOverlay/TutPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+theme_override_colors/font_color = Color(0.15, 0.08, 0.03, 1)
+autowrap_mode = 3
+text = "4. Stuck? Use the 💡 Hint button — it will automatically fill in the next correct letter!"
+
+[node name="Sep2" type="HSeparator" parent="Control/TutorialOverlay/TutPanel/VBox"]
+layout_mode = 2
+
+[node name="TipLabel" type="Label" parent="Control/TutorialOverlay/TutPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+theme_override_colors/font_color = Color(0.35, 0.2, 0.1, 1)
+autowrap_mode = 3
+text = "⚡ Speed Tip: Solve the riddle in under 60 seconds to earn a bonus Hint!"
+
+[node name="StartButton" type="Button" parent="Control/TutorialOverlay/TutPanel/VBox"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_tut_btn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_tut_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tut_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxTexture_tut_btn")
+theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
+theme_override_font_sizes/font_size = 20
+text = "Start Puzzle!"

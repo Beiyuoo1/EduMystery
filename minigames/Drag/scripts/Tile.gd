@@ -9,36 +9,29 @@ func _ready():
 
 # Implements the drag action and sets up the visual preview
 func _get_drag_data(at_position):
-	# Store the offset relative to the tile's top-left corner
-	click_offset = at_position
+	# --- Create the Visual Representation ---
+	# In Godot 4, set_drag_preview anchors the preview top-left to the cursor.
+	# To offset it, place the actual tile as a child of a transparent root Control,
+	# then position the child negatively to shift it relative to the cursor.
 
-	# --- Create the Visual Representation (The Jigsaw Piece) ---
-	# Create a wrapper Control for the transform
-	var wrapper = Control.new()
+	var half = size / 2.0
 
-	# Create the actual tile preview
+	# Root control — large enough so the offset child is visible, invisible itself
+	var root = Control.new()
+	root.size = size * 2.0
+
+	# Actual visible tile
 	var drag_preview = ColorRect.new()
-	drag_preview.size = size # Corrected: use size instead of rect_size
+	drag_preview.size = size
 	drag_preview.color = color * Color(1.2, 1.2, 1.2)
+	# Shift so cursor lands at center of tile
+	drag_preview.position = -half
 
-	# Reparent the label and fix its layout on the preview tile
 	var label_copy = get_node("Label").duplicate()
 	drag_preview.add_child(label_copy)
-
-	# Corrected: Renamed function in Godot 4
 	label_copy.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
-	# Add drag preview to wrapper
-	wrapper.add_child(drag_preview)
+	root.add_child(drag_preview)
+	set_drag_preview(root)
 
-	# Apply transforms to the wrapper instead of drag_preview directly
-	wrapper.scale = Vector2(1.1, 1.1)
-	wrapper.rotation_degrees = 2
-
-	set_drag_preview(wrapper)
-
-	# CRITICAL: Adjust the wrapper position by the offset for "jigsaw" feel
-	wrapper.position -= click_offset * wrapper.scale
-
-	# Return the word data
 	return word_data

@@ -1,36 +1,36 @@
 extends CanvasLayer
 
 # Node references
-@onready var timer_label = $Control/MainContainer/HeaderContainer/TimerLabel
-@onready var hint_button = $Control/MainContainer/HeaderContainer/HintButton
-@onready var hint_label = $Control/MainContainer/HeaderContainer/HintLabel
-@onready var title_label = $Control/MainContainer/InstructionPanel/MarginContainer/VBoxContainer/TitleLabel
-@onready var riddle_label = $Control/MainContainer/RiddlePanel/MarginContainer/RiddleLabel
-@onready var answer_display = $Control/MainContainer/AnswerContainer/AnswerDisplay
-@onready var letter_container = $Control/MainContainer/LetterContainer
-@onready var feedback_label = $Control/MainContainer/FeedbackLabel
+@onready var timer_label = $Control/Panel/MainContainer/HeaderContainer/TimerLabel
+@onready var hint_button = $Control/Panel/MainContainer/HeaderContainer/HintButton
+@onready var hint_label = $Control/Panel/MainContainer/HeaderContainer/HintLabel
+@onready var title_label = $Control/Panel/MainContainer/InstructionPanel/MarginContainer/VBoxContainer/TitleLabel
+@onready var riddle_label = $Control/Panel/MainContainer/RiddlePanel/MarginContainer/RiddleLabel
+@onready var answer_display = $Control/Panel/MainContainer/AnswerContainer/AnswerDisplay
+@onready var letter_container = $Control/Panel/MainContainer/LetterContainer
+@onready var feedback_label = $Control/Panel/MainContainer/FeedbackLabel
 
 # Letter buttons (2 rows)
 @onready var letter_buttons_row1 = [
-	$Control/MainContainer/LetterContainer/Row1/Letter1,
-	$Control/MainContainer/LetterContainer/Row1/Letter2,
-	$Control/MainContainer/LetterContainer/Row1/Letter3,
-	$Control/MainContainer/LetterContainer/Row1/Letter4,
-	$Control/MainContainer/LetterContainer/Row1/Letter5,
-	$Control/MainContainer/LetterContainer/Row1/Letter6,
-	$Control/MainContainer/LetterContainer/Row1/Letter7,
-	$Control/MainContainer/LetterContainer/Row1/Letter8
+	$Control/Panel/MainContainer/LetterContainer/Row1/Letter1,
+	$Control/Panel/MainContainer/LetterContainer/Row1/Letter2,
+	$Control/Panel/MainContainer/LetterContainer/Row1/Letter3,
+	$Control/Panel/MainContainer/LetterContainer/Row1/Letter4,
+	$Control/Panel/MainContainer/LetterContainer/Row1/Letter5,
+	$Control/Panel/MainContainer/LetterContainer/Row1/Letter6,
+	$Control/Panel/MainContainer/LetterContainer/Row1/Letter7,
+	$Control/Panel/MainContainer/LetterContainer/Row1/Letter8
 ]
 
 @onready var letter_buttons_row2 = [
-	$Control/MainContainer/LetterContainer/Row2/Letter9,
-	$Control/MainContainer/LetterContainer/Row2/Letter10,
-	$Control/MainContainer/LetterContainer/Row2/Letter11,
-	$Control/MainContainer/LetterContainer/Row2/Letter12,
-	$Control/MainContainer/LetterContainer/Row2/Letter13,
-	$Control/MainContainer/LetterContainer/Row2/Letter14,
-	$Control/MainContainer/LetterContainer/Row2/Letter15,
-	$Control/MainContainer/LetterContainer/Row2/Letter16
+	$Control/Panel/MainContainer/LetterContainer/Row2/Letter9,
+	$Control/Panel/MainContainer/LetterContainer/Row2/Letter10,
+	$Control/Panel/MainContainer/LetterContainer/Row2/Letter11,
+	$Control/Panel/MainContainer/LetterContainer/Row2/Letter12,
+	$Control/Panel/MainContainer/LetterContainer/Row2/Letter13,
+	$Control/Panel/MainContainer/LetterContainer/Row2/Letter14,
+	$Control/Panel/MainContainer/LetterContainer/Row2/Letter15,
+	$Control/Panel/MainContainer/LetterContainer/Row2/Letter16
 ]
 
 # Timer
@@ -54,6 +54,10 @@ var hint_used: bool = false
 var start_time: float = 0.0
 const TIME_BONUS_THRESHOLD: float = 60.0  # Complete within 1 minute for bonus hint
 
+# Tutorial nodes
+@onready var tutorial_overlay: Control = $Control/TutorialOverlay
+@onready var tut_start_button: Button = $Control/TutorialOverlay/TutPanel/VBox/StartButton
+
 signal minigame_completed(success: bool)
 
 func _ready():
@@ -61,9 +65,6 @@ func _ready():
 
 	# Make sure the control is visible
 	visible = true
-
-	# Record start time for bonus hint
-	start_time = Time.get_ticks_msec() / 1000.0
 
 	# Combine letter button arrays
 	letter_buttons = letter_buttons_row1 + letter_buttons_row2
@@ -77,7 +78,24 @@ func _ready():
 	# Connect button signals
 	_connect_buttons()
 
-	# Start timer
+	# Connect tutorial start button
+	tut_start_button.pressed.connect(_on_tutorial_done)
+
+	# Show tutorial on first time, otherwise start immediately
+	if not TutorialFlags.has_seen("riddle"):
+		tutorial_overlay.show()
+		# Timer does NOT start yet
+	else:
+		tutorial_overlay.hide()
+		_start_game()
+
+func _on_tutorial_done() -> void:
+	TutorialFlags.mark_seen("riddle")
+	tutorial_overlay.hide()
+	_start_game()
+
+func _start_game() -> void:
+	start_time = Time.get_ticks_msec() / 1000.0
 	timer_active = true
 
 func _verify_nodes():

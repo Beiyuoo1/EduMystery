@@ -59,15 +59,16 @@ const TOTAL_DROPS = 1
 const TILE_SCRIPT = preload("res://minigames/Drag/scripts/Tile.gd")
 const DROP_SCRIPT = preload("res://minigames/Drag/scripts/DropZone.gd")
 
+# Tutorial nodes
+@onready var tutorial_overlay: Control = $CanvasLayer/TutorialOverlay
+@onready var tut_start_button: Button = $CanvasLayer/TutorialOverlay/TutPanel/VBox/StartButton
+
 func _ready():
 	is_ready = true
 	# Quick fade-in for smooth transition
 	texture_rect.modulate.a = 0.0
 	var tween = create_tween()
 	tween.tween_property(texture_rect, "modulate:a", 1.0, 0.15)
-
-	# Record start time for bonus hint
-	start_time = Time.get_ticks_msec() / 1000.0
 
 	# Update hint display from PlayerStats
 	_update_hint_display()
@@ -76,11 +77,28 @@ func _ready():
 	if hint_button:
 		hint_button.pressed.connect(_on_hint_button_pressed)
 
-	# Start timer
-	timer_active = true
+	# Connect tutorial start button
+	tut_start_button.pressed.connect(_on_tutorial_done)
+
+	# Show tutorial on first time, otherwise start immediately
+	if not TutorialFlags.has_seen("fill_in_blank"):
+		tutorial_overlay.show()
+		# Timer does NOT start yet
+	else:
+		tutorial_overlay.hide()
+		_start_game()
 
 	# Initialize puzzle now that nodes are ready
 	_initialize_puzzle()
+
+func _on_tutorial_done() -> void:
+	TutorialFlags.mark_seen("fill_in_blank")
+	tutorial_overlay.hide()
+	_start_game()
+
+func _start_game() -> void:
+	start_time = Time.get_ticks_msec() / 1000.0
+	timer_active = true
 
 func _unhandled_input(event):
 	# F5 to skip minigame

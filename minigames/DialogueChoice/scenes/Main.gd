@@ -2,7 +2,7 @@ extends CanvasLayer
 
 # Set to true to skip Vosk entirely — correct choice click completes the minigame directly.
 # Useful for testing layout/logic when Vosk is not working or causes lag.
-const VOSK_BYPASS: bool = true
+const VOSK_BYPASS: bool = false
 
 # Node references
 @onready var timer_label = $Control/Panel/MainContainer/VBoxContainer/HeaderContainer/TimerLabel

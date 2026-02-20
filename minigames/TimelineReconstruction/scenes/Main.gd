@@ -248,7 +248,7 @@ func _update_tutorial_page() -> void:
 		tutorial_title.text = "📚 How to Play"
 		tutorial_instructions.text = "[center][color=#A0D8EF]Click orange cards to place them in timeline slots (1→5)[/color]\n[color=#A0D8EF]Click cards in timeline to return them to the pool[/color]\n[color=#A0D8EF]Arrange all events in correct chronological order[/color][/center]"
 
-		# Show single image
+		# Show single image and restore its size
 		tutorial_image.visible = true
 		tutorial_image.custom_minimum_size = Vector2(740, 380)
 
@@ -276,8 +276,9 @@ func _update_tutorial_page() -> void:
 		tutorial_title.text = "💡 Hints & Timer"
 		tutorial_instructions.text = "[center][color=#F4D03F]💡 Hints & Cooldown:[/color] [color=#A0D8EF]12-second cooldown between uses[/color]\n[color=#F4D03F]⏱ Timer:[/color] [color=#A0D8EF]Complete within 2:00 minutes[/color]\n[color=#F4D03F]⚡ Speed Bonus:[/color] [color=#A0D8EF]Finish under 1:00 to earn +1 hint![/color][/center]"
 
-		# Hide the main single image
+		# Hide the main single image and collapse its space
 		tutorial_image.visible = false
+		tutorial_image.custom_minimum_size = Vector2.ZERO
 
 		# Create two side-by-side images for page 2 (if not already created)
 		var parent = tutorial_image.get_parent()

@@ -3,19 +3,19 @@ audio music - [fade="1.0"]
 [voice path="res://assets/audio/voice/Chapter 3/c3s5/the_art_room.mp3" volume="0.0" bus="Voice"]
 The art room feels different now. Quieter. Heavy with the weight of what happened.
 if {selected_character} == "celestine":
-	join Celestine (animated) leftmost
-	join Mark (Mark_half) left
+	join Celestine (animated) right [mirrored="true"]
+	join Mark (Mark_half) rightmost [mirrored="true"]
 	[voice path="res://assets/audio/voice/Chapter 3/c3s5/the_protagonist_and_mark.mp3" volume="0.0" bus="Voice"]
 	The protagonist and Mark stand near the door, watching the scene unfold.
 else:
-	join Conrad (half) leftmost
-	join Mark (Mark_half) left
+	join Conrad (half) right [mirrored="true"]
+	join Mark (Mark_half) rightmost
 	[voice path="res://assets/audio/voice/Chapter 3/c3s5/the_protagonist_and_mark.mp3" volume="0.0" bus="Voice"]
 	The protagonist and Mark stand near the door, watching the scene unfold.
-join "Ms Reyes" (half) center [mirrored="true"]
+join "Ms Reyes" (half) center
 [voice path="res://assets/audio/voice/Chapter 3/c3s5/msreyes_stands_near.mp3" volume="0.0" bus="Voice"]
 Ms. Reyes stands near her desk, her expression a mix of disappointment and sadness.
-join Characters/Victor (sad) right mirror
+join Characters/Victor (sad) left [mirrored="true"]
 Victor sits on a stool, shoulders hunched, unable to meet anyone's eyes.
 "Ms Reyes": Victor. I've always believed in your talent.
 "Ms Reyes": But talent without empathy is just... technique. Empty movements.
@@ -30,12 +30,12 @@ Victor nods slowly.
 Victor: That's... that's fair. More than fair.
 leave "Ms Reyes"
 [wait time="0.5"]
-join Mia (half) rightmost
+join Mia (half) leftmost [mirrored="true"]
 [voice path="res://assets/audio/voice/Chapter 3/c3s5/mia_enters_quietly.mp3" volume="0.0" bus="Voice"]
 audio music "res://assets/audio/bg/Alleycat.mp3" [loop="true"]
 Mia enters quietly. Her eyes are still red, but her expression is steady.
+update Characters/Victor (sad) left [mirrored="false"]
 Victor looks up as she approaches. He flinches, expecting anger.
-update Characters/Victor (sad) right mirror
 Victor: Mia... I...
 Mia: Let me speak first.
 [voice path="res://assets/audio/voice/Chapter 3/c3s5/victor_falls_silent.mp3" volume="0.0" bus="Voice"]
@@ -55,7 +55,7 @@ Mia: My sculpture wasn't meant to win competitions.
 Mia: I made it because I missed my grandfather. I wanted to remember how it felt when he read to me.
 Mia: The judges responded to that feeling. Not the technique.
 [voice path="res://assets/audio/voice/Chapter 3/c3s5/victors_voice_breaks.mp3" volume="0.0" bus="Voice"]
-update Characters/Victor (cry) right mirror
+update Characters/Victor (cry) left [mirrored="false"]
 Victor's voice breaks.
 Victor: And I destroyed it because I was jealous.
 Victor: I'm so sorry, Mia. I'm so, so sorry.
@@ -72,6 +72,7 @@ Mia nods slowly.
 Mia: I'd like to see that.
 if {selected_character} == "celestine":
 	[voice path="res://assets/audio/voice/Chapter 3/c3s5/mia_turns_and.mp3" volume="0.0" bus="Voice"]
+	update Mia center [mirrored="true" move_time="0.6"]
 	Mia turns and walks toward the door, pausing beside the protagonist.
 	Mia: Thank you. For finding the truth.
 	Celestine: The truth was always there. I just helped it come to light.
@@ -79,6 +80,7 @@ if {selected_character} == "celestine":
 	Mia manages a small, sad smile before leaving.
 else:
 	[voice path="res://assets/audio/voice/Chapter 3/c3s5/mia_turns_and.mp3" volume="0.0" bus="Voice"]
+	update Mia center [mirrored="true" move_time="0.6"]
 	Mia turns and walks toward the door, pausing beside Conrad.
 	Mia: Thank you. For finding the truth.
 	Conrad: The truth was always there. I just helped it come to light.

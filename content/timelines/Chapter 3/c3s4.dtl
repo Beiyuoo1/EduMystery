@@ -3,7 +3,7 @@
 Victor stands near the edge of the courtyard, watching students pass by his ignored display.
 if {selected_character} == "celestine":
 	join Celestine (animated) left
-	join Characters/Victor (half) right mirror
+	join Characters/Victor (half) right
 	Celestine: Victor. We need to talk.
 	[voice path="res://assets/audio/voice/Chapter 3/c3s4/victors_eyes_flicker.mp3" volume="0.0" bus="Voice"]
 	Victor's eyes flicker with something - fear? Defiance?
@@ -11,7 +11,7 @@ if {selected_character} == "celestine":
 	Celestine: You told me you were home all night. That was a lie.
 	[voice path="res://assets/audio/voice/Chapter 3/c3s4/victors_jaw_tightens.mp3" volume="0.0" bus="Voice"]
 	audio music "res://assets/audio/bg/controversy.mp3" [loop="true"]
-	update Characters/Victor (angry) right mirror
+	update Characters/Victor (angry) right
 	Victor's jaw tightens.
 	Victor: I don't know what you're talking about.
 	Celestine: I found a receipt in your sketchbook. Art supply store, 8\:47 PM.
@@ -23,7 +23,7 @@ if {selected_character} == "celestine":
 	Celestine: Found at the scene of the crime. Right next to the broken sculpture.
 else:
 	join Conrad (half) left
-	join Characters/Victor (half) right mirror
+	join Characters/Victor (half) right
 	Conrad: Victor. We need to talk.
 	[voice path="res://assets/audio/voice/Chapter 3/c3s4/victors_eyes_flicker.mp3" volume="0.0" bus="Voice"]
 	Victor's eyes flicker with something - fear? Defiance?
@@ -31,7 +31,7 @@ else:
 	Conrad: You told me you were home all night. That was a lie.
 	[voice path="res://assets/audio/voice/Chapter 3/c3s4/victors_jaw_tightens.mp3" volume="0.0" bus="Voice"]
 	audio music "res://assets/audio/bg/controversy.mp3" [loop="true"]
-	update Characters/Victor (angry) right mirror
+	update Characters/Victor (angry) right
 	Victor's jaw tightens.
 	Victor: I don't know what you're talking about.
 	Conrad: I found a receipt in your sketchbook. Art supply store, 8\:47 PM.
@@ -46,7 +46,7 @@ if {selected_character} == "celestine":
 	Celestine: This one has an inventory tag. Number 14-C.
 	Celestine: That's your cabinet number, Victor. Your assigned supplies.
 	[voice path="res://assets/audio/voice/Chapter 3/c3s4/victors_face_goes.mp3" volume="0.0" bus="Voice"]
-	update Characters/Victor (sad) right mirror
+	update Characters/Victor (sad) right
 	Victor's face goes pale.
 	Victor: That... someone must have stolen it. Framed me.
 	Celestine: The sketchbook. The receipt. The cloth. Your resentment toward Mia.
@@ -94,12 +94,12 @@ else:
 	Conrad: But you've been hurting for a long time. Feeling invisible.
 	Conrad: Feeling like no matter how hard you work, no one sees you.
 [voice path="res://assets/audio/voice/Chapter 3/c3s4/victors_eyes_begin.mp3" volume="0.0" bus="Voice"]
-update Characters/Victor (half) right mirror
+update Characters/Victor (half) right
 Victor's eyes begin to glisten.
 Victor: You... you don't know what it's like.
 Victor: Every competition, every exhibition, every award. It's always someone else.
 Victor: I practice twice as much as anyone. I study the masters. I perfect my technique.
-update Characters/Victor (sad) right mirror
+update Characters/Victor (sad) right
 Victor: And Mia just... feels her way through it. No discipline. No rigor.
 Victor: Yet everyone calls her a genius and ignores me.
 if {selected_character} == "celestine":
@@ -107,7 +107,7 @@ if {selected_character} == "celestine":
 else:
 	Conrad: That must be incredibly painful.
 [voice path="res://assets/audio/voice/Chapter 3/c3s4/victors_voice_breaks.mp3" volume="0.0" bus="Voice"]
-join Characters/Victor (cry) right mirror
+join Characters/Victor (cry) right
 Victor's voice breaks.
 Victor: My parents keep asking why I can't be more like her.
 Victor: My father says art is a waste of time unless you're the best.

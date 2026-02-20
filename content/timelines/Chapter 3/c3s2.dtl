@@ -86,7 +86,7 @@ Victor stands near a small display at the edge of the courtyard, arms crossed.
 His sculpture - a geometric abstract piece - sits ignored while crowds gather near the crime scene.
 if {selected_character} == "celestine":
 	join Celestine (half) left
-	join Characters/Victor (half) right mirror
+	join Characters/Victor (half) right
 	audio music "res://assets/audio/bg/suspicious.mp3" [loop="true"]
 	[voice path="res://assets/audio/voice/Chapter 3/c3s2/victors_eyes_narrow.mp3" volume="0.0" bus="Voice"]
 	Victor's eyes narrow as Celestine approaches.
@@ -132,7 +132,7 @@ if {selected_character} == "celestine":
 	leave Mark
 else:
 	join Conrad (half) left
-	join Characters/Victor (half) right mirror
+	join Characters/Victor (half) right
 	audio music "res://assets/audio/bg/suspicious.mp3" [loop="true"]
 	[voice path="res://assets/audio/voice/Chapter 3/c3s2/victors_eyes_narrow.mp3" volume="0.0" bus="Voice"]
 	Victor's eyes narrow as the protagonist approaches.
@@ -165,7 +165,7 @@ else:
 	[voice path="res://assets/audio/voice/Chapter 3/c3s2/victor_turns_back.mp3" volume="0.0" bus="Voice"]
 	Victor turns back to his ignored display.
 	Victor: Now leave me alone. Some of us have actual art to show.
-	leave Victor
+	leave Characters/Victor
 	join Mark (Mark_half) right
 	Mark: He's bitter. Really bitter.
 	Conrad: Bitter enough to destroy Mia's sculpture?

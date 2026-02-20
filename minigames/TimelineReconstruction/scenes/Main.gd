@@ -21,7 +21,7 @@ extends Control
 @onready var continue_button: Button = $FeedbackPanel/VBox/ButtonsHBox/ContinueButton
 @onready var retry_button: Button = $FeedbackPanel/VBox/ButtonsHBox/RetryButton
 
-# Tutorial nodes (will be created dynamically)
+# Tutorial nodes (will be crefted dynamically)
 var tutorial_overlay: ColorRect
 var tutorial_panel: Panel
 var tutorial_image: TextureRect
@@ -275,8 +275,8 @@ func _update_tutorial_page() -> void:
 	elif tutorial_current_page == 1:
 		# Page 2: Hints & Timer - shorter panel, no large image
 		tutorial_panel.custom_minimum_size = Vector2(800, 0)
-		tutorial_panel.offset_top = -260
-		tutorial_panel.offset_bottom = 260
+		tutorial_panel.offset_top = -230
+		tutorial_panel.offset_bottom = 230
 		tutorial_title.text = "💡 Hints & Timer"
 		tutorial_instructions.text = "[center][color=#F4D03F]💡 Hints & Cooldown:[/color] [color=#A0D8EF]12-second cooldown between uses[/color]\n[color=#F4D03F]⏱ Timer:[/color] [color=#A0D8EF]Complete within 2:00 minutes[/color]\n[color=#F4D03F]⚡ Speed Bonus:[/color] [color=#A0D8EF]Finish under 1:00 to earn +1 hint![/color][/center]"
 

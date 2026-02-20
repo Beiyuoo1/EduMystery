@@ -15,7 +15,7 @@ extends Control
 @onready var timer_label: Label = $Panel/VBox/HBox/TimerLabel
 @onready var hint_button: Button = $Panel/VBox/HBox/HintButton
 @onready var hint_counter: Label = $Panel/VBox/HBox/HintCounter
-@onready var feedback_panel: Panel = $FeedbackPanel
+@onready var feedback_panel: NinePatchRect = $FeedbackPanel
 @onready var feedback_label: RichTextLabel = $FeedbackPanel/VBox/FeedbackLabel
 @onready var continue_button: Button = $FeedbackPanel/VBox/ContinueButton
 

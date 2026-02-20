@@ -32,6 +32,12 @@ var tutorial_page1: Control = null
 var tutorial_page2: Control = null
 var tutorial_help_button: Button = null
 
+# Countdown overlay
+var countdown_overlay: ColorRect = null
+var countdown_label: Label = null
+
+const SFX_PATH := "res://assets/audio/sound_effect/timeline_analysis_minigame/"
+
 # Choice buttons
 @onready var choice_buttons = [
 	$Control/Panel/MainContainer/VBoxContainer/ContentRow/RightColumn/ChoicesContainer/Choice1,
@@ -208,17 +214,21 @@ func _ready():
 	# Start idle question mark animation
 	_start_question_mark_idle()
 
+	# Create countdown overlay first
+	_create_countdown_overlay()
+
 	# Show tutorial on first encounter, otherwise show help button
 	_build_tutorial_overlay()
 	if not TutorialFlags.has_seen("dialogue_choice"):
 		tutorial_overlay.show()
 		tutorial_page1.show()
 		tutorial_page2.hide()
-		timer_active = false  # Pause timer until tutorial is dismissed
+		timer_active = false  # Pause timer until tutorial + countdown done
 	else:
 		tutorial_overlay.hide()
 		_add_tutorial_help_button()
-		timer_active = true  # Already seen — start immediately
+		# Play countdown then start timer
+		_play_countdown_then_start()
 
 	if VOSK_BYPASS:
 		# Bypass mode: no Vosk, no microphone — just click-to-answer
@@ -228,8 +238,80 @@ func _ready():
 		_initialize_vosk()
 		_setup_audio_capture()
 
+func _create_countdown_overlay() -> void:
+	countdown_overlay = ColorRect.new()
+	countdown_overlay.color = Color(0, 0, 0, 0.6)
+	countdown_overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	countdown_overlay.z_index = 150
+	countdown_overlay.hide()
+	add_child(countdown_overlay)
+
+	countdown_label = Label.new()
+	countdown_label.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	countdown_label.add_theme_font_size_override("font_size", 120)
+	countdown_label.add_theme_color_override("font_color", Color(1, 1, 1, 1))
+	countdown_label.add_theme_color_override("font_outline_color", Color(0, 0, 0, 1))
+	countdown_label.add_theme_constant_override("outline_size", 8)
+	countdown_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	countdown_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	countdown_overlay.add_child(countdown_label)
+
+	await get_tree().process_frame
+	countdown_label.pivot_offset = countdown_label.size / 2.0
+
+
+func _play_countdown_then_start() -> void:
+	"""Play 3-2-1-START! countdown then activate the timer"""
+	countdown_overlay.show()
+	countdown_label.pivot_offset = countdown_label.size / 2.0
+
+	var steps = [["3", Color(0.9, 0.3, 0.3, 1)], ["2", Color(0.9, 0.7, 0.2, 1)], ["1", Color(0.3, 0.85, 0.4, 1)], ["START!", Color(1, 1, 1, 1)]]
+
+	for step in steps:
+		var text = step[0]
+		var color = step[1]
+		countdown_label.text = text
+		countdown_label.add_theme_color_override("font_color", color)
+		countdown_label.scale = Vector2(1.5, 1.5)
+		countdown_label.modulate.a = 1.0
+
+		match text:
+			"3": _play_countdown_sfx(SFX_PATH + "three.mp3")
+			"2": _play_countdown_sfx(SFX_PATH + "two.mp3")
+			"1": _play_countdown_sfx(SFX_PATH + "one.mp3")
+			"START!":
+				_play_countdown_sfx(SFX_PATH + "start.mp3")
+				_play_countdown_sfx(SFX_PATH + "Whistle.mp3")
+
+		var tween = create_tween()
+		tween.set_parallel(true)
+		tween.tween_property(countdown_label, "scale", Vector2(1.0, 1.0), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+		if text == "START!":
+			tween.tween_property(countdown_label, "modulate:a", 0.0, 0.6).set_delay(0.4)
+		await get_tree().create_timer(0.8).timeout
+
+	countdown_overlay.hide()
+	timer_active = true
+
+
+func _play_countdown_sfx(path: String) -> void:
+	var player = AudioStreamPlayer.new()
+	if ResourceLoader.exists(path):
+		player.stream = load(path)
+		player.bus = "SFX"
+		add_child(player)
+		player.play()
+		player.finished.connect(player.queue_free)
+
+
 func _build_tutorial_overlay() -> void:
-	"""Build the tutorial overlay in code using page1.png and page2.png"""
+	"""Build the tutorial overlay in code using protagonist-specific images"""
+	# Determine protagonist suffix
+	var protagonist = "conrad"
+	if PlayerStats and PlayerStats.get("selected_character") != null:
+		protagonist = PlayerStats.selected_character
+	var suffix = "_" + protagonist  # e.g. "_conrad" or "_celestine"
+
 	tutorial_overlay = Control.new()
 	tutorial_overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
 	tutorial_overlay.mouse_filter = Control.MOUSE_FILTER_STOP
@@ -243,7 +325,7 @@ func _build_tutorial_overlay() -> void:
 	tutorial_page1 = _build_tutorial_page(
 		"HOW TO PLAY — Step 1 of 2",
 		"Read the question at the top, then choose the most polite\nand grammatically correct dialogue option.\nWrong choices will be disabled — think carefully before clicking!",
-		"res://assets/tutorials/dialougechoice/page2.png",
+		"res://assets/tutorials/dialougechoice/page2" + suffix + ".png",
 		false
 	)
 	tutorial_overlay.add_child(tutorial_page1)
@@ -252,7 +334,7 @@ func _build_tutorial_overlay() -> void:
 	tutorial_page2 = _build_tutorial_page(
 		"HOW TO PLAY — Step 2 of 2",
 		"After choosing the correct line, the mic panel appears.\nSpeak the sentence clearly into your microphone.\nThe chibi reacts when audio is detected — keep speaking until done!",
-		"res://assets/tutorials/dialougechoice/page1.png",
+		"res://assets/tutorials/dialougechoice/page1" + suffix + ".png",
 		true
 	)
 	tutorial_overlay.add_child(tutorial_page2)
@@ -436,11 +518,14 @@ func _add_tutorial_help_button() -> void:
 	add_child(tutorial_help_button)
 
 func _open_tutorial_popup() -> void:
-	"""Re-open tutorial (pauses timer while open)"""
+	"""Re-open tutorial (pauses timer while open, resumes after done)"""
 	timer_active = false
 	tutorial_overlay.show()
 	tutorial_page1.show()
 	tutorial_page2.hide()
+	# Note: _on_tutorial_done() will resume the timer (no countdown on re-open)
+	# Override: resume timer directly when done button pressed from popup
+	# Done via _on_tutorial_done() which calls _play_countdown_then_start()
 
 func _on_tutorial_next() -> void:
 	tutorial_page1.hide()
@@ -455,7 +540,8 @@ func _on_tutorial_done() -> void:
 		TutorialFlags.mark_seen("dialogue_choice")
 		_add_tutorial_help_button()
 	tutorial_overlay.hide()
-	timer_active = true  # Start/resume timer after tutorial dismissed
+	# Play countdown then start timer
+	_play_countdown_then_start()
 
 func _start_question_mark_idle():
 	"""Continuously bob and sway the question mark above the chibi head"""

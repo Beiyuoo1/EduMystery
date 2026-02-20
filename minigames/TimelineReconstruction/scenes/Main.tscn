@@ -122,11 +122,11 @@ theme_override_constants/separation = 10
 
 [node name="HintButton" type="Button" parent="Panel/VBox/TopBar/HintPanel/HintHBox"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("SubmitNormal")
-theme_override_styles/hover = SubResource("SubmitHover")
-theme_override_styles/pressed = SubResource("SubmitHover")
-theme_override_styles/focus = SubResource("SubmitNormal")
 theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("SubmitNormal")
+theme_override_styles/pressed = SubResource("SubmitHover")
+theme_override_styles/hover = SubResource("SubmitHover")
+theme_override_styles/focus = SubResource("SubmitNormal")
 text = "💡 Use Hint"
 
 [node name="HintCounter" type="Label" parent="Panel/VBox/TopBar/HintPanel/HintHBox"]
@@ -275,8 +275,8 @@ theme_override_styles/focus = SubResource("SubmitNormal")
 text = "✓ Submit Timeline"
 
 [node name="FeedbackPanel" type="NinePatchRect" parent="."]
-texture_filter = 1
 visible = false
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -347,19 +347,19 @@ alignment = 1
 visible = false
 custom_minimum_size = Vector2(180, 55)
 layout_mode = 2
-theme_override_styles/normal = SubResource("SubmitNormal")
-theme_override_styles/hover = SubResource("SubmitHover")
-theme_override_styles/pressed = SubResource("SubmitHover")
-theme_override_styles/focus = SubResource("SubmitNormal")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("SubmitNormal")
+theme_override_styles/pressed = SubResource("SubmitHover")
+theme_override_styles/hover = SubResource("SubmitHover")
+theme_override_styles/focus = SubResource("SubmitNormal")
 text = "🔄 Try Again"
 
 [node name="ContinueButton" type="Button" parent="FeedbackPanel/VBox/ButtonsHBox"]
 custom_minimum_size = Vector2(180, 55)
 layout_mode = 2
-theme_override_styles/normal = SubResource("SubmitNormal")
-theme_override_styles/hover = SubResource("SubmitHover")
-theme_override_styles/pressed = SubResource("SubmitHover")
-theme_override_styles/focus = SubResource("SubmitNormal")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("SubmitNormal")
+theme_override_styles/pressed = SubResource("SubmitHover")
+theme_override_styles/hover = SubResource("SubmitHover")
+theme_override_styles/focus = SubResource("SubmitNormal")
 text = "→ Continue"

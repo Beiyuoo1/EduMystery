@@ -16,7 +16,8 @@ if {selected_character} == "celestine":
 	...
 	[voice path="res://assets/audio/voice/Chapter 1/C1s2/The_protagonist_immediately.mp3" volume="0.0" bus="Voice"]
 	The protagonist  immediately went to the classroom.
-	The protagonist chest tightening with every step. When she reached the door, she froze.
+	[voice path="res://assets/audio/voice/Chapter 1/C1s2/The_protagonist_chest.mp3" volume="0.0"]
+	The protagonist's chest tightened with every step, upon reaching the door.
 	join Celestine (half) left
 	Celestine: (Okay, Celestine, get it together)
 	if {selected_subject} == "english":
@@ -92,7 +93,8 @@ else:
 	...
 	[voice path="res://assets/audio/voice/Chapter 1/C1s2/The_protagonist_immediately.mp3" volume="0.0" bus="Voice"]
 	The protagonist immediately went to the classroom
-	The protagonist chest tightening with every step. When he reached the door, he froze.
+	[voice path="res://assets/audio/voice/Chapter 1/C1s2/The_protagonist_chest.mp3" volume="0.0"]
+	The protagonist's chest tightened with every step, upon reaching the door.
 	join Conrad (half) left
 	Conrad: (Okay, Conrad, get it together)
 	if {selected_subject} == "english":
@@ -113,7 +115,7 @@ else:
 		[signal arg="start_minigame evaporation_analysis_science"]
 	[background arg="res://Bg/storage_room.png" fade="0.0"]
 	[voice path="res://assets/audio/voice/Chapter 1/C1s2/The_protagonist_enters.mp3" volume="0.0" bus="Voice"]
-	The protagonist enters the Storage Room.
+	The protagonist enters the storage Room.
 	join Conrad (half) left [animation="Slide From Left" length="3.6"]
 	join "Janitor Fred" (Janitor_half) right [animation="Slide From Right" length="1.5" move_time="2.0"]
 	Conrad: Good afternoon, sir. I was hoping you could help me. I'm looking for something I lost in this room—have you come across anything unusual while you were sweeping?

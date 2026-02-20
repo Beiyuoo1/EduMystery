@@ -76,8 +76,8 @@ const SFX_PATH := "res://assets/audio/sound_effect/timeline_analysis_minigame/"
 # Drag-and-drop state
 var currently_dragging_card: Control = null
 
-# Tutorial first-time tracking (persists for session)
-static var seen_tutorial: bool = false
+# Tutorial first-time tracking (resets each scene load)
+var seen_tutorial: bool = false
 
 # Countdown overlay
 var countdown_overlay: ColorRect
@@ -126,13 +126,15 @@ func _create_tutorial() -> void:
 	panel_style.border_width_right = 3
 	panel_style.border_width_bottom = 3
 	panel_style.border_color = Color(0.4, 0.5, 0.6, 0.5)
+	panel_style.content_margin_bottom = 40
 	tutorial_panel.add_theme_stylebox_override("panel", panel_style)
 
 	tutorial_overlay.add_child(tutorial_panel)
 
-	# VBox for content
+	# VBox for content — offset_bottom shrinks it from the bottom, creating space
 	var vbox = VBoxContainer.new()
 	vbox.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	vbox.offset_bottom = -40
 	vbox.add_theme_constant_override("separation", 20)
 	tutorial_panel.add_child(vbox)
 
@@ -171,11 +173,18 @@ func _create_tutorial() -> void:
 	tutorial_instructions.scroll_active = false
 	content_vbox.add_child(tutorial_instructions)
 
-	# Button container
+	# Button container with bottom spacing
+	var btn_margin = MarginContainer.new()
+	btn_margin.add_theme_constant_override("margin_top", 0)
+	btn_margin.add_theme_constant_override("margin_bottom", 24)
+	btn_margin.add_theme_constant_override("margin_left", 0)
+	btn_margin.add_theme_constant_override("margin_right", 0)
+	content_vbox.add_child(btn_margin)
+
 	tutorial_button_container = HBoxContainer.new()
 	tutorial_button_container.alignment = BoxContainer.ALIGNMENT_CENTER
 	tutorial_button_container.add_theme_constant_override("separation", 15)
-	content_vbox.add_child(tutorial_button_container)
+	btn_margin.add_child(tutorial_button_container)
 
 	# Back button
 	tutorial_back_button = Button.new()
@@ -203,6 +212,11 @@ func _create_tutorial() -> void:
 	tutorial_start_button.pressed.connect(_on_tutorial_start_pressed)
 	_style_tutorial_button(tutorial_start_button, Color(0.25, 0.65, 0.35, 0.95), Color(0.3, 0.75, 0.45, 1.0))
 	tutorial_button_container.add_child(tutorial_start_button)
+
+	# Bottom spacer so panel has breathing room below the button
+	var bottom_spacer = Control.new()
+	bottom_spacer.custom_minimum_size = Vector2(0, 24)
+	content_vbox.add_child(bottom_spacer)
 
 	# Hide tutorial initially
 	tutorial_overlay.hide()
@@ -243,9 +257,9 @@ func _update_tutorial_page() -> void:
 	"""Update tutorial content based on current page"""
 	if tutorial_current_page == 0:
 		# Page 1: How to Play - tall panel for large image
-		tutorial_panel.custom_minimum_size = Vector2(800, 650)
-		tutorial_panel.offset_top = -325
-		tutorial_panel.offset_bottom = 325
+		tutorial_panel.custom_minimum_size = Vector2(800, 690)
+		tutorial_panel.offset_top = -345
+		tutorial_panel.offset_bottom = 345
 		tutorial_title.text = "📚 How to Play"
 		tutorial_instructions.text = "[center][color=#A0D8EF]Click orange cards to place them in timeline slots (1→5)[/color]\n[color=#A0D8EF]Click cards in timeline to return them to the pool[/color]\n[color=#A0D8EF]Arrange all events in correct chronological order[/color][/center]"
 

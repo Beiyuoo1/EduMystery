@@ -24,7 +24,11 @@ func _ready() -> void:
 	if MinigameManager and not MinigameManager.vosk_is_loaded:
 		set_process(true)
 	else:
-		_start_background_music()
+		# On web, Chrome blocks audio until user interacts with the page.
+		# Music will start on first button hover/click via _on_any_input().
+		if OS.get_name() != "Web":
+			_start_background_music()
+
 
 	# Check if any saves exist to enable/disable continue button
 	var has_save = Dialogic.Save.has_slot("continue_save")
@@ -75,12 +79,19 @@ func _input(event: InputEvent) -> void:
 			print("DEBUG: Save data cleared!")
 			continue_button.disabled = true
 
+	# On web, start music on first user interaction (Chrome autoplay policy)
+	if OS.get_name() == "Web" and not music_started and not music_manually_stopped:
+		if event is InputEventMouseButton or event is InputEventKey:
+			_start_background_music()
+
 func _process(_delta: float) -> void:
 	# Check if Vosk has finished loading and start music
 	# But don't auto-restart if music was manually stopped
 	if not music_started and not music_manually_stopped and MinigameManager and MinigameManager.vosk_is_loaded:
-		_start_background_music()
-		set_process(false)  # Stop processing once music starts
+		# On web, defer to _input for user-gesture-gated audio start
+		if OS.get_name() != "Web":
+			_start_background_music()
+			set_process(false)  # Stop processing once music starts
 
 func _start_background_music() -> void:
 	if background_music and not music_started:

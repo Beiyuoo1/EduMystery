@@ -1,13 +1,11 @@
-[gd_resource type="Theme" format=3]
-
-[resource]
-default_font_size = 16
-
-; HSeparator styling - modern thin line
-HSeparator/constants/separation = 10
-HSeparator/styles/separator = SubResource("StyleBoxFlat_1")
+[gd_resource type="Theme" load_steps=2 format=3]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
 bg_color = Color(0.4, 0.5, 0.6, 0.3)
-content_margin_top = 1
-content_margin_bottom = 1
+content_margin_top = 1.0
+content_margin_bottom = 1.0
+
+[resource]
+default_font_size = 162
+HSeparator/constants/separation = 10
+HSeparator/styles/separator = SubResource("StyleBoxFlat_1")

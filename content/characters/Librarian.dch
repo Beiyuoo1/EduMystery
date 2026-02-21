@@ -1,0 +1,29 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(1, 1, 1, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "half",
+&"description": "",
+&"display_name": "Librarian",
+&"mirror": false,
+&"nicknames": [""],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"half": {
+"export_overrides": {},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 0.8,
+"scene": "res://scenes/portraits/librarian_animated_portrait.tscn"
+}
+},
+&"scale": 1.0
+}

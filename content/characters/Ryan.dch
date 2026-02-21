@@ -27,13 +27,32 @@
 "scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
 },
 "half": {
-"export_overrides": {
-"image": "\"res://Sprites/Ryan_half.png\""
-},
+"export_overrides": {},
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 0.8,
 "scene": "res://scenes/portraits/ryan_animated_portrait.tscn"
+},
+"animated_angry": {
+"export_overrides": {},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 0.8,
+"scene": "res://scenes/portraits/ryan_angry_animated_portrait.tscn"
+},
+"animated_cry": {
+"export_overrides": {},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 0.8,
+"scene": "res://scenes/portraits/ryan_cry_animated_portrait.tscn"
+},
+"animated_sad": {
+"export_overrides": {},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 0.8,
+"scene": "res://scenes/portraits/ryan_sad_animated_portrait.tscn"
 }
 },
 &"scale": 1.0

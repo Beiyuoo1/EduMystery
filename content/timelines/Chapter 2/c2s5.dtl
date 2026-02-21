@@ -27,6 +27,7 @@ if {selected_character} == "celestine":
 	Ryan: What are you two doing here? This storage is off-limits to non-committee members.
 	Celestine: We found something interesting in the computer lab.
 	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryans_jaw_tightens_almost_imperceptibly.mp3" volume="0.0"]
+	join Ryan (animated_angry) right
 	Ryan's jaw tightens almost imperceptibly.
 	Ryan: The computer lab is public. Whatever you found has nothing to do with me.
 	Celestine: Really? Then explain this.
@@ -53,6 +54,7 @@ if {selected_character} == "celestine":
 	Celestine: You saw her leave. You took the key from her unlocked drawer. You opened the council room.
 	Celestine: And you took the money.
 	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryan_stands_frozen.mp3" volume="0.0"]
+	join Ryan (animated_sad) right
 	Ryan stands frozen, his eyes darting around the room.
 	Ryan: I...
 	Celestine: Where's the money, Ryan?
@@ -60,6 +62,7 @@ else:
 	Ryan: What are you two doing here? This storage is off-limits to non-committee members.
 	Conrad: We found something interesting in the computer lab.
 	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryans_jaw_tightens_almost_imperceptibly.mp3" volume="0.0"]
+	join Ryan (animated_angry) right
 	Ryan's jaw tightens almost imperceptibly.
 	Ryan: The computer lab is public. Whatever you found has nothing to do with me.
 	Conrad: Really? Then explain this.
@@ -86,6 +89,7 @@ else:
 	Conrad: You saw her leave. You took the key from her unlocked drawer. You opened the council room.
 	Conrad: And you took the money.
 	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryan_stands_frozen.mp3" volume="0.0"]
+	join Ryan (animated_sad) right
 	Ryan stands frozen, his eyes darting around the room.
 	Ryan: I...
 	Conrad: Where's the money, Ryan?
@@ -102,6 +106,7 @@ Mark: Twenty thousand pesos. It's all here.
 [voice path="res://assets/audio/voice/Chapter 2/C2S5/Desperation_floods_Ryans_voice.mp3" volume="0.0"]
 audio music "res://assets/audio/bg/sad.mp3" [loop="true"]
 Desperation floods Ryan's voice.
+join Ryan (animated_angry) right
 Ryan: I wasn't stealing it! I was going to return it!
 if {selected_character} == "celestine":
 	Celestine: Then why take it at all?
@@ -111,6 +116,7 @@ if {selected_character} == "celestine":
 	Celestine: By framing Ria? By making her cry? By letting everyone call her a thief?
 	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryan_flinches_at_the_protagonists_words.mp3" volume="0.0"]
 	Ryan flinches at Celestine's words.
+	join Ryan (animated_sad) right
 	Ryan: I... I didn't think about it that way. I just wanted them to listen to me.
 	Ryan: Nobody ever listens. They just smile and vote no. Over and over.
 	Ryan: I thought if something bad happened, they'd finally pay attention.
@@ -119,6 +125,7 @@ if {selected_character} == "celestine":
 	Celestine: Instead, you chose to hurt someone innocent. Someone who was already scared and alone.
 	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryans_voice_breaks.mp3" volume="0.0"]
 	Ryan's voice breaks.
+	join Ryan (animated_cry) right
 	Ryan: I know. I know that now.
 	Ryan: When I saw Ria crying this morning... I almost told the truth right there.
 	Ryan: But I was too scared. Too proud.
@@ -141,6 +148,7 @@ else:
 	Conrad: By framing Ria? By making her cry? By letting everyone call her a thief?
 	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryan_flinches_at_the_protagonists_words.mp3" volume="0.0"]
 	Ryan flinches at the protagonist's words.
+	join Ryan (animated_sad) right
 	Ryan: I... I didn't think about it that way. I just wanted them to listen to me.
 	Ryan: Nobody ever listens. They just smile and vote no. Over and over.
 	Ryan: I thought if something bad happened, they'd finally pay attention.
@@ -149,6 +157,7 @@ else:
 	Conrad: Instead, you chose to hurt someone innocent. Someone who was already scared and alone.
 	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryans_voice_breaks.mp3" volume="0.0"]
 	Ryan's voice breaks.
+	join Ryan (animated_cry) right
 	Ryan: I know. I know that now.
 	Ryan: When I saw Ria crying this morning... I almost told the truth right there.
 	Ryan: But I was too scared. Too proud.

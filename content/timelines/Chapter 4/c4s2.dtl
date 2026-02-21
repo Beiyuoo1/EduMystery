@@ -102,6 +102,7 @@ if {selected_character} == "celestine":
 	The library is quiet. A few students study at tables.
 	[voice path="res://assets/audio/voice/Chapter 4/c4s2/the_protagonist_approaches.mp3" volume="0.0" bus="Voice"]
 	The protagonist approaches the circulation desk.
+	join Librarian center
 	Celestine: Excuse me. I need to check recent book checkouts, particularly psychology and philosophy sections.
 	[voice path="res://assets/audio/voice/Chapter 4/c4s2/the_librarian_pulls.mp3" volume="0.0" bus="Voice"]
 	The librarian pulls up records on the computer.
@@ -115,6 +116,7 @@ if {selected_character} == "celestine":
 	Librarian: Her sign-in form said "educational history project for Advanced Studies class."
 	Celestine: Can we access the archive?
 	Librarian: With permission, yes. Let me get the key.
+	leave Librarian
 	join "Diwata Laya" (Half) center
 	[signal arg="laya_start"]
 	"Diwata Laya": Knowledge leads to understanding. Test yourself before proceeding.
@@ -145,6 +147,7 @@ else:
 	join Mark (Mark_half) right
 	The library is quiet. A few students study at tables.
 	Conrad approaches the circulation desk.
+	join Librarian center
 	Conrad: Excuse me. I need to check recent book checkouts, particularly psychology and philosophy sections.
 	[voice path="res://assets/audio/voice/Chapter 4/c4s2/the_librarian_pulls.mp3" volume="0.0" bus="Voice"]
 	The librarian pulls up records on the computer.
@@ -158,6 +161,7 @@ else:
 	Librarian: Her sign-in form said "educational history project for Advanced Studies class."
 	Conrad: Can we access the archive?
 	Librarian: With permission, yes. Let me get the key.
+	leave Librarian
 	join "Diwata Laya" (Half) center
 	[signal arg="laya_start"]
 	"Diwata Laya": Knowledge leads to understanding. Test yourself before proceeding.
@@ -189,14 +193,14 @@ if {selected_character} == "celestine":
 	join Mark (Mark_half) right
 	Celestine: Before we go to the archive, let me think about our suspects.
 	Mark: Who should we focus on?
-	- Alex seems most likely - she accessed the archive. [if {c4s2_alex_tried} == false]
+	- Alex seems most likely - she accessed the archive. | [if {c4s2_alex_tried} == false]
 		set {c4s2_alex_tried} = true
 		Celestine: Alex accessed the archive twice. That's unusual for a history project.
 		Celestine: She's also known for being very principled, almost judgmental about others' behavior.
 		Mark: So she could be the type to think she's helping people improve?
 		Celestine: Exactly. Let's focus on her.
 		jump continue_investigation
-	- Maybe a teacher is orchestrating this. [if {c4s2_teacher_tried} == false]
+	- Maybe a teacher is orchestrating this. | [if {c4s2_teacher_tried} == false]
 		set {c4s2_teacher_tried} = true
 		Mark: Teachers have access to archives and student information.
 		Celestine: But the Principal said no teacher has been asking about records.
@@ -204,7 +208,7 @@ if {selected_character} == "celestine":
 		Mark: So probably not a teacher?
 		Celestine: Probably not. Let's keep looking.
 		jump suspect_choice
-	- Could it be someone working with B.C.? [if {c4s2_bc_tried} == false]
+	- Could it be someone working with B.C.? | [if {c4s2_bc_tried} == false]
 		set {c4s2_bc_tried} = true
 		Mark: What if B.C. is behind this after all?
 		Celestine: I don't think so. The style is completely different.
@@ -222,14 +226,14 @@ else:
 	join Mark (Mark_half) right
 	Conrad: Before we go to the archive, let me think about our suspects.
 	Mark: Who should we focus on?
-	- Alex seems most likely - she accessed the archive. [if {c4s2_alex_tried} == false]
+	- Alex seems most likely - she accessed the archive. | [if {c4s2_alex_tried} == false]
 		set {c4s2_alex_tried} = true
 		Conrad: Alex accessed the archive twice. That's unusual for a history project.
 		Conrad: She's also known for being very principled, almost judgmental about others' behavior.
 		Mark: So she could be the type to think she's helping people improve?
 		Conrad: Exactly. Let's focus on her.
 		jump continue_investigation
-	- Maybe a teacher is orchestrating this. [if {c4s2_teacher_tried} == false]
+	- Maybe a teacher is orchestrating this. | [if {c4s2_teacher_tried} == false]
 		set {c4s2_teacher_tried} = true
 		Mark: Teachers have access to archives and student information.
 		Conrad: But the Principal said no teacher has been asking about records.
@@ -237,7 +241,7 @@ else:
 		Mark: So probably not a teacher?
 		Conrad: Probably not. Let's keep looking.
 		jump suspect_choice
-	- Could it be someone working with B.C.? [if {c4s2_bc_tried} == false]
+	- Could it be someone working with B.C.? | [if {c4s2_bc_tried} == false]
 		set {c4s2_bc_tried} = true
 		Mark: What if B.C. is behind this after all?
 		Conrad: I don't think so. The style is completely different.

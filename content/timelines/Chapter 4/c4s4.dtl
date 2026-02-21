@@ -14,6 +14,7 @@ if {selected_character} == "celestine":
 	audio music "res://assets/audio/bg/controversy.mp3" [loop="true"]
 	[voice path="res://assets/audio/voice/Chapter 4/c4s4/alexs_face_goes.mp3" volume="0.0" bus="Voice"]
 	Alex's face goes pale.
+	update Alex (animated_sad) right
 	Alex: I... I don't know what you're talking about.
 	Celestine: The archive access log shows you were there twice. The journal is missing from its catalogued location.
 	Celestine: And the mysterious notes started appearing two days after your first visit.
@@ -30,6 +31,7 @@ else:
 	audio music "res://assets/audio/bg/controversy.mp3" [loop="true"]
 	[voice path="res://assets/audio/voice/Chapter 4/c4s4/alexs_face_goes.mp3" volume="0.0" bus="Voice"]
 	Alex's face goes pale.
+	update Alex (animated_sad) right
 	Alex: I... I don't know what you're talking about.
 	Conrad: The archive access log shows you were there twice. The journal is missing from its catalogued location.
 	Conrad: And the mysterious notes started appearing two days after your first visit.
@@ -70,13 +72,13 @@ if {selected_character} == "celestine":
 	Celestine: They manipulated students without consent. They caused harm while trying to teach.
 	Celestine: You found their methods and repeated their mistakes.
 	[voice path="res://assets/audio/voice/Chapter 4/c4s4/alexs_eyes_begin.mp3" volume="0.0" bus="Voice"]
+	join Alex (animated_cry) right
 	Alex's eyes begin to fill with tears.
 	Alex: I just... I wanted to help. I wanted to matter, to make a difference like you do.
 	Mark: Celestine helps people who ask for help. She doesn't force lessons on people.
 	Celestine: The students you sent notes to didn't consent to you teaching.
 	Celestine: You violated their privacy, judged their choices, and made them feel unsafe.
 	Celestine: That's not teaching. That's manipulation.
-	Alex covers her face with her hands.
 	Alex: What have I done? I thought I was doing something good.
 	Celestine: You had good intentions. But intentions aren't enough.
 	Celestine: Real wisdom is knowing when you don't have the right to interfere in someone else's life.
@@ -130,13 +132,13 @@ else:
 	Conrad: They manipulated students without consent. They caused harm while trying to teach.
 	Conrad: You found their methods and repeated their mistakes.
 	[voice path="res://assets/audio/voice/Chapter 4/c4s4/alexs_eyes_begin.mp3" volume="0.0" bus="Voice"]
+	update Alex (animated_cry) right
 	Alex's eyes begin to fill with tears.
 	Alex: I just... I wanted to help. I wanted to matter, to make a difference like you do.
 	Mark: Conrad helps people who ask for help. He doesn't force lessons on people.
 	Conrad: The students you sent notes to didn't consent to you teaching.
 	Conrad: You violated their privacy, judged their choices, and made them feel unsafe.
 	Conrad: That's not teaching. That's manipulation.
-	Alex covers her face with her hands.
 	Alex: What have I done? I thought I was doing something good.
 	Conrad: You had good intentions. But intentions aren't enough.
 	Conrad: Real wisdom is knowing when you don't have the right to interfere in someone else's life.

@@ -2,7 +2,7 @@ audio music "res://assets/audio/bg/chill3.mp3" [loop="true"]
 [background arg="res://Bg/principal_office.png" fade="1.0"]
 [voice path="res://assets/audio/voice/Chapter 4/c4s5/alex_stands_before.mp3" volume="0.0" bus="Voice"]
 Alex stands before the Principal's desk, the leather-bound journal in her hands.
-join Alex (half) center
+join Alex (animated_sad) center
 join Principal (Principal_half) right
 if {selected_character} == "celestine":
 	join Celestine (animated) left

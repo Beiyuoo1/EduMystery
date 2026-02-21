@@ -108,7 +108,7 @@ func _preload_vosk_async():
 	await get_tree().create_timer(1.0).timeout
 
 	# Actually initialize Vosk (this is the slow part)
-	shared_vosk_recognizer = GodotVoskRecognizer.new()
+	shared_vosk_recognizer = ClassDB.instantiate("GodotVoskRecognizer")
 	var absolute_path = ProjectSettings.globalize_path(VOSK_MODEL_PATH)
 
 	# Continue progress animation

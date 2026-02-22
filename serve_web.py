@@ -10,10 +10,18 @@ import http.server
 import socketserver
 import os
 import re
+import shutil
 
 PORT = 8080
-WEB_DIR = os.path.join(os.path.dirname(__file__), "web")
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+WEB_DIR = os.path.join(ROOT_DIR, "web")
 INDEX_PATH = os.path.join(WEB_DIR, "index.html")
+
+# Audio files to copy into web/ folder so browser Audio API can access them
+# Format: (source_path_relative_to_project, destination_filename_in_web)
+WEB_AUDIO_FILES = [
+    (os.path.join("Bg", "main menu bg music.mp3"), "bgmusic.mp3"),
+]
 
 # AudioContext unlock script - injected into index.html before <script src="index.js">
 # Chrome's autoplay policy suspends AudioContext until user gesture.
@@ -51,6 +59,17 @@ AUDIO_UNLOCK_SCRIPT = """
 })();
 \t\t</script>
 """
+
+def copy_audio_files():
+    """Copy audio files into web/ folder so browser Audio API can serve them."""
+    for src_rel, dest_name in WEB_AUDIO_FILES:
+        src = os.path.join(ROOT_DIR, src_rel)
+        dest = os.path.join(WEB_DIR, dest_name)
+        if not os.path.exists(src):
+            print(f"  WARNING: Audio source not found: {src_rel}")
+            continue
+        shutil.copy2(src, dest)
+        print(f"  Copied {src_rel} -> web/{dest_name}")
 
 def patch_index_html():
     """Inject AudioContext unlock into index.html if not already present."""
@@ -97,6 +116,9 @@ if __name__ == "__main__":
     print("=" * 50)
     print("  EduMys Web Server")
     print("=" * 50)
+
+    # Copy audio files so browser Audio API can access them
+    copy_audio_files()
 
     # Auto-patch index.html every time the server starts
     patch_index_html()

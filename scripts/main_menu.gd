@@ -103,35 +103,31 @@ func _process(_delta: float) -> void:
 
 func _start_background_music() -> void:
 	if background_music and not music_started:
-		# On web: non-Master buses are silent due to Godot 4.5 regression (GitHub #100102)
-		# Route directly to Master bus on web as a workaround
-		if OS.get_name() == "Web":
-			background_music.bus = "Master"
-		else:
-			background_music.bus = "Music"
-
-		# On web: use JavaScript bridge to resume AudioContext before playing
-		# This ensures the audio driver is unlocked at the exact moment of playback
+		# On web: Godot 4.5 audio engine doesn't output to browser AudioContext.
+		# Use browser's native Audio API via JavaScriptBridge instead.
+		# The MP3 is copied to web/bgmusic.mp3 by serve_web.py at startup.
 		if OS.get_name() == "Web":
 			JavaScriptBridge.eval("""
 				(function() {
-					if (window.AudioContext || window.webkitAudioContext) {
-						var ctx = window._godotAudioContext;
-						if (!ctx) {
-							var AC = window.AudioContext || window.webkitAudioContext;
-							ctx = new AC();
-							window._godotAudioContext = ctx;
-						}
-						if (ctx.state === 'suspended') {
-							ctx.resume().then(function() {
-								console.log('[AudioFix] Resumed via GDScript bridge');
-							});
-						} else {
-							console.log('[AudioFix] Context already running: ' + ctx.state);
-						}
+					if (window._webBgMusic) {
+						window._webBgMusic.pause();
 					}
+					var audio = new Audio('bgmusic.mp3');
+					audio.loop = true;
+					audio.volume = 0.8;
+					audio.play().then(function() {
+						console.log('[AudioFix] Browser Audio API playing music!');
+					}).catch(function(e) {
+						console.log('[AudioFix] Browser Audio API failed: ' + e);
+					});
+					window._webBgMusic = audio;
 				})();
 			""")
+			music_started = true
+			print("Main menu background music started (web browser Audio API)")
+			return
+		else:
+			background_music.bus = "Music"
 
 		# Debug: Check Music bus volume and mute state before starting
 		var music_bus_idx = AudioServer.get_bus_index("Music")
@@ -151,8 +147,9 @@ func stop_background_music() -> void:
 	"""Public function to stop background music (called when loading save)"""
 	if background_music and background_music.playing:
 		background_music.stop()
-		music_started = false
-		print("Main menu background music stopped")
+	_stop_web_music()
+	music_started = false
+	print("Main menu background music stopped")
 
 func _on_load_screen_closed() -> void:
 	"""Called when load screen close button is pressed - restart music"""
@@ -170,10 +167,15 @@ func _on_load_screen_closed() -> void:
 	else:
 		print("DEBUG: Music already started, not restarting")
 
+func _stop_web_music() -> void:
+	if OS.get_name() == "Web":
+		JavaScriptBridge.eval("if(window._webBgMusic){window._webBgMusic.pause();window._webBgMusic=null;}")
+
 func _on_new_game_pressed() -> void:
 	# Stop background music
 	if background_music and background_music.playing:
 		background_music.stop()
+	_stop_web_music()
 
 	# Reset player stats for new game
 	PlayerStats.reset_stats()

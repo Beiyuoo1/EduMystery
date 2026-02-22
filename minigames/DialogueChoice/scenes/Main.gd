@@ -90,7 +90,7 @@ const AUTO_SKIP_WORDS = ["a", "an", "the", "i", "to", "of", "in", "is", "it", "b
 # Vosk configuration
 const MODEL_PATH = "res://addons/vosk/models/vosk-model-en-us-0.22"  # Large model for better accuracy
 const SAMPLE_RATE = 16000.0
-const PHRASE_MATCH_THRESHOLD = 0.45  # 45% of words must match (lenient for non-native speakers)
+const PHRASE_MATCH_THRESHOLD = 0.35  # 35% of words must match (lenient for non-native speakers)
 const AUDIO_CHUNK_SIZE = 2048  # Smaller chunks = faster processing (was 4096)
 
 # Homophone/variant groups - words that should be treated as equivalent
@@ -877,10 +877,10 @@ func _start_web_speech_recognition() -> void:
 	_web_speech_active = true
 	_web_speech_poll_timer = 0.0
 
-	status_label.text = "Speak the sentence above"
+	status_label.text = "🎤 READ THE FULL SENTENCE ABOVE OUT LOUD"
 	transcription_label.text = "Waiting for speech..."
-	progress_label.text = "Listening..."
-	_set_chibi_mic_state(false)
+	progress_label.text = "🔴 Listening — speak now!"
+	_set_chibi_mic_state(true)
 
 	# Inject Web Speech API listener into the browser.
 	# Results are stored in window._speechResult (dict with 'transcript' and 'done' keys).

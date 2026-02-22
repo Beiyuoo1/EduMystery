@@ -8,6 +8,10 @@ var is_ready := false  # Flag to indicate AudioBusSetup has finished initializat
 func _ready() -> void:
 	_ensure_audio_buses()
 	_load_and_apply_volume_settings()
+	# Workaround for Godot 4.5 web export bug: non-Master buses are silent
+	# (GitHub issue #100102). On web, reroute all buses to send to Master.
+	if OS.get_name() == "Web":
+		_fix_web_audio_buses()
 	is_ready = true  # Signal that setup is complete
 	print("Audio buses initialized and volume settings loaded")
 
@@ -71,6 +75,15 @@ func _load_and_apply_volume_settings() -> void:
 	if music_bus_idx >= 0:
 		var actual_db = AudioServer.get_bus_volume_db(music_bus_idx)
 		print("DEBUG: Music bus actual volume = ", actual_db, " dB")
+
+func _fix_web_audio_buses() -> void:
+	"""On web, non-Master buses are silent (Godot 4.5 bug #100102).
+	Set all buses to send directly to Master so audio is audible."""
+	for bus_name in ["Music", "SFX", "Voice"]:
+		var idx = AudioServer.get_bus_index(bus_name)
+		if idx >= 0:
+			AudioServer.set_bus_send(idx, "Master")
+			print("Web audio fix: rerouted ", bus_name, " bus to Master")
 
 func _apply_audio_volume(bus_name: String, volume_percent: float) -> void:
 	"""Convert percentage (0-100) to dB and apply to audio bus"""

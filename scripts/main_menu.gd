@@ -103,8 +103,12 @@ func _process(_delta: float) -> void:
 
 func _start_background_music() -> void:
 	if background_music and not music_started:
-		# Explicitly set bus to Music (fixes .tscn file not loading correctly on first run)
-		background_music.bus = "Music"
+		# On web: non-Master buses are silent due to Godot 4.5 regression (GitHub #100102)
+		# Route directly to Master bus on web as a workaround
+		if OS.get_name() == "Web":
+			background_music.bus = "Master"
+		else:
+			background_music.bus = "Music"
 
 		# On web: use JavaScript bridge to resume AudioContext before playing
 		# This ensures the audio driver is unlocked at the exact moment of playback

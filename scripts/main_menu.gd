@@ -83,9 +83,13 @@ func _input(event: InputEvent) -> void:
 			print("DEBUG: Save data cleared!")
 			continue_button.disabled = true
 
-	# On web, start music on first user interaction (Chrome autoplay policy)
+	# On web, start music on first REAL user interaction (Chrome autoplay policy)
+	# Must check .pressed to avoid synthetic/internal Godot events firing this
 	if OS.get_name() == "Web" and not music_started and not music_manually_stopped:
-		if event is InputEventMouseButton or event is InputEventKey:
+		var is_real_click = event is InputEventMouseButton and event.pressed
+		var is_real_key = event is InputEventKey and event.pressed and not event.echo
+		if is_real_click or is_real_key:
+			print("DEBUG: Real user gesture detected on web, starting music")
 			_start_background_music()
 
 func _process(_delta: float) -> void:

@@ -106,6 +106,29 @@ func _start_background_music() -> void:
 		# Explicitly set bus to Music (fixes .tscn file not loading correctly on first run)
 		background_music.bus = "Music"
 
+		# On web: use JavaScript bridge to resume AudioContext before playing
+		# This ensures the audio driver is unlocked at the exact moment of playback
+		if OS.get_name() == "Web":
+			JavaScriptBridge.eval("""
+				(function() {
+					if (window.AudioContext || window.webkitAudioContext) {
+						var ctx = window._godotAudioContext;
+						if (!ctx) {
+							var AC = window.AudioContext || window.webkitAudioContext;
+							ctx = new AC();
+							window._godotAudioContext = ctx;
+						}
+						if (ctx.state === 'suspended') {
+							ctx.resume().then(function() {
+								console.log('[AudioFix] Resumed via GDScript bridge');
+							});
+						} else {
+							console.log('[AudioFix] Context already running: ' + ctx.state);
+						}
+					}
+				})();
+			""")
+
 		# Debug: Check Music bus volume and mute state before starting
 		var music_bus_idx = AudioServer.get_bus_index("Music")
 		if music_bus_idx >= 0:

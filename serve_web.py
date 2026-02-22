@@ -33,8 +33,15 @@ AUDIO_UNLOCK_SCRIPT = """
 \twindow.AudioContext = _PatchedAudioContext;
 \tif (window.webkitAudioContext) window.webkitAudioContext = _PatchedAudioContext;
 \tfunction resumeAudio() {
-\t\tif (window._godotAudioContext && window._godotAudioContext.state === 'suspended') {
-\t\t\twindow._godotAudioContext.resume();
+\t\tif (window._godotAudioContext) {
+\t\t\tconsole.log('[AudioFix] AudioContext state:', window._godotAudioContext.state);
+\t\t\tif (window._godotAudioContext.state === 'suspended') {
+\t\t\t\twindow._godotAudioContext.resume().then(function() {
+\t\t\t\t\tconsole.log('[AudioFix] AudioContext resumed!');
+\t\t\t\t});
+\t\t\t}
+\t\t} else {
+\t\t\tconsole.log('[AudioFix] No AudioContext captured yet');
 \t\t}
 \t}
 \tdocument.addEventListener('click', resumeAudio, true);

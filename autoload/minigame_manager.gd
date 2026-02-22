@@ -2890,6 +2890,25 @@ func _get_subject_variant_id(base_id: String) -> String:
 
 func _play_minigame_music(volume_db: float = MINIGAME_MUSIC_FULL_VOLUME) -> void:
 	"""Start looping minigame background music at the given volume."""
+	if OS.get_name() == "Web":
+		# Pause the current in-game bg music and play minigame music via browser Audio API
+		var music_vol: float = DialogicSignalHandler._web_music_volume()
+		JavaScriptBridge.eval("""
+			(function() {
+				// Save and pause current in-game music
+				if (window._webGameMusic) {
+					window._webGameMusicSaved = window._webGameMusic;
+					window._webGameMusicSaved.pause();
+				}
+				// Play minigame music
+				var audio = new Audio('audio_minigame.mp3');
+				audio.loop = true;
+				audio.volume = %s;
+				audio.play().catch(function(e) { console.log('[MinigameBGM] failed: ' + e); });
+				window._webMinigameMusic = audio;
+			})();
+		""" % music_vol)
+		return
 	if minigame_music_player and is_instance_valid(minigame_music_player):
 		minigame_music_player.queue_free()
 	minigame_music_player = AudioStreamPlayer.new()
@@ -2903,6 +2922,22 @@ func _play_minigame_music(volume_db: float = MINIGAME_MUSIC_FULL_VOLUME) -> void
 
 func _stop_minigame_music() -> void:
 	"""Stop and clean up the minigame background music."""
+	if OS.get_name() == "Web":
+		# Stop minigame music and resume the saved in-game bg music
+		JavaScriptBridge.eval("""
+			(function() {
+				if (window._webMinigameMusic) {
+					window._webMinigameMusic.pause();
+					window._webMinigameMusic = null;
+				}
+				if (window._webGameMusicSaved) {
+					window._webGameMusic = window._webGameMusicSaved;
+					window._webGameMusicSaved = null;
+					window._webGameMusic.play().catch(function(e) { console.log('[MinigameBGM] resume failed: ' + e); });
+				}
+			})();
+		""")
+		return
 	if minigame_music_player and is_instance_valid(minigame_music_player):
 		minigame_music_player.queue_free()
 		minigame_music_player = null

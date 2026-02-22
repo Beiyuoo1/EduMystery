@@ -1,7 +1,216 @@
 extends Node
 
+## Maps res:// SFX paths to web-served filenames (copied by serve_web.py)
+## Used by minigame _play_sfx() functions on web.
+const WEB_SFX_MAP := {
+	"res://assets/audio/sound_effect/correct.wav":   "sfx_correct.wav",
+	"res://assets/audio/sound_effect/wrong.wav":     "sfx_wrong.wav",
+	"res://assets/audio/sound_effect/clue_found.wav": "sfx_clue_found.wav",
+	"res://assets/audio/sound_effect/Vase Breaking (Sound Effect).mp3": "sfx_vase_breaking.mp3",
+	"res://assets/audio/sound_effect/timeline_analysis_minigame/card_sound_effect.wav": "sfx_card.wav",
+	"res://assets/audio/sound_effect/timeline_analysis_minigame/one.mp3":   "sfx_one.mp3",
+	"res://assets/audio/sound_effect/timeline_analysis_minigame/two.mp3":   "sfx_two.mp3",
+	"res://assets/audio/sound_effect/timeline_analysis_minigame/three.mp3": "sfx_three.mp3",
+	"res://assets/audio/sound_effect/timeline_analysis_minigame/start.mp3": "sfx_start.mp3",
+	"res://assets/audio/sound_effect/timeline_analysis_minigame/Whistle.mp3": "sfx_whistle.mp3",
+	"res://assets/audio/sound_effect/timeline_analysis_minigame/one_minute_left.mp3":     "sfx_one_minute_left.mp3",
+	"res://assets/audio/sound_effect/timeline_analysis_minigame/thirty_seconds_left.mp3": "sfx_thirty_seconds_left.mp3",
+	"res://assets/audio/sound_effect/timeline_analysis_minigame/ten_seconds_left.mp3":    "sfx_ten_seconds_left.mp3",
+}
+
+## Maps res:// audio paths to web-served filenames (copied by serve_web.py)
+const WEB_AUDIO_MAP := {
+	"res://assets/audio/bg/suspicious.mp3":   "audio_suspicious.mp3",
+	"res://assets/audio/bg/suspicious2.mp3":  "audio_suspicious2.mp3",
+	"res://assets/audio/bg/suspicious3.mp3":  "audio_suspicious3.mp3",
+	"res://assets/audio/bg/chill.mp3":        "audio_chill.mp3",
+	"res://assets/audio/bg/chill2.mp3":       "audio_chill2.mp3",
+	"res://assets/audio/bg/chill3.mp3":       "audio_chill3.mp3",
+	"res://assets/audio/bg/controversy.mp3":  "audio_controversy.mp3",
+	"res://assets/audio/bg/sad.mp3":          "audio_sad.mp3",
+	"res://assets/audio/bg/night.mp3":        "audio_night.mp3",
+	"res://assets/audio/bg/final.mp3":        "audio_final.mp3",
+	"res://assets/audio/bg/Break it Down -elp version-.mp3": "audio_breakitdown.mp3",
+	"res://assets/audio/bg/Alleycat.mp3":     "audio_alleycat.mp3",
+	"res://assets/audio/chapter_end_bg.mp3":  "audio_chapter_end_bg.mp3",
+	"res://assets/audio/minigame.mp3":        "audio_minigame.mp3",
+	"res://assets/audio/comfortable-mystery-4.mp3": "audio_comfortable_mystery.mp3",
+}
+
 func _ready():
 	Dialogic.signal_event.connect(_on_dialogic_signal)
+
+	# On web, Godot's audio engine produces no output (Godot #100102).
+	# Intercept Dialogic audio events and play via browser Audio API instead.
+	if OS.get_name() == "Web":
+		Dialogic.Audio.audio_started.connect(_on_web_dialogic_audio_started)
+		Dialogic.Voice.voiceline_started.connect(_on_web_voice_started)
+		Dialogic.Voice.voiceline_stopped.connect(_on_web_voice_stopped)
+		Dialogic.timeline_ended.connect(_on_web_timeline_ended)
+
+func play_web_sfx(path: String) -> void:
+	"""Play a sound effect via browser Audio API on web (fire-and-forget, allows overlap).
+	Called from minigame _play_sfx() when OS.get_name() == 'Web'."""
+	if not WEB_SFX_MAP.has(path):
+		print("DEBUG Web SFX: No mapping for: ", path)
+		return
+	var web_file: String = WEB_SFX_MAP[path]
+	var sfx_vol: float = _web_sfx_volume()
+	# Each SFX gets its own Audio element so they can overlap (fire and forget)
+	JavaScriptBridge.eval("""
+		(function() {
+			var audio = new Audio('%s');
+			audio.volume = %s;
+			audio.play().catch(function(e) {
+				console.log('[SFX] Failed: ' + e);
+			});
+		})();
+	""" % [web_file, sfx_vol])
+
+
+func _web_sfx_volume() -> float:
+	"""Read saved SFX volume (sfx% * master%) from settings.cfg, default 1.0."""
+	var cfg := ConfigFile.new()
+	if cfg.load("user://settings.cfg") == OK:
+		var sfx_pct: float = cfg.get_value("audio", "sfx_volume", 80.0) / 100.0
+		var master_pct: float = cfg.get_value("audio", "master_volume", 100.0) / 100.0
+		return clamp(sfx_pct * master_pct, 0.0, 1.0)
+	return 0.8
+
+
+func _web_music_volume() -> float:
+	"""Read saved music volume (music% * master%) from settings.cfg, default 0.35."""
+	var cfg := ConfigFile.new()
+	if cfg.load("user://settings.cfg") == OK:
+		var music_pct: float = cfg.get_value("audio", "music_volume", 35.0) / 100.0
+		var master_pct: float = cfg.get_value("audio", "master_volume", 100.0) / 100.0
+		return clamp(music_pct * master_pct, 0.0, 1.0)
+	return 0.35
+
+func _web_voice_volume() -> float:
+	"""Read saved voice volume (voice% * master%) from settings.cfg, default 1.0."""
+	var cfg := ConfigFile.new()
+	if cfg.load("user://settings.cfg") == OK:
+		var voice_pct: float = cfg.get_value("audio", "voice_volume", 100.0) / 100.0
+		var master_pct: float = cfg.get_value("audio", "master_volume", 100.0) / 100.0
+		return clamp(voice_pct * master_pct, 0.0, 1.0)
+	return 1.0
+
+
+func _on_web_dialogic_audio_started(info: Dictionary) -> void:
+	"""Handle Dialogic background music on web via browser Audio API.
+	Called when Dialogic plays audio on any channel (music, ambient, etc.)."""
+	var path: String = info.get("path", "")
+	if path.is_empty():
+		return
+
+	# If path is empty or not in our map, stop current web music and return
+	if not WEB_AUDIO_MAP.has(path):
+		print("DEBUG Web Audio: No browser mapping for: ", path, " (will be silent on web)")
+		# Stop current in-game web music since Dialogic is changing tracks
+		JavaScriptBridge.eval("if(window._webGameMusic){window._webGameMusic.pause();window._webGameMusic=null;}")
+		return
+
+	var web_filename: String = WEB_AUDIO_MAP[path]
+	# Loop info is nested in settings_overrides dict
+	var settings: Dictionary = info.get("settings_overrides", {})
+	var loop: bool = settings.get("loop", true)
+	var loop_js: String = "true" if loop else "false"
+
+	var music_vol: float = _web_music_volume()
+	print("DEBUG Web Audio: Playing ", web_filename, " (loop=", loop, " vol=", music_vol, ")")
+
+	JavaScriptBridge.eval("""
+		(function() {
+			if (window._webGameMusic) {
+				window._webGameMusic.pause();
+				window._webGameMusic = null;
+			}
+			var audio = new Audio('%s');
+			audio.loop = %s;
+			audio.volume = %s;
+			audio.play().then(function() {
+				console.log('[AudioFix] In-game music playing: %s');
+			}).catch(function(e) {
+				console.log('[AudioFix] In-game music failed: ' + e);
+			});
+			window._webGameMusic = audio;
+		})();
+	""" % [web_filename, loop_js, music_vol, web_filename])
+
+
+func _on_web_voice_stopped(_info: Dictionary) -> void:
+	"""Stop browser voice when Dialogic stops it (e.g., advancing dialogue)."""
+	JavaScriptBridge.eval("if(window._webVoice){window._webVoice.pause();window._webVoice=null;}")
+
+
+func _on_web_timeline_ended() -> void:
+	"""Stop in-game web music when a Dialogic timeline ends."""
+	JavaScriptBridge.eval("if(window._webGameMusic){window._webGameMusic.pause();window._webGameMusic=null;}")
+	JavaScriptBridge.eval("if(window._webVoice){window._webVoice.pause();window._webVoice=null;}")
+
+
+func _web_url_encode(s: String) -> String:
+	"""Percent-encode characters that are unsafe in URLs but common in our voice filenames."""
+	s = s.replace("%", "%25")  # Must be first
+	s = s.replace(" ", "%20")
+	s = s.replace(",", "%2C")
+	s = s.replace("(", "%28")
+	s = s.replace(")", "%29")
+	s = s.replace("'", "%27")
+	s = s.replace("&", "%26")
+	s = s.replace("+", "%2B")
+	s = s.replace("?", "%3F")
+	s = s.replace("#", "%23")
+	return s
+
+
+func _on_web_voice_started(info: Dictionary) -> void:
+	"""Play voice narration on web via browser Audio API.
+	Called when Dialogic plays a voice line (voiceline_started signal).
+	Maps res://assets/audio/voice/... -> voice/... served by serve_web.py."""
+	var path: String = info.get("file", "")
+	if path.is_empty():
+		return
+
+	# Strip the res:// prefix - the file is served from web/voice/...
+	# res://assets/audio/voice/Chapter 1/C1S1/filename.mp3
+	#   ->  voice/Chapter 1/C1S1/filename.mp3
+	var voice_prefix := "res://assets/audio/voice/"
+	if not path.begins_with(voice_prefix):
+		print("DEBUG Web Voice: Unexpected voice path prefix: ", path)
+		return
+
+	var rel_path: String = path.trim_prefix(voice_prefix)
+
+	# URL-encode each path segment separately to preserve slashes
+	var segments := rel_path.split("/")
+	var encoded_segments: PackedStringArray = []
+	for seg in segments:
+		encoded_segments.append(_web_url_encode(seg))
+	var url_path: String = "voice/" + "/".join(encoded_segments)
+
+	var voice_vol: float = _web_voice_volume()
+	print("DEBUG Web Voice: Playing ", url_path, " vol=", voice_vol)
+
+	JavaScriptBridge.eval("""
+		(function() {
+			if (window._webVoice) {
+				window._webVoice.pause();
+				window._webVoice = null;
+			}
+			var audio = new Audio('%s');
+			audio.loop = false;
+			audio.volume = %s;
+			audio.play().then(function() {
+				console.log('[VoiceFix] Voice playing: %s');
+			}).catch(function(e) {
+				console.log('[VoiceFix] Voice failed: ' + e);
+			});
+			window._webVoice = audio;
+		})();
+	""" % [url_path, voice_vol, url_path])
+
 
 func _on_dialogic_signal(argument: String):
 	print("DEBUG: Signal received: ", argument)
@@ -186,11 +395,14 @@ func _show_evidence_unlock_animation(evidence_id: String):
 	get_tree().root.add_child(canvas_layer)
 
 	# Play clue found sound effect
-	var sfx_player = AudioStreamPlayer.new()
-	sfx_player.stream = load("res://assets/audio/sound_effect/clue_found.wav")
-	sfx_player.bus = "SFX"
-	canvas_layer.add_child(sfx_player)
-	sfx_player.play()
+	if OS.get_name() == "Web":
+		play_web_sfx("res://assets/audio/sound_effect/clue_found.wav")
+	else:
+		var sfx_player = AudioStreamPlayer.new()
+		sfx_player.stream = load("res://assets/audio/sound_effect/clue_found.wav")
+		sfx_player.bus = "SFX"
+		canvas_layer.add_child(sfx_player)
+		sfx_player.play()
 
 	# Wait for animation to complete
 	await get_tree().create_timer(3.5).timeout

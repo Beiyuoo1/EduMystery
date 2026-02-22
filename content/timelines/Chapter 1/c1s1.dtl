@@ -52,10 +52,11 @@ else:
 	[voice path="res://assets/audio/voice/Chapter 1/C1S1/Mysteries _had_always_fascinated _him.mp3" volume="10.0" bus="Voice"]
 	Mysteries had always fascinated him, especially since he and his best friends \
 	accidentally solved the missing ID case last semester.
+	audio music - [fade="0.4"]
 	update Conrad left
 	join Mark (Mark_half) right
 	Mark: Hey Conrad, Don't tell me you want to investigate this?
-	audio music "res://assets/audio/bg/suspicious.mp3" [loop="true"]
+	audio music "res://assets/audio/bg/suspicious.mp3" [fade="0.5" loop="true"]
 	Conrad: You know me too well.
 	Mark: Are you sure you wanna do this?
 	Conrad: YESS, now help me.

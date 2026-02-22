@@ -138,11 +138,16 @@ func _on_auto_advance_delay_changed(value: float) -> void:
 func _on_master_volume_changed(value: float) -> void:
 	_apply_audio_volume("Master", value)
 	master_volume_value.text = str(int(value)) + "%"
+	if OS.get_name() == "Web":
+		_apply_web_music_volume()
+		_apply_web_voice_volume()
 	save_settings()
 
 func _on_music_volume_changed(value: float) -> void:
 	_apply_audio_volume("Music", value)
 	music_volume_value.text = str(int(value)) + "%"
+	if OS.get_name() == "Web":
+		_apply_web_music_volume()
 	save_settings()
 
 func _on_sfx_volume_changed(value: float) -> void:
@@ -153,7 +158,23 @@ func _on_sfx_volume_changed(value: float) -> void:
 func _on_voice_volume_changed(value: float) -> void:
 	_apply_audio_volume("Voice", value)
 	voice_volume_value.text = str(int(value)) + "%"
+	if OS.get_name() == "Web":
+		_apply_web_voice_volume()
 	save_settings()
+
+func _apply_web_music_volume() -> void:
+	"""Update browser Audio element volume for music (music% * master%)."""
+	var music_pct: float = music_volume_slider.value / 100.0
+	var master_pct: float = master_volume_slider.value / 100.0
+	var vol: float = clamp(music_pct * master_pct, 0.0, 1.0)
+	JavaScriptBridge.eval("if(window._webBgMusic)window._webBgMusic.volume=%s;if(window._webGameMusic)window._webGameMusic.volume=%s;" % [vol, vol])
+
+func _apply_web_voice_volume() -> void:
+	"""Update browser Audio element volume for voice narration (voice% * master%)."""
+	var voice_pct: float = voice_volume_slider.value / 100.0
+	var master_pct: float = master_volume_slider.value / 100.0
+	var vol: float = clamp(voice_pct * master_pct, 0.0, 1.0)
+	JavaScriptBridge.eval("if(window._webVoice)window._webVoice.volume=%s;" % vol)
 
 func _ensure_audio_buses() -> void:
 	"""Create audio buses if they don't exist"""

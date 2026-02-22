@@ -51,6 +51,9 @@ func reset_color():
 		color = original_color
 
 func _play_sfx(path: String) -> void:
+	if OS.get_name() == "Web":
+		DialogicSignalHandler.play_web_sfx(path)
+		return
 	var player = AudioStreamPlayer.new()
 	player.stream = load(path)
 	player.bus = "SFX"

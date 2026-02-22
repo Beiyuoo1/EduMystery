@@ -19,15 +19,19 @@ func _ready() -> void:
 		await get_tree().process_frame
 
 	print("DEBUG: AudioBusSetup is ready, proceeding with music setup")
+	print("DEBUG: Platform = ", OS.get_name())
 
 	# Wait for Vosk to load before starting background music
 	if MinigameManager and not MinigameManager.vosk_is_loaded:
 		set_process(true)
 	else:
 		# On web, Chrome blocks audio until user interacts with the page.
-		# Music will start on first button hover/click via _on_any_input().
+		# Music will start on first click/keypress via _input().
+		print("DEBUG: Vosk ready, platform check: is_web=", OS.get_name() == "Web")
 		if OS.get_name() != "Web":
 			_start_background_music()
+		else:
+			print("DEBUG: Web platform detected - waiting for user gesture to start music")
 
 
 	# Check if any saves exist to enable/disable continue button

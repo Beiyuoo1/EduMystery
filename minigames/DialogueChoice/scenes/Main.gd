@@ -2,7 +2,13 @@ extends CanvasLayer
 
 # Set to true to skip Vosk entirely — correct choice click completes the minigame directly.
 # Useful for testing layout/logic when Vosk is not working or causes lag.
-const VOSK_BYPASS: bool = false
+# On Web, this is overridden — Web Speech API is used instead.
+const VOSK_BYPASS: bool = true
+
+# Web Speech API state (web-only)
+var _web_speech_active: bool = false
+var _web_speech_poll_timer: float = 0.0
+const WEB_SPEECH_POLL_INTERVAL: float = 0.1
 
 # Node references
 @onready var timer_label = $Control/Panel/MainContainer/VBoxContainer/HeaderContainer/TimerLabel
@@ -69,7 +75,7 @@ var is_listening: bool = false
 var audio_buffer: PackedByteArray = PackedByteArray()
 var silence_timer: float = 0.0
 var has_spoken: bool = false
-const SILENCE_THRESHOLD: float = 1.0  # Stop after 1.0 second of silence (reduced for faster feedback)
+const SILENCE_THRESHOLD: float = 1.2  # Wait 1.2s of silence before checking next word
 var partial_check_timer: float = 0.0
 const PARTIAL_CHECK_INTERVAL: float = 0.1  # Check Vosk partial results every 100ms, not every frame
 
@@ -78,10 +84,13 @@ var current_word_index: int = 0  # Which word we're currently trying to recogniz
 var last_partial_text: String = ""  # Track changes in partial results
 var word_just_recognized: bool = false  # Prevent double-triggering
 
+# Short/filler words that Vosk often drops — auto-skip these
+const AUTO_SKIP_WORDS = ["a", "an", "the", "i", "to", "of", "in", "is", "it", "be", "as", "at", "so", "we", "he", "by", "or", "on", "do", "if", "me", "my", "up", "an", "go", "no", "us", "am"]
+
 # Vosk configuration
 const MODEL_PATH = "res://addons/vosk/models/vosk-model-en-us-0.22"  # Large model for better accuracy
 const SAMPLE_RATE = 16000.0
-const PHRASE_MATCH_THRESHOLD = 0.6  # 60% of words must match
+const PHRASE_MATCH_THRESHOLD = 0.45  # 45% of words must match (lenient for non-native speakers)
 const AUDIO_CHUNK_SIZE = 2048  # Smaller chunks = faster processing (was 4096)
 
 # Homophone/variant groups - words that should be treated as equivalent
@@ -230,7 +239,12 @@ func _ready():
 		# Play countdown then start timer
 		_play_countdown_then_start()
 
-	if VOSK_BYPASS:
+	if OS.get_name() == "Web":
+		# Web: microphone panel stays hidden until correct answer selected.
+		# Web Speech API will be started then.
+		microphone_panel.visible = false
+		print("DialogueChoice: Web mode — will use Web Speech API for pronunciation")
+	elif VOSK_BYPASS:
 		# Bypass mode: no Vosk, no microphone — just click-to-answer
 		microphone_panel.visible = false
 		print("DialogueChoice: VOSK_BYPASS enabled — click correct answer to complete")
@@ -331,9 +345,14 @@ func _build_tutorial_overlay() -> void:
 	tutorial_overlay.add_child(tutorial_page1)
 
 	# --- Page 2: Mic panel (shown second) ---
+	var mic_description: String
+	if OS.get_name() == "Web":
+		mic_description = "After choosing the correct line, the mic panel appears.\nSpeak the sentence clearly — your browser will listen.\nAllow microphone access when prompted. Speak naturally!"
+	else:
+		mic_description = "After choosing the correct line, the mic panel appears.\nSpeak the sentence clearly into your microphone.\nThe chibi reacts when audio is detected — keep speaking until done!"
 	tutorial_page2 = _build_tutorial_page(
 		"HOW TO PLAY — Step 2 of 2",
-		"After choosing the correct line, the mic panel appears.\nSpeak the sentence clearly into your microphone.\nThe chibi reacts when audio is detected — keep speaking until done!",
+		mic_description,
 		"res://assets/tutorials/dialougechoice/page1" + suffix + ".png",
 		true
 	)
@@ -579,6 +598,13 @@ func _process(delta):
 			_on_timer_timeout()
 		_update_timer_display()
 
+	# Poll Web Speech API results (web-only)
+	if _web_speech_active:
+		_web_speech_poll_timer += delta
+		if _web_speech_poll_timer >= WEB_SPEECH_POLL_INTERVAL:
+			_web_speech_poll_timer = 0.0
+			_poll_web_speech()
+
 	# Process audio capture for Vosk (only when actively listening and not bypassed)
 	if VOSK_BYPASS or not is_listening or audio_effect_capture == null:
 		return
@@ -627,7 +653,7 @@ func _process(delta):
 		silence_timer += delta
 		_set_chibi_mic_state(false)  # Chibi goes back to normal during silence
 		if silence_timer >= SILENCE_THRESHOLD:
-			_check_if_sentence_complete()
+			_check_if_word_timed_out()
 
 func _update_timer_display():
 	var minutes = int(time_remaining) / 60
@@ -642,7 +668,10 @@ func _on_choice_selected(choice_index: int):
 		button.disabled = true
 
 	if choice_index == correct_answer:
-		if VOSK_BYPASS:
+		if OS.get_name() == "Web":
+			# Web: show mic panel and start Web Speech API recognition
+			_show_microphone_panel()
+		elif VOSK_BYPASS:
 			# Bypass: show mic panel, animate talking chibi, then auto-complete
 			_show_microphone_panel()
 			# Animate chibi talking for ~1.5s then go back to normal
@@ -693,6 +722,9 @@ func _prepare_target_sentence():
 	print("DEBUG: Target words (", target_words.size(), "): ", target_words)
 
 func _play_sfx(path: String) -> void:
+	if OS.get_name() == "Web":
+		DialogicSignalHandler.play_web_sfx(path)
+		return
 	var player = AudioStreamPlayer.new()
 	player.stream = load(path)
 	player.bus = "SFX"
@@ -810,6 +842,10 @@ func _setup_audio_capture():
 
 func _start_sentence_recognition():
 	"""Start listening for word-by-word sequential recognition"""
+	if OS.get_name() == "Web":
+		_start_web_speech_recognition()
+		return
+
 	if vosk_recognizer == null:
 		# Fallback: Auto-complete after 3 seconds for testing
 		print("WARNING: Vosk not available - auto-completing")
@@ -827,92 +863,238 @@ func _start_sentence_recognition():
 	last_partial_text = ""
 	word_just_recognized = false
 
+	# Auto-skip leading short words Vosk commonly misses
+	_skip_auto_words()
+
 	# Show initial state
 	_update_word_display()
-	status_label.text = "Say the highlighted word!"
+	status_label.text = "Say: " + target_words[current_word_index]
 	transcription_label.text = ""
-	progress_label.text = "Word 1 / " + str(target_words.size())
+	progress_label.text = "Word " + str(current_word_index + 1) + " / " + str(target_words.size())
+
+func _start_web_speech_recognition() -> void:
+	"""Start Web Speech API recognition (Chrome/Edge only)"""
+	_web_speech_active = true
+	_web_speech_poll_timer = 0.0
+
+	status_label.text = "Speak the sentence above"
+	transcription_label.text = "Waiting for speech..."
+	progress_label.text = "Listening..."
+	_set_chibi_mic_state(false)
+
+	# Inject Web Speech API listener into the browser.
+	# Results are stored in window._speechResult (dict with 'transcript' and 'done' keys).
+	# Interim results update window._speechResult.transcript in real-time.
+	JavaScriptBridge.eval("""
+		(function() {
+			window._speechResult = { transcript: '', done: false, error: '' };
+			var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+			if (!SR) {
+				window._speechResult.error = 'not_supported';
+				window._speechResult.done = true;
+				return;
+			}
+			var recog = new SR();
+			recog.lang = 'en-US';
+			recog.interimResults = true;
+			recog.continuous = false;
+			recog.maxAlternatives = 1;
+			recog.onresult = function(e) {
+				var interim = '';
+				var final_t = '';
+				for (var i = e.resultIndex; i < e.results.length; i++) {
+					var t = e.results[i][0].transcript;
+					if (e.results[i].isFinal) { final_t += t; }
+					else { interim += t; }
+				}
+				window._speechResult.transcript = (final_t || interim).trim();
+				if (final_t) {
+					window._speechResult.done = true;
+				}
+			};
+			recog.onerror = function(e) {
+				window._speechResult.error = e.error;
+				window._speechResult.done = true;
+			};
+			recog.onend = function() {
+				window._speechResult.done = true;
+			};
+			window._godotSpeechRecog = recog;
+			recog.start();
+			console.log('[SpeechAPI] Started listening');
+		})();
+	""")
+	print("DialogueChoice: Web Speech API started")
+
+func _stop_web_speech_recognition() -> void:
+	"""Stop the Web Speech API recognizer"""
+	_web_speech_active = false
+	JavaScriptBridge.eval("""
+		if (window._godotSpeechRecog) {
+			try { window._godotSpeechRecog.stop(); } catch(e) {}
+			window._godotSpeechRecog = null;
+		}
+	""")
+
+func _poll_web_speech() -> void:
+	"""Poll window._speechResult for interim/final transcript from Web Speech API"""
+	var transcript: String = JavaScriptBridge.eval("(window._speechResult && window._speechResult.transcript) ? window._speechResult.transcript : ''")
+	var done: bool = bool(JavaScriptBridge.eval("window._speechResult ? window._speechResult.done : false"))
+	var error: String = JavaScriptBridge.eval("(window._speechResult && window._speechResult.error) ? window._speechResult.error : ''")
+
+	# Show interim transcript in real-time
+	if transcript != "":
+		transcription_label.text = "Hearing: " + transcript
+		_set_chibi_mic_state(true)
+
+	if not done:
+		return
+
+	# Recognition session ended — evaluate result
+	_web_speech_active = false
+	_set_chibi_mic_state(false)
+
+	if error != "":
+		print("Web Speech error: ", error)
+		if error == "not_supported":
+			status_label.text = "Speech API not supported in this browser."
+			transcription_label.text = "Try Chrome or Edge."
+			# Auto-complete after showing the message so game isn't stuck
+			await get_tree().create_timer(3.0).timeout
+			_complete_minigame(true)
+		elif error == "no-speech":
+			status_label.text = "No speech detected. Try again!"
+			transcription_label.text = ""
+			# Re-start listening
+			await get_tree().create_timer(1.0).timeout
+			if timer_active:
+				_start_web_speech_recognition()
+		else:
+			status_label.text = "Mic error: " + error + ". Try again!"
+			await get_tree().create_timer(1.5).timeout
+			if timer_active:
+				_start_web_speech_recognition()
+		return
+
+	if transcript.is_empty():
+		# Session ended with no result — restart
+		status_label.text = "Didn't catch that. Try again!"
+		await get_tree().create_timer(0.8).timeout
+		if timer_active:
+			_start_web_speech_recognition()
+		return
+
+	# Evaluate transcript against target sentence
+	_evaluate_web_speech_result(transcript)
+
+func _evaluate_web_speech_result(transcript: String) -> void:
+	"""Check how well the spoken transcript matches the target sentence"""
+	var spoken_clean = transcript.replace(",", "").replace(".", "").replace("?", "").replace("!", "").to_lower().strip_edges()
+	var spoken_words = spoken_clean.split(" ", false)
+
+	# Count how many target words were spoken (order-insensitive, lenient match)
+	var matched := 0
+	var used := []
+	used.resize(spoken_words.size())
+	used.fill(false)
+
+	for t_word in target_words:
+		if t_word in AUTO_SKIP_WORDS:
+			matched += 1  # Auto-credit filler words
+			continue
+		for j in range(spoken_words.size()):
+			if not used[j] and _words_match(spoken_words[j], t_word):
+				matched += 1
+				used[j] = true
+				break
+
+	var match_ratio: float = float(matched) / float(max(target_words.size(), 1))
+	print("Web Speech match: %d/%d words (%.0f%%)" % [matched, target_words.size(), match_ratio * 100])
+
+	if match_ratio >= PHRASE_MATCH_THRESHOLD:
+		# Success
+		_play_sfx("res://assets/audio/sound_effect/correct.wav")
+		status_label.text = "✓ COMPLETE!"
+		status_label.add_theme_color_override("font_color", Color.GREEN)
+		transcription_label.text = "Great job! You said the sentence correctly!"
+		transcription_label.add_theme_color_override("font_color", Color.GREEN)
+		sentence_display.text = "[color=green]" + full_sentence_texts[correct_answer] + "[/color]"
+		await get_tree().create_timer(1.5).timeout
+		_complete_minigame(true)
+	else:
+		# Not enough words matched — let them try again
+		_play_sfx("res://assets/audio/sound_effect/wrong.wav")
+		status_label.text = "Try again! Speak more clearly."
+		transcription_label.text = "I heard: \"" + transcript + "\""
+		transcription_label.add_theme_color_override("font_color", Color(1, 0.5, 0.3, 1))
+		# Reset display
+		sentence_display.text = full_sentence_texts[correct_answer]
+		await get_tree().create_timer(1.8).timeout
+		if timer_active:
+			transcription_label.add_theme_color_override("font_color", Color.WHITE)
+			_start_web_speech_recognition()
+
+func _skip_auto_words():
+	"""Skip short filler words that Vosk commonly drops"""
+	while current_word_index < target_words.size() and target_words[current_word_index].to_lower() in AUTO_SKIP_WORDS:
+		print("Auto-skipping short word: '", target_words[current_word_index], "'")
+		current_word_index += 1
 
 func _process_partial_text(partial_text: String):
-	"""Process partial text and check current word OR multiple words in sequence"""
+	"""Check any spoken word against the current target word"""
 	if partial_text == last_partial_text or partial_text.strip_edges().is_empty():
 		return
 
 	if word_just_recognized:
 		return
 
+	last_partial_text = partial_text
 	var spoken_words = partial_text.to_lower().split(" ", false)
 	transcription_label.text = "Hearing: " + partial_text
 
-	# Try to match multiple consecutive words first
-	var words_matched = _check_multiple_words_match(spoken_words)
-	if words_matched > 0:
-		for i in range(words_matched):
-			_on_word_recognized()
+	if current_word_index >= target_words.size():
 		return
 
-	# Fall back to single word matching (last spoken word)
-	if spoken_words.size() > 0:
-		var target_word = target_words[current_word_index]
-		var last_spoken_word = spoken_words[spoken_words.size() - 1]
-		if _words_match(last_spoken_word, target_word):
+	var target_word = target_words[current_word_index]
+
+	# Check every spoken word — Vosk may put the right word anywhere in the partial
+	for spoken_word in spoken_words:
+		if _words_match(spoken_word, target_word):
 			_on_word_recognized()
 			return
-
-	last_partial_text = partial_text
-
-func _check_multiple_words_match(spoken_words: Array) -> int:
-	"""Check if multiple spoken words match consecutive target words starting from current index"""
-	if spoken_words.size() == 0:
-		return 0
-
-	var matched_count = 0
-	var remaining_target_words = target_words.size() - current_word_index
-
-	# Try to match as many words as possible in sequence
-	for i in range(min(spoken_words.size(), remaining_target_words)):
-		var spoken_word = spoken_words[i]
-		var target_word = target_words[current_word_index + i]
-
-		if _words_match(spoken_word, target_word):
-			matched_count += 1
-		else:
-			# Stop at first non-match
-			break
-
-	# Only return match if we got at least 2 words (otherwise single word matching handles it)
-	return matched_count if matched_count >= 2 else 0
 
 func _on_word_recognized():
 	"""Called when current word is successfully recognized"""
 	word_just_recognized = true
 
-	# Mark word as recognized
+	# Advance past recognized word, then auto-skip any short filler words
 	current_word_index += 1
+	_skip_auto_words()
 
 	# Update display
 	_update_word_display()
+
+	# Check if we've completed all words
+	if current_word_index >= target_words.size():
+		_on_all_words_complete()
+		return
 
 	# Update progress
 	progress_label.text = "Word " + str(current_word_index + 1) + " / " + str(target_words.size())
 	progress_label.add_theme_color_override("font_color", Color.GREEN)
 
-	# Check if we've completed all words
-	if current_word_index >= target_words.size():
-		_on_all_words_complete()
-	else:
-		# Prepare for next word
-		status_label.text = "Great! Say the next word..."
-		await get_tree().create_timer(0.5).timeout  # Brief pause
+	# Prepare for next word
+	status_label.text = "✓ Good! Next word..."
+	await get_tree().create_timer(0.4).timeout  # Brief pause
 
-		if is_listening:  # Make sure we haven't stopped
-			word_just_recognized = false
-			vosk_recognizer.reset()  # Clear Vosk buffer for next word
-			last_partial_text = ""
-			transcription_label.text = ""
-			status_label.text = "Say: " + target_words[current_word_index]
-			progress_label.add_theme_color_override("font_color", Color.WHITE)
-			print("Waiting for next word: '", target_words[current_word_index], "'")
+	if is_listening:  # Make sure we haven't stopped
+		word_just_recognized = false
+		vosk_recognizer.reset()  # Clear Vosk buffer for next word
+		last_partial_text = ""
+		transcription_label.text = ""
+		status_label.text = "Say: " + target_words[current_word_index]
+		progress_label.add_theme_color_override("font_color", Color.WHITE)
+		print("Waiting for next word: '", target_words[current_word_index], "'")
 
 func _on_all_words_complete():
 	"""Called when all words have been recognized"""
@@ -954,18 +1136,20 @@ func _update_word_display():
 
 	sentence_display.text = highlighted_sentence.strip_edges()
 
-func _check_if_sentence_complete():
-	"""Called when silence is detected - give feedback to continue"""
+func _check_if_word_timed_out():
+	"""Called when silence detected — prompt player to say current word again"""
 	if not is_listening or word_just_recognized:
 		return
 
-	# Encourage user to speak
-	if has_spoken:
-		status_label.text = "Keep going! Say: " + target_words[current_word_index]
-
-	# Reset for next attempt at current word
 	silence_timer = 0.0
 	has_spoken = false
+
+	if current_word_index < target_words.size():
+		status_label.text = "Try again! Say: " + target_words[current_word_index]
+		transcription_label.text = ""
+		# Reset Vosk so it starts fresh for the retry
+		vosk_recognizer.reset()
+		last_partial_text = ""
 
 # Old function - replaced by progressive word-by-word checking
 # func _check_sentence_match(recognized_text: String):
@@ -985,9 +1169,9 @@ func _words_match(spoken_word: String, target_word: String) -> bool:
 	if _are_homophones(spoken_word, target_word):
 		return true
 
-	# Fallback to similarity check (lowered threshold for Vosk small model)
+	# Fallback to similarity check — lenient for non-native speakers and Vosk quirks
 	var similarity = _calculate_similarity(spoken_word, target_word)
-	return similarity >= 0.5  # 50% similarity (was 70%)
+	return similarity >= 0.4  # 40% similarity threshold
 
 func _are_homophones(word1: String, word2: String) -> bool:
 	"""Check if two words are in the same homophone group"""
@@ -1049,6 +1233,10 @@ func _on_timer_timeout():
 	is_listening = false
 	timer_active = false
 
+	# Stop Web Speech API if running
+	if _web_speech_active:
+		_stop_web_speech_recognition()
+
 	# Disable all choice buttons
 	for button in choice_buttons:
 		button.disabled = true
@@ -1103,6 +1291,10 @@ func _complete_minigame(success: bool):
 func _cleanup():
 	"""Cleanup audio resources"""
 	is_listening = false
+
+	# Stop Web Speech API if active
+	if _web_speech_active:
+		_stop_web_speech_recognition()
 
 	# Stop and remove microphone player
 	if microphone_player:

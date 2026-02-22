@@ -108,11 +108,11 @@ func _start_background_music() -> void:
 		# The MP3 is copied to web/bgmusic.mp3 by serve_web.py at startup.
 		if OS.get_name() == "Web":
 			var cfg := ConfigFile.new()
-			var music_vol := 0.35
+			var music_vol := 0.15
 			if cfg.load("user://settings.cfg") == OK:
-				var music_pct: float = cfg.get_value("audio", "music_volume", 35.0) / 100.0
+				var music_pct: float = cfg.get_value("audio", "music_volume", 30.0) / 100.0
 				var master_pct: float = cfg.get_value("audio", "master_volume", 100.0) / 100.0
-				music_vol = clamp(music_pct * master_pct, 0.0, 1.0)
+				music_vol = clamp(music_pct * master_pct * 0.5, 0.0, 0.5)
 			JavaScriptBridge.eval("""
 				(function() {
 					if (window._webBgMusic) {

@@ -79,13 +79,13 @@ func _web_sfx_volume() -> float:
 
 
 func _web_music_volume() -> float:
-	"""Read saved music volume (music% * master%) from settings.cfg, default 0.35."""
+	"""Read saved music volume (music% * master% * 0.5 cap) from settings.cfg, default 0.15."""
 	var cfg := ConfigFile.new()
 	if cfg.load("user://settings.cfg") == OK:
-		var music_pct: float = cfg.get_value("audio", "music_volume", 35.0) / 100.0
+		var music_pct: float = cfg.get_value("audio", "music_volume", 30.0) / 100.0
 		var master_pct: float = cfg.get_value("audio", "master_volume", 100.0) / 100.0
-		return clamp(music_pct * master_pct, 0.0, 1.0)
-	return 0.35
+		return clamp(music_pct * master_pct * 0.5, 0.0, 0.5)
+	return 0.15
 
 func _web_voice_volume() -> float:
 	"""Read saved voice volume (voice% * master%) from settings.cfg, default 1.0."""

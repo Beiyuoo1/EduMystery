@@ -67,7 +67,7 @@ func load_settings() -> void:
 
 	# Audio volumes (from config file or default)
 	var master_vol = config.get_value("audio", "master_volume", 100)
-	var music_vol = config.get_value("audio", "music_volume", 80)
+	var music_vol = config.get_value("audio", "music_volume", 30)
 	var sfx_vol = config.get_value("audio", "sfx_volume", 80)
 	var voice_vol = config.get_value("audio", "voice_volume", 100)
 
@@ -163,11 +163,11 @@ func _on_voice_volume_changed(value: float) -> void:
 	save_settings()
 
 func _apply_web_music_volume() -> void:
-	"""Update browser Audio element volume for music (music% * master%)."""
+	"""Update browser Audio element volume for music (music% * master%), capped at 0.5."""
 	var music_pct: float = music_volume_slider.value / 100.0
 	var master_pct: float = master_volume_slider.value / 100.0
-	var vol: float = clamp(music_pct * master_pct, 0.0, 1.0)
-	JavaScriptBridge.eval("if(window._webBgMusic)window._webBgMusic.volume=%s;if(window._webGameMusic)window._webGameMusic.volume=%s;" % [vol, vol])
+	var vol: float = clamp(music_pct * master_pct * 0.5, 0.0, 0.5)
+	JavaScriptBridge.eval("if(window._webBgMusic)window._webBgMusic.volume=%s;if(window._webGameMusic)window._webGameMusic.volume=%s;if(window._webMinigameMusic)window._webMinigameMusic.volume=%s;" % [vol, vol, vol])
 
 func _apply_web_voice_volume() -> void:
 	"""Update browser Audio element volume for voice narration (voice% * master%)."""

@@ -1170,84 +1170,30 @@ func _on_time_up() -> void:
 	tween.tween_property(feedback_panel, "modulate:a", 1.0, 0.3)
 
 func _on_hint_pressed() -> void:
-	"""Use hint to place the FIRST correct event that's not yet in the correct position"""
-	# Don't allow hints during cooldown
+	"""Show a guiding hint overlay without revealing the answer"""
 	if hint_on_cooldown:
 		return
 
-	if PlayerStats.use_hint():
-		hint_used = true
-
-		# Start cooldown
-		hint_on_cooldown = true
-		hint_cooldown_remaining = hint_cooldown_time
-		hint_button.disabled = true
-
-		# Update current order to get latest state
-		_update_current_order()
-
-		print("🔍 Hint: Current order = ", current_order)
-		print("🔍 Hint: Correct order = ", correct_order)
-
-		# Find the first position that doesn't have the correct event
-		for i in range(correct_order.size()):
-			var correct_event_id = correct_order[i]
-
-			# Check if this position already has the correct event
-			var current_event_id = current_order[i] if i < current_order.size() else ""
-			if current_event_id == correct_event_id:
-				print("🔍 Hint: Slot ", i, " already correct (", correct_event_id, ")")
-				continue  # This slot is already correct
-
-			print("🔍 Hint: Need to place ", correct_event_id, " in slot ", i)
-
-			# Find this event card in the pool
-			for card_wrapper in events_pool.get_children():
-				if card_wrapper is Control and card_wrapper.has_meta("event_id"):
-					if card_wrapper.get_meta("event_id") == correct_event_id:
-						# Check if card is in pool
-						if not card_wrapper.get_meta("in_pool", false):
-							print("🔍 Hint: Card ", correct_event_id, " not in pool, skipping")
-							continue
-
-						# Get the target slot
-						var target_slot_wrapper = timeline_slots.get_child(i)
-
-						# If slot has wrong card, move it back first
-						if not target_slot_wrapper.get_meta("is_empty", true):
-							print("🔍 Hint: Slot ", i, " occupied, clearing it first")
-							# Structure: slot_wrapper (PanelContainer) → content (Control) → card_wrapper
-							var content = target_slot_wrapper.get_child(0)
-							for child in content.get_children():
-								if child is Control and child.has_meta("event_id"):
-									_move_card_to_pool(child, target_slot_wrapper)
-									break
-
-						# Move correct card to slot
-						print("🔍 Hint: Moving ", correct_event_id, " to slot ", i)
-						_move_card_to_slot(card_wrapper, target_slot_wrapper)
-
-						# Flash animation
-						var card_panel = card_wrapper.get_child(0)
-						var tween = create_tween()
-						tween.set_loops(3)
-						tween.tween_property(card_panel, "modulate", Color.YELLOW, 0.3)
-						tween.tween_property(card_panel, "modulate", Color.WHITE, 0.3)
-
-						return
-
-		# If we get here, all cards are already in correct positions
-		print("🔍 Hint: All cards already in correct positions!")
-	else:
+	if not PlayerStats.use_hint():
 		var label = Label.new()
 		label.text = "No hints available!"
 		label.add_theme_color_override("font_color", Color.RED)
 		label.add_theme_font_size_override("font_size", 20)
 		label.position = hint_button.global_position + Vector2(0, -40)
 		add_child(label)
-
 		await get_tree().create_timer(1.5).timeout
 		label.queue_free()
+		return
+
+	hint_used = true
+	hint_on_cooldown = true
+	hint_cooldown_remaining = hint_cooldown_time
+	hint_button.disabled = true
+	_update_hint_display()
+	var hint_text = puzzle_config.get("hint_text", "Think about cause and effect. Which event must happen before the others can occur? Work through the sequence one step at a time.")
+	var overlay = preload("res://scenes/ui/hint_overlay.tscn").instantiate()
+	get_tree().root.add_child(overlay)
+	overlay.show_hint(hint_text)
 
 func _update_hint_display() -> void:
 	"""Update hint counter and button state"""

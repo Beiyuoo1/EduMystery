@@ -441,30 +441,24 @@ func _on_time_up() -> void:
 
 
 func _on_hint_pressed() -> void:
-	"""Use hint to highlight correct answer"""
-	if PlayerStats.use_hint():
-		hint_used = true
-		_update_hint_display()
-
-		# Highlight correct answer with yellow pulsing animation
-		var correct_button = choice_buttons[correct_answer_index]
-		var tween = create_tween()
-		tween.set_loops(3)
-		tween.tween_property(correct_button, "modulate", Color.YELLOW, 0.3)
-		tween.tween_property(correct_button, "modulate", Color.WHITE, 0.3)
-
-		# Disable hint button
-		hint_button.disabled = true
-	else:
-		# Show "no hints" message
+	"""Show a guiding hint overlay without revealing the answer"""
+	if not PlayerStats.use_hint():
 		var label = Label.new()
 		label.text = "No hints available!"
 		label.add_theme_color_override("font_color", Color.RED)
 		label.position = hint_button.global_position + Vector2(0, -30)
 		add_child(label)
-
 		await get_tree().create_timer(1.5).timeout
 		label.queue_free()
+		return
+
+	hint_used = true
+	_update_hint_display()
+	hint_button.disabled = true
+	var hint_text = puzzle_config.get("hint_text", "Re-read the context carefully. Identify the key values given, then decide which formula or reasoning step applies here.")
+	var overlay = preload("res://scenes/ui/hint_overlay.tscn").instantiate()
+	get_tree().root.add_child(overlay)
+	overlay.show_hint(hint_text)
 
 
 func _update_hint_display() -> void:

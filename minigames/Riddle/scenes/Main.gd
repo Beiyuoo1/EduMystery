@@ -38,6 +38,7 @@ var time_remaining: float = 90.0  # 1:30 in seconds
 var timer_active: bool = false
 
 # Puzzle configuration
+var puzzle_config: Dictionary = {}
 var riddle_text: String = "Round I go, around your hand,\nI shine and sparkle, isn't that grand?"
 var correct_answer: String = "BRACELET"
 var available_letters: Array = ["A", "B", "G", "T", "M", "R", "T", "K", "E", "C", "L", "E", "O", "I", "L", "G", "U", "N"]
@@ -314,46 +315,21 @@ func _update_hint_display():
 func _on_hint_pressed():
 	"""Called when hint button is pressed"""
 	if hint_used:
-		feedback_label.text = "You already used a hint for this puzzle!"
-		feedback_label.add_theme_color_override("font_color", Color.ORANGE)
-		feedback_label.visible = true
-		await get_tree().create_timer(2.0).timeout
-		feedback_label.visible = false
 		return
 
-	# Try to use a hint from PlayerStats
-	if PlayerStats.use_hint():
-		hint_used = true
-		_update_hint_display()
-		hint_button.disabled = true
+	if not PlayerStats.use_hint():
+		hint_button.text = "No hints!"
+		await get_tree().create_timer(1.0).timeout
+		hint_button.text = "💡 Hint"
+		return
 
-		# Reveal the first letter if not already revealed
-		if current_answer.length() < correct_answer.length():
-			var next_letter = correct_answer[current_answer.length()]
-
-			# Find and auto-click the button with that letter
-			for i in range(available_letters.size()):
-				if available_letters[i] == next_letter and not letter_buttons[i].disabled:
-					# Highlight the button
-					var tween = create_tween()
-					tween.set_loops(3)
-					tween.tween_property(letter_buttons[i], "modulate", Color.YELLOW, 0.3)
-					tween.tween_property(letter_buttons[i], "modulate", Color.WHITE, 0.3)
-					await tween.finished
-
-					# Auto-click it
-					_on_letter_pressed(i)
-					break
-
-		print("DEBUG: Hint used! Revealing next letter")
-		print("DEBUG: Hints remaining: ", PlayerStats.hints)
-	else:
-		# No hints available
-		feedback_label.text = "No hints available! Complete minigames quickly to earn more."
-		feedback_label.add_theme_color_override("font_color", Color.ORANGE)
-		feedback_label.visible = true
-		await get_tree().create_timer(2.0).timeout
-		feedback_label.visible = false
+	hint_used = true
+	_update_hint_display()
+	hint_button.disabled = true
+	var hint_text = puzzle_config.get("hint_text", "Think about the riddle clues carefully. The answer is a common word — say it aloud and spell it out letter by letter.")
+	var overlay = preload("res://scenes/ui/hint_overlay.tscn").instantiate()
+	get_tree().root.add_child(overlay)
+	overlay.show_hint(hint_text)
 
 func _complete_minigame(success: bool):
 	"""Complete the minigame"""
@@ -363,6 +339,7 @@ func _complete_minigame(success: bool):
 # Configuration function for different puzzle variations
 func configure_puzzle(config: Dictionary):
 	"""Configure the puzzle with custom parameters"""
+	puzzle_config = config
 	if config.has("riddle"):
 		riddle_text = config["riddle"]
 	if config.has("answer"):

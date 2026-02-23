@@ -567,35 +567,8 @@ func _on_time_up() -> void:
 		continue_button.pressed.connect(_on_retry_pressed)
 
 func _on_hint_pressed() -> void:
-	"""Use hint to reveal one correct match, then start 12s cooldown"""
-	if PlayerStats.use_hint():
-		hint_used = true
-		_update_hint_display()
-
-		# Find an unsolved correct match to reveal
-		for row in rows:
-			var correct_col = solution.get(row, "")
-			var key = row + ":" + correct_col
-
-			if grid_data.get(key, "unknown") != "yes":
-				grid_data[key] = "yes"
-
-				for child in grid_container.get_children():
-					if child is Button and child.has_meta("row") and child.has_meta("col"):
-						if child.get_meta("row") == row and child.get_meta("col") == correct_col:
-							_style_cell_button(child, "yes")
-							var tween = create_tween()
-							tween.set_loops(3)
-							tween.tween_property(child, "modulate", Color.YELLOW, 0.3)
-							tween.tween_property(child, "modulate", Color.WHITE, 0.3)
-							break
-				break
-
-		# Start cooldown — button stays disabled until cooldown expires
-		hint_cooldown = HINT_COOLDOWN_TIME
-		hint_button.disabled = true
-		hint_button.text = "💡 Hint (%ds)" % ceil(hint_cooldown)
-	else:
+	"""Show a guiding hint overlay without revealing the answer"""
+	if not PlayerStats.use_hint():
 		var label = Label.new()
 		label.text = "No hints available!"
 		label.add_theme_color_override("font_color", Color.RED)
@@ -604,6 +577,17 @@ func _on_hint_pressed() -> void:
 		add_child(label)
 		await get_tree().create_timer(1.5).timeout
 		label.queue_free()
+		return
+
+	hint_used = true
+	_update_hint_display()
+	hint_cooldown = HINT_COOLDOWN_TIME
+	hint_button.disabled = true
+	hint_button.text = "💡 Hint (%ds)" % ceil(hint_cooldown)
+	var hint_text = puzzle_config.get("hint_text", "Re-read each clue carefully. Apply each clue one at a time and use process of elimination — mark cells you are certain are wrong first.")
+	var overlay = preload("res://scenes/ui/hint_overlay.tscn").instantiate()
+	get_tree().root.add_child(overlay)
+	overlay.show_hint(hint_text)
 
 func _update_hint_display() -> void:
 	hint_counter.text = "Hints: %d" % PlayerStats.hints

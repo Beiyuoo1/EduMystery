@@ -389,24 +389,7 @@ func _on_continue_pressed() -> void:
 	queue_free()
 
 func _on_hint_pressed() -> void:
-	if PlayerStats.use_hint():
-		hint_used = true
-		_update_hint_display()
-		# Reveal first unfilled correct answer
-		for i in range(player_inputs.size()):
-			if player_inputs[i] == null or player_inputs[i] != answers[i]:
-				player_inputs[i] = answers[i]
-				number_display = str(answers[i])
-				current_blank = i
-				_refresh_blank_buttons()
-				# Flash the revealed blank yellow
-				var btn = blank_buttons[i]
-				var tween = create_tween()
-				tween.set_loops(3)
-				tween.tween_property(btn, "modulate", Color.YELLOW, 0.25)
-				tween.tween_property(btn, "modulate", Color.WHITE, 0.25)
-				break
-	else:
+	if not PlayerStats.use_hint():
 		var lbl = Label.new()
 		lbl.text = "No hints available!"
 		lbl.add_theme_color_override("font_color", Color.RED)
@@ -416,6 +399,15 @@ func _on_hint_pressed() -> void:
 		await get_tree().create_timer(1.5).timeout
 		if is_instance_valid(lbl):
 			lbl.queue_free()
+		return
+
+	hint_used = true
+	_update_hint_display()
+	hint_button.disabled = true
+	var hint_text = puzzle_config.get("hint_text", "Look at how each number changes from one step to the next. Is it adding, subtracting, multiplying, or something else? Find the pattern first, then apply it.")
+	var overlay = preload("res://scenes/ui/hint_overlay.tscn").instantiate()
+	get_tree().root.add_child(overlay)
+	overlay.show_hint(hint_text)
 
 func _update_hint_display() -> void:
 	hint_counter.text = "Hints: %d" % PlayerStats.hints

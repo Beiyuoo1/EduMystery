@@ -329,11 +329,7 @@ func _handle_minigame_signal(puzzle_id: String):
 		else:
 			ChapterStatsTracker.record_minigame_failed()
 
-	# Auto-save after completing minigame (requires SaveManager autoload)
-	if SaveManager:
-		await SaveManager.auto_save()
-
-	# Re-show evidence button in case auto-save triggered timeline_ended and hid it
+	# Re-show evidence button after minigame
 	if EvidenceButtonManager and EvidenceButtonManager.button_enabled:
 		EvidenceButtonManager.show_evidence_button()
 
@@ -360,10 +356,6 @@ func _handle_title_card_signal(chapter: String):
 	# Start tracking new chapter
 	if ChapterStatsTracker:
 		ChapterStatsTracker.start_chapter(int(chapter))
-
-	# Auto-save at chapter transitions (requires SaveManager autoload)
-	if SaveManager:
-		await SaveManager.auto_save()
 
 	if is_instance_valid(Dialogic) and Dialogic.current_timeline != null:
 		Dialogic.paused = false

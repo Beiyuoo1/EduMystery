@@ -161,7 +161,8 @@ var fillinTheblank_configs = {
 	"locker_examination": {
 		"sentence_parts": ["Conrad ", " the envelope closely."],
 		"answers": ["examines"],
-		"choices": ["examines", "studies", "ignores", "watches", "inspects", "reads", "opens", "holds"]
+		"choices": ["examines", "studies", "ignores", "watches", "inspects", "reads", "opens", "holds"],
+		"hint_text": "Think about what a detective does when looking very carefully at a piece of evidence — more than just reading or watching it."
 	},
 	# ====================
 	# MATH VARIANTS - Chapter 1
@@ -169,12 +170,14 @@ var fillinTheblank_configs = {
 	"locker_examination_math": {
 		"sentence_parts": ["The locker combination follows a pattern: 2, 4, 8, ", ". What comes next?"],
 		"answers": ["16"],
-		"choices": ["16", "12", "10", "14", "18", "20", "24", "32"]
+		"choices": ["16", "12", "10", "14", "18", "20", "24", "32"],
+		"hint_text": "Look at how each number relates to the one before it. Is it adding the same amount, or multiplying by the same amount?"
 	},
 	"locker_examination_science": {
 		"sentence_parts": ["Newton's second law states that force equals mass times ", "."],
 		"answers": ["acceleration"],
-		"choices": ["acceleration", "velocity", "speed", "momentum", "energy", "power", "distance", "friction"]
+		"choices": ["acceleration", "velocity", "speed", "momentum", "energy", "power", "distance", "friction"],
+		"hint_text": "Newton's second law is written as F = ma. What does the 'a' stand for in that formula?"
 	},
 	"budget_basics": {
 		"sentence_parts": ["A budget helps track ", " and ", " to manage money wisely."],
@@ -191,13 +194,15 @@ var fillinTheblank_configs = {
 	"pedagogy_methods": {
 		"sentence_parts": ["Experimental ", " teaches through ", " rather than lectures."],
 		"answers": ["pedagogy", "experience"],
-		"choices": ["authority", "memorization", "pedagogy", "observation", "discipline", "experience", "control", "teaching"]
+		"choices": ["authority", "memorization", "pedagogy", "observation", "discipline", "experience", "control", "teaching"],
+		"hint_text": "The first blank is the word for the science or art of teaching. The second blank is what you gain by actually doing something, not just reading about it."
 	},
 	# Chapter 5 - Lesson reflection
 	"lesson_reflection": {
 		"sentence_parts": ["True teaching requires ", " and respects ", " while guiding growth."],
 		"answers": ["wisdom", "choice"],
-		"choices": ["wisdom", "choice", "control", "force", "patience", "freedom", "power", "authority"]
+		"choices": ["wisdom", "choice", "control", "force", "patience", "freedom", "power", "authority"],
+		"hint_text": "B.C.'s final lesson is about knowing when to act and when to let students decide for themselves. What quality goes beyond knowledge alone? And what freedom must every learner have?"
 	},
 	# ====================
 	# MATH VARIANTS - Chapter 4
@@ -205,12 +210,14 @@ var fillinTheblank_configs = {
 	"pedagogy_methods_math": {
 		"sentence_parts": ["In trigonometry, ", " is opposite over ", "."],
 		"answers": ["sine", "hypotenuse"],
-		"choices": ["sine", "cosine", "tangent", "adjacent", "hypotenuse", "opposite", "secant", "angle"]
+		"choices": ["sine", "cosine", "tangent", "adjacent", "hypotenuse", "opposite", "secant", "angle"],
+		"hint_text": "Remember SOH-CAH-TOA. The first blank uses SOH: Sine = Opposite over what?"
 	},
 	"pedagogy_methods_science": {
 		"sentence_parts": ["In a series circuit, ", " adds up across resistors while ", " stays constant."],
 		"answers": ["voltage", "current"],
-		"choices": ["voltage", "current", "power", "resistance", "energy", "frequency", "amplitude", "wavelength"]
+		"choices": ["voltage", "current", "power", "resistance", "energy", "frequency", "amplitude", "wavelength"],
+		"hint_text": "In a series circuit, each component shares the same flow of charge but the 'push' is divided. Which quantity is shared equally, and which one is divided?"
 	},
 
 	# ========================================
@@ -1799,19 +1806,22 @@ var hear_and_fill_configs = {
 		"sentence": "Sir, does this room have a dedicated ____ router?",
 		"blank_word": "WiFi",
 		"correct_index": 2,
-		"choices": ["Hi-fi", "Sci-fi", "WiFi", "Bye-bye", "Fly high", "Sky high", "Pie-fry", "Why try"]
+		"choices": ["Hi-fi", "Sci-fi", "WiFi", "Bye-bye", "Fly high", "Sky high", "Pie-fry", "Why try"],
+		"hint_text": "The router provides wireless internet. The technology's name comes from 'Wireless Fidelity' — try pressing the speaker button and listen carefully to how the word starts."
 	},
 	"anonymous_notes": {
 		"sentence": "The students are receiving ____ notes that expose their secrets.",
 		"blank_word": "anonymous",
 		"correct_index": 0,
-		"choices": ["anonymous", "unanimous", "anomalous", "enormous", "synonymous", "autonomous", "monotonous", "ominous"]
+		"choices": ["anonymous", "unanimous", "anomalous", "enormous", "synonymous", "autonomous", "monotonous", "ominous"],
+		"hint_text": "The notes have no name on them — the sender is unknown. What word means 'without a known name or identity'? Use the speaker button to hear the correct pronunciation."
 	},
 	"observation_teaching": {
 		"sentence": "B.C. teaches through ____ rather than direct instruction.",
 		"blank_word": "observation",
 		"correct_index": 0,
-		"choices": ["observation", "conservation", "reservation", "conversation", "preservation", "consideration", "declaration", "confrontation"]
+		"choices": ["observation", "conservation", "reservation", "conversation", "preservation", "consideration", "declaration", "confrontation"],
+		"hint_text": "B.C. never gives direct lessons — instead, B.C. watches events unfold and lets the protagonist draw their own conclusions. What is the word for carefully watching and noticing things?"
 	},
 	# ====================
 	# MATH VARIANTS - Chapter 1
@@ -1820,7 +1830,8 @@ var hear_and_fill_configs = {
 		"sentence": "To find the slope of a line, calculate the ____ over the run.",
 		"blank_word": "rise",
 		"correct_index": 2,
-		"choices": ["price", "wise", "rise", "flies", "size", "prize", "cries", "ties"]
+		"choices": ["price", "wise", "rise", "flies", "size", "prize", "cries", "ties"],
+		"hint_text": "Slope is how steep a line is. Think of climbing stairs — you go up (vertical change) and across (horizontal change). What do we call the vertical change in the slope formula?"
 	},
 	# ====================
 	# SCIENCE VARIANTS - Chapter 1 (Motion and Forces)
@@ -1829,7 +1840,8 @@ var hear_and_fill_configs = {
 		"sentence": "Newton's first law is also known as the law of ____.",
 		"blank_word": "inertia",
 		"correct_index": 1,
-		"choices": ["criteria", "inertia", "bacteria", "cafeteria", "hysteria", "Nigeria", "Algeria", "Siberia"]
+		"choices": ["criteria", "inertia", "bacteria", "cafeteria", "hysteria", "Nigeria", "Algeria", "Siberia"],
+		"hint_text": "Newton's first law says objects keep doing what they're already doing unless a force acts on them. This resistance to change in motion has a specific name — use the speaker to hear how it sounds."
 	},
 	# ====================
 	# MATH VARIANTS - Chapter 4
@@ -1838,7 +1850,8 @@ var hear_and_fill_configs = {
 		"sentence": "The angle that measures exactly 90 degrees is called a ____ angle.",
 		"blank_word": "right",
 		"correct_index": 3,
-		"choices": ["write", "bite", "sight", "right", "flight", "bright", "tight", "night"]
+		"choices": ["write", "bite", "sight", "right", "flight", "bright", "tight", "night"],
+		"hint_text": "A 90-degree angle is the corner of a square. It's also a direction — the opposite of 'left'. All these choices rhyme with it, so focus on the meaning, not just the sound."
 	},
 	# ====================
 	# SCIENCE VARIANTS - Chapter 4 (Electricity and Magnetism)
@@ -1847,7 +1860,8 @@ var hear_and_fill_configs = {
 		"sentence": "Ohm's law relates voltage, ____, and resistance in electrical circuits.",
 		"blank_word": "current",
 		"correct_index": 4,
-		"choices": ["currant", "torrent", "warrant", "errant", "current", "recurrent", "concurrent", "aberrant"]
+		"choices": ["currant", "torrent", "warrant", "errant", "current", "recurrent", "concurrent", "aberrant"],
+		"hint_text": "Ohm's Law is V = IR. The three variables are Voltage, Resistance, and one more. What is the flow of electric charge through a wire called?"
 	},
 	# ====================
 	# MATH VARIANTS - Chapter 5
@@ -1874,12 +1888,14 @@ var riddle_configs = {
 	"bracelet_riddle": {
 		"riddle": "Round I go, around your hand,\nI shine and sparkle, isn't that grand?",
 		"answer": "BRACELET",
-		"letters": ["B", "R", "A", "C", "E", "L", "E", "T", "W", "H", "V", "M", "K", "O", "I", "G"]
+		"letters": ["B", "R", "A", "C", "E", "L", "E", "T", "W", "H", "V", "M", "K", "O", "I", "G"],
+		"hint_text": "It's a piece of jewellery worn around the wrist. It has 8 letters. Start with the first letter — what letter does most jewellery that 'sparkles' around your wrist start with?"
 	},
 	"receipt_riddle": {
 		"riddle": "I am the sound of paper in motion, a quick motion of the wrist and hand. Through pages I go swiftly, making a rustling so grand.",
 		"answer": "FLIPPING",
-		"letters": ["F", "L", "I", "P", "P", "I", "N", "G", "A", "S", "T", "R", "M", "O", "B", "W"]
+		"letters": ["F", "L", "I", "P", "P", "I", "N", "G", "A", "S", "T", "R", "M", "O", "B", "W"],
+		"hint_text": "Think about how you turn the pages of a book quickly. It has 8 letters and ends in '-ING'. What action word describes rapidly turning pages one after another?"
 	},
 	# ====================
 	# MATH VARIANTS - Chapter 1
@@ -1887,7 +1903,8 @@ var riddle_configs = {
 	"bracelet_riddle_math": {
 		"riddle": "I have four equal sides and four right angles,\nYou'll find me in geometry from all angles.",
 		"answer": "SQUARE",
-		"letters": ["S", "Q", "U", "A", "R", "E", "T", "I", "C", "L", "N", "G", "H", "O", "P", "M"]
+		"letters": ["S", "Q", "U", "A", "R", "E", "T", "I", "C", "L", "N", "G", "H", "O", "P", "M"],
+		"hint_text": "A rectangle has four right angles, but its sides are not all equal. This shape has ALL sides equal AND all angles equal. It has 6 letters. What 2D shape fits that description?"
 	},
 	# ====================
 	# MATH VARIANTS - Chapter 3
@@ -1895,7 +1912,8 @@ var riddle_configs = {
 	"receipt_riddle_math": {
 		"riddle": "I grow without bounds, my base stays the same,\nRaised to a power is my claim to fame.\nIn growth and decay, I'm the function you'll see,\nWhat mathematical term could I be?",
 		"answer": "EXPONENTIAL",
-		"letters": ["E", "X", "P", "O", "N", "E", "N", "T", "I", "A", "L", "R", "G", "W", "H", "M"]
+		"letters": ["E", "X", "P", "O", "N", "E", "N", "T", "I", "A", "L", "R", "G", "W", "H", "M"],
+		"hint_text": "This type of function uses a constant base raised to a variable power, like 2^x. It appears in population growth and radioactive decay. The word has 11 letters and relates to 'exponents'."
 	},
 	# ====================
 	# SCIENCE VARIANTS - Chapter 1 (Motion and Forces)
@@ -1903,7 +1921,8 @@ var riddle_configs = {
 	"bracelet_riddle_science": {
 		"riddle": "I resist change in motion, that's my game,\nThe more mass you have, the more I remain.\nNewton's first law gave me my fame,\nWhat physics concept am I by name?",
 		"answer": "INERTIA",
-		"letters": ["I", "N", "E", "R", "T", "I", "A", "F", "O", "C", "M", "S", "V", "L", "G", "H"]
+		"letters": ["I", "N", "E", "R", "T", "I", "A", "F", "O", "C", "M", "S", "V", "L", "G", "H"],
+		"hint_text": "A heavy object is harder to push than a light one — it 'resists' being moved. This resistance to change in motion is a fundamental physics concept with 7 letters. It starts with 'I'."
 	},
 	# ====================
 	# SCIENCE VARIANTS - Chapter 3 (Work, Energy, Power)
@@ -1911,7 +1930,8 @@ var riddle_configs = {
 	"receipt_riddle_science": {
 		"riddle": "I cannot be created, nor destroyed,\nOnly transformed in the cosmic void.\nFrom potential to kinetic I flow,\nWhat fundamental principle do I show?",
 		"answer": "ENERGY",
-		"letters": ["E", "N", "E", "R", "G", "Y", "F", "O", "W", "K", "P", "T", "M", "A", "I", "L"]
+		"letters": ["E", "N", "E", "R", "G", "Y", "F", "O", "W", "K", "P", "T", "M", "A", "I", "L"],
+		"hint_text": "The riddle describes the Law of Conservation of ___. It's what powers everything — stored in a battery, released as heat, or carried by movement. This 6-letter word starts with 'E'."
 	}
 }
 
@@ -1934,7 +1954,8 @@ var detective_analysis_configs = {
 			"2:45 PM (1 hour 15 minutes ago)"
 		],
 		"correct_index": 0,
-		"explanation": "[b]Physics Solution:[/b]\n• Rate: 0.5 mm/hour\n• Moisture: 0.25 mm remaining\n• Time = 0.25 ÷ 0.5 = 0.5 hours = [b]30 minutes[/b]\n• Footprints made: 4:00 PM - 30 min = [b]3:30 PM[/b]\n\n[color=yellow]Someone entered the faculty room at 3:30 PM![/color]"
+		"explanation": "[b]Physics Solution:[/b]\n• Rate: 0.5 mm/hour\n• Moisture: 0.25 mm remaining\n• Time = 0.25 ÷ 0.5 = 0.5 hours = [b]30 minutes[/b]\n• Footprints made: 4:00 PM - 30 min = [b]3:30 PM[/b]\n\n[color=yellow]Someone entered the faculty room at 3:30 PM![/color]",
+		"hint_text": "Use the formula: Time = Amount remaining ÷ Rate. The moisture is 0.25 mm and the evaporation rate is 0.5 mm per hour. How many hours ago were the prints made? Convert that to minutes and subtract from the current time."
 	},
 
 	# ====================
@@ -1951,7 +1972,8 @@ var detective_analysis_configs = {
 			"₱4,000 (20% of ₱20,000)"
 		],
 		"correct_index": 0,
-		"explanation": "[b]Correct Answer: ₱5,000[/b]\n\n[b]Solution:[/b]\nSupplies: 40%\nEvents: 35%\nEmergency: 100% - 40% - 35% = 25%\n\nEmergency fund = 25% of ₱20,000\nEmergency fund = 0.25 × ₱20,000 = [b]₱5,000[/b]\n\n[b]Detective Conclusion:[/b] The thief took the entire ₱20,000, including the ₱5,000 emergency fund."
+		"explanation": "[b]Correct Answer: ₱5,000[/b]\n\n[b]Solution:[/b]\nSupplies: 40%\nEvents: 35%\nEmergency: 100% - 40% - 35% = 25%\n\nEmergency fund = 25% of ₱20,000\nEmergency fund = 0.25 × ₱20,000 = [b]₱5,000[/b]\n\n[b]Detective Conclusion:[/b] The thief took the entire ₱20,000, including the ₱5,000 emergency fund.",
+		"hint_text": "The three allocations must add up to 100%. Supplies (40%) + Events (35%) = 75%. What percentage is left for emergency funds? Then calculate that percentage of ₱20,000."
 	},
 
 	# ====================
@@ -1968,7 +1990,8 @@ var detective_analysis_configs = {
 			"Plain Arch pattern (ridges flow smoothly across)"
 		],
 		"correct_index": 2,
-		"explanation": "[b]Correct Answer: Tented Arch[/b]\n\n[b]Fingerprint Science:[/b]\n• [b]Loop:[/b] Ridges enter from one side and exit same side (60-65% of population)\n• [b]Whorl:[/b] Circular/spiral patterns (30-35% of population)\n• [b]Tented Arch:[/b] Ridges meet at center forming triangular tent (4-5% of population)\n• [b]Plain Arch:[/b] Ridges flow smoothly across without meeting (~5% of population)\n\n[b]Detective Conclusion:[/b] The triangular pattern indicates a rare Tented Arch, helping narrow down suspects."
+		"explanation": "[b]Correct Answer: Tented Arch[/b]\n\n[b]Fingerprint Science:[/b]\n• [b]Loop:[/b] Ridges enter from one side and exit same side (60-65% of population)\n• [b]Whorl:[/b] Circular/spiral patterns (30-35% of population)\n• [b]Tented Arch:[/b] Ridges meet at center forming triangular tent (4-5% of population)\n• [b]Plain Arch:[/b] Ridges flow smoothly across without meeting (~5% of population)\n\n[b]Detective Conclusion:[/b] The triangular pattern indicates a rare Tented Arch, helping narrow down suspects.",
+		"hint_text": "The clue says ridges flow inward from BOTH sides and meet at a point — like a tent or a triangle. Loops only come from one side. Whorls are circular. Which pattern matches ridges meeting in the middle from both sides?"
 	},
 
 	# ====================
@@ -1985,7 +2008,8 @@ var detective_analysis_configs = {
 			"1.8 square meters (40% of 4.5 m²)"
 		],
 		"correct_index": 0,
-		"explanation": "[b]Correct Answer: 2.7 m²[/b]\n\n[b]Solution:[/b]\nBase area = length × width\nBase area = 2.5 m × 1.8 m = 4.5 m²\n\nPaint coverage = 60% of base area\nPaint coverage = 0.60 × 4.5 m² = [b]2.7 m²[/b]\n\n[b]Detective Conclusion:[/b] The vandal used approximately 2.7 square meters worth of paint, suggesting a deliberate, extensive act of vandalism."
+		"explanation": "[b]Correct Answer: 2.7 m²[/b]\n\n[b]Solution:[/b]\nBase area = length × width\nBase area = 2.5 m × 1.8 m = 4.5 m²\n\nPaint coverage = 60% of base area\nPaint coverage = 0.60 × 4.5 m² = [b]2.7 m²[/b]\n\n[b]Detective Conclusion:[/b] The vandal used approximately 2.7 square meters worth of paint, suggesting a deliberate, extensive act of vandalism.",
+		"hint_text": "Two steps: First, find the total area of the rectangular base (length × width). Then find 60% of that total. Which answer matches 60% of the base area you calculated?"
 	},
 
 	# ====================
@@ -2002,7 +2026,8 @@ var detective_analysis_configs = {
 			"450 Joules (PE = 15×15×2)"
 		],
 		"correct_index": 0,
-		"explanation": "[b]Correct Answer: 300 Joules[/b]\n\n[b]Solution:[/b]\nPotential Energy (PE) = mass × gravity × height\nPE = m × g × h\nPE = 15 kg × 10 m/s² × 2 m\nPE = [b]300 Joules[/b]\n\n[b]Detective Conclusion:[/b] The sculpture had 300 J of potential energy. When it fell, this converted to kinetic energy, causing significant damage upon impact. The energy calculation helps determine if external force was applied."
+		"explanation": "[b]Correct Answer: 300 Joules[/b]\n\n[b]Solution:[/b]\nPotential Energy (PE) = mass × gravity × height\nPE = m × g × h\nPE = 15 kg × 10 m/s² × 2 m\nPE = [b]300 Joules[/b]\n\n[b]Detective Conclusion:[/b] The sculpture had 300 J of potential energy. When it fell, this converted to kinetic energy, causing significant damage upon impact. The energy calculation helps determine if external force was applied.",
+		"hint_text": "Use the formula PE = m × g × h. Plug in the values from the problem: mass is 15 kg, gravity is 10 m/s², and height is 2 m. Multiply all three together — which answer matches?"
 	},
 
 	# ====================
@@ -2019,7 +2044,8 @@ var detective_analysis_configs = {
 			"1/3 or 33.3% (Only one person fits)"
 		],
 		"correct_index": 0,
-		"explanation": "[b]Correct Answer: 2/3 or 66.7%[/b]\n\n[b]Solution:[/b]\nStudents with archive access: Alex, Ben, Sarah (3 total)\nStudents who received notes: Ben, Sarah, Tom, Lisa, Jake (5 total)\n\nOverlap (access AND received note): Ben, Sarah (2 people)\n\nProbability = (People with both) ÷ (People with access)\nProbability = 2 ÷ 3 = [b]2/3 ≈ 66.7%[/b]\n\n[b]Detective Conclusion:[/b] There's a 66.7% chance the sender is someone who also received a note, suggesting possible self-targeting or insider knowledge."
+		"explanation": "[b]Correct Answer: 2/3 or 66.7%[/b]\n\n[b]Solution:[/b]\nStudents with archive access: Alex, Ben, Sarah (3 total)\nStudents who received notes: Ben, Sarah, Tom, Lisa, Jake (5 total)\n\nOverlap (access AND received note): Ben, Sarah (2 people)\n\nProbability = (People with both) ÷ (People with access)\nProbability = 2 ÷ 3 = [b]2/3 ≈ 66.7%[/b]\n\n[b]Detective Conclusion:[/b] There's a 66.7% chance the sender is someone who also received a note, suggesting possible self-targeting or insider knowledge.",
+		"hint_text": "The sender must have archive access — that limits it to 3 people (Alex, Ben, Sarah). Of those 3, how many also received a note? That overlap is your numerator. Divide by the total number of people with access."
 	},
 
 	# ====================
@@ -2036,7 +2062,8 @@ var detective_analysis_configs = {
 			"2.2 kWh (P=220×5×2)"
 		],
 		"correct_index": 0,
-		"explanation": "[b]Correct Answer: 0.55 kWh[/b]\n\n[b]Solution:[/b]\nPower (P) = Voltage (V) × Current (I)\nP = 220 V × 5 A = 1100 Watts = 1.1 kW\n\nEnergy (E) = Power (P) × Time (t)\nE = 1.1 kW × 0.5 hours = [b]0.55 kWh[/b]\n\n[b]Detective Conclusion:[/b] The printer used 0.55 kilowatt-hours of energy. By checking the computer lab's power logs, we can confirm the time the printer was used."
+		"explanation": "[b]Correct Answer: 0.55 kWh[/b]\n\n[b]Solution:[/b]\nPower (P) = Voltage (V) × Current (I)\nP = 220 V × 5 A = 1100 Watts = 1.1 kW\n\nEnergy (E) = Power (P) × Time (t)\nE = 1.1 kW × 0.5 hours = [b]0.55 kWh[/b]\n\n[b]Detective Conclusion:[/b] The printer used 0.55 kilowatt-hours of energy. By checking the computer lab's power logs, we can confirm the time the printer was used.",
+		"hint_text": "Two steps: First find Power using P = V × I (220 V × 5 A). Then find Energy using E = P × time. Remember to convert 30 minutes into hours before multiplying."
 	},
 
 	# ====================
@@ -2053,7 +2080,8 @@ var detective_analysis_configs = {
 			"3 notes/hour (total time ÷ days)"
 		],
 		"correct_index": 0,
-		"explanation": "[b]Correct Answer: 0.125 notes/hour[/b]\n\n[b]Physics Solution:[/b]\nPower (P) = Work (W) / Time (t)\n• Work done: 6 notes created and distributed\n• Time taken: 48 hours (2 days)\n• Power = 6 notes ÷ 48 hours = [b]0.125 notes/hour[/b]\n\n[b]Alternative calculation:[/b]\n• Rate per day: 2 notes/day ÷ 24 hours/day = 0.083 notes/hour average\n• But concentrated distribution: 6 notes in 48 hours = 0.125 notes/hour\n\n[b]Energy Transfer Analogy:[/b]\n• [b]Source (Journal):[/b] 3 years of teaching experience (high potential energy)\n• [b]Converter (Alex):[/b] 6 hours reading + 3 hours writing = 9 hours total work\n• [b]Output (Notes):[/b] 6 notes distributed at 0.125 notes/hour average power\n• [b]Efficiency:[/b] Low! Much energy lost in translation (misunderstood wisdom)\n\n[b]Ohm's Law Connection:[/b]\nPower = Voltage × Current (P = VI)\n• Alex's 'voltage' (motivation) was high but 'current' (understanding) was low\n• Result: Power transferred, but without wisdom = harmful output\n\n[b]Detective Conclusion:[/b] Alex had the power to teach but lacked the resistance (ethical understanding) to use it wisely. Raw power without control causes damage!"
+		"explanation": "[b]Correct Answer: 0.125 notes/hour[/b]\n\n[b]Physics Solution:[/b]\nPower (P) = Work (W) / Time (t)\n• Work done: 6 notes created and distributed\n• Time taken: 48 hours (2 days)\n• Power = 6 notes ÷ 48 hours = [b]0.125 notes/hour[/b]\n\n[b]Alternative calculation:[/b]\n• Rate per day: 2 notes/day ÷ 24 hours/day = 0.083 notes/hour average\n• But concentrated distribution: 6 notes in 48 hours = 0.125 notes/hour\n\n[b]Energy Transfer Analogy:[/b]\n• [b]Source (Journal):[/b] 3 years of teaching experience (high potential energy)\n• [b]Converter (Alex):[/b] 6 hours reading + 3 hours writing = 9 hours total work\n• [b]Output (Notes):[/b] 6 notes distributed at 0.125 notes/hour average power\n• [b]Efficiency:[/b] Low! Much energy lost in translation (misunderstood wisdom)\n\n[b]Ohm's Law Connection:[/b]\nPower = Voltage × Current (P = VI)\n• Alex's 'voltage' (motivation) was high but 'current' (understanding) was low\n• Result: Power transferred, but without wisdom = harmful output\n\n[b]Detective Conclusion:[/b] Alex had the power to teach but lacked the resistance (ethical understanding) to use it wisely. Raw power without control causes damage!",
+		"hint_text": "Power = Work ÷ Time. Alex distributed 6 notes over 48 hours total. Divide 6 by 48 — that gives you the rate in notes per hour."
 	},
 
 	# ====================
@@ -2070,7 +2098,8 @@ var detective_analysis_configs = {
 			"5 cases (One per card)"
 		],
 		"correct_index": 0,
-		"explanation": "[b]Correct Answer: 15 cases[/b]\n\n[b]Solution:[/b]\nPattern: Card N appears after N cases\nTotal cases = 1 + 2 + 3 + 4 + 5\n\nUsing sum formula: Sum = n(n+1)/2\nSum = 5(5+1)/2 = 5(6)/2 = [b]15 cases[/b]\n\nAlternatively: 1+2+3+4+5 = 15\n\n[b]Detective Conclusion:[/b] B.C. has been observing and teaching through 15 total cases across all chapters. This reveals a deliberate, long-term mentorship pattern."
+		"explanation": "[b]Correct Answer: 15 cases[/b]\n\n[b]Solution:[/b]\nPattern: Card N appears after N cases\nTotal cases = 1 + 2 + 3 + 4 + 5\n\nUsing sum formula: Sum = n(n+1)/2\nSum = 5(5+1)/2 = 5(6)/2 = [b]15 cases[/b]\n\nAlternatively: 1+2+3+4+5 = 15\n\n[b]Detective Conclusion:[/b] B.C. has been observing and teaching through 15 total cases across all chapters. This reveals a deliberate, long-term mentorship pattern.",
+		"hint_text": "Card 1 needs 1 case, Card 2 needs 2 cases, and so on. Try simply adding them up: 1 + 2 + 3 + 4 + 5. What do you get?"
 	},
 
 	# ====================
@@ -2087,7 +2116,8 @@ var detective_analysis_configs = {
 			"Absorption (light being absorbed by materials)"
 		],
 		"correct_index": 2,
-		"explanation": "[b]Correct Answer: Dispersion[/b]\n\n[b]Light Science:[/b]\n• [b]Dispersion:[/b] White light separates into its component colors (ROYGBIV) because each wavelength refracts at a slightly different angle\n• Red light (long wavelength) bends least\n• Violet light (short wavelength) bends most\n• Refractive index determines bending amount\n\n[b]Detective Conclusion:[/b] B.C. used this prism as a metaphor - just as white light contains many colors, truth contains many perspectives. A teacher helps students see the full spectrum."
+		"explanation": "[b]Correct Answer: Dispersion[/b]\n\n[b]Light Science:[/b]\n• [b]Dispersion:[/b] White light separates into its component colors (ROYGBIV) because each wavelength refracts at a slightly different angle\n• Red light (long wavelength) bends least\n• Violet light (short wavelength) bends most\n• Refractive index determines bending amount\n\n[b]Detective Conclusion:[/b] B.C. used this prism as a metaphor - just as white light contains many colors, truth contains many perspectives. A teacher helps students see the full spectrum.",
+		"hint_text": "The light doesn't just bend — it splits into different colors. Reflection would bounce it back; absorption would stop it. The process of light separating into a spectrum because each color has a different wavelength has its own specific name."
 	}
 }
 
@@ -2101,7 +2131,8 @@ var dialogue_choice_configs = {
 			"Move out of the way, I need to look under that desk.",
 			"Why are you so slow? Just tell me if you found something or not!"
 		],
-		"correct_index": 1  # Choice 2 (0-indexed)
+		"correct_index": 1,  # Choice 2 (0-indexed)
+		"hint_text": "A good detective earns cooperation, not resentment. Think about which option greets the janitor respectfully, uses proper manners, and asks a calm, clear question — without demanding or rushing."
 	},
 	"dialogue_choice_ria_note": {
 		"question": "Why didn't Ria tell anyone about the note?",
@@ -2111,7 +2142,8 @@ var dialogue_choice_configs = {
 			"She was fear to look guilty.",
 			"She fearing it made her guilty."
 		],
-		"correct_index": 0  # Choice 1 (A)
+		"correct_index": 0,  # Choice 1 (A)
+		"hint_text": "Only one choice uses correct grammar. Look for the sentence with the right verb form after 'She' — it should use past tense and a complete verb phrase. Which one sounds natural and grammatically complete?"
 	},
 	"dialogue_choice_cruel_note": {
 		"question": "Which sentence is grammatically correct and clearly states an observation?",
@@ -2121,7 +2153,8 @@ var dialogue_choice_configs = {
 			"Evidence left they.",
 			"They was left evidence."
 		],
-		"correct_index": 0  # Choice A
+		"correct_index": 0,  # Choice A
+		"hint_text": "A correct sentence needs a subject, a proper verb, and an object in the right order. Which choice has 'They' as the subject, uses past tense correctly, and follows normal English word order?"
 	},
 	"dialogue_choice_approach_suspect": {
 		"question": "How should you approach Alex, who might be sending the anonymous notes?",
@@ -2131,7 +2164,8 @@ var dialogue_choice_configs = {
 			"We should report her to the principal immediately based on the archive access log.",
 			"We should ignore the evidence and look for other suspects instead."
 		],
-		"correct_index": 1  # Choice 2 (0-indexed) - Observe carefully before assumptions
+		"correct_index": 1,  # Choice 2 (0-indexed) - Observe carefully before assumptions
+		"hint_text": "A good detective never accuses without solid proof, but also doesn't ignore evidence. Think about what comes before confrontation or reporting — what should you do first when you have suspicion but not certainty?"
 	},
 	"dialogue_choice_bc_approach": {
 		"question": "How should you approach B.C., the mysterious teacher who has been guiding you?",
@@ -2141,7 +2175,8 @@ var dialogue_choice_configs = {
 			"Accuse them of watching students secretly and interfering with school affairs.",
 			"Ignore their presence and examine the evidence they left on the stage first."
 		],
-		"correct_index": 0  # Choice 1 (A) - Respectful gratitude, understanding guidance not manipulation
+		"correct_index": 0,  # Choice 1 (A) - Respectful gratitude, understanding guidance not manipulation
+		"hint_text": "B.C. never forced anyone to do anything — each card was a lesson, not a command. How do you approach a mentor who guided you from afar with wisdom and care? Think about tone and intent."
 	},
 	# ====================
 	# MATH VARIANTS - Chapter 1

@@ -133,12 +133,9 @@ func _update_hint_display():
 
 func _on_hint_button_pressed():
 	if hint_used:
-		print("Hint already used for this puzzle!")
 		return
 
 	if not PlayerStats.use_hint():
-		print("No hints available!")
-		# Show feedback
 		if hint_button:
 			hint_button.text = "No hints!"
 			await get_tree().create_timer(1.0).timeout
@@ -147,27 +144,13 @@ func _on_hint_button_pressed():
 
 	hint_used = true
 	_update_hint_display()
-	_show_hint()
+	_show_hint_overlay()
 
-func _show_hint():
-	# Highlight the correct answers with a pulsing yellow glow
-	var correct_tiles = []
-
-	# Find tiles with correct answers
-	for i in range(choices_grid.get_child_count()):
-		var tile_rect = choices_grid.get_child(i)
-		# Check if the tile has word_data property and if it's a correct answer
-		if "word_data" in tile_rect:
-			if tile_rect.word_data in puzzle_data.answers:
-				correct_tiles.append(tile_rect)
-
-	# Pulse animation for correct tiles
-	for tile in correct_tiles:
-		var original_modulate = tile.modulate
-		var tween = create_tween()
-		tween.set_loops(3)
-		tween.tween_property(tile, "modulate", Color.YELLOW, 0.5)
-		tween.tween_property(tile, "modulate", original_modulate, 0.5)
+func _show_hint_overlay():
+	var hint_text = puzzle_data.get("hint_text", "Think carefully about the context of the sentence and the meaning of each word choice.")
+	var overlay = preload("res://scenes/ui/hint_overlay.tscn").instantiate()
+	get_tree().root.add_child(overlay)
+	overlay.show_hint(hint_text)
 
 func _on_time_up():
 	timer_active = false

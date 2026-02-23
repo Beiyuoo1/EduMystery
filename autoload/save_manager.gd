@@ -7,7 +7,7 @@ signal save_completed(slot_id: int)
 signal load_completed(slot_id: int)
 signal save_deleted(slot_id: int)
 
-const MAX_MANUAL_SLOTS := 10  # Manual save slots (1-10)
+const MAX_MANUAL_SLOTS := 5   # Manual save slots (1-5)
 const AUTOSAVE_SLOTS := 3      # Auto-save slots (auto-1, auto-2, auto-3)
 const QUICKSAVE_SLOT := 99     # Quick save slot
 

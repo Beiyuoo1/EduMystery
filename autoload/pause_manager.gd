@@ -153,6 +153,10 @@ func _on_settings_back(canvas_layer: CanvasLayer) -> void:
 			resume_button.grab_focus()
 
 func _on_main_menu() -> void:
+	# Auto-save progress when quitting to main menu
+	if SaveManager:
+		await SaveManager.auto_save()
+
 	# Save game progress before returning to main menu
 	Dialogic.Save.save("continue_save", false, Dialogic.Save.ThumbnailMode.NONE)
 	PlayerStats.save_stats()

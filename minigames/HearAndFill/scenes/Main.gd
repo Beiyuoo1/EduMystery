@@ -29,6 +29,7 @@ var time_remaining: float = 90.0  # 1:30 in seconds
 var timer_active: bool = false
 
 # Puzzle configuration
+var puzzle_config: Dictionary = {}
 var sentence_text: String = "Sir, does this room have a dedicated ____ router?"
 var blank_word: String = "WiFi"
 var correct_answer_index: int = 2  # "WiFi" is at index 2
@@ -251,37 +252,21 @@ func _update_hint_display():
 func _on_hint_pressed():
 	"""Called when hint button is pressed"""
 	if hint_used:
-		feedback_label.text = "You already used a hint for this puzzle!"
-		feedback_label.add_theme_color_override("font_color", Color.ORANGE)
-		feedback_label.visible = true
-		await get_tree().create_timer(2.0).timeout
-		feedback_label.visible = false
 		return
 
-	# Try to use a hint from PlayerStats
-	if PlayerStats.use_hint():
-		hint_used = true
-		_update_hint_display()
-		hint_button.disabled = true
+	if not PlayerStats.use_hint():
+		hint_button.text = "No hints!"
+		await get_tree().create_timer(1.0).timeout
+		hint_button.text = "💡 Hint"
+		return
 
-		# Highlight the correct answer box
-		var correct_button = choice_buttons[correct_answer_index]
-
-		# Create a visual highlight effect (yellow border/background)
-		var tween = create_tween()
-		tween.set_loops(3)
-		tween.tween_property(correct_button, "modulate", Color.YELLOW, 0.3)
-		tween.tween_property(correct_button, "modulate", Color.WHITE, 0.3)
-
-		print("DEBUG: Hint used! Highlighting correct answer: ", blank_word)
-		print("DEBUG: Hints remaining: ", PlayerStats.hints)
-	else:
-		# No hints available
-		feedback_label.text = "No hints available! Complete minigames quickly to earn more."
-		feedback_label.add_theme_color_override("font_color", Color.ORANGE)
-		feedback_label.visible = true
-		await get_tree().create_timer(2.0).timeout
-		feedback_label.visible = false
+	hint_used = true
+	_update_hint_display()
+	hint_button.disabled = true
+	var hint_text = puzzle_config.get("hint_text", "Think about how the word sounds when spoken aloud. Use the speaker button to hear it again.")
+	var overlay = preload("res://scenes/ui/hint_overlay.tscn").instantiate()
+	get_tree().root.add_child(overlay)
+	overlay.show_hint(hint_text)
 
 func _setup_tts():
 	"""Setup TTS audio player"""
@@ -338,6 +323,7 @@ func _exit_tree():
 # Configuration function for different puzzle variations
 func configure_puzzle(config: Dictionary):
 	"""Configure the puzzle with custom parameters"""
+	puzzle_config = config
 	if config.has("sentence"):
 		sentence_text = config["sentence"]
 	if config.has("blank_word"):

@@ -85,6 +85,20 @@ func _fix_web_audio_buses() -> void:
 			AudioServer.set_bus_send(idx, "Master")
 			print("Web audio fix: rerouted ", bus_name, " bus to Master")
 
+func fix_web_audio_players(root: Node) -> void:
+	"""On web, AudioStreamPlayer nodes assigned to named buses crash with
+	'invalid bus index -1' (Godot 4.5 sample audio bug). Walk the entire
+	scene tree and set every AudioStreamPlayer's bus to 'Master' on web."""
+	if OS.get_name() != "Web":
+		return
+	_fix_audio_players_recursive(root)
+
+func _fix_audio_players_recursive(node: Node) -> void:
+	if node is AudioStreamPlayer:
+		node.bus = "Master"
+	for child in node.get_children():
+		_fix_audio_players_recursive(child)
+
 func _apply_audio_volume(bus_name: String, volume_percent: float) -> void:
 	"""Convert percentage (0-100) to dB and apply to audio bus"""
 	var bus_idx = AudioServer.get_bus_index(bus_name)

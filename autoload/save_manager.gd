@@ -137,6 +137,18 @@ func load_game(slot_id: int) -> bool:
 		# Wait a frame to ensure cleanup is complete
 		await get_tree().process_frame
 
+	# Re-apply web audio bus routing BEFORE Dialogic loads state (Godot 4.5 bug
+	# #100102: bus send routes get reset on web, causing "invalid bus index -1"
+	# crash when the resumed timeline immediately plays audio samples).
+	# Also force all existing AudioStreamPlayer nodes to use "Master" bus so
+	# the web JS audio engine can resolve them (named buses map to index -1 on web).
+	if OS.get_name() == "Web" and AudioBusSetup:
+		AudioBusSetup._fix_web_audio_buses()
+		AudioBusSetup.fix_web_audio_players(get_tree().root)
+		# Patch the persistent Dialogic voice player directly
+		if Dialogic.Voice and Dialogic.Voice.voice_player:
+			Dialogic.Voice.voice_player.bus = "Master"
+
 	# Load Dialogic state - check if the save file exists first
 	if Dialogic.Save.has_slot(slot.dialogic_slot_name):
 		var dialogic_result = Dialogic.Save.load(slot.dialogic_slot_name)
@@ -151,11 +163,6 @@ func load_game(slot_id: int) -> bool:
 	# Wait a frame for timeline to resume, then clear the loading flag
 	await get_tree().process_frame
 	is_loading_save = false
-
-	# Re-apply web audio bus routing fix after load (Godot 4.5 bug #100102:
-	# bus send routes get reset after timeline reload on web)
-	if OS.get_name() == "Web" and AudioBusSetup:
-		AudioBusSetup._fix_web_audio_buses()
 
 	load_completed.emit(slot_id)
 	print("Game loaded from slot ", slot_id, " (", Time.get_datetime_string_from_unix_time(slot.timestamp), ")")

@@ -3,7 +3,8 @@ extends CanvasLayer
 ## HintOverlay - Shared hint panel used by all minigames
 ## Shows guiding hint text in a BGbox_01A panel without revealing the answer.
 ## Usage:
-##   var overlay = preload("res://scenes/ui/hint_overlay.tscn").instantiate()
+##   var overlay = CanvasLayer.new()
+##   overlay.set_script(load("res://scenes/ui/hint_overlay.gd"))
 ##   get_tree().root.add_child(overlay)
 ##   overlay.show_hint("Your guiding hint text here.")
 
@@ -18,6 +19,9 @@ var _pending_text: String = ""
 func _ready() -> void:
 	layer = 200  # Above everything
 
+	# Start invisible, fade in after layout
+	self.modulate = Color(1, 1, 1, 0)
+
 	# Dim background
 	var bg = ColorRect.new()
 	bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -25,43 +29,44 @@ func _ready() -> void:
 	bg.mouse_filter = Control.MOUSE_FILTER_STOP
 	add_child(bg)
 
-	# BGbox_01A nine-patch panel
+	# BGbox_01A nine-patch panel — fixed vertical center position
 	_panel = NinePatchRect.new()
 	_panel.texture = BGBOX
 	_panel.patch_margin_left   = 28
 	_panel.patch_margin_top    = 29
 	_panel.patch_margin_right  = 28
 	_panel.patch_margin_bottom = 27
-	_panel.custom_minimum_size = Vector2(700, 0)
+	_panel.custom_minimum_size = Vector2(700, 300)
 	_panel.set_anchors_preset(Control.PRESET_CENTER)
-	_panel.offset_left  = -350
-	_panel.offset_right =  350
+	_panel.offset_left   = -350
+	_panel.offset_right  =  350
+	_panel.offset_top    = -200
+	_panel.offset_bottom =  200
 	add_child(_panel)
 
-	# Inner VBox
-	var vbox = VBoxContainer.new()
-	vbox.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	vbox.add_theme_constant_override("separation", 20)
+	# Inner margin + VBox
 	var m = MarginContainer.new()
+	m.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	m.add_theme_constant_override("margin_left",   36)
 	m.add_theme_constant_override("margin_top",    32)
 	m.add_theme_constant_override("margin_right",  36)
 	m.add_theme_constant_override("margin_bottom", 32)
 	_panel.add_child(m)
+
+	var vbox = VBoxContainer.new()
+	vbox.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	vbox.add_theme_constant_override("separation", 16)
 	m.add_child(vbox)
 
-	# Title row
-	var title_row = HBoxContainer.new()
-	title_row.add_theme_constant_override("separation", 10)
-	vbox.add_child(title_row)
-
+	# Title
 	var icon = Label.new()
 	icon.text = "Detective's Hint"
+	icon.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	icon.add_theme_font_size_override("font_size", 28)
 	icon.add_theme_color_override("font_color", Color(1.0, 0.85, 0.3))
 	icon.add_theme_color_override("font_outline_color", Color(0.2, 0.1, 0.0))
 	icon.add_theme_constant_override("outline_size", 3)
-	title_row.add_child(icon)
+	vbox.add_child(icon)
 
 	# Divider
 	var sep = HSeparator.new()
@@ -82,9 +87,14 @@ func _ready() -> void:
 	_label.custom_minimum_size = Vector2(0, 60)
 	vbox.add_child(_label)
 
-	# Apply any text that was set before _ready() finished
+	# Apply pending text if show_hint() was called before _ready()
 	if _pending_text != "":
 		_label.text = "[center]" + _pending_text + "[/center]"
+
+	# Spacer
+	var spacer = Control.new()
+	spacer.custom_minimum_size = Vector2(0, 8)
+	vbox.add_child(spacer)
 
 	# Got it button
 	var btn_row = CenterContainer.new()
@@ -106,39 +116,30 @@ func _ready() -> void:
 
 	var btn_hover = btn_normal.duplicate()
 	btn_hover.bg_color = Color(0.25, 0.7, 0.38, 1.0)
-	btn_hover.shadow_color = Color(0.25, 0.7, 0.38, 0.4)
-	btn_hover.shadow_size = 8
 	btn.add_theme_stylebox_override("hover", btn_hover)
 
 	btn.pressed.connect(_on_close)
 	btn_row.add_child(btn)
 
-	# Size panel to fit content after layout
-	await get_tree().process_frame
-	_panel.offset_top    = -(_panel.size.y / 2.0)
-	_panel.offset_bottom =  (_panel.size.y / 2.0)
+	# Fade in using a timer callback (no await needed)
+	get_tree().create_timer(0.05).timeout.connect(_do_fade_in)
 
-	# Fade in
-	modulate.a = 0.0
+func _do_fade_in() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 1.0, 0.2)
 
 func show_hint(text: String) -> void:
 	_pending_text = text
 	if _label != null:
-		# _ready() already ran — apply immediately
 		_label.text = "[center]" + text + "[/center]"
-		await get_tree().process_frame
-		if is_instance_valid(_panel):
-			_panel.offset_top    = -(_panel.size.y / 2.0)
-			_panel.offset_bottom =  (_panel.size.y / 2.0)
 
 func _on_close() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 0.15)
-	await tween.finished
-	closed.emit()
-	queue_free()
+	tween.tween_callback(func():
+		closed.emit()
+		queue_free()
+	)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:

@@ -249,7 +249,7 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 [gui]
 
-theme/custom_font_fallback="res://assets/font/NotoEmoji-Regular.ttf"
+theme/custom_font_fallback="res://assets/font/game_font.tres"
 
 [input]
 

@@ -150,6 +150,9 @@ func _build_sequence_display() -> void:
 			arrow.add_theme_color_override("font_color", Color(0.6, 0.6, 0.6))
 			arrow.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 			arrow.custom_minimum_size = Vector2(36, 70)
+			var _arrow_font = load("res://assets/font/game_font.tres")
+			if _arrow_font:
+				arrow.add_theme_font_override("font", _arrow_font)
 			sequence_container.add_child(arrow)
 
 func _build_number_pad() -> void:

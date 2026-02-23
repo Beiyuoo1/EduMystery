@@ -110,7 +110,7 @@ layout_mode = 2
 [node name="TimerLabel" type="Label" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
-text = "[T] 1:30"
+text = "⏱️ 1:30"
 
 [node name="Spacer" type="Control" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -120,7 +120,7 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "[?] Hint"
+text = "💡 Hint"
 
 [node name="HintLabel" type="Label" parent="CanvasLayer/TextureRect/CenterContainer/PanelContainer/AspectRatioContainer/MarginContainer/VBoxContainer/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -419,7 +419,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 21
 theme_override_colors/font_color = Color(0.15, 0.08, 0.03, 1)
 autowrap_mode = 3
-text = "4. If you're stuck, use the [?] Hint button — it will highlight the correct answer!"
+text = "4. If you're stuck, use the 💡 Hint button — it will highlight the correct answer!"
 
 [node name="Sep2" type="HSeparator" parent="CanvasLayer/TutorialOverlay/TutPanel/VBox"]
 layout_mode = 2
@@ -429,7 +429,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 19
 theme_override_colors/font_color = Color(0.35, 0.2, 0.1, 1)
 autowrap_mode = 3
-text = ">> Speed Tip: Complete the puzzle in under 60 seconds to earn a bonus Hint!"
+text = "⚡ Speed Tip: Complete the puzzle in under 60 seconds to earn a bonus Hint!"
 
 [node name="StartButton" type="Button" parent="CanvasLayer/TutorialOverlay/TutPanel/VBox"]
 custom_minimum_size = Vector2(0, 52)

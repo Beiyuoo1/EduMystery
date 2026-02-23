@@ -111,7 +111,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_kqqpp")
 [node name="TimerLabel" type="Label" parent="Panel/VBox/TopBar/TimerPanel"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "[T] Time: 02:00"
+text = "⏱️ Time: 02:00"
 
 [node name="HintPanel" type="PanelContainer" parent="Panel/VBox/TopBar"]
 layout_mode = 2
@@ -127,7 +127,7 @@ theme_override_styles/normal = SubResource("SubmitNormal")
 theme_override_styles/pressed = SubResource("SubmitHover")
 theme_override_styles/hover = SubResource("SubmitHover")
 theme_override_styles/focus = SubResource("SubmitNormal")
-text = "[?] Use Hint"
+text = "💡 Use Hint"
 
 [node name="HintCounter" type="Label" parent="Panel/VBox/TopBar/HintPanel/HintHBox"]
 layout_mode = 2

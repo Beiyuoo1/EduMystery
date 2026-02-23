@@ -74,7 +74,7 @@ text = "Time: 01:30"
 
 [node name="HintButton" type="Button" parent="Panel/VBox/HBox"]
 layout_mode = 2
-text = "[?] Hint"
+text = "💡 Hint"
 
 [node name="HintCounter" type="Label" parent="Panel/VBox/HBox"]
 layout_mode = 2

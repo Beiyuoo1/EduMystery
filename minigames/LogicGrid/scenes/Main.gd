@@ -53,6 +53,15 @@ var _blink_elapsed: float = 0.0
 
 signal minigame_completed(success: bool, time_taken: float)
 
+# Cached emoji font for dynamically created buttons/labels
+var _emoji_font: FontFile = null
+
+func _get_emoji_font() -> FontFile:
+	if _emoji_font == null:
+		_emoji_font = FontFile.new()
+		_emoji_font.load_dynamic_font("res://assets/font/NotoEmoji-Regular.ttf")
+	return _emoji_font
+
 func _ready() -> void:
 	set_process(false)  # Don't run _process until timer is started
 	feedback_panel.hide()
@@ -337,6 +346,7 @@ func _style_cell_button(button: Button, state: String) -> void:
 	button.add_theme_stylebox_override("normal", style)
 	button.add_theme_stylebox_override("hover", hover_style)
 	button.add_theme_stylebox_override("pressed", style.duplicate())
+	button.add_theme_font_override("font", _get_emoji_font())
 
 func _style_submit_button() -> void:
 	var style = StyleBoxFlat.new()

@@ -152,6 +152,11 @@ func load_game(slot_id: int) -> bool:
 	await get_tree().process_frame
 	is_loading_save = false
 
+	# Re-apply web audio bus routing fix after load (Godot 4.5 bug #100102:
+	# bus send routes get reset after timeline reload on web)
+	if OS.get_name() == "Web" and AudioBusSetup:
+		AudioBusSetup._fix_web_audio_buses()
+
 	load_completed.emit(slot_id)
 	print("Game loaded from slot ", slot_id, " (", Time.get_datetime_string_from_unix_time(slot.timestamp), ")")
 	return true

@@ -456,7 +456,8 @@ func _on_hint_pressed() -> void:
 	_update_hint_display()
 	hint_button.disabled = true
 	var hint_text = puzzle_config.get("hint_text", "Re-read the context carefully. Identify the key values given, then decide which formula or reasoning step applies here.")
-	var overlay = preload("res://scenes/ui/hint_overlay.tscn").instantiate()
+	var overlay = CanvasLayer.new()
+	overlay.set_script(load("res://scenes/ui/hint_overlay.gd"))
 	get_tree().root.add_child(overlay)
 	overlay.show_hint(hint_text)
 

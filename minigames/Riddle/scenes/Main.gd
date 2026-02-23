@@ -327,7 +327,8 @@ func _on_hint_pressed():
 	_update_hint_display()
 	hint_button.disabled = true
 	var hint_text = puzzle_config.get("hint_text", "Think about the riddle clues carefully. The answer is a common word — say it aloud and spell it out letter by letter.")
-	var overlay = preload("res://scenes/ui/hint_overlay.tscn").instantiate()
+	var overlay = CanvasLayer.new()
+	overlay.set_script(load("res://scenes/ui/hint_overlay.gd"))
 	get_tree().root.add_child(overlay)
 	overlay.show_hint(hint_text)
 

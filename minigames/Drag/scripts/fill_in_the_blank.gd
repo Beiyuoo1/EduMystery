@@ -148,7 +148,8 @@ func _on_hint_button_pressed():
 
 func _show_hint_overlay():
 	var hint_text = puzzle_data.get("hint_text", "Think carefully about the context of the sentence and the meaning of each word choice.")
-	var overlay = preload("res://scenes/ui/hint_overlay.tscn").instantiate()
+	var overlay = CanvasLayer.new()
+	overlay.set_script(load("res://scenes/ui/hint_overlay.gd"))
 	get_tree().root.add_child(overlay)
 	overlay.show_hint(hint_text)
 

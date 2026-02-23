@@ -1191,7 +1191,8 @@ func _on_hint_pressed() -> void:
 	hint_button.disabled = true
 	_update_hint_display()
 	var hint_text = puzzle_config.get("hint_text", "Think about cause and effect. Which event must happen before the others can occur? Work through the sequence one step at a time.")
-	var overlay = preload("res://scenes/ui/hint_overlay.tscn").instantiate()
+	var overlay = CanvasLayer.new()
+	overlay.set_script(load("res://scenes/ui/hint_overlay.gd"))
 	get_tree().root.add_child(overlay)
 	overlay.show_hint(hint_text)
 

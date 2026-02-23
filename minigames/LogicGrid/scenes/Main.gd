@@ -585,7 +585,8 @@ func _on_hint_pressed() -> void:
 	hint_button.disabled = true
 	hint_button.text = "💡 Hint (%ds)" % ceil(hint_cooldown)
 	var hint_text = puzzle_config.get("hint_text", "Re-read each clue carefully. Apply each clue one at a time and use process of elimination — mark cells you are certain are wrong first.")
-	var overlay = preload("res://scenes/ui/hint_overlay.tscn").instantiate()
+	var overlay = CanvasLayer.new()
+	overlay.set_script(load("res://scenes/ui/hint_overlay.gd"))
 	get_tree().root.add_child(overlay)
 	overlay.show_hint(hint_text)
 

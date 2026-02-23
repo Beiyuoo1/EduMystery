@@ -405,7 +405,8 @@ func _on_hint_pressed() -> void:
 	_update_hint_display()
 	hint_button.disabled = true
 	var hint_text = puzzle_config.get("hint_text", "Look at how each number changes from one step to the next. Is it adding, subtracting, multiplying, or something else? Find the pattern first, then apply it.")
-	var overlay = preload("res://scenes/ui/hint_overlay.tscn").instantiate()
+	var overlay = CanvasLayer.new()
+	overlay.set_script(load("res://scenes/ui/hint_overlay.gd"))
 	get_tree().root.add_child(overlay)
 	overlay.show_hint(hint_text)
 

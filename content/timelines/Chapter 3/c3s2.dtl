@@ -213,9 +213,10 @@ if {selected_character} == "celestine":
 	join "Diwata Laya" (Half) leftmost
 	[signal arg="laya_start"]
 	[voice path="res://assets/audio/voice/Chapter 3/c3s2/diwata_laya_materializes.mp3" volume="0.0" bus="Voice"]
-	"Diwata Laya" materializes beside Celestine, her form shimmering faintly.
+	"Diwata Laya" materializes beside the protagonist.
 	"Diwata Laya": [i][color=#9999ff]Celestine. May I see the note?[/color][/i]
-	Celestine passes it to her discreetly, careful not to draw attention.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/The_protagonist_passes.mp3" volume="0.0"]
+	The protagonist passes it to her discreetly, careful not to draw attention.
 	[voice path="res://assets/audio/voice/Chapter 3/c3s2/diwata_laya_holds.mp3" volume="0.0" bus="Voice"]
 	"Diwata Laya" holds the paper gently, closing her eyes.
 	"Diwata Laya": [i][color=#9999ff]I sense... pain. Deep, festering pain.[/color][/i]
@@ -231,7 +232,7 @@ if {selected_character} == "celestine":
 	join Mark (Mark_half) right
 else:
 	[voice path="res://assets/audio/voice/Chapter 3/c3s2/the_protagonist_returns.mp3" volume="0.0" bus="Voice"]
-	The protagonist returns to where he found Mia.
+	The protagonist returns to where they found Mia.
 	[background arg="res://Bg/sitting_bench.png" fade="0.0"]
 	[voice path="res://assets/audio/voice/Chapter 3/c3s2/shes_sitting_on.mp3" volume="0.0" bus="Voice"]
 	She's sitting on a bench, staring at the spot where her sculpture once stood.
@@ -264,9 +265,10 @@ else:
 	join "Diwata Laya" (Half) leftmost
 	[signal arg="laya_start"]
 	[voice path="res://assets/audio/voice/Chapter 3/c3s2/diwata_laya_materializes.mp3" volume="0.0" bus="Voice"]
-	"Diwata Laya" materializes beside the protagonist, her form shimmering faintly.
+	"Diwata Laya" materializes beside the protagonist.
 	"Diwata Laya": [i][color=#9999ff]Conrad. May I see the note?[/color][/i]
-	Conrad passes it to her discreetly, careful not to draw attention.
+	[voice path="res://assets/audio/voice/Chapter 3/c3s2/The_protagonist_passes.mp3" volume="0.0"]
+	The protagonist passes it to her discreetly, careful not to draw attention.
 	[voice path="res://assets/audio/voice/Chapter 3/c3s2/diwata_laya_holds.mp3" volume="0.0" bus="Voice"]
 	"Diwata Laya" holds the paper gently, closing her eyes.
 	"Diwata Laya": [i][color=#9999ff]I sense... pain. Deep, festering pain.[/color][/i]

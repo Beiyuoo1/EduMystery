@@ -126,7 +126,7 @@ if {selected_character} == "celestine":
 	Victor: I thought... I thought I deserved to shine. More than her.
 	Victor: But now I just feel empty.
 	Victor: Destroying her art didn't make mine better. It just made me... this.
-	[voice path="res://assets/audio/voice/Chapter 3/c3s4/victor_looks_up.mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 3/c3s4/He_looks_up.mp3" volume="0.0" bus="Voice"]
 	He looks up at the protagonist, tears streaming down his face.
 	Victor: I'm sorry. I'm so sorry.
 	Celestine: You need to tell Ms. Reyes. And Mia.

@@ -924,7 +924,7 @@ func _create_right_page(chapter_num: int, content: Dictionary) -> PanelContainer
 
 			# Explanation (why this is correct)
 			var explanation_label = Label.new()
-			explanation_label.text = "   💡 Why: " + guide.get("explanation", "")
+			explanation_label.text = "    Why: " + guide.get("explanation", "")
 			explanation_label.add_theme_font_size_override("font_size", 17)
 			explanation_label.add_theme_color_override("font_color", Color(0.25, 0.25, 0.35))
 			explanation_label.autowrap_mode = TextServer.AUTOWRAP_WORD

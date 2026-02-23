@@ -51,7 +51,7 @@ else:
 [background arg="res://Bg/controversy.png" fade="0.5"]
 audio music - [fade="1.8"]
 [voice path="res://assets/audio/voice/Chapter 3/c3s1/the_protagonist_and_mark.mp3" volume="0.0" bus="Voice"]
-They walk toward the center of the courtyard.
+The protagonist and Mark both walk to the center of the courtyard.
 [voice path="res://assets/audio/voice/Chapter 3/c3s1/a_crowd_has.mp3" volume="0.0" bus="Voice"]
 A crowd has gathered, but something feels wrong.
 [voice path="res://assets/audio/voice/Chapter 3/c3s1/the_murmurs_are.mp3" volume="0.0" bus="Voice"]

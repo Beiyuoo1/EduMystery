@@ -319,12 +319,12 @@ if {selected_character} == "celestine":
 	join Celestine left
 	join Mark right
 	[voice path="res://assets/audio/voice/Chapter 1/C1s5/The_protagonist_Sighs.mp3" volume="0.0" bus="Voice"]
-	The protagonist Sighs...
+	The protagonist sighs...
 	Celestine: Hold on - this case isn't closed yet. I need to check the envelope.
 	leave Celestine
 	leave Mark
 	[voice path="res://assets/audio/voice/Chapter 1/C1s5/The_protagonist_and_Mark_headed_back.mp3" volume="0.0" bus="Voice"]
-	The protagonist and Mark headed back to the classroom and inspect the locker
+	The protagonist and Mark headed back to the classroom and inspect the locker.
 	[background arg="res://Bg/envelope1.png" fade="0.0"]
 	join Celestine left
 	join Mark right
@@ -332,12 +332,12 @@ if {selected_character} == "celestine":
 	[signal arg="start_minigame locker_examination"]
 	[style]
 	[voice path="res://assets/audio/voice/Chapter 1/C1s5/The_protagonist_Studies.mp3" volume="0.0" bus="Voice"]
-	The protagonist Studies the envelope closely.
+	The protagonist studies the envelope closely.
 else:
 	join Conrad left
 	join Mark right
 	[voice path="res://assets/audio/voice/Chapter 1/C1s5/The_protagonist_Sighs.mp3" volume="0.0" bus="Voice"]
-	The protagonist Sighs...
+	The protagonist sighs...
 	Conrad: Hold on - this case isn't closed yet. I need to check the envelope.
 	leave Conrad
 	leave Mark
@@ -350,13 +350,13 @@ else:
 	[signal arg="start_minigame locker_examination"]
 	[style]
 	[voice path="res://assets/audio/voice/Chapter 1/C1s5/The_protagonist_Studies.mp3" volume="0.0" bus="Voice"]
-	The protagonist Studies the envelope closely.
+	The protagonist studies the envelope closely.
 [voice path="res://assets/audio/voice/Chapter 1/C1s5/No_name_is_written.mp3" volume="0.0" bus="Voice"]
 No name is written on it...
 [voice path="res://assets/audio/voice/Chapter 1/C1s5/but_inside_the_flap.mp3" volume="0.0"]
-but inside the flap is a stameped symbol
+But inside the flap is a stameped symbol
 [voice path="res://assets/audio/voice/Chapter 1/C1s5/A_BC_card.mp3" volume="0.0" bus="Voice"]
-A B.C card...
+A  B.C. card...
 [signal arg="unlock_evidence bc_card_truth_c1"]
 leave --All--
 [wait time="1.0"]

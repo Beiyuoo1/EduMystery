@@ -877,9 +877,9 @@ func _start_web_speech_recognition() -> void:
 	_web_speech_active = true
 	_web_speech_poll_timer = 0.0
 
-	status_label.text = "🎤 READ THE FULL SENTENCE ABOVE OUT LOUD"
+	status_label.text = "READ THE FULL SENTENCE ABOVE OUT LOUD"
 	transcription_label.text = "Waiting for speech..."
-	progress_label.text = "🔴 Listening — speak now!"
+	progress_label.text = "Listening — speak now!"
 	_set_chibi_mic_state(true)
 
 	# Inject Web Speech API listener into the browser.

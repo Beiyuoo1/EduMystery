@@ -42,6 +42,7 @@ Alex's shoulders slump. She sets down her pen.
 Alex: You wouldn't understand.
 if {selected_character} == "celestine":
 	Celestine: Try us.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s4/alex_takes_a.mp3" volume="0.0"]
 	Alex takes a shaky breath.
 	Alex: I found the journal by accident. I was looking for something else and it was just... there.
 	Alex: Hidden behind old files. Like someone wanted it forgotten.
@@ -59,7 +60,8 @@ if {selected_character} == "celestine":
 	Alex: I... I didn't mean to frighten anyone. I thought they'd appreciate the guidance.
 	"Celestine (Thinking)": How do I make them understand?
 	audio music "res://assets/audio/bg/sad.mp3" [loop="true"]
-	Celestine leans forward, voice gentle but firm.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s4/the_protagonist_leans.mp3" volume="0.0"]
+	The protagonist leans forward, voice gentle but firm.
 	Celestine: Alex, think about how you felt when you found the journal.
 	Celestine: Did you ask permission to take it? Did you consult anyone about whether this was appropriate?
 	Alex: No, but... I thought—
@@ -119,7 +121,8 @@ else:
 	"Diwata Laya" appears, visible only to the protagonist.
 	"Conrad (Thinking)": How do I make them understand?
 	audio music "res://assets/audio/bg/sad.mp3" [loop="true"]
-	Conrad leans forward, voice gentle but firm.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s4/the_protagonist_leans.mp3" volume="0.0"]
+	The protagonist leans forward, voice gentle but firm.
 	Conrad: Alex, think about how you felt when you found the journal.
 	Conrad: Did you ask permission to take it? Did you consult anyone about whether this was appropriate?
 	Alex: No, but... I thought—

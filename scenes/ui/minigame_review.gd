@@ -41,7 +41,7 @@ func show_review(content: Dictionary):
 
 	var tip_text = content.get("tip", "")
 	if tip_text:
-		tip_label.text = "💡 Tip: " + tip_text
+		tip_label.text = " Tip: " + tip_text
 		tip_panel.visible = true
 	else:
 		tip_panel.visible = false

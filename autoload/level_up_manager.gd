@@ -19,12 +19,12 @@ var ability_data = {
 	3: {
 		"name": "Score Improvement",
 		"desc": "Retry completed minigames to improve your score!",
-		"icon": "🌟"
+		"icon": "*"
 	},
 	4: {
 		"name": "Deductive Hint",
 		"desc": "Receive 1 hint per minigame when you need guidance!",
-		"icon": "💡"
+		"icon": ""
 	},
 	5: {
 		"name": "Extended Analysis",
@@ -34,12 +34,12 @@ var ability_data = {
 	6: {
 		"name": "Double Attempt",
 		"desc": "You can now retry failed minigames TWICE!",
-		"icon": "🔄"
+		"icon": "->"
 	},
 	7: {
 		"name": "Enhanced Insight",
 		"desc": "Receive 2 hints per minigame!",
-		"icon": "💡"
+		"icon": ""
 	},
 	8: {
 		"name": "Master's Focus",
@@ -54,7 +54,7 @@ var ability_data = {
 	10: {
 		"name": "Perfect Detective",
 		"desc": "Unlimited retries and all hints available! You've mastered deduction!",
-		"icon": "👑"
+		"icon": "*"
 	}
 }
 

@@ -4,6 +4,7 @@ audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 A few days later. Art Week continues, transformed by what happened.
 [voice path="res://assets/audio/voice/Chapter 3/c3s6/the_afternoon_sun.mp3" volume="0.0" bus="Voice"]
 The afternoon sun casts long shadows across the courtyard. Students mill about, their conversations softer than before.
+[voice path="res://assets/audio/voice/Chapter 3/c3s6/The_spots.mp3" volume="0.0"]
 The spot where "The Reader" once stood now holds something new.
 if {selected_character} == "celestine":
 	join Celestine (animated) left
@@ -207,5 +208,5 @@ And somewhere, watching, B.C. waits for the next chapter to begin.
 audio music "res://assets/audio/chapter_end_bg.mp3" [fade="0.5" volume="0.0" bus="Music" loop="true"]
 [wait time="1.0"]
 [signal arg="show_chapter_results"]
-audio stop_music "[fade="2.0"]"
+audio stop_music "[fade="
 jump c4s0/

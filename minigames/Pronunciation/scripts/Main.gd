@@ -195,6 +195,7 @@ func _setup_ui():
 
 	# Record button
 	record_button = Button.new()
+	record_button.icon = load("res://assets/UI/core/mic_off.png")
 	record_button.text = "Hold to Record"
 	record_button.custom_minimum_size = Vector2(250, 60)
 	record_button.add_theme_font_size_override("font_size", 20)
@@ -323,9 +324,10 @@ func _start_recording():
 	# Start microphone capture by playing the mic stream
 	mic_player.play()
 
-	status_label.text = "🎤 Listening... Speak now!"
+	status_label.text = "Listening... Speak now!"
 	status_label.add_theme_color_override("font_color", Color.YELLOW)
-	record_button.text = "🔴 Recording..."
+	record_button.icon = load("res://assets/UI/core/mic_active.png")
+	record_button.text = "Recording..."
 	record_button.add_theme_color_override("font_color", Color.RED)
 	confidence_label.text = ""
 
@@ -337,7 +339,8 @@ func _stop_recording():
 	# Play stop recording sound
 	_play_sfx(sfx_stop_recording)
 
-	status_label.text = "⏳ Processing..."
+	status_label.text = "Processing..."
+	record_button.icon = load("res://assets/UI/core/mic_off.png")
 	record_button.text = "Processing..."
 	record_button.remove_theme_color_override("font_color")
 	record_button.disabled = true
@@ -490,9 +493,10 @@ func _display_evaluation(recognized: String, word_match: float, confidence: floa
 		else:
 			status_label.add_theme_color_override("font_color", orange)
 			var tip = _get_improvement_tip(word_percent, clarity_percent)
-			status_label.text = "You said: \"" + recognized + "\"\n💡" + tip
+			status_label.text = "You said: \"" + recognized + "\"\n" + tip
 			_play_sfx(sfx_retry)
-			record_button.text = "🎤 Hold to Record"
+			record_button.icon = load("res://assets/UI/core/mic_off.png")
+			record_button.text = "Hold to Record"
 			record_button.disabled = false
 	else:
 		confidence_label.add_theme_color_override("font_color", red)
@@ -504,9 +508,10 @@ func _display_evaluation(recognized: String, word_match: float, confidence: floa
 		else:
 			status_label.add_theme_color_override("font_color", Color(1.0, 0.5, 0.3))
 			var tip = _get_improvement_tip(word_percent, clarity_percent)
-			status_label.text = "You said: \"" + recognized + "\"\n💡" + tip
+			status_label.text = "You said: \"" + recognized + "\"\n" + tip
 			_play_sfx(sfx_retry)
-			record_button.text = "🎤 Hold to Record"
+			record_button.icon = load("res://assets/UI/core/mic_off.png")
+			record_button.text = "Hold to Record"
 			record_button.disabled = false
 
 func _get_improvement_tip(word_percent: int, clarity_percent: int) -> String:
@@ -519,7 +524,7 @@ func _get_improvement_tip(word_percent: int, clarity_percent: int) -> String:
 	return "Almost perfect! Just a bit more clarity needed."
 
 func _handle_no_speech():
-	status_label.text = "🔇 No speech detected. Try again."
+	status_label.text = "No speech detected. Try again."
 	status_label.add_theme_color_override("font_color", Color.ORANGE)
 	confidence_label.text = ""
 	_play_sfx(sfx_retry)
@@ -528,7 +533,8 @@ func _handle_no_speech():
 		_play_sfx(sfx_failure)
 		_finish_game(false, 0)
 	else:
-		record_button.text = "🎤 Hold to Record"
+		record_button.icon = load("res://assets/UI/core/mic_off.png")
+		record_button.text = "Hold to Record"
 		record_button.disabled = false
 
 func _finish_game(success: bool, score: int):

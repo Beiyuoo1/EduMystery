@@ -44,6 +44,8 @@ func _ready() -> void:
 	clear_button.pressed.connect(_on_clear_pressed)
 	continue_button.pressed.connect(_on_continue_pressed)
 	hint_button.pressed.connect(_on_hint_pressed)
+	hint_button.icon = load("res://assets/UI/core/hints.png")
+	hint_button.text = ""
 	_build_number_pad()
 	_update_hint_display()
 	_style_submit_button()
@@ -329,12 +331,12 @@ func _on_submit_pressed() -> void:
 		# Speed bonus
 		if elapsed < 60.0 and not hint_used:
 			PlayerStats.add_hints(1)
-			var bonus_text = "[color=gold][b]⚡ Speed Bonus: +1 Hint! ⚡[/b][/color]\n\n"
+			var bonus_text = "[color=gold][b][img=28x28]res://assets/UI/core/speed_bonus.png[/img] Speed Bonus: +1 Hint![/b][/color]\n\n"
 			var explanation = puzzle_config.get("explanation", "")
-			_show_feedback(bonus_text + "[color=green][b]✓ Correct![/b][/color]\n\n" + explanation, true, false)
+			_show_feedback(bonus_text + "[color=green][b][img=28x28]res://assets/UI/core/correct.png[/img] Correct![/b][/color]\n\n" + explanation, true, false)
 		else:
 			var explanation = puzzle_config.get("explanation", "")
-			_show_feedback("[color=green][b]✓ Correct! Pattern identified![/b][/color]\n\n" + explanation, true, false)
+			_show_feedback("[color=green][b][img=28x28]res://assets/UI/core/correct.png[/img] Correct! Pattern identified![/b][/color]\n\n" + explanation, true, false)
 
 		ChapterStatsTracker.record_minigame_completed(elapsed < 60.0)
 		emit_signal("minigame_completed", true, elapsed)

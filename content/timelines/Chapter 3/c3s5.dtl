@@ -16,6 +16,7 @@ join "Ms Reyes" (half) center
 [voice path="res://assets/audio/voice/Chapter 3/c3s5/msreyes_stands_near.mp3" volume="0.0" bus="Voice"]
 Ms. Reyes stands near her desk, her expression a mix of disappointment and sadness.
 join Characters/Victor (sad) left [mirrored="true"]
+[voice path="res://assets/audio/voice/Chapter 3/c3s5/victor_sits_on.mp3" volume="0.0"]
 Victor sits on a stool, shoulders hunched, unable to meet anyone's eyes.
 "Ms Reyes": Victor. I've always believed in your talent.
 "Ms Reyes": But talent without empathy is just... technique. Empty movements.
@@ -68,6 +69,7 @@ Mia: I hope you learn from this. I really do.
 Victor: I will. I promise I will.
 Victor: And someday... someday I'll create something that honors what I destroyed.
 Victor: Something with heart. Something real.
+[voice path="res://assets/audio/voice/Chapter 3/c3s5/mia_nods.mp3" volume="0.0"]
 Mia nods slowly.
 Mia: I'd like to see that.
 if {selected_character} == "celestine":

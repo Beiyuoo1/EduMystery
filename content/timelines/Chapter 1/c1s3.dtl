@@ -79,7 +79,7 @@ if {selected_character} == "celestine":
 	Principal: Yes, since the general wifi set up for the school is weak in the faculty room. A dedicated wifi network and a router for staff use is installed here.
 	Principal: While it may be for staff use, it is also intended for students to use it as well. Why?
 	Celestine: My phone just auto-connected to it. If the culprit was here, their phone might have done the same. Can we check the connection logs?
-	Principal: All the phones of the students should have access since it the password was provided in the orientation and is available to see at the Bulletin Board.
+	Principal: All the phones of the students should have access since it the password was provided in the orientation and is available to see at the bulletin board.
 	Principal: That is a clever idea. Let me check the admin panel...
 	leave --All--
 	[background arg="res://Pics/Wifi_Logs.png" fade="0.2"]
@@ -199,7 +199,7 @@ else:
 	Conrad: I don't have any mobile data left. How did I receive this photo?
 	[background arg="res://Pics/Wifi_Faculty.png" fade="0.2"]
 	Conrad: I'm connected to "Faculty_Wifi".
-	"Conrad (Thinking)": That's strange, i don't remember connected to this network. What should i do?
+	"Conrad (Thinking)": That's strange, I don't remember connected to this network. What should I do?
 	if {selected_subject} == "english":
 		[signal arg="start_minigame wifi_router"]
 	elif {selected_subject} == "math":
@@ -242,7 +242,7 @@ else:
 	leave Conrad [animation="Instant Out"]
 	[background arg="res://Bg/hallway.png" fade="1.5"]
 	join Conrad center
-	[voice path="res://assets/audio/Chapter 1/C1s3/The_protagonist_leaves.mp3" volume="0.0" bus="Voice"]
+	[voice path="res://assets/audio/voice/Chapter 1/C1s3/The_protagonist_leaves.mp3" volume="0.0" bus="Voice"]
 	The protagonist  leaves the room and is walking in the hallway.
 join Conrad (half) left
 "Conrad (Thinking)": Of course the students of 12-A are definitely suspects but it's gonna take a long time to question them all individually, which makes it impossible to catch them before the grades are permanently recorded.

@@ -85,11 +85,61 @@ var countdown_label: Label
 
 signal minigame_completed(success: bool, time_taken: float)
 
+# Cached icon textures for feedback
+var _icon_correct: Texture2D = null
+var _icon_incorrect: Texture2D = null
+var _icon_timer: Texture2D = null
+
+func _set_feedback_icon(icon_name: String) -> void:
+	"""Set the feedback icon TextureRect (reuses or creates a sibling TextureRect next to feedback_icon label)."""
+	# Load icon
+	var tex: Texture2D = null
+	match icon_name:
+		"correct":
+			if _icon_correct == null:
+				_icon_correct = load("res://assets/UI/core/correct.png")
+			tex = _icon_correct
+		"incorrect":
+			if _icon_incorrect == null:
+				_icon_incorrect = load("res://assets/UI/core/incorrect.png")
+			tex = _icon_incorrect
+		"timer":
+			if _icon_timer == null:
+				_icon_timer = load("res://assets/UI/core/timer.png")
+			tex = _icon_timer
+
+	# feedback_icon is a Label — clear its text and use it as a size-holder,
+	# then create or update a TextureRect sibling right above it.
+	feedback_icon.text = ""
+
+	var parent = feedback_icon.get_parent()
+	var icon_rect: TextureRect = null
+	# Try to find existing icon_rect by metadata
+	for child in parent.get_children():
+		if child.has_meta("is_feedback_icon_rect"):
+			icon_rect = child
+			break
+
+	if icon_rect == null:
+		icon_rect = TextureRect.new()
+		icon_rect.set_meta("is_feedback_icon_rect", true)
+		icon_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		icon_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		icon_rect.custom_minimum_size = Vector2(64, 64)
+		icon_rect.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+		# Insert right before feedback_icon in the parent
+		parent.add_child(icon_rect)
+		parent.move_child(icon_rect, feedback_icon.get_index())
+
+	icon_rect.texture = tex
+
 func _ready() -> void:
-	print("🎮 Timeline Reconstruction _ready() called")
+	print(" Timeline Reconstruction _ready() called")
 	set_process(false)  # Timer must NOT start until after tutorial + countdown
 	feedback_panel.hide()
 	hint_button.pressed.connect(_on_hint_pressed)
+	hint_button.icon = load("res://assets/UI/core/hints.png")
+	hint_button.text = ""
 	submit_button.pressed.connect(_on_submit_pressed)
 	continue_button.pressed.connect(_on_continue_pressed)
 	retry_button.pressed.connect(_on_retry_pressed)
@@ -97,7 +147,7 @@ func _ready() -> void:
 	_apply_modern_styles()
 	_create_tutorial()
 	_create_countdown_overlay()
-	print("🎮 Timeline Reconstruction _ready() complete")
+	print(" Timeline Reconstruction _ready() complete")
 
 func _create_tutorial() -> void:
 	"""Create tutorial overlay UI with multi-page support"""
@@ -260,7 +310,7 @@ func _update_tutorial_page() -> void:
 		tutorial_panel.custom_minimum_size = Vector2(800, 690)
 		tutorial_panel.offset_top = -345
 		tutorial_panel.offset_bottom = 345
-		tutorial_title.text = "📚 How to Play"
+		tutorial_title.text = " How to Play"
 		tutorial_instructions.text = "[center][color=#A0D8EF]Click orange cards to place them in timeline slots (1→5)[/color]\n[color=#A0D8EF]Click cards in timeline to return them to the pool[/color]\n[color=#A0D8EF]Arrange all events in correct chronological order[/color][/center]"
 
 		# Show single image and restore its size
@@ -291,8 +341,8 @@ func _update_tutorial_page() -> void:
 		tutorial_panel.custom_minimum_size = Vector2(800, 0)
 		tutorial_panel.offset_top = -230
 		tutorial_panel.offset_bottom = 230
-		tutorial_title.text = "💡 Hints & Timer"
-		tutorial_instructions.text = "[center][color=#F4D03F]💡 Hints & Cooldown:[/color] [color=#A0D8EF]12-second cooldown between uses[/color]\n[color=#F4D03F]⏱ Timer:[/color] [color=#A0D8EF]Complete within 2:00 minutes[/color]\n[color=#F4D03F]⚡ Speed Bonus:[/color] [color=#A0D8EF]Finish under 1:00 to earn +1 hint![/color][/center]"
+		tutorial_title.text = "Hints & Timer"
+		tutorial_instructions.text = "[center][color=#F4D03F]Hints & Cooldown:[/color] [color=#A0D8EF]12-second cooldown between uses[/color]\n[color=#F4D03F]⏱ Timer:[/color] [color=#A0D8EF]Complete within 2:00 minutes[/color]\n[color=#F4D03F]⚡ Speed Bonus:[/color] [color=#A0D8EF]Finish under 1:00 to earn +1 hint![/color][/center]"
 
 		# Hide the main single image and collapse its space
 		tutorial_image.visible = false
@@ -642,19 +692,19 @@ func _apply_modern_styles() -> void:
 
 func configure_puzzle(config: Dictionary) -> void:
 	"""Configure the timeline puzzle"""
-	print("🎮 Timeline Reconstruction configure_puzzle() called")
-	print("🎮 Config title: ", config.get("title", "NO TITLE"))
-	print("🎮 Visible: ", visible)
-	print("🎮 Modulate: ", modulate)
-	print("🎮 Global position: ", global_position)
-	print("🎮 Size: ", size)
-	print("🎮 Z-index: ", z_index)
+	print(" Timeline Reconstruction configure_puzzle() called")
+	print(" Config title: ", config.get("title", "NO TITLE"))
+	print(" Visible: ", visible)
+	print(" Modulate: ", modulate)
+	print(" Global position: ", global_position)
+	print(" Size: ", size)
+	print(" Z-index: ", z_index)
 
 	# Force visibility
 	visible = true
 	modulate = Color(1, 1, 1, 1)
 	z_index = 100
-	print("🎮 Forced visibility settings")
+	print(" Forced visibility settings")
 
 	puzzle_config = config
 
@@ -665,9 +715,9 @@ func configure_puzzle(config: Dictionary) -> void:
 	# Center-align event pool to match timeline slots
 	events_pool.alignment = BoxContainer.ALIGNMENT_CENTER
 
-	print("🎮 Title label text set to: ", title_label.text)
-	print("🎮 Title label visible: ", title_label.visible)
-	print("🎮 Number of events: ", config.get("events", []).size())
+	print(" Title label text set to: ", title_label.text)
+	print(" Title label visible: ", title_label.visible)
+	print(" Number of events: ", config.get("events", []).size())
 
 	# Get events (will be shuffled for display)
 	events = config.get("events", []).duplicate()
@@ -694,11 +744,11 @@ func configure_puzzle(config: Dictionary) -> void:
 	var tutorial_img_page2 = config.get("tutorial_image_page2", "")
 	_animate_cards_in(tutorial_img_page1, tutorial_img_page2)
 
-	print("🎮 Timeline Reconstruction configuration complete!")
-	print("🎮 Events pool children: ", events_pool.get_child_count())
-	print("🎮 Timeline slots children: ", timeline_slots.get_child_count())
-	print("🎮 Title label: ", title_label.text)
-	print("🎮 Submit button visible: ", submit_button.visible)
+	print(" Timeline Reconstruction configuration complete!")
+	print(" Events pool children: ", events_pool.get_child_count())
+	print(" Timeline slots children: ", timeline_slots.get_child_count())
+	print(" Title label: ", title_label.text)
+	print(" Submit button visible: ", submit_button.visible)
 
 func _create_event_card(event: Dictionary) -> Control:
 	"""Create a vertical event card with image on top and text below (clickable)"""
@@ -1010,7 +1060,8 @@ func _process(delta: float) -> void:
 			_update_hint_display()
 		else:
 			# Update button text with cooldown timer
-			hint_button.text = "💡 Wait: %ds" % ceil(hint_cooldown_remaining)
+			hint_button.icon = null
+			hint_button.text = "Wait: %ds" % ceil(hint_cooldown_remaining)
 
 func _on_submit_pressed() -> void:
 	"""Check if timeline is correct"""
@@ -1048,7 +1099,7 @@ func _show_feedback(is_correct: bool, time_taken: float) -> void:
 
 	if is_correct:
 		# Success styling
-		feedback_icon.text = "✓"
+		_set_feedback_icon("correct")
 		feedback_icon.add_theme_color_override("font_color", Color(0.3, 0.9, 0.5))
 		feedback_title.text = "CORRECT!"
 		feedback_title.add_theme_color_override("font_color", Color(0.3, 0.9, 0.5))
@@ -1058,14 +1109,14 @@ func _show_feedback(is_correct: bool, time_taken: float) -> void:
 		# Award speed bonus (only on first attempt)
 		if time_taken < 60.0 and not hint_used and first_attempt_correct:
 			PlayerStats.add_hints(1)
-			feedback_text += "[center][color=#FFD700]⚡ Speed Bonus: +1 Hint! ⚡[/color][/center]\n\n"
+			feedback_text += "[center][color=#FFD700][img=28x28]res://assets/UI/core/speed_bonus.png[/img] Speed Bonus: +1 Hint![/color][/center]\n\n"
 
 		# Show Continue button only, hide Retry button
 		continue_button.show()
 		retry_button.hide()
 	else:
 		# Error styling
-		feedback_icon.text = "✗"
+		_set_feedback_icon("incorrect")
 		feedback_icon.add_theme_color_override("font_color", Color(0.95, 0.4, 0.35))
 		feedback_title.text = "INCORRECT"
 		feedback_title.add_theme_color_override("font_color", Color(0.95, 0.4, 0.35))
@@ -1140,7 +1191,7 @@ func _on_time_up() -> void:
 		first_attempt = false
 
 	# Warning styling
-	feedback_icon.text = "⏱"
+	_set_feedback_icon("timer")
 	feedback_icon.add_theme_color_override("font_color", Color(0.95, 0.65, 0.35))
 	feedback_title.text = "TIME'S UP!"
 	feedback_title.add_theme_color_override("font_color", Color(0.95, 0.65, 0.35))
@@ -1206,7 +1257,8 @@ func _update_hint_display() -> void:
 		# Button text will be updated in _process() with countdown
 	else:
 		hint_button.disabled = (PlayerStats.hints <= 0)
-		hint_button.text = "💡 Use Hint"
+		hint_button.icon = load("res://assets/UI/core/hints.png")
+		hint_button.text = ""
 
 func _unhandled_input(event: InputEvent) -> void:
 	"""Handle F5 skip"""

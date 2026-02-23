@@ -11,7 +11,7 @@ if {selected_character} == "celestine":
 	Mark rushes up, slightly out of breath.
 	Mark: Celestine! There you are. Did you hear?
 	Celestine: Hear what? Everyone's acting strange today.
-	Mark: The Student Council fund is missing. Twenty thousand pesos. Gone.
+	Mark: The student council fund is missing. Twenty thousand pesos. Gone.
 	Celestine: The outreach fund? For students who need supplies?
 	Mark: That's the one. Ria discovered it this morning when she went to prepare the distribution list.
 	Mark: The lockbox was empty. Not a single peso left.
@@ -54,13 +54,14 @@ if {selected_character} == "celestine":
 	leave Mark
 else:
 	join Conrad (half) left
-	Conrad notices the unusual atmosphere as he walks to class.
+	[voice path="res://assets/audio/voice/Chapter 2/C2S1/The_protagonist_notices_the_unusual.mp3" volume="0.0"]
+	The protagonist notices the unusual atmosphere while walking to class.
 	join Mark (Mark_half) right
 	[voice path="res://assets/audio/voice/Chapter 2/C2S1/Mark_rushes_up.mp3" volume="0.0"]
 	Mark rushes up, slightly out of breath.
 	Mark: Conrad! There you are. Did you hear?
 	Conrad: Hear what? Everyone's acting strange today.
-	Mark: The Student Council fund is missing. Twenty thousand pesos. Gone.
+	Mark: The student council fund is missing. Twenty thousand pesos. Gone.
 	Conrad: The outreach fund? For students who need supplies?
 	Mark: That's the one. Ria discovered it this morning when she went to prepare the distribution list.
 	Mark: The lockbox was empty. Not a single peso left.

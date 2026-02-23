@@ -73,9 +73,11 @@ func _ready():
 	# Update hint display from PlayerStats
 	_update_hint_display()
 
-	# Connect hint button
+	# Connect hint button and set icon
 	if hint_button:
 		hint_button.pressed.connect(_on_hint_button_pressed)
+		hint_button.icon = load("res://assets/UI/core/hints.png")
+		hint_button.text = ""
 
 	# Connect tutorial start button
 	tut_start_button.pressed.connect(_on_tutorial_done)
@@ -119,7 +121,7 @@ func _update_timer_display():
 	if timer_label:
 		var minutes = int(time_remaining) / 60
 		var seconds = int(time_remaining) % 60
-		timer_label.text = "⏱️ %d:%02d" % [minutes, seconds]
+		timer_label.text = "%d:%02d" % [minutes, seconds]
 
 		# Change color when time is running low
 		if time_remaining <= 10:
@@ -137,9 +139,11 @@ func _on_hint_button_pressed():
 
 	if not PlayerStats.use_hint():
 		if hint_button:
+			hint_button.icon = null
 			hint_button.text = "No hints!"
 			await get_tree().create_timer(1.0).timeout
-			hint_button.text = "💡 Hint"
+			hint_button.text = ""
+			hint_button.icon = load("res://assets/UI/core/hints.png")
 		return
 
 	hint_used = true
@@ -156,7 +160,7 @@ func _show_hint_overlay():
 func _on_time_up():
 	timer_active = false
 	if timer_label:
-		timer_label.text = "⏱️ 0:00"
+		timer_label.text = "0:00"
 		timer_label.add_theme_color_override("font_color", Color.RED)
 
 	# Show failure message
@@ -264,7 +268,7 @@ func _complete_puzzle():
 
 	# Show bonus message if earned
 	if earned_bonus and title_label:
-		title_label.text = "⚡ Speed Bonus: +1 Hint! ⚡"
+		title_label.text = "Speed Bonus: +1 Hint!"
 		title_label.add_theme_color_override("font_color", Color.YELLOW)
 
 	# Brief delay to show bonus message

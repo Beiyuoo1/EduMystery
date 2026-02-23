@@ -123,23 +123,27 @@ func _create_ui(chapter_num: int):
 	stars_hbox.add_theme_constant_override("separation", 30)
 	vbox.add_child(stars_hbox)
 
-	# Add 3 stars with glowing effect
+	# Add 3 stars with glowing effect (TextureRect instead of Label text)
+	var star_filled_tex: Texture2D = load("res://assets/UI/core/star_filled.png")
+	var star_empty_tex: Texture2D = load("res://assets/UI/core/star_empty.png")
 	for i in range(3):
-		var star_label = Label.new()
+		var star_rect = TextureRect.new()
+		star_rect.custom_minimum_size = Vector2(100, 100)
+		star_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		star_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		if i < stars_earned:
-			star_label.text = "★"  # Filled star
-			star_label.modulate = Color(1.2, 1.1, 0.8)  # Bright glow
+			star_rect.texture = star_filled_tex
+			star_rect.modulate = Color(1.2, 1.1, 0.8)  # Bright glow
 		else:
-			star_label.text = "☆"   # Empty star
-			star_label.modulate = Color(0.5, 0.5, 0.6)  # Dim
-		star_label.add_theme_font_size_override("font_size", 100)
-		stars_hbox.add_child(star_label)
+			star_rect.texture = star_empty_tex
+			star_rect.modulate = Color(0.5, 0.5, 0.6)  # Dim
+		stars_hbox.add_child(star_rect)
 
 	# Star rating explanation
 	var rating_label = Label.new()
 	var rating_text = ""
 	if stars_earned == 3:
-		rating_text = "⚡ Outstanding Performance! ⚡"
+		rating_text = "Outstanding Performance!"
 	elif stars_earned == 2:
 		rating_text = "Great Job!"
 	else:

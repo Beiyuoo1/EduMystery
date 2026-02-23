@@ -34,11 +34,14 @@ if {selected_character} == "celestine":
 	[voice path="res://assets/audio/voice/Chapter 4/c4s1/ben_holds_a_folded.mp3" volume="0.0" bus="Voice"]
 	Ben holds a folded piece of paper, looking uncomfortable.
 	Ben: I found this in my locker yesterday morning. No idea who put it there.
-	Ben hands the note to Celestine.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s1/ben_hands_the.mp3" volume="0.0"]
+	Ben hands the note to the protagonist
 	[signal arg="unlock_evidence anonymous_note_c4"]
-	Celestine reads aloud.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s1/the_protagonist_reads.mp3" volume="0.0"]
+	The protagonist reads aloud.
 	Celestine: "You witnessed your friend cheat on the exam but said nothing. Silence protects the guilty. What does that make you?"
 	Celestine: When did this happen?
+	[voice path="res://assets/audio/voice/Chapter 4/c4s1/ben_shifts_nervously.mp3" volume="0.0"]
 	Ben shifts nervously.
 	Ben: Last week. My friend... I didn't want to get him in trouble. But now I feel like someone's watching me, judging me.
 	Celestine: Have you told anyone else?
@@ -50,8 +53,8 @@ if {selected_character} == "celestine":
 	join Mark (Mark_half) right
 	Mark: That's harsh. Whoever wrote this knows personal details about students.
 	Celestine: It's targeted. Specific. Not random.
-	[voice path="res://assets/audio/voice/Chapter 4/c4s1/alice_looks_down.mp3" volume="0.0" bus="Voice"]
-	Celestine examines the note carefully.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s1/the_protagonist_examines.mp3" volume="0.0" bus="Voice"]
+	The protagonist examines the note carefully.
 	Celestine: The handwriting is neat, deliberate. The paper is standard school supply.
 	Celestine: But the content... it's designed to provoke guilt and self-reflection.
 	Mark: Like a psychological experiment?
@@ -63,11 +66,13 @@ else:
 	Ben holds a folded piece of paper, looking uncomfortable.
 	Ben: I found this in my locker yesterday morning. No idea who put it there.
 	[voice path="res://assets/audio/voice/Chapter 4/c4s1/ben_hands_the.mp3" volume="0.0" bus="Voice"]
-	Ben hands the note to Conrad.
+	Ben hands the note to the protagonist
 	[signal arg="unlock_evidence anonymous_note_c4"]
-	Conrad reads aloud.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s1/the_protagonist_reads.mp3" volume="0.0"]
+	The protagonist reads aloud.
 	Conrad: "You witnessed your friend cheat on the exam but said nothing. Silence protects the guilty. What does that make you?"
 	Conrad: When did this happen?
+	[voice path="res://assets/audio/voice/Chapter 4/c4s1/ben_shifts_nervously.mp3" volume="0.0"]
 	Ben shifts nervously.
 	Ben: Last week. My friend... I didn't want to get him in trouble. But now I feel like someone's watching me, judging me.
 	Conrad: Have you told anyone else?
@@ -80,18 +85,19 @@ else:
 	Mark: That's harsh. Whoever wrote this knows personal details about students.
 	Conrad: It's targeted. Specific. Not random.
 	[voice path="res://assets/audio/voice/Chapter 4/c4s1/the_protagonist_examines.mp3" volume="0.0" bus="Voice"]
-	Conrad examines the note carefully.
+	The protagonist examines the note carefully.
 	Conrad: The handwriting is neat, deliberate. The paper is standard school supply.
 	Conrad: But the content... it's designed to provoke guilt and self-reflection.
 	Mark: Like a psychological experiment?
 	Conrad: Or a moral lesson. Someone thinks they're teaching.
 join Alice (half) rightmost
-[voice path="res://assets/audio/voice/Chapter 4/c4s1/ben_shifts_nervously.mp3" volume="0.0" bus="Voice"]
+[voice path="res://assets/audio/voice/Chapter 4/c4s1/Alice_approaches.mp3" volume="0.0" bus="Voice"]
 Alice approaches, carrying her own note.
 if {selected_character} == "celestine":
 	Alice: Celestine? I heard you're looking into these notes. I got one too.
 	Celestine: What does yours say?
 	Alice: "You take credit for group work while others do the labor. Recognition without effort is theft."
+	[voice path="res://assets/audio/voice/Chapter 4/c4s1/alice_looks_down.mp3" volume="0.0"]
 	Alice looks down, ashamed.
 	Alice: It's true. I have been letting others carry me in group projects. But how does this person know?
 	Celestine: They're observing. Watching student behavior closely.

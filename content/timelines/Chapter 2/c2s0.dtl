@@ -7,7 +7,7 @@ audio music "res://assets/audio/bg/chill3.mp3" [fade="2.0" volume="0.0" bus="Mus
 set {chapter2_score} = 0
 [voice path="res://assets/audio/voice/Chapter 2/C2S0/A_few_days_before_the_incident….mp3" volume="0.0"]
 A few days before the incident...
-The late afternoon sun filters through the Student Council room windows, casting long shadows across the desks.
+The late afternoon sun filters through the student council room windows, casting long shadows across the desks.
 join Ria (half) center [animation="fade in" length="1.0"]
 Ria sits alone, counting bills with practiced precision.
 Ria: Eighteen thousand... nineteen thousand...

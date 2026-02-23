@@ -68,6 +68,8 @@ func _ready() -> void:
 	feedback_overlay.hide()
 	clues_popup.hide()
 	hint_button.pressed.connect(_on_hint_pressed)
+	hint_button.icon = load("res://assets/UI/core/hints.png")
+	hint_button.text = ""
 	submit_button.pressed.connect(_on_submit_pressed)
 	continue_button.pressed.connect(_on_continue_pressed)
 	tut_next_button.pressed.connect(_on_tutorial_next)
@@ -431,9 +433,11 @@ func _process(delta: float) -> void:
 		if hint_cooldown <= 0.0:
 			hint_cooldown = 0.0
 			hint_button.disabled = false
-			hint_button.text = "💡 Hint"
+			hint_button.icon = load("res://assets/UI/core/hints.png")
+			hint_button.text = ""
 		else:
-			hint_button.text = "💡 Hint (%ds)" % ceil(hint_cooldown)
+			hint_button.icon = null
+			hint_button.text = "Hint (%ds)" % ceil(hint_cooldown)
 
 func _on_submit_pressed() -> void:
 	"""Check if solution is correct"""
@@ -453,7 +457,7 @@ func _show_wrong_feedback() -> void:
 	_play_sfx("res://assets/audio/sound_effect/wrong.wav")
 	feedback_overlay.show()
 	feedback_panel.show()
-	feedback_label.text = "[center][color=#ff5555][b]✗ Not Quite Right[/b][/color][/center]\n\n"
+	feedback_label.text = "[center][color=#ff5555][b][img=28x28]res://assets/UI/core/incorrect.png[/img] Not Quite Right[/b][/color][/center]\n\n"
 	feedback_label.text += "[center]Some deductions are incorrect. Review the clues carefully and try again.[/center]"
 	continue_button.text = "Try Again"
 
@@ -525,7 +529,7 @@ func _play_sfx(path: String) -> void:
 func _show_feedback(is_correct: bool, time_taken: float) -> void:
 	"""Show success feedback panel"""
 	_play_sfx("res://assets/audio/sound_effect/correct.wav")
-	var feedback_text = "[center][color=#55ff88][b]✓ CORRECT![/b][/color][/center]\n\n"
+	var feedback_text = "[center][color=#55ff88][b][img=28x28]res://assets/UI/core/correct.png[/img] CORRECT![/b][/color][/center]\n\n"
 	feedback_text += "[center]Excellent detective work! You successfully deduced all matches.[/center]"
 
 	if puzzle_config.has("explanation"):
@@ -533,7 +537,7 @@ func _show_feedback(is_correct: bool, time_taken: float) -> void:
 
 	if time_taken < 60.0 and not hint_used:
 		PlayerStats.add_hints(1)
-		feedback_text += "\n\n[center][color=yellow]⚡ Speed Bonus: +1 Hint! ⚡[/color][/center]"
+		feedback_text += "\n\n[center][color=yellow][img=28x28]res://assets/UI/core/speed_bonus.png[/img] Speed Bonus: +1 Hint![/color][/center]"
 
 	feedback_label.text = feedback_text
 	continue_button.text = "Continue"
@@ -583,7 +587,8 @@ func _on_hint_pressed() -> void:
 	_update_hint_display()
 	hint_cooldown = HINT_COOLDOWN_TIME
 	hint_button.disabled = true
-	hint_button.text = "💡 Hint (%ds)" % ceil(hint_cooldown)
+	hint_button.icon = null
+	hint_button.text = "Hint (%ds)" % ceil(hint_cooldown)
 	var hint_text = puzzle_config.get("hint_text", "Re-read each clue carefully. Apply each clue one at a time and use process of elimination — mark cells you are certain are wrong first.")
 	var overlay = CanvasLayer.new()
 	overlay.set_script(load("res://scenes/ui/hint_overlay.gd"))

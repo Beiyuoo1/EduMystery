@@ -14,7 +14,7 @@ if {selected_character} == "celestine":
 	join "Diwata Laya" (Half) center
 	[signal arg="laya_start"]
 	[voice path="res://assets/audio/voice/Chapter 4/c4s2/diwata_laya_materializes.mp3" volume="0.0" bus="Voice"]
-	"Diwata Laya" materializes, their expression thoughtful.
+	"Diwata Laya" materializes, her expression thoughtful.
 	"Diwata Laya": [i][color=#9999ff]These notes carry intention, but not malice.[/color][/i]
 	"Celestine (Thinking)": What do you sense?
 	"Diwata Laya": [i][color=#9999ff]Whoever writes them believes they are helping. Guiding.[/color][/i]
@@ -145,8 +145,10 @@ if {selected_character} == "celestine":
 else:
 	join Conrad (half) left
 	join Mark (Mark_half) right
+	[voice path="res://assets/audio/voice/Chapter 4/c4s2/the_library_is_quiet.mp3" volume="0.0"]
 	The library is quiet. A few students study at tables.
-	Conrad approaches the circulation desk.
+	[voice path="res://assets/audio/voice/Chapter 4/c4s2/the_protagonist_approaches.mp3" volume="0.0"]
+	The protagonist approaches the circulation desk.
 	join Librarian center
 	Conrad: Excuse me. I need to check recent book checkouts, particularly psychology and philosophy sections.
 	[voice path="res://assets/audio/voice/Chapter 4/c4s2/the_librarian_pulls.mp3" volume="0.0" bus="Voice"]

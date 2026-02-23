@@ -2608,7 +2608,7 @@ var logic_grid_configs = {
 # ====================
 var timeline_reconstruction_configs = {
 	# Chapter 1, Scene 2 - Footprint Timeline (Math focus: Evaporation rate calculations)
-	# NOW WITH VISUAL IMAGES! 🎨
+	# NOW WITH VISUAL IMAGES! 
 	"timeline_footprints_math": {
 		"title": "Footprint Timeline Analysis",
 		"context": "Arrange the events in chronological order. The janitor mopped at 3:00 PM. The floor dries completely in 45 minutes. Use time calculations to determine when the footprints were made.",

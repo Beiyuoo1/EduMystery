@@ -16,7 +16,7 @@ if {selected_character} == "celestine":
 	Unlike most of her classmates who found it exciting gossip, you felt something strange — a [b][wave]pull[/wave][/b].
 	update Celestine (half)
 	[voice path="res://assets/audio/voice/Chapter 1/C1S1/Mysteries_had_always_fascinated_her.mp3" volume="10.0" bus="Voice"]
-	Mysteries had always fascinated her, especially since she and his best friends accidentally solved the missing ID case last semester.
+	Mysteries had always fascinated her, especially since she and her best friends accidentally solved the missing ID case last semester.
 	update Celestine left
 	join Mark (Mark_half) right
 	Mark: Hey Celestine, Don't tell me you want to investigate this?
@@ -59,7 +59,7 @@ else:
 	audio music "res://assets/audio/bg/suspicious.mp3" [fade="0.5" loop="true"]
 	Conrad: You know me too well.
 	Mark: Are you sure you wanna do this?
-	Conrad: YESS, now help me.
+	Conrad: YES, now help me.
 	Mark: Alright, but where do we start?
 	Conrad: First we need to find potential witnesses.
 	Mark: Since the incident took place after school hours, we should focus first on the school staff since they should be the last people to leave the school.

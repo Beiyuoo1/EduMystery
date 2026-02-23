@@ -432,9 +432,18 @@ func _create_evidence_popup(evidence: Dictionary) -> CanvasLayer:
 	vbox.custom_minimum_size = Vector2(600, 400)
 	center_container.add_child(vbox)
 
+	# Add clue icon above the label
+	var clue_icon = TextureRect.new()
+	clue_icon.texture = load("res://assets/UI/core/clue_found.png")
+	clue_icon.custom_minimum_size = Vector2(64, 64)
+	clue_icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	clue_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	clue_icon.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	vbox.add_child(clue_icon)
+
 	# Add "Clue Found!" label
 	var clue_label = Label.new()
-	clue_label.text = "🔍 CLUE FOUND! 🔍"
+	clue_label.text = "CLUE FOUND!"
 	clue_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	clue_label.add_theme_font_size_override("font_size", 48)
 	clue_label.add_theme_color_override("font_color", Color(1, 0.8, 0, 1))

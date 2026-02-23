@@ -128,9 +128,11 @@ func _connect_buttons():
 		if choice_buttons[i]:
 			choice_buttons[i].pressed.connect(_on_choice_selected.bind(i))
 
-	# Connect hint button
+	# Connect hint button and set icon
 	if hint_button:
 		hint_button.pressed.connect(_on_hint_pressed)
+		hint_button.icon = load("res://assets/UI/core/hints.png")
+		hint_button.text = ""
 
 	# Connect speaker button
 	if speaker_button:
@@ -209,7 +211,7 @@ func _show_correct_feedback():
 
 	if bonus_hint_earned:
 		PlayerStats.add_hints(1)
-		feedback_label.text = "Correct! Well done!\n⚡ Speed Bonus: +1 Hint! ⚡"
+		feedback_label.text = "Correct! Well done!\nSpeed Bonus: +1 Hint!"
 		print("DEBUG: Bonus hint earned! Completion time: ", completion_time, "s")
 	else:
 		feedback_label.text = "Correct! Well done!"
@@ -255,9 +257,11 @@ func _on_hint_pressed():
 		return
 
 	if not PlayerStats.use_hint():
+		hint_button.icon = null
 		hint_button.text = "No hints!"
 		await get_tree().create_timer(1.0).timeout
-		hint_button.text = "💡 Hint"
+		hint_button.text = ""
+		hint_button.icon = load("res://assets/UI/core/hints.png")
 		return
 
 	hint_used = true

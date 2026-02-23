@@ -51,8 +51,10 @@ func _ready() -> void:
 	# Hide feedback panel initially
 	feedback_panel.hide()
 
-	# Connect hint button
+	# Connect hint button and set icon
 	hint_button.pressed.connect(_on_hint_pressed)
+	hint_button.icon = load("res://assets/UI/core/hints.png")
+	hint_button.text = ""
 
 	# Connect continue button
 	continue_button.pressed.connect(_on_continue_pressed)
@@ -114,7 +116,7 @@ func _create_tutorial_overlay() -> void:
 
 	# Title
 	var title = Label.new()
-	title.text = "🔍 How to Play"
+	title.text = " How to Play"
 	title.add_theme_font_size_override("font_size", 36)
 	title.add_theme_color_override("font_color", Color(0.95, 0.85, 0.4, 1))
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -134,7 +136,7 @@ func _create_tutorial_overlay() -> void:
 	desc.bbcode_enabled = true
 	desc.fit_content = true
 	desc.scroll_active = false
-	desc.text = "[center][color=#A0D8EF]📖 Read the story context and the question carefully.[/color]\n[color=#A0D8EF]🔍 Choose the [b]correct answer[/b] from the options — wrong answers let you retry.[/color]\n[color=#F4D03F]💡 Use [b]Hints[/b] to highlight the correct choice. ⚡ Finish under 1 minute for a bonus hint![/color][/center]"
+	desc.text = "[center][color=#A0D8EF] Read the story context and the question carefully.[/color]\n[color=#A0D8EF] Choose the [b]correct answer[/b] from the options — wrong answers let you retry.[/color]\n[color=#F4D03F] Use [b]Hints[/b] to highlight the correct choice. ⚡ Finish under 1 minute for a bonus hint![/color][/center]"
 	desc.add_theme_font_size_override("normal_font_size", 17)
 	inner.add_child(desc)
 
@@ -391,16 +393,16 @@ func _show_feedback(is_correct: bool, time_taken: float) -> void:
 	# Build feedback message
 	var feedback_text = ""
 	if is_correct:
-		feedback_text = "[center][color=green][b]✓ CORRECT![/b][/color][/center]\n\n"
+		feedback_text = "[center][color=green][b][img=28x28]res://assets/UI/core/correct.png[/img] CORRECT![/b][/color][/center]\n\n"
 		if puzzle_config.has("explanation"):
 			feedback_text += puzzle_config["explanation"]
 		# Speed bonus only on correct
 		if time_taken < 60.0 and not hint_used:
 			PlayerStats.add_hints(1)
-			feedback_text += "\n\n[center][color=yellow]⚡ Speed Bonus: +1 Hint! ⚡[/color][/center]"
+			feedback_text += "\n\n[center][color=yellow][img=28x28]res://assets/UI/core/speed_bonus.png[/img] Speed Bonus: +1 Hint![/color][/center]"
 		continue_button.text = "Continue"
 	else:
-		feedback_text = "[center][color=red][b]✗ INCORRECT — Try Again![/b][/color][/center]\n\n"
+		feedback_text = "[center][color=red][b][img=28x28]res://assets/UI/core/incorrect.png[/img] INCORRECT — Try Again![/b][/color][/center]\n\n"
 		feedback_text += "[color=#FFB347]Think carefully and select a different answer.[/color]"
 		continue_button.text = "Try Again"
 

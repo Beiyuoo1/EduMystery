@@ -38,7 +38,13 @@
       "Bash(# Check file permissions - maybe OneDrive is locking files icacls \"\"addons/vosk/models/vosk-model-en-us-0.22/am/final.mdl\"\")",
       "Bash(git pull:*)",
       "Bash(ffmpeg:*)",
-      "Bash(winget install:*)"
+      "Bash(winget install:*)",
+      "Bash(git stash:*)",
+      "Bash(git update-index:*)",
+      "Bash(\"C:/Projects/edu-mys-dev/addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/vn_choice_layer.tscn\":*)",
+      "Bash(# Check the UID cache file for the WAV references grep -r \"\"typing1\\\\|typing2\\\\|typing4\"\" \"\"C:/Projects/edu-mys-dev/.godot/\"\")",
+      "Bash(\"C:/Projects/edu-mys-dev/minigames/TimelineReconstruction/theme/modern_timeline_theme.tres\":*)",
+      "WebFetch(domain:github.com)"
     ]
   }
 }

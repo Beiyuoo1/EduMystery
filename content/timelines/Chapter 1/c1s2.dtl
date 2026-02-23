@@ -29,6 +29,7 @@ if {selected_character} == "celestine":
 		Celestine: But wait... I see fresh footprints leading to the faculty room.
 		Celestine: The floor dries completely in 45 minutes according to the janitor.
 		Celestine: If I can reconstruct the timeline of events mathematically...
+		audio music - [fade="0.5"]
 		Celestine: I can calculate exactly when someone entered the faculty room!
 		[signal arg="start_minigame timeline_footprints_math"]
 	elif {selected_subject} == "science":
@@ -38,7 +39,7 @@ if {selected_character} == "celestine":
 		[signal arg="start_minigame evaporation_analysis_science"]
 	[background arg="res://Bg/storage_room.png" fade="0.0"]
 	[voice path="res://assets/audio/voice/Chapter 1/C1s2/The_protagonist_enters.mp3" volume="0.0" bus="Voice"]
-	The protagonist enters the Storage Room.
+	The protagonist enters the storage room.
 	join Celestine (half) left [animation="Slide From Left" length="3.6"]
 	join "Janitor Fred" (Janitor_half) right [animation="Slide From Right" length="1.5" move_time="2.0"]
 	Celestine: Good afternoon, sir. I was hoping you could help me. I'm looking for something I lost in this room—have you come across anything unusual while you were sweeping?
@@ -115,7 +116,7 @@ else:
 		[signal arg="start_minigame evaporation_analysis_science"]
 	[background arg="res://Bg/storage_room.png" fade="0.0"]
 	[voice path="res://assets/audio/voice/Chapter 1/C1s2/The_protagonist_enters.mp3" volume="0.0" bus="Voice"]
-	The protagonist enters the storage Room.
+	The protagonist enters the storage room.
 	join Conrad (half) left [animation="Slide From Left" length="3.6"]
 	join "Janitor Fred" (Janitor_half) right [animation="Slide From Right" length="1.5" move_time="2.0"]
 	Conrad: Good afternoon, sir. I was hoping you could help me. I'm looking for something I lost in this room—have you come across anything unusual while you were sweeping?

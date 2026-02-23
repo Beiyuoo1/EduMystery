@@ -250,21 +250,21 @@ func get_achievements() -> Array:
 		achievements.append({
 			"name": "Eagle Eye",
 			"description": "All clues collected",
-			"icon": "🔍"
+			"icon": ""
 		})
 
 	if has_achievement("hint_master"):
 		achievements.append({
 			"name": "Hint Master",
 			"description": "Completed without using hints",
-			"icon": "💡"
+			"icon": ""
 		})
 
 	if has_achievement("perfect_interrogation"):
 		achievements.append({
 			"name": "Smooth Interrogator",
 			"description": "Perfect interrogation sequences",
-			"icon": "💬"
+			"icon": ""
 		})
 
 	return achievements

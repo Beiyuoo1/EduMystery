@@ -92,9 +92,9 @@ func save_game(slot_id: int, take_screenshot: bool = true) -> bool:
 
 	# Save Dialogic state (only if a timeline is active)
 	if Dialogic.current_timeline and is_instance_valid(Dialogic.current_timeline):
-		var dialogic_saved = Dialogic.Save.save(slot.dialogic_slot_name, false, Dialogic.Save.ThumbnailMode.NONE)
-		if not dialogic_saved:
-			push_error("Failed to save Dialogic state for slot " + str(slot_id))
+		var dialogic_result = Dialogic.Save.save(slot.dialogic_slot_name, false, Dialogic.Save.ThumbnailMode.NONE)
+		if dialogic_result != OK:
+			push_error("Failed to save Dialogic state for slot " + str(slot_id) + " (error: " + str(dialogic_result) + ")")
 			# Don't fail the entire save just because Dialogic save failed
 			# The player stats and evidence will still be saved
 			print("Warning: Dialogic state not saved, but continuing with save operation")
@@ -139,11 +139,9 @@ func load_game(slot_id: int) -> bool:
 
 	# Load Dialogic state - check if the save file exists first
 	if Dialogic.Save.has_slot(slot.dialogic_slot_name):
-		var dialogic_loaded = Dialogic.Save.load(slot.dialogic_slot_name)
-		if not dialogic_loaded:
-			push_error("Failed to load Dialogic state from slot " + str(slot_id))
-			is_loading_save = false
-			return false
+		var dialogic_result = Dialogic.Save.load(slot.dialogic_slot_name)
+		if dialogic_result != OK:
+			push_warning("Dialogic state load returned error " + str(dialogic_result) + " for slot " + str(slot_id) + " - continuing with PlayerStats/Evidence restore only")
 	else:
 		push_warning("No Dialogic save found for slot " + str(slot_id) + ", skipping Dialogic load")
 

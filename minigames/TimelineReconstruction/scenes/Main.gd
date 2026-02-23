@@ -139,7 +139,7 @@ func _ready() -> void:
 	feedback_panel.hide()
 	hint_button.pressed.connect(_on_hint_pressed)
 	hint_button.icon = load("res://assets/UI/core/hints.png")
-	hint_button.icon_max_width = 32
+	hint_button.add_theme_constant_override("icon_max_width", 32)
 	hint_button.text = ""
 	submit_button.pressed.connect(_on_submit_pressed)
 	continue_button.pressed.connect(_on_continue_pressed)
@@ -1259,7 +1259,7 @@ func _update_hint_display() -> void:
 	else:
 		hint_button.disabled = (PlayerStats.hints <= 0)
 		hint_button.icon = load("res://assets/UI/core/hints.png")
-		hint_button.icon_max_width = 32
+		hint_button.add_theme_constant_override("icon_max_width", 32)
 		hint_button.text = ""
 
 func _unhandled_input(event: InputEvent) -> void:

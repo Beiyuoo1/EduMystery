@@ -77,7 +77,7 @@ func _ready():
 	if hint_button:
 		hint_button.pressed.connect(_on_hint_button_pressed)
 		hint_button.icon = load("res://assets/UI/core/hints.png")
-		hint_button.icon_max_width = 32
+		hint_button.add_theme_constant_override("icon_max_width", 32)
 		hint_button.text = ""
 
 	# Connect tutorial start button
@@ -145,7 +145,7 @@ func _on_hint_button_pressed():
 			await get_tree().create_timer(1.0).timeout
 			hint_button.text = ""
 			hint_button.icon = load("res://assets/UI/core/hints.png")
-			hint_button.icon_max_width = 32
+			hint_button.add_theme_constant_override("icon_max_width", 32)
 		return
 
 	hint_used = true

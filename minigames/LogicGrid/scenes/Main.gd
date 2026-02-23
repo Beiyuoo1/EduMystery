@@ -53,14 +53,6 @@ var _blink_elapsed: float = 0.0
 
 signal minigame_completed(success: bool, time_taken: float)
 
-# Cached emoji font for dynamically created buttons/labels
-var _emoji_font: FontFile = null
-
-func _get_emoji_font() -> FontFile:
-	if _emoji_font == null:
-		_emoji_font = FontFile.new()
-		_emoji_font.load_dynamic_font("res://assets/font/NotoEmoji-Regular.ttf")
-	return _emoji_font
 
 func _ready() -> void:
 	set_process(false)  # Don't run _process until timer is started
@@ -69,7 +61,7 @@ func _ready() -> void:
 	clues_popup.hide()
 	hint_button.pressed.connect(_on_hint_pressed)
 	hint_button.icon = load("res://assets/UI/core/hints.png")
-	hint_button.icon_max_width = 32
+	hint_button.add_theme_constant_override("icon_max_width", 32)
 	hint_button.text = ""
 	submit_button.pressed.connect(_on_submit_pressed)
 	continue_button.pressed.connect(_on_continue_pressed)
@@ -324,7 +316,7 @@ func _style_cell_button(button: Button, state: String) -> void:
 		"yes":
 			button.text = ""
 			button.icon = load("res://assets/UI/core/correct.png")
-			button.icon_max_width = 40
+			button.add_theme_constant_override("icon_max_width", 40)
 			style.bg_color = Color(0.12, 0.62, 0.25, 0.97)
 			style.border_color = Color(0.25, 0.95, 0.45, 1.0)
 			hover_style.bg_color = Color(0.18, 0.78, 0.35, 1.0)
@@ -332,7 +324,7 @@ func _style_cell_button(button: Button, state: String) -> void:
 		"no":
 			button.text = ""
 			button.icon = load("res://assets/UI/core/incorrect.png")
-			button.icon_max_width = 40
+			button.add_theme_constant_override("icon_max_width", 40)
 			style.bg_color = Color(0.65, 0.12, 0.12, 0.97)
 			style.border_color = Color(1.0, 0.3, 0.3, 1.0)
 			hover_style.bg_color = Color(0.80, 0.18, 0.18, 1.0)
@@ -350,7 +342,6 @@ func _style_cell_button(button: Button, state: String) -> void:
 	button.add_theme_stylebox_override("normal", style)
 	button.add_theme_stylebox_override("hover", hover_style)
 	button.add_theme_stylebox_override("pressed", style.duplicate())
-	button.add_theme_font_override("font", _get_emoji_font())
 
 func _style_submit_button() -> void:
 	var style = StyleBoxFlat.new()
@@ -436,7 +427,7 @@ func _process(delta: float) -> void:
 			hint_cooldown = 0.0
 			hint_button.disabled = false
 			hint_button.icon = load("res://assets/UI/core/hints.png")
-			hint_button.icon_max_width = 32
+			hint_button.add_theme_constant_override("icon_max_width", 32)
 			hint_button.text = ""
 		else:
 			hint_button.icon = null

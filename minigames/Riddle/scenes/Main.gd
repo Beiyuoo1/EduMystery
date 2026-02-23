@@ -155,7 +155,7 @@ func _connect_buttons():
 	if hint_button:
 		hint_button.pressed.connect(_on_hint_pressed)
 		hint_button.icon = load("res://assets/UI/core/hints.png")
-		hint_button.icon_max_width = 32
+		hint_button.add_theme_constant_override("icon_max_width", 32)
 		hint_button.text = ""
 
 	# Make answer display clickable to remove letters
@@ -326,7 +326,7 @@ func _on_hint_pressed():
 		await get_tree().create_timer(1.0).timeout
 		hint_button.text = ""
 		hint_button.icon = load("res://assets/UI/core/hints.png")
-		hint_button.icon_max_width = 32
+		hint_button.add_theme_constant_override("icon_max_width", 32)
 		return
 
 	hint_used = true

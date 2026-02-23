@@ -54,7 +54,7 @@ func _ready() -> void:
 	# Connect hint button and set icon
 	hint_button.pressed.connect(_on_hint_pressed)
 	hint_button.icon = load("res://assets/UI/core/hints.png")
-	hint_button.icon_max_width = 32
+	hint_button.add_theme_constant_override("icon_max_width", 32)
 	hint_button.text = ""
 
 	# Connect continue button

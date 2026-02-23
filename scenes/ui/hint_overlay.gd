@@ -36,6 +36,7 @@ func _ready() -> void:
 	# BGbox_01A nine-patch panel — fixed size, centered
 	_panel = NinePatchRect.new()
 	_panel.texture = BGBOX
+	_panel.region_rect = Rect2(8.548111, 8.660231, 126.97536, 126.06514)
 	_panel.patch_margin_left   = 28
 	_panel.patch_margin_top    = 29
 	_panel.patch_margin_right  = 28

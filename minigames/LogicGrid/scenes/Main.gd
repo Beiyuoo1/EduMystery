@@ -322,23 +322,24 @@ func _style_cell_button(button: Button, state: String) -> void:
 
 	match state:
 		"yes":
-			button.text = "✓"
+			button.text = ""
+			button.icon = load("res://assets/UI/core/correct.png")
+			button.icon_max_width = 40
 			style.bg_color = Color(0.12, 0.62, 0.25, 0.97)
 			style.border_color = Color(0.25, 0.95, 0.45, 1.0)
 			hover_style.bg_color = Color(0.18, 0.78, 0.35, 1.0)
 			hover_style.border_color = Color(0.35, 1.0, 0.55, 1.0)
-			button.add_theme_color_override("font_color", Color.WHITE)
-			button.add_theme_font_size_override("font_size", 42)
 		"no":
-			button.text = "✗"
+			button.text = ""
+			button.icon = load("res://assets/UI/core/incorrect.png")
+			button.icon_max_width = 40
 			style.bg_color = Color(0.65, 0.12, 0.12, 0.97)
 			style.border_color = Color(1.0, 0.3, 0.3, 1.0)
 			hover_style.bg_color = Color(0.80, 0.18, 0.18, 1.0)
 			hover_style.border_color = Color(1.0, 0.5, 0.5, 1.0)
-			button.add_theme_color_override("font_color", Color(1.0, 0.90, 0.90))
-			button.add_theme_font_size_override("font_size", 42)
 		_:  # unknown
 			button.text = "?"
+			button.icon = null
 			style.bg_color = Color(0.18, 0.18, 0.22, 0.95)
 			style.border_color = Color(0.4, 0.4, 0.5, 0.8)
 			hover_style.bg_color = Color(0.28, 0.28, 0.35, 1.0)

@@ -4,7 +4,7 @@ extends CanvasLayer
 ## Shows guiding hint text in a BGbox_01A panel without revealing the answer.
 ## Usage:
 ##   var overlay = preload("res://scenes/ui/hint_overlay.tscn").instantiate()
-##   add_child(overlay)
+##   get_tree().root.add_child(overlay)
 ##   overlay.show_hint("Your guiding hint text here.")
 
 signal closed
@@ -13,6 +13,7 @@ const BGBOX = preload("res://assets/UI/BGbox_01A.png")
 
 var _label: RichTextLabel
 var _panel: NinePatchRect
+var _pending_text: String = ""
 
 func _ready() -> void:
 	layer = 200  # Above everything
@@ -71,7 +72,7 @@ func _ready() -> void:
 	sep.add_theme_stylebox_override("separator", sep_style)
 	vbox.add_child(sep)
 
-	# Hint text
+	# Hint text label
 	_label = RichTextLabel.new()
 	_label.bbcode_enabled = true
 	_label.fit_content = true
@@ -80,6 +81,10 @@ func _ready() -> void:
 	_label.add_theme_color_override("default_color", Color(0.95, 0.95, 0.88))
 	_label.custom_minimum_size = Vector2(0, 60)
 	vbox.add_child(_label)
+
+	# Apply any text that was set before _ready() finished
+	if _pending_text != "":
+		_label.text = "[center]" + _pending_text + "[/center]"
 
 	# Got it button
 	var btn_row = CenterContainer.new()
@@ -119,11 +124,14 @@ func _ready() -> void:
 	tween.tween_property(self, "modulate:a", 1.0, 0.2)
 
 func show_hint(text: String) -> void:
-	_label.text = "[center]" + text + "[/center]"
-	# Re-center panel vertically after text is set
-	await get_tree().process_frame
-	_panel.offset_top    = -(_panel.size.y / 2.0)
-	_panel.offset_bottom =  (_panel.size.y / 2.0)
+	_pending_text = text
+	if _label != null:
+		# _ready() already ran — apply immediately
+		_label.text = "[center]" + text + "[/center]"
+		await get_tree().process_frame
+		if is_instance_valid(_panel):
+			_panel.offset_top    = -(_panel.size.y / 2.0)
+			_panel.offset_bottom =  (_panel.size.y / 2.0)
 
 func _on_close() -> void:
 	var tween = create_tween()
@@ -133,7 +141,6 @@ func _on_close() -> void:
 	queue_free()
 
 func _unhandled_input(event: InputEvent) -> void:
-	# Close on Escape too
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
 		_on_close()
 		get_viewport().set_input_as_handled()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://hint_overlay"]
+[gd_scene load_steps=2 format=3 uid="uid://kyhwxjcdzp6r2"]
 
 [ext_resource type="Script" path="res://scenes/ui/hint_overlay.gd" id="1_hint_overlay"]
 

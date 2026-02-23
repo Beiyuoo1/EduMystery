@@ -161,7 +161,9 @@ func update_audio(channel_name:= "", path := "", settings_overrides := {}) -> vo
 		new_player.volume_db = audio_settings.volume
 
 	## Audio Bus
-	new_player.bus = audio_settings.audio_bus
+	# On web, named buses map to index -1 in the JS audio engine (Godot 4.5 bug).
+	# Force Master bus to avoid "invalid bus index -1" crash.
+	new_player.bus = "Master" if OS.get_name() == "Web" else audio_settings.audio_bus
 
 	## Loop
 	if "loop" in new_player.stream:

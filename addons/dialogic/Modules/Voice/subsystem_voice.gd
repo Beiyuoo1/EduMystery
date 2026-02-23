@@ -99,7 +99,9 @@ func set_volume(value: float) -> void:
 
 ## Set the voice player's bus to a [param bus_name].
 func set_bus(bus_name: String) -> void:
-	voice_player.bus = bus_name
+	# On web, named buses map to index -1 in the JS audio engine (Godot 4.5 bug).
+	# Force Master bus to avoid "invalid bus index -1" crash.
+	voice_player.bus = "Master" if OS.get_name() == "Web" else bus_name
 
 
 ## Stops the current voice line from playing.

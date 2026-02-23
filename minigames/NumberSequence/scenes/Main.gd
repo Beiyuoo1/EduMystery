@@ -45,6 +45,7 @@ func _ready() -> void:
 	continue_button.pressed.connect(_on_continue_pressed)
 	hint_button.pressed.connect(_on_hint_pressed)
 	hint_button.icon = load("res://assets/UI/core/hints.png")
+	hint_button.icon_max_width = 32
 	hint_button.text = ""
 	_build_number_pad()
 	_update_hint_display()

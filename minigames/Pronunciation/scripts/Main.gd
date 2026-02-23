@@ -196,6 +196,7 @@ func _setup_ui():
 	# Record button
 	record_button = Button.new()
 	record_button.icon = load("res://assets/UI/core/mic_off.png")
+	record_button.icon_max_width = 32
 	record_button.text = "Hold to Record"
 	record_button.custom_minimum_size = Vector2(250, 60)
 	record_button.add_theme_font_size_override("font_size", 20)
@@ -327,6 +328,7 @@ func _start_recording():
 	status_label.text = "Listening... Speak now!"
 	status_label.add_theme_color_override("font_color", Color.YELLOW)
 	record_button.icon = load("res://assets/UI/core/mic_active.png")
+	record_button.icon_max_width = 32
 	record_button.text = "Recording..."
 	record_button.add_theme_color_override("font_color", Color.RED)
 	confidence_label.text = ""
@@ -341,6 +343,7 @@ func _stop_recording():
 
 	status_label.text = "Processing..."
 	record_button.icon = load("res://assets/UI/core/mic_off.png")
+	record_button.icon_max_width = 32
 	record_button.text = "Processing..."
 	record_button.remove_theme_color_override("font_color")
 	record_button.disabled = true
@@ -496,6 +499,7 @@ func _display_evaluation(recognized: String, word_match: float, confidence: floa
 			status_label.text = "You said: \"" + recognized + "\"\n" + tip
 			_play_sfx(sfx_retry)
 			record_button.icon = load("res://assets/UI/core/mic_off.png")
+			record_button.icon_max_width = 32
 			record_button.text = "Hold to Record"
 			record_button.disabled = false
 	else:
@@ -511,6 +515,7 @@ func _display_evaluation(recognized: String, word_match: float, confidence: floa
 			status_label.text = "You said: \"" + recognized + "\"\n" + tip
 			_play_sfx(sfx_retry)
 			record_button.icon = load("res://assets/UI/core/mic_off.png")
+			record_button.icon_max_width = 32
 			record_button.text = "Hold to Record"
 			record_button.disabled = false
 
@@ -534,6 +539,7 @@ func _handle_no_speech():
 		_finish_game(false, 0)
 	else:
 		record_button.icon = load("res://assets/UI/core/mic_off.png")
+		record_button.icon_max_width = 32
 		record_button.text = "Hold to Record"
 		record_button.disabled = false
 

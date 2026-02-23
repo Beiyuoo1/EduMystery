@@ -128,7 +128,7 @@ func _create_ui(chapter_num: int):
 	var star_empty_tex: Texture2D = load("res://assets/UI/core/star_empty.png")
 	for i in range(3):
 		var star_rect = TextureRect.new()
-		star_rect.custom_minimum_size = Vector2(100, 100)
+		star_rect.custom_minimum_size = Vector2(32, 32)
 		star_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		star_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		if i < stars_earned:

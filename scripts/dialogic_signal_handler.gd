@@ -435,7 +435,7 @@ func _create_evidence_popup(evidence: Dictionary) -> CanvasLayer:
 	# Add clue icon above the label
 	var clue_icon = TextureRect.new()
 	clue_icon.texture = load("res://assets/UI/core/clue_found.png")
-	clue_icon.custom_minimum_size = Vector2(64, 64)
+	clue_icon.custom_minimum_size = Vector2(32, 32)
 	clue_icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	clue_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	clue_icon.size_flags_horizontal = Control.SIZE_SHRINK_CENTER

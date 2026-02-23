@@ -69,6 +69,7 @@ func _ready() -> void:
 	clues_popup.hide()
 	hint_button.pressed.connect(_on_hint_pressed)
 	hint_button.icon = load("res://assets/UI/core/hints.png")
+	hint_button.icon_max_width = 32
 	hint_button.text = ""
 	submit_button.pressed.connect(_on_submit_pressed)
 	continue_button.pressed.connect(_on_continue_pressed)
@@ -434,6 +435,7 @@ func _process(delta: float) -> void:
 			hint_cooldown = 0.0
 			hint_button.disabled = false
 			hint_button.icon = load("res://assets/UI/core/hints.png")
+			hint_button.icon_max_width = 32
 			hint_button.text = ""
 		else:
 			hint_button.icon = null

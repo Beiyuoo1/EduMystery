@@ -24,16 +24,6 @@ signal level_up_finished
 var can_close = false
 
 func _ready():
-	# Apply NotoSans font to labels displaying symbols (★ →)
-	var symbol_font = load("res://assets/font/game_font.tres")
-	if symbol_font:
-		if star_label:
-			star_label.add_theme_font_override("font", symbol_font)
-		if level_label:
-			level_label.add_theme_font_override("font", symbol_font)
-		if ability_icon:
-			ability_icon.add_theme_font_override("font", symbol_font)
-
 	# Start hidden
 	if background:
 		background.modulate.a = 0

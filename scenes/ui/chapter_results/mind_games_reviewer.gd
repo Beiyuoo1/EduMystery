@@ -920,9 +920,6 @@ func _create_right_page(chapter_num: int, content: Dictionary) -> PanelContainer
 			answer_label.add_theme_color_override("font_color", Color(0.1, 0.5, 0.1))
 			answer_label.autowrap_mode = TextServer.AUTOWRAP_WORD
 			answer_label.custom_minimum_size = Vector2(550, 0)
-			var _answer_font = load("res://assets/font/game_font.tres")
-			if _answer_font:
-				answer_label.add_theme_font_override("font", _answer_font)
 			vbox.add_child(answer_label)
 
 			# Explanation (why this is correct)

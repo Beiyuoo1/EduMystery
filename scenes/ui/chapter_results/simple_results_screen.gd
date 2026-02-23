@@ -123,9 +123,6 @@ func _create_ui(chapter_num: int):
 	stars_hbox.add_theme_constant_override("separation", 30)
 	vbox.add_child(stars_hbox)
 
-	# Load NotoSans font for star symbols (★ ☆)
-	var symbol_font = load("res://assets/font/game_font.tres")
-
 	# Add 3 stars with glowing effect
 	for i in range(3):
 		var star_label = Label.new()
@@ -136,8 +133,6 @@ func _create_ui(chapter_num: int):
 			star_label.text = "☆"   # Empty star
 			star_label.modulate = Color(0.5, 0.5, 0.6)  # Dim
 		star_label.add_theme_font_size_override("font_size", 100)
-		if symbol_font:
-			star_label.add_theme_font_override("font", symbol_font)
 		stars_hbox.add_child(star_label)
 
 	# Star rating explanation

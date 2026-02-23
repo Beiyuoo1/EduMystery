@@ -443,9 +443,6 @@ func _build_tutorial_page(title: String, description: String, image_path: String
 	btn.text = btn_label
 	btn.custom_minimum_size = Vector2(180, 46)
 	btn.add_theme_font_size_override("font_size", 20)
-	var _btn_font = load("res://assets/font/game_font.tres")
-	if _btn_font:
-		btn.add_theme_font_override("font", _btn_font)
 
 	var btn_style = StyleBoxFlat.new()
 	btn_style.bg_color = Color(0.2, 0.45, 0.75, 1.0)
@@ -469,8 +466,6 @@ func _build_tutorial_page(title: String, description: String, image_path: String
 		back_btn.text = "← Back"
 		back_btn.custom_minimum_size = Vector2(140, 46)
 		back_btn.add_theme_font_size_override("font_size", 20)
-		if _btn_font:
-			back_btn.add_theme_font_override("font", _btn_font)
 
 		var back_style = StyleBoxFlat.new()
 		back_style.bg_color = Color(0.25, 0.18, 0.1, 1.0)

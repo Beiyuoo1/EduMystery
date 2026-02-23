@@ -53,12 +53,13 @@ var _blink_elapsed: float = 0.0
 
 signal minigame_completed(success: bool, time_taken: float)
 
-# Cached symbol font (NotoSans + NotoEmoji) for dynamically created buttons/labels
+# Cached emoji font for dynamically created buttons/labels
 var _emoji_font: FontFile = null
 
 func _get_emoji_font() -> FontFile:
 	if _emoji_font == null:
-		_emoji_font = load("res://assets/font/game_font.tres")
+		_emoji_font = FontFile.new()
+		_emoji_font.load_dynamic_font("res://assets/font/NotoEmoji-Regular.ttf")
 	return _emoji_font
 
 func _ready() -> void:

@@ -191,9 +191,6 @@ func _create_tutorial() -> void:
 	tutorial_back_button.text = "← Back"
 	tutorial_back_button.custom_minimum_size = Vector2(150, 50)
 	tutorial_back_button.add_theme_font_size_override("font_size", 20)
-	var _tut_font = _get_notosans_font()
-	if _tut_font:
-		tutorial_back_button.add_theme_font_override("font", _tut_font)
 	tutorial_back_button.pressed.connect(_on_tutorial_back_pressed)
 	_style_tutorial_button(tutorial_back_button, Color(0.4, 0.5, 0.6, 0.9), Color(0.5, 0.6, 0.7, 1.0))
 	tutorial_button_container.add_child(tutorial_back_button)
@@ -203,8 +200,6 @@ func _create_tutorial() -> void:
 	tutorial_next_button.text = "Next →"
 	tutorial_next_button.custom_minimum_size = Vector2(150, 50)
 	tutorial_next_button.add_theme_font_size_override("font_size", 20)
-	if _tut_font:
-		tutorial_next_button.add_theme_font_override("font", _tut_font)
 	tutorial_next_button.pressed.connect(_on_tutorial_next_pressed)
 	_style_tutorial_button(tutorial_next_button, Color(0.2, 0.6, 0.8, 0.95), Color(0.3, 0.7, 0.9, 1.0))
 	tutorial_button_container.add_child(tutorial_next_button)
@@ -528,26 +523,8 @@ func _play_countdown() -> void:
 	countdown_overlay.hide()
 
 
-var _notosans_font: FontFile = null
-
-func _get_notosans_font() -> FontFile:
-	"""Load NotoSans (with NotoEmoji fallback) for symbols like ✓ ✗ → ★ ☆"""
-	if _notosans_font == null:
-		_notosans_font = load("res://assets/font/game_font.tres")
-	return _notosans_font
-
 func _apply_modern_styles() -> void:
 	"""Apply modern gradient and shadow styling to all UI elements"""
-	# Apply NotoSans font to nodes that display Unicode symbols (✓ ✗ → ⏱)
-	var symbol_font = _get_notosans_font()
-	if symbol_font:
-		feedback_icon.add_theme_font_override("font", symbol_font)
-		continue_button.add_theme_font_override("font", symbol_font)
-		retry_button.add_theme_font_override("font", symbol_font)
-		submit_button.add_theme_font_override("font", symbol_font)
-		hint_button.add_theme_font_override("font", symbol_font)
-		timer_label.add_theme_font_override("font", symbol_font)
-
 	# Main panel is NinePatchRect - no stylebox override needed, uses BGbox_01A.png texture
 
 	# Timer panel - info style

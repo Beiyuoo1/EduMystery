@@ -184,9 +184,6 @@ func _setup_ui():
 	status_label.text = "Initializing..."
 	status_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	status_label.add_theme_font_size_override("font_size", 18)
-	var _status_font = load("res://assets/font/game_font.tres")
-	if _status_font:
-		status_label.add_theme_font_override("font", _status_font)
 	vbox.add_child(status_label)
 
 	# Confidence display

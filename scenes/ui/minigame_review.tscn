@@ -120,7 +120,7 @@ theme_override_constants/margin_bottom = 15
 layout_mode = 2
 theme_override_colors/font_color = Color(0.1, 0.5, 0.2, 1)
 theme_override_font_sizes/font_size = 22
-text = "💡 Tip: Sample tip text"
+text = "[?] Tip: Sample tip text"
 autowrap_mode = 3
 
 [node name="HSeparator2" type="HSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]

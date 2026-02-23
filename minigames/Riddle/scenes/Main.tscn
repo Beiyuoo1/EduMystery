@@ -94,7 +94,7 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "💡"
+text = "[?]"
 
 [node name="HintLabel" type="Label" parent="Control/Panel/MainContainer/HeaderContainer"]
 layout_mode = 2
@@ -389,7 +389,7 @@ autowrap_mode = 3
 layout_mode = 2
 theme_override_colors/font_color = Color(0.15, 0.08, 0.03, 1)
 theme_override_font_sizes/font_size = 21
-text = "4. Stuck? Use the 💡 Hint button — it will automatically fill in the next correct letter!"
+text = "4. Stuck? Use the [?] Hint button — it will automatically fill in the next correct letter!"
 autowrap_mode = 3
 
 [node name="Sep2" type="HSeparator" parent="Control/TutorialOverlay/TutPanel/VBox"]
@@ -399,7 +399,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0.35, 0.2, 0.1, 1)
 theme_override_font_sizes/font_size = 19
-text = "⚡ Speed Tip: Solve the riddle in under 60 seconds to earn a bonus Hint!"
+text = ">> Speed Tip: Solve the riddle in under 60 seconds to earn a bonus Hint!"
 autowrap_mode = 3
 
 [node name="StartButton" type="Button" parent="Control/TutorialOverlay/TutPanel/VBox"]

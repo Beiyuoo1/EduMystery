@@ -7,8 +7,8 @@ extends Control
 # UI Nodes
 @onready var title_label: Label = $Panel/VBox/TitleLabel
 @onready var context_label: RichTextLabel = $Panel/VBox/ContextLabel
-@onready var clues_container: VBoxContainer = $Panel/VBox/MainHBox/CluesSection/ScrollContainer/CluesContainer
-@onready var chibi_sprite: TextureRect = $Panel/VBox/MainHBox/CluesSection/ChibiSprite
+@onready var clues_container: VBoxContainer = $CluesPopup/PopupPanel/VBox/ScrollContainer/CluesContainer
+@onready var chibi_sprite: TextureRect = $Panel/VBox/MainHBox/ChibiSection/ChibiSprite
 @onready var grid_container: GridContainer = $Panel/VBox/MainHBox/GridSection/GridPanel/MarginContainer/GridContainer
 @onready var timer_label: Label = $Panel/VBox/HBox/TimerLabel
 @onready var hint_button: Button = $Panel/VBox/HBox/HintButton
@@ -24,6 +24,9 @@ extends Control
 @onready var tut_next_button: Button = $TutorialOverlay/Page1/VBox/NextButton
 @onready var tut_back_button: Button = $TutorialOverlay/Page2/VBox/ButtonsRow/BackButton
 @onready var tut_done_button: Button = $TutorialOverlay/Page2/VBox/ButtonsRow/DoneButton
+@onready var clues_button: Button = $Panel/VBox/HBox/CluesButton
+@onready var clues_popup: Control = $CluesPopup
+@onready var clues_close_button: Button = $CluesPopup/PopupPanel/VBox/CloseButton
 
 # Minigame data
 var puzzle_config: Dictionary = {}
@@ -54,12 +57,16 @@ func _ready() -> void:
 	set_process(false)  # Don't run _process until timer is started
 	feedback_panel.hide()
 	feedback_overlay.hide()
+	clues_popup.hide()
 	hint_button.pressed.connect(_on_hint_pressed)
 	submit_button.pressed.connect(_on_submit_pressed)
 	continue_button.pressed.connect(_on_continue_pressed)
 	tut_next_button.pressed.connect(_on_tutorial_next)
 	tut_back_button.pressed.connect(_on_tutorial_back)
 	tut_done_button.pressed.connect(_on_tutorial_done)
+	clues_button.pressed.connect(_on_clues_button_pressed)
+	clues_close_button.pressed.connect(_on_clues_close_pressed)
+	_style_clues_button()
 	_update_hint_display()
 	_style_submit_button()
 
@@ -72,6 +79,32 @@ func _ready() -> void:
 		# Already seen — hide tutorial and show the "?" help button
 		tutorial_overlay.hide()
 		_add_help_button()
+
+func _style_clues_button() -> void:
+	var style = StyleBoxFlat.new()
+	style.bg_color = Color(0.1, 0.28, 0.55, 0.95)
+	style.corner_radius_top_left = 8
+	style.corner_radius_top_right = 8
+	style.corner_radius_bottom_left = 8
+	style.corner_radius_bottom_right = 8
+	style.border_width_top = 2
+	style.border_width_bottom = 2
+	style.border_width_left = 2
+	style.border_width_right = 2
+	style.border_color = Color(0.4, 0.65, 1.0)
+	clues_button.add_theme_stylebox_override("normal", style)
+	var hover = style.duplicate()
+	hover.bg_color = Color(0.2, 0.45, 0.85, 1.0)
+	clues_button.add_theme_stylebox_override("hover", hover)
+	clues_button.add_theme_stylebox_override("pressed", hover.duplicate())
+	clues_button.add_theme_color_override("font_color", Color.WHITE)
+	clues_button.add_theme_font_size_override("font_size", 18)
+
+func _on_clues_button_pressed() -> void:
+	clues_popup.show()
+
+func _on_clues_close_pressed() -> void:
+	clues_popup.hide()
 
 func _add_help_button() -> void:
 	"""Add a small '?' button at the top-right to re-open tutorial"""
@@ -145,15 +178,23 @@ func configure_puzzle(config: Dictionary) -> void:
 	title_label.text = config.get("title", "Logic Grid Puzzle")
 	context_label.text = config.get("context", "Use the clues to deduce the correct matches.")
 
-	# Load protagonist chibi for clues panel
+	# Load protagonist chibi — shown at right side of grid
 	var protagonist = PlayerStats.selected_character if PlayerStats.selected_character != "" else "conrad"
 	var normal_path = "res://Sprites/%s_chibi_clues.png" % protagonist
 	var blink_path  = "res://Sprites/%s_chibi_clues_eyes_close.png" % protagonist
-	if ResourceLoader.exists(normal_path):
-		chibi_normal_tex = load(normal_path)
-		chibi_blink_tex  = load(blink_path)
-		chibi_sprite.texture = chibi_normal_tex
-		_next_blink = randf_range(3.0, 6.0)
+	# Fallback to conrad if character not set
+	if not ResourceLoader.exists(normal_path):
+		normal_path = "res://Sprites/conrad_chibi_clues.png"
+		blink_path  = "res://Sprites/conrad_chibi_clues_eyes_close.png"
+	chibi_normal_tex = load(normal_path)
+	if ResourceLoader.exists(blink_path):
+		chibi_blink_tex = load(blink_path)
+	else:
+		chibi_blink_tex = chibi_normal_tex
+	chibi_sprite.texture = chibi_normal_tex
+	chibi_sprite.flip_h = false  # Face inward (toward grid = left, so no flip)
+	chibi_sprite.show()
+	_next_blink = randf_range(3.0, 6.0)
 
 	# Get grid dimensions
 	rows = config.get("rows", []).duplicate()
@@ -188,40 +229,62 @@ func _display_clues(clues: Array) -> void:
 		clues_container.add_child(clue_label)
 
 func _create_grid() -> void:
-	"""Create interactive grid"""
+	"""Create interactive grid that fills its container"""
 	grid_container.columns = cols.size() + 1
 
-	# Header row - corner cell
+	# Corner cell (empty top-left)
 	var corner_label = Label.new()
 	corner_label.text = ""
-	corner_label.custom_minimum_size = Vector2(130, 56)
+	corner_label.custom_minimum_size = Vector2(20, 60)
+	corner_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	corner_label.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	grid_container.add_child(corner_label)
 
+	# Column headers — white text on dark blue bg for readability
 	for col in cols:
 		var header = Label.new()
 		header.text = col
-		header.custom_minimum_size = Vector2(130, 56)
+		header.custom_minimum_size = Vector2(80, 64)
+		header.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		header.size_flags_vertical = Control.SIZE_EXPAND_FILL
 		header.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		header.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		header.add_theme_font_size_override("font_size", 20)
-		header.add_theme_color_override("font_color", Color(0.1, 0.25, 0.5))
+		header.add_theme_font_size_override("font_size", 24)
+		header.add_theme_color_override("font_color", Color(1.0, 1.0, 1.0, 1.0))
+		var header_bg = StyleBoxFlat.new()
+		header_bg.bg_color = Color(0.15, 0.30, 0.60, 0.95)
+		header_bg.corner_radius_top_left = 8
+		header_bg.corner_radius_top_right = 8
+		header_bg.corner_radius_bottom_left = 8
+		header_bg.corner_radius_bottom_right = 8
+		header_bg.border_width_top = 2
+		header_bg.border_width_bottom = 2
+		header_bg.border_width_left = 2
+		header_bg.border_width_right = 2
+		header_bg.border_color = Color(0.5, 0.7, 1.0, 0.8)
+		header.add_theme_stylebox_override("normal", header_bg)
 		grid_container.add_child(header)
 
-	# Grid cells
+	# Row labels + cells
 	for row in rows:
 		var row_label = Label.new()
 		row_label.text = row
-		row_label.custom_minimum_size = Vector2(130, 56)
+		row_label.custom_minimum_size = Vector2(20, 88)
+		row_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		row_label.size_flags_vertical = Control.SIZE_EXPAND_FILL
+		row_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 		row_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		row_label.add_theme_font_size_override("font_size", 20)
-		row_label.add_theme_color_override("font_color", Color(0.35, 0.15, 0.05))
+		row_label.add_theme_font_size_override("font_size", 28)
+		row_label.add_theme_color_override("font_color", Color(0.22, 0.10, 0.03))
 		grid_container.add_child(row_label)
 
 		for col in cols:
 			var cell_button = Button.new()
-			cell_button.custom_minimum_size = Vector2(130, 56)
+			cell_button.custom_minimum_size = Vector2(80, 80)
+			cell_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			cell_button.size_flags_vertical = Control.SIZE_EXPAND_FILL
 			cell_button.text = "?"
-			cell_button.add_theme_font_size_override("font_size", 26)
+			cell_button.add_theme_font_size_override("font_size", 36)
 			cell_button.set_meta("row", row)
 			cell_button.set_meta("col", col)
 			_style_cell_button(cell_button, "unknown")
@@ -234,39 +297,42 @@ func _create_grid() -> void:
 func _style_cell_button(button: Button, state: String) -> void:
 	"""Apply visual style based on cell state"""
 	var style = StyleBoxFlat.new()
-	style.corner_radius_top_left = 8
-	style.corner_radius_top_right = 8
-	style.corner_radius_bottom_left = 8
-	style.corner_radius_bottom_right = 8
-	style.border_width_top = 2
-	style.border_width_bottom = 2
-	style.border_width_left = 2
-	style.border_width_right = 2
+	style.corner_radius_top_left = 10
+	style.corner_radius_top_right = 10
+	style.corner_radius_bottom_left = 10
+	style.corner_radius_bottom_right = 10
+	style.border_width_top = 3
+	style.border_width_bottom = 3
+	style.border_width_left = 3
+	style.border_width_right = 3
 
 	var hover_style = style.duplicate()
 
 	match state:
 		"yes":
 			button.text = "✓"
-			style.bg_color = Color(0.15, 0.72, 0.3, 0.95)
-			style.border_color = Color(0.3, 1.0, 0.5, 1.0)
-			hover_style.bg_color = Color(0.2, 0.85, 0.4, 1.0)
-			hover_style.border_color = Color(0.4, 1.0, 0.6, 1.0)
+			style.bg_color = Color(0.12, 0.62, 0.25, 0.97)
+			style.border_color = Color(0.25, 0.95, 0.45, 1.0)
+			hover_style.bg_color = Color(0.18, 0.78, 0.35, 1.0)
+			hover_style.border_color = Color(0.35, 1.0, 0.55, 1.0)
 			button.add_theme_color_override("font_color", Color.WHITE)
+			button.add_theme_font_size_override("font_size", 42)
 		"no":
 			button.text = "✗"
-			style.bg_color = Color(0.65, 0.15, 0.15, 0.9)
-			style.border_color = Color(1.0, 0.35, 0.35, 1.0)
-			hover_style.bg_color = Color(0.78, 0.2, 0.2, 1.0)
+			style.bg_color = Color(0.65, 0.12, 0.12, 0.97)
+			style.border_color = Color(1.0, 0.3, 0.3, 1.0)
+			hover_style.bg_color = Color(0.80, 0.18, 0.18, 1.0)
 			hover_style.border_color = Color(1.0, 0.5, 0.5, 1.0)
-			button.add_theme_color_override("font_color", Color(1.0, 0.85, 0.85))
+			button.add_theme_color_override("font_color", Color(1.0, 0.90, 0.90))
+			button.add_theme_font_size_override("font_size", 42)
 		_:  # unknown
 			button.text = "?"
 			style.bg_color = Color(0.18, 0.18, 0.22, 0.95)
 			style.border_color = Color(0.4, 0.4, 0.5, 0.8)
 			hover_style.bg_color = Color(0.28, 0.28, 0.35, 1.0)
 			hover_style.border_color = Color(0.55, 0.55, 0.7, 1.0)
-			button.add_theme_color_override("font_color", Color(0.6, 0.6, 0.75))
+			button.add_theme_color_override("font_color", Color(0.75, 0.75, 0.85))
+			button.add_theme_font_size_override("font_size", 38)
 
 	button.add_theme_stylebox_override("normal", style)
 	button.add_theme_stylebox_override("hover", hover_style)
@@ -472,7 +538,7 @@ func _on_continue_pressed() -> void:
 
 func _on_time_up() -> void:
 	"""Handle time running out - show solution and allow retry"""
-	feedback_label.text = "[center][color=#ff5555][b]⏱ TIME'S UP![/b][/color][/center]\n\n"
+	feedback_label.text = "[center][color=#ff5555][b]TIME'S UP![/b][/color][/center]\n\n"
 	feedback_label.text += "[b]Correct Solution:[/b]\n"
 	for row in rows:
 		var correct_col = solution.get(row, "")

@@ -71,13 +71,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 24.0
-offset_top = 20.0
-offset_right = -24.0
-offset_bottom = -20.0
+offset_left = 20.0
+offset_top = 16.0
+offset_right = -20.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 12
+theme_override_constants/separation = 8
 
 [node name="TitleLabel" type="Label" parent="Panel/VBox"]
 layout_mode = 2
@@ -88,7 +88,7 @@ horizontal_alignment = 1
 
 [node name="HBox" type="HBoxContainer" parent="Panel/VBox"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 12
 
 [node name="TimerLabel" type="Label" parent="Panel/VBox/HBox"]
 layout_mode = 2
@@ -97,6 +97,16 @@ theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
 theme_override_font_sizes/font_size = 24
 text = "Time: 02:00"
 
+[node name="CluesButton" type="Button" parent="Panel/VBox/HBox"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxTexture_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxTexture_btn_normal")
+theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
+theme_override_font_sizes/font_size = 18
+text = "Clues"
+
 [node name="HintButton" type="Button" parent="Panel/VBox/HBox"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_btn_normal")
@@ -104,7 +114,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_btn_hover")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_btn_hover")
 theme_override_styles/focus = SubResource("StyleBoxTexture_btn_normal")
 theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
-text = "💡 Hint"
+text = "[?] Hint"
 
 [node name="HintCounter" type="Label" parent="Panel/VBox/HBox"]
 layout_mode = 2
@@ -136,13 +146,13 @@ text = "Legend:"
 layout_mode = 2
 theme_override_font_sizes/font_size = 17
 theme_override_colors/font_color = Color(0.1, 0.45, 0.15, 1)
-text = "✓ = YES (match)"
+text = "YES = match"
 
 [node name="LegendNo" type="Label" parent="Panel/VBox/LegendBar"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 17
 theme_override_colors/font_color = Color(0.7, 0.1, 0.1, 1)
-text = "✗ = NO (not a match)"
+text = "NO = not a match"
 
 [node name="LegendUnknown" type="Label" parent="Panel/VBox/LegendBar"]
 layout_mode = 2
@@ -153,40 +163,12 @@ text = "? = Unknown"
 [node name="MainHBox" type="HBoxContainer" parent="Panel/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 16
-
-[node name="CluesSection" type="VBoxContainer" parent="Panel/VBox/MainHBox"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 6
-
-[node name="CluesTitle" type="Label" parent="Panel/VBox/MainHBox/CluesSection"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-theme_override_colors/font_color = Color(0.1, 0.25, 0.5, 1)
-text = "🔍 Clues"
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBox/MainHBox/CluesSection"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="CluesContainer" type="VBoxContainer" parent="Panel/VBox/MainHBox/CluesSection/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
 theme_override_constants/separation = 8
-
-[node name="ChibiSprite" type="TextureRect" parent="Panel/VBox/MainHBox/CluesSection"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-custom_minimum_size = Vector2(340, 340)
-flip_h = true
-expand_mode = 1
-stretch_mode = 5
 
 [node name="GridSection" type="VBoxContainer" parent="Panel/VBox/MainHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
 theme_override_constants/separation = 8
 
 [node name="GridTitle" type="Label" parent="Panel/VBox/MainHBox/GridSection"]
@@ -194,25 +176,45 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 20
 theme_override_colors/font_color = Color(0.1, 0.25, 0.5, 1)
 horizontal_alignment = 1
-text = "📊 Deduction Grid"
+text = "Deduction Grid"
 
 [node name="GridPanel" type="PanelContainer" parent="Panel/VBox/MainHBox/GridSection"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_grid_panel")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/VBox/MainHBox/GridSection/GridPanel"]
 layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_bottom = 16
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
 
 [node name="GridContainer" type="GridContainer" parent="Panel/VBox/MainHBox/GridSection/GridPanel/MarginContainer"]
 layout_mode = 2
-theme_override_constants/h_separation = 8
-theme_override_constants/v_separation = 8
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
 columns = 4
+
+[node name="ChibiSection" type="VBoxContainer" parent="Panel/VBox/MainHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.0
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ChibiSprite" type="TextureRect" parent="Panel/VBox/MainHBox/ChibiSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 5
+flip_h = false
 
 [node name="SubmitButton" type="Button" parent="Panel/VBox"]
 custom_minimum_size = Vector2(0, 52)
@@ -290,6 +292,89 @@ theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
 theme_override_font_sizes/font_size = 20
 text = "Continue"
 
+[node name="CluesPopup" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PopupBG" type="ColorRect" parent="CluesPopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78)
+
+[node name="PopupPanel" type="NinePatchRect" parent="CluesPopup"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -280.0
+offset_right = 360.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bgbox")
+region_rect = Rect2(8.548111, 8.660231, 126.97536, 126.06514)
+patch_margin_left = 28
+patch_margin_top = 29
+patch_margin_right = 28
+patch_margin_bottom = 27
+
+[node name="VBox" type="VBoxContainer" parent="CluesPopup/PopupPanel"]
+layout_mode = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 20.0
+offset_right = -28.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="PopupTitle" type="Label" parent="CluesPopup/PopupPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(0.1, 0.25, 0.5, 1)
+text = "Clues"
+horizontal_alignment = 1
+
+[node name="Separator" type="HSeparator" parent="CluesPopup/PopupPanel/VBox"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CluesPopup/PopupPanel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CluesContainer" type="VBoxContainer" parent="CluesPopup/PopupPanel/VBox/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="CloseButton" type="Button" parent="CluesPopup/PopupPanel/VBox"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxTexture_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_btn_hover")
+theme_override_styles/focus = SubResource("StyleBoxTexture_btn_normal")
+theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
+theme_override_font_sizes/font_size = 20
+text = "Close"
+
 [node name="TutorialOverlay" type="Control" parent="."]
 visible = false
 layout_mode = 1
@@ -347,7 +432,7 @@ theme_override_constants/separation = 10
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 theme_override_colors/font_color = Color(0.35, 0.15, 0.05, 1)
-text = "📋 How to Play: Logic Grid"
+text = "How to Play: Logic Grid"
 horizontal_alignment = 1
 
 [node name="Intro" type="Label" parent="TutorialOverlay/Page1/VBox"]
@@ -370,13 +455,13 @@ text = "Click any cell to cycle through 3 states:"
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 theme_override_colors/font_color = Color(0.1, 0.45, 0.15, 1)
-text = "  ✓  YES — This person MATCHES this item"
+text = "  YES — This person MATCHES this item (green)"
 
 [node name="StateNo" type="Label" parent="TutorialOverlay/Page1/VBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 theme_override_colors/font_color = Color(0.7, 0.1, 0.1, 1)
-text = "  ✗  NO — This person does NOT match this item"
+text = "  NO — This person does NOT match this item (red)"
 
 [node name="StateUnknown" type="Label" parent="TutorialOverlay/Page1/VBox"]
 layout_mode = 2
@@ -389,7 +474,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 19
 theme_override_colors/font_color = Color(0.35, 0.2, 0.1, 1)
 autowrap_mode = 3
-text = "💡 Tip: Each person has exactly ONE correct match. Mark ✗ to eliminate options and ✓ when you're sure of a match."
+text = "[?] Tip: Each person has exactly ONE correct match. Mark X to eliminate options and V when you're sure of a match."
 
 [node name="NextButton" type="Button" parent="TutorialOverlay/Page1/VBox"]
 custom_minimum_size = Vector2(0, 52)
@@ -401,7 +486,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_btn_hover")
 theme_override_styles/focus = SubResource("StyleBoxTexture_btn_normal")
 theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
 theme_override_font_sizes/font_size = 20
-text = "Next →"
+text = "Next ->"
 
 [node name="Page2" type="NinePatchRect" parent="TutorialOverlay"]
 texture_filter = 1
@@ -443,7 +528,7 @@ theme_override_constants/separation = 10
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 theme_override_colors/font_color = Color(0.35, 0.15, 0.05, 1)
-text = "📋 Example"
+text = "Example"
 horizontal_alignment = 1
 
 [node name="Example" type="Label" parent="TutorialOverlay/Page2/VBox"]
@@ -451,7 +536,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 20
 theme_override_colors/font_color = Color(0.15, 0.08, 0.03, 1)
 autowrap_mode = 3
-text = "Clue: \"Ben was studying in a quiet place\" → Library is quiet, so Ben = Library → mark Ben/Library as ✓ and Ben/Gym, Ben/Cafeteria as ✗"
+text = "Clue: \"Ben was studying in a quiet place\" -> Library is quiet, so Ben = Library -> mark Ben/Library as YES and Ben/Gym, Ben/Cafeteria as NO"
 
 [node name="Separator1" type="HSeparator" parent="TutorialOverlay/Page2/VBox"]
 layout_mode = 2
@@ -467,7 +552,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 20
 theme_override_colors/font_color = Color(0.15, 0.08, 0.03, 1)
 autowrap_mode = 3
-text = "1. Read each clue carefully\n2. Mark ✗ for things you can RULE OUT\n3. Mark ✓ when only ONE option remains\n4. Press Submit when all rows have a ✓"
+text = "1. Read each clue carefully\n2. Click cells to cycle: ? -> NO -> YES\n3. Mark NO for things you can RULE OUT\n4. Mark YES when only ONE option remains\n5. Press Submit when all rows have a YES"
 
 [node name="ButtonsRow" type="HBoxContainer" parent="TutorialOverlay/Page2/VBox"]
 layout_mode = 2
@@ -484,7 +569,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_btn_hover")
 theme_override_styles/focus = SubResource("StyleBoxTexture_btn_normal")
 theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
 theme_override_font_sizes/font_size = 20
-text = "← Back"
+text = "<- Back"
 
 [node name="DoneButton" type="Button" parent="TutorialOverlay/Page2/VBox/ButtonsRow"]
 custom_minimum_size = Vector2(0, 52)

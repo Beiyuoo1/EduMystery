@@ -89,7 +89,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.88235295, 1, 0.24705882, 1)
 theme_override_colors/font_outline_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
 theme_override_font_sizes/font_size = 38
-text = "⏱ Timeline Reconstruction"
+text = "Timeline Reconstruction"
 horizontal_alignment = 1
 
 [node name="SubtitleLabel" type="Label" parent="Panel/VBox/Header"]
@@ -111,7 +111,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_kqqpp")
 [node name="TimerLabel" type="Label" parent="Panel/VBox/TopBar/TimerPanel"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "⏱ Time: 02:00"
+text = "[T] Time: 02:00"
 
 [node name="HintPanel" type="PanelContainer" parent="Panel/VBox/TopBar"]
 layout_mode = 2
@@ -127,7 +127,7 @@ theme_override_styles/normal = SubResource("SubmitNormal")
 theme_override_styles/pressed = SubResource("SubmitHover")
 theme_override_styles/hover = SubResource("SubmitHover")
 theme_override_styles/focus = SubResource("SubmitNormal")
-text = "💡 Use Hint"
+text = "[?] Use Hint"
 
 [node name="HintCounter" type="Label" parent="Panel/VBox/TopBar/HintPanel/HintHBox"]
 layout_mode = 2
@@ -352,7 +352,7 @@ theme_override_styles/normal = SubResource("SubmitNormal")
 theme_override_styles/pressed = SubResource("SubmitHover")
 theme_override_styles/hover = SubResource("SubmitHover")
 theme_override_styles/focus = SubResource("SubmitNormal")
-text = "🔄 Try Again"
+text = "Try Again"
 
 [node name="ContinueButton" type="Button" parent="FeedbackPanel/VBox/ButtonsHBox"]
 custom_minimum_size = Vector2(180, 55)

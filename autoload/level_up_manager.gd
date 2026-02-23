@@ -14,12 +14,12 @@ var ability_data = {
 	2: {
 		"name": "Second Chance",
 		"desc": "You can now retry failed minigames once!",
-		"icon": "🔄"
+		"icon": "⚡"
 	},
 	3: {
 		"name": "Score Improvement",
 		"desc": "Retry completed minigames to improve your score!",
-		"icon": "⭐"
+		"icon": "🌟"
 	},
 	4: {
 		"name": "Deductive Hint",

@@ -137,7 +137,7 @@ layout_mode = 2
 
 [node name="SectionLabel" type="Label" parent="CenterContainer/ResultsPanel/MarginContainer/VBoxContainer/StatsGrid/ChoicesSection"]
 layout_mode = 2
-text = "🎯 CHOICES"
+text = "CHOICES"
 theme_override_font_sizes/font_size = 20
 theme_override_colors/font_color = Color(0, 0.8, 1, 1)
 
@@ -193,7 +193,7 @@ layout_mode = 2
 
 [node name="SectionLabel" type="Label" parent="CenterContainer/ResultsPanel/MarginContainer/VBoxContainer/StatsGrid/EfficiencySection"]
 layout_mode = 2
-text = "⏱️ EFFICIENCY"
+text = "[T] EFFICIENCY"
 theme_override_font_sizes/font_size = 20
 theme_override_colors/font_color = Color(0, 0.8, 1, 1)
 

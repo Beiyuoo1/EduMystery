@@ -127,7 +127,7 @@ func _create_ui(chapter_num: int):
 	for i in range(3):
 		var star_label = Label.new()
 		if i < stars_earned:
-			star_label.text = "⭐"  # Filled star
+			star_label.text = "★"  # Filled star
 			star_label.modulate = Color(1.2, 1.1, 0.8)  # Bright glow
 		else:
 			star_label.text = "☆"   # Empty star

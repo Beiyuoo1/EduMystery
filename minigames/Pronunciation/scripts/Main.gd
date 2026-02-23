@@ -490,7 +490,7 @@ func _display_evaluation(recognized: String, word_match: float, confidence: floa
 		else:
 			status_label.add_theme_color_override("font_color", orange)
 			var tip = _get_improvement_tip(word_percent, clarity_percent)
-			status_label.text = "You said: \"" + recognized + "\"\n💡 " + tip
+			status_label.text = "You said: \"" + recognized + "\"\n💡" + tip
 			_play_sfx(sfx_retry)
 			record_button.text = "🎤 Hold to Record"
 			record_button.disabled = false
@@ -504,7 +504,7 @@ func _display_evaluation(recognized: String, word_match: float, confidence: floa
 		else:
 			status_label.add_theme_color_override("font_color", Color(1.0, 0.5, 0.3))
 			var tip = _get_improvement_tip(word_percent, clarity_percent)
-			status_label.text = "You said: \"" + recognized + "\"\n💡 " + tip
+			status_label.text = "You said: \"" + recognized + "\"\n💡" + tip
 			_play_sfx(sfx_retry)
 			record_button.text = "🎤 Hold to Record"
 			record_button.disabled = false

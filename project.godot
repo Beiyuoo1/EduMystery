@@ -247,6 +247,10 @@ window/size/mode=4
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
+[gui]
+
+theme/custom_font_fallback="res://assets/font/NotoEmoji-Regular.ttf"
+
 [input]
 
 dialogic_default_action={

@@ -50,11 +50,11 @@ func show_level_up(old_level: int, new_level: int, ability: Dictionary):
 	level_label.text = "Level %d → %d" % [old_level, new_level]
 
 	if ability.is_empty():
-		ability_icon.text = "⭐"
+		ability_icon.text = "★"
 		ability_name_label.text = "Level Up!"
 		ability_desc_label.text = "You've grown stronger!"
 	else:
-		var icon = ability.get("icon", "⭐")
+		var icon = ability.get("icon", "★")
 		ability_icon.text = icon
 		ability_name_label.text = ability.get("name", "New Ability")
 		ability_desc_label.text = ability.get("desc", "")

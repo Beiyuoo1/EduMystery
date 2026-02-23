@@ -434,7 +434,7 @@ func _on_time_up() -> void:
 	# Briefly highlight the correct answer so the player learns
 	choice_buttons[correct_answer_index].add_theme_color_override("font_color", Color.GREEN)
 
-	feedback_label.text = "[center][color=red][b]⏱ TIME'S UP![/b][/color][/center]\n\n"
+	feedback_label.text = "[center][color=red][b]TIME'S UP![/b][/color][/center]\n\n"
 	feedback_label.text += "[color=#FFB347]The correct answer has been highlighted. Try again![/color]"
 	continue_button.text = "Try Again"
 	feedback_panel.show()

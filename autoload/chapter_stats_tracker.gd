@@ -236,7 +236,7 @@ func get_achievements() -> Array:
 		achievements.append({
 			"name": "Perfect Detective",
 			"description": "No wrong choices made",
-			"icon": "🌟"
+			"icon": "⭐"
 		})
 
 	if has_achievement("speed_demon"):
@@ -257,7 +257,7 @@ func get_achievements() -> Array:
 		achievements.append({
 			"name": "Hint Master",
 			"description": "Completed without using hints",
-			"icon": "🧠"
+			"icon": "💡"
 		})
 
 	if has_achievement("perfect_interrogation"):

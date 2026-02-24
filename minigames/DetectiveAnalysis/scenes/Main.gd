@@ -429,6 +429,7 @@ func _on_continue_pressed() -> void:
 		feedback_panel.hide()
 		selected_answer = -1
 		for button in choice_buttons:
+			button.disabled = false
 			button.remove_theme_color_override("font_color")
 		start_time = Time.get_ticks_msec() / 1000.0  # Reset timer so it doesn't instantly expire
 		set_process(true)
@@ -464,11 +465,25 @@ func _on_hint_pressed() -> void:
 	hint_used = true
 	_update_hint_display()
 	hint_button.disabled = true
+	_eliminate_one_wrong_button()
 	var hint_text = puzzle_config.get("hint_text", "Re-read the context carefully. Identify the key values given, then decide which formula or reasoning step applies here.")
 	var overlay = CanvasLayer.new()
 	overlay.set_script(load("res://scenes/ui/hint_overlay.gd"))
 	get_tree().root.add_child(overlay)
 	overlay.show_hint(hint_text)
+
+func _eliminate_one_wrong_button() -> void:
+	"""Disable one random wrong answer button to help narrow choices"""
+	var wrong_indices: Array = []
+	for i in range(choice_buttons.size()):
+		if i != correct_answer_index and not choice_buttons[i].disabled:
+			wrong_indices.append(i)
+	if wrong_indices.is_empty():
+		return
+	wrong_indices.shuffle()
+	var target = wrong_indices[0]
+	choice_buttons[target].disabled = true
+	choice_buttons[target].add_theme_color_override("font_color", Color(0.45, 0.45, 0.45, 0.6))
 
 
 func _update_hint_display() -> void:

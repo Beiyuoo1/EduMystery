@@ -269,11 +269,25 @@ func _on_hint_pressed():
 	hint_used = true
 	_update_hint_display()
 	hint_button.disabled = true
+	_eliminate_one_wrong_button()
 	var hint_text = puzzle_config.get("hint_text", "Think about how the word sounds when spoken aloud. Use the speaker button to hear it again.")
 	var overlay = CanvasLayer.new()
 	overlay.set_script(load("res://scenes/ui/hint_overlay.gd"))
 	get_tree().root.add_child(overlay)
 	overlay.show_hint(hint_text)
+
+func _eliminate_one_wrong_button() -> void:
+	"""Disable one random wrong answer button to help narrow choices"""
+	var wrong_indices: Array = []
+	for i in range(choice_buttons.size()):
+		if i != correct_answer_index and not choice_buttons[i].disabled:
+			wrong_indices.append(i)
+	if wrong_indices.is_empty():
+		return
+	wrong_indices.shuffle()
+	var target = wrong_indices[0]
+	choice_buttons[target].disabled = true
+	choice_buttons[target].add_theme_color_override("font_color", Color(0.45, 0.45, 0.45, 0.6))
 
 func _setup_tts():
 	"""Setup TTS audio player"""

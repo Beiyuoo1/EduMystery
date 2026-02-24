@@ -391,12 +391,13 @@ func _load_slot_data(slot_id: int) -> void:
 		var evidence = data["evidence"]
 		EvidenceManager.collected_evidence = evidence.get("collected", [])
 
-## Get formatted timestamp string
+## Get formatted timestamp string (Philippine Standard Time, UTC+8)
 func format_timestamp(unix_time: int) -> String:
 	if unix_time == 0:
 		return "Empty Slot"
 
-	var datetime = Time.get_datetime_dict_from_unix_time(unix_time)
+	var pst_unix_time = unix_time + 8 * 3600  # UTC+8 offset
+	var datetime = Time.get_datetime_dict_from_unix_time(pst_unix_time)
 	return "%02d/%02d/%04d %02d:%02d" % [
 		datetime.month,
 		datetime.day,

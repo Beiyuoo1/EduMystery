@@ -62,6 +62,9 @@ var correct_answer: int = 1  # Default to Choice 2 for janitor scenario
 # Selected choice
 var selected_choice_index: int = -1
 
+# Tracks indices of wrong choices that should stay permanently disabled
+var disabled_wrong_indices: Array = []
+
 # Configurable question and choices (defaults removed - must be configured via configure_puzzle())
 var question_text: String = ""
 var choice_texts: Array = []  # Will be populated by configure_puzzle()
@@ -777,6 +780,10 @@ func _play_sfx(path: String) -> void:
 func _show_wrong_feedback():
 	_play_sfx("res://assets/audio/sound_effect/wrong.wav")
 
+	# Permanently record this wrong choice so it stays disabled
+	if selected_choice_index not in disabled_wrong_indices:
+		disabled_wrong_indices.append(selected_choice_index)
+
 	# Show fixed feedback message (not the wrong choice text)
 	bubble_label.text = "That's not the right way to approach someone politely. Try again!"
 
@@ -800,9 +807,9 @@ func _show_wrong_feedback():
 	await tween_out.finished
 	chat_bubble.visible = false
 
-	# Re-enable all buttons except the wrong one
+	# Re-enable buttons that haven't been selected wrongly before
 	for i in range(choice_buttons.size()):
-		if i != selected_choice_index:
+		if i not in disabled_wrong_indices:
 			choice_buttons[i].disabled = false
 
 func _animate_question_mark():
@@ -1344,6 +1351,7 @@ func _on_try_again_pressed():
 
 	# Re-enable all choice buttons and clear wrong selections
 	selected_choice_index = -1
+	disabled_wrong_indices.clear()
 	for button in choice_buttons:
 		button.disabled = false
 

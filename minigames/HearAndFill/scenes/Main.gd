@@ -101,6 +101,11 @@ func _setup_ui():
 
 	_update_hint_display()
 
+	# Shuffle choices so the correct answer lands in a random position each run
+	var correct_word = choices[correct_answer_index]
+	choices.shuffle()
+	correct_answer_index = choices.find(correct_word)
+
 	for i in range(choice_buttons.size()):
 		if choice_buttons[i] == null:
 			push_error("HearAndFill: choice_buttons[" + str(i) + "] is null!")

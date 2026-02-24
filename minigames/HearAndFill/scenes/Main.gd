@@ -11,6 +11,11 @@ extends CanvasLayer
 @onready var speaker_button = $Control/MainContainer/VBoxContainer/SentenceContainer/SpeakerButton
 @onready var choices_container = $Control/MainContainer/VBoxContainer/ChoicesContainer
 @onready var feedback_label = $Control/MainContainer/VBoxContainer/FeedbackLabel
+@onready var countdown_overlay = $Control/CountdownOverlay
+@onready var countdown_label = $Control/CountdownOverlay/CountdownLabel
+@onready var tutorial_overlay = $Control/TutorialOverlay
+@onready var tutorial_label = $Control/TutorialOverlay/MarginContainer/VBoxContainer/TutorialLabel
+@onready var tutorial_ok_button = $Control/TutorialOverlay/MarginContainer/VBoxContainer/OkButton
 
 # Choice buttons (8 buttons in 2 rows of 4)
 @onready var choice_buttons = [
@@ -37,6 +42,8 @@ var choices: Array = ["Hi-fi", "Sci-fi", "WiFi", "Bye-bye", "Fly high", "Sky hig
 
 # Hint system
 var hint_used: bool = false
+# Tracks buttons permanently eliminated by hint — never re-enabled
+var hint_eliminated_indices: Array = []
 
 # Time tracking for bonus hint
 var start_time: float = 0.0
@@ -45,58 +52,45 @@ const TIME_BONUS_THRESHOLD: float = 60.0  # Complete within 1 minute for bonus h
 # Audio system
 var tts_player: AudioStreamPlayer = null
 
+# Countdown sfx paths
+const SFX_THREE = "res://assets/audio/sound_effect/timeline_analysis_minigame/three.mp3"
+const SFX_TWO   = "res://assets/audio/sound_effect/timeline_analysis_minigame/two.mp3"
+const SFX_ONE   = "res://assets/audio/sound_effect/timeline_analysis_minigame/one.mp3"
+const SFX_START = "res://assets/audio/sound_effect/timeline_analysis_minigame/start.mp3"
+
 signal minigame_completed(success: bool)
 
 func _ready():
 	print("DEBUG: HearAndFill minigame _ready() called")
-
-	# Make sure the control is visible
 	visible = true
-
-	# Record start time for bonus hint
-	start_time = Time.get_ticks_msec() / 1000.0
-
-	# Verify node references
 	_verify_nodes()
-
-	# Set up UI
 	_setup_ui()
-
-	# Connect button signals
 	_connect_buttons()
-
-	# Start timer
-	timer_active = true
-
-	# Setup TTS
 	_setup_tts()
 
+	# Block input during tutorial/countdown
+	_set_choices_interactable(false)
+	hint_button.disabled = true
+
+	# Show tutorial first, then countdown
+	_show_tutorial()
+
 func _unhandled_input(event):
-	# F5 to skip minigame
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode == KEY_F5:
 			print("F5 pressed - Skipping hear and fill minigame")
 			_skip_minigame()
 
 func _verify_nodes():
-	"""Verify all node references exist"""
-	if timer_label == null:
-		push_error("HearAndFill: timer_label is null!")
-	if hint_button == null:
-		push_error("HearAndFill: hint_button is null!")
-	if hint_label == null:
-		push_error("HearAndFill: hint_label is null!")
-	if title_label == null:
-		push_error("HearAndFill: title_label is null!")
-	if instruction_label == null:
-		push_error("HearAndFill: instruction_label is null!")
-	if sentence_label == null:
-		push_error("HearAndFill: sentence_label is null!")
-	if speaker_button == null:
-		push_error("HearAndFill: speaker_button is null!")
+	if timer_label == null: push_error("HearAndFill: timer_label is null!")
+	if hint_button == null: push_error("HearAndFill: hint_button is null!")
+	if hint_label == null: push_error("HearAndFill: hint_label is null!")
+	if title_label == null: push_error("HearAndFill: title_label is null!")
+	if instruction_label == null: push_error("HearAndFill: instruction_label is null!")
+	if sentence_label == null: push_error("HearAndFill: sentence_label is null!")
+	if speaker_button == null: push_error("HearAndFill: speaker_button is null!")
 
 func _setup_ui():
-	"""Initialize UI elements"""
 	if title_label:
 		title_label.text = "\"Hear and Fill!\""
 	if instruction_label:
@@ -104,10 +98,8 @@ func _setup_ui():
 	if sentence_label:
 		sentence_label.text = sentence_text
 
-	# Update hint display from PlayerStats
 	_update_hint_display()
 
-	# Set choice button labels
 	for i in range(choice_buttons.size()):
 		if choice_buttons[i] == null:
 			push_error("HearAndFill: choice_buttons[" + str(i) + "] is null!")
@@ -122,22 +114,92 @@ func _setup_ui():
 		feedback_label.visible = false
 
 func _connect_buttons():
-	"""Connect all button signals"""
-	# Connect choice buttons
 	for i in range(choice_buttons.size()):
 		if choice_buttons[i]:
 			choice_buttons[i].pressed.connect(_on_choice_selected.bind(i))
 
-	# Connect hint button and set icon
+	if tutorial_ok_button:
+		tutorial_ok_button.pressed.connect(_on_tutorial_ok)
+
 	if hint_button:
 		hint_button.pressed.connect(_on_hint_pressed)
 		hint_button.icon = load("res://assets/UI/core/hints.png")
-		hint_button.add_theme_constant_override("icon_max_width", 32)
+		hint_button.add_theme_constant_override("icon_max_width", 40)
 		hint_button.text = ""
+		hint_button.add_theme_constant_override("icon_margin_left", 0)
+		hint_button.add_theme_constant_override("icon_margin_right", 0)
+		hint_button.add_theme_constant_override("icon_margin_top", 0)
+		hint_button.add_theme_constant_override("icon_margin_bottom", 0)
+		hint_button.add_theme_constant_override("h_separation", 0)
 
-	# Connect speaker button
 	if speaker_button:
 		speaker_button.pressed.connect(_on_speaker_pressed)
+		speaker_button.icon = load("res://assets/UI/core/speaker.png")
+		speaker_button.add_theme_constant_override("icon_max_width", 40)
+		speaker_button.text = ""
+		speaker_button.add_theme_constant_override("icon_margin_left", 0)
+		speaker_button.add_theme_constant_override("icon_margin_right", 0)
+		speaker_button.add_theme_constant_override("icon_margin_top", 0)
+		speaker_button.add_theme_constant_override("icon_margin_bottom", 0)
+		speaker_button.add_theme_constant_override("h_separation", 0)
+
+# ─── Tutorial ────────────────────────────────────────────────────────────────
+
+func _show_tutorial():
+	if tutorial_overlay == null:
+		# No tutorial node in scene — go straight to countdown
+		_start_countdown()
+		return
+	tutorial_overlay.visible = true
+
+func _on_tutorial_ok():
+	tutorial_overlay.visible = false
+	_start_countdown()
+
+# ─── Countdown ───────────────────────────────────────────────────────────────
+
+func _start_countdown():
+	if countdown_overlay == null:
+		# No countdown node — start directly
+		_begin_game()
+		return
+	countdown_overlay.visible = true
+	await _play_countdown_step("3", SFX_THREE)
+	await _play_countdown_step("2", SFX_TWO)
+	await _play_countdown_step("1", SFX_ONE)
+	await _play_countdown_step("START!", SFX_START)
+	countdown_overlay.visible = false
+	_begin_game()
+
+func _play_countdown_step(text: String, sfx_path: String) -> void:
+	if countdown_label:
+		countdown_label.text = text
+	_play_sfx(sfx_path)
+	await get_tree().create_timer(1.0).timeout
+
+func _begin_game():
+	start_time = Time.get_ticks_msec() / 1000.0
+	_set_choices_interactable(true)
+	if hint_button:
+		hint_button.disabled = false
+	timer_active = true
+
+# ─── Helpers ─────────────────────────────────────────────────────────────────
+
+func _set_choices_interactable(enabled: bool):
+	for i in range(choice_buttons.size()):
+		if choice_buttons[i] == null:
+			continue
+		# Never re-enable buttons that hint eliminated
+		if not enabled:
+			choice_buttons[i].disabled = true
+		elif i in hint_eliminated_indices:
+			# Keep eliminated buttons disabled
+			pass
+		else:
+			choice_buttons[i].disabled = false
+
+# ─── Process ─────────────────────────────────────────────────────────────────
 
 func _process(delta):
 	if timer_active:
@@ -146,7 +208,6 @@ func _process(delta):
 			time_remaining = 0
 			timer_active = false
 			_on_time_up()
-
 		_update_timer_display()
 
 func _update_timer_display():
@@ -155,40 +216,36 @@ func _update_timer_display():
 	timer_label.text = "%02d:%02d" % [minutes, seconds]
 
 func _on_time_up():
-	"""Called when timer reaches zero - reset and retry"""
 	feedback_label.text = "Time's up! Try again."
 	feedback_label.add_theme_color_override("font_color", Color.ORANGE)
 	feedback_label.visible = true
 
-	# Disable all buttons while showing feedback
-	for button in choice_buttons:
-		button.disabled = true
+	_set_choices_interactable(false)
 
 	await get_tree().create_timer(2.0).timeout
 
-	# Reset timer and re-enable buttons for retry
+	# Reset timer and re-enable non-eliminated buttons
 	time_remaining = 90.0
 	feedback_label.visible = false
-	for button in choice_buttons:
-		button.disabled = false
-		button.remove_theme_color_override("font_color")
+
+	# Restore color overrides on non-eliminated buttons only
+	for i in range(choice_buttons.size()):
+		if i not in hint_eliminated_indices:
+			choice_buttons[i].remove_theme_color_override("font_color")
+
+	_set_choices_interactable(true)
 	timer_active = true
 
+# ─── Choice selection ─────────────────────────────────────────────────────────
+
 func _on_choice_selected(choice_index: int):
-	"""Called when player selects an answer"""
 	print("DEBUG: Choice selected: ", choice_index, " (", choices[choice_index], ")")
-
-	# Disable all buttons
-	for button in choice_buttons:
-		button.disabled = true
-
+	_set_choices_interactable(false)
 	timer_active = false
 
 	if choice_index == correct_answer_index:
-		# Correct answer
 		_show_correct_feedback()
 	else:
-		# Wrong answer
 		_show_wrong_feedback(choice_index)
 
 func _play_sfx(path: String) -> void:
@@ -203,57 +260,48 @@ func _play_sfx(path: String) -> void:
 	player.finished.connect(player.queue_free)
 
 func _show_correct_feedback():
-	"""Show feedback for correct answer"""
 	_play_sfx("res://assets/audio/sound_effect/correct.wav")
 	var completion_time = (Time.get_ticks_msec() / 1000.0) - start_time
 
-	# Check if player earned a bonus hint (completed within 1 minute)
 	var bonus_hint_earned = completion_time <= TIME_BONUS_THRESHOLD
-
 	if bonus_hint_earned:
 		PlayerStats.add_hints(1)
 		feedback_label.text = "Correct! Well done!\nSpeed Bonus: +1 Hint!"
-		print("DEBUG: Bonus hint earned! Completion time: ", completion_time, "s")
 	else:
 		feedback_label.text = "Correct! Well done!"
 
 	feedback_label.add_theme_color_override("font_color", Color.GREEN)
 	feedback_label.visible = true
-
-	# Highlight correct answer
 	choice_buttons[correct_answer_index].add_theme_color_override("font_color", Color.GREEN)
 
 	await get_tree().create_timer(2.5).timeout
 	_complete_minigame(true)
 
 func _show_wrong_feedback(selected_index: int):
-	"""Show feedback for wrong answer - retry until correct"""
 	_play_sfx("res://assets/audio/sound_effect/wrong.wav")
 	feedback_label.text = "Incorrect! Try again."
 	feedback_label.add_theme_color_override("font_color", Color.RED)
 	feedback_label.visible = true
-
-	# Highlight wrong answer in red
 	choice_buttons[selected_index].add_theme_color_override("font_color", Color.RED)
 
 	await get_tree().create_timer(1.5).timeout
 
-	# Reset and re-enable buttons for retry
-	feedback_label.visible = false
-	for button in choice_buttons:
-		button.disabled = false
-		button.remove_theme_color_override("font_color")
+	# Reset colors on non-eliminated buttons, keep eliminated ones gray
+	for i in range(choice_buttons.size()):
+		if i not in hint_eliminated_indices:
+			choice_buttons[i].remove_theme_color_override("font_color")
 
-	# Resume timer
+	feedback_label.visible = false
+	_set_choices_interactable(true)
 	timer_active = true
 
+# ─── Hint ────────────────────────────────────────────────────────────────────
+
 func _update_hint_display():
-	"""Update hint label from PlayerStats"""
 	if hint_label and PlayerStats:
 		hint_label.text = "Hints: " + str(PlayerStats.hints)
 
 func _on_hint_pressed():
-	"""Called when hint button is pressed"""
 	if hint_used:
 		return
 
@@ -263,13 +311,14 @@ func _on_hint_pressed():
 		await get_tree().create_timer(1.0).timeout
 		hint_button.text = ""
 		hint_button.icon = load("res://assets/UI/core/hints.png")
-		hint_button.add_theme_constant_override("icon_max_width", 32)
+		hint_button.add_theme_constant_override("icon_max_width", 40)
 		return
 
 	hint_used = true
 	_update_hint_display()
 	hint_button.disabled = true
 	_eliminate_one_wrong_button()
+
 	var hint_text = puzzle_config.get("hint_text", "Think about how the word sounds when spoken aloud. Use the speaker button to hear it again.")
 	var overlay = CanvasLayer.new()
 	overlay.set_script(load("res://scenes/ui/hint_overlay.gd"))
@@ -277,63 +326,51 @@ func _on_hint_pressed():
 	overlay.show_hint(hint_text)
 
 func _eliminate_one_wrong_button() -> void:
-	"""Disable one random wrong answer button to help narrow choices"""
 	var wrong_indices: Array = []
 	for i in range(choice_buttons.size()):
-		if i != correct_answer_index and not choice_buttons[i].disabled:
+		if i != correct_answer_index and i not in hint_eliminated_indices and not choice_buttons[i].disabled:
 			wrong_indices.append(i)
 	if wrong_indices.is_empty():
 		return
 	wrong_indices.shuffle()
 	var target = wrong_indices[0]
+	hint_eliminated_indices.append(target)
 	choice_buttons[target].disabled = true
 	choice_buttons[target].add_theme_color_override("font_color", Color(0.45, 0.45, 0.45, 0.6))
 
+# ─── TTS ─────────────────────────────────────────────────────────────────────
+
 func _setup_tts():
-	"""Setup TTS audio player"""
 	tts_player = AudioStreamPlayer.new()
 	add_child(tts_player)
 	tts_player.finished.connect(_on_tts_finished)
-
-	# Generate TTS audio for the blank word
 	_generate_tts_audio(blank_word)
 
 func _generate_tts_audio(text: String):
-	"""Generate TTS audio using DisplayServer.tts_speak"""
-	# Godot 4.x TTS support
 	if DisplayServer.tts_is_speaking():
 		DisplayServer.tts_stop()
-
-	# Speak the text (voice parameter: empty string = default voice)
 	DisplayServer.tts_speak(text, "")
-	print("DEBUG: TTS speaking: ", text)
 
 func _on_speaker_pressed():
-	"""Called when speaker button is pressed to play TTS"""
-	print("DEBUG: Speaker button pressed")
 	_generate_tts_audio(blank_word)
 
 func _on_tts_finished():
-	"""Called when TTS finishes playing"""
-	print("DEBUG: TTS finished")
+	pass
+
+# ─── Skip / Complete / Cleanup ────────────────────────────────────────────────
 
 func _skip_minigame():
-	"""Skip the minigame when F5 is pressed"""
 	print("Skipping hear and fill minigame...")
-	_complete_minigame(true)  # Complete as success
+	_complete_minigame(true)
 
 func _complete_minigame(success: bool):
-	"""Complete the minigame"""
-	# Stop TTS if playing
 	if DisplayServer.tts_is_speaking():
 		DisplayServer.tts_stop()
-
 	minigame_completed.emit(success)
 	_cleanup()
 	queue_free()
 
 func _cleanup():
-	"""Cleanup resources"""
 	if tts_player:
 		tts_player.queue_free()
 		tts_player = null
@@ -341,9 +378,9 @@ func _cleanup():
 func _exit_tree():
 	_cleanup()
 
-# Configuration function for different puzzle variations
+# ─── Configuration ────────────────────────────────────────────────────────────
+
 func configure_puzzle(config: Dictionary):
-	"""Configure the puzzle with custom parameters"""
 	puzzle_config = config
 	if config.has("sentence"):
 		sentence_text = config["sentence"]
@@ -354,8 +391,6 @@ func configure_puzzle(config: Dictionary):
 	if config.has("choices"):
 		choices = config["choices"]
 
-	# Re-setup UI with new configuration
 	if is_node_ready():
 		_setup_ui()
-		# Re-setup TTS with new blank_word
 		_setup_tts()

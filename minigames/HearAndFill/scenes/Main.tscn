@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3sjt7ym8uad5"]
+[gd_scene load_steps=12 format=3 uid="uid://c3sjt7ym8uad5"]
 
 [ext_resource type="Script" uid="uid://dsxjibhwmihu8" path="res://minigames/HearAndFill/scenes/Main.gd" id="1_script"]
 [ext_resource type="Theme" uid="uid://lbkbgl5rfv1g" path="res://resources/ui/game_theme.tres" id="2_theme"]
 [ext_resource type="Texture2D" uid="uid://bu7mmeepr2ukm" path="res://assets/UI/BGbox_01A.png" id="3_bgbox"]
+[ext_resource type="Texture2D" path="res://assets/UI/core/hints.png" id="4_hints"]
+[ext_resource type="Texture2D" path="res://assets/UI/core/speaker.png" id="5_speaker"]
+[ext_resource type="Texture2D" path="res://assets/UI/core/timer.png" id="6_timer"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_panel"]
 texture = ExtResource("3_bgbox")
@@ -11,6 +14,54 @@ texture_margin_top = 29.0
 texture_margin_right = 28.0
 texture_margin_bottom = 27.0
 region_rect = Rect2(8.548111, 8.660231, 126.97536, 126.06514)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tutorial"]
+bg_color = Color(0.08, 0.06, 0.12, 0.97)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.7, 0.2, 1)
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ok"]
+bg_color = Color(0.15, 0.45, 0.85, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5, 0.75, 1.0, 1)
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ok_hover"]
+bg_color = Color(0.25, 0.55, 0.95, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.85, 1.0, 1)
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
 
 [node name="HearAndFillMinigame" type="CanvasLayer"]
 script = ExtResource("1_script")
@@ -56,27 +107,44 @@ theme_override_constants/separation = 30
 layout_mode = 2
 theme_override_constants/separation = 20
 
+[node name="TimerIcon" type="TextureRect" parent="Control/MainContainer/VBoxContainer/HeaderContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+texture = ExtResource("6_timer")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="TimerLabel" type="Label" parent="Control/MainContainer/VBoxContainer/HeaderContainer"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
 theme_override_font_sizes/font_size = 36
-text = "03:00"
-horizontal_alignment = 1
+text = "01:30"
+horizontal_alignment = 0
+vertical_alignment = 1
 
 [node name="HintButton" type="Button" parent="Control/MainContainer/VBoxContainer/HeaderContainer"]
-custom_minimum_size = Vector2(120, 60)
+custom_minimum_size = Vector2(56, 56)
 layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 24
-text = "💡 Hint"
+theme_override_constants/icon_margin_left = 0
+theme_override_constants/icon_margin_right = 0
+theme_override_constants/icon_margin_top = 0
+theme_override_constants/icon_margin_bottom = 0
+theme_override_constants/h_separation = 0
+text = ""
+icon = ExtResource("4_hints")
+expand_icon = false
 
 [node name="HintLabel" type="Label" parent="Control/MainContainer/VBoxContainer/HeaderContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.45, 0.2, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "Hint: 3"
-horizontal_alignment = 1
+text = "Hints: 3"
+horizontal_alignment = 0
+vertical_alignment = 1
 
 [node name="Spacer" type="Control" parent="Control/MainContainer/VBoxContainer/HeaderContainer"]
 layout_mode = 2
@@ -141,8 +209,16 @@ autowrap_mode = 2
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 4
+focus_mode = 0
 theme_override_font_sizes/font_size = 32
-text = "🔊"
+theme_override_constants/icon_margin_left = 0
+theme_override_constants/icon_margin_right = 0
+theme_override_constants/icon_margin_top = 0
+theme_override_constants/icon_margin_bottom = 0
+theme_override_constants/h_separation = 0
+text = ""
+icon = ExtResource("5_speaker")
+expand_icon = false
 
 [node name="ChoicesContainer" type="VBoxContainer" parent="Control/MainContainer/VBoxContainer"]
 layout_mode = 2
@@ -212,3 +288,95 @@ theme_override_colors/font_color = Color(0.5, 0.2, 0.02, 1)
 theme_override_font_sizes/font_size = 32
 text = "Feedback message here"
 horizontal_alignment = 1
+
+[node name="TutorialOverlay" type="PanelContainer" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tutorial")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/TutorialOverlay"]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TutorialOverlay/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Control/TutorialOverlay/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1.0, 0.9, 0.3, 1)
+theme_override_font_sizes/font_size = 48
+text = "How to Play"
+horizontal_alignment = 1
+
+[node name="TutorialLabel" type="Label" parent="Control/TutorialOverlay/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.92, 0.88, 1)
+theme_override_font_sizes/font_size = 28
+text = "1. Press the 🔊 speaker button to hear the missing word pronounced out loud.
+
+2. Read the sentence carefully and identify the blank (____).
+
+3. Click the button that shows the correctly spelled and pronounced word.
+
+4. You can use a Hint to eliminate one wrong answer.
+
+5. Complete quickly for a Speed Bonus hint reward!"
+horizontal_alignment = 0
+autowrap_mode = 2
+
+[node name="OkButton" type="Button" parent="Control/TutorialOverlay/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(240, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ok")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ok_hover")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Got it! Let's go!"
+
+[node name="CountdownOverlay" type="Control" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BgDim" type="ColorRect" parent="Control/CountdownOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.55)
+
+[node name="CountdownLabel" type="Label" parent="Control/CountdownOverlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.95, 0.3, 1)
+theme_override_font_sizes/font_size = 140
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1

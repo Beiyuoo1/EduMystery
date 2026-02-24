@@ -3,7 +3,7 @@ extends CanvasLayer
 # Set to true to skip Vosk entirely — correct choice click completes the minigame directly.
 # Useful for testing layout/logic when Vosk is not working or causes lag.
 # On Web, this is overridden — Web Speech API is used instead.
-const VOSK_BYPASS: bool = true
+const VOSK_BYPASS: bool = false
 
 # Web Speech API state (web-only)
 var _web_speech_active: bool = false

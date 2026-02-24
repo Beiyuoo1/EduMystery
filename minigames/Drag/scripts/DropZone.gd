@@ -68,7 +68,8 @@ func _handle_successful_drop():
 	minigame_scene.check_win_condition(true)
 
 func _reset_success_color():
-	color = original_color
+	# Keep the white box visible after drop (don't go back to transparent)
+	color = Color(1, 1, 1, 0.33)
 
 func find_tile_by_word(word):
 	var grid = minigame_scene.choices_grid

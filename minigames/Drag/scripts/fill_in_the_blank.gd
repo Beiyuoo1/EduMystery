@@ -48,7 +48,8 @@ var time_remaining: float = 90.0  # 1:30 in seconds
 var timer_active: bool = false
 
 # Hint system
-var hint_used: bool = false
+var hint_on_cooldown: bool = false
+const HINT_COOLDOWN: float = 12.0
 
 # Time tracking for bonus hint
 var start_time: float = 0.0
@@ -59,9 +60,17 @@ const TOTAL_DROPS = 1
 const TILE_SCRIPT = preload("res://minigames/Drag/scripts/Tile.gd")
 const DROP_SCRIPT = preload("res://minigames/Drag/scripts/DropZone.gd")
 
-# Tutorial nodes
+# Tutorial / countdown nodes
 @onready var tutorial_overlay: Control = $CanvasLayer/TutorialOverlay
 @onready var tut_start_button: Button = $CanvasLayer/TutorialOverlay/TutPanel/VBox/StartButton
+@onready var countdown_overlay: Control = $CanvasLayer/CountdownOverlay
+@onready var countdown_label: Label = $CanvasLayer/CountdownOverlay/CountdownLabel
+
+# Countdown sfx paths
+const SFX_THREE = "res://assets/audio/sound_effect/timeline_analysis_minigame/three.mp3"
+const SFX_TWO   = "res://assets/audio/sound_effect/timeline_analysis_minigame/two.mp3"
+const SFX_ONE   = "res://assets/audio/sound_effect/timeline_analysis_minigame/one.mp3"
+const SFX_START = "res://assets/audio/sound_effect/timeline_analysis_minigame/start.mp3"
 
 func _ready():
 	is_ready = true
@@ -79,17 +88,25 @@ func _ready():
 		hint_button.icon = load("res://assets/UI/core/hints.png")
 		hint_button.add_theme_constant_override("icon_max_width", 32)
 		hint_button.text = ""
+		hint_button.add_theme_constant_override("icon_margin_left", 0)
+		hint_button.add_theme_constant_override("icon_margin_right", 0)
+		hint_button.add_theme_constant_override("icon_margin_top", 0)
+		hint_button.add_theme_constant_override("icon_margin_bottom", 0)
+		hint_button.add_theme_constant_override("h_separation", 0)
 
 	# Connect tutorial start button
 	tut_start_button.pressed.connect(_on_tutorial_done)
 
-	# Show tutorial on first time, otherwise start immediately
+	# Hide countdown until needed
+	if countdown_overlay:
+		countdown_overlay.hide()
+
+	# Show tutorial on first time, otherwise go straight to countdown
 	if not TutorialFlags.has_seen("fill_in_blank"):
 		tutorial_overlay.show()
-		# Timer does NOT start yet
 	else:
 		tutorial_overlay.hide()
-		_start_game()
+		_start_countdown()
 
 	# Initialize puzzle now that nodes are ready
 	_initialize_puzzle()
@@ -97,7 +114,36 @@ func _ready():
 func _on_tutorial_done() -> void:
 	TutorialFlags.mark_seen("fill_in_blank")
 	tutorial_overlay.hide()
+	_start_countdown()
+
+func _start_countdown() -> void:
+	if countdown_overlay == null:
+		_start_game()
+		return
+	countdown_overlay.show()
+	await _countdown_step("3", SFX_THREE)
+	await _countdown_step("2", SFX_TWO)
+	await _countdown_step("1", SFX_ONE)
+	await _countdown_step("START!", SFX_START)
+	countdown_overlay.hide()
 	_start_game()
+
+func _countdown_step(text: String, sfx_path: String) -> void:
+	if countdown_label:
+		countdown_label.text = text
+	_play_countdown_sfx(sfx_path)
+	await get_tree().create_timer(1.0).timeout
+
+func _play_countdown_sfx(path: String) -> void:
+	if OS.get_name() == "Web":
+		DialogicSignalHandler.play_web_sfx(path)
+		return
+	var player = AudioStreamPlayer.new()
+	player.stream = load(path)
+	player.bus = "SFX"
+	add_child(player)
+	player.play()
+	player.finished.connect(player.queue_free)
 
 func _start_game() -> void:
 	start_time = Time.get_ticks_msec() / 1000.0
@@ -135,7 +181,7 @@ func _update_hint_display():
 		hint_label.text = "Hints: %d" % PlayerStats.hints
 
 func _on_hint_button_pressed():
-	if hint_used:
+	if hint_on_cooldown:
 		return
 
 	if not PlayerStats.use_hint():
@@ -148,9 +194,17 @@ func _on_hint_button_pressed():
 			hint_button.add_theme_constant_override("icon_max_width", 32)
 		return
 
-	hint_used = true
 	_update_hint_display()
 	_show_hint_overlay()
+
+	# 12-second cooldown between uses
+	hint_on_cooldown = true
+	if hint_button:
+		hint_button.disabled = true
+	await get_tree().create_timer(HINT_COOLDOWN).timeout
+	hint_on_cooldown = false
+	if hint_button and not is_queued_for_deletion():
+		hint_button.disabled = false
 
 func _show_hint_overlay():
 	var hint_text = puzzle_data.get("hint_text", "Think carefully about the context of the sentence and the meaning of each word choice.")
@@ -165,16 +219,27 @@ func _on_time_up():
 		timer_label.text = "0:00"
 		timer_label.add_theme_color_override("font_color", Color.RED)
 
-	# Show failure message
-	print("Time's up! Puzzle failed.")
+	print("Time's up! Resetting for retry.")
 
-	# Fade out and emit failure signal
-	var tween = create_tween()
-	tween.tween_property(texture_rect, "modulate:a", 0.0, 0.2)
-	await tween.finished
-	emit_signal("game_finished", false, 0)
-	await get_tree().process_frame
-	queue_free()
+	# Show time-up feedback briefly, then reset for retry
+	if title_label:
+		var prev_text = title_label.text
+		var prev_color = title_label.get_theme_color("font_color") if title_label.has_theme_color("font_color", "") else Color.WHITE
+		title_label.text = "Time's up! Try again!"
+		title_label.add_theme_color_override("font_color", Color.ORANGE)
+		await get_tree().create_timer(2.0).timeout
+		if not is_queued_for_deletion():
+			title_label.text = prev_text
+			title_label.remove_theme_color_override("font_color")
+
+	if is_queued_for_deletion():
+		return
+
+	# Reset timer and restart
+	time_remaining = 90.0
+	if timer_label:
+		timer_label.remove_theme_color_override("font_color")
+	timer_active = true
 
 # Configure puzzle with external data from MinigameManager
 func configure_puzzle(config: Dictionary) -> void:

@@ -262,7 +262,7 @@ layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 10.0
-offset_bottom = 120.0
+offset_bottom = 160.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_bubble")
 
@@ -276,7 +276,7 @@ theme_override_constants/margin_bottom = 10
 [node name="BubbleLabel" type="Label" parent="Control/Panel/MainContainer/VBoxContainer/ContentRow/CharacterPanel/ChatBubble/BubbleMargin"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.15, 0.08, 0.02, 1)
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 30
 text = "..."
 autowrap_mode = 2
 

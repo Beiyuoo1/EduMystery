@@ -147,6 +147,10 @@ var full_sentence_texts = []
 var target_sentence: String = ""
 var target_words = []
 
+# Sentence-by-sentence reading state
+var target_sub_sentences: Array = []   # e.g. ["Good afternoon, sir.", "Have you seen any unusual item while cleaning this room?"]
+var current_sub_sentence_index: int = 0  # Which sub-sentence we're on
+
 signal minigame_completed(success: bool)
 
 func configure_puzzle(config: Dictionary):
@@ -698,12 +702,12 @@ func _show_microphone_panel():
 	chibi_mic_image.visible = true
 	_set_chibi_mic_state(false)
 
-	# Prepare the target sentence
+	# Prepare sub-sentences (splits on . , ? !)
 	_prepare_target_sentence()
 
-	# Display the full sentence
-	sentence_display.text = full_sentence_texts[correct_answer]
-	status_label.text = "Speak the sentence above"
+	# Display the full sentence with first sub-sentence highlighted
+	_update_sub_sentence_display()
+	status_label.text = "Read part 1 of %d" % target_sub_sentences.size()
 	progress_label.text = "Ready to listen..."
 	transcription_label.text = "Waiting for speech..."
 
@@ -711,15 +715,53 @@ func _show_microphone_panel():
 	_start_sentence_recognition()
 
 func _prepare_target_sentence():
-	"""Prepare the target sentence for matching"""
+	"""Split the full sentence into sub-sentences at punctuation boundaries"""
 	var full_text = full_sentence_texts[correct_answer]
 
-	# Remove punctuation for matching
-	target_sentence = full_text.replace(",", "").replace(".", "").replace("?", "").replace("!", "").replace("—", "").replace("'", "").to_lower()
-	target_words = target_sentence.split(" ", false)
+	# Split on sentence-ending or clause punctuation: . , ? !
+	# Keep the delimiter attached to the preceding chunk so display looks natural
+	target_sub_sentences = []
+	var current_chunk := ""
+	for ch in full_text:
+		current_chunk += ch
+		if ch in [".", ",", "?", "!"]:
+			var trimmed = current_chunk.strip_edges()
+			if trimmed != "" and trimmed != "." and trimmed != "," and trimmed != "?" and trimmed != "!":
+				target_sub_sentences.append(trimmed)
+			current_chunk = ""
+	# Any trailing text without punctuation
+	var leftover = current_chunk.strip_edges()
+	if leftover != "":
+		target_sub_sentences.append(leftover)
 
-	print("DEBUG: Target sentence: ", target_sentence)
-	print("DEBUG: Target words (", target_words.size(), "): ", target_words)
+	# If nothing was split (no punctuation), treat the whole sentence as one chunk
+	if target_sub_sentences.is_empty():
+		target_sub_sentences = [full_text.strip_edges()]
+
+	current_sub_sentence_index = 0
+	print("DEBUG: Sub-sentences: ", target_sub_sentences)
+	_prepare_sub_sentence(current_sub_sentence_index)
+
+func _prepare_sub_sentence(idx: int):
+	"""Prepare target_words for sub-sentence at idx"""
+	var chunk = target_sub_sentences[idx]
+	target_sentence = chunk.replace(",", "").replace(".", "").replace("?", "").replace("!", "").replace("—", "").replace("'", "").to_lower()
+	target_words = target_sentence.split(" ", false)
+	print("DEBUG: Sub-sentence %d: '%s'" % [idx, chunk])
+	print("DEBUG: Target words (%d): %s" % [target_words.size(), target_words])
+
+func _update_sub_sentence_display():
+	"""Show full sentence: done parts in green, current part in yellow, future parts in gray"""
+	var display := ""
+	for i in range(target_sub_sentences.size()):
+		var part = target_sub_sentences[i]
+		if i < current_sub_sentence_index:
+			display += "[color=green]" + part + "[/color] "
+		elif i == current_sub_sentence_index:
+			display += "[color=yellow]" + part + "[/color] "
+		else:
+			display += "[color=gray]" + part + "[/color] "
+	sentence_display.text = display.strip_edges()
 
 func _play_sfx(path: String) -> void:
 	if OS.get_name() == "Web":
@@ -877,7 +919,9 @@ func _start_web_speech_recognition() -> void:
 	_web_speech_active = true
 	_web_speech_poll_timer = 0.0
 
-	status_label.text = "READ THE FULL SENTENCE ABOVE OUT LOUD"
+	var part_num = current_sub_sentence_index + 1
+	var total = target_sub_sentences.size()
+	status_label.text = "READ PART %d OF %d OUT LOUD" % [part_num, total]
 	transcription_label.text = "Waiting for speech..."
 	progress_label.text = "Listening — speak now!"
 	_set_chibi_mic_state(true)
@@ -1012,23 +1056,37 @@ func _evaluate_web_speech_result(transcript: String) -> void:
 	print("Web Speech match: %d/%d words (%.0f%%)" % [matched, target_words.size(), match_ratio * 100])
 
 	if match_ratio >= PHRASE_MATCH_THRESHOLD:
-		# Success
 		_play_sfx("res://assets/audio/sound_effect/correct.wav")
-		status_label.text = "✓ COMPLETE!"
-		status_label.add_theme_color_override("font_color", Color.GREEN)
-		transcription_label.text = "Great job! You said the sentence correctly!"
-		transcription_label.add_theme_color_override("font_color", Color.GREEN)
-		sentence_display.text = "[color=green]" + full_sentence_texts[correct_answer] + "[/color]"
-		await get_tree().create_timer(1.5).timeout
-		_complete_minigame(true)
+		current_sub_sentence_index += 1
+
+		if current_sub_sentence_index >= target_sub_sentences.size():
+			# All parts done
+			status_label.text = "✓ COMPLETE!"
+			status_label.add_theme_color_override("font_color", Color.GREEN)
+			transcription_label.text = "Great job! You read the entire sentence!"
+			transcription_label.add_theme_color_override("font_color", Color.GREEN)
+			_update_sub_sentence_display()
+			await get_tree().create_timer(1.5).timeout
+			_complete_minigame(true)
+		else:
+			# Advance to next sub-sentence
+			status_label.text = "✓ Good! Next part..."
+			status_label.add_theme_color_override("font_color", Color.GREEN)
+			transcription_label.text = ""
+			_update_sub_sentence_display()
+			await get_tree().create_timer(0.8).timeout
+			_prepare_sub_sentence(current_sub_sentence_index)
+			status_label.add_theme_color_override("font_color", Color.WHITE)
+			if timer_active:
+				_start_web_speech_recognition()
 	else:
 		# Not enough words matched — let them try again
 		_play_sfx("res://assets/audio/sound_effect/wrong.wav")
-		status_label.text = "Try again! Speak more clearly."
+		var part_num = current_sub_sentence_index + 1
+		status_label.text = "Try again! Read part %d clearly." % part_num
 		transcription_label.text = "I heard: \"" + transcript + "\""
 		transcription_label.add_theme_color_override("font_color", Color(1, 0.5, 0.3, 1))
-		# Reset display
-		sentence_display.text = full_sentence_texts[correct_answer]
+		_update_sub_sentence_display()
 		await get_tree().create_timer(1.8).timeout
 		if timer_active:
 			transcription_label.add_theme_color_override("font_color", Color.WHITE)
@@ -1097,25 +1155,42 @@ func _on_word_recognized():
 		print("Waiting for next word: '", target_words[current_word_index], "'")
 
 func _on_all_words_complete():
-	"""Called when all words have been recognized"""
+	"""Called when all words of the current sub-sentence are recognized"""
 	is_listening = false
-	print("SUCCESS: All words recognized!")
 	_play_sfx("res://assets/audio/sound_effect/correct.wav")
 
-	# Show completion message
-	status_label.text = "✓ COMPLETE!"
-	status_label.add_theme_color_override("font_color", Color.GREEN)
-	transcription_label.text = "Perfect! You said the entire sentence correctly!"
-	transcription_label.add_theme_color_override("font_color", Color.GREEN)
+	current_sub_sentence_index += 1
+	print("Sub-sentence done. Next: %d / %d" % [current_sub_sentence_index, target_sub_sentences.size()])
 
-	# Highlight all words green
-	var all_green = ""
-	for word in target_words:
-		all_green += "[color=green]" + word + "[/color] "
-	sentence_display.text = all_green.strip_edges()
+	if current_sub_sentence_index >= target_sub_sentences.size():
+		# All sub-sentences done — full completion
+		status_label.text = "✓ COMPLETE!"
+		status_label.add_theme_color_override("font_color", Color.GREEN)
+		transcription_label.text = "Perfect! You read the entire sentence!"
+		transcription_label.add_theme_color_override("font_color", Color.GREEN)
+		# Show everything green
+		_update_sub_sentence_display()
+		await get_tree().create_timer(2.0).timeout
+		_complete_minigame(true)
+	else:
+		# Advance to next sub-sentence
+		status_label.text = "✓ Good! Next part..."
+		status_label.add_theme_color_override("font_color", Color.GREEN)
+		transcription_label.text = ""
+		_update_sub_sentence_display()
+		await get_tree().create_timer(0.8).timeout
 
-	await get_tree().create_timer(2.0).timeout
-	_complete_minigame(true)
+		# Prepare next sub-sentence words
+		_prepare_sub_sentence(current_sub_sentence_index)
+
+		# Reset recognition state for next chunk
+		status_label.add_theme_color_override("font_color", Color.WHITE)
+		status_label.text = "Read part %d of %d" % [current_sub_sentence_index + 1, target_sub_sentences.size()]
+		progress_label.text = "Ready..."
+		transcription_label.text = ""
+
+		# Restart listening for this sub-sentence
+		_start_sentence_recognition()
 
 func _update_word_display():
 	"""Update the sentence display to highlight current word"""
@@ -1265,6 +1340,7 @@ func _on_try_again_pressed():
 	character_image.visible = true
 	question_mark.visible = true
 	_is_chibi_talking = false
+	current_sub_sentence_index = 0
 
 	# Re-enable all choice buttons and clear wrong selections
 	selected_choice_index = -1

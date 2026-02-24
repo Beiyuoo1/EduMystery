@@ -1222,7 +1222,7 @@ func _on_time_up() -> void:
 	tween.tween_property(feedback_panel, "modulate:a", 1.0, 0.3)
 
 func _on_hint_pressed() -> void:
-	"""Show a guiding hint overlay without revealing the answer"""
+	"""Place the next correct card into its correct timeline slot"""
 	if hint_on_cooldown:
 		return
 
@@ -1237,16 +1237,61 @@ func _on_hint_pressed() -> void:
 		label.queue_free()
 		return
 
+	# Find the first slot that doesn't have its correct card yet
+	var target_slot: Control = null
+	var target_event_id: String = ""
+
+	for i in range(correct_order.size()):
+		var event_id = correct_order[i]
+		var slot = timeline_slots.get_child(i) as Control
+		if slot == null:
+			continue
+		# Check if this slot already has the correct card
+		var content = slot.get_child(0)
+		var has_correct = false
+		for child in content.get_children():
+			if child is Control and child.has_meta("event_id") and child.get_meta("event_id") == event_id:
+				has_correct = true
+				break
+		if not has_correct:
+			target_slot = slot
+			target_event_id = event_id
+			break
+
+	if target_slot == null:
+		return  # All slots already correct
+
 	hint_used = true
 	hint_on_cooldown = true
 	hint_cooldown_remaining = hint_cooldown_time
 	hint_button.disabled = true
 	_update_hint_display()
-	var hint_text = puzzle_config.get("hint_text", "Think about cause and effect. Which event must happen before the others can occur? Work through the sequence one step at a time.")
-	var overlay = CanvasLayer.new()
-	overlay.set_script(load("res://scenes/ui/hint_overlay.gd"))
-	get_tree().root.add_child(overlay)
-	overlay.show_hint(hint_text)
+
+	# If the slot already has a wrong card, return it to pool first
+	if not target_slot.get_meta("is_empty", true):
+		var content = target_slot.get_child(0)
+		for child in content.get_children():
+			if child is Control and child.has_meta("event_id"):
+				_move_card_to_pool(child, target_slot)
+				break
+
+	# Find the correct card in the pool
+	var target_card: Control = null
+	for card in events_pool.get_children():
+		if card is Control and card.has_meta("event_id") and card.get_meta("event_id") == target_event_id:
+			target_card = card
+			break
+
+	if target_card == null:
+		return
+
+	# Move it into the correct slot
+	_move_card_to_slot(target_card, target_slot)
+
+	# Flash yellow to highlight the placed card
+	target_card.modulate = Color(1.3, 1.2, 0.3, 1.0)
+	await get_tree().create_timer(0.15).timeout
+	target_card.modulate = Color(1.0, 1.0, 1.0, 1.0)
 
 func _update_hint_display() -> void:
 	"""Update hint counter and button state"""

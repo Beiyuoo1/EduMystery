@@ -1,7 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://rh88umr4bjxa"]
+[gd_scene load_steps=5 format=3 uid="uid://rh88umr4bjxa"]
 
 [ext_resource type="Script" uid="uid://b051bd8r6evld" path="res://minigames/DetectiveAnalysis/scenes/Main.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://bu7mmeepr2ukm" path="res://assets/UI/BGbox_01A.png" id="2_bgbox"]
+[ext_resource type="Texture2D" uid="uid://rmdavvvltx8s" path="res://assets/UI/BGbox_08A.png" id="2_bgbox"]
+[ext_resource type="Texture2D" uid="uid://bu7mmeepr2ukm" path="res://assets/UI/BGbox_01A.png" id="3_bgbox_feedback"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_desc"]
+texture = ExtResource("2_bgbox")
+region_rect = Rect2(0, 0, 144, 144)
+texture_margin_left = 36.0
+texture_margin_top = 36.0
+texture_margin_right = 36.0
+texture_margin_bottom = 36.0
+content_margin_left = 40.0
+content_margin_top = 36.0
+content_margin_right = 40.0
+content_margin_bottom = 36.0
 
 [node name="DetectiveAnalysis" type="Control"]
 layout_mode = 3
@@ -35,7 +48,7 @@ offset_right = 500.0
 offset_bottom = 350.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_bgbox")
+texture = ExtResource("3_bgbox_feedback")
 region_rect = Rect2(8.548111, 8.660231, 126.97536, 126.06514)
 patch_margin_left = 28
 patch_margin_top = 29
@@ -47,13 +60,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -20.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 12
 
 [node name="TitleLabel" type="Label" parent="Panel/VBox"]
 layout_mode = 2
@@ -64,7 +77,7 @@ horizontal_alignment = 1
 
 [node name="HBox" type="HBoxContainer" parent="Panel/VBox"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 12
 
 [node name="TimerLabel" type="Label" parent="Panel/VBox/HBox"]
 layout_mode = 2
@@ -73,21 +86,57 @@ theme_override_font_sizes/font_size = 24
 text = "Time: 01:30"
 
 [node name="HintButton" type="Button" parent="Panel/VBox/HBox"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-text = "💡 Hint"
+text = ""
+expand_icon = false
+theme_override_constants/icon_max_width = 32
+theme_override_constants/icon_margin_left = 0
+theme_override_constants/icon_margin_right = 0
+theme_override_constants/icon_margin_top = 0
+theme_override_constants/icon_margin_bottom = 0
+theme_override_constants/h_separation = 0
 
 [node name="HintCounter" type="Label" parent="Panel/VBox/HBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Hints: 3"
 
-[node name="ContextLabel" type="RichTextLabel" parent="Panel/VBox"]
-custom_minimum_size = Vector2(0, 80)
+[node name="DescBg" type="PanelContainer" parent="Panel/VBox"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_minimum_size = Vector2(920, 180)
+theme_override_styles/panel = SubResource("StyleBoxTexture_desc")
+
+[node name="DescInner" type="VBoxContainer" parent="Panel/VBox/DescBg"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 14
+
+[node name="ContextLabel" type="RichTextLabel" parent="Panel/VBox/DescBg/DescInner"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
 bbcode_enabled = true
 text = "[Context story explaining the problem goes here]"
 fit_content = true
 scroll_active = false
+autowrap_mode = 3
+
+[node name="Divider" type="HSeparator" parent="Panel/VBox/DescBg/DescInner"]
+layout_mode = 2
+theme_override_colors/separator_color = Color(0.5, 0.5, 0.5, 0.5)
+
+[node name="QuestionLabel" type="RichTextLabel" parent="Panel/VBox/DescBg/DescInner"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+bbcode_enabled = true
+text = "[b]Question:[/b] What is the answer based on the evidence?"
+fit_content = true
+scroll_active = false
+autowrap_mode = 3
 
 [node name="EvidencePanel" type="Panel" parent="Panel/VBox"]
 custom_minimum_size = Vector2(0, 200)
@@ -121,18 +170,15 @@ theme_override_font_sizes/font_size = 16
 text = "Evidence Caption"
 horizontal_alignment = 1
 
-[node name="QuestionLabel" type="RichTextLabel" parent="Panel/VBox"]
-custom_minimum_size = Vector2(0, 60)
+[node name="Spacer" type="Control" parent="Panel/VBox"]
 layout_mode = 2
-bbcode_enabled = true
-text = "[b]Question:[/b] What is the answer based on the evidence?"
-fit_content = true
-scroll_active = false
+custom_minimum_size = Vector2(0, 12)
 
 [node name="ChoicesContainer" type="VBoxContainer" parent="Panel/VBox"]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
-theme_override_constants/separation = 10
+theme_override_constants/separation = 8
 
 [node name="FeedbackOverlay" type="ColorRect" parent="."]
 visible = false
@@ -160,7 +206,7 @@ offset_right = 400.0
 offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_bgbox")
+texture = ExtResource("3_bgbox_feedback")
 region_rect = Rect2(8.548111, 8.660231, 126.97536, 126.06514)
 patch_margin_left = 28
 patch_margin_top = 29
@@ -178,6 +224,7 @@ offset_right = -20.0
 offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 theme_override_constants/separation = 20
 
 [node name="FeedbackLabel" type="RichTextLabel" parent="FeedbackPanel/VBox"]
@@ -185,7 +232,8 @@ layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
 text = "[center]Feedback goes here[/center]"
-fit_content = true
+fit_content = false
+scroll_active = false
 
 [node name="ContinueButton" type="Button" parent="FeedbackPanel/VBox"]
 custom_minimum_size = Vector2(0, 50)

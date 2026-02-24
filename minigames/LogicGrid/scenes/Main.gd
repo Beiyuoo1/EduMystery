@@ -451,8 +451,9 @@ func _show_wrong_feedback() -> void:
 	_play_sfx("res://assets/audio/sound_effect/wrong.wav")
 	feedback_overlay.show()
 	feedback_panel.show()
-	feedback_label.text = "[center][color=#ff5555][b][img=28x28]res://assets/UI/core/incorrect.png[/img] Not Quite Right[/b][/color][/center]\n\n"
-	feedback_label.text += "[center]Some deductions are incorrect. Review the clues carefully and try again.[/center]"
+	feedback_label.text = "[center][img=64x64]res://assets/UI/core/incorrect.png[/img][/center]\n"
+	feedback_label.text += "[center][color=#ff5555][font_size=80][b]Not Quite Right[/b][/font_size][/color][/center]\n\n"
+	feedback_label.text += "[center][font_size=24]Some deductions are incorrect.\nReview the clues carefully and try again.[/font_size][/center]"
 	continue_button.text = "Try Again"
 
 	# Disconnect old signal and connect retry handler
@@ -523,8 +524,9 @@ func _play_sfx(path: String) -> void:
 func _show_feedback(is_correct: bool, time_taken: float) -> void:
 	"""Show success feedback panel"""
 	_play_sfx("res://assets/audio/sound_effect/correct.wav")
-	var feedback_text = "[center][color=#55ff88][b][img=28x28]res://assets/UI/core/correct.png[/img] CORRECT![/b][/color][/center]\n\n"
-	feedback_text += "[center]Excellent detective work! You successfully deduced all matches.[/center]"
+	var feedback_text = "[center][img=64x64]res://assets/UI/core/correct.png[/img][/center]\n"
+	feedback_text += "[center][color=#55ff88][font_size=80][b]CORRECT![/b][/font_size][/color][/center]\n\n"
+	feedback_text += "[center][font_size=24]Excellent detective work!\nYou successfully deduced all matches.[/font_size][/center]"
 
 	if puzzle_config.has("explanation"):
 		feedback_text += "\n\n" + puzzle_config["explanation"]
@@ -546,11 +548,11 @@ func _on_continue_pressed() -> void:
 
 func _on_time_up() -> void:
 	"""Handle time running out - show solution and allow retry"""
-	feedback_label.text = "[center][color=#ff5555][b]TIME'S UP![/b][/color][/center]\n\n"
-	feedback_label.text += "[b]Correct Solution:[/b]\n"
+	feedback_label.text = "[center][font_size=80][color=#ff5555][b]TIME'S UP![/b][/color][/font_size][/center]\n\n"
+	feedback_label.text += "[center][font_size=22][b]Correct Solution:[/b][/font_size][/center]\n"
 	for row in rows:
 		var correct_col = solution.get(row, "")
-		feedback_label.text += "• %s → %s\n" % [row, correct_col]
+		feedback_label.text += "[center][font_size=20]• %s → %s[/font_size][/center]\n" % [row, correct_col]
 
 	if puzzle_config.has("explanation"):
 		feedback_label.text += "\n" + puzzle_config["explanation"]
@@ -565,7 +567,7 @@ func _on_time_up() -> void:
 		continue_button.pressed.connect(_on_retry_pressed)
 
 func _on_hint_pressed() -> void:
-	"""Show a guiding hint overlay without revealing the answer"""
+	"""Reveal the correct match for one unsolved row"""
 	if not PlayerStats.use_hint():
 		var label = Label.new()
 		label.text = "No hints available!"
@@ -577,17 +579,43 @@ func _on_hint_pressed() -> void:
 		label.queue_free()
 		return
 
+	# Find the first unsolved row (correct cell not yet YES)
+	var target_row: String = ""
+	for row in rows:
+		var correct_col = solution.get(row, "")
+		var key = row + ":" + correct_col
+		if grid_data.get(key, "unknown") != "yes":
+			target_row = row
+			break
+
+	if target_row == "":
+		# All rows already solved — no hint needed
+		return
+
 	hint_used = true
 	_update_hint_display()
 	hint_cooldown = HINT_COOLDOWN_TIME
 	hint_button.disabled = true
 	hint_button.icon = null
 	hint_button.text = "Hint (%ds)" % ceil(hint_cooldown)
-	var hint_text = puzzle_config.get("hint_text", "Re-read each clue carefully. Apply each clue one at a time and use process of elimination — mark cells you are certain are wrong first.")
-	var overlay = CanvasLayer.new()
-	overlay.set_script(load("res://scenes/ui/hint_overlay.gd"))
-	get_tree().root.add_child(overlay)
-	overlay.show_hint(hint_text)
+
+	var correct_col = solution.get(target_row, "")
+
+	# Apply the correct answer to all cells in the target row
+	for child in grid_container.get_children():
+		if child is Button and child.has_meta("row") and child.get_meta("row") == target_row:
+			var col = child.get_meta("col")
+			var key = target_row + ":" + col
+			if col == correct_col:
+				grid_data[key] = "yes"
+				_style_cell_button(child, "yes")
+				# Flash yellow to draw attention
+				child.modulate = Color(1.2, 1.1, 0.3, 1.0)
+				await get_tree().create_timer(0.25).timeout
+				child.modulate = Color(1, 1, 1, 1)
+			else:
+				grid_data[key] = "no"
+				_style_cell_button(child, "no")
 
 func _update_hint_display() -> void:
 	hint_counter.text = "Hints: %d" % PlayerStats.hints

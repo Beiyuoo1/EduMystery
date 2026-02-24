@@ -398,12 +398,18 @@ func format_timestamp(unix_time: int) -> String:
 
 	var pst_unix_time = unix_time + 8 * 3600  # UTC+8 offset
 	var datetime = Time.get_datetime_dict_from_unix_time(pst_unix_time)
-	return "%02d/%02d/%04d %02d:%02d" % [
+	var hour_24 = datetime.hour
+	var am_pm = "AM" if hour_24 < 12 else "PM"
+	var hour_12 = hour_24 % 12
+	if hour_12 == 0:
+		hour_12 = 12
+	return "%02d/%02d/%04d %d:%02d %s" % [
 		datetime.month,
 		datetime.day,
 		datetime.year,
-		datetime.hour,
-		datetime.minute
+		hour_12,
+		datetime.minute,
+		am_pm
 	]
 
 ## Check if any saves exist (for main menu Continue button)

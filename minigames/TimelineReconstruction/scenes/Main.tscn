@@ -140,7 +140,7 @@ layout_mode = 2
 [node name="ContextLabel" type="RichTextLabel" parent="Panel/VBox/ContextPanel"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
 text = "[Context explaining the puzzle]"
 fit_content = true

@@ -6,11 +6,11 @@ extends Control
 
 # UI Nodes
 @onready var title_label: Label = $Panel/VBox/TitleLabel
-@onready var context_label: RichTextLabel = $Panel/VBox/ContextLabel
+@onready var context_label: RichTextLabel = $Panel/VBox/DescBg/DescInner/ContextLabel
 @onready var evidence_panel: Panel = $Panel/VBox/EvidencePanel
 @onready var evidence_image: TextureRect = $Panel/VBox/EvidencePanel/EvidenceImage
 @onready var evidence_caption: Label = $Panel/VBox/EvidencePanel/CaptionLabel
-@onready var question_label: RichTextLabel = $Panel/VBox/QuestionLabel
+@onready var question_label: RichTextLabel = $Panel/VBox/DescBg/DescInner/QuestionLabel
 @onready var choices_container: VBoxContainer = $Panel/VBox/ChoicesContainer
 @onready var timer_label: Label = $Panel/VBox/HBox/TimerLabel
 @onready var hint_button: Button = $Panel/VBox/HBox/HintButton
@@ -22,11 +22,17 @@ extends Control
 
 # Minigame data
 var puzzle_config: Dictionary = {}
-var correct_answer_index: int = -1
+var correct_answer_index: int = -1  # index into shuffled choice_buttons
+var _original_correct_index: int = -1  # index from config before shuffle
 var selected_answer: int = -1
 var start_time: float = 0.0
 var time_limit: float = 90.0  # 1:30 timer
 var hint_used: bool = false
+var hint_on_cooldown: bool = false
+const HINT_COOLDOWN: float = 12.0
+
+# Tracks which button indices were permanently eliminated by hints
+var hint_eliminated_indices: Array = []
 
 # Choice buttons
 var choice_buttons: Array[Button] = []
@@ -57,6 +63,11 @@ func _ready() -> void:
 	hint_button.pressed.connect(_on_hint_pressed)
 	hint_button.icon = load("res://assets/UI/core/hints.png")
 	hint_button.add_theme_constant_override("icon_max_width", 32)
+	hint_button.add_theme_constant_override("icon_margin_left", 0)
+	hint_button.add_theme_constant_override("icon_margin_right", 0)
+	hint_button.add_theme_constant_override("icon_margin_top", 0)
+	hint_button.add_theme_constant_override("icon_margin_bottom", 0)
+	hint_button.add_theme_constant_override("h_separation", 0)
 	hint_button.text = ""
 
 	# Connect continue button
@@ -269,11 +280,14 @@ func configure_puzzle(config: Dictionary) -> void:
 	# Set question
 	question_label.text = config.get("question", "What is the answer?")
 
-	# Set correct answer index
-	correct_answer_index = config.get("correct_index", 0)
+	# Shuffle choices and track correct answer after shuffle
+	_original_correct_index = config.get("correct_index", 0)
+	var choices: Array = config.get("choices", []).duplicate()
+	var correct_word: String = choices[_original_correct_index]
+	choices.shuffle()
+	correct_answer_index = choices.find(correct_word)
 
 	# Create choice buttons
-	var choices = config.get("choices", [])
 	_create_choice_buttons(choices)
 
 	# Show tutorial first time, otherwise go straight to countdown
@@ -297,10 +311,12 @@ func _create_choice_buttons(choices: Array) -> void:
 	for i in range(choices.size()):
 		var button = Button.new()
 		button.text = choices[i]
-		button.custom_minimum_size = Vector2(800, 60)
-		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		button.custom_minimum_size = Vector2(700, 48)
+		button.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+		button.alignment = HORIZONTAL_ALIGNMENT_CENTER
+		button.add_theme_font_size_override("font_size", 18)
 
-		# Style button
+		# Compact content margins — no extra dead space
 		var style_normal = StyleBoxFlat.new()
 		style_normal.bg_color = Color(0.2, 0.25, 0.35, 0.9)
 		style_normal.border_width_left = 3
@@ -312,12 +328,21 @@ func _create_choice_buttons(choices: Array) -> void:
 		style_normal.corner_radius_top_right = 8
 		style_normal.corner_radius_bottom_left = 8
 		style_normal.corner_radius_bottom_right = 8
+		style_normal.content_margin_left = 16
+		style_normal.content_margin_right = 16
+		style_normal.content_margin_top = 8
+		style_normal.content_margin_bottom = 8
 		button.add_theme_stylebox_override("normal", style_normal)
 
 		var style_hover = style_normal.duplicate()
 		style_hover.bg_color = Color(0.3, 0.4, 0.5, 1.0)
 		style_hover.border_color = Color(0.6, 0.7, 0.8, 1.0)
 		button.add_theme_stylebox_override("hover", style_hover)
+
+		var style_disabled = style_normal.duplicate()
+		style_disabled.bg_color = Color(0.15, 0.15, 0.15, 0.5)
+		style_disabled.border_color = Color(0.3, 0.3, 0.3, 0.5)
+		button.add_theme_stylebox_override("disabled", style_disabled)
 
 		# Connect signal with closure
 		var index = i
@@ -428,9 +453,13 @@ func _on_continue_pressed() -> void:
 		feedback_overlay.hide()
 		feedback_panel.hide()
 		selected_answer = -1
-		for button in choice_buttons:
-			button.disabled = false
-			button.remove_theme_color_override("font_color")
+		for i in range(choice_buttons.size()):
+			# Keep hint-eliminated buttons permanently disabled
+			if i in hint_eliminated_indices:
+				choice_buttons[i].disabled = true
+			else:
+				choice_buttons[i].disabled = false
+				choice_buttons[i].remove_theme_color_override("font_color")
 		start_time = Time.get_ticks_msec() / 1000.0  # Reset timer so it doesn't instantly expire
 		set_process(true)
 
@@ -440,37 +469,56 @@ func _on_time_up() -> void:
 	set_process(false)
 	selected_answer = -1
 
+	# Reset all non-eliminated buttons before retry
+	for i in range(choice_buttons.size()):
+		if i in hint_eliminated_indices:
+			choice_buttons[i].disabled = true
+		else:
+			choice_buttons[i].disabled = false
+			choice_buttons[i].remove_theme_color_override("font_color")
+
 	# Briefly highlight the correct answer so the player learns
 	choice_buttons[correct_answer_index].add_theme_color_override("font_color", Color.GREEN)
 
-	feedback_label.text = "[center][color=red][b]TIME'S UP![/b][/color][/center]\n\n"
-	feedback_label.text += "[color=#FFB347]The correct answer has been highlighted. Try again![/color]"
+	feedback_label.text = "[center][color=#FF4444][font_size=70][b]TIME'S UP![/b][/font_size][/color]\n\n[color=#FFFFFF][font_size=22]The correct answer has been highlighted.\nTry again![/font_size][/color][/center]"
 	continue_button.text = "Try Again"
 	feedback_overlay.show()
 	feedback_panel.show()
 
 
 func _on_hint_pressed() -> void:
-	"""Show a guiding hint overlay without revealing the answer"""
+	"""Eliminate one wrong button, show hint overlay, then 12s cooldown"""
+	if hint_on_cooldown:
+		return
+
 	if not PlayerStats.use_hint():
-		var label = Label.new()
-		label.text = "No hints available!"
-		label.add_theme_color_override("font_color", Color.RED)
-		label.position = hint_button.global_position + Vector2(0, -30)
-		add_child(label)
-		await get_tree().create_timer(1.5).timeout
-		label.queue_free()
+		# No hints left — briefly show message on button
+		hint_button.icon = null
+		hint_button.text = "No hints!"
+		await get_tree().create_timer(1.0).timeout
+		if not is_queued_for_deletion():
+			hint_button.text = ""
+			hint_button.icon = load("res://assets/UI/core/hints.png")
+			hint_button.add_theme_constant_override("icon_max_width", 32)
 		return
 
 	hint_used = true
 	_update_hint_display()
-	hint_button.disabled = true
 	_eliminate_one_wrong_button()
+
 	var hint_text = puzzle_config.get("hint_text", "Re-read the context carefully. Identify the key values given, then decide which formula or reasoning step applies here.")
 	var overlay = CanvasLayer.new()
 	overlay.set_script(load("res://scenes/ui/hint_overlay.gd"))
 	get_tree().root.add_child(overlay)
 	overlay.show_hint(hint_text)
+
+	# 12-second cooldown
+	hint_on_cooldown = true
+	hint_button.disabled = true
+	await get_tree().create_timer(HINT_COOLDOWN).timeout
+	hint_on_cooldown = false
+	if not is_queued_for_deletion():
+		hint_button.disabled = false
 
 func _eliminate_one_wrong_button() -> void:
 	"""Disable one random wrong answer button to help narrow choices"""

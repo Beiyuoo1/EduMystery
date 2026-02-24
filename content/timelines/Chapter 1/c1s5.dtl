@@ -46,6 +46,7 @@ if {selected_character} == "celestine":
 	Celestine: Another test?
 	"Diwata Laya": [i][color=#9999ff]If you want my help, yes.[/color][/i]
 	Celestine: Alright, let's do it.
+	[signal arg="laya_end"]
 else:
 	[voice path="res://assets/audio/voice/Chapter 1/C1s5/The_protagonist_reaches.mp3" volume="0.0" bus="Voice"]
 	The protagonist reaches under the desk and pulls out a small, worn charm bracelet with distinctive blue, red, and white beads, and a tiny silver cross.
@@ -62,6 +63,7 @@ else:
 	Conrad: Another test?
 	"Diwata Laya": [i][color=#9999ff]If you want my help, yes.[/color][/i]
 	Conrad: Alright, let's do it.
+	[signal arg="laya_end"]
 if {selected_subject} == "english":
 	[signal arg="start_minigame bracelet_riddle"]
 elif {selected_subject} == "math":
@@ -82,6 +84,7 @@ elif {selected_subject} == "science":
 		Conrad: Using kinematics - distance, velocity, time - I can calculate when he arrived home.
 		Conrad: If his timeline doesn't match the WiFi data... his alibi fails!
 	[signal arg="start_minigame timeline_alibi_science"]
+[signal arg="laya_start"]
 "Diwata Laya": [i][color=#9999ff]Good. Your focus has cleared the path. Now I can see...[/color][/i]
 "Diwata Laya": [i][color=#9999ff]This bracelet carries immense grief. It belonged to someone who has passed - a grandmother, I think. The owner treasures it above all else.[/color][/i]
 "Diwata Laya": [i][color=#9999ff]Whoever owns this would confess to anything to get it back. Use that.[/color][/i]

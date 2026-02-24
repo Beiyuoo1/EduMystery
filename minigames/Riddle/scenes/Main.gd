@@ -49,7 +49,10 @@ var current_answer_buttons: Array = []  # Track which buttons were used in order
 var letter_buttons: Array = []
 
 # Hint system
-var hint_used: bool = false
+var hint_on_cooldown: bool = false  # 12-second cooldown between uses
+const HINT_COOLDOWN: float = 12.0
+# Letter button indices auto-placed by hint — never re-enabled on wrong-answer retry
+var hint_placed_button_indices: Array = []
 
 # Time tracking for bonus hint
 var start_time: float = 0.0
@@ -229,12 +232,16 @@ func _on_answer_display_clicked(event: InputEvent):
 		_undo_last_letter()
 
 func _undo_last_letter():
-	"""Remove the last letter from the answer"""
+	"""Remove the last letter from the answer (cannot undo hint-placed letters)"""
 	if current_answer.length() == 0:
 		return
 
 	# Get the last button index
 	var last_button_index = current_answer_buttons[current_answer_buttons.size() - 1]
+
+	# Don't allow undoing a hint-placed letter
+	if last_button_index in hint_placed_button_indices:
+		return
 
 	# Remove last letter from answer
 	current_answer = current_answer.substr(0, current_answer.length() - 1)
@@ -306,6 +313,23 @@ func _show_wrong_feedback_retry():
 		tween.tween_property(answer_display, "modulate", Color.RED, 0.2)
 		tween.tween_property(answer_display, "modulate", Color.WHITE, 0.2)
 
+	# Re-enable only buttons the player placed (not hint-placed ones)
+	for btn_idx in current_answer_buttons:
+		if btn_idx not in hint_placed_button_indices:
+			letter_buttons[btn_idx].disabled = false
+
+	# Clear player's answer but keep hint-placed letters in place
+	current_answer = ""
+	current_answer_buttons.clear()
+
+	# Re-add hint-placed letters back into the answer state so display stays correct
+	for btn_idx in hint_placed_button_indices:
+		var letter = available_letters[btn_idx]
+		current_answer += letter
+		current_answer_buttons.append(btn_idx)
+
+	_update_answer_display()
+
 	# Hide feedback after a moment
 	await get_tree().create_timer(2.0).timeout
 	feedback_label.visible = false
@@ -317,7 +341,7 @@ func _update_hint_display():
 
 func _on_hint_pressed():
 	"""Called when hint button is pressed"""
-	if hint_used:
+	if hint_on_cooldown:
 		return
 
 	if not PlayerStats.use_hint():
@@ -329,14 +353,36 @@ func _on_hint_pressed():
 		hint_button.add_theme_constant_override("icon_max_width", 32)
 		return
 
-	hint_used = true
 	_update_hint_display()
-	hint_button.disabled = true
+
+	# Find the next correct letter that hasn't been placed yet
+	var next_pos = current_answer.length()
+	if next_pos < correct_answer.length():
+		var next_letter = correct_answer[next_pos]
+		# Find a button with that letter that isn't already used
+		for i in range(letter_buttons.size()):
+			if available_letters[i] == next_letter and not letter_buttons[i].disabled:
+				hint_placed_button_indices.append(i)
+				_on_letter_pressed(i)
+				# Flash yellow on the placed button to highlight it
+				var tween = create_tween()
+				tween.tween_property(letter_buttons[i], "modulate", Color(1.0, 1.0, 0.3, 1), 0.1)
+				tween.tween_property(letter_buttons[i], "modulate", Color.WHITE, 0.3)
+				break
+
 	var hint_text = puzzle_config.get("hint_text", "Think about the riddle clues carefully. The answer is a common word — say it aloud and spell it out letter by letter.")
 	var overlay = CanvasLayer.new()
 	overlay.set_script(load("res://scenes/ui/hint_overlay.gd"))
 	get_tree().root.add_child(overlay)
 	overlay.show_hint(hint_text)
+
+	# Start 12-second cooldown
+	hint_on_cooldown = true
+	hint_button.disabled = true
+	await get_tree().create_timer(HINT_COOLDOWN).timeout
+	hint_on_cooldown = false
+	if not is_queued_for_deletion():
+		hint_button.disabled = false
 
 func _complete_minigame(success: bool):
 	"""Complete the minigame"""

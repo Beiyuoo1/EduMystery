@@ -41,7 +41,8 @@ var correct_answer_index: int = 2  # "WiFi" is at index 2
 var choices: Array = ["Hi-fi", "Sci-fi", "WiFi", "Bye-bye", "Fly high", "Sky high", "Pie-fry", "Why try"]
 
 # Hint system
-var hint_used: bool = false
+var hint_on_cooldown: bool = false  # 12-second cooldown between uses
+const HINT_COOLDOWN: float = 12.0
 # Tracks buttons permanently eliminated by hint — never re-enabled
 var hint_eliminated_indices: Array = []
 
@@ -302,7 +303,7 @@ func _update_hint_display():
 		hint_label.text = "Hints: " + str(PlayerStats.hints)
 
 func _on_hint_pressed():
-	if hint_used:
+	if hint_on_cooldown:
 		return
 
 	if not PlayerStats.use_hint():
@@ -314,9 +315,7 @@ func _on_hint_pressed():
 		hint_button.add_theme_constant_override("icon_max_width", 40)
 		return
 
-	hint_used = true
 	_update_hint_display()
-	hint_button.disabled = true
 	_eliminate_one_wrong_button()
 
 	var hint_text = puzzle_config.get("hint_text", "Think about how the word sounds when spoken aloud. Use the speaker button to hear it again.")
@@ -324,6 +323,14 @@ func _on_hint_pressed():
 	overlay.set_script(load("res://scenes/ui/hint_overlay.gd"))
 	get_tree().root.add_child(overlay)
 	overlay.show_hint(hint_text)
+
+	# Start cooldown — button disabled for 12 seconds
+	hint_on_cooldown = true
+	hint_button.disabled = true
+	await get_tree().create_timer(HINT_COOLDOWN).timeout
+	hint_on_cooldown = false
+	if not is_queued_for_deletion():
+		hint_button.disabled = false
 
 func _eliminate_one_wrong_button() -> void:
 	var wrong_indices: Array = []

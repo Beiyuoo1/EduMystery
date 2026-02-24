@@ -18,11 +18,11 @@ if exist "C:\Program Files\Google\Chrome\Application\chrome.exe" (
 )
 
 if defined CHROME (
-    echo Opening Chrome at http://localhost:8080...
-    start "" %CHROME% --new-tab http://localhost:8080
+    echo Opening Chrome at https://localhost:8080...
+    start "" %CHROME% --new-tab https://localhost:8080
 ) else (
     echo Chrome not found at default locations. Opening with default browser...
-    start http://localhost:8080
+    start https://localhost:8080
 )
 
 echo.

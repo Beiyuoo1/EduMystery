@@ -11,6 +11,9 @@ import socketserver
 import os
 import re
 import shutil
+import ssl
+import subprocess
+import sys
 
 PORT = 8080
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -184,6 +187,34 @@ class GodotWebHandler(http.server.SimpleHTTPRequestHandler):
         print(f"  {self.address_string()} - {format % args}")
 
 
+CERT_FILE = os.path.join(ROOT_DIR, "ssl_cert.pem")
+KEY_FILE  = os.path.join(ROOT_DIR, "ssl_key.pem")
+
+def generate_ssl_cert():
+    """Generate a self-signed SSL certificate using openssl (required for mobile HTTPS)."""
+    if os.path.exists(CERT_FILE) and os.path.exists(KEY_FILE):
+        print("  SSL certificate already exists, skipping generation.")
+        return True
+    print("  Generating self-signed SSL certificate...")
+    try:
+        subprocess.run([
+            "openssl", "req", "-x509", "-newkey", "rsa:2048",
+            "-keyout", KEY_FILE,
+            "-out", CERT_FILE,
+            "-days", "365",
+            "-nodes",
+            "-subj", "/CN=edumys.local"
+        ], check=True, capture_output=True)
+        print("  SSL certificate generated successfully.")
+        return True
+    except FileNotFoundError:
+        print("  WARNING: openssl not found. Falling back to HTTP (mobile won't work).")
+        return False
+    except subprocess.CalledProcessError as e:
+        print(f"  WARNING: Failed to generate SSL cert: {e}. Falling back to HTTP.")
+        return False
+
+
 if __name__ == "__main__":
     print("=" * 50)
     print("  EduMys Web Server")
@@ -198,13 +229,27 @@ if __name__ == "__main__":
     # Auto-patch index.html every time the server starts
     patch_index_html()
 
-    print(f"  Open in Chrome: http://localhost:{PORT}")
-    print(f"  Serving from:   {WEB_DIR}")
+    # Try to set up HTTPS (required for mobile browsers)
+    use_https = generate_ssl_cert()
+
+    if use_https:
+        print(f"  Open in Chrome (desktop): https://localhost:{PORT}")
+        print(f"  Open on mobile (LAN):     https://192.168.0.178:{PORT}")
+        print(f"  NOTE: Browser will show 'Not secure' warning — click Advanced > Proceed.")
+    else:
+        print(f"  Open in Chrome: http://localhost:{PORT}")
+        print(f"  LAN (desktop only): http://192.168.0.178:{PORT}")
+
+    print(f"  Serving from: {WEB_DIR}")
     print()
     print("  Press Ctrl+C to stop the server.")
     print("=" * 50)
 
     with socketserver.TCPServer(("", PORT), GodotWebHandler) as httpd:
+        if use_https:
+            ctx = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+            ctx.load_cert_chain(CERT_FILE, KEY_FILE)
+            httpd.socket = ctx.wrap_socket(httpd.socket, server_side=True)
         try:
             httpd.serve_forever()
         except KeyboardInterrupt:

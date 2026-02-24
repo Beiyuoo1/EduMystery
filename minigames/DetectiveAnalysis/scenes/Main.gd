@@ -15,6 +15,7 @@ extends Control
 @onready var timer_label: Label = $Panel/VBox/HBox/TimerLabel
 @onready var hint_button: Button = $Panel/VBox/HBox/HintButton
 @onready var hint_counter: Label = $Panel/VBox/HBox/HintCounter
+@onready var feedback_overlay: ColorRect = $FeedbackOverlay
 @onready var feedback_panel: NinePatchRect = $FeedbackPanel
 @onready var feedback_label: RichTextLabel = $FeedbackPanel/VBox/FeedbackLabel
 @onready var continue_button: Button = $FeedbackPanel/VBox/ContinueButton
@@ -48,7 +49,8 @@ signal minigame_completed(success: bool, time_taken: float)
 func _ready() -> void:
 	set_process(false)  # Timer must NOT start until after tutorial + countdown
 
-	# Hide feedback panel initially
+	# Hide feedback panel and overlay initially
+	feedback_overlay.hide()
 	feedback_panel.hide()
 
 	# Connect hint button and set icon
@@ -408,6 +410,7 @@ func _show_feedback(is_correct: bool, time_taken: float) -> void:
 		continue_button.text = "Try Again"
 
 	feedback_label.text = feedback_text
+	feedback_overlay.show()
 	feedback_panel.show()
 
 
@@ -421,11 +424,13 @@ func _on_continue_pressed() -> void:
 		minigame_completed.emit(true, elapsed)
 		queue_free()
 	else:
-		# Retry — hide feedback, reset button colors, resume timer
+		# Retry — hide feedback, reset button colors, restart timer
+		feedback_overlay.hide()
 		feedback_panel.hide()
 		selected_answer = -1
 		for button in choice_buttons:
 			button.remove_theme_color_override("font_color")
+		start_time = Time.get_ticks_msec() / 1000.0  # Reset timer so it doesn't instantly expire
 		set_process(true)
 
 
@@ -440,6 +445,7 @@ func _on_time_up() -> void:
 	feedback_label.text = "[center][color=red][b]TIME'S UP![/b][/color][/center]\n\n"
 	feedback_label.text += "[color=#FFB347]The correct answer has been highlighted. Try again![/color]"
 	continue_button.text = "Try Again"
+	feedback_overlay.show()
 	feedback_panel.show()
 
 

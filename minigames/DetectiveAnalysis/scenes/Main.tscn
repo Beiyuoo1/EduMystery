@@ -134,6 +134,17 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 10
 
+[node name="FeedbackOverlay" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+color = Color(0, 0, 0, 0.6)
+
 [node name="FeedbackPanel" type="NinePatchRect" parent="."]
 texture_filter = 1
 visible = false

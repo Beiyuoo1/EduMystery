@@ -191,11 +191,68 @@ CERT_FILE = os.path.join(ROOT_DIR, "ssl_cert.pem")
 KEY_FILE  = os.path.join(ROOT_DIR, "ssl_key.pem")
 
 def generate_ssl_cert():
-    """Generate a self-signed SSL certificate using openssl (required for mobile HTTPS)."""
+    """Generate a self-signed SSL certificate (required for mobile HTTPS).
+    Uses Python's 'cryptography' library first; falls back to openssl CLI."""
     if os.path.exists(CERT_FILE) and os.path.exists(KEY_FILE):
         print("  SSL certificate already exists, skipping generation.")
         return True
     print("  Generating self-signed SSL certificate...")
+
+    # --- Method 1: Pure-Python via 'cryptography' package ---
+    try:
+        from cryptography import x509
+        from cryptography.x509.oid import NameOID
+        from cryptography.hazmat.primitives import hashes, serialization
+        from cryptography.hazmat.primitives.asymmetric import rsa
+        import datetime, ipaddress
+
+        # Generate RSA private key
+        key = rsa.generate_private_key(public_exponent=65537, key_size=2048)
+
+        # Build certificate
+        subject = issuer = x509.Name([
+            x509.NameAttribute(NameOID.COMMON_NAME, u"edumys.local"),
+        ])
+        now = datetime.datetime.now(datetime.timezone.utc)
+        cert = (
+            x509.CertificateBuilder()
+            .subject_name(subject)
+            .issuer_name(issuer)
+            .public_key(key.public_key())
+            .serial_number(x509.random_serial_number())
+            .not_valid_before(now)
+            .not_valid_after(now + datetime.timedelta(days=365))
+            .add_extension(
+                x509.SubjectAlternativeName([
+                    x509.DNSName(u"localhost"),
+                    x509.DNSName(u"edumys.local"),
+                    x509.IPAddress(ipaddress.IPv4Address("127.0.0.1")),
+                    x509.IPAddress(ipaddress.IPv4Address("192.168.0.178")),
+                ]),
+                critical=False,
+            )
+            .sign(key, hashes.SHA256())
+        )
+
+        # Write private key
+        with open(KEY_FILE, "wb") as f:
+            f.write(key.private_bytes(
+                encoding=serialization.Encoding.PEM,
+                format=serialization.PrivateFormat.TraditionalOpenSSL,
+                encryption_algorithm=serialization.NoEncryption(),
+            ))
+
+        # Write certificate
+        with open(CERT_FILE, "wb") as f:
+            f.write(cert.public_bytes(serialization.Encoding.PEM))
+
+        print("  SSL certificate generated successfully (via Python cryptography).")
+        return True
+
+    except ImportError:
+        print("  'cryptography' package not found, trying openssl...")
+
+    # --- Method 2: openssl CLI fallback ---
     try:
         subprocess.run([
             "openssl", "req", "-x509", "-newkey", "rsa:2048",
@@ -205,13 +262,15 @@ def generate_ssl_cert():
             "-nodes",
             "-subj", "/CN=edumys.local"
         ], check=True, capture_output=True)
-        print("  SSL certificate generated successfully.")
+        print("  SSL certificate generated successfully (via openssl).")
         return True
     except FileNotFoundError:
-        print("  WARNING: openssl not found. Falling back to HTTP (mobile won't work).")
+        print("  WARNING: Neither 'cryptography' package nor openssl found.")
+        print("  Run: python -m pip install cryptography")
+        print("  Falling back to HTTP (mobile won't work).")
         return False
     except subprocess.CalledProcessError as e:
-        print(f"  WARNING: Failed to generate SSL cert: {e}. Falling back to HTTP.")
+        print(f"  WARNING: openssl failed: {e}. Falling back to HTTP.")
         return False
 
 

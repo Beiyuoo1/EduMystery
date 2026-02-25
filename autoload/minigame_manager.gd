@@ -2731,11 +2731,11 @@ var timeline_reconstruction_configs = {
 		"title": "Vandalism Energy Sequence",
 		"context": "Victor's vandalism involved multiple energy transformations. Arrange events in order based on work, energy, and power principles.",
 		"events": [
-			{"id": "event1", "text": "Victor stores chemical energy (eating dinner before leaving)"},
-			{"id": "event2", "text": "Victor walks to store - chemical energy → kinetic energy (KE = ½mv²)"},
-			{"id": "event3", "text": "Victor lifts paint cans - work done against gravity (W = mgh)"},
-			{"id": "event4", "text": "Victor pushes sculpture - applies force over distance (W = F×d)"},
-			{"id": "event5", "text": "Victor runs away - kinetic energy increases with velocity²"}
+			{"id": "event1", "text": "Victor stores chemical energy (eating dinner before leaving)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_3_time_analysis/science/victor_stores_chemical.png"},
+			{"id": "event2", "text": "Victor walks to store - chemical energy → kinetic energy (KE = ½mv²)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_3_time_analysis/science/victor_walks_to_the_store.png"},
+			{"id": "event3", "text": "Victor lifts paint cans - work done against gravity (W = mgh)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_3_time_analysis/science/victor_lifts_paint_can.png"},
+			{"id": "event4", "text": "Victor pushes sculpture - applies force over distance (W = F×d)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_3_time_analysis/science/victor_pushes_sculpture.png"},
+			{"id": "event5", "text": "Victor runs away - kinetic energy increases with velocity²", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_3_time_analysis/science/victor_runs_away.png"}
 		],
 		"correct_order": ["event1", "event2", "event3", "event4", "event5"],
 		"explanation": "[b]Physics: Work, Energy, Power (Q3)[/b]\n\n• [b]Chemical Energy (stored):[/b]\n  - Food provides energy (ATP)\n  - Stored in molecular bonds\n  - Source for all physical activity\n\n• [b]Kinetic Energy (KE = ½mv²):[/b]\n  - Walking: velocity = 1.5 m/s\n  - Running: velocity = 5 m/s\n  - KE increases with v² (running = 11× more energy!)\n\n• [b]Work Against Gravity (W = mgh):[/b]\n  - Lifting 2kg paint can 1.5m high\n  - W = 2 × 10 × 1.5 = 30 Joules\n  - PE gained = 30 J\n\n• [b]Work (W = F × d):[/b]\n  - Pushing sculpture with 200N force\n  - Sculpture moved 0.3m\n  - W = 200 × 0.3 = 60 Joules\n\n[b]Energy Conservation:[/b] Chemical → Kinetic → Potential → Work → Kinetic\nEvery criminal action follows energy conservation laws! Victor's body converted stored chemical energy through multiple transformations."
@@ -2787,11 +2787,11 @@ var timeline_reconstruction_configs = {
 		"title": "Electrical Signal Analysis",
 		"context": "Six anonymous notes were distributed over a week. Using electrical circuit principles, analyze the pattern of information flow from source to recipients.",
 		"events": [
-			{"id": "event1", "text": "Day 1: Alex finds journal - closes the circuit (completes learning loop)"},
-			{"id": "event2", "text": "Day 3: First note delivered - current begins flowing (I = ΔQ/Δt)"},
-			{"id": "event3", "text": "Day 4-5: Rapid note distribution - high current (6 notes in 48 hours)"},
-			{"id": "event4", "text": "Day 6: Students report notes - resistance builds in the circuit"},
-			{"id": "event5", "text": "Day 7: Investigation starts - circuit breaks (information flow stops)"}
+			{"id": "event1", "text": "Day 1: Alex finds journal - closes the circuit (completes learning loop)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_4_time_analysis/science/Alex_finds_journal.png"},
+			{"id": "event2", "text": "Day 3: First note delivered - current begins flowing (I = ΔQ/Δt)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_4_time_analysis/science/First_note_delivered.png"},
+			{"id": "event3", "text": "Day 4-5: Rapid note distribution - high current (6 notes in 48 hours)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_4_time_analysis/science/Rapid note_distribution.png"},
+			{"id": "event4", "text": "Day 6: Students report notes - resistance builds in the circuit", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_4_time_analysis/science/students_report_note.png"},
+			{"id": "event5", "text": "Day 7: Investigation starts - circuit breaks (information flow stops)", "image_path": "res://assets/minigame_asset/timeline_analysis/chapter_4_time_analysis/science/investigation_starts.png"}
 		],
 		"correct_order": ["event1", "event2", "event3", "event4", "event5"],
 		"explanation": "[b]Physics: Electricity - Current and Charge Flow[/b]\n• Electric Current (I) = Charge/Time (I = ΔQ/Δt)\n• 6 notes in 48 hours = high current flow\n• Average rate: 6 notes ÷ 2 days = 3 notes/day\n• Information flows like electrical current through a circuit\n\n[b]Circuit Analogy:[/b]\n• Source: Alex (battery/EMF)\n• Conductors: Locker system (wires)\n• Recipients: Students (resistors receiving energy)\n• Resistance: Student reports (opposing current flow)\n• Open Circuit: Investigation stops the flow\n\n[b]Ohm's Law Connection (V = IR):[/b] More resistance (R↑) = lower current (I↓). When students resisted (reported notes), the distribution stopped!"

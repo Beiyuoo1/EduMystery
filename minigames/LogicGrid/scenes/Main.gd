@@ -272,13 +272,13 @@ func _create_grid() -> void:
 	# Row labels + cells
 	for row in rows:
 		var row_label = Label.new()
-		row_label.text = row
+		row_label.text = row.to_upper()
 		row_label.custom_minimum_size = Vector2(20, 88)
 		row_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		row_label.size_flags_vertical = Control.SIZE_EXPAND_FILL
 		row_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		row_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		row_label.add_theme_font_size_override("font_size", 28)
+		row_label.add_theme_font_size_override("font_size", 36)
 		row_label.add_theme_color_override("font_color", Color(0.22, 0.10, 0.03))
 		grid_container.add_child(row_label)
 

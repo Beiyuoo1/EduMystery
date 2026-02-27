@@ -437,6 +437,25 @@ func _show_feedback(is_correct: bool, time_taken: float) -> void:
 	feedback_label.text = feedback_text
 	feedback_overlay.show()
 	feedback_panel.show()
+	# Resize panel to fit content after one frame (so label has laid out)
+	await get_tree().process_frame
+	_fit_feedback_panel()
+
+
+func _fit_feedback_panel() -> void:
+	# Measure content: label height + button height + VBox padding + bottom padding
+	var padding_v   := 20 + 20      # VBox offset_top + offset_bottom
+	var separation  := 20           # VBox separation
+	var bottom_pad  := 24           # extra breathing room below button
+	var content_h   := feedback_label.get_content_height() + continue_button.size.y + separation + padding_v + bottom_pad
+	var content_w   := feedback_panel.size.x  # keep width unchanged
+	var half_h      := content_h / 2.0
+	var half_w      := content_w / 2.0
+	feedback_panel.set_anchors_preset(Control.PRESET_CENTER)
+	feedback_panel.offset_left   = -half_w
+	feedback_panel.offset_right  =  half_w
+	feedback_panel.offset_top    = -half_h
+	feedback_panel.offset_bottom =  half_h
 
 
 func _on_continue_pressed() -> void:

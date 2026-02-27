@@ -431,7 +431,7 @@ func _show_feedback(is_correct: bool, time_taken: float) -> void:
 		continue_button.text = "Continue"
 	else:
 		feedback_text = "[center][color=red][font_size=70][b]✗ INCORRECT[/b][/font_size][/color]\n[color=red][b]Try Again![/b][/color][/center]\n\n"
-		feedback_text += "[center][color=#FFB347]Think carefully and select a different answer.[/color][/center]"
+		feedback_text += "[center][color=white]Think carefully and select a different answer.[/color][/center]"
 		continue_button.text = "Try Again"
 
 	feedback_label.text = feedback_text

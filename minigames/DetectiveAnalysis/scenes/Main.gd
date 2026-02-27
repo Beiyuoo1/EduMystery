@@ -430,8 +430,8 @@ func _show_feedback(is_correct: bool, time_taken: float) -> void:
 			feedback_text += "\n\n[center][color=yellow][img=28x28]res://assets/UI/core/speed_bonus.png[/img] Speed Bonus: +1 Hint![/color][/center]"
 		continue_button.text = "Continue"
 	else:
-		feedback_text = "[center][color=red][b][img=28x28]res://assets/UI/core/incorrect.png[/img] INCORRECT — Try Again![/b][/color][/center]\n\n"
-		feedback_text += "[color=#FFB347]Think carefully and select a different answer.[/color]"
+		feedback_text = "[center][color=red][font_size=70][b]✗ INCORRECT[/b][/font_size][/color]\n[color=red][b]Try Again![/b][/color][/center]\n\n"
+		feedback_text += "[center][color=#FFB347]Think carefully and select a different answer.[/color][/center]"
 		continue_button.text = "Try Again"
 
 	feedback_label.text = feedback_text

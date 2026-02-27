@@ -1,0 +1,100 @@
+[gd_scene load_steps=2 format=3 uid="uid://debug_minigame_launcher"]
+
+[ext_resource type="Script" path="res://scenes/ui/debug_minigame_launcher.gd" id="1_script"]
+
+[node name="DebugMinigameLauncher" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.08, 0.08, 0.12, 1)
+
+[node name="MainVBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+theme_override_constants/separation = 10
+
+[node name="TopBar" type="VBoxContainer" parent="MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="TitleLabel" type="Label" parent="MainVBox/TopBar"]
+layout_mode = 2
+text = "🎮  MINIGAME DEBUG LAUNCHER"
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
+
+[node name="SubjectRow" type="HBoxContainer" parent="MainVBox/TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SubjectLabel" type="Label" parent="MainVBox/TopBar/SubjectRow"]
+layout_mode = 2
+text = "Subject:"
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+vertical_alignment = 1
+custom_minimum_size = Vector2(80, 0)
+
+[node name="SubjectBtns" type="HBoxContainer" parent="MainVBox/TopBar/SubjectRow"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CharacterRow" type="HBoxContainer" parent="MainVBox/TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CharacterLabel" type="Label" parent="MainVBox/TopBar/CharacterRow"]
+layout_mode = 2
+text = "Character:"
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+vertical_alignment = 1
+custom_minimum_size = Vector2(80, 0)
+
+[node name="CharacterBtns" type="HBoxContainer" parent="MainVBox/TopBar/CharacterRow"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="StatusLabel" type="Label" parent="MainVBox/TopBar"]
+layout_mode = 2
+text = "Ready"
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.6, 1, 0.6, 1)
+
+[node name="Divider" type="HSeparator" parent="MainVBox"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CategoryVBox" type="VBoxContainer" parent="MainVBox/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="BottomBar" type="HBoxContainer" parent="MainVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="BackButton" type="Button" parent="MainVBox/BottomBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(180, 44)
+text = "← Back to Main Menu"
+theme_override_font_sizes/font_size = 18

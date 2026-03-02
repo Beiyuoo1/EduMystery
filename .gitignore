@@ -5,6 +5,7 @@
 # Common Godot-generated files and folders
 .import/
 export/
+web/*.import
 # export_presets.cfg is committed so teammates can export the project
 # web/ is intentionally tracked — GitHub Pages deploys from it
 *.pck

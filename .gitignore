@@ -6,7 +6,7 @@
 .import/
 export/
 # export_presets.cfg is committed so teammates can export the project
-web/
+# web/ is intentionally tracked — GitHub Pages deploys from it
 *.pck
 *.exe
 *.zip

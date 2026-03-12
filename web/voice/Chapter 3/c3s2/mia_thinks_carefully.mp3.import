@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://k16jpo8p26f1"
+path="res://.godot/imported/mia_thinks_carefully.mp3-3b023f56d4da13460ebdec9a8570eea4.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s2/mia_thinks_carefully.mp3"
+dest_files=["res://.godot/imported/mia_thinks_carefully.mp3-3b023f56d4da13460ebdec9a8570eea4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

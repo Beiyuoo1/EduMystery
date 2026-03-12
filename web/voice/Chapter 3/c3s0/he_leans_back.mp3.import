@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b5bqkp7ak4tl6"
+path="res://.godot/imported/he_leans_back.mp3-c6b1707488007fdba01b981de2060d96.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s0/he_leans_back.mp3"
+dest_files=["res://.godot/imported/he_leans_back.mp3-c6b1707488007fdba01b981de2060d96.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b752wm8ep1hgt"
+path="res://.godot/imported/the_mysterious_characters_voice.mp3-aa2e583bd35618b1be355a1f19173957.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s0/the_mysterious_characters_voice.mp3"
+dest_files=["res://.godot/imported/the_mysterious_characters_voice.mp3-aa2e583bd35618b1be355a1f19173957.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

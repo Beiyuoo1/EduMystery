@@ -192,8 +192,8 @@ var fillinTheblank_configs = {
 	},
 	# Chapter 4 - Pedagogy methods (Archive scene)
 	"pedagogy_methods": {
-		"sentence_parts": ["Experimental ", " teaches through ", " rather than lectures."],
-		"answers": ["pedagogy", "experience"],
+		"sentence_parts": ["Experimental ", " teaches through experience rather than lectures."],
+		"answers": ["pedagogy"],
 		"choices": ["authority", "memorization", "pedagogy", "observation", "discipline", "experience", "control", "teaching"],
 		"hint_text": "The first blank is the word for the science or art of teaching. The second blank is what you gain by actually doing something, not just reading about it."
 	},

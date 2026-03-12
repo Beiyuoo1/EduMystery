@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bxjxhiphwfbln"
+path="res://.godot/imported/the_mysterious_person_continues.mp3-8e18385c49feb0753f5a815335578f51.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 4/c4s0/the_mysterious_person_continues.mp3"
+dest_files=["res://.godot/imported/the_mysterious_person_continues.mp3-8e18385c49feb0753f5a815335578f51.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

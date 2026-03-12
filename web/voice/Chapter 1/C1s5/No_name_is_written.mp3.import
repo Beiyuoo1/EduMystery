@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://csew7vli3j8k3"
+path="res://.godot/imported/No_name_is_written.mp3-918686a95f980304c60a26cb7d20757b.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 1/C1s5/No_name_is_written.mp3"
+dest_files=["res://.godot/imported/No_name_is_written.mp3-918686a95f980304c60a26cb7d20757b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

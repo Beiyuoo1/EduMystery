@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dranr5vst4uhf"
+path="res://.godot/imported/in_the_center.mp3-8e53c5affc4c284132cc9c2abf194a67.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s0/in_the_center.mp3"
+dest_files=["res://.godot/imported/in_the_center.mp3-8e53c5affc4c284132cc9c2abf194a67.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

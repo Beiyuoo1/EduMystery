@@ -1,0 +1,8 @@
+[config]
+name="VoskSpeechRecognition"
+binary_type="local"
+binary="VoskSpeechRecognition.aar"
+
+[dependencies]
+local=[]
+remote=[]

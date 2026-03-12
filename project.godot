@@ -13,7 +13,7 @@ config_version=5
 config/name="EduMys"
 run/main_scene="res://scenes/ui/main_menu.tscn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://edumystery_logo.png"
 
 [audio]
 
@@ -38,6 +38,8 @@ SaveManager="*res://autoload/save_manager.gd"
 ChapterStatsTracker="*res://autoload/chapter_stats_tracker.gd"
 CustomNameboxHandler="*res://scripts/custom_namebox_handler.gd"
 TutorialFlags="*res://autoload/tutorial_flags.gd"
+MenuButtonOverlay="*res://autoload/menu_button_overlay.gd"
+AndroidSpeechRecognition="*res://addons/vosk_speech/android_speech_recognition.gd"
 
 [dialogic]
 
@@ -245,7 +247,7 @@ window/size/mode=4
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/vosk_speech/plugin.cfg")
 
 [gui]
 
@@ -282,3 +284,4 @@ skip_minigame={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d4gierrtiuq74"
+path="res://.godot/imported/He_places_her_own_card_with_B_Cs_cards.mp3-7c73308bbaba5f4c43bc9d84a29dae24.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s5/He_places_her_own_card_with_B_Cs_cards.mp3"
+dest_files=["res://.godot/imported/He_places_her_own_card_with_B_Cs_cards.mp3-7c73308bbaba5f4c43bc9d84a29dae24.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

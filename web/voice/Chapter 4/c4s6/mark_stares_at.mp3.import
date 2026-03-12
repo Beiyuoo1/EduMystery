@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bskse5gqkkufn"
+path="res://.godot/imported/mark_stares_at.mp3-6ef0516b7848c8a32ca1393ce24c18ec.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 4/c4s6/mark_stares_at.mp3"
+dest_files=["res://.godot/imported/mark_stares_at.mp3-6ef0516b7848c8a32ca1393ce24c18ec.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

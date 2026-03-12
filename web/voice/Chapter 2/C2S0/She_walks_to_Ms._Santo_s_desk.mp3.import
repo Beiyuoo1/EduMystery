@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bmwxvyusx8g3b"
+path="res://.godot/imported/She_walks_to_Ms._Santo_s_desk.mp3-b5500b6afdbcbecd3a8962cafec2e996.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S0/She_walks_to_Ms._Santo_s_desk.mp3"
+dest_files=["res://.godot/imported/She_walks_to_Ms._Santo_s_desk.mp3-b5500b6afdbcbecd3a8962cafec2e996.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

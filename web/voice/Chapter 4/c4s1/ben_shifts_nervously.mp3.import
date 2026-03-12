@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bti7n64m22ds6"
+path="res://.godot/imported/ben_shifts_nervously.mp3-47407857662ec7062cdc1ef031c41dcf.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 4/c4s1/ben_shifts_nervously.mp3"
+dest_files=["res://.godot/imported/ben_shifts_nervously.mp3-47407857662ec7062cdc1ef031c41dcf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

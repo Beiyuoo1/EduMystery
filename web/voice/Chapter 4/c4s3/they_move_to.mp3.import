@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d1c8qsyre0pj4"
+path="res://.godot/imported/they_move_to.mp3-429dab433f0aaeb425c139a7a44e1613.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 4/c4s3/they_move_to.mp3"
+dest_files=["res://.godot/imported/they_move_to.mp3-429dab433f0aaeb425c139a7a44e1613.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

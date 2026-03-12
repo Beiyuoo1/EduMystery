@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b0yf7j4eebrs"
+path="res://.godot/imported/Janitor_leaves_the_room.mp3-43f13096c6795b62096d079346c8b4f0.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 1/C1s2/Janitor_leaves_the_room.mp3"
+dest_files=["res://.godot/imported/Janitor_leaves_the_room.mp3-43f13096c6795b62096d079346c8b4f0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

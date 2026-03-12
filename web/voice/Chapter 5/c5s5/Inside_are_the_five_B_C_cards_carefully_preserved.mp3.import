@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://byjvlis8x4fc2"
+path="res://.godot/imported/Inside_are_the_five_B_C_cards_carefully_preserved.mp3-7a4f5847bba19da3ddf4ff1314db294c.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s5/Inside_are_the_five_B_C_cards_carefully_preserved.mp3"
+dest_files=["res://.godot/imported/Inside_are_the_five_B_C_cards_carefully_preserved.mp3-7a4f5847bba19da3ddf4ff1314db294c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

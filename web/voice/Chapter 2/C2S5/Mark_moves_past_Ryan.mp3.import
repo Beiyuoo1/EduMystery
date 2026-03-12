@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3ua8p0dmyakf"
+path="res://.godot/imported/Mark_moves_past_Ryan.mp3-6b5d89d4a7bcd2bce7e9a8fac118593c.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S5/Mark_moves_past_Ryan.mp3"
+dest_files=["res://.godot/imported/Mark_moves_past_Ryan.mp3-6b5d89d4a7bcd2bce7e9a8fac118593c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

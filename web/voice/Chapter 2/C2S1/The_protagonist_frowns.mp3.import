@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8k8xd4hm48xc"
+path="res://.godot/imported/The_protagonist_frowns.mp3-c5b69ffc0a9c6a623bc4bdd09f44bfc5.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S1/The_protagonist_frowns.mp3"
+dest_files=["res://.godot/imported/The_protagonist_frowns.mp3-c5b69ffc0a9c6a623bc4bdd09f44bfc5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

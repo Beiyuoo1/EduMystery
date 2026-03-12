@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://i4pvo5xls26e"
+path="res://.godot/imported/The_protagonist_passes.mp3-c744bb957e6ef2d9a3c2ca402e8a5de3.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s2/The_protagonist_passes.mp3"
+dest_files=["res://.godot/imported/The_protagonist_passes.mp3-c744bb957e6ef2d9a3c2ca402e8a5de3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

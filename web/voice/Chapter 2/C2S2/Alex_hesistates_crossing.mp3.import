@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bctc52f82karn"
+path="res://.godot/imported/Alex_hesistates_crossing.mp3-df866a59ae24f12828f4679916310d44.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S2/Alex_hesistates_crossing.mp3"
+dest_files=["res://.godot/imported/Alex_hesistates_crossing.mp3-df866a59ae24f12828f4679916310d44.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

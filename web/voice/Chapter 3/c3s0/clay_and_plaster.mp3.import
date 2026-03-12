@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgbplk3tklk6a"
+path="res://.godot/imported/clay_and_plaster.mp3-ad65afbe216d5bf347fc67e30269fe83.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s0/clay_and_plaster.mp3"
+dest_files=["res://.godot/imported/clay_and_plaster.mp3-ad65afbe216d5bf347fc67e30269fe83.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

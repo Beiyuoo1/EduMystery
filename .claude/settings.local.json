@@ -44,7 +44,19 @@
       "Bash(\"C:/Projects/edu-mys-dev/addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/vn_choice_layer.tscn\":*)",
       "Bash(# Check the UID cache file for the WAV references grep -r \"\"typing1\\\\|typing2\\\\|typing4\"\" \"\"C:/Projects/edu-mys-dev/.godot/\"\")",
       "Bash(\"C:/Projects/edu-mys-dev/minigames/TimelineReconstruction/theme/modern_timeline_theme.tres\":*)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(\"c:/Projects/edu-mys-dev/minigames/Drag/scenes/FillInTheBlank.tscn\":*)",
+      "Bash(pip install:*)",
+      "Bash(jar tf VoskSpeechRecognition.aar)",
+      "Bash(jar tf VoskAAR/classes.jar)",
+      "Bash(unzip -o VoskAAR/classes.jar -d VoskClasses)",
+      "Bash(unzip -o AndroidSpeechAAR/classes.jar -d AndroidSpeechClasses)",
+      "Bash(unzip -p \"c:/Projects/edu-mys-dev/android/plugins/VoskSpeechRecognition/VoskSpeechRecognition.aar\" classes.jar)",
+      "Bash(unzip -o VoskSpeechRecognition.aar classes.jar)",
+      "Bash(unzip -l classes.jar)",
+      "Bash(unzip -o classes.jar)",
+      "Bash(javap -version)",
+      "Bash(curl -s -L -o cfr.jar \"https://www.benf.org/other/cfr/cfr.jar\")"
     ]
   }
 }

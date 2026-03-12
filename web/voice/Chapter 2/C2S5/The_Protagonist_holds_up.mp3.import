@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ciy3puvhkpmxv"
+path="res://.godot/imported/The_Protagonist_holds_up.mp3-153aa2c747f5758a022bd2f842eb1bbb.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S5/The_Protagonist_holds_up.mp3"
+dest_files=["res://.godot/imported/The_Protagonist_holds_up.mp3-153aa2c747f5758a022bd2f842eb1bbb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

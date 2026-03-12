@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bu1ci6pmxvjvh"
+path="res://.godot/imported/Mark_pulls_out_a_faded.mp3-c14c05cc520e187dd8021e957c3af22b.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S5/Mark_pulls_out_a_faded.mp3"
+dest_files=["res://.godot/imported/Mark_pulls_out_a_faded.mp3-c14c05cc520e187dd8021e957c3af22b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

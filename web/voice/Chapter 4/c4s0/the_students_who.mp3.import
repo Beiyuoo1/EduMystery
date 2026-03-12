@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ugobm5nthnta"
+path="res://.godot/imported/the_students_who.mp3-aac6ac0f9714f3f293faab6c1fae8cb3.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 4/c4s0/the_students_who.mp3"
+dest_files=["res://.godot/imported/the_students_who.mp3-aac6ac0f9714f3f293faab6c1fae8cb3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

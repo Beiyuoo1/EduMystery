@@ -272,11 +272,19 @@ func _initialize_puzzle():
 	# 1. Set the sentence labels (supports 1-blank puzzle with 2 sentence parts)
 	var labels = sentence_line.get_children().filter(func(c): return c is Label)
 	print("DEBUG: Found ", labels.size(), " labels in sentence_line")
+	# Make sentence_line expand to full width of its parent
+	sentence_line.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	sentence_line.alignment = BoxContainer.ALIGNMENT_CENTER
+
 	if labels.size() >= 2 and puzzle_data.sentence_parts.size() >= 2:
 		print("DEBUG: Setting label 0 to: ", puzzle_data.sentence_parts[0])
 		labels[0].text = puzzle_data.sentence_parts[0]
+		labels[0].autowrap_mode = TextServer.AUTOWRAP_OFF
+		labels[0].size_flags_horizontal = Control.SIZE_SHRINK_END
 		print("DEBUG: Setting label 1 to: ", puzzle_data.sentence_parts[1])
 		labels[1].text = puzzle_data.sentence_parts[1]
+		labels[1].autowrap_mode = TextServer.AUTOWRAP_OFF
+		labels[1].size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	else:
 		print("ERROR: Label count (", labels.size(), ") or sentence_parts count (", puzzle_data.sentence_parts.size(), ") mismatch!")
 

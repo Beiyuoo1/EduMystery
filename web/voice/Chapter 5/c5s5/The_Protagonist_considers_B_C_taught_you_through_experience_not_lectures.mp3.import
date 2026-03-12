@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnw8unxsfpgel"
+path="res://.godot/imported/The_Protagonist_considers_B_C_taught_you_through_experience_not_lectures.mp3-85b6fc6c06ad61cb6fb1fc92290e2e2c.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s5/The_Protagonist_considers_B_C_taught_you_through_experience_not_lectures.mp3"
+dest_files=["res://.godot/imported/The_Protagonist_considers_B_C_taught_you_through_experience_not_lectures.mp3-85b6fc6c06ad61cb6fb1fc92290e2e2c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

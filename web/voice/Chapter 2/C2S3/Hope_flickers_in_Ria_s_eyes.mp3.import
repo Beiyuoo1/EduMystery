@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bwqabywsjkx2n"
+path="res://.godot/imported/Hope_flickers_in_Ria_s_eyes.mp3-3bc98bdfea9f0e33b4d04785f9b89e7b.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S3/Hope_flickers_in_Ria_s_eyes.mp3"
+dest_files=["res://.godot/imported/Hope_flickers_in_Ria_s_eyes.mp3-3bc98bdfea9f0e33b4d04785f9b89e7b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

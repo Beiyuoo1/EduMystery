@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cchtc5xaotlej"
+path="res://.godot/imported/Alex_waks_away.mp3-00c80dadc08b6a9e255977ed635975d3.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S2/Alex_waks_away.mp3"
+dest_files=["res://.godot/imported/Alex_waks_away.mp3-00c80dadc08b6a9e255977ed635975d3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

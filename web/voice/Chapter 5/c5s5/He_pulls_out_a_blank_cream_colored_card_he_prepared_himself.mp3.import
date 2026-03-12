@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dt48aifhuy1nn"
+path="res://.godot/imported/He_pulls_out_a_blank_cream_colored_card_he_prepared_himself.mp3-ebf4021f98462d5e05b1428c6211009a.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s5/He_pulls_out_a_blank_cream_colored_card_he_prepared_himself.mp3"
+dest_files=["res://.godot/imported/He_pulls_out_a_blank_cream_colored_card_he_prepared_himself.mp3-ebf4021f98462d5e05b1428c6211009a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

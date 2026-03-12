@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://defgsjls468ko"
+path="res://.godot/imported/victor_turns_back.mp3-2012ca24ffbe363fe78bc3fd745c3e93.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s2/victor_turns_back.mp3"
+dest_files=["res://.godot/imported/victor_turns_back.mp3-2012ca24ffbe363fe78bc3fd745c3e93.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbr0axd8vji4c"
+path="res://.godot/imported/Ryan_stands_frozen.mp3-1adc48e09df6045aea23bd28fc4207de.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S5/Ryan_stands_frozen.mp3"
+dest_files=["res://.godot/imported/Ryan_stands_frozen.mp3-1adc48e09df6045aea23bd28fc4207de.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

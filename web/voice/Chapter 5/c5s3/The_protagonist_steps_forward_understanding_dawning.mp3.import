@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cts721udyanjt"
+path="res://.godot/imported/The_protagonist_steps_forward_understanding_dawning.mp3-d12ffee2f97fdfb0a0a0ce641f80d4ec.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s3/The_protagonist_steps_forward_understanding_dawning.mp3"
+dest_files=["res://.godot/imported/The_protagonist_steps_forward_understanding_dawning.mp3-d12ffee2f97fdfb0a0a0ce641f80d4ec.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

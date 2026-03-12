@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c1woyanlef3om"
+path="res://.godot/imported/mark_points_to.mp3-b0ae32939658e82c59563c6aa5cb68ff.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s6/mark_points_to.mp3"
+dest_files=["res://.godot/imported/mark_points_to.mp3-b0ae32939658e82c59563c6aa5cb68ff.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -4,7 +4,6 @@ extends Control
 @onready var continue_button = $LeftPanel/MenuButtons/ContinueButton
 @onready var settings_button = $LeftPanel/MenuButtons/SettingsButton
 @onready var quit_button = $LeftPanel/MenuButtons/QuitButton
-@onready var debug_button = $LeftPanel/MenuButtons/DebugButton
 @onready var background_music = $BackgroundMusic
 @onready var title_logo: TextureRect = $TitleArea/TitleLogo
 @onready var title_shimmer: ColorRect = $TitleArea/TitleShimmer
@@ -46,8 +45,6 @@ func _ready() -> void:
 	continue_button.pressed.connect(_on_continue_pressed)
 	settings_button.pressed.connect(_on_settings_pressed)
 	quit_button.pressed.connect(_on_quit_pressed)
-	debug_button.pressed.connect(_on_debug_pressed)
-
 	# Start title logo effects
 	_start_title_effects()
 
@@ -235,9 +232,3 @@ func _on_settings_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
-
-func _on_debug_pressed() -> void:
-	if background_music and background_music.playing:
-		background_music.stop()
-	_stop_web_music()
-	get_tree().change_scene_to_file("res://scenes/ui/debug_minigame_launcher.tscn")

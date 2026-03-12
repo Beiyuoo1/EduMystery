@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c4a3lgm0bsxga"
+path="res://.godot/imported/Principal_B_C_acknowledges_Laya_with_a_respectful_nod.mp3-f8c35ce3a21cf2d2b6401fd18644e0f9.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s2/Principal_B_C_acknowledges_Laya_with_a_respectful_nod.mp3"
+dest_files=["res://.godot/imported/Principal_B_C_acknowledges_Laya_with_a_respectful_nod.mp3-f8c35ce3a21cf2d2b6401fd18644e0f9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

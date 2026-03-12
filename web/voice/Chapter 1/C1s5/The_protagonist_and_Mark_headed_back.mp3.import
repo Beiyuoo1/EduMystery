@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dnx4xi1kfwvnw"
+path="res://.godot/imported/The_protagonist_and_Mark_headed_back.mp3-996eb3b3b29933339fb3641042a479f8.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 1/C1s5/The_protagonist_and_Mark_headed_back.mp3"
+dest_files=["res://.godot/imported/The_protagonist_and_Mark_headed_back.mp3-996eb3b3b29933339fb3641042a479f8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

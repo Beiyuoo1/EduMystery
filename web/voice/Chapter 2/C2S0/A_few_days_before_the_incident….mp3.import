@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dm82jy8stxjen"
+path="res://.godot/imported/A_few_days_before_the_incident….mp3-fa56a1c15ed3c5798553563740e8df4f.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S0/A_few_days_before_the_incident….mp3"
+dest_files=["res://.godot/imported/A_few_days_before_the_incident….mp3-fa56a1c15ed3c5798553563740e8df4f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cmbh1lltxlq70"
+path="res://.godot/imported/Whats_wrong.mp3-957a9006593bb76c35924d7a8c1b101c.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 1/C1s3/Whats_wrong.mp3"
+dest_files=["res://.godot/imported/Whats_wrong.mp3-957a9006593bb76c35924d7a8c1b101c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

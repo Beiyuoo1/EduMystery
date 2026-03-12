@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cp27rdq7qwktb"
+path="res://.godot/imported/The_spots.mp3-a71774ab12c201437c1dc8eba757a662.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s6/The_spots.mp3"
+dest_files=["res://.godot/imported/The_spots.mp3-a71774ab12c201437c1dc8eba757a662.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

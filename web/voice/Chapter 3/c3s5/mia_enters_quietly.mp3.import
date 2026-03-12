@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8wgeani5st36"
+path="res://.godot/imported/mia_enters_quietly.mp3-c367628a6ffef3df78581b3a0df4a070.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s5/mia_enters_quietly.mp3"
+dest_files=["res://.godot/imported/mia_enters_quietly.mp3-c367628a6ffef3df78581b3a0df4a070.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

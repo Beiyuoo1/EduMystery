@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://jfvpyncx5lyp"
+path="res://.godot/imported/mia_manages_a.mp3-1a2c5849a32d3d6e23d3b03be57e7fb1.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s5/mia_manages_a.mp3"
+dest_files=["res://.godot/imported/mia_manages_a.mp3-1a2c5849a32d3d6e23d3b03be57e7fb1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

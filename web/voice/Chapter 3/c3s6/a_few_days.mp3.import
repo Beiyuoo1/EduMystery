@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cl08sq8cbm5e4"
+path="res://.godot/imported/a_few_days.mp3-d23163128fb4f22e8989191becebcba9.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s6/a_few_days.mp3"
+dest_files=["res://.godot/imported/a_few_days.mp3-d23163128fb4f22e8989191becebcba9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

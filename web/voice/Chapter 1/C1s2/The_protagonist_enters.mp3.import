@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cwugj2vnq0jm2"
+path="res://.godot/imported/The_protagonist_enters.mp3-3b6e860fdd8e45af9a7eed4632db6911.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 1/C1s2/The_protagonist_enters.mp3"
+dest_files=["res://.godot/imported/The_protagonist_enters.mp3-3b6e860fdd8e45af9a7eed4632db6911.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

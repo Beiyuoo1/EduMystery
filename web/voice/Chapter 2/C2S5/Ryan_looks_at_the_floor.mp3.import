@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c2wojwuyq0i0j"
+path="res://.godot/imported/Ryan_looks_at_the_floor.mp3-315efbca049ad7f572bdf655ee9d267e.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S5/Ryan_looks_at_the_floor.mp3"
+dest_files=["res://.godot/imported/Ryan_looks_at_the_floor.mp3-315efbca049ad7f572bdf655ee9d267e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

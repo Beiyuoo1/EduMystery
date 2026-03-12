@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ce82py4r5yaue"
+path="res://.godot/imported/The_Protagonist_notices_something.mp3-c7b5a1baf5d906cabf2b1c156f0f1560.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S6/The_Protagonist_notices_something.mp3"
+dest_files=["res://.godot/imported/The_Protagonist_notices_something.mp3-c7b5a1baf5d906cabf2b1c156f0f1560.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bob66v68jw3v6"
+path="res://.godot/imported/the_next_step.mp3-3fc4d567f576cb846516934ee029d75a.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 4/c4s6/the_next_step.mp3"
+dest_files=["res://.godot/imported/the_next_step.mp3-3fc4d567f576cb846516934ee029d75a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b151c48lg8lhg"
+path="res://.godot/imported/mia_looks_up.mp3-061aa05bbf58e925311ac1cf265c9821.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s1/mia_looks_up.mp3"
+dest_files=["res://.godot/imported/mia_looks_up.mp3-061aa05bbf58e925311ac1cf265c9821.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

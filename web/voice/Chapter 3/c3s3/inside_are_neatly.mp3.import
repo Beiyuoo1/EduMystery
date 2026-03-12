@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cncmjivutcukp"
+path="res://.godot/imported/inside_are_neatly.mp3-78af818026b73cd377e5c74e57d7ad51.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s3/inside_are_neatly.mp3"
+dest_files=["res://.godot/imported/inside_are_neatly.mp3-78af818026b73cd377e5c74e57d7ad51.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

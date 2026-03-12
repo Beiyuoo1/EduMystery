@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bsvxkw7udcpfa"
+path="res://.godot/imported/Three_days_later.mp3-b4a8f5352f36e4ca630169ae3d2b0aba.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S0/Three_days_later.mp3"
+dest_files=["res://.godot/imported/Three_days_later.mp3-b4a8f5352f36e4ca630169ae3d2b0aba.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

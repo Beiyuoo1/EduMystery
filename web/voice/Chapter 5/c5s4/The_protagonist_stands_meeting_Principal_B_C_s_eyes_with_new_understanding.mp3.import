@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5uawd544ct6x"
+path="res://.godot/imported/The_protagonist_stands_meeting_Principal_B_C_s_eyes_with_new_understanding.mp3-d1d59fa7329fa0e410215500faca782f.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s4/The_protagonist_stands_meeting_Principal_B_C_s_eyes_with_new_understanding.mp3"
+dest_files=["res://.godot/imported/The_protagonist_stands_meeting_Principal_B_C_s_eyes_with_new_understanding.mp3-d1d59fa7329fa0e410215500faca782f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

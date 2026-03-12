@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ctf76yor7sotk"
+path="res://.godot/imported/waiting_for_someone.mp3-7598155096b2b3805af7f36df99b91e6.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 4/c4s6/waiting_for_someone.mp3"
+dest_files=["res://.godot/imported/waiting_for_someone.mp3-7598155096b2b3805af7f36df99b91e6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

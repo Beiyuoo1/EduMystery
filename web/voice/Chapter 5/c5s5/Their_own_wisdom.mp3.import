@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b5w6pca50affj"
+path="res://.godot/imported/Their_own_wisdom.mp3-6a859ed9a4ef0f37a03934cc6dba73af.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s5/Their_own_wisdom.mp3"
+dest_files=["res://.godot/imported/Their_own_wisdom.mp3-6a859ed9a4ef0f37a03934cc6dba73af.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cj3guesxy8hop"
+path="res://.godot/imported/The_Protagonist_holds_both.mp3-451eb4740531ba295e767a649b395409.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S4/The_Protagonist_holds_both.mp3"
+dest_files=["res://.godot/imported/The_Protagonist_holds_both.mp3-451eb4740531ba295e767a649b395409.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

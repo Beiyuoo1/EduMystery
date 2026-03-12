@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5iwc6hpm6dfl"
+path="res://.godot/imported/Alice_approaches_looking_curious.mp3-b15fe767a9ef058d15d8ac22b0d64d9b.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s5/Alice_approaches_looking_curious.mp3"
+dest_files=["res://.godot/imported/Alice_approaches_looking_curious.mp3-b15fe767a9ef058d15d8ac22b0d64d9b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

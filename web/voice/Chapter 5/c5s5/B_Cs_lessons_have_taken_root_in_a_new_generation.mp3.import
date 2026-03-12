@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bm7s6evk735o6"
+path="res://.godot/imported/B_Cs_lessons_have_taken_root_in_a_new_generation.mp3-0c855fc7ca533e392d60a0123e17b746.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s5/B_Cs_lessons_have_taken_root_in_a_new_generation.mp3"
+dest_files=["res://.godot/imported/B_Cs_lessons_have_taken_root_in_a_new_generation.mp3-0c855fc7ca533e392d60a0123e17b746.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

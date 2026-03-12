@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnsunfmfre8la"
+path="res://.godot/imported/Diwata_Laya_materializes_your_expression_serene.mp3-b4ade5925efce4dab09c2879e90e59e4.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s0/Diwata_Laya_materializes_your_expression_serene.mp3"
+dest_files=["res://.godot/imported/Diwata_Laya_materializes_your_expression_serene.mp3-b4ade5925efce4dab09c2879e90e59e4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

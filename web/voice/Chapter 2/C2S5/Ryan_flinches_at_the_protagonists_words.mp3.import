@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d4be600san77r"
+path="res://.godot/imported/Ryan_flinches_at_the_protagonists_words.mp3-ea02503c065626622fc7504d503c4d39.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S5/Ryan_flinches_at_the_protagonists_words.mp3"
+dest_files=["res://.godot/imported/Ryan_flinches_at_the_protagonists_words.mp3-ea02503c065626622fc7504d503c4d39.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

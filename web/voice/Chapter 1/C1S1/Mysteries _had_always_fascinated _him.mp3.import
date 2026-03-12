@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d20740foklcbm"
+path="res://.godot/imported/Mysteries _had_always_fascinated _him.mp3-33e8b6f1dd75c7f2fac78eaa1b2463f4.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 1/C1S1/Mysteries _had_always_fascinated _him.mp3"
+dest_files=["res://.godot/imported/Mysteries _had_always_fascinated _him.mp3-33e8b6f1dd75c7f2fac78eaa1b2463f4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

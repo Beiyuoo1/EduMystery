@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://flashy_level_up"]
+[gd_scene load_steps=7 format=3 uid="uid://bbvfg8fxjipsc"]
 
-[ext_resource type="Script" path="res://scenes/ui/level_up_scene_flashy.gd" id="1_flashy_script"]
+[ext_resource type="Script" uid="uid://dpc1od7wfygjs" path="res://scenes/ui/level_up_scene_flashy.gd" id="1_flashy_script"]
 
 [sub_resource type="Gradient" id="Gradient_radial"]
 offsets = PackedFloat32Array(0, 0.7, 1)
@@ -32,9 +32,8 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-shadow_size = 15
-shadow_offset = Vector2(0, 0)
 shadow_color = Color(0.5, 0.3, 1, 0.5)
+shadow_size = 15
 
 [node name="LevelUpScene" type="CanvasLayer"]
 layer = 100
@@ -98,7 +97,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 1, 1, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15

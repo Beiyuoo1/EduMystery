@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xndd6jn46ly5"
+path="res://.godot/imported/but_his_gaze.mp3-de8015c58c13ebc193af4f38441e3aee.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s0/but_his_gaze.mp3"
+dest_files=["res://.godot/imported/but_his_gaze.mp3-de8015c58c13ebc193af4f38441e3aee.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

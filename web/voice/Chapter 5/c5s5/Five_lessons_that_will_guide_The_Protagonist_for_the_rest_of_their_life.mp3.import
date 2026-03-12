@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ddoout85f277o"
+path="res://.godot/imported/Five_lessons_that_will_guide_The_Protagonist_for_the_rest_of_their_life.mp3-d29d88b406f0987afae2c410a41f9eb4.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s5/Five_lessons_that_will_guide_The_Protagonist_for_the_rest_of_their_life.mp3"
+dest_files=["res://.godot/imported/Five_lessons_that_will_guide_The_Protagonist_for_the_rest_of_their_life.mp3-d29d88b406f0987afae2c410a41f9eb4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

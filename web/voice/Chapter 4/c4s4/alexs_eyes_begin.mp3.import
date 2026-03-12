@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://y0v0vvl04204"
+path="res://.godot/imported/alexs_eyes_begin.mp3-a88549e4a00ed42cf4cd106cdedd6335.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 4/c4s4/alexs_eyes_begin.mp3"
+dest_files=["res://.godot/imported/alexs_eyes_begin.mp3-a88549e4a00ed42cf4cd106cdedd6335.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

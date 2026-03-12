@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ddjnlq3w66y0x"
+path="res://.godot/imported/Ria_takes_a_shaky_breath.mp3-9b09458f203dd336143b45d580e2bd62.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S3/Ria_takes_a_shaky_breath.mp3"
+dest_files=["res://.godot/imported/Ria_takes_a_shaky_breath.mp3-9b09458f203dd336143b45d580e2bd62.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cyofe1br4ubex"
+path="res://.godot/imported/alexs_shoulders_slump.mp3-26067c53e0ea5aa4528a21c1e79b824b.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 4/c4s4/alexs_shoulders_slump.mp3"
+dest_files=["res://.godot/imported/alexs_shoulders_slump.mp3-26067c53e0ea5aa4528a21c1e79b824b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

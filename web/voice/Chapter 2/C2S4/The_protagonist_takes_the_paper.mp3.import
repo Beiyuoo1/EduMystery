@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bqjl3rjoehe1h"
+path="res://.godot/imported/The_protagonist_takes_the_paper.mp3-7e15da3e8b22b14ee3a85c8cbf2ab05d.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S4/The_protagonist_takes_the_paper.mp3"
+dest_files=["res://.godot/imported/The_protagonist_takes_the_paper.mp3-7e15da3e8b22b14ee3a85c8cbf2ab05d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

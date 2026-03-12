@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dkqhtbdc3rjp8"
+path="res://.godot/imported/Ria_s_hands_tremble_slightly.mp3-c3a6bd8c90af50f7b31bd6435c112600.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S3/Ria_s_hands_tremble_slightly.mp3"
+dest_files=["res://.godot/imported/Ria_s_hands_tremble_slightly.mp3-c3a6bd8c90af50f7b31bd6435c112600.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

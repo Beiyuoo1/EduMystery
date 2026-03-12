@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://2odlksib4i0o"
+path="res://.godot/imported/Mark_grins.mp3-4d282921a813a9d31ef3bcd5d9e6197a.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S6/Mark_grins.mp3"
+dest_files=["res://.godot/imported/Mark_grins.mp3-4d282921a813a9d31ef3bcd5d9e6197a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

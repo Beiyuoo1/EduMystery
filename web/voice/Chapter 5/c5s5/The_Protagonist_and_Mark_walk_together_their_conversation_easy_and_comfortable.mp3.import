@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://swm308jxblw3"
+path="res://.godot/imported/The_Protagonist_and_Mark_walk_together_their_conversation_easy_and_comfortable.mp3-9fa5368c1726b57ab3bbf5ce40e41855.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s5/The_Protagonist_and_Mark_walk_together_their_conversation_easy_and_comfortable.mp3"
+dest_files=["res://.godot/imported/The_Protagonist_and_Mark_walk_together_their_conversation_easy_and_comfortable.mp3-9fa5368c1726b57ab3bbf5ce40e41855.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

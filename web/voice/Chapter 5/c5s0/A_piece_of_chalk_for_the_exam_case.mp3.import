@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bekj80id6s42n"
+path="res://.godot/imported/A_piece_of_chalk_for_the_exam_case.mp3-ff4e14b57a225ef5cf9e5bafb03a6607.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s0/A_piece_of_chalk_for_the_exam_case.mp3"
+dest_files=["res://.godot/imported/A_piece_of_chalk_for_the_exam_case.mp3-ff4e14b57a225ef5cf9e5bafb03a6607.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

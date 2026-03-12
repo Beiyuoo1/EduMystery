@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b3l1prerxchdx"
+path="res://.godot/imported/he_turns_and.mp3-6aace029b9fcf460051b486640480e25.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s0/he_turns_and.mp3"
+dest_files=["res://.godot/imported/he_turns_and.mp3-6aace029b9fcf460051b486640480e25.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cluoac30ax5he"
+path="res://.godot/imported/the_paper_is.mp3-4aae9f424561b563ad2de6638d7acd8f.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s6/the_paper_is.mp3"
+dest_files=["res://.godot/imported/the_paper_is.mp3-4aae9f424561b563ad2de6638d7acd8f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

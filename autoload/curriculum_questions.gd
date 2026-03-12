@@ -1519,9 +1519,9 @@ var questions = {
 			},
 			"fillinblank": {
 				"sentence_parts": [
-					"A strong ", " is supported by ", " and logical reasoning."
+					"A strong ", " is supported by evidence and logical reasoning."
 				],
-				"answers": ["argument", "evidence"],
+				"answers": ["argument"],
 				"choices": [
 					"argument", "opinion", "evidence", "emotion",
 					"claim", "story", "fact", "guess"

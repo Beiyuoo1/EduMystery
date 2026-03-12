@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://q4kqqbmxd5wy"
+path="res://.godot/imported/she_pulls_out.mp3-9a70b977f6451223cbfbb1682648f54e.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s3/she_pulls_out.mp3"
+dest_files=["res://.godot/imported/she_pulls_out.mp3-9a70b977f6451223cbfbb1682648f54e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

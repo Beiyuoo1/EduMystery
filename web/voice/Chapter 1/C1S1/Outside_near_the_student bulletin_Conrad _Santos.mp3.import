@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d0n7b7l88th81"
+path="res://.godot/imported/Outside_near_the_student bulletin_Conrad _Santos.mp3-d680fbe4ef79643303a421bad8fc38ab.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 1/C1S1/Outside_near_the_student bulletin_Conrad _Santos.mp3"
+dest_files=["res://.godot/imported/Outside_near_the_student bulletin_Conrad _Santos.mp3-d680fbe4ef79643303a421bad8fc38ab.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

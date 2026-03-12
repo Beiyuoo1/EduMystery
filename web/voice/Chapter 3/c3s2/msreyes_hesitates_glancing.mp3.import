@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cnqmdauhu1xqq"
+path="res://.godot/imported/msreyes_hesitates_glancing.mp3-34ef5f0358612b01dd79ce6aafe8f26e.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s2/msreyes_hesitates_glancing.mp3"
+dest_files=["res://.godot/imported/msreyes_hesitates_glancing.mp3-34ef5f0358612b01dd79ce6aafe8f26e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

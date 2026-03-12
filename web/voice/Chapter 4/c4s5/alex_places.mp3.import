@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ds7bxuhi5qs7e"
+path="res://.godot/imported/alex_places.mp3-21f58ad5dd64f5a7244928b331320163.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 4/c4s5/alex_places.mp3"
+dest_files=["res://.godot/imported/alex_places.mp3-21f58ad5dd64f5a7244928b331320163.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

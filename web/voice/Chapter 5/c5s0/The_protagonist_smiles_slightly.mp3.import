@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bqaf6nc037bff"
+path="res://.godot/imported/The_protagonist_smiles_slightly.mp3-aa8a45eecee49c6adbab9ec5181afb44.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s0/The_protagonist_smiles_slightly.mp3"
+dest_files=["res://.godot/imported/The_protagonist_smiles_slightly.mp3-aa8a45eecee49c6adbab9ec5181afb44.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://exhb6v2nmnh8"
+path="res://.godot/imported/victor_falls_silent.mp3-09ba52bb2f592410b123bfd4332bdd0a.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s5/victor_falls_silent.mp3"
+dest_files=["res://.godot/imported/victor_falls_silent.mp3-09ba52bb2f592410b123bfd4332bdd0a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://gwiyuemib7ic"
+path="res://.godot/imported/the_protagonists_tone.mp3-2593200ada79456429b2afc5ea651c13.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s4/the_protagonists_tone.mp3"
+dest_files=["res://.godot/imported/the_protagonists_tone.mp3-2593200ada79456429b2afc5ea651c13.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

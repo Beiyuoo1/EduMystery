@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d0780fkifjrhy"
+path="res://.godot/imported/Ms._Santos_slumps_in_her_hair.mp3-3ed627374838b5a0323b904566e073a6.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S2/Ms._Santos_slumps_in_her_hair.mp3"
+dest_files=["res://.godot/imported/Ms._Santos_slumps_in_her_hair.mp3-3ed627374838b5a0323b904566e073a6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

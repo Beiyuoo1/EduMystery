@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dvgtj072l17qc"
+path="res://.godot/imported/The_figure_turns_slowly.mp3-b8b61fef558b3bacb0e258ac1d944a92.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s2/The_figure_turns_slowly.mp3"
+dest_files=["res://.godot/imported/The_figure_turns_slowly.mp3-b8b61fef558b3bacb0e258ac1d944a92.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhc3j5wsaevh8"
+path="res://.godot/imported/The_Protagonist_moves_to_the_next_position_arranging_budget_papers_in_a_small_maze_pattern.mp3-316afdf4ffcb8b097abf4439566c5a49.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s1/The_Protagonist_moves_to_the_next_position_arranging_budget_papers_in_a_small_maze_pattern.mp3"
+dest_files=["res://.godot/imported/The_Protagonist_moves_to_the_next_position_arranging_budget_papers_in_a_small_maze_pattern.mp3-316afdf4ffcb8b097abf4439566c5a49.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

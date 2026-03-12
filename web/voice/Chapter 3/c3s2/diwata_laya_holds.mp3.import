@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dqdqps5ajoe3r"
+path="res://.godot/imported/diwata_laya_holds.mp3-47d4e5dddc52666645c969a830de1e3a.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s2/diwata_laya_holds.mp3"
+dest_files=["res://.godot/imported/diwata_laya_holds.mp3-47d4e5dddc52666645c969a830de1e3a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

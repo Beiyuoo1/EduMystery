@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cc3h3we2u1lkj"
+path="res://.godot/imported/the_principal_enters.mp3-0c9e0d97c833f7ae22fcb1b971be87b9.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 4/c4s2/the_principal_enters.mp3"
+dest_files=["res://.godot/imported/the_principal_enters.mp3-0c9e0d97c833f7ae22fcb1b971be87b9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

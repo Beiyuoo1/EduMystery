@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://lygwmfnx2vb0"
+path="res://.godot/imported/the_protagonist_smiles.mp3-036afc07587b2ec045bdf6e876fbd7e7.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 4/c4s5/the_protagonist_smiles.mp3"
+dest_files=["res://.godot/imported/the_protagonist_smiles.mp3-036afc07587b2ec045bdf6e876fbd7e7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

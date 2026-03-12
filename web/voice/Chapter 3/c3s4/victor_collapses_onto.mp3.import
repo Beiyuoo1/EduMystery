@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cxswqeo6jfx3p"
+path="res://.godot/imported/victor_collapses_onto.mp3-e9c032e68aa9339edfb993ecbd751dfe.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s4/victor_collapses_onto.mp3"
+dest_files=["res://.godot/imported/victor_collapses_onto.mp3-e9c032e68aa9339edfb993ecbd751dfe.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

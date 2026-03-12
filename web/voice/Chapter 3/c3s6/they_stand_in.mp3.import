@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bc6jqyrwgjiy3"
+path="res://.godot/imported/they_stand_in.mp3-8e8d7b501e2d643a407662cf77322f5c.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s6/they_stand_in.mp3"
+dest_files=["res://.godot/imported/they_stand_in.mp3-8e8d7b501e2d643a407662cf77322f5c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

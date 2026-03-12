@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dj7ixsecxuyfk"
+path="res://.godot/imported/the_mysterious_person_thinks.mp3-2c5046959aefb5434fb2fc5e36302a7f.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 4/c4s0/the_mysterious_person_thinks.mp3"
+dest_files=["res://.godot/imported/the_mysterious_person_thinks.mp3-2c5046959aefb5434fb2fc5e36302a7f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

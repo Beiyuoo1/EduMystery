@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwnikwuut1vk3"
+path="res://.godot/imported/but_the_chain.mp3-ff89036a193fa77d45b6bd1fa298a575.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 4/c4s6/but_the_chain.mp3"
+dest_files=["res://.godot/imported/but_the_chain.mp3-ff89036a193fa77d45b6bd1fa298a575.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

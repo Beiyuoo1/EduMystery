@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://culh5v8ceusga"
+path="res://.godot/imported/The_Protagonist_nods.mp3-b62b7c149d0a5012ef507a0d601ccf53.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S6/The_Protagonist_nods.mp3"
+dest_files=["res://.godot/imported/The_Protagonist_nods.mp3-b62b7c149d0a5012ef507a0d601ccf53.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

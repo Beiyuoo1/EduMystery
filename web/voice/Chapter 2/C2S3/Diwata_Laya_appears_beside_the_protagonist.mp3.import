@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8hkckc1g3whv"
+path="res://.godot/imported/Diwata_Laya_appears_beside_the_protagonist.mp3-5fff7d4bbf91d58aee8ee201e960a8c4.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S3/Diwata_Laya_appears_beside_the_protagonist.mp3"
+dest_files=["res://.godot/imported/Diwata_Laya_appears_beside_the_protagonist.mp3-5fff7d4bbf91d58aee8ee201e960a8c4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

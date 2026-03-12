@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cf1s0ehdxkc5v"
+path="res://.godot/imported/diwata_laya_appears.mp3-9423230b2e2049123832e0d6a59918fe.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 4/c4s6/diwata_laya_appears.mp3"
+dest_files=["res://.godot/imported/diwata_laya_appears.mp3-9423230b2e2049123832e0d6a59918fe.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

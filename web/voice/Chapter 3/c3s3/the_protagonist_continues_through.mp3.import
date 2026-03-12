@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bp2ebb7ckhvhl"
+path="res://.godot/imported/the_protagonist_continues_through.mp3-add12a369e4b5273bc1009af24310ac2.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s3/the_protagonist_continues_through.mp3"
+dest_files=["res://.godot/imported/the_protagonist_continues_through.mp3-add12a369e4b5273bc1009af24310ac2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

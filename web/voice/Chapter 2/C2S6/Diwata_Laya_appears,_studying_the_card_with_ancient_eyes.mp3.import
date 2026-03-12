@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dpcl35q03883d"
+path="res://.godot/imported/Diwata_Laya_appears,_studying_the_card_with_ancient_eyes.mp3-48d8cd7a317eb34afa04afa1d1afa037.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S6/Diwata_Laya_appears,_studying_the_card_with_ancient_eyes.mp3"
+dest_files=["res://.godot/imported/Diwata_Laya_appears,_studying_the_card_with_ancient_eyes.mp3-48d8cd7a317eb34afa04afa1d1afa037.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b4cevf4jf4xye"
+path="res://.godot/imported/principal_picks_it.mp3-47be8ce7c080ebb2bc6c1bda4dddfc7a.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 4/c4s5/principal_picks_it.mp3"
+dest_files=["res://.godot/imported/principal_picks_it.mp3-47be8ce7c080ebb2bc6c1bda4dddfc7a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://beot61i7tfwk1"
+path="res://.godot/imported/She_picks_up_a_worn_notebook.mp3-3a494fd5565e3b9b23d48cc198a62d69.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S0/She_picks_up_a_worn_notebook.mp3"
+dest_files=["res://.godot/imported/She_picks_up_a_worn_notebook.mp3-3a494fd5565e3b9b23d48cc198a62d69.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

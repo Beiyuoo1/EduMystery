@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b7dscgix4mta8"
+path="res://.godot/imported/In_their_hand_they_hold_your_card.mp3-3c0b79106556c73624352693b3df1491.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s2/In_their_hand_they_hold_your_card.mp3"
+dest_files=["res://.godot/imported/In_their_hand_they_hold_your_card.mp3-3c0b79106556c73624352693b3df1491.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

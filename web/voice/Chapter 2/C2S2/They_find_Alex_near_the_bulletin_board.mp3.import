@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://gekvujb8v00x"
+path="res://.godot/imported/They_find_Alex_near_the_bulletin_board.mp3-0e19904bd839aa5b83d9f170beabfc55.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S2/They_find_Alex_near_the_bulletin_board.mp3"
+dest_files=["res://.godot/imported/They_find_Alex_near_the_bulletin_board.mp3-0e19904bd839aa5b83d9f170beabfc55.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

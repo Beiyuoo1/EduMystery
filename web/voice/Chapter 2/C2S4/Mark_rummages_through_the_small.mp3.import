@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c0n2ykyob1b6s"
+path="res://.godot/imported/Mark_rummages_through_the_small.mp3-c996e471de5895517904d4c95174d6ce.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S4/Mark_rummages_through_the_small.mp3"
+dest_files=["res://.godot/imported/Mark_rummages_through_the_small.mp3-c996e471de5895517904d4c95174d6ce.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

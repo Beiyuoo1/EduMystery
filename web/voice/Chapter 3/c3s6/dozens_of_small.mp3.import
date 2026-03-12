@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://7ygyxg7cpp6k"
+path="res://.godot/imported/dozens_of_small.mp3-d5a02711d37c4275bc4740c8fcc5ff1d.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s6/dozens_of_small.mp3"
+dest_files=["res://.godot/imported/dozens_of_small.mp3-d5a02711d37c4275bc4740c8fcc5ff1d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bt4dv7wxv83eq"
+path="res://.godot/imported/Ryans_shoulders_slump.mp3-0fee7d60dde1fb18ee3564e87642c59e.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S5/Ryans_shoulders_slump.mp3"
+dest_files=["res://.godot/imported/Ryans_shoulders_slump.mp3-0fee7d60dde1fb18ee3564e87642c59e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

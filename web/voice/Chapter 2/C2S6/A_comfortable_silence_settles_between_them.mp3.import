@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c8ybbm6l8266m"
+path="res://.godot/imported/A_comfortable_silence_settles_between_them.mp3-e4bb08d4fb8fa28a81ed319ac918693a.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S6/A_comfortable_silence_settles_between_them.mp3"
+dest_files=["res://.godot/imported/A_comfortable_silence_settles_between_them.mp3-e4bb08d4fb8fa28a81ed319ac918693a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

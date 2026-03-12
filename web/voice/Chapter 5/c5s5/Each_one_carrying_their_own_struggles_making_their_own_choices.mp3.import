@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dxkhc846ts07c"
+path="res://.godot/imported/Each_one_carrying_their_own_struggles_making_their_own_choices.mp3-967c1da5b02eba0e5995a04e66c0dbaa.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s5/Each_one_carrying_their_own_struggles_making_their_own_choices.mp3"
+dest_files=["res://.godot/imported/Each_one_carrying_their_own_struggles_making_their_own_choices.mp3-967c1da5b02eba0e5995a04e66c0dbaa.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

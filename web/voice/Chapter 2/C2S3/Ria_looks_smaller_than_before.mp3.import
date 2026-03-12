@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cu4olw7ay42b6"
+path="res://.godot/imported/Ria_looks_smaller_than_before.mp3-d37e106372b0a3292a8f0e0044786f14.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S3/Ria_looks_smaller_than_before.mp3"
+dest_files=["res://.godot/imported/Ria_looks_smaller_than_before.mp3-d37e106372b0a3292a8f0e0044786f14.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

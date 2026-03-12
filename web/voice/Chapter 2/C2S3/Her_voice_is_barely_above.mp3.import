@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c3wccrn2krpo4"
+path="res://.godot/imported/Her_voice_is_barely_above.mp3-6d470f9dfb753cff18136986bbc7fbfc.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S3/Her_voice_is_barely_above.mp3"
+dest_files=["res://.godot/imported/Her_voice_is_barely_above.mp3-6d470f9dfb753cff18136986bbc7fbfc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

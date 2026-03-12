@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://djfb7hsgp8a2o"
+path="res://.godot/imported/Bitterness_creeps_in_her_voice.mp3-93de95ce592dac349383fdb833ff2e74.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S2/Bitterness_creeps_in_her_voice.mp3"
+dest_files=["res://.godot/imported/Bitterness_creeps_in_her_voice.mp3-93de95ce592dac349383fdb833ff2e74.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

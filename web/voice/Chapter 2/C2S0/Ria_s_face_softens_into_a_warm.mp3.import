@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3dvb20rxvtgw"
+path="res://.godot/imported/Ria_s_face_softens_into_a_warm.mp3-4325f7e681fcfc1105ccb0604c9bf5af.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S0/Ria_s_face_softens_into_a_warm.mp3"
+dest_files=["res://.godot/imported/Ria_s_face_softens_into_a_warm.mp3-4325f7e681fcfc1105ccb0604c9bf5af.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

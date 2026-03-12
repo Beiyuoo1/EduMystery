@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://k1r27dgflnf2"
+path="res://.godot/imported/his_hands_tremble.mp3-e6a0fabb7d41f24041581125244855a6.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s0/his_hands_tremble.mp3"
+dest_files=["res://.godot/imported/his_hands_tremble.mp3-e6a0fabb7d41f24041581125244855a6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

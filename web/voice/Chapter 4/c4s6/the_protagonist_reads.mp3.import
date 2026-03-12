@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b4agdfw15tuvh"
+path="res://.godot/imported/the_protagonist_reads.mp3-4dfc19bfbc58cda3ad06e6d3bdc72d5c.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 4/c4s6/the_protagonist_reads.mp3"
+dest_files=["res://.godot/imported/the_protagonist_reads.mp3-4dfc19bfbc58cda3ad06e6d3bdc72d5c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

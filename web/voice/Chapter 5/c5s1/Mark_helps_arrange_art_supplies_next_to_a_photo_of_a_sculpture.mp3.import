@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b45e86fyxvold"
+path="res://.godot/imported/Mark_helps_arrange_art_supplies_next_to_a_photo_of_a_sculpture.mp3-737835bcd65d35bb1d499257a98ced44.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s1/Mark_helps_arrange_art_supplies_next_to_a_photo_of_a_sculpture.mp3"
+dest_files=["res://.godot/imported/Mark_helps_arrange_art_supplies_next_to_a_photo_of_a_sculpture.mp3-737835bcd65d35bb1d499257a98ced44.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

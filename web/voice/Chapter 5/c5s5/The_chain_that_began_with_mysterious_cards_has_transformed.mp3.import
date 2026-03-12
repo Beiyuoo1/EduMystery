@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://sh071x1c1ayi"
+path="res://.godot/imported/The_chain_that_began_with_mysterious_cards_has_transformed.mp3-08f4c99fe4ae870b1bd7798b1fb94f89.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s5/The_chain_that_began_with_mysterious_cards_has_transformed.mp3"
+dest_files=["res://.godot/imported/The_chain_that_began_with_mysterious_cards_has_transformed.mp3-08f4c99fe4ae870b1bd7798b1fb94f89.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

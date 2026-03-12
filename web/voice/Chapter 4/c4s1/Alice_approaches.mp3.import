@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://4k7us4ef0mbv"
+path="res://.godot/imported/Alice_approaches.mp3-1e0a69247967c831b229ba63d1bb990c.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 4/c4s1/Alice_approaches.mp3"
+dest_files=["res://.godot/imported/Alice_approaches.mp3-1e0a69247967c831b229ba63d1bb990c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

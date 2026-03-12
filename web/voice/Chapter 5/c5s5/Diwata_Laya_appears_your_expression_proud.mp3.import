@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d1fm6v2cuvf8a"
+path="res://.godot/imported/Diwata_Laya_appears_your_expression_proud.mp3-1319818e2e049c91043c3241d9f0da40.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s5/Diwata_Laya_appears_your_expression_proud.mp3"
+dest_files=["res://.godot/imported/Diwata_Laya_appears_your_expression_proud.mp3-1319818e2e049c91043c3241d9f0da40.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

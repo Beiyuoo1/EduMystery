@@ -59,9 +59,6 @@ func _ready() -> void:
 	# Set initial focus
 	conrad_button.grab_focus()
 
-	# Show debug hint
-	_add_debug_label()
-
 	# Fade in
 	modulate.a = 0.0
 	var tween = create_tween()
@@ -206,15 +203,6 @@ func _toggle_character_focus() -> void:
 		conrad_button.grab_focus()
 	else:
 		conrad_button.grab_focus()
-
-func _add_debug_label() -> void:
-	"""Add a small debug label showing chapter skip keys"""
-	var debug_label = Label.new()
-	debug_label.text = "DEBUG: First select character, then press 1-5 to skip to chapter"
-	debug_label.add_theme_font_size_override("font_size", 16)
-	debug_label.add_theme_color_override("font_color", Color(1, 1, 0, 0.7))  # Semi-transparent yellow
-	debug_label.position = Vector2(10, 10)  # Top-left corner
-	add_child(debug_label)
 
 func _debug_skip_to_chapter(chapter: int) -> void:
 	"""Debug function to skip directly to a specific chapter with selected character"""

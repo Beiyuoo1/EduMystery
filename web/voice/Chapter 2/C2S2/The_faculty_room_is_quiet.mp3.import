@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwhnkidrmledu"
+path="res://.godot/imported/The_faculty_room_is_quiet.mp3-e595b4391e66fa0fc52e090d5e1aa07c.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S2/The_faculty_room_is_quiet.mp3"
+dest_files=["res://.godot/imported/The_faculty_room_is_quiet.mp3-e595b4391e66fa0fc52e090d5e1aa07c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://lh1bg8kmfd4r"
+path="res://.godot/imported/alex_takes_a.mp3-eb90d8ec1db15aced81050384328b684.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 4/c4s4/alex_takes_a.mp3"
+dest_files=["res://.godot/imported/alex_takes_a.mp3-eb90d8ec1db15aced81050384328b684.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

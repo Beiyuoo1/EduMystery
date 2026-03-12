@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://6q00mlvoav1e"
+path="res://.godot/imported/mark_gives_the.mp3-cab97c117e2efc2c6bfd72ebe4ecac99.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s3/mark_gives_the.mp3"
+dest_files=["res://.godot/imported/mark_gives_the.mp3-cab97c117e2efc2c6bfd72ebe4ecac99.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

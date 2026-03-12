@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cxpfq2i30qy21"
+path="res://.godot/imported/Mark_replies_Im_not.mp3-37009245becc969d3891a0bdf8449886.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 1/C1s3/Mark_replies_Im_not.mp3"
+dest_files=["res://.godot/imported/Mark_replies_Im_not.mp3-37009245becc969d3891a0bdf8449886.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

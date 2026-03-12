@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b4pnjlqxv06ta"
+path="res://.godot/imported/the_bc_card.mp3-6b35b6a88d2993d5274b46916b8ec722.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 4/c4s6/the_bc_card.mp3"
+dest_files=["res://.godot/imported/the_bc_card.mp3-6b35b6a88d2993d5274b46916b8ec722.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c3kwfqpi01dc5"
+path="res://.godot/imported/Ria_closes_the_lockbox.mp3-a6f8352c38533c75371a1572cbd6f7b4.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S0/Ria_closes_the_lockbox.mp3"
+dest_files=["res://.godot/imported/Ria_closes_the_lockbox.mp3-a6f8352c38533c75371a1572cbd6f7b4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

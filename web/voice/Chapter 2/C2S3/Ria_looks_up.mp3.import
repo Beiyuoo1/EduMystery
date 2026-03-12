@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://clpjo2sm57pku"
+path="res://.godot/imported/Ria_looks_up.mp3-fae1141db7f8d646e9f6de2ab98f71ff.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S3/Ria_looks_up.mp3"
+dest_files=["res://.godot/imported/Ria_looks_up.mp3-fae1141db7f8d646e9f6de2ab98f71ff.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

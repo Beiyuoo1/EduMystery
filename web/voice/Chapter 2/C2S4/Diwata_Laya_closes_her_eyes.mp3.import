@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bvc6qyvrp2osw"
+path="res://.godot/imported/Diwata_Laya_closes_her_eyes.mp3-8dc98c52be2c4f5cfd9fe183c4c2b9cc.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S4/Diwata_Laya_closes_her_eyes.mp3"
+dest_files=["res://.godot/imported/Diwata_Laya_closes_her_eyes.mp3-8dc98c52be2c4f5cfd9fe183c4c2b9cc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

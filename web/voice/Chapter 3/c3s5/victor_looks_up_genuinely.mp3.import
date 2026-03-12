@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bu52cuf66bro6"
+path="res://.godot/imported/victor_looks_up_genuinely.mp3-016931824958d4ee0d9c863b7e095ea0.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s5/victor_looks_up_genuinely.mp3"
+dest_files=["res://.godot/imported/victor_looks_up_genuinely.mp3-016931824958d4ee0d9c863b7e095ea0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

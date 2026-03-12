@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://njw5ou4ergcp"
+path="res://.godot/imported/The_Protagonist studies_the_paper.mp3-4e1eef99ff75773e218f3d0799d3bee0.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S3/The_Protagonist studies_the_paper.mp3"
+dest_files=["res://.godot/imported/The_Protagonist studies_the_paper.mp3-4e1eef99ff75773e218f3d0799d3bee0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

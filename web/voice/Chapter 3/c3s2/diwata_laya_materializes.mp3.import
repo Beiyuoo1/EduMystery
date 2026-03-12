@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dugyfa16tidc0"
+path="res://.godot/imported/diwata_laya_materializes.mp3-b1efa3c421c7d1e1e683578affe25839.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s2/diwata_laya_materializes.mp3"
+dest_files=["res://.godot/imported/diwata_laya_materializes.mp3-b1efa3c421c7d1e1e683578affe25839.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

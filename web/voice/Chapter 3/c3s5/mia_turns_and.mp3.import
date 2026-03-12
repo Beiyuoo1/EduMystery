@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://62vn0j8853w2"
+path="res://.godot/imported/mia_turns_and.mp3-8aab2aa1d51eea7b6ec55d59fa21db59.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s5/mia_turns_and.mp3"
+dest_files=["res://.godot/imported/mia_turns_and.mp3-8aab2aa1d51eea7b6ec55d59fa21db59.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

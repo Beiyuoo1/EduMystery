@@ -50,8 +50,7 @@ else:
 	Unlike most of your classmates who found it exciting gossip, you felt something strange — a [b][wave]pull[/wave][/b].
 	update Conrad (half)
 	[voice path="res://assets/audio/voice/Chapter 1/C1S1/Mysteries _had_always_fascinated _him.mp3" volume="10.0" bus="Voice"]
-	Mysteries had always fascinated him, especially since he and his best friends \
-	accidentally solved the missing ID case last semester.
+	Mysteries had always fascinated him, especially since he and his best friends accidentally solved the missing ID case last semester.
 	audio music - [fade="0.4"]
 	update Conrad left
 	join Mark (Mark_half) right

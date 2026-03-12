@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://sjkew7q1jxde"
+path="res://.godot/imported/Uncertainty_crosses_her_face.mp3-9b39a372c22dd8cea5166970dc6ccd40.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S2/Uncertainty_crosses_her_face.mp3"
+dest_files=["res://.godot/imported/Uncertainty_crosses_her_face.mp3-9b39a372c22dd8cea5166970dc6ccd40.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

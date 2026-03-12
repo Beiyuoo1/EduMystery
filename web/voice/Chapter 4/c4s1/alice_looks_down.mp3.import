@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b6nkqnhkwevu3"
+path="res://.godot/imported/alice_looks_down.mp3-6b923840b7911a64fd3d931b4d5f14f7.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 4/c4s1/alice_looks_down.mp3"
+dest_files=["res://.godot/imported/alice_looks_down.mp3-6b923840b7911a64fd3d931b4d5f14f7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

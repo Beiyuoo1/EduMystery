@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhw12tlpwslu2"
+path="res://.godot/imported/Mark_whispers.mp3-7cf9f716cc5c62c08393f32c4d1c229b.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 1/C1s5/Mark_whispers.mp3"
+dest_files=["res://.godot/imported/Mark_whispers.mp3-7cf9f716cc5c62c08393f32c4d1c229b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

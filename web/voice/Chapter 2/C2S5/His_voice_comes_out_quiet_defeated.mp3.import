@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bs0tjdpqay7mb"
+path="res://.godot/imported/His_voice_comes_out_quiet_defeated.mp3-7ce7fb7d928f4703a6a7ac3d03ca54fe.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S5/His_voice_comes_out_quiet_defeated.mp3"
+dest_files=["res://.godot/imported/His_voice_comes_out_quiet_defeated.mp3-7ce7fb7d928f4703a6a7ac3d03ca54fe.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

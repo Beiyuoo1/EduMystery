@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ddqseapstlhca"
+path="res://.godot/imported/the_art_room.mp3-13463e2f9656ecd1b43adf26e0cebecf.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s5/the_art_room.mp3"
+dest_files=["res://.godot/imported/the_art_room.mp3-13463e2f9656ecd1b43adf26e0cebecf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

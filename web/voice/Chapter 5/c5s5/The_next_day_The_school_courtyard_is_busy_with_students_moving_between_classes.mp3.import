@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dhor0ha5fdq1a"
+path="res://.godot/imported/The_next_day_The_school_courtyard_is_busy_with_students_moving_between_classes.mp3-5cff8f981586b14b673217297e51a532.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s5/The_next_day_The_school_courtyard_is_busy_with_students_moving_between_classes.mp3"
+dest_files=["res://.godot/imported/The_next_day_The_school_courtyard_is_busy_with_students_moving_between_classes.mp3-5cff8f981586b14b673217297e51a532.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

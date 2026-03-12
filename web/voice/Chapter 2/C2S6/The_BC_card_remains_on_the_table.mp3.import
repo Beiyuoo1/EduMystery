@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://4ecwx0lbb8c5"
+path="res://.godot/imported/The_BC_card_remains_on_the_table.mp3-7450eb3400ce703c4821c1cc00664809.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 2/C2S6/The_BC_card_remains_on_the_table.mp3"
+dest_files=["res://.godot/imported/The_BC_card_remains_on_the_table.mp3-7450eb3400ce703c4821c1cc00664809.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

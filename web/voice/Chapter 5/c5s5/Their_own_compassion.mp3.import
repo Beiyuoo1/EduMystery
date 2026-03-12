@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bme1ki4rgwnkd"
+path="res://.godot/imported/Their_own_compassion.mp3-80fb3a000103e724f345af840b5bbd3f.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 5/c5s5/Their_own_compassion.mp3"
+dest_files=["res://.godot/imported/Their_own_compassion.mp3-80fb3a000103e724f345af840b5bbd3f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

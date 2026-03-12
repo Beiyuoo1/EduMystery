@@ -69,8 +69,9 @@ var disabled_wrong_indices: Array = []
 var question_text: String = ""
 var choice_texts: Array = []  # Will be populated by configure_puzzle()
 
-# Voice recognition using GodotVoskRecognizer
+# Voice recognition using GodotVoskRecognizer (PC) or AndroidSpeechRecognition (Android)
 var vosk_recognizer = null
+var android_speech = null  # AndroidSpeechRecognition autoload reference (Android only)
 var audio_effect_capture: AudioEffectCapture = null
 var audio_bus_index: int = -1
 var microphone_player: AudioStreamPlayer = null
@@ -81,6 +82,13 @@ var has_spoken: bool = false
 const SILENCE_THRESHOLD: float = 1.2  # Wait 1.2s of silence before checking next word
 var partial_check_timer: float = 0.0
 const PARTIAL_CHECK_INTERVAL: float = 0.1  # Check Vosk partial results every 100ms, not every frame
+
+# Android-specific silence detection (since the Java plugin may not fire final result)
+var _android_silence_timer: float = 0.0
+var _android_last_partial: String = ""
+var _android_is_listening: bool = false
+var _android_prev_input_device: String = ""  # Godot input device before we released it
+const ANDROID_SILENCE_TIMEOUT: float = 2.5  # Force-evaluate after 2.5s of no new partials
 
 # Word-by-word recognition tracking
 var current_word_index: int = 0  # Which word we're currently trying to recognize
@@ -251,6 +259,13 @@ func _ready():
 		# Web Speech API will be started then.
 		microphone_panel.visible = false
 		print("DialogueChoice: Web mode — will use Web Speech API for pronunciation")
+	elif OS.get_name() == "Android":
+		# Android: use Java plugin singleton directly (bypasses GDScript autoload re-emit chain)
+		if Engine.has_singleton("AndroidSpeechRecognition"):
+			android_speech = Engine.get_singleton("AndroidSpeechRecognition")
+			print("DialogueChoice: Android mode — Java plugin singleton found directly")
+		else:
+			print("DialogueChoice: Android mode — plugin not found, will auto-complete")
 	elif VOSK_BYPASS:
 		# Bypass mode: no Vosk, no microphone — just click-to-answer
 		microphone_panel.visible = false
@@ -612,6 +627,17 @@ func _process(delta):
 			_web_speech_poll_timer = 0.0
 			_poll_web_speech()
 
+	# Android silence detection — fire result if partial text stops changing for 2.5s
+	# Do NOT restart on no-speech: Vosk needs to run uninterrupted to produce output.
+	# onTimeout() (error 6) from Java will fire naturally after prolonged silence.
+	if _android_is_listening:
+		_android_silence_timer += delta
+		if _android_last_partial != "" and _android_silence_timer >= ANDROID_SILENCE_TIMEOUT:
+			print("DialogueChoice: Android silence timeout — evaluating partial: ", _android_last_partial)
+			_android_is_listening = false
+			_on_android_speech_result(_android_last_partial)
+			return
+
 	# Process audio capture for Vosk (only when actively listening and not bypassed)
 	if VOSK_BYPASS or not is_listening or audio_effect_capture == null:
 		return
@@ -828,6 +854,10 @@ func _animate_question_mark():
 
 func _initialize_vosk():
 	"""Initialize Vosk speech recognizer (use preloaded one if available)"""
+	# Android uses its own AAR-based plugin — skip Windows Vosk entirely
+	if OS.get_name() == "Android":
+		return
+
 	# Try to use the preloaded Vosk from MinigameManager
 	if MinigameManager.shared_vosk_recognizer != null:
 		vosk_recognizer = MinigameManager.shared_vosk_recognizer
@@ -893,6 +923,10 @@ func _start_sentence_recognition():
 	"""Start listening for word-by-word sequential recognition"""
 	if OS.get_name() == "Web":
 		_start_web_speech_recognition()
+		return
+
+	if OS.get_name() == "Android":
+		_start_android_speech_recognition()
 		return
 
 	if vosk_recognizer == null:
@@ -976,6 +1010,225 @@ func _start_web_speech_recognition() -> void:
 		})();
 	""")
 	print("DialogueChoice: Web Speech API started")
+
+func _start_android_speech_recognition() -> void:
+	"""Start Android Vosk AAR speech recognition"""
+	if android_speech == null:
+		print("WARNING: Android speech not available - auto-completing")
+		await get_tree().create_timer(3.0).timeout
+		_complete_minigame(true)
+		return
+
+	is_listening = true
+	has_spoken = false
+	status_label.text = "Waiting for speech..."
+	transcription_label.text = ""
+
+	# Connect signals if not already connected (direct Java plugin signals)
+	if not android_speech.speech_recognized.is_connected(_on_android_speech_result):
+		android_speech.speech_recognized.connect(_on_android_speech_result)
+	if not android_speech.speech_partial_result.is_connected(_on_android_speech_partial):
+		android_speech.speech_partial_result.connect(_on_android_speech_partial)
+	if not android_speech.speech_end.is_connected(_on_android_speech_end):
+		android_speech.speech_end.connect(_on_android_speech_end)
+	if not android_speech.speech_error.is_connected(_on_android_speech_error):
+		android_speech.speech_error.connect(_on_android_speech_error)
+	if not android_speech.speech_begin.is_connected(_on_android_speech_begin):
+		android_speech.speech_begin.connect(_on_android_speech_begin)
+	if not android_speech.speech_ready_for_speech.is_connected(_on_android_ready_for_speech):
+		android_speech.speech_ready_for_speech.connect(_on_android_ready_for_speech)
+
+	# Ensure microphone permission is granted (Android 6+)
+	var permissions = OS.get_granted_permissions()
+	print("DialogueChoice: Granted permissions: ", permissions)
+	if "android.permission.RECORD_AUDIO" not in permissions:
+		print("DialogueChoice: RECORD_AUDIO not granted — requesting...")
+		status_label.text = "Microphone permission needed..."
+		OS.request_permissions()
+		# Wait up to 8s for user to grant
+		var waited_perm := 0
+		while waited_perm < 8:
+			await get_tree().create_timer(1.0).timeout
+			permissions = OS.get_granted_permissions()
+			if "android.permission.RECORD_AUDIO" in permissions:
+				print("DialogueChoice: RECORD_AUDIO granted after ", waited_perm + 1, "s")
+				break
+			waited_perm += 1
+		if "android.permission.RECORD_AUDIO" not in permissions:
+			print("DialogueChoice: RECORD_AUDIO DENIED — auto-completing")
+			status_label.text = "Mic permission denied — skipping"
+			await get_tree().create_timer(2.0).timeout
+			_complete_minigame(true)
+			return
+	else:
+		print("DialogueChoice: RECORD_AUDIO permission already granted ✓")
+
+	# Ensure Vosk model is initialized before calling startListening.
+	# isAvailable() returns true only after initModelFromAssets() completes.
+	var model_ready: bool = android_speech.call("isAvailable")
+	if not model_ready:
+		print("DialogueChoice: Vosk model not ready — calling initModelFromAssets()")
+		status_label.text = "Loading speech model..."
+		# Connect model_initialized signal once to know when it's done
+		if not android_speech.model_initialized.is_connected(_on_android_model_initialized):
+			android_speech.model_initialized.connect(_on_android_model_initialized, CONNECT_ONE_SHOT)
+		android_speech.call("initModelFromAssets")
+		# Poll until available (up to 30s) as backup if signal doesn't fire
+		var waited := 0
+		while waited < 30 and not android_speech.call("isAvailable"):
+			await get_tree().create_timer(1.0).timeout
+			waited += 1
+			if waited % 5 == 0:
+				print("DialogueChoice: Still waiting for Vosk model... (", waited, "s)")
+		model_ready = android_speech.call("isAvailable")
+		if not model_ready:
+			print("DialogueChoice: Vosk model FAILED to initialize — auto-completing")
+			status_label.text = "Speech model unavailable"
+			await get_tree().create_timer(2.0).timeout
+			_complete_minigame(true)
+			return
+		print("DialogueChoice: Vosk model ready after waiting")
+		status_label.text = "Waiting for speech..."
+
+	_android_is_listening = true
+	_android_silence_timer = 0.0
+	_android_last_partial = ""
+
+	# Release Godot's hold on the audio input device so the Java SpeechService
+	# can get exclusive mic access (Android only allows one consumer at a time).
+	# Without this, the Java VAD receives silence even though the mic appears open.
+	if AudioServer.input_device != "Disabled":
+		_android_prev_input_device = AudioServer.input_device
+		print("DialogueChoice: Releasing Godot audio input (was: '", _android_prev_input_device, "')")
+		AudioServer.input_device = "Disabled"
+		await get_tree().create_timer(0.2).timeout
+		if not is_instance_valid(self) or not timer_active:
+			AudioServer.input_device = _android_prev_input_device
+			return
+
+	# Reset any stale Java listener state before starting fresh
+	android_speech.call("stopListening")
+	await get_tree().create_timer(0.15).timeout
+	if not is_instance_valid(self) or not timer_active:
+		if _android_prev_input_device != "":
+			AudioServer.input_device = _android_prev_input_device
+		return
+
+	# Call Java startListening — emits speech_ready_for_speech when ready
+	var result = android_speech.call("startListening")
+	print("DialogueChoice: startListening() result: ", result)
+	print("DialogueChoice: Android speech recognition started (direct Java call)")
+
+func _on_android_model_initialized() -> void:
+	"""Called when Vosk model finishes initializing (one-shot signal)"""
+	print("DialogueChoice: Vosk model initialized signal received")
+
+func _on_android_ready_for_speech() -> void:
+	"""Java SpeechService is open and listening — mic is active"""
+	print("DialogueChoice: ✓ Ready for speech — mic is active, speak now")
+	status_label.text = "Mic active — speak now!"
+
+func _on_android_speech_begin() -> void:
+	"""Java SpeechService detected audio energy (voice onset)"""
+	print("DialogueChoice: ✓ speech_begin — voice detected by Android!")
+	status_label.text = "Listening..."
+	_set_chibi_mic_state(true)
+
+func _stop_android_speech_recognition() -> void:
+	"""Stop Android speech recognition, disconnect signals, and restore audio input"""
+	_android_is_listening = false
+	if android_speech == null:
+		return
+	android_speech.call("stopListening")
+	if android_speech.speech_recognized.is_connected(_on_android_speech_result):
+		android_speech.speech_recognized.disconnect(_on_android_speech_result)
+	if android_speech.speech_partial_result.is_connected(_on_android_speech_partial):
+		android_speech.speech_partial_result.disconnect(_on_android_speech_partial)
+	if android_speech.speech_end.is_connected(_on_android_speech_end):
+		android_speech.speech_end.disconnect(_on_android_speech_end)
+	if android_speech.speech_error.is_connected(_on_android_speech_error):
+		android_speech.speech_error.disconnect(_on_android_speech_error)
+	if android_speech.speech_begin.is_connected(_on_android_speech_begin):
+		android_speech.speech_begin.disconnect(_on_android_speech_begin)
+	if android_speech.speech_ready_for_speech.is_connected(_on_android_ready_for_speech):
+		android_speech.speech_ready_for_speech.disconnect(_on_android_ready_for_speech)
+	# Restore Godot's audio input device
+	if _android_prev_input_device != "" and AudioServer.input_device == "Disabled":
+		print("DialogueChoice: Restoring Godot audio input to '", _android_prev_input_device, "'")
+		AudioServer.input_device = _android_prev_input_device
+		_android_prev_input_device = ""
+	is_listening = false
+
+func _on_android_speech_partial(text: String) -> void:
+	"""Show partial transcription while user is speaking"""
+	transcription_label.text = text
+	status_label.text = "Listening..."
+	# Reset silence timer whenever we get a new partial
+	if text != _android_last_partial:
+		_android_last_partial = text
+		_android_silence_timer = 0.0
+
+func _on_android_speech_result(text: String) -> void:
+	"""Handle final Android speech result — match against target sentence"""
+	is_listening = false
+	_stop_android_speech_recognition()
+	print("DialogueChoice: Android speech result: ", text)
+	transcription_label.text = text
+
+	# Build full target sentence from target_words
+	var target_sentence = " ".join(target_words)
+	var match_score = _calculate_similarity(text.to_lower(), target_sentence.to_lower())
+	print("DialogueChoice: Android match score: ", match_score, " (threshold: 0.6)")
+
+	if match_score >= 0.6:
+		status_label.text = "Great job!"
+		_complete_minigame(true)
+	else:
+		status_label.text = "Try again! Say: " + target_sentence
+		# Restart listening for retry
+		await get_tree().create_timer(1.5).timeout
+		if is_instance_valid(self):
+			_start_android_speech_recognition()
+
+func _on_android_speech_end() -> void:
+	"""Java SpeechService detected end-of-speech but Vosk may not have emitted a result yet.
+	   If we have partial text, evaluate it now. If empty, restart to try again."""
+	print("DialogueChoice: Android speech_end fired. Last partial: '", _android_last_partial, "'")
+	if not _android_is_listening:
+		return  # Already handled (e.g., silence timeout already fired)
+	if _android_last_partial != "":
+		# We have partial text — evaluate it as the final result
+		_android_is_listening = false
+		_on_android_speech_result(_android_last_partial)
+	else:
+		# No speech recognized at all — restart immediately
+		_android_is_listening = false
+		_android_silence_timer = 0.0
+		status_label.text = "Didn't catch that — please try again"
+		android_speech.call("stopListening")
+		await get_tree().create_timer(0.5).timeout
+		if is_instance_valid(self) and timer_active:
+			_start_android_speech_recognition()
+
+func _on_android_speech_error(error) -> void:
+	"""Handle Vosk recognition errors — Java emits Integer error codes, not String.
+	   Error 6 = onTimeout (silence/no-speech) — restart listening.
+	   Error 5 = client error (model/AudioRecord failed) — restart after delay."""
+	print("DialogueChoice: Android speech_error code: ", error)
+	if not _android_is_listening:
+		return
+	_android_is_listening = false
+	_android_silence_timer = 0.0
+	var error_int = int(error)
+	if error_int == 6:
+		# Vosk onTimeout: no speech detected. Restart immediately.
+		status_label.text = "No speech detected — speak now!"
+		await get_tree().create_timer(0.3).timeout
+	else:
+		status_label.text = "Mic error (" + str(error) + ") — retrying..."
+		await get_tree().create_timer(0.8).timeout
+	if is_instance_valid(self) and timer_active:
+		_start_android_speech_recognition()
 
 func _stop_web_speech_recognition() -> void:
 	"""Stop the Web Speech API recognizer"""
@@ -1379,6 +1632,11 @@ func _cleanup():
 	# Stop Web Speech API if active
 	if _web_speech_active:
 		_stop_web_speech_recognition()
+
+	# Stop Android speech if active
+	if OS.get_name() == "Android" and android_speech != null:
+		_android_is_listening = false
+		android_speech.call("stopListening")
 
 	# Stop and remove microphone player
 	if microphone_player:

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bbpqaun4k53h4"
+path="res://.godot/imported/the_protagonist_stands.mp3-f2e79de0e01835e328aa817ce3169031.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s4/the_protagonist_stands.mp3"
+dest_files=["res://.godot/imported/the_protagonist_stands.mp3-f2e79de0e01835e328aa817ce3169031.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

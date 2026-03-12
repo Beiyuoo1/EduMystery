@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://kup3lirf64s3"
+path="res://.godot/imported/victors_face_goes.mp3-902772e48ff8d2faab96136d95ec5c91.mp3str"
+
+[deps]
+
+source_file="res://web/voice/Chapter 3/c3s4/victors_face_goes.mp3"
+dest_files=["res://.godot/imported/victors_face_goes.mp3-902772e48ff8d2faab96136d95ec5c91.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

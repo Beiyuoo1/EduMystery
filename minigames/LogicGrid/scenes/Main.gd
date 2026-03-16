@@ -12,7 +12,6 @@ extends Control
 @onready var grid_container: GridContainer = $Panel/VBox/MainHBox/GridSection/GridPanel/MarginContainer/GridContainer
 @onready var timer_label: Label = $Panel/VBox/HBox/TimerLabel
 @onready var hint_button: Button = $Panel/VBox/HBox/HintButton
-@onready var hint_counter: Label = $Panel/VBox/HBox/HintCounter
 @onready var submit_button: Button = $Panel/VBox/SubmitButton
 @onready var feedback_overlay: ColorRect = $FeedbackOverlay
 @onready var feedback_panel: NinePatchRect = $FeedbackPanel
@@ -60,9 +59,8 @@ func _ready() -> void:
 	feedback_overlay.hide()
 	clues_popup.hide()
 	hint_button.pressed.connect(_on_hint_pressed)
-	hint_button.icon = load("res://assets/UI/core/hints.png")
-	hint_button.add_theme_constant_override("icon_max_width", 32)
-	hint_button.text = ""
+	hint_button.icon = null
+	hint_button.text = "💡 Hint (%d)" % PlayerStats.hints
 	submit_button.pressed.connect(_on_submit_pressed)
 	continue_button.pressed.connect(_on_continue_pressed)
 	tut_next_button.pressed.connect(_on_tutorial_next)
@@ -102,7 +100,7 @@ func _style_clues_button() -> void:
 	clues_button.add_theme_stylebox_override("hover", hover)
 	clues_button.add_theme_stylebox_override("pressed", hover.duplicate())
 	clues_button.add_theme_color_override("font_color", Color.WHITE)
-	clues_button.add_theme_font_size_override("font_size", 26)
+	clues_button.add_theme_font_size_override("font_size", 34)
 
 func _on_clues_button_pressed() -> void:
 	clues_popup.show()
@@ -227,7 +225,7 @@ func _display_clues(clues: Array) -> void:
 	for clue_text in clues:
 		var clue_label = Label.new()
 		clue_label.text = "• " + clue_text
-		clue_label.add_theme_font_size_override("font_size", 20)
+		clue_label.add_theme_font_size_override("font_size", 52)
 		clue_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		clue_label.add_theme_color_override("font_color", Color(1, 1, 1, 1))
 		clues_container.add_child(clue_label)
@@ -426,12 +424,11 @@ func _process(delta: float) -> void:
 		if hint_cooldown <= 0.0:
 			hint_cooldown = 0.0
 			hint_button.disabled = false
-			hint_button.icon = load("res://assets/UI/core/hints.png")
-			hint_button.add_theme_constant_override("icon_max_width", 32)
-			hint_button.text = ""
+			hint_button.icon = null
+			hint_button.text = "💡 Hint (%d)" % PlayerStats.hints
 		else:
 			hint_button.icon = null
-			hint_button.text = "Hint (%ds)" % ceil(hint_cooldown)
+			hint_button.text = "⏳ Wait (%ds)" % ceil(hint_cooldown)
 
 func _on_submit_pressed() -> void:
 	"""Check if solution is correct"""
@@ -452,8 +449,8 @@ func _show_wrong_feedback() -> void:
 	feedback_overlay.show()
 	feedback_panel.show()
 	feedback_label.text = "[center][img=64x64]res://assets/UI/core/incorrect.png[/img][/center]\n"
-	feedback_label.text += "[center][color=#ff5555][font_size=80][b]Not Quite Right[/b][/font_size][/color][/center]\n\n"
-	feedback_label.text += "[center][font_size=24]Some deductions are incorrect.\nReview the clues carefully and try again.[/font_size][/center]"
+	feedback_label.text += "[center][color=#ff5555][font_size=90][b]Not Quite Right[/b][/font_size][/color][/center]\n\n"
+	feedback_label.text += "[center][font_size=52]Some deductions are incorrect.\nReview the clues carefully and try again.[/font_size][/center]"
 	continue_button.text = "Try Again"
 
 	# Disconnect old signal and connect retry handler
@@ -525,11 +522,11 @@ func _show_feedback(is_correct: bool, time_taken: float) -> void:
 	"""Show success feedback panel"""
 	_play_sfx("res://assets/audio/sound_effect/correct.wav")
 	var feedback_text = "[center][img=64x64]res://assets/UI/core/correct.png[/img][/center]\n"
-	feedback_text += "[center][color=#55ff88][font_size=80][b]CORRECT![/b][/font_size][/color][/center]\n\n"
-	feedback_text += "[center][font_size=24]Excellent detective work!\nYou successfully deduced all matches.[/font_size][/center]"
+	feedback_text += "[center][color=#55ff88][font_size=90][b]CORRECT![/b][/font_size][/color][/center]\n\n"
+	feedback_text += "[center][font_size=52]Excellent detective work!\nYou successfully deduced all matches.[/font_size][/center]"
 
 	if puzzle_config.has("explanation"):
-		feedback_text += "\n\n" + puzzle_config["explanation"]
+		feedback_text += "\n\n[font_size=52]" + puzzle_config["explanation"] + "[/font_size]"
 
 	if time_taken < 60.0 and not hint_used:
 		PlayerStats.add_hints(1)
@@ -548,14 +545,14 @@ func _on_continue_pressed() -> void:
 
 func _on_time_up() -> void:
 	"""Handle time running out - show solution and allow retry"""
-	feedback_label.text = "[center][font_size=80][color=#ff5555][b]TIME'S UP![/b][/color][/font_size][/center]\n\n"
-	feedback_label.text += "[center][font_size=22][b]Correct Solution:[/b][/font_size][/center]\n"
+	feedback_label.text = "[center][font_size=90][color=#ff5555][b]TIME'S UP![/b][/color][/font_size][/center]\n\n"
+	feedback_label.text += "[center][font_size=52][b]Correct Solution:[/b][/font_size][/center]\n"
 	for row in rows:
 		var correct_col = solution.get(row, "")
-		feedback_label.text += "[center][font_size=20]• %s → %s[/font_size][/center]\n" % [row, correct_col]
+		feedback_label.text += "[center][font_size=48]• %s → %s[/font_size][/center]\n" % [row, correct_col]
 
 	if puzzle_config.has("explanation"):
-		feedback_label.text += "\n" + puzzle_config["explanation"]
+		feedback_label.text += "\n[font_size=52]" + puzzle_config["explanation"] + "[/font_size]"
 
 	continue_button.text = "Try Again"
 	feedback_overlay.show()
@@ -597,7 +594,7 @@ func _on_hint_pressed() -> void:
 	hint_cooldown = HINT_COOLDOWN_TIME
 	hint_button.disabled = true
 	hint_button.icon = null
-	hint_button.text = "Hint (%ds)" % ceil(hint_cooldown)
+	hint_button.text = "⏳ Wait (%ds)" % ceil(hint_cooldown)
 
 	var correct_col = solution.get(target_row, "")
 
@@ -618,7 +615,7 @@ func _on_hint_pressed() -> void:
 				_style_cell_button(child, "no")
 
 func _update_hint_display() -> void:
-	hint_counter.text = "Hints: %d" % PlayerStats.hints
+	hint_button.text = "💡 Hint (%d)" % PlayerStats.hints
 
 func _unhandled_input(event: InputEvent) -> void:
 	if InputMap.has_action("skip_minigame") and event.is_action_pressed("skip_minigame"):

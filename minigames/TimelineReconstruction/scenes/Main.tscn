@@ -121,18 +121,15 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="HintButton" type="Button" parent="Panel/VBox/TopBar/HintPanel/HintHBox"]
+custom_minimum_size = Vector2(220, 72)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 34
 theme_override_styles/normal = SubResource("SubmitNormal")
 theme_override_styles/pressed = SubResource("SubmitHover")
 theme_override_styles/hover = SubResource("SubmitHover")
 theme_override_styles/focus = SubResource("SubmitNormal")
-text = "💡 Use Hint"
-
-[node name="HintCounter" type="Label" parent="Panel/VBox/TopBar/HintPanel/HintHBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Hints: 3"
+text = "💡 Hint (3)"
 
 [node name="ContextPanel" type="PanelContainer" parent="Panel/VBox"]
 layout_mode = 2

@@ -12,7 +12,6 @@ extends Control
 @onready var timeline_slots: HBoxContainer = $Panel/VBox/MainContent/TimelineContainer/TimelinePanel/TimelineSlots
 @onready var timer_label: Label = $Panel/VBox/TopBar/TimerPanel/TimerLabel
 @onready var hint_button: Button = $Panel/VBox/TopBar/HintPanel/HintHBox/HintButton
-@onready var hint_counter: Label = $Panel/VBox/TopBar/HintPanel/HintHBox/HintCounter
 @onready var submit_button: Button = $Panel/VBox/SubmitButtonContainer/SubmitButton
 @onready var feedback_panel: NinePatchRect = $FeedbackPanel
 @onready var feedback_icon: Label = $FeedbackPanel/VBox/FeedbackIcon
@@ -138,9 +137,8 @@ func _ready() -> void:
 	set_process(false)  # Timer must NOT start until after tutorial + countdown
 	feedback_panel.hide()
 	hint_button.pressed.connect(_on_hint_pressed)
-	hint_button.icon = load("res://assets/UI/core/hints.png")
-	hint_button.add_theme_constant_override("icon_max_width", 32)
-	hint_button.text = ""
+	hint_button.icon = null
+	hint_button.text = "💡 Hint (%d)" % PlayerStats.hints
 	submit_button.pressed.connect(_on_submit_pressed)
 	continue_button.pressed.connect(_on_continue_pressed)
 	retry_button.pressed.connect(_on_retry_pressed)
@@ -1295,17 +1293,13 @@ func _on_hint_pressed() -> void:
 
 func _update_hint_display() -> void:
 	"""Update hint counter and button state"""
-	hint_counter.text = "Hints: %d" % PlayerStats.hints
-
-	# Update button state based on cooldown and available hints
 	if hint_on_cooldown:
 		hint_button.disabled = true
 		# Button text will be updated in _process() with countdown
 	else:
 		hint_button.disabled = (PlayerStats.hints <= 0)
-		hint_button.icon = load("res://assets/UI/core/hints.png")
-		hint_button.add_theme_constant_override("icon_max_width", 32)
-		hint_button.text = ""
+		hint_button.icon = null
+		hint_button.text = "💡 Hint (%d)" % PlayerStats.hints
 
 func _unhandled_input(event: InputEvent) -> void:
 	"""Handle F5 skip"""

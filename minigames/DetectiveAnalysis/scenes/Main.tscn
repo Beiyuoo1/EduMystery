@@ -86,21 +86,11 @@ theme_override_font_sizes/font_size = 32
 text = "Time: 01:30"
 
 [node name="HintButton" type="Button" parent="Panel/VBox/HBox"]
-custom_minimum_size = Vector2(48, 48)
+custom_minimum_size = Vector2(220, 72)
 layout_mode = 2
-text = ""
-expand_icon = false
-theme_override_constants/icon_max_width = 32
-theme_override_constants/icon_margin_left = 0
-theme_override_constants/icon_margin_right = 0
-theme_override_constants/icon_margin_top = 0
-theme_override_constants/icon_margin_bottom = 0
-theme_override_constants/h_separation = 0
-
-[node name="HintCounter" type="Label" parent="Panel/VBox/HBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Hints: 3"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 34
+text = "💡 Hint (3)"
 
 [node name="DescBg" type="PanelContainer" parent="Panel/VBox"]
 layout_mode = 2

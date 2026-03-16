@@ -14,7 +14,6 @@ extends Control
 @onready var choices_container: VBoxContainer = $Panel/VBox/ChoicesContainer
 @onready var timer_label: Label = $Panel/VBox/HBox/TimerLabel
 @onready var hint_button: Button = $Panel/VBox/HBox/HintButton
-@onready var hint_counter: Label = $Panel/VBox/HBox/HintCounter
 @onready var feedback_overlay: ColorRect = $FeedbackOverlay
 @onready var feedback_panel: NinePatchRect = $FeedbackPanel
 @onready var feedback_label: RichTextLabel = $FeedbackPanel/VBox/FeedbackLabel
@@ -61,14 +60,8 @@ func _ready() -> void:
 
 	# Connect hint button and set icon
 	hint_button.pressed.connect(_on_hint_pressed)
-	hint_button.icon = load("res://assets/UI/core/hints.png")
-	hint_button.add_theme_constant_override("icon_max_width", 32)
-	hint_button.add_theme_constant_override("icon_margin_left", 0)
-	hint_button.add_theme_constant_override("icon_margin_right", 0)
-	hint_button.add_theme_constant_override("icon_margin_top", 0)
-	hint_button.add_theme_constant_override("icon_margin_bottom", 0)
-	hint_button.add_theme_constant_override("h_separation", 0)
-	hint_button.text = ""
+	hint_button.icon = null
+	hint_button.text = "💡 Hint (%d)" % PlayerStats.hints
 
 	# Connect continue button
 	continue_button.pressed.connect(_on_continue_pressed)
@@ -516,9 +509,7 @@ func _on_hint_pressed() -> void:
 		hint_button.text = "No hints!"
 		await get_tree().create_timer(1.0).timeout
 		if not is_queued_for_deletion():
-			hint_button.text = ""
-			hint_button.icon = load("res://assets/UI/core/hints.png")
-			hint_button.add_theme_constant_override("icon_max_width", 32)
+			hint_button.text = "💡 Hint (0)"
 		return
 
 	hint_used = true
@@ -555,7 +546,7 @@ func _eliminate_one_wrong_button() -> void:
 
 func _update_hint_display() -> void:
 	"""Update hint counter display"""
-	hint_counter.text = "Hints: %d" % PlayerStats.hints
+	hint_button.text = "💡 Hint (%d)" % PlayerStats.hints
 
 
 func _unhandled_input(event: InputEvent) -> void:

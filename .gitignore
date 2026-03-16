@@ -25,7 +25,20 @@ web/*.import
 
 # Vosk speech recognition models (too large for GitHub, download separately)
 addons/vosk/models/
+addons/vosk_speech/vosk-model-small-en-us-0.15/
+
+# Large binary files
+*.aar
+EduMys.wasm
 
 # Local configuration files (per-user settings, not committed to repo)
 *.local.json
 local_config.json
+
+# Large build/export artifacts not needed in repo
+installer/
+web/
+*.wasm
+*.js
+gimp-temp-*.png
+*.log

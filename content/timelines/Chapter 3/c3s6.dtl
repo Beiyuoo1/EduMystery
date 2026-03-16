@@ -205,7 +205,7 @@ But the chain continues.
 [voice path="res://assets/audio/voice/Chapter 3/c3s6/and_somewhere_watching.mp3" volume="0.0" bus="Voice"]
 And somewhere, watching, B.C. waits for the next chapter to begin.
 [wait time="1.0"]
-audio music "res://assets/audio/chapter_end_bg.mp3" [fade="0.5" volume="0.0" bus="Music" loop="true"]
+audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 [wait time="1.0"]
 [signal arg="show_chapter_results"]
 audio stop_music "[fade="

@@ -3,9 +3,11 @@ extends Node
 # Pause Manager - Handles escape key to pause/resume game and show pause menu
 
 const PAUSE_MENU_SCENE := preload("res://scenes/ui/pause_menu.tscn")
+const PAUSE_BUTTON_SCENE := preload("res://scenes/ui/pause_button.tscn")
 const TEMP_SAVE_SLOT := "_pause_temp"
 
 var pause_menu_instance: Control = null
+var pause_button_instance: CanvasLayer = null
 var is_paused := false
 var was_dialogic_paused := false
 
@@ -23,12 +25,26 @@ func _on_timeline_started() -> void:
 	pause_enabled = true
 	# Ensure Dialogic is not paused when timeline starts
 	Dialogic.paused = false
+	_show_pause_button()
 
 func _on_timeline_ended() -> void:
 	pause_enabled = false
 	# Clean up pause menu if open when timeline ends
 	if is_paused:
 		_resume_game()
+	_hide_pause_button()
+
+func _show_pause_button() -> void:
+	if pause_button_instance != null and is_instance_valid(pause_button_instance):
+		pause_button_instance.visible = true
+		return
+	pause_button_instance = PAUSE_BUTTON_SCENE.instantiate()
+	pause_button_instance.layer = 99
+	get_tree().root.add_child(pause_button_instance)
+
+func _hide_pause_button() -> void:
+	if pause_button_instance and is_instance_valid(pause_button_instance):
+		pause_button_instance.visible = false
 
 func _input(event: InputEvent) -> void:
 	# Quick Save (F5)
@@ -74,6 +90,9 @@ func _pause_game() -> void:
 
 	is_paused = true
 
+	# Hide pause button while menu is open
+	_hide_pause_button()
+
 	# Store Dialogic's pause state and pause it
 	was_dialogic_paused = Dialogic.paused
 	Dialogic.paused = true
@@ -106,6 +125,10 @@ func _resume_game() -> void:
 
 	# Restore Dialogic's pause state
 	Dialogic.paused = was_dialogic_paused
+
+	# Show pause button again
+	if pause_enabled:
+		_show_pause_button()
 
 func _on_resume() -> void:
 	_resume_game()

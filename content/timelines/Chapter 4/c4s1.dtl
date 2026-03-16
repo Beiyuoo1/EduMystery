@@ -1,5 +1,5 @@
 [background arg="res://Bg/hallway.png" fade="1.0"]
-audio music "res://assets/audio/bg/suspicious.mp3" [loop="true"]
+audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 [voice path="res://assets/audio/voice/Chapter 4/c4s1/the_school_hallway.mp3" volume="0.0" bus="Voice"]
 The school hallway buzzes with nervous energy. Students cluster in small groups, whispering.
 if {selected_character} == "celestine":

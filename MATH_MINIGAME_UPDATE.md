@@ -48,28 +48,28 @@ When the timeline calls `start_minigame("locker_examination")`:
 **Lines 163-167:**
 ```gdscript
 "locker_examination_math": {
-    "sentence_parts": ["If Conrad finds ", " clues total and has already examined ", ", how many ", " remain?"],
-    "answers": ["8", "3", "clues"],
-    "choices": ["8", "5", "3", "2", "clues", "items", "objects", "pieces", "evidence", "suspects", "answers", "questions"]
+	"sentence_parts": ["If Conrad finds ", " clues total and has already examined ", ", how many ", " remain?"],
+	"answers": ["8", "3", "clues"],
+	"choices": ["8", "5", "3", "2", "clues", "items", "objects", "pieces", "evidence", "suspects", "answers", "questions"]
 },
 ```
 
 **Subject Variant Detection:** (Lines 2838-2888)
 ```gdscript
 func _get_subject_variant_id(base_id: String) -> String:
-    var subject = PlayerStats.selected_subject
+	var subject = PlayerStats.selected_subject
 
-    if subject == "english":
-        return base_id  # Use base English version
+	if subject == "english":
+		return base_id  # Use base English version
 
-    # Try math/science variant
-    var variant_id = base_id + "_" + subject  # e.g., "locker_examination_math"
+	# Try math/science variant
+	var variant_id = base_id + "_" + subject  # e.g., "locker_examination_math"
 
-    if fillinTheblank_configs.has(variant_id):
-        return variant_id  # Use math/science version
+	if fillinTheblank_configs.has(variant_id):
+		return variant_id  # Use math/science version
 
-    # No variant found, fallback to English
-    return base_id
+	# No variant found, fallback to English
+	return base_id
 ```
 
 ---
@@ -123,16 +123,16 @@ DEBUG: Using minigame variant: locker_examination_math
 Already exists in `minigame_manager.gd`:
 ```gdscript
 "locker_examination_science": {
-    // Physics-related fill-in-the-blank
+	// Physics-related fill-in-the-blank
 }
 ```
 
 ### English Version (Default)
 ```gdscript
 "locker_examination": {
-    "sentence_parts": ["Conrad ", " the envelope closely."],
-    "answers": ["examines"],
-    "choices": ["examines", "studies", "ignores", "watches", "inspects", "reads", "opens", "holds"]
+	"sentence_parts": ["Conrad ", " the envelope closely."],
+	"answers": ["examines"],
+	"choices": ["examines", "studies", "ignores", "watches", "inspects", "reads", "opens", "holds"]
 }
 ```
 

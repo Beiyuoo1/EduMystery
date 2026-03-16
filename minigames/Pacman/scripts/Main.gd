@@ -396,7 +396,7 @@ func _handle_correct_answer():
 	_flash_screen(Color(0, 1, 0, 0.3))
 	_show_floating_text("Correct!", Color.GREEN)
 	if combo_count > 1:
-		_show_floating_text("Combo x" + str(combo_count) + "!", Color.YELLOW, Vector2(0, 40))
+		_show_floating_text("Combo x" + str(combo_count) + "!", Color.WHITE, Vector2(0, 40))
 
 	# Increase difficulty
 	difficulty_multiplier += DIFFICULTY_INCREMENT

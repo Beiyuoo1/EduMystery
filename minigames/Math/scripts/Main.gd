@@ -136,7 +136,7 @@ func _create_header() -> HBoxContainer:
 	# Score label
 	score_label = Label.new()
 	score_label.add_theme_font_size_override("font_size", 24)
-	score_label.add_theme_color_override("font_color", Color(1.0, 0.85, 0.3))
+	score_label.add_theme_color_override("font_color", Color(1, 1, 1, 1))
 	score_label.custom_minimum_size = Vector2(150, 0)
 	score_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	header.add_child(score_label)
@@ -370,7 +370,7 @@ func _handle_timeout():
 		b.disabled = true
 
 	feedback_label.text = "Time's up!"
-	feedback_label.add_theme_color_override("font_color", Color(1.0, 0.6, 0.2))
+	feedback_label.add_theme_color_override("font_color", Color(1, 1, 1, 1))
 	feedback_label.visible = true
 
 	# Show correct answer
@@ -459,7 +459,7 @@ func show_victory():
 		feedback_label.add_theme_color_override("font_color", COLOR_CORRECT)
 	else:
 		feedback_label.text = "Keep practicing!"
-		feedback_label.add_theme_color_override("font_color", Color(1.0, 0.6, 0.2))
+		feedback_label.add_theme_color_override("font_color", Color(1, 1, 1, 1))
 	feedback_label.visible = true
 
 	# Hide timer

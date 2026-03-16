@@ -82,7 +82,7 @@ theme_override_constants/separation = 20
 [node name="TimerLabel" type="Label" parent="Control/Panel/MainContainer/HeaderContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
 text = "01:30"
 
@@ -98,7 +98,7 @@ text = "💡"
 
 [node name="HintLabel" type="Label" parent="Control/Panel/MainContainer/HeaderContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.55, 0.25, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "Hint: 10"
 
@@ -138,7 +138,7 @@ theme_override_constants/margin_bottom = 30
 
 [node name="RiddleLabel" type="Label" parent="Control/Panel/MainContainer/RiddlePanel/MarginContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.25, 0.1, 0.03, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "\"Round I go, around your hand,
 I shine and sparkle, isn't that grand?\""
@@ -153,7 +153,7 @@ alignment = 1
 [node name="AnswerDisplay" type="Label" parent="Control/Panel/MainContainer/AnswerContainer"]
 layout_mode = 2
 mouse_filter = 0
-theme_override_colors/font_color = Color(0.5, 0.2, 0.02, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 36
 text = "_ _ _ _ (Click to undo)"
 horizontal_alignment = 1
@@ -288,7 +288,7 @@ text = "G"
 [node name="FeedbackLabel" type="Label" parent="Control/Panel/MainContainer"]
 visible = false
 layout_mode = 2
-theme_override_colors/font_color = Color(0.6, 0.3, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 28
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -347,7 +347,7 @@ theme_override_constants/separation = 12
 
 [node name="TitleLabel" type="Label" parent="Control/TutorialOverlay/TutPanel/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.35, 0.15, 0.05, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
 text = "🔤 How to Play: Riddle"
 horizontal_alignment = 1
@@ -366,28 +366,28 @@ stretch_mode = 5
 
 [node name="Step1" type="Label" parent="Control/TutorialOverlay/TutPanel/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.15, 0.08, 0.03, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 21
 text = "1. Read the riddle carefully — it describes a mystery object. Figure out what it is!"
 autowrap_mode = 3
 
 [node name="Step2" type="Label" parent="Control/TutorialOverlay/TutPanel/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.15, 0.08, 0.03, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 21
 text = "2. Click the letter buttons to spell out your answer one letter at a time."
 autowrap_mode = 3
 
 [node name="Step3" type="Label" parent="Control/TutorialOverlay/TutPanel/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.15, 0.08, 0.03, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 21
 text = "3. Made a mistake? Click on the answer display to remove the last letter (Undo)."
 autowrap_mode = 3
 
 [node name="Step4" type="Label" parent="Control/TutorialOverlay/TutPanel/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.15, 0.08, 0.03, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 21
 text = "4. Stuck? Use the 💡 Hint button — it will automatically fill in the next correct letter!"
 autowrap_mode = 3
@@ -397,7 +397,7 @@ layout_mode = 2
 
 [node name="TipLabel" type="Label" parent="Control/TutorialOverlay/TutPanel/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.35, 0.2, 0.1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 19
 text = "⚡ Speed Tip: Solve the riddle in under 60 seconds to earn a bonus Hint!"
 autowrap_mode = 3
@@ -405,7 +405,7 @@ autowrap_mode = 3
 [node name="StartButton" type="Button" parent="Control/TutorialOverlay/TutPanel/VBox"]
 custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxTexture_tut_btn")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_tut_btn_hover")

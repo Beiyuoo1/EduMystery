@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://c0lw6k11flw1k"]
 
-[ext_resource type="Script" path="res://scripts/settings_menu.gd" id="1_settings"]
-[ext_resource type="Theme" path="res://resources/ui/game_theme.tres" id="2_theme"]
+[ext_resource type="Script" uid="uid://bdftr3wp6smn1" path="res://scripts/settings_menu.gd" id="1_settings"]
+[ext_resource type="Theme" uid="uid://lbkbgl5rfv1g" path="res://resources/ui/game_theme.tres" id="2_theme"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_section_header"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
 bg_color = Color(0.15, 0.12, 0.22, 0.5)
 border_width_bottom = 2
 border_color = Color(0.45, 0.35, 0.65, 0.5)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -57,9 +57,9 @@ layout_mode = 2
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 35
-theme_override_constants/margin_top = 25
+theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 35
-theme_override_constants/margin_bottom = 25
+theme_override_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
@@ -73,11 +73,12 @@ theme_override_constants/separation = 5
 layout_mode = 2
 theme_override_colors/font_color = Color(0.95, 0.85, 0.65, 1)
 theme_override_colors/font_shadow_color = Color(0.2, 0.15, 0.35, 0.6)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 2
-theme_override_font_sizes/font_size = 36
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 50
 text = "Settings"
 horizontal_alignment = 1
+uppercase = true
 
 [node name="HSeparator" type="HSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -94,7 +95,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_section_header")
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/TextSectionLabel"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.75, 0.65, 0.85, 1)
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 40
 text = "TEXT"
 
 [node name="TextSpeedContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer"]
@@ -104,6 +105,7 @@ theme_override_constants/separation = 15
 [node name="TextSpeedLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/TextSpeedContainer"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 35
 text = "Text Speed"
 vertical_alignment = 1
 
@@ -114,13 +116,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 min_value = 1.0
 max_value = 10.0
-step = 1.0
 value = 7.0
 
 [node name="TextSpeedValue" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/TextSpeedContainer"]
 custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.75, 0.65, 0.85, 1)
+theme_override_font_sizes/font_size = 35
 text = "7"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -132,12 +134,14 @@ theme_override_constants/separation = 15
 [node name="AutoAdvanceLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/AutoAdvanceContainer"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 35
 text = "Auto-Advance"
 vertical_alignment = 1
 
 [node name="AutoAdvanceCheck" type="CheckBox" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/AutoAdvanceContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 35
 text = "Enabled"
 
 [node name="AutoAdvanceDelay" type="SpinBox" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/AutoAdvanceContainer"]
@@ -156,7 +160,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_section_header")
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/AudioSectionLabel"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.75, 0.65, 0.85, 1)
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 40
 text = "AUDIO"
 
 [node name="MasterVolumeContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer"]
@@ -166,6 +170,7 @@ theme_override_constants/separation = 15
 [node name="MasterVolumeLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/MasterVolumeContainer"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 35
 text = "Master"
 vertical_alignment = 1
 
@@ -174,14 +179,13 @@ custom_minimum_size = Vector2(220, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-max_value = 100.0
-step = 1.0
 value = 100.0
 
 [node name="MasterVolumeValue" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/MasterVolumeContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.75, 0.65, 0.85, 1)
+theme_override_font_sizes/font_size = 35
 text = "100%"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -193,6 +197,7 @@ theme_override_constants/separation = 15
 [node name="MusicVolumeLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/MusicVolumeContainer"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 35
 text = "Music"
 vertical_alignment = 1
 
@@ -201,14 +206,13 @@ custom_minimum_size = Vector2(220, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-max_value = 100.0
-step = 1.0
 value = 30.0
 
 [node name="MusicVolumeValue" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/MusicVolumeContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.75, 0.65, 0.85, 1)
+theme_override_font_sizes/font_size = 35
 text = "80%"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -220,6 +224,7 @@ theme_override_constants/separation = 15
 [node name="SFXVolumeLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/SFXVolumeContainer"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 35
 text = "Sound Effects"
 vertical_alignment = 1
 
@@ -228,14 +233,13 @@ custom_minimum_size = Vector2(220, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-max_value = 100.0
-step = 1.0
 value = 80.0
 
 [node name="SFXVolumeValue" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/SFXVolumeContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.75, 0.65, 0.85, 1)
+theme_override_font_sizes/font_size = 35
 text = "80%"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -247,6 +251,7 @@ theme_override_constants/separation = 15
 [node name="VoiceVolumeLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/VoiceVolumeContainer"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 35
 text = "Voice Narration"
 vertical_alignment = 1
 
@@ -255,14 +260,13 @@ custom_minimum_size = Vector2(220, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-max_value = 100.0
-step = 1.0
 value = 100.0
 
 [node name="VoiceVolumeValue" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/VoiceVolumeContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.75, 0.65, 0.85, 1)
+theme_override_font_sizes/font_size = 35
 text = "100%"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -274,7 +278,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_section_header")
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/DisplaySectionLabel"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.75, 0.65, 0.85, 1)
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 40
 text = "DISPLAY"
 
 [node name="FullscreenContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer"]
@@ -284,11 +288,13 @@ theme_override_constants/separation = 15
 [node name="FullscreenLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/FullscreenContainer"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 35
 text = "Fullscreen"
 vertical_alignment = 1
 
 [node name="FullscreenCheck" type="CheckBox" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsContainer/FullscreenContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 35
 text = "Enabled"
 
 [node name="HSeparator4" type="HSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
@@ -297,5 +303,5 @@ layout_mode = 2
 [node name="BackButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 40
 text = "Back"

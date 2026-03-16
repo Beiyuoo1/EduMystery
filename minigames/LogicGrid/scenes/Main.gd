@@ -102,7 +102,7 @@ func _style_clues_button() -> void:
 	clues_button.add_theme_stylebox_override("hover", hover)
 	clues_button.add_theme_stylebox_override("pressed", hover.duplicate())
 	clues_button.add_theme_color_override("font_color", Color.WHITE)
-	clues_button.add_theme_font_size_override("font_size", 18)
+	clues_button.add_theme_font_size_override("font_size", 26)
 
 func _on_clues_button_pressed() -> void:
 	clues_popup.show()
@@ -115,8 +115,8 @@ func _add_help_button() -> void:
 	help_button = Button.new()
 	help_button.text = "?"
 	help_button.tooltip_text = "How to Play"
-	help_button.custom_minimum_size = Vector2(42, 42)
-	help_button.add_theme_font_size_override("font_size", 22)
+	help_button.custom_minimum_size = Vector2(60, 60)
+	help_button.add_theme_font_size_override("font_size", 30)
 
 	var style = StyleBoxFlat.new()
 	style.bg_color = Color(0.2, 0.35, 0.55, 0.9)
@@ -141,10 +141,10 @@ func _add_help_button() -> void:
 	help_button.anchor_right = 1.0
 	help_button.anchor_top = 0.0
 	help_button.anchor_bottom = 0.0
-	help_button.offset_left = -58.0
+	help_button.offset_left = -76.0
 	help_button.offset_right = -16.0
 	help_button.offset_top = 16.0
-	help_button.offset_bottom = 58.0
+	help_button.offset_bottom = 76.0
 
 	help_button.pressed.connect(_open_tutorial_popup)
 	add_child(help_button)
@@ -229,7 +229,7 @@ func _display_clues(clues: Array) -> void:
 		clue_label.text = "• " + clue_text
 		clue_label.add_theme_font_size_override("font_size", 20)
 		clue_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		clue_label.add_theme_color_override("font_color", Color(0.15, 0.08, 0.03))
+		clue_label.add_theme_color_override("font_color", Color(1, 1, 1, 1))
 		clues_container.add_child(clue_label)
 
 func _create_grid() -> void:
@@ -279,7 +279,7 @@ func _create_grid() -> void:
 		row_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		row_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		row_label.add_theme_font_size_override("font_size", 36)
-		row_label.add_theme_color_override("font_color", Color(0.22, 0.10, 0.03))
+		row_label.add_theme_color_override("font_color", Color(1, 1, 1, 1))
 		grid_container.add_child(row_label)
 
 		for col in cols:
@@ -361,7 +361,7 @@ func _style_submit_button() -> void:
 	hover.bg_color = Color(0.3, 0.58, 1.0)
 	submit_button.add_theme_stylebox_override("hover", hover)
 	submit_button.add_theme_color_override("font_color", Color.WHITE)
-	submit_button.add_theme_font_size_override("font_size", 22)
+	submit_button.add_theme_font_size_override("font_size", 28)
 
 func _on_cell_pressed(button: Button) -> void:
 	"""Cycle cell state: unknown -> no -> yes -> unknown"""
@@ -418,7 +418,7 @@ func _process(delta: float) -> void:
 	elif remaining <= 30:
 		timer_label.add_theme_color_override("font_color", Color(1.0, 0.85, 0.2))
 	else:
-		timer_label.add_theme_color_override("font_color", Color(0.2, 0.1, 0.05))
+		timer_label.add_theme_color_override("font_color", Color(1, 1, 1, 1))
 
 	# Hint cooldown countdown
 	if hint_cooldown > 0.0:
@@ -533,7 +533,7 @@ func _show_feedback(is_correct: bool, time_taken: float) -> void:
 
 	if time_taken < 60.0 and not hint_used:
 		PlayerStats.add_hints(1)
-		feedback_text += "\n\n[center][color=yellow][img=28x28]res://assets/UI/core/speed_bonus.png[/img] Speed Bonus: +1 Hint![/color][/center]"
+		feedback_text += "\n\n[center][color=white][img=28x28]res://assets/UI/core/speed_bonus.png[/img] Speed Bonus: +1 Hint![/color][/center]"
 
 	feedback_label.text = feedback_text
 	continue_button.text = "Continue"

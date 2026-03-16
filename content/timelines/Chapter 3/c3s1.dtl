@@ -65,7 +65,7 @@ if {selected_character} == "celestine":
 	audio -
 	A student rushes past, face pale.
 	Student: Someone destroyed Mia's sculpture! It's completely smashed!
-	audio music "res://assets/audio/bg/controversy.mp3" [loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	Celestine: What?
 	The protagonist pushes through the crowd, their detective instincts taking over.
 	leave Celestine
@@ -172,7 +172,7 @@ else:
 	audio music - [fade="0.3"]
 	A student rushes past, face pale.
 	Student: Someone destroyed Mia's sculpture! It's completely smashed!
-	audio music "res://assets/audio/bg/controversy.mp3" [loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	Conrad: What?
 	The protagonist pushes through the crowd, their detective instincts taking over.
 	leave Conrad

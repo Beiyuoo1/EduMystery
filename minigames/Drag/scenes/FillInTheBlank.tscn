@@ -384,7 +384,7 @@ theme_override_constants/separation = 12
 [node name="TitleLabel" type="Label" parent="CanvasLayer/TutorialOverlay/TutPanel/VBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-theme_override_colors/font_color = Color(0.35, 0.15, 0.05, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "📝 How to Play: Fill in the Blank"
 horizontal_alignment = 1
 
@@ -403,28 +403,28 @@ stretch_mode = 5
 [node name="Step1" type="Label" parent="CanvasLayer/TutorialOverlay/TutPanel/VBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
-theme_override_colors/font_color = Color(0.15, 0.08, 0.03, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 autowrap_mode = 3
 text = "1. Read the sentence carefully and find the blank ( ___ ) that needs to be filled."
 
 [node name="Step2" type="Label" parent="CanvasLayer/TutorialOverlay/TutPanel/VBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
-theme_override_colors/font_color = Color(0.15, 0.08, 0.03, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 autowrap_mode = 3
 text = "2. Look at the word tiles below — pick the one that best completes the sentence."
 
 [node name="Step3" type="Label" parent="CanvasLayer/TutorialOverlay/TutPanel/VBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
-theme_override_colors/font_color = Color(0.15, 0.08, 0.03, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 autowrap_mode = 3
 text = "3. Click and DRAG the correct word tile onto the blank space in the sentence."
 
 [node name="Step4" type="Label" parent="CanvasLayer/TutorialOverlay/TutPanel/VBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
-theme_override_colors/font_color = Color(0.15, 0.08, 0.03, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 autowrap_mode = 3
 text = "4. If you're stuck, use the 💡 Hint button — it will highlight the correct answer!"
 
@@ -434,7 +434,7 @@ layout_mode = 2
 [node name="TipLabel" type="Label" parent="CanvasLayer/TutorialOverlay/TutPanel/VBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 19
-theme_override_colors/font_color = Color(0.35, 0.2, 0.1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 autowrap_mode = 3
 text = "⚡ Speed Tip: Complete the puzzle in under 60 seconds to earn a bonus Hint!"
 
@@ -445,7 +445,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_tut_btn")
 theme_override_styles/hover = SubResource("StyleBoxTexture_tut_btn_hover")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_tut_btn_hover")
 theme_override_styles/focus = SubResource("StyleBoxTexture_tut_btn")
-theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 20
 text = "Start Puzzle!"
 
@@ -478,7 +478,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.95, 0.3, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 140
 text = "3"
 horizontal_alignment = 1

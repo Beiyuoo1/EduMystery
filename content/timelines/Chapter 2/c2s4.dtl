@@ -1,5 +1,5 @@
 [voice path="res://assets/audio/voice/Chapter 2/C2S4/The_computer_lab_is_empty_now.mp3" volume="0.0"]
-audio music "res://assets/audio/bg/suspicious.mp3" [loop="true"]
+audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 [background arg="res://Bg/computer_lab.png" fade="1.0"]
 The computer lab is empty now. The printer sits in the corner, its paper tray half-full.
 [voice path="res://assets/audio/voice/Chapter 2/C2S4/Mark_heads_toward_the_printer.mp3" volume="0.0"]

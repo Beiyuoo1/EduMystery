@@ -87,7 +87,7 @@ His sculpture - a geometric abstract piece - sits ignored while crowds gather ne
 if {selected_character} == "celestine":
 	join Celestine (half) left
 	join Characters/Victor (half) right
-	audio music "res://assets/audio/bg/suspicious.mp3" [loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	[voice path="res://assets/audio/voice/Chapter 3/c3s2/victors_eyes_narrow.mp3" volume="0.0" bus="Voice"]
 	Victor's eyes narrow as Celestine approaches.
 	Victor: Let me guess. You're here to accuse me.
@@ -133,7 +133,7 @@ if {selected_character} == "celestine":
 else:
 	join Conrad (half) left
 	join Characters/Victor (half) right
-	audio music "res://assets/audio/bg/suspicious.mp3" [loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	[voice path="res://assets/audio/voice/Chapter 3/c3s2/victors_eyes_narrow.mp3" volume="0.0" bus="Voice"]
 	Victor's eyes narrow as the protagonist approaches.
 	Victor: Let me guess. You're here to accuse me.

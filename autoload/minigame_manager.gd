@@ -1954,7 +1954,7 @@ var detective_analysis_configs = {
 			"2:45 PM (1 hour 15 minutes ago)"
 		],
 		"correct_index": 0,
-		"explanation": "[b]Physics Solution:[/b]\n• Rate: 0.5 mm/hour\n• Moisture: 0.25 mm remaining\n• Time = 0.25 ÷ 0.5 = 0.5 hours = [b]30 minutes[/b]\n• Footprints made: 4:00 PM - 30 min = [b]3:30 PM[/b]\n\n[color=yellow]Someone entered the faculty room at 3:30 PM![/color]",
+		"explanation": "[b]Physics Solution:[/b]\n• Rate: 0.5 mm/hour\n• Moisture: 0.25 mm remaining\n• Time = 0.25 ÷ 0.5 = 0.5 hours = [b]30 minutes[/b]\n• Footprints made: 4:00 PM - 30 min = [b]3:30 PM[/b]\n\n[color=white]Someone entered the faculty room at 3:30 PM![/color]",
 		"hint_text": "Use the formula: Time = Amount remaining ÷ Rate. The moisture is 0.25 mm and the evaporation rate is 0.5 mm per hour. How many hours ago were the prints made? Convert that to minutes and subtract from the current time."
 	},
 

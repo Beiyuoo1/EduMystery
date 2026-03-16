@@ -28,7 +28,7 @@ if {selected_character} == "celestine":
 	Celestine's eyes widen with realization.
 	Celestine: B.C. Bernardino Cruz. Principal Bernardino Cruz.
 	Celestine: It's been you all along.
-	audio music "res://assets/audio/bg/chill3.mp3" [loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	[voice path="res://assets/audio/voice/Chapter 5/c5s2/Principal_B_C_smiles_gently.mp3" volume="0.0" bus="Voice"]
 	Principal - B.C. - smiles gently.
 	Principal: You've grown perceptive, Celestine. Yes. I am B.C.
@@ -61,7 +61,7 @@ else:
 	Conrad's eyes widen with realization.
 	Conrad: B.C. Bernardino Cruz. Principal Bernardino Cruz.
 	Conrad: It's been you all along.
-	audio music "res://assets/audio/bg/chill3.mp3" [loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	[voice path="res://assets/audio/voice/Chapter 5/c5s2/Principal_B_C_smiles_gently.mp3" volume="0.0" bus="Voice"]
 	Principal - B.C. - smiles gently.
 	Principal: You've grown perceptive, Conrad. Yes. I am B.C.

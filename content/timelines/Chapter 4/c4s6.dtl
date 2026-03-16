@@ -1,4 +1,4 @@
-audio music "res://assets/audio/bg/chill2.mp3" [loop="true"]
+audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 [background arg="res://Bg/library_archive.png" fade="1.0"]
 [voice path="res://assets/audio/voice/Chapter 4/c4s6/later_that_afternoon.mp3" volume="0.0" bus="Voice"]
 Later that afternoon...
@@ -227,7 +227,7 @@ else:
 	The next step on a journey whose destination remains hidden.
 	But whose path grows clearer with each mystery solved.
 [wait time="1.0"]
-audio music "res://assets/audio/chapter_end_bg.mp3" [fade="0.5" volume="0.0" bus="Music" loop="true"]
+audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 [wait time="1.0"]
 [signal arg="show_chapter_results"]
 audio stop_music "[fade="2.0"]"

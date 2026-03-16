@@ -132,11 +132,35 @@ edu-mys/
 
 ## Documentation
 
-- **[CLAUDE.md](CLAUDE.md)** - Complete project architecture and development guide
+- **[DEVGUIDE.md](DEVGUIDE.md)** - Complete project architecture and development guide
 - **[SAVE_SYSTEM.md](SAVE_SYSTEM.md)** - Save/load system documentation
 - **[CHAPTER_RESULTS_USAGE.md](CHAPTER_RESULTS_USAGE.md)** - Chapter results implementation guide
 - **[DTL_CONVERTER_README.md](DTL_CONVERTER_README.md)** - Dialogue to text converter tool
 - **[CLUE_ANALYZER_README.md](CLUE_ANALYZER_README.md)** - Evidence analysis tool
+
+## Setup: Missing Large Files
+
+Several large files are **not included** in the repository due to size limits. You must obtain these separately before the project will run fully.
+
+### Vosk Speech Recognition Model (~2.7GB)
+Required for voice recognition minigames.
+
+1. Download `vosk-model-en-us-0.22` from [alphacephei.com/vosk/models](https://alphacephei.com/vosk/models)
+2. Extract and place at: `addons/vosk/models/vosk-model-en-us-0.22/`
+
+### Vosk Android Plugin (`.aar` files, ~41MB each)
+Required for Android builds with voice recognition.
+
+1. Download the Vosk Android plugin from [github.com/alphacep/vosk-android-demo](https://github.com/alphacep/vosk-android-demo)
+2. Place the `.aar` files at:
+   - `addons/vosk_speech/VoskSpeechRecognition.aar`
+   - `addons/vosk_speech/bin/debug/VoskSpeechRecognition.aar`
+   - `addons/vosk_speech/bin/release/VoskSpeechRecognition.aar`
+
+### Web Export Binary (`EduMys.wasm`, ~36MB)
+Only needed if you are hosting the web build. Re-export the project via **Project → Export → Web** to regenerate this file.
+
+> Without the Vosk model and `.aar` files, voice recognition minigames will not work, but the rest of the game functions normally.
 
 ## Quick Start
 
@@ -149,9 +173,50 @@ edu-mys/
    - **F9** - Quick load
    - **Evidence Button** - View collected clues (top-right during gameplay)
 
+## Exporting the Project
+
+### Windows (.exe)
+
+1. Go to **Project → Export**
+2. Click **Add...** and select **Windows Desktop**
+3. Set export path (e.g. `build/EduMystery.exe`)
+4. Click **Export Project**
+
+> Install export templates first via **Editor → Manage Export Templates**
+
+### Android (.apk)
+
+#### One-time Setup
+
+1. Install **Android Studio** to get the Android SDK
+2. Go to **Editor → Editor Settings → Export → Android** and set:
+   - **Android SDK Path** (e.g. `C:/Users/YourName/AppData/Local/Android/Sdk`)
+   - **Java SDK Path** (e.g. your JDK installation folder)
+3. Create a keystore for signing:
+   ```
+   keytool -genkey -v -keystore edumystery.keystore -alias edumystery -keyalg RSA -keysize 2048 -validity 10000
+   ```
+4. In **Project → Export → Android**, set the keystore path, user, and password
+
+#### Exporting
+
+1. Go to **Project → Export**
+2. Select the **Android** preset
+3. Click **Export Project** and save as `.apk`
+
+> Enable USB debugging on your phone for **One Click Deploy** directly from Godot
+
+### Web (HTML5)
+
+1. Go to **Project → Export**
+2. Click **Add...** and select **Web**
+3. Set export path to `web/index.html`
+4. Click **Export Project**
+5. Host the `web/` folder on a web server (browsers block local file access)
+
 ## For Developers
 
-See [CLAUDE.md](CLAUDE.md) for:
+See [DEVGUIDE.md](DEVGUIDE.md) for:
 - Architecture overview
 - Timeline syntax guide
 - Minigame system

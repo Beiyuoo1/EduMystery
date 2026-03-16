@@ -423,7 +423,7 @@ func _build_tutorial_page(title: String, description: String, image_path: String
 	var title_lbl = Label.new()
 	title_lbl.text = title
 	title_lbl.add_theme_font_size_override("font_size", 22)
-	title_lbl.add_theme_color_override("font_color", Color(0.95, 0.8, 0.3, 1.0))
+	title_lbl.add_theme_color_override("font_color", Color(0, 0, 0, 1.0))
 	title_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vbox.add_child(title_lbl)
 
@@ -787,7 +787,7 @@ func _update_sub_sentence_display():
 		if i < current_sub_sentence_index:
 			display += "[color=green]" + part + "[/color] "
 		elif i == current_sub_sentence_index:
-			display += "[color=yellow]" + part + "[/color] "
+			display += "[color=black]" + part + "[/color] "
 		else:
 			display += "[color=gray]" + part + "[/color] "
 	sentence_display.text = display.strip_edges()
@@ -1464,7 +1464,7 @@ func _update_word_display():
 			highlighted_sentence += "[color=green]" + word + "[/color] "
 		elif i == current_word_index:
 			# Current word - highlight in yellow/bright
-			highlighted_sentence += "[color=yellow]" + word + "[/color] "
+			highlighted_sentence += "[color=black]" + word + "[/color] "
 		else:
 			# Not yet reached - show in gray
 			highlighted_sentence += "[color=gray]" + word + "[/color] "

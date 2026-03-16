@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(find c:Projectsedu-mys-devBg -type f \\\\\\(-name *.png -o -name *.jpg \\\\\\))",
+      "Bash(find c:Projectsedu-mys-devPics -type f \\\\\\(-name *.png -o -name *.jpg \\\\\\))",
+      "Bash(du -sh /c/Projects/edu-mys-dev/*)"
     ]
   }
 }

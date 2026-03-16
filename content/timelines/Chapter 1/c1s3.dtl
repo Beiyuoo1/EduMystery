@@ -1,7 +1,7 @@
 set {c1s3_old_ac_tried} = false
 set {c1s3_animal_tried} = false
 if {selected_character} == "celestine":
-	audio music "res://assets/audio/bg/suspicious.mp3" [loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	[background arg="res://Bg/faculty_few.png" fade="1.5"]
 	[voice path="res://assets/audio/voice/Chapter 1/C1s3/The_protagonist_enters.mp3" volume="0.0" bus="Voice"]
 	The protagonist enters the school faculty room and observes several teachers and students engage in school work.

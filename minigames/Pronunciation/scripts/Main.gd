@@ -151,7 +151,7 @@ func _setup_ui():
 	title_label.text = "Pronunciation Challenge"
 	title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title_label.add_theme_font_size_override("font_size", 32)
-	title_label.add_theme_color_override("font_color", Color(0.9, 0.8, 0.3))
+	title_label.add_theme_color_override("font_color", Color(1, 1, 1, 1))
 	vbox.add_child(title_label)
 
 	# Instruction
@@ -299,7 +299,7 @@ func _display_puzzle():
 		record_button.disabled = false
 	else:
 		status_label.text = "Waiting for speech recognition..."
-		status_label.add_theme_color_override("font_color", Color.YELLOW)
+		status_label.add_theme_color_override("font_color", Color.WHITE)
 
 func _on_record_pressed():
 	if not vosk_initialized or is_recording:
@@ -326,7 +326,7 @@ func _start_recording():
 	mic_player.play()
 
 	status_label.text = "Listening... Speak now!"
-	status_label.add_theme_color_override("font_color", Color.YELLOW)
+	status_label.add_theme_color_override("font_color", Color.WHITE)
 	record_button.icon = load("res://assets/UI/core/mic_active.png")
 	record_button.add_theme_constant_override("icon_max_width", 32)
 	record_button.text = "Recording..."

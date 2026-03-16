@@ -116,7 +116,7 @@ func _build_sequence_display() -> void:
 			var lbl = Label.new()
 			lbl.text = str(int(sequence[i]))
 			lbl.add_theme_font_size_override("font_size", 42)
-			lbl.add_theme_color_override("font_color", Color(0.9, 0.85, 0.6))
+			lbl.add_theme_color_override("font_color", Color(1, 1, 1, 1))
 			lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 			lbl.custom_minimum_size = Vector2(80, 70)
 			sequence_container.add_child(lbl)
@@ -138,7 +138,7 @@ func _build_sequence_display() -> void:
 			style.corner_radius_bottom_left = 8
 			style.corner_radius_bottom_right = 8
 			btn.add_theme_stylebox_override("normal", style)
-			btn.add_theme_color_override("font_color", Color(0.5, 0.75, 1.0))
+			btn.add_theme_color_override("font_color", Color.WHITE)
 			var captured_idx = blank_idx
 			btn.pressed.connect(func(): _select_blank(captured_idx))
 			sequence_container.add_child(btn)
@@ -150,7 +150,7 @@ func _build_sequence_display() -> void:
 			var arrow = Label.new()
 			arrow.text = "→"
 			arrow.add_theme_font_size_override("font_size", 28)
-			arrow.add_theme_color_override("font_color", Color(0.6, 0.6, 0.6))
+			arrow.add_theme_color_override("font_color", Color.WHITE)
 			arrow.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 			arrow.custom_minimum_size = Vector2(36, 70)
 			sequence_container.add_child(arrow)
@@ -279,19 +279,19 @@ func _refresh_blank_buttons() -> void:
 				btn.add_theme_color_override("font_color", Color.WHITE)
 			else:
 				btn.text = "?"
-				btn.add_theme_color_override("font_color", Color(0.6, 0.9, 1.0))
+				btn.add_theme_color_override("font_color", Color.WHITE)
 		else:
 			# Other blanks
 			var style = StyleBoxFlat.new()
 			if player_inputs[i] != null:
 				style.bg_color = Color(0.15, 0.4, 0.2, 1.0)
 				style.border_color = Color(0.4, 0.9, 0.5)
-				btn.add_theme_color_override("font_color", Color(0.6, 1.0, 0.7))
+				btn.add_theme_color_override("font_color", Color.WHITE)
 				btn.text = str(int(player_inputs[i]))
 			else:
 				style.bg_color = Color(0.15, 0.25, 0.45, 1.0)
 				style.border_color = Color(0.4, 0.65, 1.0)
-				btn.add_theme_color_override("font_color", Color(0.5, 0.75, 1.0))
+				btn.add_theme_color_override("font_color", Color.WHITE)
 				btn.text = "?"
 			style.border_width_top = 2
 			style.border_width_bottom = 2
@@ -332,7 +332,7 @@ func _on_submit_pressed() -> void:
 		# Speed bonus
 		if elapsed < 60.0 and not hint_used:
 			PlayerStats.add_hints(1)
-			var bonus_text = "[color=gold][b][img=28x28]res://assets/UI/core/speed_bonus.png[/img] Speed Bonus: +1 Hint![/b][/color]\n\n"
+			var bonus_text = "[color=white][b][img=28x28]res://assets/UI/core/speed_bonus.png[/img] Speed Bonus: +1 Hint![/b][/color]\n\n"
 			var explanation = puzzle_config.get("explanation", "")
 			_show_feedback(bonus_text + "[color=green][b][img=28x28]res://assets/UI/core/correct.png[/img] Correct![/b][/color]\n\n" + explanation, true, false)
 		else:
@@ -433,7 +433,7 @@ func _process(delta: float) -> void:
 	if remaining <= 10:
 		timer_label.add_theme_color_override("font_color", Color.RED)
 	elif remaining <= 30:
-		timer_label.add_theme_color_override("font_color", Color(1.0, 0.85, 0.2))
+		timer_label.add_theme_color_override("font_color", Color.WHITE)
 	else:
 		timer_label.add_theme_color_override("font_color", Color.WHITE)
 
@@ -451,7 +451,7 @@ func _format_full_sequence() -> String:
 		if sequence[i] != null:
 			result += str(int(sequence[i]))
 		else:
-			result += "[color=gold]" + str(answers[blank_idx]) + "[/color]"
+			result += "[color=white]" + str(answers[blank_idx]) + "[/color]"
 			blank_idx += 1
 	return result
 

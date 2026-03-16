@@ -1,4 +1,4 @@
-audio music "res://assets/audio/bg/night.mp3" [volume="6.0" loop="true"]
+audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 [background arg="res://Bg/classroom_night.png" fade="1.0"]
 [voice path="res://assets/audio/voice/Chapter 5/c5s1/The_auditorium_stage_is_empty_bathed_in_soft_afternoon_light.mp3" volume="0.0" bus="Voice"]
 The auditorium stage is empty, bathed in soft afternoon light.

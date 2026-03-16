@@ -33,7 +33,7 @@ leave "Ms Reyes"
 [wait time="0.5"]
 join Mia (half) leftmost [mirrored="true"]
 [voice path="res://assets/audio/voice/Chapter 3/c3s5/mia_enters_quietly.mp3" volume="0.0" bus="Voice"]
-audio music "res://assets/audio/bg/Alleycat.mp3" [loop="true"]
+audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 Mia enters quietly. Her eyes are still red, but her expression is steady.
 update Characters/Victor (sad) left [mirrored="false"]
 Victor looks up as she approaches. He flinches, expecting anger.

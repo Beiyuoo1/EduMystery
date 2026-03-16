@@ -37,15 +37,15 @@ color = Color(0, 0, 0, 0.85)
 [node name="Panel" type="NinePatchRect" parent="."]
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -500.0
-offset_top = -350.0
-offset_right = 500.0
-offset_bottom = 350.0
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_bgbox_feedback")
@@ -70,8 +70,8 @@ theme_override_constants/separation = 12
 
 [node name="TitleLabel" type="Label" parent="Panel/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
-theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 42
 text = "Detective Analysis"
 horizontal_alignment = 1
 
@@ -82,7 +82,7 @@ theme_override_constants/separation = 12
 [node name="TimerLabel" type="Label" parent="Panel/VBox/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
 text = "Time: 01:30"
 
 [node name="HintButton" type="Button" parent="Panel/VBox/HBox"]
@@ -99,14 +99,13 @@ theme_override_constants/h_separation = 0
 
 [node name="HintCounter" type="Label" parent="Panel/VBox/HBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 28
 text = "Hints: 3"
 
 [node name="DescBg" type="PanelContainer" parent="Panel/VBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
-custom_minimum_size = Vector2(920, 180)
 theme_override_styles/panel = SubResource("StyleBoxTexture_desc")
 
 [node name="DescInner" type="VBoxContainer" parent="Panel/VBox/DescBg"]
@@ -118,6 +117,7 @@ theme_override_constants/separation = 14
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
+theme_override_font_sizes/normal_font_size = 26
 bbcode_enabled = true
 text = "[Context story explaining the problem goes here]"
 fit_content = true
@@ -132,6 +132,7 @@ theme_override_colors/separator_color = Color(0.5, 0.5, 0.5, 0.5)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
+theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
 text = "[b]Question:[/b] What is the answer based on the evidence?"
 fit_content = true
@@ -166,7 +167,7 @@ offset_top = -30.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 22
 text = "Evidence Caption"
 horizontal_alignment = 1
 
@@ -195,15 +196,10 @@ color = Color(0, 0, 0, 0.6)
 texture_filter = 1
 visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -420.0
-offset_top = -220.0
-offset_right = 420.0
-offset_bottom = 220.0
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_bgbox_feedback")
@@ -234,9 +230,10 @@ bbcode_enabled = true
 text = "[center]Feedback goes here[/center]"
 fit_content = true
 scroll_active = false
-theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/normal_font_size = 42
 
 [node name="ContinueButton" type="Button" parent="FeedbackPanel/VBox"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
 text = "Continue"

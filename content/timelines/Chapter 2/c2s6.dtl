@@ -1,4 +1,4 @@
-audio music "res://assets/audio/bg/chill3.mp3" [loop="true"]
+audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 [background arg="res://Bg/council_room.png" fade="1.0"]
 [voice path="res://assets/audio/voice/Chapter 2/C2S6/The_Student_Council_room_looks_different_now.mp3" volume="0.0"]
 The student council room looks different now. Afternoon light streams through the windows, warm and hopeful.
@@ -202,7 +202,7 @@ else:
 	[voice path="res://assets/audio/voice/Chapter 2/C2S6/The_chain_continues.mp3" volume="0.0"]
 	The chain continues.
 	[wait time="1.0"]
-	audio music "res://assets/audio/chapter_end_bg.mp3" [fade="0.5" volume="0.0" bus="Music" loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	[wait time="1.0"]
 	[signal arg="show_chapter_results"]
 	audio stop_music "[fade="

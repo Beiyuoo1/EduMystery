@@ -43,7 +43,7 @@ if {selected_character} == "celestine":
 	Celestine: This note was left in Ria's locker three days ago.
 	Celestine: "I know what you did with last year's fund. Resign or I'll expose you."
 	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryans_face_goes_pale.mp3" volume="0.0"]
-	audio music "res://assets/audio/bg/controversy.mp3" [loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	Ryan's face goes pale.
 	Celestine: The handwriting is identical, Ryan. Same loops on the 'e'. Same sharp angles on the 'k'.
 	Celestine: You wrote this threat. You knew about Ria's mistake because you've been watching the council.
@@ -78,7 +78,7 @@ else:
 	Conrad: This note was left in Ria's locker three days ago.
 	Conrad: "I know what you did with last year's fund. Resign or I'll expose you."
 	[voice path="res://assets/audio/voice/Chapter 2/C2S5/Ryans_face_goes_pale.mp3" volume="0.0"]
-	audio music "res://assets/audio/bg/controversy.mp3" [loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	Ryan's face goes pale.
 	Conrad: The handwriting is identical, Ryan. Same loops on the 'e'. Same sharp angles on the 'k'.
 	Conrad: You wrote this threat. You knew about Ria's mistake because you've been watching the council.
@@ -104,7 +104,7 @@ Mark moves past Ryan and searches behind the dusty equipment.
 Mark pulls out a faded blue gym bag and unzips it.
 Mark: Twenty thousand pesos. It's all here.
 [voice path="res://assets/audio/voice/Chapter 2/C2S5/Desperation_floods_Ryans_voice.mp3" volume="0.0"]
-audio music "res://assets/audio/bg/sad.mp3" [loop="true"]
+audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 Desperation floods Ryan's voice.
 join Ryan (animated_angry) right
 Ryan: I wasn't stealing it! I was going to return it!

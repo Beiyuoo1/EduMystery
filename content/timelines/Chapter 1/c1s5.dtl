@@ -197,7 +197,7 @@ if {selected_character} == "celestine":
 	join characters/Greg (Greg_half) center
 	join "Diwata Laya" rightmost
 	Celestine: It was on the floor, partially hidden under the desk. It must have fallen off during the sabotage.
-	audio music "res://assets/audio/bg/controversy.mp3" [loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	characters/Greg (Greg_sad_half): (Eyes widen) That's... that could belong to anyone!
 	Celestine: It has very specific beads - blue, red, and white, with a tiny silver cross. Pretty distinctive.
 else:
@@ -213,7 +213,7 @@ else:
 	join characters/Greg (Greg_half) center
 	join "Diwata Laya" rightmost
 	Conrad: It was on the floor, partially hidden under the desk. It must have fallen off during the sabotage.
-	audio music "res://assets/audio/bg/controversy.mp3" [loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	characters/Greg (Greg_sad_half): (Eyes widen) That's... that could belong to anyone!
 	Conrad: It has very specific beads - blue, red, and white, with a tiny silver cross. Pretty distinctive.
 [signal arg="laya_start"]
@@ -288,7 +288,7 @@ else:
 	[signal]
 	The protagonist examines the envelope. There is no name, but a small symbol is stamped on the inside flap\: a pixelated spider.
 join Principal (Principa_half_mirror) leftmost
-audio music "res://assets/audio/bg/sad.mp3" [loop="true"]
+audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 Principal: I believe I've heard enough.
 characters/Greg (Greg_sad_half): Principal Alan! I'm so sorry, I—
 Principal: I am deeply disappointed, Greg. But we need to discuss this "mysterious person" who gave you the key. This is clearly more complex than simple academic pressure.
@@ -316,7 +316,7 @@ else:
 	characters/Greg (Greg_sad_half): Thank you... I'm sorry for everything.
 	Principal: Conrad, Mark. You have shown great responsibility and intellect. The school thanks you both.
 leave --All--
-audio music "res://assets/audio/bg/suspicious.mp3" [loop="true"]
+audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 [background arg="res://Bg/door.png" fade="0.0"]
 if {selected_character} == "celestine":
 	join Celestine left
@@ -363,7 +363,7 @@ A  B.C. card...
 [signal arg="unlock_evidence bc_card_truth_c1"]
 leave --All--
 [wait time="1.0"]
-audio music "res://assets/audio/chapter_end_bg.mp3" [fade="0.5" volume="0.0" bus="Music" loop="true"]
+audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 [wait time="1.0"]
 [signal arg="show_chapter_results"]
 audio stop_music "[fade="

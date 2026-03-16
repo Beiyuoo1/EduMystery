@@ -10,7 +10,7 @@ if {selected_character} == "celestine":
 	Victor: I already told you everything I know.
 	Celestine: You told me you were home all night. That was a lie.
 	[voice path="res://assets/audio/voice/Chapter 3/c3s4/victors_jaw_tightens.mp3" volume="0.0" bus="Voice"]
-	audio music "res://assets/audio/bg/controversy.mp3" [loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	update Characters/Victor (angry) right
 	Victor's jaw tightens.
 	Victor: I don't know what you're talking about.
@@ -30,7 +30,7 @@ else:
 	Victor: I already told you everything I know.
 	Conrad: You told me you were home all night. That was a lie.
 	[voice path="res://assets/audio/voice/Chapter 3/c3s4/victors_jaw_tightens.mp3" volume="0.0" bus="Voice"]
-	audio music "res://assets/audio/bg/controversy.mp3" [loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	update Characters/Victor (angry) right
 	Victor's jaw tightens.
 	Victor: I don't know what you're talking about.
@@ -72,7 +72,7 @@ His hands begin to shake.
 if {selected_character} == "celestine":
 	"Celestine (Thinking)": What should I do?
 	[voice path="res://assets/audio/voice/Chapter 3/c3s4/the_protagonists_tone.mp3" volume="0.0" bus="Voice"]
-	audio music "res://assets/audio/bg/sad.mp3" [loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	Their tone softens.
 	Celestine: Victor. I've read your sketchbook.
 	Celestine: Not just the angry parts. The technical studies. The hours of practice.
@@ -84,7 +84,7 @@ if {selected_character} == "celestine":
 else:
 	"Conrad (Thinking)": What should I do?
 	[voice path="res://assets/audio/voice/Chapter 3/c3s4/the_protagonists_tone.mp3" volume="0.0" bus="Voice"]
-	audio music "res://assets/audio/bg/sad.mp3" [loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	Their tone softens.
 	Conrad: Victor. I've read your sketchbook.
 	Conrad: Not just the angry parts. The technical studies. The hours of practice.

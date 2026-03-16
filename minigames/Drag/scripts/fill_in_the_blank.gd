@@ -174,7 +174,7 @@ func _update_timer_display():
 		if time_remaining <= 10:
 			timer_label.add_theme_color_override("font_color", Color.RED)
 		elif time_remaining <= 30:
-			timer_label.add_theme_color_override("font_color", Color.YELLOW)
+			timer_label.add_theme_color_override("font_color", Color.WHITE)
 
 func _update_hint_display():
 	if hint_label:
@@ -344,7 +344,7 @@ func _complete_puzzle():
 	# Show bonus message if earned
 	if earned_bonus and title_label:
 		title_label.text = "Speed Bonus: +1 Hint!"
-		title_label.add_theme_color_override("font_color", Color.YELLOW)
+		title_label.add_theme_color_override("font_color", Color.WHITE)
 
 	# Brief delay to show bonus message
 	if earned_bonus:

@@ -17,11 +17,20 @@ func _ready() -> void:
 
 func _update_background(argument:String, _time:float) -> void:
 	if argument.begins_with('res://'):
-		image_node.texture = load(argument)
+		# Use ResourceLoader for res:// paths (works in exports where .png → .ctex)
+		if ResourceLoader.exists(argument):
+			image_node.texture = load(argument)
+		else:
+			push_warning("[Dialogic] Background resource not found: " + argument)
+			image_node.texture = null
 		color_node.color = Color.TRANSPARENT
 	elif argument.begins_with('user://'):
+		# user:// paths are raw files, must use Image.load_from_file
 		var ext_image = Image.load_from_file(argument)
-		image_node.texture = ImageTexture.create_from_image(ext_image)
+		if ext_image:
+			image_node.texture = ImageTexture.create_from_image(ext_image)
+		else:
+			image_node.texture = null
 		color_node.color = Color.TRANSPARENT
 	elif argument.is_valid_html_color():
 		image_node.texture = null

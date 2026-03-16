@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://b1l85qqm3v7ng"]
 
-[ext_resource type="Script" path="res://scripts/subject_selection.gd" id="1_subject"]
-[ext_resource type="Theme" path="res://resources/ui/game_theme.tres" id="2_theme"]
+[ext_resource type="Script" uid="uid://kjfc6oykoo42" path="res://scripts/subject_selection.gd" id="1_subject"]
+[ext_resource type="Theme" uid="uid://lbkbgl5rfv1g" path="res://resources/ui/game_theme.tres" id="2_theme"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_title_panel"]
 bg_color = Color(0.08, 0.06, 0.12, 0.85)
@@ -18,9 +18,9 @@ shadow_color = Color(0.55, 0.4, 0.8, 0.15)
 shadow_size = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_accent_line"]
-bg_color = Color(0.55, 0.45, 0.75, 0.8)
 content_margin_top = 2.0
 content_margin_bottom = 2.0
+bg_color = Color(0.55, 0.45, 0.75, 0.8)
 
 [node name="SubjectSelection" type="Control"]
 layout_mode = 3
@@ -155,10 +155,9 @@ autowrap_mode = 2
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 120.0
-offset_bottom = 60.0
-theme_override_font_sizes/font_size = 16
+offset_left = 68.0
+offset_top = 39.0
+offset_right = 263.0
+offset_bottom = 117.0
+theme_override_font_sizes/font_size = 35
 text = "< Back"

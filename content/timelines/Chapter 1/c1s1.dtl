@@ -3,7 +3,7 @@
 set {selected_character} = ""
 [signal arg="init_character_var"]
 set {c1s1_principal_tried} = false
-audio music "res://assets/audio/bg/suspicious.mp3" [fade="2.0" volume="0.0" bus="Music" loop="true"]
+audio music "res://assets/audio/bg/chill.mp3" [fade="2.0" volume="0.0" bus="Music" loop="true"]
 [background arg="res://Bg/faculty_exam.png" fade="1.0"]
 characters/Principal: The Grade 12-A History exams were ruined last night due to a water leak. We'll suspend the test until further notice. The faculty room is off-limits.
 [background arg="res://Bg/hallway.png" fade="2.0"]
@@ -55,7 +55,7 @@ else:
 	update Conrad left
 	join Mark (Mark_half) right
 	Mark: Hey Conrad, Don't tell me you want to investigate this?
-	audio music "res://assets/audio/bg/suspicious.mp3" [fade="0.5" loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [fade="0.5" loop="true"]
 	Conrad: You know me too well.
 	Mark: Are you sure you wanna do this?
 	Conrad: YES, now help me.

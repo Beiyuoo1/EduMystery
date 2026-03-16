@@ -90,14 +90,13 @@ func _create_tutorial_overlay() -> void:
 	tutorial_overlay.hide()
 	add_child(tutorial_overlay)
 
-	# Centered panel
+	# Full-screen panel (for phone/tablet)
 	var panel = Panel.new()
-	panel.custom_minimum_size = Vector2(820, 600)
-	panel.set_anchors_preset(Control.PRESET_CENTER)
-	panel.offset_left = -410
-	panel.offset_top = -300
-	panel.offset_right = 410
-	panel.offset_bottom = 300
+	panel.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	panel.offset_left = 20
+	panel.offset_top = 20
+	panel.offset_right = -20
+	panel.offset_bottom = -20
 
 	var panel_style = StyleBoxFlat.new()
 	panel_style.bg_color = Color(0.14, 0.17, 0.22, 0.98)
@@ -131,14 +130,15 @@ func _create_tutorial_overlay() -> void:
 	# Title
 	var title = Label.new()
 	title.text = " How to Play"
-	title.add_theme_font_size_override("font_size", 36)
-	title.add_theme_color_override("font_color", Color(0.95, 0.85, 0.4, 1))
+	title.add_theme_font_size_override("font_size", 42)
+	title.add_theme_color_override("font_color", Color(1, 1, 1, 1))
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	inner.add_child(title)
 
 	# Tutorial image
 	tutorial_image_rect = TextureRect.new()
-	tutorial_image_rect.custom_minimum_size = Vector2(760, 340)
+	tutorial_image_rect.custom_minimum_size = Vector2(0, 240)
+	tutorial_image_rect.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	tutorial_image_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	tutorial_image_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	if ResourceLoader.exists(TUTORIAL_IMAGE):
@@ -150,15 +150,15 @@ func _create_tutorial_overlay() -> void:
 	desc.bbcode_enabled = true
 	desc.fit_content = true
 	desc.scroll_active = false
-	desc.text = "[center][color=#A0D8EF] Read the story context and the question carefully.[/color]\n[color=#A0D8EF] Choose the [b]correct answer[/b] from the options — wrong answers let you retry.[/color]\n[color=#F4D03F] Use [b]Hints[/b] to highlight the correct choice. ⚡ Finish under 1 minute for a bonus hint![/color][/center]"
-	desc.add_theme_font_size_override("normal_font_size", 17)
+	desc.text = "[center][color=white] Read the story context and the question carefully.[/color]\n[color=white] Choose the [b]correct answer[/b] from the options — wrong answers let you retry.[/color]\n[color=white] Use [b]Hints[/b] to highlight the correct choice. ⚡ Finish under 1 minute for a bonus hint![/color][/center]"
+	desc.add_theme_font_size_override("normal_font_size", 22)
 	inner.add_child(desc)
 
 	# Start button
 	tutorial_start_button = Button.new()
 	tutorial_start_button.text = "Got it! Let's Start"
-	tutorial_start_button.custom_minimum_size = Vector2(220, 52)
-	tutorial_start_button.add_theme_font_size_override("font_size", 22)
+	tutorial_start_button.custom_minimum_size = Vector2(300, 64)
+	tutorial_start_button.add_theme_font_size_override("font_size", 28)
 	tutorial_start_button.pressed.connect(_on_tutorial_start_pressed)
 
 	var btn_normal = StyleBoxFlat.new()
@@ -311,10 +311,10 @@ func _create_choice_buttons(choices: Array) -> void:
 	for i in range(choices.size()):
 		var button = Button.new()
 		button.text = choices[i]
-		button.custom_minimum_size = Vector2(700, 48)
-		button.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+		button.custom_minimum_size = Vector2(0, 64)
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		button.alignment = HORIZONTAL_ALIGNMENT_CENTER
-		button.add_theme_font_size_override("font_size", 18)
+		button.add_theme_font_size_override("font_size", 24)
 
 		# Compact content margins — no extra dead space
 		var style_normal = StyleBoxFlat.new()
@@ -370,7 +370,7 @@ func _process(delta: float) -> void:
 	if remaining <= 10:
 		timer_label.add_theme_color_override("font_color", Color.RED)
 	elif remaining <= 30:
-		timer_label.add_theme_color_override("font_color", Color.YELLOW)
+		timer_label.add_theme_color_override("font_color", Color.WHITE)
 	else:
 		timer_label.add_theme_color_override("font_color", Color.WHITE)
 
@@ -427,7 +427,7 @@ func _show_feedback(is_correct: bool, time_taken: float) -> void:
 		# Speed bonus only on correct
 		if time_taken < 60.0 and not hint_used:
 			PlayerStats.add_hints(1)
-			feedback_text += "\n\n[center][color=yellow][img=28x28]res://assets/UI/core/speed_bonus.png[/img] Speed Bonus: +1 Hint![/color][/center]"
+			feedback_text += "\n\n[center][color=white][img=28x28]res://assets/UI/core/speed_bonus.png[/img] Speed Bonus: +1 Hint![/color][/center]"
 		continue_button.text = "Continue"
 	else:
 		feedback_text = "[center][color=red][font_size=70][b]✗ INCORRECT[/b][/font_size][/color]\n[color=red][b]Try Again![/b][/color][/center]\n\n"

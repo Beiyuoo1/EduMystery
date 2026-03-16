@@ -1,5 +1,5 @@
 [background arg="res://Bg/computer_lab.png" fade="1.0"]
-audio music "res://assets/audio/bg/suspicious.mp3" [loop="true"]
+audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 set {c2s2_santos_tried} = false
 set {c2s2_outsider_tried} = false
 set {c2s2_alex_tried} = false

@@ -204,7 +204,7 @@ func _create_tutorial() -> void:
 	# Title (will be updated per page)
 	tutorial_title = Label.new()
 	tutorial_title.add_theme_font_size_override("font_size", 36)
-	tutorial_title.add_theme_color_override("font_color", Color(0.95, 0.85, 0.4, 1))
+	tutorial_title.add_theme_color_override("font_color", Color(1, 1, 1, 1))
 	tutorial_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	content_vbox.add_child(tutorial_title)
 
@@ -312,7 +312,7 @@ func _update_tutorial_page() -> void:
 		tutorial_panel.offset_top = -345
 		tutorial_panel.offset_bottom = 345
 		tutorial_title.text = " How to Play"
-		tutorial_instructions.text = "[center][color=#A0D8EF]Click orange cards to place them in timeline slots (1→5)[/color]\n[color=#A0D8EF]Click cards in timeline to return them to the pool[/color]\n[color=#A0D8EF]Arrange all events in correct chronological order[/color][/center]"
+		tutorial_instructions.text = "[center][color=white]Click orange cards to place them in timeline slots (1→5)[/color]\n[color=white]Click cards in timeline to return them to the pool[/color]\n[color=white]Arrange all events in correct chronological order[/color][/center]"
 
 		# Show single image and restore its size
 		tutorial_image.visible = true
@@ -343,7 +343,7 @@ func _update_tutorial_page() -> void:
 		tutorial_panel.offset_top = -230
 		tutorial_panel.offset_bottom = 230
 		tutorial_title.text = "Hints & Timer"
-		tutorial_instructions.text = "[center][color=#F4D03F]Hints & Cooldown:[/color] [color=#A0D8EF]12-second cooldown between uses[/color]\n[color=#F4D03F]⏱ Timer:[/color] [color=#A0D8EF]Complete within 2:00 minutes[/color]\n[color=#F4D03F]⚡ Speed Bonus:[/color] [color=#A0D8EF]Finish under 1:00 to earn +1 hint![/color][/center]"
+		tutorial_instructions.text = "[center][color=white]Hints & Cooldown:[/color] [color=white]12-second cooldown between uses[/color]\n[color=white]⏱ Timer:[/color] [color=white]Complete within 2:00 minutes[/color]\n[color=white]⚡ Speed Bonus:[/color] [color=white]Finish under 1:00 to earn +1 hint![/color][/center]"
 
 		# Hide the main single image and collapse its space
 		tutorial_image.visible = false
@@ -754,7 +754,7 @@ func configure_puzzle(config: Dictionary) -> void:
 func _create_event_card(event: Dictionary) -> Control:
 	"""Create a vertical event card with image on top and text below (clickable)"""
 	var card_wrapper = PanelContainer.new()
-	card_wrapper.custom_minimum_size = Vector2(180, 220)
+	card_wrapper.custom_minimum_size = Vector2(140, 170)
 	card_wrapper.mouse_filter = Control.MOUSE_FILTER_STOP
 
 	# StyleBoxFlat for yellow/orange card background
@@ -794,7 +794,7 @@ func _create_event_card(event: Dictionary) -> Control:
 
 	# Image — fixed size so all cards are uniform
 	var texture_rect = TextureRect.new()
-	texture_rect.custom_minimum_size = Vector2(156, 150)
+	texture_rect.custom_minimum_size = Vector2(120, 110)
 	texture_rect.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	texture_rect.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -817,7 +817,7 @@ func _create_event_card(event: Dictionary) -> Control:
 	# Text label below image — fixed height so all cards stay uniform
 	var label = Label.new()
 	label.text = event.get("text", "")
-	label.custom_minimum_size = Vector2(156, 44)
+	label.custom_minimum_size = Vector2(120, 36)
 	label.add_theme_font_size_override("font_size", 13)
 	label.add_theme_color_override("font_color", Color(0.05, 0.05, 0.05))
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -834,7 +834,7 @@ func _create_event_card(event: Dictionary) -> Control:
 func _create_timeline_slot(index: int) -> Control:
 	"""Create a numbered timeline slot box (blue) that accepts cards"""
 	var slot_wrapper = PanelContainer.new()
-	slot_wrapper.custom_minimum_size = Vector2(180, 220)
+	slot_wrapper.custom_minimum_size = Vector2(140, 170)
 	slot_wrapper.mouse_filter = Control.MOUSE_FILTER_STOP
 	slot_wrapper.set_meta("slot_index", index)
 	slot_wrapper.set_meta("is_empty", true)
@@ -988,7 +988,7 @@ func _move_card_to_pool(card_wrapper: Control, slot_wrapper: Control) -> void:
 	card_wrapper.set_anchors_preset(Control.PRESET_TOP_LEFT)
 	card_wrapper.position = Vector2.ZERO
 	card_wrapper.size = Vector2.ZERO
-	card_wrapper.custom_minimum_size = Vector2(180, 220)
+	card_wrapper.custom_minimum_size = Vector2(140, 170)
 	card_wrapper.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	card_wrapper.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 
@@ -1040,7 +1040,7 @@ func _process(delta: float) -> void:
 			played_ten_sec_sfx = true
 			_play_sfx(SFX_PATH + "ten_seconds_left.mp3")
 	elif remaining <= 30:
-		timer_label.add_theme_color_override("font_color", Color.YELLOW)
+		timer_label.add_theme_color_override("font_color", Color.WHITE)
 		if not played_thirty_sec_sfx:
 			played_thirty_sec_sfx = true
 			_play_sfx(SFX_PATH + "thirty_seconds_left.mp3")
@@ -1110,7 +1110,7 @@ func _show_feedback(is_correct: bool, time_taken: float) -> void:
 		# Award speed bonus (only on first attempt)
 		if time_taken < 60.0 and not hint_used and first_attempt_correct:
 			PlayerStats.add_hints(1)
-			feedback_text += "[center][color=#FFD700][img=28x28]res://assets/UI/core/speed_bonus.png[/img] Speed Bonus: +1 Hint![/color][/center]\n\n"
+			feedback_text += "[center][color=white][img=28x28]res://assets/UI/core/speed_bonus.png[/img] Speed Bonus: +1 Hint![/color][/center]\n\n"
 
 		# Show Continue button only, hide Retry button
 		continue_button.show()
@@ -1123,12 +1123,12 @@ func _show_feedback(is_correct: bool, time_taken: float) -> void:
 		feedback_title.add_theme_color_override("font_color", Color(0.95, 0.4, 0.35))
 
 		feedback_text = "[center]The sequence doesn't match the evidence. Review the time stamps and causality.[/center]\n\n"
-		feedback_text += "[b][color=#6FC3DF]Correct Order:[/color][/b]\n"
+		feedback_text += "[b][color=white]Correct Order:[/color][/b]\n"
 		for i in range(correct_order.size()):
 			var event_id = correct_order[i]
 			for event in events:
 				if event.get("id") == event_id:
-					feedback_text += "[color=#A0D8EF]%d.[/color] %s\n" % [i + 1, event.get("text")]
+					feedback_text += "[color=white]%d.[/color] %s\n" % [i + 1, event.get("text")]
 					break
 
 		# Show only Retry button, hide Continue button
@@ -1136,7 +1136,7 @@ func _show_feedback(is_correct: bool, time_taken: float) -> void:
 		retry_button.show()
 
 	if puzzle_config.has("explanation"):
-		feedback_text += "\n[b][color=#F4D03F]Mathematical Reasoning:[/color][/b]\n" + puzzle_config["explanation"]
+		feedback_text += "\n[b][color=white]Mathematical Reasoning:[/color][/b]\n[color=white]" + puzzle_config["explanation"] + "[/color]"
 
 	feedback_label.text = feedback_text
 
@@ -1198,16 +1198,16 @@ func _on_time_up() -> void:
 	feedback_title.add_theme_color_override("font_color", Color(0.95, 0.65, 0.35))
 
 	var feedback_text = "[center]You ran out of time to complete the timeline.[/center]\n\n"
-	feedback_text += "[b][color=#6FC3DF]Correct Order:[/color][/b]\n"
+	feedback_text += "[b][color=white]Correct Order:[/color][/b]\n"
 	for i in range(correct_order.size()):
 		var event_id = correct_order[i]
 		for event in events:
 			if event.get("id") == event_id:
-				feedback_text += "[color=#A0D8EF]%d.[/color] %s\n" % [i + 1, event.get("text")]
+				feedback_text += "[color=white]%d.[/color] %s\n" % [i + 1, event.get("text")]
 				break
 
 	if puzzle_config.has("explanation"):
-		feedback_text += "\n[b][color=#F4D03F]Mathematical Reasoning:[/color][/b]\n" + puzzle_config["explanation"]
+		feedback_text += "\n[b][color=white]Mathematical Reasoning:[/color][/b]\n[color=white]" + puzzle_config["explanation"] + "[/color]"
 
 	feedback_label.text = feedback_text
 

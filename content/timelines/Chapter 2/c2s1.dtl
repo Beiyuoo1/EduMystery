@@ -1,5 +1,5 @@
 [background arg="res://Bg/hallway.png" fade="1.0"]
-audio music "res://assets/audio/bg/suspicious.mp3" [loop="true"]
+audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 [voice path="res://assets/audio/voice/Chapter 2/C2S1/The_hallway_buzzes_with_whispered.mp3" volume="0.0"]
 The hallway buzzes with whispered conversations. Students cluster in groups, shooting glances toward the council room.
 if {selected_character} == "celestine":
@@ -26,7 +26,7 @@ if {selected_character} == "celestine":
 	[voice path="res://assets/audio/voice/Chapter 2/C2S1/Mark_lowers_his_voice.mp3" volume="0.0"]
 	audio music -
 	Mark lowers his voice.
-	audio music "res://assets/audio/bg/suspicious2.mp3" [loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	Mark: Everyone's blaming Ria. Saying the treasurer must have taken it.
 	Celestine: That's a serious accusation. Is there any evidence?
 	Mark: Nothing solid. Just... she had access. She's the treasurer. People are connecting dots that might not exist.
@@ -77,7 +77,7 @@ else:
 	[voice path="res://assets/audio/voice/Chapter 2/C2S1/Mark_lowers_his_voice.mp3" volume="0.0"]
 	audio music -
 	Mark lowers his voice.
-	audio music "res://assets/audio/bg/suspicious2.mp3" [loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	Mark: Everyone's blaming Ria. Saying the treasurer must have taken it.
 	Conrad: That's a serious accusation. Is there any evidence?
 	Mark: Nothing solid. Just... she had access. She's the treasurer. People are connecting dots that might not exist.

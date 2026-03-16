@@ -11,7 +11,7 @@ if {selected_character} == "celestine":
 	Alex looks up, and for a moment, their expression flickers with something - fear? Guilt?
 	Alex: Celestine. About what?
 	Celestine: About the journal you found in the archive. The one about experimental pedagogy.
-	audio music "res://assets/audio/bg/controversy.mp3" [loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	[voice path="res://assets/audio/voice/Chapter 4/c4s4/alexs_face_goes.mp3" volume="0.0" bus="Voice"]
 	Alex's face goes pale.
 	update Alex (animated_sad) right
@@ -28,7 +28,7 @@ else:
 	Alex looks up, and for a moment, their expression flickers with something - fear? Guilt?
 	Alex: Conrad. About what?
 	Conrad: About the journal you found in the archive. The one about experimental pedagogy.
-	audio music "res://assets/audio/bg/controversy.mp3" [loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	[voice path="res://assets/audio/voice/Chapter 4/c4s4/alexs_face_goes.mp3" volume="0.0" bus="Voice"]
 	Alex's face goes pale.
 	update Alex (animated_sad) right
@@ -59,7 +59,7 @@ if {selected_character} == "celestine":
 	Alex looks genuinely shocked.
 	Alex: I... I didn't mean to frighten anyone. I thought they'd appreciate the guidance.
 	"Celestine (Thinking)": How do I make them understand?
-	audio music "res://assets/audio/bg/sad.mp3" [loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	[voice path="res://assets/audio/voice/Chapter 4/c4s4/the_protagonist_leans.mp3" volume="0.0"]
 	The protagonist leans forward, voice gentle but firm.
 	Celestine: Alex, think about how you felt when you found the journal.
@@ -120,7 +120,7 @@ else:
 	[voice path="res://assets/audio/voice/Chapter 4/c4s4/diwata_laya_appears.mp3" volume="0.0" bus="Voice"]
 	"Diwata Laya" appears, visible only to the protagonist.
 	"Conrad (Thinking)": How do I make them understand?
-	audio music "res://assets/audio/bg/sad.mp3" [loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	[voice path="res://assets/audio/voice/Chapter 4/c4s4/the_protagonist_leans.mp3" volume="0.0"]
 	The protagonist leans forward, voice gentle but firm.
 	Conrad: Alex, think about how you felt when you found the journal.

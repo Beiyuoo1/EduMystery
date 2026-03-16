@@ -1,23 +1,23 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://conrm30ci34jv"]
 
-[ext_resource type="Script" path="res://minigames/NumberSequence/scenes/Main.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://assets/UI/BGbox_01A.png" id="2_bgbox"]
+[ext_resource type="Script" uid="uid://b1tv3hmvu2vij" path="res://minigames/NumberSequence/scenes/Main.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bu7mmeepr2ukm" path="res://assets/UI/BGbox_01A.png" id="2_bgbox"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_panel"]
 texture = ExtResource("2_bgbox")
-region_rect = Rect2(8.548111, 8.660231, 126.97536, 126.06514)
 texture_margin_left = 28.0
 texture_margin_top = 29.0
 texture_margin_right = 28.0
 texture_margin_bottom = 27.0
+region_rect = Rect2(8.548111, 8.660231, 126.97536, 126.06514)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_feedback"]
 texture = ExtResource("2_bgbox")
-region_rect = Rect2(8.548111, 8.660231, 126.97536, 126.06514)
 texture_margin_left = 28.0
 texture_margin_top = 29.0
 texture_margin_right = 28.0
 texture_margin_bottom = 27.0
+region_rect = Rect2(8.548111, 8.660231, 126.97536, 126.06514)
 
 [node name="NumberSequenceMinigame" type="Control"]
 layout_mode = 3
@@ -58,7 +58,7 @@ theme_override_constants/separation = 14
 
 [node name="TitleLabel" type="Label" parent="Panel/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.35, 0.15, 0.05, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 36
 text = "Number Sequence Decoder"
 horizontal_alignment = 1
@@ -70,7 +70,7 @@ theme_override_constants/separation = 20
 [node name="TimerLabel" type="Label" parent="Panel/VBox/TopRow"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "Time: 01:30"
 
@@ -81,46 +81,46 @@ text = "💡 Hint"
 
 [node name="HintCounter" type="Label" parent="Panel/VBox/TopRow"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 22
 text = "Hints: 4"
 
 [node name="ContextLabel" type="RichTextLabel" parent="Panel/VBox"]
-layout_mode = 2
 custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "Context goes here."
 fit_content = true
 
 [node name="PatternHintLabel" type="Label" parent="Panel/VBox"]
+visible = false
 layout_mode = 2
-theme_override_colors/font_color = Color(0.1, 0.25, 0.5, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 18
 text = "Pattern hint"
 horizontal_alignment = 1
-visible = false
 
 [node name="SequenceContainer" type="HBoxContainer" parent="Panel/VBox"]
-layout_mode = 2
 custom_minimum_size = Vector2(0, 90)
-alignment = 1
+layout_mode = 2
 theme_override_constants/separation = 4
+alignment = 1
 
 [node name="InstructionLabel" type="Label" parent="Panel/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.35, 0.2, 0.1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 18
 text = "Click a blank (?) to select it, then use the number pad below to enter your answer."
-autowrap_mode = 3
 horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="NumberPad" type="GridContainer" parent="Panel/VBox"]
 layout_mode = 2
 size_flags_horizontal = 4
-columns = 5
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
+columns = 5
 
 [node name="ActionRow" type="HBoxContainer" parent="Panel/VBox"]
 layout_mode = 2
@@ -136,7 +136,7 @@ text = "Clear"
 [node name="SubmitButton" type="Button" parent="Panel/VBox/ActionRow"]
 custom_minimum_size = Vector2(260, 55)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.1, 0.1, 0.1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "Submit Answer"
 
@@ -171,13 +171,11 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="FeedbackLabel" type="RichTextLabel" parent="FeedbackPanel/VBox"]
-layout_mode = 2
 custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 22
-theme_override_colors/default_color = Color(0.15, 0.08, 0.03, 1)
 bbcode_enabled = true
-text = ""
-fit_content = false
 
 [node name="ContinueButton" type="Button" parent="FeedbackPanel/VBox"]
 custom_minimum_size = Vector2(200, 55)

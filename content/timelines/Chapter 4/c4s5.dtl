@@ -1,4 +1,4 @@
-audio music "res://assets/audio/bg/chill3.mp3" [loop="true"]
+audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 [background arg="res://Bg/principal_office.png" fade="1.0"]
 [voice path="res://assets/audio/voice/Chapter 4/c4s5/alex_stands_before.mp3" volume="0.0" bus="Voice"]
 Alex stands before the Principal's desk, the leather-bound journal in her hands.

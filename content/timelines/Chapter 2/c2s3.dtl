@@ -1,5 +1,5 @@
 [background arg="res://Bg/council_room.png" fade="1.0"]
-audio music "res://assets/audio/bg/chill3.mp3" [loop="true"]
+audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 set {c2s3_ria_tried} = false
 set {c2s3_outsider_tried} = false
 set {c2s3_alex_tried} = false
@@ -85,7 +85,7 @@ else:
 	Ria: A few days ago, I found a note in my locker.
 	audio music -
 	Conrad: What kind of note?
-	audio music "res://assets/audio/bg/suspicious2.mp3" [loop="true"]
+	audio music "res://assets/audio/bg/chill.mp3" [loop="true"]
 	Ria: A threat.
 	[voice path="res://assets/audio/voice/Chapter 2/C2S3/She_reaches_into her_pocket.mp3" volume="0.0"]
 	She reaches into her pocket and pulls out a folded piece of paper.
